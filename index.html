@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#c0392b">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<title>HSK 3</title>
+<style>
+:root{--bg:#f6f3ee;--card:#fff;--tx:#222;--mut:#777;--pri:#c0392b;--ok:#2f855a;--no:#c53030;--okbg:#d9f2e4;--nobg:#fbdcdc;--bd:#e3ddd3}
+@media(prefers-color-scheme:dark){:root{--bg:#161616;--card:#222;--tx:#eee;--mut:#999;--pri:#e0584a;--ok:#48bb78;--no:#fc8181;--okbg:#1d3a2a;--nobg:#4a2424;--bd:#333}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,sans-serif;padding:env(safe-area-inset-top) 16px 24px}
+#app{max-width:520px;margin:0 auto}
+h1{margin:1rem 0 .25rem;font-size:1.6rem} h3{margin:1.2rem 0 .3rem;font-size:1rem;color:var(--mut)} .mut{color:var(--mut);font-size:.9rem}
+button{font:inherit;color:inherit;cursor:pointer}
+button:disabled{color:var(--tx);opacity:1;cursor:default}
+.row{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+.stats{display:flex;gap:.75rem;margin:1rem 0}
+.stat{flex:1;background:var(--card);border-radius:12px;padding:.75rem;text-align:center;border:1px solid var(--bd)}
+.stat b{display:block;font-size:1.4rem}
+.prog{height:8px;background:var(--bd);border-radius:4px;overflow:hidden;margin:.25rem 0 1rem}
+.prog i,.bar i{display:block;height:100%;background:var(--pri);transition:width .3s}
+.chip{padding:.4rem .9rem;border-radius:20px;border:1px solid var(--bd);background:var(--card)}
+.chip.on{background:var(--pri);border-color:var(--pri);color:#fff}
+.mode{display:flex;gap:.9rem;align-items:center;width:100%;text-align:left;background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:.9rem 1rem;margin:.5rem 0}
+.mode.big{background:var(--pri);color:#fff;border-color:var(--pri)} .mode.big small{color:#ffe}
+.mode span.e{font-size:1.6rem} .mode b{display:block} .mode small{color:var(--mut)}
+.top{display:flex;gap:.75rem;align-items:center;margin:.75rem 0 1.25rem}
+.back{background:none;border:0;font-size:1.3rem;color:var(--mut)}
+.bar{flex:1;height:8px;background:var(--bd);border-radius:4px;overflow:hidden}
+.prompt{text-align:center;margin:1.5rem 0;font-size:1.4rem;display:flex;flex-direction:column;gap:.4rem}
+.hz{font-size:3.4rem;line-height:1.1} .hz2{font-size:1.8rem}
+.prompt small,.opt small{color:var(--mut);font-size:.9rem;display:block}
+.opts{display:grid;gap:.6rem}
+.opt,.main{width:100%;padding:.9rem;border-radius:12px;border:2px solid var(--bd);background:var(--card);font-size:1.1rem}
+.main{background:var(--pri);color:#fff;border-color:var(--pri);margin-top:.75rem}
+.main:disabled{color:#fff}
+.opt.ok,.cell.ok{background:var(--okbg);border-color:var(--ok)}
+.opt.no,.cell.no{background:var(--nobg);border-color:var(--no)}
+.opt.ok::after,.cell.ok::after{content:" ✓";color:var(--ok);font-weight:700}
+.opt.no::after,.cell.no::after{content:" ✗";color:var(--no);font-weight:700}
+.fb{margin-top:1rem;padding:.8rem;border-radius:12px;border:2px solid var(--bd);background:var(--card)}
+.fb.g{border-color:var(--ok)} .fb.b{border-color:var(--no)}
+input[type=text],input[type=search]{width:100%;padding:.8rem;font-size:1.2rem;border-radius:12px;border:1px solid var(--bd);background:var(--card);color:var(--tx);text-align:center}
+.match{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:84px;gap:.6rem}
+.cell{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:.4rem;line-height:1.15;overflow:hidden;border-radius:12px;border:2px solid var(--bd);background:var(--card);font-size:.95rem}
+.cell .hz2{font-size:1.7rem}
+.cell.sel{border-color:var(--pri);box-shadow:0 0 0 2px var(--pri)}
+.shake{animation:sh .25s} @keyframes sh{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.list div{display:flex;gap:.75rem;padding:.55rem 0;border-bottom:1px solid var(--bd);align-items:baseline}
+.list b{font-size:1.3rem;min-width:4.5rem}.list i{color:var(--mut);font-style:normal;min-width:5rem}
+.box{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--bd);margin-left:auto;flex:none}
+.lesson{display:flex;align-items:center;gap:.8rem;width:100%;text-align:left;background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:.7rem .9rem;margin:.4rem 0}
+.lesson.done{border-color:var(--ok)} .lesson b{white-space:nowrap} .lesson span.p{color:var(--mut);margin-left:auto;font-size:1.1rem}
+.study{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:1.5rem 1rem;text-align:center;margin:1rem 0}
+.study .hz{font-size:4.5rem} .study .py{font-size:1.6rem;margin:.3rem 0} .study .es{font-size:1.3rem}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script src="palabras.js"></script>
+<script src="ajustes.js"></script>
+<script src="nuevo1.js"></script>
+<script src="nuevo2.js"></script>
+<script src="nuevo2b.js"></script>
+<script src="nuevo3a.js"></script>
+<script src="nuevo3b.js"></script>
+<script src="nuevo3c.js"></script>
+<script>
+const $ = s => document.querySelector(s);
+const app = h => $('#app').innerHTML = h;
+const shuffle = a => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.random() * (i + 1) | 0; [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const sample = (a, n) => shuffle(a).slice(0, n);
+const nrm = s => s.normalize('NFD').replace(/[̀-ͯ0-9\s'’·.-]/g, '').toLowerCase().replace(/v/g, 'u');
+const say = t => { try { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(t); u.lang = 'zh-CN'; u.rate = .8; speechSynthesis.speak(u); } catch {} };
+
+// --- datos: s='a' lista HSK 2.0, s='b' palabras añadidas del HSK 3.0 nuevo; pk = lección de 15 ---
+const W = [], cnt = {};
+function add(s, lv, l) {
+  if (!l.trim() || l[0] == '#') return;
+  const [h, p, e] = l.split('|'), k = s + lv; cnt[k] = cnt[k] || 0;
+  W.push({ id: W.length, h, p, e: FIX[h] || e, l: lv, s, pk: k + '-' + (cnt[k]++ / 15 | 0) });
+}
+let lv0 = 0;
+RAW.split('\n').forEach(l => { if (l[0] == '#') lv0 = +l.slice(1); else add('a', lv0, l); });
+(self.NEW || []).forEach(([lv, t]) => t.split('\n').forEach(l => add('b', lv, l)));
+
+// --- progreso (localStorage; si falla, la app sigue sin guardar) ---
+let S = {}; try { S = JSON.parse(localStorage.hsk3) || {}; } catch {}
+S.w = S.w || {}; S.packs = S.packs || {}; S.lv = S.lv || [1, 2, 3]; S.sets = S.sets || ['a', 'b']; S.streak = S.streak || 0; S.last = S.last || '';
+const save = () => { try { localStorage.hsk3 = JSON.stringify(S); } catch {} };
+const day = d => d.toLocaleDateString('sv');
+const DAYS = [0, 1, 3, 7, 14, 30]; // repeticion espaciada: dias hasta el siguiente repaso por caja
+
+function grade(id, ok) {
+  const r = S.w[id] || { b: 0, d: 0 };
+  r.b = ok ? Math.min(5, r.b + 1) : 0;
+  r.d = Date.now() + DAYS[r.b] * 864e5;
+  S.w[id] = r;
+  const t = day(new Date());
+  if (S.last != t) { S.streak = S.last == day(new Date(Date.now() - 864e5)) ? S.streak + 1 : 1; S.last = t; }
+  save();
+}
+const sel = w => S.lv.includes(w.l) && S.sets.includes(w.s);
+const pool = () => W.filter(w => sel(w) && S.packs[w.pk]); // los juegos solo usan lo ya estudiado
+function pick(n) {
+  const key = new Map(pool().map(w => [w, (S.w[w.id]?.d || 0) + Math.random() * 1e6]));
+  return [...key.keys()].sort((a, b) => key.get(a) - key.get(b)).slice(0, n);
+}
+
+// --- pantallas ---
+const MODES = [
+  ['match', '🔗', 'Emparejar', 'Une cada palabra con su traducción'],
+  ['choice', '🎯', 'Elegir traducción', 'Hanzi → español y al revés'],
+  ['cards', '🃏', 'Tarjetas', 'Mira, piensa y comprueba'],
+  ['listen', '🎧', 'Escuchar', 'Oye la palabra y elige'],
+  ['write', '⌨️', 'Escribir pinyin', 'Escribe la pronunciación'],
+  ['list', '📖', 'Vocabulario', 'Lista completa y buscador'],
+];
+const SETN = { a: 'HSK 2.0', b: 'HSK 3.0 nuevo' };
+
+function home() {
+  const all = W.filter(sel), p = pool(), dom = p.filter(w => (S.w[w.id]?.b || 0) >= 4).length;
+  const streakOk = S.last == day(new Date()) || S.last == day(new Date(Date.now() - 864e5));
+  app(`<h1>汉语 HSK 3</h1><div class=mut>Preparación gratuita del examen</div>
+  <div class=stats>
+    <div class=stat><b>${streakOk ? S.streak : 0} 🔥</b><span class=mut>racha</span></div>
+    <div class=stat><b>${p.length}/${all.length}</b><span class=mut>estudiadas</span></div>
+    <div class=stat><b>${dom}</b><span class=mut>dominadas</span></div>
+  </div>
+  <div class=prog><i style="width:${all.length ? p.length / all.length * 100 : 0}%"></i></div>
+  <div class=row>${[1, 2, 3].map(n => `<button class="chip ${S.lv.includes(n) ? 'on' : ''}" onclick="tog('lv',${n})">Nivel ${n}</button>`).join('')}</div>
+  <div class=row style="margin-top:.5rem">${['a', 'b'].map(n => `<button class="chip ${S.sets.includes(n) ? 'on' : ''}" onclick="tog('sets','${n}')">${SETN[n]}</button>`).join('')}</div>
+  <button class="mode big" style="margin-top:1rem" onclick="lessons()"><span class=e>📚</span><span><b>Aprender palabras nuevas</b><small>Lecciones de 15 en 15</small></span></button>
+  <h3>Practicar lo estudiado</h3>
+  ${MODES.map(m => `<button class=mode onclick="go('${m[0]}')"><span class=e>${m[1]}</span><span><b>${m[2]}</b><small>${m[3]}</small></span></button>`).join('')}`);
+}
+function tog(k, n) {
+  S[k] = S[k].includes(n) ? S[k].filter(x => x != n) : [...S[k], n];
+  if (!S[k].length) S[k] = [n];
+  save(); home();
+}
+function go(m) {
+  if (m == 'list') return list();
+  if (!pool().length) return app(`<div class=top><button class=back onclick="home()">←</button></div><div class=prompt><span class=hz>📚</span>Primero estudia alguna lección<small>Los juegos usan solo las palabras que ya has estudiado.</small></div><button class=main onclick="lessons()">Ir a las lecciones</button>`);
+  m == 'match' ? matchGame() : session(m);
+}
+
+function lessons() {
+  const keys = [...new Set(W.filter(sel).map(w => w.pk))], next = keys.find(k => !S.packs[k]);
+  let last = '';
+  app(`<div class=top><button class=back onclick="home()">←</button><b>Lecciones</b></div>
+    ${next ? `<button class=main style="margin:0 0 .5rem" onclick="study('${next}')">Continuar: lección ${+next.split('-')[1] + 1} (${SETN[next[0]]} · nivel ${next[1]})</button>` : '<p class=mut>¡Has estudiado todas las lecciones seleccionadas!</p>'}
+    ${keys.map(k => {
+      const ws = W.filter(w => w.pk == k), head = k[0] + k[1] != last ? `<h3>${SETN[k[0]]} · nivel ${k[1]}</h3>` : ''; last = k[0] + k[1];
+      return head + `<button class="lesson ${S.packs[k] ? 'done' : ''}" onclick="study('${k}')"><b>Lección ${+k.split('-')[1] + 1}</b><span class=mut>${ws.slice(0, 4).map(w => w.h).join(' ')}…</span><span class=p>${S.packs[k] ? '✓' : ws.length}</span></button>`;
+    }).join('')}`);
+}
+
+function study(pk, i = 0) {
+  const ws = W.filter(w => w.pk == pk), w = ws[i];
+  app(`<div class=top><button class=back onclick="lessons()">✕</button><div class=bar><i style="width:${(i + 1) / ws.length * 100}%"></i></div><span class=mut>${i + 1}/${ws.length}</span></div>
+    <div class=study><div class=hz>${w.h}</div><div class=py>${w.p}</div><div class=es>${w.e}</div>
+    <button class=back style="font-size:2rem;margin-top:.5rem" onclick="say('${w.h}')">🔊</button></div>
+    <div class=row><button class=opt style="flex:1" ${i ? '' : 'disabled'} onclick="study('${pk}',${i - 1})">←</button>
+    <button class=main style="flex:3;margin:0" onclick="${i + 1 < ws.length ? `study('${pk}',${i + 1})` : `studied('${pk}')`}">${i + 1 < ws.length ? 'Siguiente →' : 'Terminar lección ✓'}</button></div>`);
+  say(w.h);
+}
+function studied(pk) {
+  S.packs[pk] = 1; save();
+  const ws = W.filter(w => w.pk == pk), keys = [...new Set(W.filter(sel).map(w => w.pk))], next = keys.find(k => !S.packs[k]);
+  window.cur = ws;
+  app(`<h1>¡Lección estudiada! ✅</h1><p class=mut>Ahora practica estas ${ws.length} palabras antes de seguir.</p>
+    <button class=mode onclick="matchGame(cur)"><span class=e>🔗</span><span><b>Emparejar</b></span></button>
+    <button class=mode onclick="session('choice',cur)"><span class=e>🎯</span><span><b>Elegir traducción</b></span></button>
+    <button class=mode onclick="session('listen',cur)"><span class=e>🎧</span><span><b>Escuchar</b></span></button>
+    <button class=mode onclick="session('write',cur)"><span class=e>⌨️</span><span><b>Escribir pinyin</b></span></button>
+    ${next ? `<button class=main onclick="study('${next}')">Siguiente lección →</button>` : ''}
+    <button class=opt style="margin-top:.5rem" onclick="lessons()">Todas las lecciones</button>`);
+}
+
+function summary(ok, n, bad, again) {
+  app(`<h1>¡Hecho! 🎉</h1><p style="font-size:1.4rem">${ok}/${n} aciertos</p>
+  ${bad.length ? `<p class=mut>Para repasar:</p><div class=list>${bad.map(w => `<div><b>${w.h}</b><i>${w.p}</i><span>${w.e}</span></div>`).join('')}</div>` : ''}
+  <button class=main id=a>Otra ronda</button><button class=opt style="margin-top:.5rem" onclick="home()">Inicio</button>`);
+  $('#a').onclick = again;
+}
+
+// genera la lista de opciones y gestiona el clic
+function opts(el, w, list, label, done) {
+  el.insertAdjacentHTML('beforeend', '<div class=opts>' + list.map(o => `<button class=opt>${label(o)}</button>`).join('') + '</div>');
+  const bs = [...el.querySelectorAll('.opt')];
+  bs.forEach((b, k) => b.onclick = () => {
+    bs.forEach((x, j) => { x.disabled = true; if (list[j] === w) x.classList.add('ok'); });
+    if (list[k] !== w) b.classList.add('no');
+    done(list[k] === w);
+  });
+}
+const distract = w => shuffle([w, ...sample(W.filter(x => x.id != w.id && x.e != w.e), 3)]);
+
+const Q = {
+  choice(el, w, done) {
+    const d = Math.random() < .5;
+    el.innerHTML = `<div class=prompt>${d ? `<span class=hz>${w.h}</span>` : w.e}</div>`;
+    opts(el, w, distract(w), o => d ? o.e : `<span class=hz2>${o.h}</span><small>${o.p}</small>`, done);
+  },
+  listen(el, w, done) {
+    el.innerHTML = `<div class=prompt><button class=main style="width:auto;margin:0 auto" onclick="say('${w.h}')">🔊 Escuchar otra vez</button><small>¿Qué significa?</small></div>`;
+    setTimeout(() => say(w.h), 300);
+    opts(el, w, distract(w), o => o.e, done);
+  },
+  write(el, w, done) {
+    el.innerHTML = `<div class=prompt><span class=hz>${w.h}</span><small>${w.e}</small></div>
+      <input type=text id=in autocomplete=off autocapitalize=off placeholder="pinyin (los tonos son opcionales)"><button class=main id=go>Comprobar</button>`;
+    const go = () => { if (!$('#in').value.trim()) return; $('#in').disabled = $('#go').disabled = true; done(nrm($('#in').value) == nrm(w.p)); };
+    $('#go').onclick = go; $('#in').onkeydown = e => e.key == 'Enter' && go(); $('#in').focus();
+  },
+  cards(el, w, done) {
+    el.innerHTML = `<div class=prompt><span class=hz>${w.h}</span></div><button class=main id=sh>Mostrar respuesta</button>`;
+    $('#sh').onclick = () => {
+      el.innerHTML = `<div class=prompt><span class=hz>${w.h}</span><span>${w.p}</span><b>${w.e}</b></div>
+        <div class=row><button class=opt style="flex:1" id=ko>Otra vez</button><button class=opt style="flex:1" id=ok>Bien</button></div>`;
+      say(w.h); $('#ko').onclick = () => done(false); $('#ok').onclick = () => done(true);
+    };
+  },
+};
+
+// items: palabras fijas (practica tras una lección); sin items, elige las que toca repasar
+function session(mode, fixed) {
+  const items = fixed ? shuffle(fixed).slice(0, 10) : pick(10); let i = 0, ok = 0; const bad = [];
+  const step = () => {
+    if (i >= items.length) return summary(ok, items.length, bad, () => session(mode, fixed));
+    const w = items[i];
+    app(`<div class=top><button class=back onclick="home()">✕</button><div class=bar><i style="width:${i / items.length * 100}%"></i></div></div><div id=q></div><div id=fb></div>`);
+    Q[mode]($('#q'), w, good => {
+      grade(w.id, good); good ? ok++ : bad.push(w);
+      $('#fb').innerHTML = `<div class="fb ${good ? 'g' : 'b'}"><b style="font-size:1.4rem">${w.h}</b> ${w.p} — ${w.e} <button class=back onclick="say('${w.h}')">🔊</button></div><button class=main id=nx>Siguiente</button>`;
+      $('#nx').onclick = () => { i++; step(); };
+    });
+  };
+  step();
+}
+
+function matchGame(fixed) {
+  const items = fixed ? shuffle(fixed).slice(0, 15) : pick(10), bad = [], rounds = Math.ceil(items.length / 5); let ok = 0, r = 0;
+  const round = () => {
+    if (r >= rounds) return summary(ok, items.length, bad, () => matchGame(fixed));
+    const ws = items.slice(r * 5, r * 5 + 5), err = new Set(), R = shuffle(ws); let cur = null, left = ws.length;
+    app(`<div class=top><button class=back onclick="home()">✕</button><div class=bar><i style="width:${r / rounds * 100}%"></i></div></div>
+      <div class=match>${ws.map((w, i) => `<button class=cell data-i=${w.id} data-s=l><span class=hz2>${w.h}</span><small class=mut>${w.p}</small></button><button class=cell data-i=${R[i].id} data-s=r>${R[i].e}</button>`).join('')}</div>`);
+    const word = id => ws.find(w => w.id == id);
+    document.querySelectorAll('.cell').forEach(b => b.onclick = () => {
+      if (b.dataset.s == 'l') say(word(b.dataset.i).h);
+      if (!cur || cur.dataset.s == b.dataset.s) { cur?.classList.remove('sel'); cur = b; b.classList.add('sel'); return; }
+      const a = cur; cur = null;
+      if (a.dataset.i == b.dataset.i) {
+        [a, b].forEach(x => { x.classList.remove('sel'); x.classList.add('ok'); x.disabled = true; });
+        if (!--left) { ws.forEach(w => { const good = !err.has(w.id); grade(w.id, good); good ? ok++ : bad.push(w); }); setTimeout(() => { r++; round(); }, 600); }
+      } else {
+        err.add(+(a.dataset.s == 'l' ? a : b).dataset.i);
+        [a, b].forEach(x => { x.classList.remove('sel'); x.classList.add('no', 'shake'); });
+        setTimeout(() => [a, b].forEach(x => x.classList.remove('no', 'shake')), 450);
+      }
+    });
+  };
+  round();
+}
+
+function list() {
+  const draw = q => {
+    q = q.trim().toLowerCase();
+    $('#l').innerHTML = W.filter(w => sel(w) && (!q || w.h.includes(q) || nrm(w.p).includes(nrm(q)) || w.e.toLowerCase().includes(q)))
+      .map(w => `<div onclick="say('${w.h}')"><b>${w.h}</b><i>${w.p}</i><span>${w.e}</span><span class=box style="${(S.w[w.id]?.b || 0) >= 4 ? 'background:var(--ok)' : S.packs[w.pk] ? 'background:var(--pri)' : ''}"></span></div>`).join('');
+  };
+  app(`<div class=top><button class=back onclick="home()">←</button><input type=search id=s placeholder="Buscar hanzi, pinyin o español"></div><div class=list id=l></div>`);
+  $('#s').oninput = e => draw(e.target.value); draw('');
+}
+
+home();
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
+</script>
+</body>
+</html>

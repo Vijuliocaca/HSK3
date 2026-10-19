@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#b3282d">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon-192.png">
-<title>HSK 3</title>
+<title>HSK</title>
 <style>
 :root{--bg:#f3ead8;--card:#fbf6ea;--tx:#2b1d14;--mut:#8a7560;--pri:#b3282d;--gold:#b8892b;--ok:#2f7a4f;--no:#b3282d;--okbg:#dcebd5;--nobg:#f6d9d2;--bd:#d9c9a6;--serif:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong","SimSun",serif}
 :root{--t1:#c0392b;--t2:#b86e00;--t3:#2f7a4f;--t4:#2a62b5;--t5:#8a7560}
@@ -110,6 +110,15 @@ input[type=text],input[type=search]{width:100%;padding:.8rem;border-radius:6px;b
 <script src="nuevo3a.js"></script>
 <script src="nuevo3b.js"></script>
 <script src="nuevo3c.js"></script>
+<script src="nuevo4a.js"></script>
+<script src="nuevo4b.js"></script>
+<script src="nuevo4c.js"></script>
+<script src="nuevo4d.js"></script>
+<script src="nuevo4e.js"></script>
+<script src="frases4a.js"></script>
+<script src="frases4b.js"></script>
+<script src="frases4c.js"></script>
+<script src="frases4d.js"></script>
 <script src="frases12a.js"></script>
 <script src="frases12b.js"></script>
 <script src="frases12c.js"></script>
@@ -227,7 +236,7 @@ function home() {
   const all = W.filter(sel), p = pool(), dom = p.filter(w => (S.w[w.id]?.b || 0) >= 4).length, nd = due().length;
   const streakOk = S.last == day(new Date()) || S.last == day(new Date(Date.now() - 864e5));
   const hoy = S.hist[day(new Date())]?.n || 0, meta = S.set.goal;
-  app(`<h1><span class=seal>学</span>汉语 HSK 3<button class=gear onclick="settings()" aria-label="Ajustes">⚙️</button></h1><div class=mut>Preparación gratuita del examen</div>
+  app(`<h1><span class=seal>学</span>汉语 HSK<button class=gear onclick="settings()" aria-label="Ajustes">⚙️</button></h1><div class=mut>Preparación gratuita del examen</div>
   <div class=goal><span>🎯 Meta de hoy: <b>${Math.min(hoy, meta)}/${meta}</b>${hoy >= meta ? ' ✅' : ''}</span><div class=bar><i style="width:${Math.min(100, hoy / meta * 100)}%"></i></div></div>
   <div class=stats>
     <div class=stat><b>${streakOk ? S.streak : 0} 🔥</b><span class=mut>racha</span></div>

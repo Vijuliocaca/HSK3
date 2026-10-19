@@ -160,8 +160,8 @@ const lessonKeys = () => [...S.lv].sort().flatMap(keysOf), lessonNo = k => keysO
 const eod = () => new Date().setHours(23, 59, 59, 999);
 // toca repasar hoy: nunca practicada, o vence hoy; lo fallado hoy no vuelve hasta mañana
 const due = () => seen().filter(w => { const r = S.w[w.id]; return !r || (r.d <= eod() && !(r.b == 0 && r.t == day(new Date()))); });
-function pick(n) {
-  const key = new Map(pool().map(w => [w, (S.w[w.id]?.d || 0) + Math.random() * 1e6]));
+function pick(n, f = () => 1) {
+  const key = new Map(pool().filter(f).map(w => [w, (S.w[w.id]?.d || 0) + Math.random() * 1e6]));
   return [...key.keys()].sort((a, b) => key.get(a) - key.get(b)).slice(0, n);
 }
 
@@ -172,6 +172,12 @@ const MODES = [
   ['cards', '🃏', 'Tarjetas', 'Mira, piensa y comprueba'],
   ['listen', '🎧', 'Escuchar', 'Oye la palabra y elige'],
   ['write', '⌨️', 'Escribir pinyin', 'Escribe la pronunciación'],
+  ['cloze', '🧩', 'Completar la frase', 'Elige la palabra que falta'],
+  ['sentence', '🗣️', 'Escuchar la frase', 'Oye una frase y elige su significado'],
+  ['pinyin', '🔤', 'Elegir pinyin', 'Hanzi → pronunciación correcta'],
+  ['hanzi', '🈶', 'Elegir hanzi', 'Significado → caracteres'],
+  ['draw', '✍️', 'Dibujar trazos', 'Escribe el carácter trazo a trazo'],
+  ['speed', '⏱️', 'Contrarreloj', '60 segundos: ¡cuantas más aciertes mejor!'],
   ['list', '📖', 'Vocabulario', 'Lista completa y buscador'],
 ];
 
@@ -200,7 +206,7 @@ const empty = () => app(`<div class=top><button class=back onclick="home()">←<
 function go(m) {
   if (m == 'list') return list();
   if (!pool().length) return empty();
-  m == 'match' ? matchGame() : session(m);
+  m == 'match' ? matchGame() : m == 'speed' ? speed() : session(m);
 }
 
 // --- hoy: repaso espaciado ---
@@ -318,7 +324,41 @@ function opts(el, w, list, label, done) {
 }
 const distract = w => shuffle([w, ...sample(W.filter(x => x.id != w.id && x.e != w.e), 3)]);
 
+// modos que necesitan frase de ejemplo o palabras cortas (para dibujar)
+const FILT = { cloze: w => SENT[w.h], sentence: w => SENT[w.h], draw: w => [...w.h].length <= 3 };
+const similar = (w, f) => shuffle([w, ...sample(W.filter(x => x.id != w.id && f(x)), 3)]);
 const Q = {
+  cloze(el, w, done) {
+    const s = SENT[w.h];
+    el.innerHTML = `<div class=prompt><span class=hz2 style="line-height:1.5">${s[0].replace(w.h, '＿＿')}</span><small>${s[2]}</small></div>`;
+    opts(el, w, similar(w, x => x.l == w.l), o => `<span class=hz2>${o.h}</span>`, done);
+  },
+  sentence(el, w, done) {
+    const s = SENT[w.h];
+    el.innerHTML = `<div class=prompt><button class=main style="width:auto;margin:0 auto" onclick="say(SENT[W[${w.id}].h][0])">🔊 Escuchar la frase</button><small>¿Qué significa?</small></div>`;
+    setTimeout(() => say(s[0]), 300);
+    opts(el, w, similar(w, x => SENT[x.h]), o => SENT[o.h][2], done);
+  },
+  pinyin(el, w, done) {
+    const n = w.p.split(' ').length;
+    el.innerHTML = `<div class=prompt><span class=hz>${w.h}</span><small>${w.e}</small></div>`;
+    opts(el, w, similar(w, x => x.p != w.p && x.p.split(' ').length == n), o => o.p, done);
+  },
+  hanzi(el, w, done) {
+    const n = [...w.h].length;
+    el.innerHTML = `<div class=prompt><b>${w.e}</b><small>${w.p}</small></div>`;
+    opts(el, w, similar(w, x => [...x.h].length == n), o => `<span class=hz2>${o.h}</span>`, done);
+  },
+  draw(el, w, done) {
+    const cs = [...w.h].filter(c => /[㐀-鿿]/.test(c));
+    el.innerHTML = `<div class=prompt><b>${w.e}</b><small>${w.p}</small></div><div class=row style="justify-content:center">${cs.map((c, i) => `<div class=skbox id=dw${i}></div>`).join('')}</div><div class=mut id=dm style="text-align:center">Dibuja los trazos en orden</div>`;
+    loadHW().then(() => {
+      let fin = 0, bad = 0;
+      cs.forEach((c, i) => HanziWriter.create('dw' + i, c, { width: 150, height: 150, padding: 8, showOutline: true, strokeColor: getComputedStyle(document.body).color, outlineColor: '#cdbd9a',
+        onLoadCharDataError: () => $('#dm').textContent = 'Sin datos de trazos para ' + c })
+        .quiz({ onMistake: () => bad++, onComplete: () => { if (++fin == cs.length) done(bad <= cs.length); } }));
+    }).catch(() => $('#dm').textContent = 'Necesitas internet la primera vez para dibujar (sal con ✕ y prueba otro modo)');
+  },
   choice(el, w, done) {
     const d = Math.random() < .5;
     el.innerHTML = `<div class=prompt>${d ? `<span class=hz>${w.h}</span>` : w.e}</div>`;
@@ -350,7 +390,8 @@ const mixMode = w => { const b = S.w[w.id]?.b || 0; return b <= 1 ? (Math.random
 // items: palabras fijas (practica tras una lección); sin items, elige las que toca repasar; 'mix' = repaso de hoy
 function session(mode, fixed) {
   const mix = mode == 'mix';
-  const items = fixed ? shuffle(fixed).slice(0, 10) : mix ? due().sort((a, b) => (S.w[a.id]?.d || 0) - (S.w[b.id]?.d || 0)).slice(0, 20) : pick(10);
+  const items = fixed ? shuffle(fixed).slice(0, 10) : mix ? due().sort((a, b) => (S.w[a.id]?.d || 0) - (S.w[b.id]?.d || 0)).slice(0, 20) : pick(10, FILT[mode]);
+  if (!items.length) return empty();
   let i = 0, ok = 0; const bad = [];
   const step = () => {
     if (i >= items.length) return summary(ok, items.length, bad, () => mix ? today() : session(mode, fixed));
@@ -364,6 +405,26 @@ function session(mode, fixed) {
     });
   };
   step();
+}
+
+// contrarreloj: 60 segundos de preguntas de elegir traducción
+function speed() {
+  const items = shuffle(pool()); let i = 0, ok = 0, n = 0, left = 60; const bad = [];
+  app(`<div class=exh><span class=sec>⏱️ Contrarreloj</span><span class=tm id=tm>60</span></div>
+    <div class=top><button class=back onclick="home()">✕</button><div class=bar><i id=sb style="width:100%"></i></div><b id=sc>0</b></div><div id=q></div>`);
+  const end = () => {
+    clearInterval(TM);
+    const best = S.best = Math.max(S.best || 0, ok); save();
+    summary(ok, n, bad, speed);
+    $('#app').insertAdjacentHTML('afterbegin', `<div class=mut>Récord: ${best} aciertos${ok >= best && ok ? ' 🏆 ¡nuevo!' : ''}</div>`);
+  };
+  const q = () => {
+    if (left <= 0) return;
+    const w = items[i++ % items.length];
+    Q.choice($('#q'), w, good => { grade(w.id, good); n++; good ? ok++ : bad.push(w); $('#sc').textContent = ok; setTimeout(q, good ? 250 : 800); });
+  };
+  TM = setInterval(() => { left--; $('#tm').textContent = left; $('#sb').style.width = left / 60 * 100 + '%'; if (left <= 0) end(); }, 1000);
+  q();
 }
 
 function matchGame(fixed) {

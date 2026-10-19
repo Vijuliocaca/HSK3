@@ -44,6 +44,10 @@ button:disabled{color:var(--tx);opacity:1;cursor:default}
 .chip.on{background:var(--pri);border-color:var(--pri);color:#fff}
 .mode{display:flex;gap:.9rem;align-items:center;width:100%;text-align:left;background:var(--card);border:1px solid var(--bd);border-left:4px solid var(--gold);border-radius:6px;padding:.85rem 1rem;margin:.5rem 0;transition:transform .1s}
 .mode:active{transform:scale(.98)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:.5rem 0}
+.grid>.mode{flex-direction:column;justify-content:center;text-align:center;gap:.3rem;margin:0;padding:1.1rem .6rem;min-height:7.6rem;border-left:1px solid var(--bd);border-top:4px solid var(--gold)}
+.grid>.mode span.e{font-size:2.1rem;line-height:1} .grid>.mode small{display:block;font-size:.8rem;line-height:1.25;margin-top:.15rem}
+.grid>.mode:last-child:nth-child(odd){grid-column:1/-1}
 .mode.big{background:var(--pri);color:#fff;border-color:var(--pri);border-left-color:var(--gold)} .mode.big small{color:#fde9c9}
 .mode.alert{border-left-color:var(--pri)}
 .mode span.e{font-size:1.6rem} .mode b{display:block;font-family:var(--serif)} .mode small{color:var(--mut)}
@@ -78,8 +82,8 @@ button:disabled{color:var(--tx);opacity:1;cursor:default}
 .study{border-radius:8px;padding:1.5rem 1rem;text-align:center;margin:1rem 0}
 .study .hz{font-size:4.5rem} .study .py{font-size:1.6rem;margin:.3rem 0} .study .es{font-size:1.3rem}
 .ico{background:none;border:1px solid var(--bd);border-radius:50%;width:2.6rem;height:2.6rem;font-size:1.2rem;margin:.6rem .2rem 0}
-.ex{margin-top:1rem;padding:.7rem .8rem;border-top:1px dashed var(--gold);text-align:left;cursor:pointer}
-.ex .zh{font-family:var(--serif);font-size:1.25rem;line-height:1.5} .ex .p2{color:var(--pri);font-size:.95rem;margin:.1rem 0}
+.ex{display:block;width:100%;margin-top:1.1rem;padding:1rem .8rem;background:var(--bg);border:1px dashed var(--gold);border-radius:8px;text-align:center;cursor:pointer}
+.ex .zh{font-family:var(--serif);font-size:1.45rem;line-height:1.5} .ex .p2{color:var(--pri);font-size:1.05rem;margin:.3rem 0} .ex .mut{font-size:1rem}
 .sk{background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:.8rem;margin:.8rem 0;text-align:center}
 .skbox{width:160px;height:160px;margin:0 auto .5rem;border:1px solid var(--bd);background:
  linear-gradient(var(--bd),var(--bd)) center/1px 100% no-repeat,linear-gradient(var(--bd),var(--bd)) center/100% 1px no-repeat}
@@ -273,7 +277,7 @@ function home() {
   <button class="mode big" style="margin-top:1rem" onclick="lessons()"><span class=e>📚</span><span><b>Aprender palabras nuevas</b><small>Lecciones de 15 en 15</small></span></button>
   ${nd ? `<button class="mode alert" onclick="today()"><span class=e>📅</span><span><b>Repasar lo de hoy</b><small>${nd} palabras pendientes</small></span></button>` : ''}
   <h3>Practicar lo estudiado</h3>
-  ${MODES.map(m => `<button class=mode onclick="go('${m[0]}')"><span class=e>${m[1]}</span><span><b>${m[2]}</b><small>${m[0] == 'hard' ? hardList().length + ' palabras: las que más fallas y tus ⭐' : m[3]}</small></span></button>`).join('')}`, 'home');
+  <div class=grid>${MODES.map(m => `<button class=mode onclick="go('${m[0]}')"><span class=e>${m[1]}</span><span><b>${m[2]}</b><small>${m[0] == 'hard' ? hardList().length + ' palabras' : m[3]}</small></span></button>`).join('')}</div>`, 'home');
 }
 function tog(k, n) {
   S[k] = S[k].includes(n) ? S[k].filter(x => x != n) : [...S[k], n];
@@ -401,10 +405,10 @@ function studied(pk) {
   const ws = W.filter(w => w.pk == pk), next = lessonKeys().find(k => !S.packs[k]);
   window.cur = ws;
   app(`<h1>¡Lección estudiada! ✅</h1><p class=mut>Ahora practica estas ${ws.length} palabras antes de seguir.</p>
-    <button class=mode onclick="matchGame(cur)"><span class=e>🔗</span><span><b>Emparejar</b></span></button>
+    <div class=grid><button class=mode onclick="matchGame(cur)"><span class=e>🔗</span><span><b>Emparejar</b></span></button>
     <button class=mode onclick="session('choice',cur)"><span class=e>🎯</span><span><b>Elegir traducción</b></span></button>
     <button class=mode onclick="session('listen',cur)"><span class=e>🎧</span><span><b>Escuchar</b></span></button>
-    <button class=mode onclick="session('write',cur)"><span class=e>⌨️</span><span><b>Escribir pinyin</b></span></button>
+    <button class=mode onclick="session('write',cur)"><span class=e>⌨️</span><span><b>Escribir pinyin</b></span></button></div>
     ${next ? `<button class=main onclick="study('${next}')">Siguiente lección →</button>` : ''}
     <button class=opt style="margin-top:.5rem" onclick="lessons()">Todas las lecciones</button>`);
 }

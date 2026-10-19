@@ -145,8 +145,18 @@ input[type=text],input[type=search]{width:100%;padding:.8rem;border-radius:6px;b
 const $ = s => document.querySelector(s);
 const TABS = [['home', '🏠', 'Inicio'], ['today', '📅', 'Hoy'], ['examMenu', '📝', 'Examen'], ['stats', '📊', 'Progreso']];
 let TM = 0;
+// botón atrás del móvil: desde cualquier pantalla vuelve al inicio (y no cierra la app)
+let depth = 0, skipPop = false, GUARD = '';
+addEventListener('popstate', () => {
+  if (skipPop) { skipPop = false; return; }
+  depth = 0;
+  if (GUARD && !confirm('¿Salir del examen? Se perderá el progreso.')) { history.pushState({ a: 1 }, ''); depth = 1; return; }
+  GUARD = ''; home();
+});
 const app = (h, tab) => {
   clearInterval(TM);
+  if (tab == 'home') { GUARD = ''; if (depth) { depth = 0; skipPop = true; history.back(); } }
+  else if (!depth) { history.pushState({ a: 1 }, ''); depth = 1; }
   $('#app').innerHTML = h; scrollTo(0, 0);
   $('#nav').hidden = !tab;
   if (tab) $('#nav').innerHTML = TABS.map(t => `<button class="${t[0] == tab ? 'on' : ''}" onclick="${t[0]}()"><span>${t[1]}</span>${t[2]}</button>`).join('');
@@ -624,9 +634,10 @@ function buildExam(lv) {
   return Qs;
 }
 function exam(lv) {
+  GUARD = 'examen';
   const Qs = buildExam(lv), res = []; let i = 0, left = 30 * 60;
   const fin = () => {
-    clearInterval(TM);
+    clearInterval(TM); GUARD = '';
     const sc = [0, 1, 2].map(s => Math.round(Qs.filter((q, k) => q.s == s && res[k]).length / Qs.filter(q => q.s == s).length * 100)), tot = sc[0] + sc[1] + sc[2];
     S.exams.push({ d: day(new Date()), lv, s: sc }); S.exams = S.exams.slice(-30); save();
     const wrong = Qs.filter((q, k) => !res[k]);

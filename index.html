@@ -133,7 +133,7 @@ const SENT = {};
 
 // --- progreso (localStorage; si falla, la app sigue sin guardar) ---
 let S = {}; try { S = JSON.parse(localStorage.hsk3) || {}; } catch {}
-S.w = S.w || {}; S.packs = S.packs || {}; S.lv = S.lv || [1, 2, 3]; S.sets = S.sets || ['a', 'b']; S.streak = S.streak || 0; S.last = S.last || '';
+S.w = S.w || {}; S.packs = S.packs || {}; S.lv = S.lv || [1, 2, 3]; S.streak = S.streak || 0; S.last = S.last || '';
 S.hist = S.hist || {}; S.exams = S.exams || []; S.exLv = S.exLv || 3;
 const save = () => { try { localStorage.hsk3 = JSON.stringify(S); } catch {} };
 const day = d => d.toLocaleDateString('sv');
@@ -148,11 +148,14 @@ function grade(id, ok) {
   if (S.last != t) { S.streak = S.last == day(new Date(Date.now() - 864e5)) ? S.streak + 1 : 1; S.last = t; }
   save();
 }
-const sel = w => S.lv.includes(w.l) && S.sets.includes(w.s);
+const sel = w => S.lv.includes(w.l);
 const pool = () => W.filter(w => sel(w) && S.packs[w.pk]); // los juegos solo usan lo ya estudiado
+const seen = () => W.filter(w => S.packs[w.pk]); // el repaso de hoy abarca todo lo estudiado, de cualquier HSK
+const keysOf = l => [...new Set(W.filter(w => w.l == l).map(w => w.pk))]; // lecciones de un HSK, en orden
+const lessonKeys = () => [...S.lv].sort().flatMap(keysOf), lessonNo = k => keysOf(+k[1]).indexOf(k) + 1;
 const eod = () => new Date().setHours(23, 59, 59, 999);
 // toca repasar hoy: nunca practicada, o vence hoy; lo fallado hoy no vuelve hasta mañana
-const due = () => pool().filter(w => { const r = S.w[w.id]; return !r || (r.d <= eod() && !(r.b == 0 && r.t == day(new Date()))); });
+const due = () => seen().filter(w => { const r = S.w[w.id]; return !r || (r.d <= eod() && !(r.b == 0 && r.t == day(new Date()))); });
 function pick(n) {
   const key = new Map(pool().map(w => [w, (S.w[w.id]?.d || 0) + Math.random() * 1e6]));
   return [...key.keys()].sort((a, b) => key.get(a) - key.get(b)).slice(0, n);
@@ -167,7 +170,6 @@ const MODES = [
   ['write', '⌨️', 'Escribir pinyin', 'Escribe la pronunciación'],
   ['list', '📖', 'Vocabulario', 'Lista completa y buscador'],
 ];
-const SETN = { a: 'HSK 2.0', b: 'HSK 3.0 nuevo' };
 
 function home() {
   const all = W.filter(sel), p = pool(), dom = p.filter(w => (S.w[w.id]?.b || 0) >= 4).length, nd = due().length;
@@ -179,8 +181,7 @@ function home() {
     <div class=stat><b>${dom}</b><span class=mut>dominadas</span></div>
   </div>
   <div class=prog><i style="width:${all.length ? p.length / all.length * 100 : 0}%"></i></div>
-  <div class=row>${[1, 2, 3].map(n => `<button class="chip ${S.lv.includes(n) ? 'on' : ''}" onclick="tog('lv',${n})">Nivel ${n}</button>`).join('')}</div>
-  <div class=row style="margin-top:.5rem">${['a', 'b'].map(n => `<button class="chip ${S.sets.includes(n) ? 'on' : ''}" onclick="tog('sets','${n}')">${SETN[n]}</button>`).join('')}</div>
+  <div class=row>${[1, 2, 3].map(n => `<button class="chip ${S.lv.includes(n) ? 'on' : ''}" onclick="tog('lv',${n})">HSK ${n}</button>`).join('')}</div>
   <button class="mode big" style="margin-top:1rem" onclick="lessons()"><span class=e>📚</span><span><b>Aprender palabras nuevas</b><small>Lecciones de 15 en 15</small></span></button>
   ${nd ? `<button class="mode alert" onclick="today()"><span class=e>📅</span><span><b>Repasar lo de hoy</b><small>${nd} palabras pendientes</small></span></button>` : ''}
   <h3>Practicar lo estudiado</h3>
@@ -200,7 +201,7 @@ function go(m) {
 
 // --- hoy: repaso espaciado ---
 function today() {
-  const d = due(), pl = pool();
+  const d = due(), pl = seen();
   const fc = [...Array(7)].map((_, k) => { const a = eod() + k * 864e5, b = a + 864e5; return pl.filter(w => { const r = S.w[w.id]; return r && r.d > a && r.d <= b; }).length; });
   const mx = Math.max(1, ...fc), DN = ['dom', 'lun', 'mar', 'mié', 'jue', 'vie', 'sáb'];
   app(`<h1>Hoy</h1><div class=mut>Repaso espaciado de lo que ya estudiaste</div>
@@ -226,7 +227,7 @@ function stats() {
     <h3>Respuestas, últimos 14 días</h3>
     <svg viewBox="0 0 280 110" class=chart>${ds.map((d, i) => { const h = d.n / mx * 80, k = d.ok / mx * 80, x = i * 20 + 3; return `<rect x=${x} y=${90 - h} width=14 height=${h} rx=2 style="fill:var(--no);opacity:.35"/><rect x=${x} y=${90 - k} width=14 height=${k} rx=2 style="fill:var(--ok)"/>${d.n ? `<text x=${x + 7} y=${86 - h} text-anchor=middle>${d.n}</text>` : ''}<text x=${x + 7} y=104 text-anchor=middle>${d.l}</text>`; }).join('')}</svg>
     <h3>Nivel de memoria</h3>${bx.map((n, i) => hb(BN[i], n, p.length, i == 5 ? 'var(--ok)' : '')).join('')}
-    <h3>Vocabulario estudiado</h3>${[1, 2, 3].map(l => { const ws = W.filter(w => w.l == l); return hb('Nivel ' + l, ws.filter(w => S.packs[w.pk]).length, ws.length); }).join('')}
+    <h3>Vocabulario estudiado</h3>${[1, 2, 3].map(l => { const ws = W.filter(w => w.l == l); return hb('HSK ' + l, ws.filter(w => S.packs[w.pk]).length, ws.length); }).join('')}
     <h3>Exámenes</h3>${S.exams.length ? S.exams.slice(-6).reverse().map(e => { const t = e.s[0] + e.s[1] + e.s[2]; return `<div class=hbar><span>${e.d.slice(5)} · HSK ${e.lv}</span><div class=bar><i style="width:${t / 3}%;${t >= 180 ? 'background:var(--ok)' : ''}"></i></div><b>${t}</b></div>`; }).join('') : '<p class=mut>Aún no has hecho ningún examen simulado.</p>'}`, 'stats');
 }
 
@@ -262,13 +263,13 @@ function skQuiz(i) {
 
 // --- lecciones ---
 function lessons() {
-  const keys = [...new Set(W.filter(sel).map(w => w.pk))], next = keys.find(k => !S.packs[k]);
+  const keys = lessonKeys(), next = keys.find(k => !S.packs[k]);
   let last = '';
   app(`<div class=top><button class=back onclick="home()">←</button><b>Lecciones</b></div>
-    ${next ? `<button class=main style="margin:0 0 .5rem" onclick="study('${next}')">Continuar: lección ${+next.split('-')[1] + 1} (${SETN[next[0]]} · nivel ${next[1]})</button>` : '<p class=mut>¡Has estudiado todas las lecciones seleccionadas!</p>'}
+    ${next ? `<button class=main style="margin:0 0 .5rem" onclick="study('${next}')">Continuar: lección ${lessonNo(next)} (HSK ${next[1]})</button>` : '<p class=mut>¡Has estudiado todas las lecciones seleccionadas!</p>'}
     ${keys.map(k => {
-      const ws = W.filter(w => w.pk == k), head = k[0] + k[1] != last ? `<h3>${SETN[k[0]]} · nivel ${k[1]}</h3>` : ''; last = k[0] + k[1];
-      return head + `<button class="lesson ${S.packs[k] ? 'done' : ''}" onclick="study('${k}')"><b>Lección ${+k.split('-')[1] + 1}</b><span class=mut>${ws.slice(0, 4).map(w => w.h).join(' ')}…</span><span class=p>${S.packs[k] ? '✓' : ws.length}</span></button>`;
+      const ws = W.filter(w => w.pk == k), head = k[1] != last ? `<h3>HSK ${k[1]}</h3>` : ''; last = k[1];
+      return head + `<button class="lesson ${S.packs[k] ? 'done' : ''}" onclick="study('${k}')"><b>Lección ${lessonNo(k)}</b><span class=mut>${ws.slice(0, 4).map(w => w.h).join(' ')}…</span><span class=p>${S.packs[k] ? '✓' : ws.length}</span></button>`;
     }).join('')}`);
 }
 
@@ -283,7 +284,7 @@ function study(pk, i = 0) {
 }
 function studied(pk) {
   S.packs[pk] = 1; save();
-  const ws = W.filter(w => w.pk == pk), keys = [...new Set(W.filter(sel).map(w => w.pk))], next = keys.find(k => !S.packs[k]);
+  const ws = W.filter(w => w.pk == pk), next = lessonKeys().find(k => !S.packs[k]);
   window.cur = ws;
   app(`<h1>¡Lección estudiada! ✅</h1><p class=mut>Ahora practica estas ${ws.length} palabras antes de seguir.</p>
     <button class=mode onclick="matchGame(cur)"><span class=e>🔗</span><span><b>Emparejar</b></span></button>
@@ -400,29 +401,30 @@ function list() {
 const SECN = ['听力 · Comprensión auditiva', '阅读 · Comprensión lectora', '书写 · Escritura'];
 function examMenu() {
   app(`<h1>Examen simulado</h1><div class=mut>30 preguntas · 30 minutos · 3 partes · aprobado con 180/300</div>
-    <h3>Nivel del examen</h3>
+    <h3>HSK del examen</h3>
     <div class=row>${[1, 2, 3].map(n => `<button class="chip ${S.exLv == n ? 'on' : ''}" onclick="S.exLv=${n};save();examMenu()">HSK ${n}</button>`).join('')}</div>
-    <p class=mut>Usa todo el vocabulario hasta ese nivel, hayas estudiado las lecciones o no. Las frases de ejemplo solo existen para el nivel 3.</p>
+    <p class=mut>Usa solo el vocabulario de ese HSK, hayas estudiado las lecciones o no, y ninguna palabra se repite en el examen. Las frases de ejemplo solo existen para HSK 3.</p>
     <button class=main onclick="exam(S.exLv)">Empezar examen</button>
     <h3>Últimos resultados</h3>
     ${S.exams.length ? S.exams.slice(-5).reverse().map(e => { const t = e.s[0] + e.s[1] + e.s[2]; return `<div class=hbar><span>${e.d} · HSK ${e.lv}</span><div class=bar><i style="width:${t / 3}%;${t >= 180 ? 'background:var(--ok)' : ''}"></i></div><b>${t}</b></div>`; }).join('') : '<p class=mut>Sin exámenes todavía.</p>'}`, 'examMenu');
 }
 function buildExam(lv) {
-  const P = W.filter(w => w.l <= lv), PS = P.filter(w => SENT[w.h]), hi = P.filter(w => w.l == lv), top = hi.length >= 10 ? hi : P;
+  const P = W.filter(w => w.l == lv), PS = P.filter(w => SENT[w.h]), used = new Set();
+  const take = (a, n) => sample(a.filter(w => !used.has(w.id)), n).map(w => (used.add(w.id), w)); // sin repetir palabras en el examen
   const dis = (w, k) => shuffle([w, ...sample(P.filter(x => x.id != w.id && x[k] != w[k]), 3)]);
   const hz = o => `<span class=hz2>${o.h}</span>`, Qs = [];
   const mk = (s, w, o) => Qs.push({ s, w, ...o });
   // 听力
-  sample(top, 5).forEach(w => mk(0, w, { audio: w.h, q: '¿Qué significa lo que oyes?', opts: dis(w, 'e'), lab: o => o.e }));
-  if (PS.length >= 8) sample(PS, 5).forEach(w => mk(0, w, { audio: SENT[w.h][0], q: 'Escucha la frase: ¿qué dice?', opts: shuffle([w, ...sample(PS.filter(x => x.id != w.id), 3)]), lab: o => SENT[o.h][2] }));
-  else sample(top, 5).forEach(w => mk(0, w, { audio: w.h, q: '¿Qué palabra oyes?', opts: dis(w, 'h'), lab: hz }));
+  take(P, 5).forEach(w => mk(0, w, { audio: w.h, q: '¿Qué significa lo que oyes?', opts: dis(w, 'e'), lab: o => o.e }));
+  if (PS.length >= 8) take(PS, 5).forEach(w => mk(0, w, { audio: SENT[w.h][0], q: 'Escucha la frase: ¿qué dice?', opts: shuffle([w, ...sample(PS.filter(x => x.id != w.id), 3)]), lab: o => SENT[o.h][2] }));
+  else take(P, 5).forEach(w => mk(0, w, { audio: w.h, q: '¿Qué palabra oyes?', opts: dis(w, 'h'), lab: hz }));
   // 阅读
-  if (PS.length >= 8) sample(PS, 5).forEach(w => { const s = SENT[w.h]; mk(1, w, { q: 'Completa la frase', html: `<span class=hz2 style="line-height:1.5">${s[0].replace(w.h, '＿＿')}</span><small>${s[2]}</small>`, opts: dis(w, 'h'), lab: hz }); });
-  else sample(top, 5).forEach(w => mk(1, w, { q: '¿Qué significa?', html: `<span class=hz>${w.h}</span>`, opts: dis(w, 'e'), lab: o => o.e }));
-  sample(top, 5).forEach(w => mk(1, w, { q: '¿Cuál es el pinyin correcto?', html: `<span class=hz>${w.h}</span>`, opts: dis(w, 'p'), lab: o => o.p }));
+  if (PS.length >= 8) take(PS, 5).forEach(w => { const s = SENT[w.h]; mk(1, w, { q: 'Completa la frase', html: `<span class=hz2 style="line-height:1.5">${s[0].replace(w.h, '＿＿')}</span><small>${s[2]}</small>`, opts: dis(w, 'h'), lab: hz }); });
+  else take(P, 5).forEach(w => mk(1, w, { q: '¿Qué significa?', html: `<span class=hz>${w.h}</span>`, opts: dis(w, 'e'), lab: o => o.e }));
+  take(P, 5).forEach(w => mk(1, w, { q: '¿Cuál es el pinyin correcto?', html: `<span class=hz>${w.h}</span>`, opts: dis(w, 'p'), lab: o => o.p }));
   // 书写
-  sample(top, 5).forEach(w => mk(2, w, { q: 'Elige los caracteres correctos', html: `<b>${w.e}</b><small>${w.p}</small>`, opts: dis(w, 'h'), lab: hz }));
-  sample(top, 5).forEach(w => mk(2, w, { q: 'Escribe el pinyin', html: `<span class=hz>${w.h}</span><small>${w.e}</small>`, type: 1 }));
+  take(P, 5).forEach(w => mk(2, w, { q: 'Elige los caracteres correctos', html: `<b>${w.e}</b><small>${w.p}</small>`, opts: dis(w, 'h'), lab: hz }));
+  take(P, 5).forEach(w => mk(2, w, { q: 'Escribe el pinyin', html: `<span class=hz>${w.h}</span><small>${w.e}</small>`, type: 1 }));
   return Qs;
 }
 function exam(lv) {

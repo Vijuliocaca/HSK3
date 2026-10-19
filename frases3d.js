@@ -284,4 +284,7 @@
 左右|他大约三十岁左右。|Tā dàyuē sānshí suì zuǒyòu.|Tiene alrededor de treinta años.
 作品|这是他最新的作品。|Zhè shì tā zuìxīn de zuòpǐn.|Esta es su obra más reciente.
 作者|这本书的作者是谁？|Zhè běn shū de zuòzhě shì shéi?|¿Quién es el autor de este libro?
+继续|请继续说。|Qǐng jìxù shuō.|Por favor, continúa hablando.
+事实上|事实上，他没有去。|Shìshí shang, tā méiyǒu qù.|De hecho, él no fue.
+做客|周末我去朋友家做客。|Zhōumò wǒ qù péngyou jiā zuòkè.|El fin de semana voy de visita a casa de un amigo.
 `);

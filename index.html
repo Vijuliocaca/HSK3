@@ -98,6 +98,10 @@ input[type=text],input[type=search]{width:100%;padding:.8rem;border-radius:6px;b
 <script src="nuevo3a.js"></script>
 <script src="nuevo3b.js"></script>
 <script src="nuevo3c.js"></script>
+<script src="frases12a.js"></script>
+<script src="frases12b.js"></script>
+<script src="frases12c.js"></script>
+<script src="frases12d.js"></script>
 <script src="frases3a.js"></script>
 <script src="frases3b.js"></script>
 <script src="frases3c.js"></script>
@@ -403,7 +407,7 @@ function examMenu() {
   app(`<h1>Examen simulado</h1><div class=mut>30 preguntas · 30 minutos · 3 partes · aprobado con 180/300</div>
     <h3>HSK del examen</h3>
     <div class=row>${[1, 2, 3].map(n => `<button class="chip ${S.exLv == n ? 'on' : ''}" onclick="S.exLv=${n};save();examMenu()">HSK ${n}</button>`).join('')}</div>
-    <p class=mut>Usa solo el vocabulario de ese HSK, hayas estudiado las lecciones o no, y ninguna palabra se repite en el examen. Las frases de ejemplo solo existen para HSK 3.</p>
+    <p class=mut>Usa solo el vocabulario de ese HSK, hayas estudiado las lecciones o no, y ninguna palabra se repite en el examen. Incluye frases de ejemplo en todos los HSK.</p>
     <button class=main onclick="exam(S.exLv)">Empezar examen</button>
     <h3>Últimos resultados</h3>
     ${S.exams.length ? S.exams.slice(-5).reverse().map(e => { const t = e.s[0] + e.s[1] + e.s[2]; return `<div class=hbar><span>${e.d} · HSK ${e.lv}</span><div class=bar><i style="width:${t / 3}%;${t >= 180 ? 'background:var(--ok)' : ''}"></i></div><b>${t}</b></div>`; }).join('') : '<p class=mut>Sin exámenes todavía.</p>'}`, 'examMenu');

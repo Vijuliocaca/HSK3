@@ -293,7 +293,7 @@ function toneVars(p) { // variantes con otros tonos, para distinguirlos
 
 // --- progreso (localStorage; si falla, la app sigue sin guardar) ---
 let S = {}; try { S = JSON.parse(localStorage.hsk3) || {}; } catch {}
-S.w = S.w || {}; S.known = S.known || {}; S.gram = S.gram || {}; S.gramR = S.gramR || {}; S.song = S.song || {}; S.lv = S.lv || [1, 2, 3];
+S.w = S.w || {}; S.known = S.known || {}; S.gram = S.gram || {}; S.gramR = S.gramR || {}; S.listas = S.listas || {}; S.song = S.song || {}; S.lv = S.lv || [1, 2, 3];
 S.lv = [1, 2, 3, 4, 5].slice(0, Math.max(...S.lv, 1)); // los HSK son acumulativos: elegir uno incluye los anteriores S.streak = S.streak || 0; S.last = S.last || '';
 S.hist = S.hist || {}; S.exams = S.exams || []; S.exLv = S.exLv || 3; S.star = S.star || {};
 S.set = Object.assign({ goal: 20, rate: .8, size: 100, theme: 'auto', tones: true }, S.set);
@@ -347,6 +347,7 @@ const MODES = [
   ['sentence', '🗣️', 'Escuchar la frase', 'Oye una frase y elige su significado'],
   ['order', '🧱', 'Ordenar la frase', 'Construye la frase con sus palabras'],
   ['pinyin', '🔤', 'Elegir pinyin', 'Distingue los tonos'],
+  ['lists', '📋', 'Mis listas', 'Tus propias palabras'],
   ['lect', '📖', 'Lecturas', 'Historias cortas: toca las palabras'],
   ['dial', '💬', 'Diálogos', 'Escucha conversaciones y contesta'],
   ['tones', '🎼', 'Entrenar tonos', 'mā má mǎ mà: oye y distingue'],
@@ -426,6 +427,7 @@ function go(m) {
   if (m == 'tones') return tonos();
   if (m == 'dial') return dialogos();
   if (m == 'lect') return lecturas();
+  if (m == 'lists') return listas();
   if (m == 'hard') return hardList().length ? session('hard') : app(`<div class=top><button class=back onclick="home()">←</button></div><div class=prompt><span class=hz>🔥</span>Aún no tienes palabras difíciles<small>Aparecen aquí las que más fallas y las que marques con ⭐ en su ficha.</small></div>`);
   if (!pool().length) return empty();
   m == 'match' ? matchGame() : m == 'speed' ? speed() : session(m);
@@ -503,6 +505,36 @@ async function importar(f) {
     localStorage.hsk3 = JSON.stringify(d); location.reload();
   } catch { alert('El archivo no es una copia de seguridad válida.'); }
 }
+
+// --- listas propias: S.listas[nombre] = [hanzi]; por hanzi, así no dependen de la posición de la palabra ---
+const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+const LN = () => Object.keys(S.listas), LW = n => (S.listas[n] || []).map(h => byH.get(h)).filter(Boolean);
+function listas() {
+  app(`<div class=top><button class=back onclick="home()">←</button><b>Mis listas</b></div>
+    <p class=mut>Crea listas con las palabras que quieras (por ejemplo «Viaje a China») y practícalas. Añade palabras desde su ficha con «➕ Listas».</p>
+    ${LN().map((n, i) => `<button class=mode onclick="lista(${i})"><span class=e>📋</span><span><b>${esc(n)}</b><small>${LW(n).length} palabras</small></span></button>`).join('') || '<p class=mut>Aún no tienes ninguna lista.</p>'}
+    <button class=main onclick="nuevaLista()">➕ Nueva lista</button>`, 'home');
+}
+function nuevaLista(id) { // con id, la palabra de esa ficha se añade a la lista nueva
+  const n = (prompt('Nombre de la lista') || '').trim().slice(0, 40); if (!n) return;
+  const a = S.listas[n] = S.listas[n] || []; if (id != null && !a.includes(W[id].h)) a.push(W[id].h);
+  save(); id != null ? listaPicker(id) : listas();
+}
+function lista(i) {
+  const n = LN()[i], ws = window.cur = LW(n); BACK = `lista(${i})`;
+  app(`<div class=top><button class=back onclick="listas()">←</button><b>📋 ${esc(n)}</b></div>
+    ${ws.length ? `<div class=grid>${[['matchGame(cur)', '🔗', 'Emparejar'], ["session('choice',cur)", '🎯', 'Elegir traducción'], ["session('cards',cur)", '🃏', 'Tarjetas'], ["session('listen',cur)", '🎧', 'Escuchar'], ["session('write',cur)", '⌨️', 'Escribir pinyin'], ["session('hanzi',cur)", '🈶', 'Elegir hanzi']].map(m => `<button class=mode onclick="${m[0]}"><span class=e>${m[1]}</span><span><b>${m[2]}</b></span></button>`).join('')}</div>`
+      : '<p class=mut>La lista está vacía. Abre una palabra y toca «➕ Listas» para añadirla.</p>'}
+    <div class=list>${ws.map(row).join('')}</div>
+    <p class=mut>Para quitar una palabra, ábrela y desmarca la lista en «➕ Listas».</p>
+    <button class=chip onclick="borrarLista(${i})">🗑️ Borrar la lista</button>`, 'home');
+}
+function borrarLista(i) { const n = LN()[i]; if (confirm(`¿Borrar la lista «${n}»?`)) { delete S.listas[n]; save(); listas(); } }
+function listaPicker(id) { // en la ficha: una pastilla por lista; tocarla añade o quita la palabra
+  const h = W[id].h;
+  $('#al').innerHTML = LN().map((n, i) => `<button class="chip ${S.listas[n].includes(h) ? 'on' : ''}" onclick="alternaLista(${i},${id})">${esc(n)}</button>`).join('') + `<button class=chip onclick="nuevaLista(${id})">➕ Nueva</button>`;
+}
+function alternaLista(i, id) { const a = S.listas[LN()[i]], k = a.indexOf(W[id].h); k < 0 ? a.push(W[id].h) : a.splice(k, 1); save(); listaPicker(id); }
 
 // --- temas ---
 function temas() {
@@ -709,7 +741,7 @@ function rel(w) {
 }
 function detail(id) {
   PREV = () => detail(id);
-  app(`<div class=top><button class=back onclick="${BACK}">←</button></div>${card(W[id])}${rel(W[id])}`);
+  app(`<div class=top><button class=back onclick="${BACK}">←</button></div>${card(W[id])}<div class=row style="margin-top:.8rem"><button class=chip onclick="listaPicker(${id})">➕ Listas</button></div><div class=row id=al></div>${rel(W[id])}`);
   say(W[id].h);
 }
 const loadHW = () => window.HanziWriter ? Promise.resolve() : new Promise((ok, no) => {

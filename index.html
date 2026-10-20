@@ -202,6 +202,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script src="dialogos.js"></script>
 <script src="lecturas.js"></script>
 <script src="chengyu.js"></script>
+<script src="relaciones.js"></script>
 <script>
 const $ = s => document.querySelector(s);
 const TABS = [['home', '🏠', 'Inicio'], ['today', '📅', 'Hoy'], ['examMenu', '📝', 'Examen'], ['stats', '📊', 'Progreso']];
@@ -679,9 +680,22 @@ const exHtml = w => { const s = SENT[w.h]; return s ? `<div class=ex onclick="sa
 const star = id => { S.star[id] ? delete S.star[id] : S.star[id] = 1; save(); $('#st').textContent = S.star[id] ? '⭐' : '☆'; };
 const card = w => `<div class=study><div class=hz>${w.h}</div><div class=py>${pc(w.p)}</div><div class=es>${w.e}</div>
   <button class=ico onclick="say(W[${w.id}].h)">🔊</button><button class=ico id=st onclick="star(${w.id})">${S.star[w.id] ? '⭐' : '☆'}</button><button class=ico onclick="strokes(${w.id})">✍️</button>${exHtml(w)}</div>`;
+// relaciones en la ficha: familia (palabras que comparten un carácter, calculada), antónimos y sinónimos (relaciones.js)
+const BYC = new Map(), RELA = new Map();
+W.forEach(w => new Set(w.h).forEach(c => BYC.set(c, [...(BYC.get(c) || []), w])));
+(self.RELS || []).forEach(t => t.split('\n').forEach(l => {
+  const [k, a, b] = l.split('|'); if (!byH.has(a) || !byH.has(b)) return;
+  [[a, b], [b, a]].forEach(([x, y]) => { const m = RELA.get(x) || { A: [], S: [] }; m[k].push(byH.get(y)); RELA.set(x, m); });
+}));
+const relChips = ws => `<div class=row>${ws.map(x => `<button class=chip onclick="detail(${x.id})">${x.h} <span class=mut style="font-size:.8rem">${x.e.split(/[;(]/)[0].trim()}</span></button>`).join('')}</div>`;
+function rel(w) {
+  const r = RELA.get(w.h), cs = [...new Set(w.h)].filter(c => /[㐀-鿿]/.test(c)).slice(0, 2);
+  const fam = cs.map(c => { const ws = (BYC.get(c) || []).filter(x => x != w); return ws.length && ws.length <= 60 ? `<h3>Familia de ${c}</h3>` + relChips(ws.sort((a, b) => a.l - b.l || a.h.length - b.h.length).slice(0, 8)) : ''; }).join('');
+  return (r?.A.length ? '<h3>Antónimos</h3>' + relChips(r.A) : '') + (r?.S.length ? '<h3>Sinónimos</h3>' + relChips(r.S) : '') + fam;
+}
 function detail(id) {
   PREV = () => detail(id);
-  app(`<div class=top><button class=back onclick="${BACK}">←</button></div>${card(W[id])}`);
+  app(`<div class=top><button class=back onclick="${BACK}">←</button></div>${card(W[id])}${rel(W[id])}`);
   say(W[id].h);
 }
 const loadHW = () => window.HanziWriter ? Promise.resolve() : new Promise((ok, no) => {

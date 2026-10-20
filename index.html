@@ -39,6 +39,7 @@ button:disabled{color:var(--tx);opacity:1;cursor:default}
 .stat,.study,.fb,.card{background:var(--card);border:1px solid var(--bd);box-shadow:inset 0 0 0 3px var(--card),inset 0 0 0 4px rgba(184,137,43,.45)}
 .stat{flex:1;min-width:0;border-radius:6px;padding:.9rem .3rem;text-align:center;overflow-wrap:anywhere}
 .stat b{display:block;font-size:1.5rem;font-family:var(--serif)}
+.stats .stat:nth-child(2){flex:1.5}.stats .stat:nth-child(3){flex:1.25}.stats .stat:nth-child(2) b{font-size:1.3rem}
 .prog{height:6px;background:var(--bd);border-radius:3px;overflow:hidden;margin:.25rem 0 1rem}
 .prog i,.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--pri),var(--gold));transition:width .3s}
 .chip{padding:.4rem .9rem;border-radius:4px;border:1px solid var(--bd);background:var(--card)}
@@ -138,8 +139,8 @@ body.nonav{padding-bottom:calc(14px + env(safe-area-inset-bottom))}
 .gpat{font-family:var(--serif);font-size:1.5rem;text-align:center;padding:1rem;border:1px dashed var(--gold);border-radius:8px;background:var(--card);margin:1rem 0;line-height:1.4}
 .key{color:var(--pri);font-weight:700}
 .gexp{font-size:1.05rem;line-height:1.55}
-@media(max-width:380px){h1{font-size:1.3rem;gap:.4rem}.stat b{font-size:1.2rem}.stat span{font-size:.75rem}.stat{padding:.7rem .2rem}.stats{gap:.5rem}}
-.resumen{background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:.8rem .9rem;margin-top:1rem}.resumen>b{display:block;font-family:var(--serif);margin-bottom:.4rem}
+@media(max-width:380px){h1{font-size:1.3rem;gap:.4rem}.stat b{font-size:1.2rem}.stats .stat:nth-child(2) b{font-size:1.05rem}.stat span{font-size:.75rem}.stat{padding:.7rem .2rem}.stats{gap:.5rem}}
+.resumen{background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:.8rem .9rem;margin-top:1rem}.resumen summary{cursor:pointer;font-family:var(--serif);font-weight:700}.resumen[open] summary{margin-bottom:.5rem}
 </style>
 </head>
 <body>
@@ -341,15 +342,15 @@ function home() {
   <div class=goal><span>🎯 Meta de hoy: <b>${Math.min(hoy, meta)}/${meta}</b>${hoy >= meta ? ' ✅' : ''}</span><div class=bar><i style="width:${Math.min(100, hoy / meta * 100)}%"></i></div></div>
   <div class=stats>
     <div class=stat><b>${streakOk ? S.streak : 0} 🔥</b><span class=mut>racha</span></div>
-    <div class=stat onclick="list('done')" style="cursor:pointer"><b>${p.length}</b><span class=mut>estudiadas de ${all.length}</span></div>
+    <div class=stat onclick="list('done')" style="cursor:pointer"><b style="white-space:nowrap">${p.length}/${all.length}</b><span class=mut>estudiadas</span></div>
     <div class=stat><b>${dom}</b><span class=mut>dominadas</span></div>
   </div>
   <div class=prog><i style="width:${all.length ? p.length / all.length * 100 : 0}%"></i></div>
   <div class=row>${LEVELS.map(n => `<button class="chip ${S.lv.includes(n) ? 'on' : ''}" onclick="tog('lv',${n})">HSK ${n}</button>`).join('')}</div><div class=mut style="margin-top:.4rem">Cada HSK incluye el vocabulario de los anteriores.</div>
-  <div class=resumen><b>Resumen de palabras estudiadas</b>
+  <details class=resumen ${S.resOpen ? 'open' : ''} ontoggle="S.resOpen = this.open; save()"><summary>Resumen de palabras estudiadas</summary>
     ${LEVELS.map(l => { const ws = W.filter(w => w.l == l), n = ws.filter(w => S.known[w.id]).length; return `<div class=hbar><span>HSK ${l}</span><div class=bar><i style="width:${n / ws.length * 100}%"></i></div><b style="width:4.8rem">${n}/${ws.length}</b></div>`; }).join('')}
     <div class=mut style="margin:.5rem 0">Total: <b>${vistas.length}</b> estudiadas de ${W.length} · <b>${domT}</b> dominadas · <b>${W.length - vistas.length}</b> por estudiar</div>
-    <button class=chip onclick="list('done')">Ver las palabras estudiadas →</button></div>
+    <button class=chip onclick="list('done')">Ver las palabras estudiadas →</button></details>
   <button class="mode big" style="margin-top:1rem" onclick="lessons()"><span class=e>📚</span><span><b>Aprender palabras nuevas</b><small>Lecciones por temas</small></span></button>
   <button class="mode big" onclick="gramatica()"><span class=e>📐</span><span><b>Gramática</b><small>Estructuras del chino por nivel</small></span></button>
   <button class="mode big" onclick="temas()"><span class=e>🗂️</span><span><b>Vocabulario por temas</b><small>Frutas, transporte, familia…</small></span></button>

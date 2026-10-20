@@ -205,6 +205,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script src="lecturas.js"></script>
 <script src="chengyu.js"></script>
 <script src="relaciones.js"></script>
+<script src="fiestas.js"></script>
 <script>
 const $ = s => document.querySelector(s);
 const TABS = [['home', '🏠', 'Inicio'], ['today', '📅', 'Hoy'], ['examMenu', '📝', 'Examen'], ['stats', '📊', 'Progreso']];
@@ -347,6 +348,7 @@ const MODES = [
   ['sentence', '🗣️', 'Escuchar la frase', 'Oye una frase y elige su significado'],
   ['order', '🧱', 'Ordenar la frase', 'Construye la frase con sus palabras'],
   ['pinyin', '🔤', 'Elegir pinyin', 'Distingue los tonos'],
+  ['fest', '🏮', 'Fiestas chinas', 'Calendario y costumbres'],
   ['lists', '📋', 'Mis listas', 'Tus propias palabras'],
   ['lect', '📖', 'Lecturas', 'Historias cortas: toca las palabras'],
   ['dial', '💬', 'Diálogos', 'Escucha conversaciones y contesta'],
@@ -371,10 +373,11 @@ function wotd() {
   return w;
 }
 function daily() {
-  const w = wotd(), ci = Math.floor((Date.now() - new Date().getTimezoneOffset() * 6e4) / 864e5) % CY.length, c = CY[ci];
+  const w = wotd(), fp = fiestaProx()[0], ci = Math.floor((Date.now() - new Date().getTimezoneOffset() * 6e4) / 864e5) % CY.length, c = CY[ci];
   return `<h3>Hoy en chino</h3>` + (w ? `<button class=mode onclick="BACK='home()';detail(${w.id})"><span class=e style="font-family:var(--serif)">${w.h}</span><span><b>${pc(w.p)}</b><small>${w.e} · palabra del día</small></span></button>` : '')
     + (c ? `<details class=resumen><summary>🧧 成语 del día: <b>${c[0]}</b></summary><div class=p2>${pc(c[1])}</div><div class=mut>«${c[2]}»</div><div style="margin:.4rem 0"><b>${c[3]}</b></div>
-      <div class=ex onclick="say(CY[${ci}][4])"><div class=zh>${c[4]} 🔊</div><div class=p2>${pc(c[5])}</div><div class=mut>${c[6]}</div></div><button class=chip style="margin-top:.5rem" onclick="say('${c[0]}')">🔊 Escuchar el 成语</button></details>` : '');
+      <div class=ex onclick="say(CY[${ci}][4])"><div class=zh>${c[4]} 🔊</div><div class=p2>${pc(c[5])}</div><div class=mut>${c[6]}</div></div><button class=chip style="margin-top:.5rem" onclick="say('${c[0]}')">🔊 Escuchar el 成语</button></details>` : '')
+    + (fp && fp.n <= 14 ? `<button class=mode onclick="fiestas()"><span class=e>${fp.f.e}</span><span><b>${fp.f.z} ${fp.n ? 'en ' + nDias(fp.n) : 'es hoy'}</b><small>${fp.f.n} · calendario de fiestas</small></span></button>` : '');
 }
 
 // modo antes del examen: cuenta atrás y ritmo diario para llegar con todo el vocabulario del HSK elegido estudiado
@@ -428,6 +431,7 @@ function go(m) {
   if (m == 'dial') return dialogos();
   if (m == 'lect') return lecturas();
   if (m == 'lists') return listas();
+  if (m == 'fest') return fiestas();
   if (m == 'hard') return hardList().length ? session('hard') : app(`<div class=top><button class=back onclick="home()">←</button></div><div class=prompt><span class=hz>🔥</span>Aún no tienes palabras difíciles<small>Aparecen aquí las que más fallas y las que marques con ⭐ en su ficha.</small></div>`);
   if (!pool().length) return empty();
   m == 'match' ? matchGame() : m == 'speed' ? speed() : session(m);
@@ -535,6 +539,41 @@ function listaPicker(id) { // en la ficha: una pastilla por lista; tocarla añad
   $('#al').innerHTML = LN().map((n, i) => `<button class="chip ${S.listas[n].includes(h) ? 'on' : ''}" onclick="alternaLista(${i},${id})">${esc(n)}</button>`).join('') + `<button class=chip onclick="nuevaLista(${id})">➕ Nueva</button>`;
 }
 function alternaLista(i, id) { const a = S.listas[LN()[i]], k = a.indexOf(W[id].h); k < 0 ? a.push(W[id].h) : a.splice(k, 1); save(); listaPicker(id); }
+
+// --- fiestas chinas: las lunares se calculan con el calendario chino del navegador (Intl) ---
+const FIESTAS = (self.FIESTAS || []).flatMap(t => t.split('\n')).map(l => { const [z, e, p, n, r, d, c, s, sp, se] = l.split('|'); return { z, e, p, n, r, d, c, s, sp, se }; });
+const FIESTA_FIX = { '2027-02-07': '2027-02-06', '2027-02-21': '2027-02-20' }; // el cálculo se desvía un día en estos casos; fechas comprobadas con fuentes
+const qingming = y => Math.floor(y % 100 * .2422 + 4.81) - Math.floor(y % 100 / 4); // vale entre 2001 y 2099
+function fiestaFechas(y) {
+  const fm = (() => { try { return new Intl.DateTimeFormat('en-u-ca-chinese', { month: 'numeric', day: 'numeric' }); } catch {} })(), out = [];
+  for (let d = new Date(y, 0, 1); d.getFullYear() == y; d.setDate(d.getDate() + 1)) {
+    const p = fm ? Object.fromEntries(fm.formatToParts(d).map(x => [x.type, x.value])) : {}, fx = FIESTA_FIX[d.toLocaleDateString('sv')];
+    const ks = ['G ' + (d.getMonth() + 1) + '/' + d.getDate(), 'L ' + p.month + '/' + p.day];
+    if (d.getMonth() == 3 && d.getDate() == qingming(y)) ks.push('Q');
+    FIESTAS.forEach(f => { if (ks.includes(f.r)) out.push({ f, d: fx ? new Date(fx + 'T00:00') : new Date(d) }); });
+  }
+  const ny = out.find(o => o.f.r == 'L 1/1'), ev = FIESTAS.find(f => f.r == 'E');
+  if (ny) out.push({ f: ev, d: new Date(ny.d.getFullYear(), ny.d.getMonth(), ny.d.getDate() - 1) });
+  return out;
+}
+let FCACHE = { d: '', v: [] };
+function fiestaProx() { // próximos 12 meses, con los días que faltan
+  const t = day(new Date()); if (FCACHE.d == t) return FCACHE.v;
+  const hoy = new Date(); hoy.setHours(0, 0, 0, 0); const y = hoy.getFullYear();
+  FCACHE = { d: t, v: [...fiestaFechas(y), ...fiestaFechas(y + 1)].filter(o => o.d >= hoy && o.d <= hoy.getTime() + 366 * 864e5).sort((a, b) => a.d - b.d).map(o => ({ ...o, n: Math.round((o.d - hoy) / 864e5) })) };
+  return FCACHE.v;
+}
+const nDias = n => n == 1 ? '1 día' : n + ' días';
+const fechaEs = d => d.toLocaleDateString('es', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+function fiestas() {
+  const ls = fiestaProx(), sig = ls[0];
+  app(`<div class=top><button class=back onclick="home()">←</button><b>Fiestas chinas</b></div>
+    ${sig ? `<div class=exam><b>${sig.f.e} ${sig.f.z} · ${sig.f.n}</b><div class=mut>${sig.n ? 'Faltan ' + nDias(sig.n) : '¡Es hoy!'} · ${fechaEs(sig.d)}</div></div>` : ''}
+    ${ls.map(o => `<details class=resumen><summary>${o.f.e} <b>${o.f.z}</b> ${o.f.n}<br><span class=mut>${fechaEs(o.d)} · ${o.n ? 'en ' + nDias(o.n) : 'hoy'}</span></summary>
+      <div class=p2>${pc(o.f.p)}</div><p>${o.f.d}</p><p class=mut>${o.f.c}</p>
+      <div class=ex onclick="say(FIESTAS[${FIESTAS.indexOf(o.f)}].s)"><div class=zh>${o.f.s} 🔊</div><div class=p2>${pc(o.f.sp)}</div><div class=mut>${o.f.se}</div></div></details>`).join('')}
+    <p class=mut>Las fechas lunares se calculan con el calendario chino y pueden variar un día. Los días festivos oficiales los publica cada año el gobierno chino.</p>`, 'home');
+}
 
 // --- temas ---
 function temas() {

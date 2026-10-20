@@ -9,7 +9,6 @@ Lista de mejoras que se han hablado y todavía no están hechas. Recomendación:
 4. **Pronunciación:** grabarte, compararte con el modelo y, en Chrome, puntuar con reconocimiento de voz.
 
 ## Cultura y diversión
-13. **Calendario de fiestas chinas** con las fechas de este año.
 14. **Más canciones tradicionales con melodía y karaoke.** Faltan las partituras (簡譜) de 茉莉花 y 送别 para añadir su melodía.
 15. **Otros «Top 10»:** películas, series, platos típicos.
 16. **Logros y rachas semanales** con medallas.
@@ -35,6 +34,7 @@ Lista de mejoras que se han hablado y todavía no están hechas. Recomendación:
 - Familias de palabras, antónimos y sinónimos en la ficha (`relaciones.js`, sw v43).
 - Modo antes del examen: fecha en la pantalla Examen, cuenta atrás y ritmo diario en el inicio (sw v44).
 - Listas propias de palabras: «Mis listas» y «➕ Listas» en la ficha (sw v45).
+- Calendario de fiestas chinas: lunares calculadas con Intl y corregido el Año Nuevo 2027 (`fiestas.js`, sw v46).
 
 ## Decisiones ya tomadas
 - No se incluyen grabaciones ni letras de canciones con derechos de autor dentro de la app; el Top 10 usa el reproductor de YouTube (necesita conexión).

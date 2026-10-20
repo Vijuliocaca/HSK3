@@ -8,7 +8,7 @@ PWA para estudiar chino (HSK 1-5) en español. JavaScript puro, sin dependencias
 ## Archivos
 - `index.html`: toda la lógica y los estilos. No lo leas entero: usa `grep` para localizar la función y lee solo ese trozo.
 - `palabras.js` y `nuevo*.js`: vocabulario (`hanzi|pinyin|español`). `frases*.js`: una frase de ejemplo por palabra. `ajustes.js`: traducciones corregidas.
-- `temas.js` (temas del vocabulario y lecciones), `gramatica1-3.js` (gramática), `canciones.js` (canciones y Top 10), `dialogos.js` (diálogos: hablante|chino|pinyin|español + preguntas), `lecturas.js` (historias: frase por palabras con /, pinyin alineado, español, preguntas y glosario), `chengyu.js` (60 成语 para el inicio: chino|pinyin|literal|significado|ejemplo|pinyin|español), `relaciones.js` (antónimos A y sinónimos S: A|palabra|palabra; ambas deben existir en el vocabulario).
+- `temas.js` (temas del vocabulario y lecciones), `gramatica1-3.js` (gramática), `canciones.js` (canciones y Top 10), `dialogos.js` (diálogos: hablante|chino|pinyin|español + preguntas), `lecturas.js` (historias: frase por palabras con /, pinyin alineado, español, preguntas y glosario), `chengyu.js` (60 成语 para el inicio: chino|pinyin|literal|significado|ejemplo|pinyin|español), `relaciones.js` (antónimos A y sinónimos S: A|palabra|palabra; ambas deben existir en el vocabulario), `fiestas.js` (12 fiestas; regla G/L/E/Q; las lunares se calculan con Intl y `FIESTA_FIX` de index.html corrige desfases de un día: comprobar con fuentes al pasar a un año nuevo).
 - `sw.js`: service worker. Su versión (`hsk3-vNN`) renueva la caché.
 
 ## Reglas al hacer cambios

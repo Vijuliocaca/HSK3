@@ -146,6 +146,7 @@ body.nonav{padding-bottom:calc(14px + env(safe-area-inset-bottom))}
 .song .zh{font-family:var(--serif);font-size:1.5rem}.song .p2{color:var(--pri)}.rk{font-family:var(--serif);font-size:1.8rem;color:var(--gold);width:2.2rem;flex:none;text-align:center}
 a.chip{text-decoration:none;color:inherit;display:inline-block}
 .vframe{position:relative;padding-top:56.25%;margin:.4rem 0 .8rem;background:#000;border-radius:8px;overflow:hidden}.vframe iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.vframe.mut{padding:.8rem;background:none}
+#dl.np .p2{display:none} #dl.ne .ex .mut{display:none} #dl .ex{margin-top:.6rem;text-align:left} #dl .ex b{color:var(--pri);margin-right:.4rem}
 .ex.now{border-style:solid;border-color:var(--pri);box-shadow:0 0 0 2px var(--pri)}
 </style>
 </head>
@@ -197,6 +198,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script src="gramatica2.js"></script>
 <script src="gramatica3.js"></script>
 <script src="canciones.js"></script>
+<script src="dialogos.js"></script>
 <script>
 const $ = s => document.querySelector(s);
 const TABS = [['home', '🏠', 'Inicio'], ['today', '📅', 'Hoy'], ['examMenu', '📝', 'Examen'], ['stats', '📊', 'Progreso']];
@@ -339,6 +341,7 @@ const MODES = [
   ['sentence', '🗣️', 'Escuchar la frase', 'Oye una frase y elige su significado'],
   ['order', '🧱', 'Ordenar la frase', 'Construye la frase con sus palabras'],
   ['pinyin', '🔤', 'Elegir pinyin', 'Distingue los tonos'],
+  ['dial', '💬', 'Diálogos', 'Escucha conversaciones y contesta'],
   ['tones', '🎼', 'Entrenar tonos', 'mā má mǎ mà: oye y distingue'],
   ['hard', '🔥', 'Palabras difíciles', ''],
   ['hanzi', '🈶', 'Elegir hanzi', 'Significado → caracteres'],
@@ -383,6 +386,7 @@ function go(m) {
   if (m == 'song') return canciones();
   if (m == 'top10') return top10();
   if (m == 'tones') return tonos();
+  if (m == 'dial') return dialogos();
   if (m == 'hard') return hardList().length ? session('hard') : app(`<div class=top><button class=back onclick="home()">←</button></div><div class=prompt><span class=hz>🔥</span>Aún no tienes palabras difíciles<small>Aparecen aquí las que más fallas y las que marques con ⭐ en su ficha.</small></div>`);
   if (!pool().length) return empty();
   m == 'match' ? matchGame() : m == 'speed' ? speed() : session(m);
@@ -854,6 +858,43 @@ function tonosQ() {
       good ? ok++ : bad.push(w);
       $('#fb').innerHTML = `<div class="fb ${good ? 'g' : 'b'}"><b style="font-size:1.4rem">${w.h}</b> ${pc(w.p)} — ${w.e} <button class=back onclick="say('${w.h}')">🔊</button></div><button class=main id=nx>Siguiente</button>`;
       $('#nx').onclick = () => { i++; step(); };
+    });
+  };
+  step();
+}
+
+// diálogos: A y B se alternan; S.dial guarda por título el mejor resultado (no por posición)
+const DIAL = (self.DIALS || []).map(([lv, t, ls, qs]) => ({ lv, t, ls: ls.split('\n').map(l => l.split('|')), qs: qs.split('\n').map(l => l.split('|')) }));
+function dialogos() {
+  S.dial = S.dial || {}; try { speechSynthesis.cancel(); } catch {}
+  const hecho = d => S.dial[d.t] == null ? '' : S.dial[d.t] == d.qs.length ? ' ✅' : ` · mejor ${S.dial[d.t]}/${d.qs.length}`;
+  app(`<div class=top><button class=back onclick="home()">←</button><b>Diálogos</b></div>` + LEVELS.map(lv => `<h3>HSK ${lv}</h3><div class=list>${DIAL.map((d, i) => d.lv == lv ? `<button class=mode onclick="dialogo(${i})"><span class=e>${d.t.split(' ')[0]}</span><span><b>${d.t.slice(d.t.indexOf(' ') + 1)}</b><small>${d.ls.length} líneas${hecho(d)}</small></span></button>` : '').join('')}</div>`).join(''), 'home');
+}
+function sayAll(i) { // una voz grave para A y una aguda para B
+  try { speechSynthesis.cancel(); DIAL[i].ls.forEach(([, z], j) => { const u = new SpeechSynthesisUtterance(z); u.lang = 'zh-CN'; u.rate = S.set.rate; u.pitch = j % 2 ? 1.35 : .85; speechSynthesis.speak(u); }); } catch {}
+}
+function dialogo(i) {
+  const d = DIAL[i];
+  app(`<div class=top><button class=back onclick="dialogos()">←</button><b>${d.t}</b></div>
+    <div class=row><button class=chip onclick="sayAll(${i})">🔊 Escuchar todo</button><button class="chip on" onclick="this.classList.toggle('on');$('#dl').classList.toggle('np')">Pinyin</button><button class="chip on" onclick="this.classList.toggle('on');$('#dl').classList.toggle('ne')">Español</button></div>
+    <div id=dl>${d.ls.map(([w, z, p, e], j) => `<div class=ex onclick="say(DIAL[${i}].ls[${j}][1])"><div class=zh><b>${w}</b>${z} 🔊</div><div class=p2>${pc(p)}</div><div class=mut>${e}</div></div>`).join('')}</div>
+    <button class=main style="margin-top:1rem" onclick="dialQ(${i})">Preguntas de comprensión</button>`, 'home');
+  sayAll(i);
+}
+function dialQ(i) {
+  const d = DIAL[i]; let n = 0, ok = 0; try { speechSynthesis.cancel(); } catch {}
+  const step = () => {
+    if (n >= d.qs.length) {
+      S.dial = S.dial || {}; S.dial[d.t] = Math.max(S.dial[d.t] || 0, ok); save();
+      return app(`<h1>¡Hecho! 🎉</h1><p style="font-size:1.4rem">${ok}/${d.qs.length} aciertos</p><button class=main onclick="dialQ(${i})">Repetir</button><button class=opt style="margin-top:.5rem" onclick="dialogo(${i})">Volver al diálogo</button><button class=opt style="margin-top:.5rem" onclick="dialogos()">Más diálogos</button>`);
+    }
+    const [q, ...r] = d.qs[n], right = { t: r[0] };
+    app(`<div class=play><div class=top><button class=back onclick="dialogo(${i})">✕</button><div class=bar><i style="width:${n / d.qs.length * 100}%"></i></div></div><div id=q></div><div id=fb></div></div>`);
+    const el = $('#q'); el.innerHTML = `<div class=prompt><b>${q}</b><button class=chip style="margin-top:.6rem" onclick="sayAll(${i})">🔊 Oír otra vez</button></div>`;
+    opts(el, right, shuffle([right, ...r.slice(1).map(t => ({ t }))]), o => o.t, good => {
+      good && ok++;
+      $('#fb').innerHTML = `<div class="fb ${good ? 'g' : 'b'}">${good ? '✓ Correcto' : '✗ Era: ' + right.t}</div><button class=main id=nx>Siguiente</button>`;
+      $('#nx').onclick = () => { n++; step(); };
     });
   };
   step();

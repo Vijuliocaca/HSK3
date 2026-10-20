@@ -8,7 +8,7 @@ PWA para estudiar chino (HSK 1-5) en español. JavaScript puro, sin dependencias
 ## Archivos
 - `index.html`: toda la lógica y los estilos. No lo leas entero: usa `grep` para localizar la función y lee solo ese trozo.
 - `palabras.js` y `nuevo*.js`: vocabulario (`hanzi|pinyin|español`). `frases*.js`: una frase de ejemplo por palabra. `ajustes.js`: traducciones corregidas.
-- `temas.js` (temas del vocabulario y lecciones), `gramatica1-3.js` (gramática), `canciones.js` (canciones y Top 10).
+- `temas.js` (temas del vocabulario y lecciones), `gramatica1-3.js` (gramática), `canciones.js` (canciones y Top 10), `dialogos.js` (diálogos: hablante|chino|pinyin|español + preguntas).
 - `sw.js`: service worker. Su versión (`hsk3-vNN`) renueva la caché.
 
 ## Reglas al hacer cambios

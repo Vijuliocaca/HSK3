@@ -131,6 +131,9 @@ body.nonav{padding-bottom:calc(14px + env(safe-area-inset-bottom))}
 .play .prompt>span:not(.hz):not(.hz2){font-size:2rem}
 .play .prompt .main{min-width:80%}
 .play .skbox{margin:0 auto}
+.gpat{font-family:var(--serif);font-size:1.5rem;text-align:center;padding:1rem;border:1px dashed var(--gold);border-radius:8px;background:var(--card);margin:1rem 0;line-height:1.4}
+.key{color:var(--pri);font-weight:700}
+.gexp{font-size:1.05rem;line-height:1.55}
 </style>
 </head>
 <body>
@@ -177,6 +180,9 @@ body.nonav{padding-bottom:calc(14px + env(safe-area-inset-bottom))}
 <script src="frases3c.js"></script>
 <script src="frases3d.js"></script>
 <script src="temas.js"></script>
+<script src="gramatica1.js"></script>
+<script src="gramatica2.js"></script>
+<script src="gramatica3.js"></script>
 <script>
 const $ = s => document.querySelector(s);
 const TABS = [['home', '🏠', 'Inicio'], ['today', '📅', 'Hoy'], ['examMenu', '📝', 'Examen'], ['stats', '📊', 'Progreso']];
@@ -265,7 +271,8 @@ function toneVars(p) { // variantes con otros tonos, para distinguirlos
 
 // --- progreso (localStorage; si falla, la app sigue sin guardar) ---
 let S = {}; try { S = JSON.parse(localStorage.hsk3) || {}; } catch {}
-S.w = S.w || {}; S.known = S.known || {}; S.lv = S.lv || [1, 2, 3]; S.streak = S.streak || 0; S.last = S.last || '';
+S.w = S.w || {}; S.known = S.known || {}; S.gram = S.gram || {}; S.lv = S.lv || [1, 2, 3];
+S.lv = [1, 2, 3, 4, 5].slice(0, Math.max(...S.lv, 1)); // los HSK son acumulativos: elegir uno incluye los anteriores S.streak = S.streak || 0; S.last = S.last || '';
 S.hist = S.hist || {}; S.exams = S.exams || []; S.exLv = S.exLv || 3; S.star = S.star || {};
 S.set = Object.assign({ goal: 20, rate: .8, size: 100, theme: 'auto', tones: true }, S.set);
 const applySet = () => { const r = document.documentElement; r.style.fontSize = S.set.size + '%'; S.set.theme == 'auto' ? r.removeAttribute('data-theme') : r.setAttribute('data-theme', S.set.theme); };
@@ -280,9 +287,11 @@ function grade(id, ok) {
   r.b = ok ? Math.min(5, r.b + 1) : 0; ok ? r.o = (r.o || 0) + 1 : r.f = (r.f || 0) + 1;
   r.d = Date.now() + DAYS[r.b] * 864e5; r.t = t;
   S.w[id] = r;
-  const h = S.hist[t] = S.hist[t] || { n: 0, ok: 0 }; h.n++; if (ok) h.ok++;
+  tick(ok); save();
+}
+function tick(ok) { // cuenta una respuesta para la meta, la racha y las estadísticas
+  const t = day(new Date()), h = S.hist[t] = S.hist[t] || { n: 0, ok: 0 }; h.n++; if (ok) h.ok++;
   if (S.last != t) { S.streak = S.last == day(new Date(Date.now() - 864e5)) ? S.streak + 1 : 1; S.last = t; }
-  save();
 }
 const sel = w => S.lv.includes(w.l);
 const pool = () => W.filter(w => sel(w) && S.known[w.id]); // los juegos solo usan lo ya estudiado
@@ -330,16 +339,17 @@ function home() {
     <div class=stat><b>${dom}</b><span class=mut>dominadas</span></div>
   </div>
   <div class=prog><i style="width:${all.length ? p.length / all.length * 100 : 0}%"></i></div>
-  <div class=row>${LEVELS.map(n => `<button class="chip ${S.lv.includes(n) ? 'on' : ''}" onclick="tog('lv',${n})">HSK ${n}</button>`).join('')}</div>
+  <div class=row>${LEVELS.map(n => `<button class="chip ${S.lv.includes(n) ? 'on' : ''}" onclick="tog('lv',${n})">HSK ${n}</button>`).join('')}</div><div class=mut style="margin-top:.4rem">Cada HSK incluye el vocabulario de los anteriores.</div>
   <button class="mode big" style="margin-top:1rem" onclick="lessons()"><span class=e>📚</span><span><b>Aprender palabras nuevas</b><small>Lecciones por temas</small></span></button>
+  <button class="mode big" onclick="gramatica()"><span class=e>📐</span><span><b>Gramática</b><small>Estructuras del chino por nivel</small></span></button>
   <button class="mode big" onclick="temas()"><span class=e>🗂️</span><span><b>Vocabulario por temas</b><small>Frutas, transporte, familia…</small></span></button>
   ${nd ? `<button class="mode alert" onclick="today()"><span class=e>📅</span><span><b>Repasar lo de hoy</b><small>${nd} palabras pendientes</small></span></button>` : ''}
   <h3>Practicar lo estudiado</h3>
   <div class=grid>${MODES.map(m => `<button class=mode onclick="go('${m[0]}')"><span class=e>${m[1]}</span><span><b>${m[2]}</b><small>${m[0] == 'hard' ? hardList().length + ' palabras' : m[3]}</small></span></button>`).join('')}</div>`, 'home');
 }
-function tog(k, n) {
-  S[k] = S[k].includes(n) ? S[k].filter(x => x != n) : [...S[k], n];
-  if (!S[k].length) S[k] = [n];
+function tog(k, n) { // al elegir un HSK se marcan también los anteriores; tocar el más alto lo quita
+  const mx = Math.max(...S.lv), top = n == mx && n > 1 ? n - 1 : n;
+  S.lv = [1, 2, 3, 4, 5].slice(0, top);
   save(); home();
 }
 const empty = (t = 'Primero estudia alguna lección', s = 'Los juegos usan solo las palabras que ya has estudiado.') => app(`<div class=top><button class=back onclick="home()">←</button></div><div class=prompt><span class=hz>📚</span>${t}<small>${s}</small></div><button class=main onclick="lessons()">Ir a las lecciones</button>`);
@@ -419,6 +429,52 @@ function tema(i) {
     <div class=list>${ws.map(row).join('')}</div>`);
 }
 
+// --- gramática ---
+const GR = (self.GRAM || []).map(([l, t, p, e, xs]) => ({ l, t, p, e, xs }));
+const gplain = z => z.replace(/[|\[\]]/g, ''), gzh = z => z.replace(/\|/g, '').replace(/\[(.*?)\]/g, '<span class=key>$1</span>');
+function gramatica() {
+  app(`<div class=top><button class=back onclick="home()">←</button><b>Gramática</b></div>
+    <p class=mut>Estructuras del chino de cada nivel HSK: lee la explicación, mira los ejemplos y practica con frases.</p>
+    ${S.lv.map(l => { const ps = GR.map((g, i) => [g, i]).filter(([g]) => g.l == l); return ps.length ? `<h3>HSK ${l} · ${ps.filter(([g]) => S.gram[g.t] != null).length}/${ps.length}</h3>` + ps.map(([g, i]) => `<button class="lesson ${S.gram[g.t] >= 80 ? 'done' : ''}" onclick="gram(${i})"><span style="flex:1;min-width:0"><b>${g.t}</b><br><span class=mut>${g.p}</span></span><span class=p>${S.gram[g.t] != null ? S.gram[g.t] + '%' : ''}</span></button>`).join('') : ''; }).join('')}`);
+}
+function gram(i) {
+  const g = GR[i];
+  app(`<div class=top><button class=back onclick="gramatica()">←</button><b>HSK ${g.l} · Gramática</b></div>
+    <h1 style="font-size:1.4rem">${g.t}</h1><div class=gpat>${g.p}</div><p class=gexp>${g.e}</p>
+    <h3>Ejemplos</h3>${g.xs.map((x, k) => `<div class=ex onclick="say(gplain(GR[${i}].xs[${k}][0]))"><div class=zh>${gzh(x[0])} 🔊</div><div class=p2>${pc(x[1])}</div><div class=mut>${x[2]}</div></div>`).join('')}
+    <button class=main onclick="gramEx(${i})">Practicar${S.gram[g.t] != null ? ' · mejor: ' + S.gram[g.t] + '%' : ''}</button>`);
+}
+function gramEx(i) { // ordenar la frase y completar el hueco con los ejemplos del punto
+  const g = GR[i], dflt = '的 了 吗 呢 吧 在 是 很 不 也 都 就 才 还 又 再'.split(' ');
+  const qs = shuffle(g.xs.flatMap(x => {
+    const segs = x[0].split('|').map(t => t.replace(/[\[\]]/g, '')), key = (x[0].match(/\[(.*?)\]/) || [])[1], out = [];
+    if (segs.length >= 3) out.push({ t: 'o', x, segs });
+    if (key) out.push({ t: 'c', x, key });
+    return out;
+  })).slice(0, 6);
+  let n = 0, ok = 0;
+  const step = () => {
+    if (n >= qs.length) {
+      const pct = Math.round(ok / qs.length * 100); S.gram[g.t] = Math.max(S.gram[g.t] || 0, pct); save();
+      return app(`<h1>¡Hecho! 🎉</h1><p style="font-size:1.4rem">${ok}/${qs.length} aciertos</p><button class=main onclick="gramEx(${i})">Otra ronda</button><button class=opt style="margin-top:.5rem" onclick="gram(${i})">Volver a la explicación</button><button class=opt style="margin-top:.5rem" onclick="gramatica()">Todas las estructuras</button>`);
+    }
+    const q = qs[n], x = q.x;
+    app(`<div class=play><div class=top><button class=back onclick="gram(${i})">✕</button><div class=bar><i style="width:${n / qs.length * 100}%"></i></div></div><div id=q></div><div id=fb></div></div>`);
+    const done = good => {
+      tick(good); save(); if (good) ok++;
+      $('#fb').innerHTML = `<div class="fb ${good ? 'g' : 'b'}"><b style="font-size:1.3rem">${gzh(x[0])}</b> <button class=back onclick="say(gplain(GR[${i}].xs[${g.xs.indexOf(x)}][0]))">🔊</button><div class=p2>${pc(x[1])}</div><div class=mut>${x[2]}</div></div><button class=main id=nx>Siguiente</button>`;
+      $('#nx').onclick = () => { n++; step(); };
+    };
+    if (q.t == 'o') orderUI($('#q'), q.segs, x[2], done);
+    else {
+      const right = { t: q.key }, falsas = (x[3] ? x[3].split(' ') : shuffle(dflt.filter(w => w != q.key))).slice(0, 3);
+      $('#q').innerHTML = `<div class=prompt><span class=hz2 style="line-height:1.5">${x[0].replace(/\[.*?\]/, '＿＿').replace(/\|/g, '')}</span><small>${x[2]}</small></div>`;
+      opts($('#q'), right, shuffle([right, ...falsas.map(t => ({ t }))]), o => `<span class=hz2>${o.t}</span>`, done);
+    }
+  };
+  step();
+}
+
 // --- ficha de palabra, frases y trazos ---
 let PREV = home, BACK = 'list()';
 const exHtml = w => { const s = SENT[w.h]; return s ? `<div class=ex onclick="say(SENT[W[${w.id}].h][0])"><div class=zh>${s[0]} 🔊</div><div class=p2>${pc(s[1])}</div><div class=mut>${s[2]}</div></div>` : ''; };
@@ -435,12 +491,12 @@ const loadHW = () => window.HanziWriter ? Promise.resolve() : new Promise((ok, n
 });
 let HW = [];
 function strokes(id) {
-  const w = W[id], cs = [...w.h].filter(c => /[㐀-鿿]/.test(c));
+  const w = W[id], cs = [...w.h].filter(c => /[㐀-鿿]/.test(c)), sz = Math.max(180, Math.min(320, innerWidth - 64));
   app(`<div class=top><button class=back onclick="PREV()">←</button><b>Trazos de ${w.h}</b></div>
-    ${cs.map((c, i) => `<div class=sk><div class=skbox id=sk${i}></div><div class=row style="justify-content:center"><button class=chip onclick="HW[${i}]?.animateCharacter()">▶ Animar</button><button class=chip onclick="skQuiz(${i})">✍️ Practicar</button></div><div class=mut id=skm${i}>${c}</div></div>`).join('') || '<p class=mut>Esta palabra no tiene caracteres.</p>'}`);
+    ${cs.map((c, i) => `<div class=sk><div class=skbox id=sk${i} style="width:${sz}px;height:${sz}px"></div><div class=row style="justify-content:center"><button class=chip onclick="HW[${i}]?.animateCharacter()">▶ Animar</button><button class=chip onclick="skQuiz(${i})">✍️ Practicar</button></div><div class=mut id=skm${i}>${c}</div></div>`).join('') || '<p class=mut>Esta palabra no tiene caracteres.</p>'}`);
   loadHW().then(() => {
     const st = getComputedStyle(document.body);
-    HW = cs.map((c, i) => HanziWriter.create('sk' + i, c, { width: 160, height: 160, padding: 8, showOutline: true, strokeColor: st.color, radicalColor: '#b3282d', outlineColor: '#cdbd9a', strokeAnimationSpeed: 1.2, delayBetweenStrokes: 150,
+    HW = cs.map((c, i) => HanziWriter.create('sk' + i, c, { width: sz, height: sz, padding: 12, drawingWidth: 12, showOutline: true, strokeColor: st.color, radicalColor: '#b3282d', outlineColor: '#cdbd9a', strokeAnimationSpeed: 1.2, delayBetweenStrokes: 150,
       onLoadCharDataError: () => $('#skm' + i).textContent = c + ' — sin datos (necesitas internet la primera vez)' }));
     HW.forEach(h => h.animateCharacter());
   }).catch(() => cs.forEach((c, i) => $('#skm' + i).textContent = c + ' — necesitas internet la primera vez para ver los trazos'));
@@ -527,6 +583,23 @@ function seg(w) {
 // modos que necesitan frase de ejemplo o palabras cortas (para dibujar)
 const FILT = { cloze: w => SENT[w.h], sentence: w => SENT[w.h], order: w => seg(w), draw: w => [...w.h].length <= 3 };
 const similar = (w, f, key = x => x.h) => shuffle([w, ...distinct(w, W.filter(f), key)]);
+function orderUI(el, ch, meaning, done) { // construye una frase con sus trozos (palabras o frases de gramática)
+    const bank = shuffle(ch.map((t, i) => i)), put = [];
+    el.innerHTML = `<div class=prompt><small>Ordena la frase</small><b>${meaning}</b></div><div class=slot id=sl></div><div class=row id=bk style="justify-content:center"></div><button class=main id=ck disabled>Comprobar</button>`;
+    const btn = (i, f) => { const b = document.createElement('button'); b.className = 'chip hz2'; b.textContent = ch[i]; b.onclick = f; return b; };
+    const draw = () => {
+      $('#sl').replaceChildren(...put.map(i => btn(i, () => { put.splice(put.indexOf(i), 1); draw(); })));
+      $('#bk').replaceChildren(...bank.filter(i => !put.includes(i)).map(i => btn(i, () => { put.push(i); draw(); })));
+      $('#ck').disabled = put.length != ch.length;
+    };
+    $('#ck').onclick = () => {
+      const good = put.map(i => ch[i]).join('') == ch.join('');
+      document.querySelectorAll('#sl button,#bk button,#ck').forEach(b => b.disabled = true);
+      $('#sl').classList.add(good ? 'ok' : 'no'); done(good);
+    };
+    draw();
+}
+
 const Q = {
   cloze(el, w, done) {
     const s = SENT[w.h];
@@ -545,35 +618,24 @@ const Q = {
     const list = v.length >= 3 ? shuffle([w, ...v.slice(0, 3).map(p => ({ p }))]) : similar(w, x => x.p != w.p && x.p.split(' ').length == n, x => x.p);
     opts(el, w, list, o => o.p, done);
   },
-  order(el, w, done) {
-    const ch = seg(w), s = SENT[w.h], bank = shuffle(ch.map((t, i) => i)), put = [];
-    el.innerHTML = `<div class=prompt><small>Ordena la frase</small><b>${s[2]}</b></div><div class=slot id=sl></div><div class=row id=bk style="justify-content:center"></div><button class=main id=ck disabled>Comprobar</button>`;
-    const btn = (i, f) => { const b = document.createElement('button'); b.className = 'chip hz2'; b.textContent = ch[i]; b.onclick = f; return b; };
-    const draw = () => {
-      $('#sl').replaceChildren(...put.map(i => btn(i, () => { put.splice(put.indexOf(i), 1); draw(); })));
-      $('#bk').replaceChildren(...bank.filter(i => !put.includes(i)).map(i => btn(i, () => { put.push(i); draw(); })));
-      $('#ck').disabled = put.length != ch.length;
-    };
-    $('#ck').onclick = () => {
-      const good = put.map(i => ch[i]).join('') == ch.join('');
-      document.querySelectorAll('#sl button,#bk button,#ck').forEach(b => b.disabled = true);
-      $('#sl').classList.add(good ? 'ok' : 'no'); done(good);
-    };
-    draw();
-  },
+  order(el, w, done) { orderUI(el, seg(w), SENT[w.h][2], done); },
   hanzi(el, w, done) {
     const n = [...w.h].length;
     el.innerHTML = `<div class=prompt><b>${w.e}</b><small>${w.p}</small></div>`;
     opts(el, w, similar(w, x => [...x.h].length == n), o => `<span class=hz2>${o.h}</span>`, done);
   },
   draw(el, w, done) {
-    const cs = [...w.h].filter(c => /[㐀-鿿]/.test(c)), sz = Math.max(110, Math.min(300, Math.floor((Math.min(innerWidth, 520) - 40 - (cs.length - 1) * 8) / cs.length)));
-    el.innerHTML = `<div class=prompt><b>${w.e}</b><small>${w.p}</small></div><div class=row style="justify-content:center;flex-wrap:nowrap">${cs.map((c, i) => `<div class=skbox id=dw${i} style="width:${sz}px;height:${sz}px"></div>`).join('')}</div><div class=mut id=dm style="text-align:center">Dibuja los trazos en orden</div>`;
+    const cs = [...w.h].filter(c => /[㐀-鿿]/.test(c)), sz = Math.max(220, Math.min(420, innerWidth - 32, innerHeight - 300));
+    el.innerHTML = `<div class=prompt><b>${w.e}</b><small>${w.p}</small></div><div class=skbox id=dw style="width:${sz}px;height:${sz}px"></div><div class=mut id=dm style="text-align:center;margin:.6rem 0"></div>`;
     loadHW().then(() => {
-      let fin = 0, bad = 0, sinDatos = 0;
-      cs.forEach((c, i) => HanziWriter.create('dw' + i, c, { width: sz, height: sz, padding: 8, showOutline: true, strokeColor: getComputedStyle(document.body).color, outlineColor: '#cdbd9a',
-        onLoadCharDataError: () => { $('#dm').textContent = 'Sin datos de trazos para ' + c; if (!sinDatos++) done(false); } })
-        .quiz({ onMistake: () => bad++, onComplete: () => { if (++fin == cs.length && !sinDatos) done(bad <= cs.length); } }));
+      let k = 0, bad = 0, sinDatos = 0;
+      const next = () => { // un carácter cada vez, con la casilla a todo el ancho
+        $('#dw').innerHTML = ''; $('#dm').textContent = (cs.length > 1 ? `Carácter ${k + 1} de ${cs.length} · ` : '') + 'dibuja los trazos en orden';
+        HanziWriter.create('dw', cs[k], { width: sz, height: sz, padding: 12, showOutline: true, drawingWidth: 12, strokeColor: getComputedStyle(document.body).color, outlineColor: '#cdbd9a',
+          onLoadCharDataError: () => { $('#dm').textContent = 'Sin datos de trazos para ' + cs[k]; if (!sinDatos++) done(false); } })
+          .quiz({ onMistake: () => bad++, onComplete: () => { if (++k < cs.length) setTimeout(next, 600); else if (!sinDatos) done(bad <= cs.length); } });
+      };
+      next();
     }).catch(() => $('#dm').textContent = 'Necesitas internet la primera vez para dibujar (sal con ✕ y prueba otro modo)');
   },
   choice(el, w, done) {

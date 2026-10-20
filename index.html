@@ -146,6 +146,7 @@ body.nonav{padding-bottom:calc(14px + env(safe-area-inset-bottom))}
 .song .zh{font-family:var(--serif);font-size:1.5rem}.song .p2{color:var(--pri)}.rk{font-family:var(--serif);font-size:1.8rem;color:var(--gold);width:2.2rem;flex:none;text-align:center}
 a.chip{text-decoration:none;color:inherit;display:inline-block}
 .vframe{position:relative;padding-top:56.25%;margin:.4rem 0 .8rem;background:#000;border-radius:8px;overflow:hidden}.vframe iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.vframe.mut{padding:.8rem;background:none}
+.ex.now{border-style:solid;border-color:var(--pri);box-shadow:0 0 0 2px var(--pri)}
 </style>
 </head>
 <body>
@@ -209,7 +210,7 @@ addEventListener('popstate', () => {
   GUARD = ''; home();
 });
 const app = (h, tab) => {
-  clearInterval(TM);
+  clearInterval(TM); stopMel();
   if (tab == 'home') { GUARD = ''; if (depth) { depth = 0; skipPop = true; history.back(); } }
   else if (!depth) { history.pushState({ a: 1 }, ''); depth = 1; }
   $('#app').innerHTML = h; scrollTo(0, 0);
@@ -504,6 +505,40 @@ function verVideo(btn, id) { // reproductor de YouTube dentro de la app (solo se
   if (!navigator.onLine) return void caja.insertAdjacentHTML('afterend', '<div class="vwrap mut" style="margin-bottom:.8rem">Sin conexión: conéctate a internet para reproducir la canción.</div>');
   caja.insertAdjacentHTML('afterend', `<div class=vwrap><div class=vframe><iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&playsinline=1&rel=0" title="Reproductor" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div><div class=mut style="margin:-.5rem 0 .8rem">¿No se ve? Prueba «Abrir en YouTube».</div></div>`);
 }
+// melodía integrada: sintetizador sencillo (sin conexión) que va iluminando la letra
+const MEL = { ctx: null, timers: [], on: null };
+function stopMel() {
+  MEL.timers.forEach(clearTimeout); MEL.timers = []; MEL.on = null;
+  try { MEL.ctx && MEL.ctx.close(); } catch { } MEL.ctx = null;
+  document.querySelectorAll('.ex.now').forEach(e => e.classList.remove('now'));
+  const b = $('#mb'); if (b) b.textContent = '🎹 Reproducir la melodía (sin conexión)';
+}
+function melodia(i) {
+  if (MEL.on === i) return stopMel();
+  stopMel();
+  const s = SONGS[i], Ctx = window.AudioContext || window.webkitAudioContext;
+  if (!Ctx) return void alert('Tu navegador no puede reproducir la melodía.');
+  const ctx = MEL.ctx = new Ctx(), beat = 60 / s.bpm, SEMI = [0, 0, 2, 4, 5, 7, 9, 11];
+  ctx.resume(); MEL.on = i; $('#mb').textContent = '■ Parar la melodía';
+  let t = ctx.currentTime + .15;
+  s.mel.forEach((linea, k) => {
+    const ini = t; MEL.timers.push(setTimeout(() => { document.querySelectorAll('.ex.now').forEach(e => e.classList.remove('now')); const e = $('#ln' + k); if (e) { e.classList.add('now'); e.scrollIntoView({ block: 'center', behavior: 'smooth' }); } }, (ini - ctx.currentTime) * 1000));
+    linea.split(' ').forEach(tk => {
+      const [, d, o, n] = tk.match(/^([0-7])(['\,]*)(?::([\d.]+))?$/) || [], dur = (n ? +n : 1) * beat;
+      if (d != '0') {
+        const f = 261.63 * 2 ** ((SEMI[+d] + 12 * ((o.match(/'/g) || []).length - (o.match(/,/g) || []).length)) / 12);
+        [['triangle', 1, .22], ['sine', 2, .06]].forEach(([tipo, mult, vol]) => {
+          const osc = ctx.createOscillator(), g = ctx.createGain();
+          osc.type = tipo; osc.frequency.value = f * mult; osc.connect(g); g.connect(ctx.destination);
+          g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(vol, t + .02); g.gain.exponentialRampToValueAtTime(vol * .35, t + dur * .6); g.gain.linearRampToValueAtTime(0, t + dur * .95);
+          osc.start(t); osc.stop(t + dur);
+        });
+      }
+      t += dur;
+    });
+  });
+  MEL.timers.push(setTimeout(stopMel, (t - ctx.currentTime) * 1000 + 400));
+}
 const knownSeg = g => { const w = byH.get(g.replace(PUNT, '')); return w && S.known[w.id] ? w : null; };
 const songWords = s => [...new Map(s.lines.flatMap(l => l[0].split('|')).map(g => byH.get(g.replace(PUNT, ''))).filter(Boolean).map(w => [w.id, w])).values()];
 function canciones() {
@@ -516,7 +551,7 @@ function cancion(i) {
   const s = SONGS[i];
   app(`<div class=top><button class=back onclick="canciones()">←</button><b>${s.t}</b></div>
     <div class=mut>${pc(s.p)} · ${s.es}</div><p class=gexp>${s.nota}</p>
-    ${escuchar(s)}<h3>Letra</h3>${s.lines.map((l, k) => `<div class=ex onclick="say(gplain(SONGS[${i}].lines[${k}][0]))"><div class=zh>${l[0].split('|').map(g => knownSeg(g) ? `<u class=kn>${g}</u>` : g).join('')} 🔊</div><div class=p2>${pc(l[1])}</div><div class=mut>${l[2]}</div></div>`).join('')}
+    ${s.mel ? `<button class=chip id=mb onclick="melodia(${i})" style="margin:.3rem 0">🎹 Reproducir la melodía (sin conexión)</button>` : ''}${escuchar(s)}<h3>Letra</h3>${s.lines.map((l, k) => `<div class=ex id=ln${k} onclick="say(gplain(SONGS[${i}].lines[${k}][0]))"><div class=zh>${l[0].split('|').map(g => knownSeg(g) ? `<u class=kn>${g}</u>` : g).join('')} 🔊</div><div class=p2>${pc(l[1])}</div><div class=mut>${l[2]}</div></div>`).join('')}
     <p class=mut>Subrayadas: palabras que ya has estudiado.</p>
     <button class=main onclick="cancionEx(${i})">Practicar con esta canción${S.song[s.t] != null ? ' · mejor: ' + S.song[s.t] + '%' : ''}</button>`);
 }

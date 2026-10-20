@@ -90,3 +90,14 @@ self.TOP10 = [
   };
   self.SONGS.forEach(x => { const e = s[x.t]; x.v = e[0]; x.vn = e[1]; x.o = e[2]; x.q = e[3]; });
 })();
+
+// Melodías (dominio público) para escuchar sin conexión: una cadena por línea de letra, en notación numérica (1 = do).
+// «5:2» dura 2 pulsos, «1'» es una octava más aguda, «0» es un silencio.
+(function () {
+  const m = {
+    "两只老虎": { bpm: 112, mel: ["1 2 3 1 1 2 3 1", "3 4 5:2 3 4 5:2", "5:.5 6:.5 5:.5 4:.5 3 1", "5:.5 6:.5 5:.5 4:.5 3 1", "1 5 1:2 1 5 1:2"] },
+    "小星星": { bpm: 104, mel: ["1 1 5 5 6 6 5:2", "4 4 3 3 2 2 1:2", "5 5 4 4 3 3 2:2", "5 5 4 4 3 3 2:2"] },
+    "祝你生日快乐": { bpm: 92, mel: ["5:.75 5:.25 6 5 1' 7:2", "5:.75 5:.25 6 5 2' 1':2", "5:.75 5:.25 5' 3' 1' 7 6", "4':.75 4':.25 3' 1' 2' 1':3"] },
+  };
+  self.SONGS.forEach(x => { if (m[x.t]) { x.mel = m[x.t].mel; x.bpm = m[x.t].bpm; } });
+})();

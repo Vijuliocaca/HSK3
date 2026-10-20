@@ -37,7 +37,7 @@ button:disabled{color:var(--tx);opacity:1;cursor:default}
 .row{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
 .stats{display:flex;gap:.75rem;margin:1rem 0}
 .stat,.study,.fb,.card{background:var(--card);border:1px solid var(--bd);box-shadow:inset 0 0 0 3px var(--card),inset 0 0 0 4px rgba(184,137,43,.45)}
-.stat{flex:1;border-radius:6px;padding:.9rem .5rem;text-align:center}
+.stat{flex:1;min-width:0;border-radius:6px;padding:.9rem .3rem;text-align:center;overflow-wrap:anywhere}
 .stat b{display:block;font-size:1.5rem;font-family:var(--serif)}
 .prog{height:6px;background:var(--bd);border-radius:3px;overflow:hidden;margin:.25rem 0 1rem}
 .prog i,.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--pri),var(--gold));transition:width .3s}
@@ -45,7 +45,8 @@ button:disabled{color:var(--tx);opacity:1;cursor:default}
 .chip.on{background:var(--pri);border-color:var(--pri);color:#fff}
 .mode{display:flex;gap:.9rem;align-items:center;width:100%;text-align:left;background:var(--card);border:1px solid var(--bd);border-left:4px solid var(--gold);border-radius:6px;padding:.85rem 1rem;margin:.5rem 0;transition:transform .1s}
 .mode:active{transform:scale(.98)}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:.5rem 0}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem;margin:.5rem 0}
+.grid>.mode b,.grid>.mode small{overflow-wrap:anywhere}
 .grid>.mode{flex-direction:column;justify-content:center;text-align:center;gap:.3rem;margin:0;padding:1.1rem .6rem;min-height:7.6rem;border-left:1px solid var(--bd);border-top:4px solid var(--gold)}
 .grid>.mode span.e{font-size:2.1rem;line-height:1} .grid>.mode small{display:block;font-size:.8rem;line-height:1.25;margin-top:.15rem}
 .grid>.mode:last-child:nth-child(odd){grid-column:1/-1}
@@ -75,8 +76,9 @@ button:disabled{color:var(--tx);opacity:1;cursor:default}
 .cell .hz2{font-size:1.7rem}
 .cell.sel{border-color:var(--pri);box-shadow:0 0 0 2px var(--pri)}
 .shake{animation:sh .25s} @keyframes sh{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
-.list div{display:flex;gap:.75rem;padding:.8rem 0;border-bottom:1px solid var(--bd);align-items:center;font-size:1.1rem}
-.list b{font-size:1.7rem;min-width:5.5rem}.list i{color:var(--mut);font-style:normal;min-width:5.5rem;font-size:1.05rem}
+.list div{display:flex;gap:.6rem;padding:.8rem 0;border-bottom:1px solid var(--bd);align-items:center;font-size:1.1rem}
+.list b{font-size:1.7rem;flex:0 1 auto;min-width:3.4rem;overflow-wrap:anywhere}.list i{color:var(--mut);font-style:normal;flex:0 1 5.5rem;min-width:0;overflow-wrap:anywhere;font-size:1.05rem}
+.list span:not(.box){flex:1 1 0;min-width:0;overflow-wrap:anywhere}
 .box{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--bd);margin-left:auto;flex:none}
 .lesson{display:flex;align-items:center;gap:.8rem;width:100%;text-align:left;background:var(--card);border:1px solid var(--bd);border-radius:6px;padding:.7rem .9rem;margin:.4rem 0}
 .lesson.done{border-color:var(--ok)} .lesson b{} .lesson span.p{color:var(--mut);margin-left:auto;font-size:1.1rem}
@@ -136,6 +138,8 @@ body.nonav{padding-bottom:calc(14px + env(safe-area-inset-bottom))}
 .gpat{font-family:var(--serif);font-size:1.5rem;text-align:center;padding:1rem;border:1px dashed var(--gold);border-radius:8px;background:var(--card);margin:1rem 0;line-height:1.4}
 .key{color:var(--pri);font-weight:700}
 .gexp{font-size:1.05rem;line-height:1.55}
+@media(max-width:380px){h1{font-size:1.3rem;gap:.4rem}.stat b{font-size:1.2rem}.stat span{font-size:.75rem}.stat{padding:.7rem .2rem}.stats{gap:.5rem}}
+.resumen{background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:.8rem .9rem;margin-top:1rem}.resumen>b{display:block;font-family:var(--serif);margin-bottom:.4rem}
 </style>
 </head>
 <body>
@@ -326,22 +330,26 @@ const MODES = [
   ['hanzi', '🈶', 'Elegir hanzi', 'Significado → caracteres'],
   ['draw', '✍️', 'Dibujar trazos', 'Escribe el carácter trazo a trazo'],
   ['speed', '⏱️', 'Contrarreloj', '60 segundos: ¡cuantas más aciertes mejor!'],
-  ['list', '📖', 'Vocabulario', 'Lista completa y buscador'],
 ];
 
 function home() {
   const all = W.filter(sel), p = pool(), dom = p.filter(w => (S.w[w.id]?.b || 0) >= 4).length, nd = due().length;
   const streakOk = S.last == day(new Date()) || S.last == day(new Date(Date.now() - 864e5));
   const hoy = S.hist[day(new Date())]?.n || 0, meta = S.set.goal;
+  const vistas = W.filter(w => S.known[w.id]), domT = vistas.filter(w => (S.w[w.id]?.b || 0) >= 4).length;
   app(`<h1><span class=seal>学</span>HSK Viju<button class=gear onclick="list('all')" aria-label="Vocabulario">📖</button><button class=gear onclick="settings()" aria-label="Ajustes">⚙️</button></h1><div class=mut>Preparación gratuita del examen</div>
   <div class=goal><span>🎯 Meta de hoy: <b>${Math.min(hoy, meta)}/${meta}</b>${hoy >= meta ? ' ✅' : ''}</span><div class=bar><i style="width:${Math.min(100, hoy / meta * 100)}%"></i></div></div>
   <div class=stats>
     <div class=stat><b>${streakOk ? S.streak : 0} 🔥</b><span class=mut>racha</span></div>
-    <div class=stat onclick="list('done')" style="cursor:pointer"><b>${p.length}/${all.length}</b><span class=mut>estudiadas</span></div>
+    <div class=stat onclick="list('done')" style="cursor:pointer"><b>${p.length}</b><span class=mut>estudiadas de ${all.length}</span></div>
     <div class=stat><b>${dom}</b><span class=mut>dominadas</span></div>
   </div>
   <div class=prog><i style="width:${all.length ? p.length / all.length * 100 : 0}%"></i></div>
   <div class=row>${LEVELS.map(n => `<button class="chip ${S.lv.includes(n) ? 'on' : ''}" onclick="tog('lv',${n})">HSK ${n}</button>`).join('')}</div><div class=mut style="margin-top:.4rem">Cada HSK incluye el vocabulario de los anteriores.</div>
+  <div class=resumen><b>Resumen de palabras estudiadas</b>
+    ${LEVELS.map(l => { const ws = W.filter(w => w.l == l), n = ws.filter(w => S.known[w.id]).length; return `<div class=hbar><span>HSK ${l}</span><div class=bar><i style="width:${n / ws.length * 100}%"></i></div><b style="width:4.8rem">${n}/${ws.length}</b></div>`; }).join('')}
+    <div class=mut style="margin:.5rem 0">Total: <b>${vistas.length}</b> estudiadas de ${W.length} · <b>${domT}</b> dominadas · <b>${W.length - vistas.length}</b> por estudiar</div>
+    <button class=chip onclick="list('done')">Ver las palabras estudiadas →</button></div>
   <button class="mode big" style="margin-top:1rem" onclick="lessons()"><span class=e>📚</span><span><b>Aprender palabras nuevas</b><small>Lecciones por temas</small></span></button>
   <button class="mode big" onclick="gramatica()"><span class=e>📐</span><span><b>Gramática</b><small>Estructuras del chino por nivel</small></span></button>
   <button class="mode big" onclick="temas()"><span class=e>🗂️</span><span><b>Vocabulario por temas</b><small>Frutas, transporte, familia…</small></span></button>
@@ -356,7 +364,6 @@ function tog(k, n) { // al elegir un HSK se marcan también los anteriores; toca
 }
 const empty = (t = 'Primero estudia alguna lección', s = 'Los juegos usan solo las palabras que ya has estudiado.') => app(`<div class=top><button class=back onclick="home()">←</button></div><div class=prompt><span class=hz>📚</span>${t}<small>${s}</small></div><button class=main onclick="lessons()">Ir a las lecciones</button>`);
 function go(m) {
-  if (m == 'list') return list();
   if (m == 'hard') return hardList().length ? session('hard') : app(`<div class=top><button class=back onclick="home()">←</button></div><div class=prompt><span class=hz>🔥</span>Aún no tienes palabras difíciles<small>Aparecen aquí las que más fallas y las que marques con ⭐ en su ficha.</small></div>`);
   if (!pool().length) return empty();
   m == 'match' ? matchGame() : m == 'speed' ? speed() : session(m);
@@ -739,7 +746,7 @@ const row = w => `<div onclick="detail(${w.id})"><b>${w.h}</b><i>${pc(w.p)}</i><
 let LF = 'all'; // filtro del vocabulario: all | done | new | hard
 function list(f) {
   if (f) LF = f; BACK = 'list()';
-  const all = W.filter(sel), st = all.filter(w => S.known[w.id]), dom = st.filter(w => (S.w[w.id]?.b || 0) >= 4).length, hard = new Set(hardList().map(w => w.id));
+  const hard = new Set(hardList().map(w => w.id));
   const pass = { all: () => 1, done: w => S.known[w.id], new: w => !S.known[w.id], hard: w => hard.has(w.id) }[LF];
   const chip = (k, t) => `<button class="chip ${LF == k ? 'on' : ''}" onclick="list('${k}')">${t}</button>`;
   const draw = q => {
@@ -749,8 +756,6 @@ function list(f) {
     $('#l').innerHTML = hit.slice(0, 300).map(row).join('') + (hit.length > 300 ? `<p class=mut style="text-align:center">Se muestran 300 de ${hit.length}: usa el buscador para encontrar más.</p>` : '') + (!hit.length ? '<p class=mut style="text-align:center">No hay palabras con este filtro.</p>' : '');
   };
   app(`<div class=top><button class=back onclick="home()">←</button><input type=search id=s placeholder="Buscar hanzi, pinyin o español"></div>
-    <div class=stats><div class=stat><b>${st.length}</b><span class=mut>estudiadas de ${all.length}</span></div><div class=stat><b>${dom}</b><span class=mut>dominadas</span></div><div class=stat><b>${all.length - st.length}</b><span class=mut>por estudiar</span></div></div>
-    <details class=lv><summary>Resumen por nivel</summary>${LEVELS.map(l => { const ws = W.filter(w => w.l == l), n = ws.filter(w => S.known[w.id]).length; return `<div class=hbar><span>HSK ${l}</span><div class=bar><i style="width:${n / ws.length * 100}%"></i></div><b style="width:4.8rem">${n}/${ws.length}</b></div>`; }).join('')}<div class=mut>Punto rojo: estudiada · verde: dominada · gris: nueva</div></details>
     <div class=row style="margin:.6rem 0">${chip('all', 'Todas')}${chip('done', 'Estudiadas')}${chip('new', 'Sin estudiar')}${chip('hard', '⭐ Difíciles')}</div>
     <div class=mut id=cnt></div><div class=list id=l></div>`);
   $('#s').oninput = e => draw(e.target.value); draw('');

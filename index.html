@@ -103,7 +103,7 @@ nav button.on{color:var(--pri);font-weight:700}
 input[type=text],input[type=search]{width:100%;padding:.8rem;border-radius:6px;border:2px solid var(--bd);background:var(--card);color:var(--tx);font-size:1.1rem}
 /* pantallas de práctica: llenan toda la altura con pregunta y respuestas grandes */
 body.nonav{padding-bottom:calc(14px + env(safe-area-inset-bottom))}
-.play{display:flex;flex-direction:column;min-height:calc(100vh - 28px)}
+.play{display:flex;flex-direction:column;min-height:calc(100vh - 28px);min-height:calc(100dvh - 28px)}
 .play>#q{flex:1.6;display:flex;flex-direction:column;min-height:0}
 .play .prompt{flex:1;margin:0 0 .9rem;justify-content:center;align-items:center;gap:.8rem;font-size:1.7rem}
 .play .prompt .hz{font-size:clamp(4.5rem,26vw,7.5rem)}
@@ -630,6 +630,7 @@ const Q = {
     loadHW().then(() => {
       let k = 0, bad = 0, sinDatos = 0;
       const next = () => { // un carácter cada vez, con la casilla a todo el ancho
+        if (!$('#dw')) return; // salió de la pantalla
         $('#dw').innerHTML = ''; $('#dm').textContent = (cs.length > 1 ? `Carácter ${k + 1} de ${cs.length} · ` : '') + 'dibuja los trazos en orden';
         HanziWriter.create('dw', cs[k], { width: sz, height: sz, padding: 12, showOutline: true, drawingWidth: 12, strokeColor: getComputedStyle(document.body).color, outlineColor: '#cdbd9a',
           onLoadCharDataError: () => { $('#dm').textContent = 'Sin datos de trazos para ' + cs[k]; if (!sinDatos++) done(false); } })
@@ -720,7 +721,7 @@ function matchGame(fixed) {
       const a = cur; cur = null;
       if (a.dataset.i == b.dataset.i) {
         [a, b].forEach(x => { x.classList.remove('sel'); x.classList.add('ok'); x.disabled = true; });
-        if (!--left) { ws.forEach(w => { const good = !err.has(w.id); grade(w.id, good); good ? ok++ : bad.push(w); }); setTimeout(() => { r++; round(); }, 600); }
+        if (!--left) { ws.forEach(w => { const good = !err.has(w.id); grade(w.id, good); good ? ok++ : bad.push(w); }); setTimeout(() => { if ($('.match')) { r++; round(); } }, 600); }
       } else {
         err.add(+(a.dataset.s == 'l' ? a : b).dataset.i);
         [a, b].forEach(x => { x.classList.remove('sel'); x.classList.add('no', 'shake'); });
@@ -736,8 +737,8 @@ function list() {
   BACK = 'list()';
   const draw = q => {
     q = q.trim().toLowerCase(); const nq = nrm(q);
-    $('#l').innerHTML = W.filter(w => sel(w) && (!q || w.h.includes(q) || (nq && nrm(w.p).includes(nq)) || w.e.toLowerCase().includes(q)))
-      .map(row).join('');
+    const hit = W.filter(w => sel(w) && (!q || w.h.includes(q) || (nq && nrm(w.p).includes(nq)) || w.e.toLowerCase().includes(q)));
+    $('#l').innerHTML = hit.slice(0, 300).map(row).join('') + (hit.length > 300 ? `<p class=mut style="text-align:center">Se muestran 300 de ${hit.length}: usa el buscador para encontrar más.</p>` : '');
   };
   app(`<div class=top><button class=back onclick="home()">←</button><input type=search id=s placeholder="Buscar hanzi, pinyin o español"></div><div class=list id=l></div>`);
   $('#s').oninput = e => draw(e.target.value); draw('');

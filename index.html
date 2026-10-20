@@ -289,7 +289,7 @@ function toneVars(p) { // variantes con otros tonos, para distinguirlos
 
 // --- progreso (localStorage; si falla, la app sigue sin guardar) ---
 let S = {}; try { S = JSON.parse(localStorage.hsk3) || {}; } catch {}
-S.w = S.w || {}; S.known = S.known || {}; S.gram = S.gram || {}; S.song = S.song || {}; S.lv = S.lv || [1, 2, 3];
+S.w = S.w || {}; S.known = S.known || {}; S.gram = S.gram || {}; S.gramR = S.gramR || {}; S.song = S.song || {}; S.lv = S.lv || [1, 2, 3];
 S.lv = [1, 2, 3, 4, 5].slice(0, Math.max(...S.lv, 1)); // los HSK son acumulativos: elegir uno incluye los anteriores S.streak = S.streak || 0; S.last = S.last || '';
 S.hist = S.hist || {}; S.exams = S.exams || []; S.exLv = S.exLv || 3; S.star = S.star || {};
 S.set = Object.assign({ goal: 20, rate: .8, size: 100, theme: 'auto', tones: true }, S.set);
@@ -406,6 +406,7 @@ function today() {
     ${!pl.length ? '<p class=mut>Aún no has estudiado ninguna lección.</p><button class=main onclick="lessons()">Ir a las lecciones</button>'
       : d.length ? `<button class=main style="margin-top:0" onclick="session('mix')">Empezar repaso (${Math.min(20, d.length)} palabras)</button><p class=mut>Mezcla ejercicios según lo bien que sabes cada palabra.</p>`
       : '<div class=prompt><span class=hz>🎉</span>¡Todo repasado por hoy!<small>Vuelve mañana o aprende palabras nuevas.</small></div><button class=main onclick="lessons()">Aprender palabras nuevas</button>'}
+    ${Object.keys(S.gram).length ? `<h3>Gramática</h3>${gramDue().length ? `<button class=main style="margin-top:0" onclick="gramRev()">Repasar gramática (${gramDue().length} ${gramDue().length == 1 ? 'punto' : 'puntos'})</button>` : '<p class=mut>✅ Gramática al día.</p>'}` : ''}
     <h3>Próximos 7 días</h3>
     <svg viewBox="0 0 280 80" class=chart>${fc.map((n, i) => `<rect x=${i * 40 + 6} y=${60 - n / mx * 46} width=28 height=${n / mx * 46} rx=2 style="fill:var(--gold)"/><text x=${i * 40 + 20} y=${56 - n / mx * 46} text-anchor=middle>${n || ''}</text><text x=${i * 40 + 20} y=74 text-anchor=middle>${i ? DN[new Date(Date.now() + (i + 1) * 864e5).getDay()] : 'mañana'}</text>`).join('')}</svg>`, 'today');
 }
@@ -496,35 +497,58 @@ function gram(i) {
     <h3>Ejemplos</h3>${g.xs.map((x, k) => `<div class=ex onclick="say(gplain(GR[${i}].xs[${k}][0]))"><div class=zh>${gzh(x[0])} 🔊</div><div class=p2>${pc(x[1])}</div><div class=mut>${x[2]}</div></div>`).join('')}
     <button class=main onclick="gramEx(${i})">Practicar${S.gram[g.t] != null ? ' · mejor: ' + S.gram[g.t] + '%' : ''}</button>`);
 }
-function gramEx(i) { // ordenar la frase y completar el hueco con los ejemplos del punto
-  const g = GR[i], dflt = '的 了 吗 呢 吧 在 是 很 不 也 都 就 才 还 又 再'.split(' ');
-  const qs = shuffle(g.xs.flatMap(x => {
-    const segs = x[0].split('|').map(t => t.replace(/[\[\]]/g, '')), key = (x[0].match(/\[(.*?)\]/) || [])[1], out = [];
-    if (segs.length >= 3) out.push({ t: 'o', x, segs });
-    if (key) out.push({ t: 'c', x, key });
-    return out;
-  })).slice(0, 6);
-  let n = 0, ok = 0;
+// preguntas de un punto: elegir la frase en chino, ordenarla y completar el hueco
+const GDFLT = '的 了 吗 呢 吧 在 是 很 不 也 都 就 才 还 又 再'.split(' ');
+const gramQs = (g, gi) => g.xs.flatMap(x => {
+  const segs = x[0].split('|').map(t => t.replace(/[\[\]]/g, '')), key = (x[0].match(/\[(.*?)\]/) || [])[1], out = [{ t: 't', x }];
+  if (segs.length >= 3) out.push({ t: 'o', x, segs });
+  if (key) out.push({ t: 'c', x, key });
+  return out.map(q => ({ ...q, g, gi }));
+});
+// repaso espaciado de gramática: S.gramR[título] = { b: caja, d: próximo repaso }; lo ya practicado sin calendario vence ya
+const gramDue = () => GR.filter(g => S.gram[g.t] != null && (S.gramR[g.t]?.d || 0) <= eod());
+const gramGrade = (g, ok) => { const r = S.gramR[g.t] = S.gramR[g.t] || { b: 0 }; r.b = ok ? Math.min(5, r.b + 1) : 0; r.d = ok ? Date.now() + DAYS[r.b] * 864e5 : eod() + 1; };
+function gramRun(qs, back, end) { // end(aciertos, total, {título: {ok, n}}) guarda y muestra el resultado
+  let n = 0, ok = 0; const res = {};
   const step = () => {
-    if (n >= qs.length) {
-      const pct = Math.round(ok / qs.length * 100); S.gram[g.t] = Math.max(S.gram[g.t] || 0, pct); save();
-      return app(`<h1>¡Hecho! 🎉</h1><p style="font-size:1.4rem">${ok}/${qs.length} aciertos</p><button class=main onclick="gramEx(${i})">Otra ronda</button><button class=opt style="margin-top:.5rem" onclick="gram(${i})">Volver a la explicación</button><button class=opt style="margin-top:.5rem" onclick="gramatica()">Todas las estructuras</button>`);
-    }
-    const q = qs[n], x = q.x;
-    app(`<div class=play><div class=top><button class=back onclick="gram(${i})">✕</button><div class=bar><i style="width:${n / qs.length * 100}%"></i></div></div><div id=q></div><div id=fb></div></div>`);
+    if (n >= qs.length) return end(ok, qs.length, res);
+    const q = qs[n], x = q.x, g = q.g;
+    app(`<div class=play><div class=top><button class=back onclick="${back}">✕</button><div class=bar><i style="width:${n / qs.length * 100}%"></i></div></div><div id=q></div><div id=fb></div></div>`);
     const done = good => {
-      tick(good); save(); if (good) ok++;
-      $('#fb').innerHTML = `<div class="fb ${good ? 'g' : 'b'}"><b style="font-size:1.3rem">${gzh(x[0])}</b> <button class=back onclick="say(gplain(GR[${i}].xs[${g.xs.indexOf(x)}][0]))">🔊</button><div class=p2>${pc(x[1])}</div><div class=mut>${x[2]}</div></div><button class=main id=nx>Siguiente</button>`;
+      tick(good); save(); good && ok++;
+      const r = res[g.t] = res[g.t] || { ok: 0, n: 0 }; r.n++; good && r.ok++;
+      $('#fb').innerHTML = `<div class="fb ${good ? 'g' : 'b'}"><b style="font-size:1.3rem">${gzh(x[0])}</b> <button class=back onclick="say(gplain(GR[${q.gi}].xs[${g.xs.indexOf(x)}][0]))">🔊</button><div class=p2>${pc(x[1])}</div><div class=mut>${x[2]}</div></div><button class=main id=nx>Siguiente</button>`;
       $('#nx').onclick = () => { n++; step(); };
     };
     if (q.t == 'o') orderUI($('#q'), q.segs, x[2], done);
-    else {
-      const right = { t: q.key }, falsas = (x[3] ? x[3].split(' ') : shuffle(dflt.filter(w => w != q.key))).slice(0, 3);
+    else if (q.t == 't') {
+      const otras = [...g.xs.filter(y => y != x), ...sample(GR.flatMap(h => h.xs), 8)], vistas = new Set([gplain(x[0])]);
+      const falsas = otras.filter(y => !vistas.has(gplain(y[0])) && vistas.add(gplain(y[0]))).slice(0, 3), right = { z: gplain(x[0]) };
+      $('#q').innerHTML = `<div class=prompt><b>${x[2]}</b><small>¿Cómo se dice en chino?</small></div>`;
+      opts($('#q'), right, shuffle([right, ...falsas.map(y => ({ z: gplain(y[0]) }))]), o => `<span class=hz2>${o.z}</span>`, done);
+    } else {
+      const right = { t: q.key }, falsas = (x[3] ? x[3].split(' ') : shuffle(GDFLT.filter(w => w != q.key))).slice(0, 3);
       $('#q').innerHTML = `<div class=prompt><span class=hz2 style="line-height:1.5">${x[0].replace(/\[.*?\]/, '＿＿').replace(/\|/g, '')}</span><small>${x[2]}</small></div>`;
       opts($('#q'), right, shuffle([right, ...falsas.map(t => ({ t }))]), o => `<span class=hz2>${o.t}</span>`, done);
     }
   };
   step();
+}
+const gramDone = (ok, n, ...bs) => app(`<h1>¡Hecho! 🎉</h1><p style="font-size:1.4rem">${ok}/${n} aciertos</p>` + bs.filter(Boolean).map(([js, l], k) => `<button class="${k ? 'opt' : 'main'}" ${k ? 'style="margin-top:.5rem" ' : ''}onclick="${js}">${l}</button>`).join(''));
+function gramEx(i) {
+  const g = GR[i];
+  gramRun(shuffle(gramQs(g, i)).slice(0, 6), `gram(${i})`, (ok, n) => {
+    const pct = Math.round(ok / n * 100); S.gram[g.t] = Math.max(S.gram[g.t] || 0, pct); gramGrade(g, pct >= 70); save();
+    gramDone(ok, n, [`gramEx(${i})`, 'Otra ronda'], [`gram(${i})`, 'Volver a la explicación'], ['gramatica()', 'Todos los puntos']);
+  });
+}
+function gramRev() { // repaso de «Hoy»: hasta 4 puntos vencidos, 2 preguntas de cada uno
+  const ps = shuffle(gramDue()).slice(0, 4), qs = shuffle(ps.flatMap(g => shuffle(gramQs(g, GR.indexOf(g))).slice(0, 2)));
+  if (!qs.length) return today();
+  gramRun(qs, 'today()', (ok, n, res) => {
+    ps.forEach(g => { const r = res[g.t]; if (r) gramGrade(g, r.ok * 2 >= r.n); }); save();
+    gramDone(ok, n, gramDue().length ? ['gramRev()', 'Más repaso'] : null, ['today()', 'Volver a Hoy']);
+  });
 }
 
 // --- canciones ---

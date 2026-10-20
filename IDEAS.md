@@ -7,7 +7,6 @@ Lista de mejoras que se han hablado y todavía no están hechas. Recomendación:
 
 ## Para aprender mejor
 4. **Pronunciación:** grabarte, compararte con el modelo y, en Chrome, puntuar con reconocimiento de voz.
-8. **Repaso espaciado de gramática** dentro de «Hoy» y más ejercicios (por ejemplo traducir frases).
 9. **Palabra y 成语 (modismo) del día** en el inicio.
 10. **Familias de palabras, antónimos y sinónimos** en la ficha de cada palabra.
 11. **Modo antes del examen:** cuenta atrás hasta la fecha del HSK y plan intensivo.
@@ -35,6 +34,7 @@ Lista de mejoras que se han hablado y todavía no están hechas. Recomendación:
 - Entrenamiento de tonos: modo «Entrenar tonos» (sw v38).
 - Diálogos cortos: 20 diálogos HSK 1-5 con audio y preguntas (`dialogos.js`, sw v39).
 - Lectura graduada: 20 historias HSK 1-5 con palabras tocables y preguntas (`lecturas.js`, sw v40).
+- Repaso espaciado de gramática en «Hoy» y ejercicio de traducir frases (sw v41).
 
 ## Decisiones ya tomadas
 - No se incluyen grabaciones ni letras de canciones con derechos de autor dentro de la app; el Top 10 usa el reproductor de YouTube (necesita conexión).

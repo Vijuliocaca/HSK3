@@ -291,7 +291,12 @@ S.hist = S.hist || {}; S.exams = S.exams || []; S.exLv = S.exLv || 3; S.star = S
 S.set = Object.assign({ goal: 20, rate: .8, size: 100, theme: 'auto', tones: true }, S.set);
 const applySet = () => { const r = document.documentElement; r.style.fontSize = S.set.size + '%'; S.set.theme == 'auto' ? r.removeAttribute('data-theme') : r.setAttribute('data-theme', S.set.theme); };
 applySet();
-const save = () => { try { localStorage.hsk3 = JSON.stringify(S); } catch {} };
+// En disco (v2) el progreso por palabra va indexado por hanzi; en memoria, por id. Así añadir o mover palabras no desplaza el progreso.
+// ponytail: si un hanzi se repitiera en la lista, solo cuenta el último; una palabra quitada de la lista se conserva en S.orph.
+const KEYED = ['w', 'known', 'star'], HID = new Map(W.map(w => [w.h, w.id]));
+if (S.v == 2) { S.orph = {}; KEYED.forEach(f => { const o = {}; for (const [h, v] of Object.entries(S[f])) HID.has(h) ? o[HID.get(h)] = v : (S.orph[f] = S.orph[f] || {})[h] = v; S[f] = o; }); }
+const toDisk = () => { const o = { ...S, v: 2 }; KEYED.forEach(f => { o[f] = { ...S.orph?.[f], ...Object.fromEntries(Object.entries(S[f]).map(([i, v]) => [W[i].h, v])) }; }); delete o.orph; return JSON.stringify(o); };
+const save = () => { try { localStorage.hsk3 = toDisk(); } catch {} };
 if (S.packs) { W.forEach(w => { if (S.packs[w.pk0]) S.known[w.id] = 1; }); delete S.packs; save(); } // migra las lecciones antiguas a palabras estudiadas
 const day = d => d.toLocaleDateString('sv');
 const DAYS = [0, 1, 3, 7, 14, 30]; // repeticion espaciada: dias hasta el siguiente repaso por caja
@@ -434,7 +439,23 @@ function settings() {
     <h3>Tamaño de letra</h3><div class="row seg">${o('size', 90, 'Pequeño')}${o('size', 100, 'Normal')}${o('size', 115, 'Grande')}${o('size', 130, 'Enorme')}</div>
     <h3>Tema</h3><div class="row seg">${o('theme', 'auto', 'Automático')}${o('theme', 'light', 'Claro')}${o('theme', 'dark', 'Oscuro')}</div>
     <h3>Colores de tono</h3><div class="row seg">${o('tones', true, 'Sí')}${o('tones', false, 'No')}</div>
-    <p class=mut>Pinyin en colores: ${pc('mā má mǎ mà ma')} (1.º a 4.º tono y neutro).</p>`);
+    <p class=mut>Pinyin en colores: ${pc('mā má mǎ mà ma')} (1.º a 4.º tono y neutro).</p>
+    <h3>Copia de seguridad</h3><p class=mut>Guarda tu progreso en un archivo para cambiar de móvil o por si se borran los datos del navegador.</p>
+    <div class="row seg"><button class=chip onclick="exportar()">⬇️ Exportar</button><button class=chip onclick="$('#imp').click()">⬆️ Importar</button></div>
+    <input type=file id=imp accept=".json,application/json" hidden onchange="importar(this.files[0])">`);
+}
+function exportar() {
+  const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([toDisk()], { type: 'application/json' }));
+  a.download = 'hsk-viju-' + day(new Date()) + '.json'; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1e4);
+}
+async function importar(f) {
+  if (!f) return;
+  try {
+    const d = JSON.parse(await f.text());
+    if (!d || typeof d != 'object' || !d.w || !d.known || !d.lv) throw 0;
+    if (!confirm('Esto sustituye tu progreso actual por el del archivo. ¿Continuar?')) return;
+    localStorage.hsk3 = JSON.stringify(d); location.reload();
+  } catch { alert('El archivo no es una copia de seguridad válida.'); }
 }
 
 // --- temas ---

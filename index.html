@@ -20,6 +20,8 @@
 .seg{flex-wrap:nowrap;align-items:stretch}.seg1{width:100%;margin-top:.5rem;text-align:center}.seg .chip{flex:1 1 0;min-width:0;text-align:center;padding:.65rem .15rem;font-size:.95rem}
 .gear{margin-left:auto;background:none;border:0;font-size:1.4rem}.gear+.gear{margin-left:0}
 .lv summary{cursor:pointer;color:var(--gold);margin:.5rem 0;font-size:.9rem}
+.exam{border:1px solid var(--bd);border-left:4px solid var(--no);background:var(--card);border-radius:6px;padding:.7rem .9rem;margin:.8rem 0}.exam .row{margin-top:.5rem}
+input[type=date]{padding:.6rem;border-radius:6px;border:2px solid var(--bd);background:var(--card);color:var(--tx);font:inherit}
 .goal{display:flex;align-items:center;gap:.6rem;font-size:.85rem;margin:.2rem 0 1rem}
 #upd{position:fixed;left:12px;right:12px;top:calc(8px + env(safe-area-inset-top));z-index:9;background:var(--pri);color:#fff;border-radius:8px;padding:.6rem .8rem;display:flex;gap:.6rem;align-items:center;box-shadow:0 4px 14px rgba(0,0,0,.3)}
 #upd[hidden]{display:none} #upd button{margin-left:auto;background:#fff;color:var(--pri);border:0;border-radius:6px;padding:.3rem .7rem;font-weight:700}
@@ -374,6 +376,17 @@ function daily() {
       <div class=ex onclick="say(CY[${ci}][4])"><div class=zh>${c[4]} 🔊</div><div class=p2>${pc(c[5])}</div><div class=mut>${c[6]}</div></div><button class=chip style="margin-top:.5rem" onclick="say('${c[0]}')">🔊 Escuchar el 成语</button></details>` : '');
 }
 
+// modo antes del examen: cuenta atrás y ritmo diario para llegar con todo el vocabulario del HSK elegido estudiado
+const examDays = () => S.exam?.d ? Math.round((new Date(S.exam.d + 'T00:00') - new Date(day(new Date()) + 'T00:00')) / 864e5) : null;
+function examCard() {
+  const n = examDays(); if (n == null || n < 0) return '';
+  const rest = W.filter(w => w.l <= S.exLv && !S.known[w.id]).length, pace = Math.ceil(rest / Math.max(1, n)), hecho = S.newD?.d == day(new Date()) ? S.newD.n : 0, dd = due().length;
+  return `<div class=exam><b>⏳ ${n ? `Faltan ${n} ${n == 1 ? 'día' : 'días'} para el HSK ${S.exLv}` : `¡Hoy es tu examen HSK ${S.exLv}! 🍀`}</b>
+    ${n ? `<div class=mut>Te quedan ${rest} palabras por estudiar${rest ? `: ritmo de <b>${pace} nuevas al día</b> (hoy ${Math.min(hecho, pace)}/${pace} ${hecho >= pace ? '✅' : ''})` : ' ✅'}. Repasos pendientes hoy: <b>${dd}</b>.</div>
+    <div class=row><button class=chip onclick="lessons()">📚 Estudiar</button><button class=chip onclick="today()">📅 Repasar</button>${n <= 14 ? '<button class=chip onclick="examMenu()">📝 Simulacro</button>' : ''}</div>` : ''}</div>`;
+}
+const setExam = v => { S.exam = v ? { d: v } : null; save(); examMenu(); };
+
 function home() {
   const all = W.filter(sel), p = pool(), dom = p.filter(w => (S.w[w.id]?.b || 0) >= 4).length, nd = due().length;
   const streakOk = S.last == day(new Date()) || S.last == day(new Date(Date.now() - 864e5));
@@ -387,6 +400,7 @@ function home() {
     <div class=stat><b>${dom}</b><span class=mut>dominadas</span></div>
   </div>
   <div class=prog><i style="width:${all.length ? p.length / all.length * 100 : 0}%"></i></div>
+  ${examCard()}
   <div class=row>${LEVELS.map(n => `<button class="chip ${S.lv.includes(n) ? 'on' : ''}" onclick="tog('lv',${n})">HSK ${n}</button>`).join('')}</div><div class=mut style="margin-top:.4rem">Cada HSK incluye el vocabulario de los anteriores.</div>
   <details class=resumen ${S.resOpen ? 'open' : ''} ontoggle="S.resOpen = this.open; save()"><summary>Resumen de palabras estudiadas</summary>
     ${LEVELS.map(l => { const ws = W.filter(w => w.l == l), n = ws.filter(w => S.known[w.id]).length; return `<div class=hbar><span>HSK ${l}</span><div class=bar><i style="width:${n / ws.length * 100}%"></i></div><b style="width:4.8rem">${n}/${ws.length}</b></div>`; }).join('')}
@@ -740,6 +754,7 @@ function study(pk, i = 0) {
   say(w.h);
 }
 function studied(pk) {
+  const nuevas = PW[pk].filter(w => !S.known[w.id]).length, hoy = day(new Date()); S.newD = { d: hoy, n: (S.newD?.d == hoy ? S.newD.n : 0) + nuevas }; // palabras nuevas de hoy, para el plan del examen
   PW[pk].forEach(w => S.known[w.id] = 1); save();
   const ws = PW[pk], next = lessonKeys().find(k => !done(k));
   window.cur = ws;
@@ -1063,6 +1078,9 @@ function examMenu() {
     <h3>HSK del examen</h3>
     <div class=row>${LEVELS.map(n => `<button class="chip ${S.exLv == n ? 'on' : ''}" onclick="S.exLv=${n};save();examMenu()">HSK ${n}</button>`).join('')}</div>
     <p class=mut>Usa solo el vocabulario de ese HSK, hayas estudiado las lecciones o no, y ninguna palabra se repite en el examen. Incluye frases de ejemplo en todos los HSK.</p>
+    <h3>Fecha de tu examen</h3>
+    <div class=row><input type=date value="${S.exam?.d || ''}" min="${day(new Date())}" onchange="setExam(this.value)"><button class=chip onclick="setExam('')">Quitar</button></div>
+    <p class=mut>${examDays() == null ? 'Pon la fecha y el inicio mostrará la cuenta atrás con tu ritmo diario.' : examDays() < 0 ? 'Esa fecha ya pasó: quítala o pon otra.' : 'La cuenta atrás sale en el inicio.'}</p>
     <button class=main onclick="exam(S.exLv)">Empezar examen</button>
     <h3>Últimos resultados</h3>
     ${S.exams.length ? S.exams.slice(-5).reverse().map(e => { const t = e.s[0] + e.s[1] + e.s[2]; return `<div class=hbar><span>${e.d} · HSK ${e.lv}</span><div class=bar><i style="width:${t / 3}%;${t >= 180 ? 'background:var(--ok)' : ''}"></i></div><b>${t}</b></div>`; }).join('') : '<p class=mut>Sin exámenes todavía.</p>'}`, 'examMenu');

@@ -7,7 +7,6 @@ Lista de mejoras que se han hablado y todavía no están hechas. Recomendación:
 
 ## Para aprender mejor
 4. **Pronunciación:** grabarte, compararte con el modelo y, en Chrome, puntuar con reconocimiento de voz.
-11. **Modo antes del examen:** cuenta atrás hasta la fecha del HSK y plan intensivo.
 12. **Listas propias de palabras.**
 
 ## Cultura y diversión
@@ -35,6 +34,7 @@ Lista de mejoras que se han hablado y todavía no están hechas. Recomendación:
 - Repaso espaciado de gramática en «Hoy» y ejercicio de traducir frases (sw v41).
 - Palabra y 成语 del día en el inicio: 60 modismos (`chengyu.js`, sw v42).
 - Familias de palabras, antónimos y sinónimos en la ficha (`relaciones.js`, sw v43).
+- Modo antes del examen: fecha en la pantalla Examen, cuenta atrás y ritmo diario en el inicio (sw v44).
 
 ## Decisiones ya tomadas
 - No se incluyen grabaciones ni letras de canciones con derechos de autor dentro de la app; el Top 10 usa el reproductor de YouTube (necesita conexión).

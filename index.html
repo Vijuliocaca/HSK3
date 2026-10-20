@@ -339,6 +339,7 @@ const MODES = [
   ['sentence', '🗣️', 'Escuchar la frase', 'Oye una frase y elige su significado'],
   ['order', '🧱', 'Ordenar la frase', 'Construye la frase con sus palabras'],
   ['pinyin', '🔤', 'Elegir pinyin', 'Distingue los tonos'],
+  ['tones', '🎼', 'Entrenar tonos', 'mā má mǎ mà: oye y distingue'],
   ['hard', '🔥', 'Palabras difíciles', ''],
   ['hanzi', '🈶', 'Elegir hanzi', 'Significado → caracteres'],
   ['draw', '✍️', 'Dibujar trazos', 'Escribe el carácter trazo a trazo'],
@@ -381,6 +382,7 @@ const empty = (t = 'Primero estudia alguna lección', s = 'Los juegos usan solo 
 function go(m) {
   if (m == 'song') return canciones();
   if (m == 'top10') return top10();
+  if (m == 'tones') return tonos();
   if (m == 'hard') return hardList().length ? session('hard') : app(`<div class=top><button class=back onclick="home()">←</button></div><div class=prompt><span class=hz>🔥</span>Aún no tienes palabras difíciles<small>Aparecen aquí las que más fallas y las que marques con ⭐ en su ficha.</small></div>`);
   if (!pool().length) return empty();
   m == 'match' ? matchGame() : m == 'speed' ? speed() : session(m);
@@ -826,6 +828,31 @@ function session(mode, fixed) {
       grade(w.id, good); good ? ok++ : bad.push(w);
       const s = SENT[w.h];
       $('#fb').innerHTML = `<div class="fb ${good ? 'g' : 'b'}"><b style="font-size:1.4rem">${w.h}</b> ${pc(w.p)} — ${w.e} <button class=back onclick="say('${w.h}')">🔊</button>${s ? `<div class=mut style="margin-top:.3rem">${s[0]} · ${s[2]}</div>` : ''}</div><button class=main id=nx>Siguiente</button>`;
+      $('#nx').onclick = () => { i++; step(); };
+    });
+  };
+  step();
+}
+
+// entrenamiento de tonos: no usa el progreso, vale con cualquier palabra de una sílaba
+const MA = [['妈', 'mā', 'madre'], ['麻', 'má', 'cáñamo'], ['马', 'mǎ', 'caballo'], ['骂', 'mà', 'regañar']];
+function tonos() {
+  app(`<div class=top><button class=back onclick="home()">←</button><b>Entrenar tonos</b></div>
+    <p class=mut>Una misma sílaba cambia de significado según el tono. Toca para oír cada una:</p>
+    <div class=grid>${MA.map(([z, p, e]) => `<button class=mode onclick="say('${z}')"><span class=e>🔊</span><span><b style="font-size:1.4rem">${pc(p)}</b><small>${z} · ${e}</small></span></button>`).join('')}</div>
+    <button class=main onclick="tonosQ()">Empezar (10 rondas)</button>`, 'home');
+}
+function tonosQ() {
+  const P = W.filter(w => !w.h.includes(' ') && w.p.split(' ').length == 1 && [...w.h].length == 1 && toneOf(w.p) < 5), items = sample(P, 10); let i = 0, ok = 0; const bad = [];
+  const step = () => {
+    if (i >= items.length) return summary(ok, items.length, bad, tonosQ);
+    const w = items[i], t = toneOf(w.p);
+    app(`<div class=play><div class=top><button class=back onclick="tonos()">✕</button><div class=bar><i style="width:${i / items.length * 100}%"></i></div></div><div id=q></div><div id=fb></div></div>`);
+    const el = $('#q'); el.innerHTML = `<div class=prompt><button class=main style="width:auto;margin:0 auto" onclick="say('${w.h}')">🔊 Escuchar</button><small>¿Qué tono oyes?</small></div>`;
+    setTimeout(() => say(w.h), 300);
+    opts(el, w, [1, 2, 3, 4].map(k => k == t ? w : { p: setTone(w.p, k) }), o => pc(o.p), good => {
+      good ? ok++ : bad.push(w);
+      $('#fb').innerHTML = `<div class="fb ${good ? 'g' : 'b'}"><b style="font-size:1.4rem">${w.h}</b> ${pc(w.p)} — ${w.e} <button class=back onclick="say('${w.h}')">🔊</button></div><button class=main id=nx>Siguiente</button>`;
       $('#nx').onclick = () => { i++; step(); };
     });
   };

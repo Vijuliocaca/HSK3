@@ -147,6 +147,7 @@ body.nonav{padding-bottom:calc(14px + env(safe-area-inset-bottom))}
 a.chip{text-decoration:none;color:inherit;display:inline-block}
 .vframe{position:relative;padding-top:56.25%;margin:.4rem 0 .8rem;background:#000;border-radius:8px;overflow:hidden}.vframe iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.vframe.mut{padding:.8rem;background:none}
 #dl.np .p2{display:none} #dl.ne .ex .mut{display:none} #dl .ex{margin-top:.6rem;text-align:left} #dl .ex b{color:var(--pri);margin-right:.4rem}
+#lc.np .wd small{display:none} #lc.ne .ex .mut{display:none} #lc .ex{margin-top:.6rem;text-align:left} .wd{display:inline-block;text-align:center;margin:.15rem .1rem;padding:.1rem .25rem;border-radius:6px;cursor:pointer;font-family:var(--serif);font-size:1.5rem;line-height:1.3} .wd small{display:block;font-family:inherit;font-size:.7rem;color:var(--pri)} .wd:active{background:var(--card);outline:1px solid var(--pri)} #fi{position:sticky;bottom:.5rem}
 .ex.now{border-style:solid;border-color:var(--pri);box-shadow:0 0 0 2px var(--pri)}
 </style>
 </head>
@@ -199,6 +200,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script src="gramatica3.js"></script>
 <script src="canciones.js"></script>
 <script src="dialogos.js"></script>
+<script src="lecturas.js"></script>
 <script>
 const $ = s => document.querySelector(s);
 const TABS = [['home', '🏠', 'Inicio'], ['today', '📅', 'Hoy'], ['examMenu', '📝', 'Examen'], ['stats', '📊', 'Progreso']];
@@ -341,6 +343,7 @@ const MODES = [
   ['sentence', '🗣️', 'Escuchar la frase', 'Oye una frase y elige su significado'],
   ['order', '🧱', 'Ordenar la frase', 'Construye la frase con sus palabras'],
   ['pinyin', '🔤', 'Elegir pinyin', 'Distingue los tonos'],
+  ['lect', '📖', 'Lecturas', 'Historias cortas: toca las palabras'],
   ['dial', '💬', 'Diálogos', 'Escucha conversaciones y contesta'],
   ['tones', '🎼', 'Entrenar tonos', 'mā má mǎ mà: oye y distingue'],
   ['hard', '🔥', 'Palabras difíciles', ''],
@@ -387,6 +390,7 @@ function go(m) {
   if (m == 'top10') return top10();
   if (m == 'tones') return tonos();
   if (m == 'dial') return dialogos();
+  if (m == 'lect') return lecturas();
   if (m == 'hard') return hardList().length ? session('hard') : app(`<div class=top><button class=back onclick="home()">←</button></div><div class=prompt><span class=hz>🔥</span>Aún no tienes palabras difíciles<small>Aparecen aquí las que más fallas y las que marques con ⭐ en su ficha.</small></div>`);
   if (!pool().length) return empty();
   m == 'match' ? matchGame() : m == 'speed' ? speed() : session(m);
@@ -881,16 +885,20 @@ function dialogo(i) {
     <button class=main style="margin-top:1rem" onclick="dialQ(${i})">Preguntas de comprensión</button>`, 'home');
   sayAll(i);
 }
-function dialQ(i) {
-  const d = DIAL[i]; let n = 0, ok = 0; try { speechSynthesis.cancel(); } catch {}
+
+// cuestionario común de diálogos y lecturas (k = 'dial' | 'lect'); el mejor resultado se guarda en S[k] por título
+const KIND = { dial: { L: () => DIAL, q: 'dialQ', one: 'dialogo', all: 'dialogos', say: 'sayAll', n: 'diálogo', m: 'Más diálogos' }, lect: { L: () => LECT, q: 'lectQ', one: 'lectura', all: 'lecturas', say: 'sayLect', n: 'texto', m: 'Más lecturas' } };
+const dialQ = i => quiz('dial', i), lectQ = i => quiz('lect', i);
+function quiz(k, i) {
+  const K = KIND[k], d = K.L()[i]; let n = 0, ok = 0; try { speechSynthesis.cancel(); } catch {}
   const step = () => {
     if (n >= d.qs.length) {
-      S.dial = S.dial || {}; S.dial[d.t] = Math.max(S.dial[d.t] || 0, ok); save();
-      return app(`<h1>¡Hecho! 🎉</h1><p style="font-size:1.4rem">${ok}/${d.qs.length} aciertos</p><button class=main onclick="dialQ(${i})">Repetir</button><button class=opt style="margin-top:.5rem" onclick="dialogo(${i})">Volver al diálogo</button><button class=opt style="margin-top:.5rem" onclick="dialogos()">Más diálogos</button>`);
+      S[k] = S[k] || {}; S[k][d.t] = Math.max(S[k][d.t] || 0, ok); save();
+      return app(`<h1>¡Hecho! 🎉</h1><p style="font-size:1.4rem">${ok}/${d.qs.length} aciertos</p><button class=main onclick="${K.q}(${i})">Repetir</button><button class=opt style="margin-top:.5rem" onclick="${K.one}(${i})">Volver al ${K.n}</button><button class=opt style="margin-top:.5rem" onclick="${K.all}()">${K.m}</button>`);
     }
     const [q, ...r] = d.qs[n], right = { t: r[0] };
-    app(`<div class=play><div class=top><button class=back onclick="dialogo(${i})">✕</button><div class=bar><i style="width:${n / d.qs.length * 100}%"></i></div></div><div id=q></div><div id=fb></div></div>`);
-    const el = $('#q'); el.innerHTML = `<div class=prompt><b>${q}</b><button class=chip style="margin-top:.6rem" onclick="sayAll(${i})">🔊 Oír otra vez</button></div>`;
+    app(`<div class=play><div class=top><button class=back onclick="${K.one}(${i})">✕</button><div class=bar><i style="width:${n / d.qs.length * 100}%"></i></div></div><div id=q></div><div id=fb></div></div>`);
+    const el = $('#q'); el.innerHTML = `<div class=prompt><b>${q}</b><button class=chip style="margin-top:.6rem" onclick="${K.say}(${i})">🔊 Oír otra vez</button></div>`;
     opts(el, right, shuffle([right, ...r.slice(1).map(t => ({ t }))]), o => o.t, good => {
       good && ok++;
       $('#fb').innerHTML = `<div class="fb ${good ? 'g' : 'b'}">${good ? '✓ Correcto' : '✗ Era: ' + right.t}</div><button class=main id=nx>Siguiente</button>`;
@@ -898,6 +906,32 @@ function dialQ(i) {
     });
   };
   step();
+}
+
+// lecturas: cada frase va por palabras (/) alineada con su pinyin; se toca una palabra para ver su ficha
+const LECT = (self.LECTS || []).map(([lv, t, ls, qs]) => ({ lv, t, ls: ls.split('\n').map(l => { const [z, p, e] = l.split('|'); return { z: z.split('/'), p: p.split(' '), e }; }), qs: qs.split('\n').map(l => l.split('|')) }));
+const GLOS = Object.fromEntries((self.LECTS || []).flatMap(x => x[4].split('\n').filter(Boolean).map(l => l.split('|')))), LPUNT = /[，。！？、：；“”,.!?:;]/g;
+function lecturas() {
+  S.lect = S.lect || {}; try { speechSynthesis.cancel(); } catch {}
+  const hecho = d => S.lect[d.t] == null ? '' : S.lect[d.t] == d.qs.length ? ' ✅' : ` · mejor ${S.lect[d.t]}/${d.qs.length}`;
+  app(`<div class=top><button class=back onclick="home()">←</button><b>Lecturas</b></div>` + LEVELS.map(lv => `<h3>HSK ${lv}</h3><div class=list>${LECT.map((d, i) => d.lv == lv ? `<button class=mode onclick="lectura(${i})"><span class=e>${d.t.split(' ')[0]}</span><span><b>${d.t.slice(d.t.indexOf(' ') + 1)}</b><small>${d.ls.length} frases${hecho(d)}</small></span></button>` : '').join('')}</div>`).join(''), 'home');
+}
+function sayLect(i) {
+  try { speechSynthesis.cancel(); LECT[i].ls.forEach(l => { const u = new SpeechSynthesisUtterance(l.z.join('')); u.lang = 'zh-CN'; u.rate = S.set.rate; speechSynthesis.speak(u); }); } catch {}
+}
+function lectura(i) {
+  const d = LECT[i];
+  app(`<div class=top><button class=back onclick="lecturas()">←</button><b>${d.t}</b></div>
+    <div class=row><button class=chip onclick="sayLect(${i})">🔊 Escuchar todo</button><button class="chip on" onclick="this.classList.toggle('on');$('#lc').classList.toggle('np')">Pinyin</button><button class="chip on" onclick="this.classList.toggle('on');$('#lc').classList.toggle('ne')">Español</button></div>
+    <p class=mut>Toca una palabra para ver su ficha.</p>
+    <div id=lc>${d.ls.map((l, j) => `<div class=ex style="cursor:default">${l.z.map((z, k) => `<span class=wd onclick="palabra(${i},${j},${k})"><small>${l.p[k]}</small>${z}</span>`).join('')}<button class=back onclick="say(LECT[${i}].ls[${j}].z.join(''))">🔊</button><div class=mut>${l.e}</div></div>`).join('')}</div>
+    <div id=fi></div>
+    <button class=main style="margin-top:1rem" onclick="lectQ(${i})">Preguntas de comprensión</button>`, 'home');
+}
+function palabra(i, j, k) {
+  const l = LECT[i].ls[j], h = l.z[k].replace(LPUNT, ''), w = byH.get(h);
+  $('#fi').innerHTML = `<div class="fb g"><b style="font-size:1.6rem">${h}</b> ${pc(l.p[k].replace(LPUNT, ''))} — ${w ? w.e : GLOS[h] || ''} <button class=back onclick="say('${h}')">🔊</button>${w ? `<button class=back id=st onclick="star(${w.id})">${S.star[w.id] ? '⭐' : '☆'}</button>` : ''}</div>`;
+  $('#fi').scrollIntoView({ block: 'nearest' }); say(h);
 }
 
 // contrarreloj: 60 segundos de preguntas de elegir traducción

@@ -1,13 +1,12 @@
 # HSK Viju: ideas pendientes
 
-Lista de mejoras que se han hablado y todavía no están hechas. Recomendación: elegir entre pruebas (1) o lectura graduada (7).
+Lista de mejoras que se han hablado y todavía no están hechas. Recomendación: empezar por las pruebas automáticas (1).
 
 ## Para no perder el progreso
 1. **Pruebas automáticas en el repositorio:** guardar las baterías de prueba (recorrido de pantallas, desbordes a 320-412 px, datos) y ejecutarlas en cada subida.
 
 ## Para aprender mejor
 4. **Pronunciación:** grabarte, compararte con el modelo y, en Chrome, puntuar con reconocimiento de voz.
-7. **Lectura graduada:** mini historias por nivel con palabras que se pueden tocar.
 8. **Repaso espaciado de gramática** dentro de «Hoy» y más ejercicios (por ejemplo traducir frases).
 9. **Palabra y 成语 (modismo) del día** en el inicio.
 10. **Familias de palabras, antónimos y sinónimos** en la ficha de cada palabra.
@@ -35,6 +34,7 @@ Lista de mejoras que se han hablado y todavía no están hechas. Recomendación:
 - Copia de seguridad (Exportar/Importar en Ajustes) y progreso por hanzi (sw v37).
 - Entrenamiento de tonos: modo «Entrenar tonos» (sw v38).
 - Diálogos cortos: 20 diálogos HSK 1-5 con audio y preguntas (`dialogos.js`, sw v39).
+- Lectura graduada: 20 historias HSK 1-5 con palabras tocables y preguntas (`lecturas.js`, sw v40).
 
 ## Decisiones ya tomadas
 - No se incluyen grabaciones ni letras de canciones con derechos de autor dentro de la app; el Top 10 usa el reproductor de YouTube (necesita conexión).

@@ -20,6 +20,7 @@
 .seg{flex-wrap:nowrap;align-items:stretch}.seg1{width:100%;margin-top:.5rem;text-align:center}.seg .chip{flex:1 1 0;min-width:0;text-align:center;padding:.65rem .15rem;font-size:.95rem}
 .gear{margin-left:auto;background:none;border:0;font-size:1.4rem}.gear+.gear{margin-left:0}
 .lv summary{cursor:pointer;color:var(--gold);margin:.5rem 0;font-size:.9rem}
+.sem{gap:.3rem}.sem .stat{flex:1 !important;padding:.5rem 0}.sem .stat b{font-size:1.1rem}
 .exam{border:1px solid var(--bd);border-left:4px solid var(--no);background:var(--card);border-radius:6px;padding:.7rem .9rem;margin:.8rem 0}.exam .row{margin-top:.5rem}
 input[type=date]{padding:.6rem;border-radius:6px;border:2px solid var(--bd);background:var(--card);color:var(--tx);font:inherit}
 .goal{display:flex;align-items:center;gap:.6rem;font-size:.85rem;margin:.2rem 0 1rem}
@@ -360,6 +361,7 @@ const MODES = [
   ['speed', '⏱️', 'Contrarreloj', '60 segundos: ¡cuantas más aciertes mejor!'],
   ['song', '🎵', 'Canciones', 'Practica con letras de canciones chinas'],
   ['top10', '🏆', 'Top 10 canciones', 'Cultura: las más chinas'],
+  ['logros', '🏅', 'Logros', 'Medallas y rachas semanales'],
   ['cult', '🎬', 'Más Top 10', 'Películas, series y platos'],
 ];
 
@@ -435,6 +437,7 @@ function go(m) {
   if (m == 'lists') return listas();
   if (m == 'fest') return fiestas();
   if (m == 'cult') return cultura('pelis');
+  if (m == 'logros') return logros();
   if (m == 'hard') return hardList().length ? session('hard') : app(`<div class=top><button class=back onclick="home()">←</button></div><div class=prompt><span class=hz>🔥</span>Aún no tienes palabras difíciles<small>Aparecen aquí las que más fallas y las que marques con ⭐ en su ficha.</small></div>`);
   if (!pool().length) return empty();
   m == 'match' ? matchGame() : m == 'speed' ? speed() : session(m);
@@ -466,6 +469,39 @@ function heat() { // últimas 8 semanas, empezando en lunes
   return `<svg viewBox="0 0 176 122" class=chart style="max-width:340px">${r}</svg><div class=mut>Verde: meta cumplida (${S.set.goal}) · Dorado: algo de práctica</div>`;
 }
 const hb = (l, n, t, c) => `<div class=hbar><span>${l}</span><div class=bar><i style="width:${t ? n / t * 100 : 0}%;${c ? 'background:' + c : ''}"></i></div><b>${n}</b></div>`;
+// --- logros y medallas: se calculan del progreso guardado, no necesitan datos nuevos ---
+const racha = () => { // racha más larga de días seguidos con práctica
+  let best = 0, cur = 0, prev = 0;
+  Object.keys(S.hist).filter(d => S.hist[d].n).sort().forEach(d => { const t = new Date(d + 'T12:00').getTime(); cur = t - prev < 1.5 * 864e5 ? cur + 1 : 1; prev = t; best = Math.max(best, cur); });
+  return best;
+};
+const lunes = d => { const x = new Date(d + 'T12:00'); x.setDate(x.getDate() - (x.getDay() + 6) % 7); return day(x); }; // lunes de la semana de d
+const semanas = () => { const m = {}; Object.entries(S.hist).forEach(([d, h]) => { if (h.n >= S.set.goal) m[lunes(d)] = (m[lunes(d)] || 0) + 1; }); return m; }; // días con meta por semana
+const SEMANA_OK = 5; // días con meta para contar la semana
+const LOGROS = [ // [icono, nombre, valor, [bronce, plata, oro], unidad]
+  ['🔥', 'Racha de práctica', racha, [3, 7, 30], 'días seguidos'],
+  ['📚', 'Palabras estudiadas', () => Object.keys(S.known).length, [100, 500, 2000], 'palabras'],
+  ['🧠', 'Palabras dominadas', () => W.filter(w => (S.w[w.id]?.b || 0) >= 4).length, [50, 200, 500], 'palabras'],
+  ['🎯', 'Respuestas dadas', () => Object.values(S.hist).reduce((a, h) => a + h.n, 0), [100, 1000, 5000], 'respuestas'],
+  ['📅', 'Semanas con meta', () => Object.values(semanas()).filter(n => n >= SEMANA_OK).length, [1, 4, 12], 'semanas'],
+  ['📝', 'Exámenes aprobados', () => S.exams.filter(e => e.s[0] + e.s[1] + e.s[2] >= 180).length, [1, 3, 5], 'exámenes'],
+  ['🧩', 'Gramática practicada', () => Object.keys(S.gram).length, [10, 40, 100], 'puntos'],
+  ['💬', 'Diálogos al 100 %', () => DIAL.filter(d => S.dial?.[d.t] == d.qs.length).length, [3, 10, 20], 'diálogos'],
+  ['📖', 'Lecturas al 100 %', () => LECT.filter(d => S.lect?.[d.t] == d.qs.length).length, [3, 10, 20], 'lecturas'],
+];
+function logros() {
+  const MED = ['🥉', '🥈', '🥇'], hoy = day(new Date()), lu = lunes(hoy), sem = semanas(), hechos = sem[lu] || 0, DS = ['L', 'M', 'X', 'J', 'V', 'S', 'D'];
+  const dias = DS.map((l, i) => { const d = new Date(lu + 'T12:00'); d.setDate(d.getDate() + i); const k = day(d), n = S.hist[k]?.n || 0;
+    return `<div class=stat style="${k == hoy ? 'border:2px solid var(--pri)' : ''}"><b>${n >= S.set.goal ? '✅' : n ? '🔸' : k > hoy ? '·' : '○'}</b><span class=mut>${l}</span></div>`; }).join('');
+  const L = LOGROS.map(([e, n, f, ts, u]) => { const v = f(), t = ts.filter(x => v >= x).length, sig = ts[t]; return { e, n, v, ts, u, t, sig }; });
+  app(`<div class=top><button class=back onclick="home()">←</button><b>🏅 Logros</b></div>
+    <p class=mut>Medallas: <b>${L.reduce((a, l) => a + l.t, 0)}/${L.length * 3}</b> · Mejor racha: <b>${racha()} 🔥</b></p>
+    <h3>Esta semana</h3><div class="stats sem">${dias}</div>
+    <p class=mut>${hechos} de ${SEMANA_OK} días con meta (${S.set.goal} respuestas) ${hechos >= SEMANA_OK ? '🏅 ¡semana conseguida!' : 'para conseguir la semana'}.</p>
+    <h3>Medallas</h3>
+    ${L.map(l => `<div class=hbar style="flex-wrap:wrap;gap:.2rem .6rem"><span style="width:auto;font-size:1.3rem">${l.e}</span><span style="flex:1;min-width:8rem"><b>${l.n}</b><br><span class=mut>${l.v} ${l.u}${l.sig ? ' · siguiente: ' + l.sig : ' · ¡completo!'}</span></span><span style="font-size:1.4rem;letter-spacing:.15rem">${MED.map((m, i) => i < l.t ? m : '⚪').join('')}</span>${l.sig ? `<div class=bar style="flex-basis:100%"><i style="width:${Math.min(100, l.v / l.sig * 100)}%"></i></div>` : ''}</div>`).join('')}`, 'home');
+}
+
 function stats() {
   const p = W.filter(w => S.known[w.id]), dom = p.filter(w => (S.w[w.id]?.b || 0) >= 4).length;
   let tn = 0, tok = 0; Object.values(S.hist).forEach(h => { tn += h.n; tok += h.ok; });
@@ -473,7 +509,7 @@ function stats() {
   const mx = Math.max(5, ...ds.map(d => d.n));
   const bx = [0, 0, 0, 0, 0, 0]; p.forEach(w => bx[S.w[w.id]?.b || 0]++);
   const BN = ['Nueva', '1 día', '3 días', '1 semana', '2 semanas', 'Dominada'];
-  app(`<h1>Progreso</h1>
+  app(`<h1>Progreso</h1><button class=chip onclick="logros()">🏅 Logros y medallas</button>
     <div class=stats><div class=stat><b>${tn ? Math.round(tok / tn * 100) : 0}%</b><span class=mut>aciertos</span></div><div class=stat><b>${dom}</b><span class=mut>dominadas</span></div><div class=stat><b>${Object.keys(S.hist).length}</b><span class=mut>días activos</span></div></div>
     <h3>Respuestas, últimos 14 días</h3>
     <svg viewBox="0 0 280 110" class=chart>${ds.map((d, i) => { const h = d.n / mx * 80, k = d.ok / mx * 80, x = i * 20 + 3; return `<rect x=${x} y=${90 - h} width=14 height=${h} rx=2 style="fill:var(--no);opacity:.35"/><rect x=${x} y=${90 - k} width=14 height=${k} rx=2 style="fill:var(--ok)"/>${d.n ? `<text x=${x + 7} y=${86 - h} text-anchor=middle>${d.n}</text>` : ''}<text x=${x + 7} y=104 text-anchor=middle>${d.l}</text>`; }).join('')}</svg>

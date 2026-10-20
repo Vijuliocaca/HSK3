@@ -201,7 +201,7 @@ const PW = {}, LKEYS = {}, LES = {};
     const k = Math.ceil(ws.length / 15);
     for (let i = 0; i < k; i++) put(t.e + ' ' + t.n + (k > 1 ? ' ' + (i + 1) : ''), ws.slice(Math.round(i * ws.length / k), Math.round((i + 1) * ws.length / k)));
   });
-  put(names.join(' · '), carry);
+  if (carry.length && carry.length < 5 && out.length) { const p = out[out.length - 1]; p[0] += ' · ' + names.join(' · '); p[1].push(...carry); } else put(names.join(' · '), carry); // un resto pequeño se une a la lección anterior
   const g = new Map(); W.filter(w => w.l == lv && !used.has(w.id)).forEach(w => { const c = [...w.h][0]; g.set(c, [...(g.get(c) || []), w]); });
   const rest = [...g.values()].flat();
   const k = Math.max(1, Math.round(rest.length / 14)), gen = [];

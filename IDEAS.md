@@ -12,7 +12,6 @@ Lista de mejoras que se han hablado y todavía no están hechas. Recomendación:
 14. **Más canciones tradicionales con melodía y karaoke.** Faltan las partituras (簡譜) de 茉莉花 y 送别 para añadir su melodía.
 
 ## Pulido
-18. **Recordatorio diario** (ver notas abajo).
 19. **Compartir el progreso** como imagen.
 20. **Carga más ligera:** cargar gramática y canciones solo cuando se usan.
 
@@ -34,7 +33,8 @@ Lista de mejoras que se han hablado y todavía no están hechas. Recomendación:
 - Calendario de fiestas chinas: lunares calculadas con Intl y corregido el Año Nuevo 2027 (`fiestas.js`, sw v46).
 - Otros Top 10: películas, series y platos típicos (`cultura.js`, sw v47).
 - Logros y rachas semanales con medallas, calculados del progreso (sw v48).
-- Accesibilidad básica: tema de alto contraste, teclado (Tab, Intro, 1-9), etiquetas para lector de pantalla (sw v49). Pendiente: emparejar y dibujar trazos con teclado, versión oscura del alto contraste.
+- Accesibilidad básica: tema de alto contraste, teclado (Tab, Intro, 1-9), etiquetas para lector de pantalla (sw v49).
+- Recordatorio diario: botón en Ajustes que descarga un evento .ics repetido con alarma (sw v50). Pendiente: emparejar y dibujar trazos con teclado, versión oscura del alto contraste.
 
 ## Decisiones ya tomadas
 - No se incluyen grabaciones ni letras de canciones con derechos de autor dentro de la app; el Top 10 usa el reproductor de YouTube (necesita conexión).

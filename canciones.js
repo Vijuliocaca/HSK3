@@ -57,10 +57,18 @@ self.TOP10 = [
     d: "Se estrenó en la Gala de 1984 y desde entonces suele cerrar la gran gala de Nochevieja china. Para muchas familias, oírla significa que empieza el Año Nuevo." },
   { t: "我和我的祖国", p: "Wǒ hé wǒ de zǔguó", es: "Mi patria y yo", a: "Himno patriótico muy popular", y: "1985",
     d: "Una de las canciones patrióticas más cantadas en celebraciones. Dio nombre a la película colectiva «Mi patria y yo» (2019)." },
-  { t: "朋友", p: "Péngyou", es: "Amigos", a: "Emil Chau (周华健)", y: "mediados de los años 90",
-    d: "Clásico del karaoke sobre la amistad. Su estribillo lo conoce casi todo el mundo que haya cantado en un grupo de amigos chinos." },
+  { t: "一剪梅", p: "Yī jiǎn méi", es: "Una rama de ciruelo", a: "Fei Yu-ching (费玉清)", y: "años 80",
+    d: "Gran clásico romántico de la música pop en chino, asociado al invierno y a la nostalgia. Su título viene de «一剪梅», el nombre de un antiguo patrón de poesía clásica (词牌, cípái), el mismo de un célebre poema de Li Qingzhao." },
   { t: "青花瓷", p: "Qīnghuācí", es: "Porcelana azul y blanca", a: "Jay Chou (周杰伦)", y: "2007",
     d: "Ejemplo del estilo «中国风» (zhōngguófēng, «aire chino»): música pop con instrumentos y poesía tradicionales. Letra de Vincent Fang (方文山)." },
   { t: "小苹果", p: "Xiǎo píngguǒ", es: "Manzanita", a: "Chopstick Brothers (筷子兄弟)", y: "2014",
     d: "Fenómeno viral: millones de personas la bailaron en plazas y parques («广场舞», guǎngchǎngwǔ), un hábito muy típico de la China actual." },
 ];
+
+// Qué buscar para escuchar cada canción completa (el audio no va dentro de la app: se abre en YouTube o Spotify)
+(function () {
+  const q = { "茉莉花": "茉莉花 民歌", "康定情歌": "康定情歌", "月亮代表我的心": "月亮代表我的心 邓丽君", "甜蜜蜜": "甜蜜蜜 邓丽君", "我的中国心": "我的中国心 张明敏", "难忘今宵": "难忘今宵 李谷一", "我和我的祖国": "我和我的祖国", "一剪梅": "一剪梅 费玉清", "青花瓷": "青花瓷 周杰伦", "小苹果": "小苹果 筷子兄弟" };
+  self.TOP10.forEach(x => x.q = q[x.t]);
+  const s = { "两只老虎": "两只老虎 儿歌", "小星星": "小星星 儿歌", "祝你生日快乐": "祝你生日快乐 歌", "茉莉花": "茉莉花 民歌", "送别": "送别 李叔同" };
+  self.SONGS.forEach(x => x.q = s[x.t]);
+})();

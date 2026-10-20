@@ -144,6 +144,7 @@ body.nonav{padding-bottom:calc(14px + env(safe-area-inset-bottom))}
 .kn{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:.25em}
 .song{display:flex;gap:.8rem;background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:.9rem;margin:.6rem 0}
 .song .zh{font-family:var(--serif);font-size:1.5rem}.song .p2{color:var(--pri)}.rk{font-family:var(--serif);font-size:1.8rem;color:var(--gold);width:2.2rem;flex:none;text-align:center}
+a.chip{text-decoration:none;color:inherit;display:inline-block}
 </style>
 </head>
 <body>
@@ -495,6 +496,7 @@ function gramEx(i) { // ordenar la frase y completar el hueco con los ejemplos d
 
 // --- canciones ---
 const SONGS = self.SONGS || [], TOP10 = self.TOP10 || [], PUNT = /[，。！？、]/g;
+const escuchar = q => `<div class=row style="margin:.5rem 0"><a class=chip href="https://www.youtube.com/results?search_query=${encodeURIComponent(q)}" target=_blank rel="noopener noreferrer">▶ YouTube</a><a class=chip href="https://open.spotify.com/search/${encodeURIComponent(q)}" target=_blank rel="noopener noreferrer">♫ Spotify</a></div>`;
 const knownSeg = g => { const w = byH.get(g.replace(PUNT, '')); return w && S.known[w.id] ? w : null; };
 const songWords = s => [...new Map(s.lines.flatMap(l => l[0].split('|')).map(g => byH.get(g.replace(PUNT, ''))).filter(Boolean).map(w => [w.id, w])).values()];
 function canciones() {
@@ -507,7 +509,7 @@ function cancion(i) {
   const s = SONGS[i];
   app(`<div class=top><button class=back onclick="canciones()">←</button><b>${s.t}</b></div>
     <div class=mut>${pc(s.p)} · ${s.es}</div><p class=gexp>${s.nota}</p>
-    <h3>Letra</h3>${s.lines.map((l, k) => `<div class=ex onclick="say(gplain(SONGS[${i}].lines[${k}][0]))"><div class=zh>${l[0].split('|').map(g => knownSeg(g) ? `<u class=kn>${g}</u>` : g).join('')} 🔊</div><div class=p2>${pc(l[1])}</div><div class=mut>${l[2]}</div></div>`).join('')}
+    ${escuchar(s.q)}<h3>Letra</h3>${s.lines.map((l, k) => `<div class=ex onclick="say(gplain(SONGS[${i}].lines[${k}][0]))"><div class=zh>${l[0].split('|').map(g => knownSeg(g) ? `<u class=kn>${g}</u>` : g).join('')} 🔊</div><div class=p2>${pc(l[1])}</div><div class=mut>${l[2]}</div></div>`).join('')}
     <p class=mut>Subrayadas: palabras que ya has estudiado.</p>
     <button class=main onclick="cancionEx(${i})">Practicar con esta canción${S.song[s.t] != null ? ' · mejor: ' + S.song[s.t] + '%' : ''}</button>`);
 }
@@ -550,8 +552,8 @@ function cancionEx(i) { // completar la letra, ordenar la línea y escuchar: con
 }
 function top10() {
   app(`<div class=top><button class=back onclick="home()">←</button><b>🏆 Top 10 canciones chinas</b></div>
-    <p class=mut>Una selección de canciones que forman parte de la cultura popular china, para tener contexto. No es una clasificación oficial. Búscalas en tu plataforma de música y escúchalas mientras lees.</p>
-    ${TOP10.map((s, i) => `<div class=song><div class=rk>${i + 1}</div><div style="flex:1;min-width:0"><div class=zh onclick="say(TOP10[${i}].t)" style="cursor:pointer">${s.t} 🔊</div><div class=p2>${pc(s.p)}</div><div><b>${s.es}</b></div><div class=mut>${s.a} · ${s.y}</div><p class=gexp style="margin:.4rem 0 0">${s.d}</p></div></div>`).join('')}`);
+    <p class=mut>Una selección de canciones que forman parte de la cultura popular china, para tener contexto. No es una clasificación oficial. Pulsa ▶ YouTube o ♫ Spotify para escuchar cada canción completa (hace falta conexión). El audio no está dentro de la app.</p>
+    ${TOP10.map((s, i) => `<div class=song><div class=rk>${i + 1}</div><div style="flex:1;min-width:0"><div class=zh onclick="say(TOP10[${i}].t)" style="cursor:pointer">${s.t} 🔊</div><div class=p2>${pc(s.p)}</div><div><b>${s.es}</b></div><div class=mut>${s.a} · ${s.y}</div><p class=gexp style="margin:.4rem 0 0">${s.d}</p>${escuchar(s.q)}</div></div>`).join('')}`);
 }
 
 // --- ficha de palabra, frases y trazos ---

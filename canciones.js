@@ -65,10 +65,28 @@ self.TOP10 = [
     d: "Fenómeno viral: millones de personas la bailaron en plazas y parques («广场舞», guǎngchǎngwǔ), un hábito muy típico de la China actual." },
 ];
 
-// Qué buscar para escuchar cada canción completa (el audio no va dentro de la app: se abre en YouTube o Spotify)
+// Qué escuchar de cada canción: v = vídeo de YouTube que se reproduce dentro de la app (solo se usan vídeos que permiten incrustarse),
+// vn = qué versión es, o = vídeo original/oficial que se abre fuera de la app (si el incrustado es otra versión), q = búsqueda para Spotify
 (function () {
-  const q = { "茉莉花": "茉莉花 民歌", "康定情歌": "康定情歌", "月亮代表我的心": "月亮代表我的心 邓丽君", "甜蜜蜜": "甜蜜蜜 邓丽君", "我的中国心": "我的中国心 张明敏", "难忘今宵": "难忘今宵 李谷一", "我和我的祖国": "我和我的祖国", "一剪梅": "一剪梅 费玉清", "青花瓷": "青花瓷 周杰伦", "小苹果": "小苹果 筷子兄弟" };
-  self.TOP10.forEach(x => x.q = q[x.t]);
-  const s = { "两只老虎": "两只老虎 儿歌", "小星星": "小星星 儿歌", "祝你生日快乐": "祝你生日快乐 歌", "茉莉花": "茉莉花 民歌", "送别": "送别 李叔同" };
-  self.SONGS.forEach(x => x.q = s[x.t]);
+  const t = {
+    "茉莉花": ["iPxp0s_prCM", "versión de la gala «中国民歌盛典», en el canal de CCTV", "", "茉莉花 民歌"],
+    "康定情歌": ["nE-sLijay0A", "versión del programa «中国民歌大会», en el canal de CCTV", "", "康定情歌"],
+    "月亮代表我的心": ["ngTFC0x3cw4", "versión en directo de la gala de CCTV, con música de pingtan de Suzhou", "IgvDMB5fR-8", "月亮代表我的心 邓丽君"],
+    "甜蜜蜜": ["cmiTtVv0yAE", "versión en directo de «经典之夜», en el canal de CCTV", "5eF8oOWtsk4", "甜蜜蜜 邓丽君"],
+    "我的中国心": ["HFdfljqRfBY", "actuación en la Gala de 1984, en el canal de CCTV", "", "我的中国心 张明敏"],
+    "难忘今宵": ["eBoONjVbKiI", "versión de la Gala de 1990, en el canal de CCTV", "", "难忘今宵 李谷一"],
+    "我和我的祖国": ["Im4WQRhBnJ8", "versión de CCTV, cantada por Xiao Zhan (肖战)", "", "我和我的祖国"],
+    "一剪梅": ["AQtgnq-5ch0", "actuación de Fei Yu-ching (费玉清), en el canal Music TV", "e9U249EPq_M", "一剪梅 费玉清"],
+    "青花瓷": ["xZWCodoAx-o", "versión de piano de un pianista (no es el original)", "Z8Mqw0b9ADs", "青花瓷 周杰伦"],
+    "小苹果": ["yfHowUwT-Cs", "audio oficial (canal «Topic» de YouTube Music)", "", "小苹果 筷子兄弟"],
+  };
+  self.TOP10.forEach(x => { const e = t[x.t]; x.v = e[0]; x.vn = e[1]; x.o = e[2]; x.q = e[3]; });
+  const s = {
+    "两只老虎": ["0P0aApWogd0", "versión del canal infantil 貝樂虎 (BabyTiger)", "", "两只老虎 儿歌"],
+    "小星星": ["ksLxLjiyyGU", "versión del canal infantil LiaChaCha (依娜和恰恰)", "", "小星星 儿歌"],
+    "祝你生日快乐": ["biMn4YC5qCI", "versión del canal infantil 寶寶巴士 (BabyBus)", "", "祝你生日快乐 歌"],
+    "茉莉花": ["iPxp0s_prCM", "versión de la gala «中国民歌盛典», en el canal de CCTV", "", "茉莉花 民歌"],
+    "送别": ["N_QU8Ax05-o", "versión del canal CCTV中文", "76XjSH1KpBM", "送别 李叔同"],
+  };
+  self.SONGS.forEach(x => { const e = s[x.t]; x.v = e[0]; x.vn = e[1]; x.o = e[2]; x.q = e[3]; });
 })();

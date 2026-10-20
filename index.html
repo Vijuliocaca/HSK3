@@ -145,6 +145,7 @@ body.nonav{padding-bottom:calc(14px + env(safe-area-inset-bottom))}
 .song{display:flex;gap:.8rem;background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:.9rem;margin:.6rem 0}
 .song .zh{font-family:var(--serif);font-size:1.5rem}.song .p2{color:var(--pri)}.rk{font-family:var(--serif);font-size:1.8rem;color:var(--gold);width:2.2rem;flex:none;text-align:center}
 a.chip{text-decoration:none;color:inherit;display:inline-block}
+.vframe{position:relative;padding-top:56.25%;margin:.4rem 0 .8rem;background:#000;border-radius:8px;overflow:hidden}.vframe iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.vframe.mut{padding:.8rem;background:none}
 </style>
 </head>
 <body>
@@ -496,7 +497,13 @@ function gramEx(i) { // ordenar la frase y completar el hueco con los ejemplos d
 
 // --- canciones ---
 const SONGS = self.SONGS || [], TOP10 = self.TOP10 || [], PUNT = /[，。！？、]/g;
-const escuchar = q => `<div class=row style="margin:.5rem 0"><a class=chip href="https://www.youtube.com/results?search_query=${encodeURIComponent(q)}" target=_blank rel="noopener noreferrer">▶ YouTube</a><a class=chip href="https://open.spotify.com/search/${encodeURIComponent(q)}" target=_blank rel="noopener noreferrer">♫ Spotify</a></div>`;
+const escuchar = s => `<div class=vid><div class=row style="margin:.5rem 0"><button class="chip on" onclick="verVideo(this, '${s.v}')">▶ Reproducir aquí</button><a class=chip href="https://www.youtube.com/watch?v=${s.o || s.v}" target=_blank rel="noopener noreferrer">${s.o ? 'Abrir el original en YouTube' : 'Abrir en YouTube'}</a><a class=chip href="https://open.spotify.com/search/${encodeURIComponent(s.q)}" target=_blank rel="noopener noreferrer">♫ Spotify</a></div><div class=mut style="margin-bottom:.4rem">Vídeo: ${s.vn}.</div></div>`;
+function verVideo(btn, id) { // reproductor de YouTube dentro de la app (solo se carga al pulsar; hace falta conexión)
+  const caja = btn.closest('.vid');
+  document.querySelectorAll('.vwrap').forEach(f => f.remove()); // solo suena una a la vez
+  if (!navigator.onLine) return void caja.insertAdjacentHTML('afterend', '<div class="vwrap mut" style="margin-bottom:.8rem">Sin conexión: conéctate a internet para reproducir la canción.</div>');
+  caja.insertAdjacentHTML('afterend', `<div class=vwrap><div class=vframe><iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&playsinline=1&rel=0" title="Reproductor" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div><div class=mut style="margin:-.5rem 0 .8rem">¿No se ve? Prueba «Abrir en YouTube».</div></div>`);
+}
 const knownSeg = g => { const w = byH.get(g.replace(PUNT, '')); return w && S.known[w.id] ? w : null; };
 const songWords = s => [...new Map(s.lines.flatMap(l => l[0].split('|')).map(g => byH.get(g.replace(PUNT, ''))).filter(Boolean).map(w => [w.id, w])).values()];
 function canciones() {
@@ -509,7 +516,7 @@ function cancion(i) {
   const s = SONGS[i];
   app(`<div class=top><button class=back onclick="canciones()">←</button><b>${s.t}</b></div>
     <div class=mut>${pc(s.p)} · ${s.es}</div><p class=gexp>${s.nota}</p>
-    ${escuchar(s.q)}<h3>Letra</h3>${s.lines.map((l, k) => `<div class=ex onclick="say(gplain(SONGS[${i}].lines[${k}][0]))"><div class=zh>${l[0].split('|').map(g => knownSeg(g) ? `<u class=kn>${g}</u>` : g).join('')} 🔊</div><div class=p2>${pc(l[1])}</div><div class=mut>${l[2]}</div></div>`).join('')}
+    ${escuchar(s)}<h3>Letra</h3>${s.lines.map((l, k) => `<div class=ex onclick="say(gplain(SONGS[${i}].lines[${k}][0]))"><div class=zh>${l[0].split('|').map(g => knownSeg(g) ? `<u class=kn>${g}</u>` : g).join('')} 🔊</div><div class=p2>${pc(l[1])}</div><div class=mut>${l[2]}</div></div>`).join('')}
     <p class=mut>Subrayadas: palabras que ya has estudiado.</p>
     <button class=main onclick="cancionEx(${i})">Practicar con esta canción${S.song[s.t] != null ? ' · mejor: ' + S.song[s.t] + '%' : ''}</button>`);
 }
@@ -552,8 +559,8 @@ function cancionEx(i) { // completar la letra, ordenar la línea y escuchar: con
 }
 function top10() {
   app(`<div class=top><button class=back onclick="home()">←</button><b>🏆 Top 10 canciones chinas</b></div>
-    <p class=mut>Una selección de canciones que forman parte de la cultura popular china, para tener contexto. No es una clasificación oficial. Pulsa ▶ YouTube o ♫ Spotify para escuchar cada canción completa (hace falta conexión). El audio no está dentro de la app.</p>
-    ${TOP10.map((s, i) => `<div class=song><div class=rk>${i + 1}</div><div style="flex:1;min-width:0"><div class=zh onclick="say(TOP10[${i}].t)" style="cursor:pointer">${s.t} 🔊</div><div class=p2>${pc(s.p)}</div><div><b>${s.es}</b></div><div class=mut>${s.a} · ${s.y}</div><p class=gexp style="margin:.4rem 0 0">${s.d}</p>${escuchar(s.q)}</div></div>`).join('')}`);
+    <p class=mut>Una selección de canciones que forman parte de la cultura popular china, para tener contexto. No es una clasificación oficial. Pulsa «▶ Reproducir aquí» para escucharla entera sin salir de la app (hace falta conexión): el vídeo viene de YouTube y es de sus autores o de sus canales. Si un vídeo deja de estar disponible, usa «Abrir en YouTube» o Spotify.</p>
+    ${TOP10.map((s, i) => `<div class=song><div class=rk>${i + 1}</div><div style="flex:1;min-width:0"><div class=zh onclick="say(TOP10[${i}].t)" style="cursor:pointer">${s.t} 🔊</div><div class=p2>${pc(s.p)}</div><div><b>${s.es}</b></div><div class=mut>${s.a} · ${s.y}</div><p class=gexp style="margin:.4rem 0 0">${s.d}</p>${escuchar(s)}</div></div>`).join('')}`);
 }
 
 // --- ficha de palabra, frases y trazos ---

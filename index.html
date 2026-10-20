@@ -146,6 +146,7 @@ input[type=text],input[type=search]{width:100%;padding:.8rem;border-radius:6px;b
 <script src="frases3b.js"></script>
 <script src="frases3c.js"></script>
 <script src="frases3d.js"></script>
+<script src="temas.js"></script>
 <script>
 const $ = s => document.querySelector(s);
 const TABS = [['home', '🏠', 'Inicio'], ['today', '📅', 'Hoy'], ['examMenu', '📝', 'Examen'], ['stats', '📊', 'Progreso']];
@@ -184,6 +185,10 @@ RAW.split('\n').forEach(l => { if (l[0] == '#') lv0 = +l.slice(1); else add('a',
 // frases de ejemplo: palabra|frase|pinyin|español
 const SENT = {};
 (self.SENTR || []).forEach(t => t.split('\n').forEach(l => { const [h, ...r] = l.split('|'); if (r.length == 3) SENT[h] = r; }));
+
+// temas: cada palabra en un solo tema (gana el primero); lo que no exista se ignora
+const usada = new Set(), byH = new Map(W.map(w => [w.h, w]));
+const TOP = (self.TEMAS || []).map(([e, n, t]) => ({ e, n, ws: t.split(/\s+/).map(h => byH.get(h)).filter(w => w && !usada.has(w.h) && usada.add(w.h)) }));
 
 // --- pinyin: colores de tono y variantes de tono para practicar
 const SYL = /(?:zh|ch|sh|[bpmfdtnlgkhjqxzcsryw])?[aeiouüāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]+(?:ng|n)?/giu, TONE = {};
@@ -275,6 +280,7 @@ function home() {
   <div class=prog><i style="width:${all.length ? p.length / all.length * 100 : 0}%"></i></div>
   <div class=row>${LEVELS.map(n => `<button class="chip ${S.lv.includes(n) ? 'on' : ''}" onclick="tog('lv',${n})">HSK ${n}</button>`).join('')}</div>
   <button class="mode big" style="margin-top:1rem" onclick="lessons()"><span class=e>📚</span><span><b>Aprender palabras nuevas</b><small>Lecciones de 15 en 15</small></span></button>
+  <button class="mode big" onclick="temas()"><span class=e>🗂️</span><span><b>Vocabulario por temas</b><small>Frutas, transporte, familia…</small></span></button>
   ${nd ? `<button class="mode alert" onclick="today()"><span class=e>📅</span><span><b>Repasar lo de hoy</b><small>${nd} palabras pendientes</small></span></button>` : ''}
   <h3>Practicar lo estudiado</h3>
   <div class=grid>${MODES.map(m => `<button class=mode onclick="go('${m[0]}')"><span class=e>${m[1]}</span><span><b>${m[2]}</b><small>${m[0] == 'hard' ? hardList().length + ' palabras' : m[3]}</small></span></button>`).join('')}</div>`, 'home');
@@ -348,15 +354,28 @@ function settings() {
     <p class=mut>Pinyin en colores: ${pc('mā má mǎ mà ma')} (1.º a 4.º tono y neutro).</p>`);
 }
 
+// --- temas ---
+function temas() {
+  app(`<div class=top><button class=back onclick="home()">←</button><b>Vocabulario por temas</b></div>
+    <p class=mut>Solo salen las palabras de los HSK que tienes marcados en el inicio.</p>
+    <div class=grid>${TOP.map((t, i) => { const ws = t.ws.filter(sel); return ws.length ? `<button class=mode onclick="tema(${i})"><span class=e>${t.e}</span><span><b>${t.n}</b><small>${ws.filter(w => S.packs[w.pk]).length}/${ws.length} estudiadas</small></span></button>` : ''; }).join('')}</div>`);
+}
+function tema(i) {
+  const t = TOP[i], ws = window.cur = t.ws.filter(sel); BACK = `tema(${i})`;
+  app(`<div class=top><button class=back onclick="temas()">←</button><b>${t.e} ${t.n}</b></div>
+    <div class=grid>${[['matchGame(cur)', '🔗', 'Emparejar'], ["session('choice',cur)", '🎯', 'Elegir traducción'], ["session('cards',cur)", '🃏', 'Tarjetas'], ["session('listen',cur)", '🎧', 'Escuchar'], ["session('write',cur)", '⌨️', 'Escribir pinyin'], ["session('hanzi',cur)", '🈶', 'Elegir hanzi']].map(m => `<button class=mode onclick="${m[0]}"><span class=e>${m[1]}</span><span><b>${m[2]}</b></span></button>`).join('')}</div>
+    <div class=list>${ws.map(row).join('')}</div>`);
+}
+
 // --- ficha de palabra, frases y trazos ---
-let PREV = home;
+let PREV = home, BACK = 'list()';
 const exHtml = w => { const s = SENT[w.h]; return s ? `<div class=ex onclick="say(SENT[W[${w.id}].h][0])"><div class=zh>${s[0]} 🔊</div><div class=p2>${pc(s[1])}</div><div class=mut>${s[2]}</div></div>` : ''; };
 const star = id => { S.star[id] ? delete S.star[id] : S.star[id] = 1; save(); $('#st').textContent = S.star[id] ? '⭐' : '☆'; };
 const card = w => `<div class=study><div class=hz>${w.h}</div><div class=py>${pc(w.p)}</div><div class=es>${w.e}</div>
   <button class=ico onclick="say(W[${w.id}].h)">🔊</button><button class=ico id=st onclick="star(${w.id})">${S.star[w.id] ? '⭐' : '☆'}</button><button class=ico onclick="strokes(${w.id})">✍️</button>${exHtml(w)}</div>`;
 function detail(id) {
   PREV = () => detail(id);
-  app(`<div class=top><button class=back onclick="list()">←</button></div>${card(W[id])}`);
+  app(`<div class=top><button class=back onclick="${BACK}">←</button></div>${card(W[id])}`);
   say(W[id].h);
 }
 const loadHW = () => window.HanziWriter ? Promise.resolve() : new Promise((ok, no) => {
@@ -459,7 +478,7 @@ const similar = (w, f) => shuffle([w, ...sample(W.filter(x => x.id != w.id && f(
 const Q = {
   cloze(el, w, done) {
     const s = SENT[w.h];
-    el.innerHTML = `<div class=prompt><span class=hz2 style="line-height:1.5">${s[0].replace(w.h, '＿＿')}</span><small>${s[2]}</small></div>`;
+    el.innerHTML = `<div class=prompt><span class=hz2 style="line-height:1.5">${s[0].replaceAll(w.h, '＿＿')}</span><small>${s[2]}</small></div>`;
     opts(el, w, similar(w, x => x.l == w.l), o => `<span class=hz2>${o.h}</span>`, done);
   },
   sentence(el, w, done) {
@@ -560,9 +579,9 @@ function speed() {
     <div class=top><button class=back onclick="home()">✕</button><div class=bar><i id=sb style="width:100%"></i></div><b id=sc>0</b></div><div id=q></div>`);
   const end = () => {
     clearInterval(TM);
-    const best = S.best = Math.max(S.best || 0, ok); save();
+    const prev = S.best || 0, best = S.best = Math.max(prev, ok); save();
     summary(ok, n, bad, speed);
-    $('#app').insertAdjacentHTML('afterbegin', `<div class=mut>Récord: ${best} aciertos${ok >= best && ok ? ' 🏆 ¡nuevo!' : ''}</div>`);
+    $('#app').insertAdjacentHTML('afterbegin', `<div class=mut>Récord: ${best} aciertos${ok > prev ? ' 🏆 ¡nuevo!' : ''}</div>`);
   };
   const q = () => {
     if (left <= 0 || !$('#tm')) return; // salió de la pantalla
@@ -598,11 +617,13 @@ function matchGame(fixed) {
   round();
 }
 
+const row = w => `<div onclick="detail(${w.id})"><b>${w.h}</b><i>${pc(w.p)}</i><span>${w.e}</span><span class=box style="${(S.w[w.id]?.b || 0) >= 4 ? 'background:var(--ok)' : S.packs[w.pk] ? 'background:var(--pri)' : ''}"></span></div>`;
 function list() {
+  BACK = 'list()';
   const draw = q => {
     q = q.trim().toLowerCase(); const nq = nrm(q);
     $('#l').innerHTML = W.filter(w => sel(w) && (!q || w.h.includes(q) || (nq && nrm(w.p).includes(nq)) || w.e.toLowerCase().includes(q)))
-      .map(w => `<div onclick="detail(${w.id})"><b>${w.h}</b><i>${pc(w.p)}</i><span>${w.e}</span><span class=box style="${(S.w[w.id]?.b || 0) >= 4 ? 'background:var(--ok)' : S.packs[w.pk] ? 'background:var(--pri)' : ''}"></span></div>`).join('');
+      .map(row).join('');
   };
   app(`<div class=top><button class=back onclick="home()">←</button><input type=search id=s placeholder="Buscar hanzi, pinyin o español"></div><div class=list id=l></div>`);
   $('#s').oninput = e => draw(e.target.value); draw('');
@@ -630,7 +651,7 @@ function buildExam(lv) {
   if (PS.length >= 8) take(PS, 5).forEach(w => mk(0, w, { audio: SENT[w.h][0], q: 'Escucha la frase: ¿qué dice?', opts: shuffle([w, ...sample(PS.filter(x => x.id != w.id), 3)]), lab: o => SENT[o.h][2] }));
   else take(P, 5).forEach(w => mk(0, w, { audio: w.h, q: '¿Qué palabra oyes?', opts: dis(w, 'h'), lab: hz }));
   // 阅读
-  if (PS.length >= 8) take(PS, 5).forEach(w => { const s = SENT[w.h]; mk(1, w, { q: 'Completa la frase', html: `<span class=hz2 style="line-height:1.5">${s[0].replace(w.h, '＿＿')}</span><small>${s[2]}</small>`, opts: dis(w, 'h'), lab: hz }); });
+  if (PS.length >= 8) take(PS, 5).forEach(w => { const s = SENT[w.h]; mk(1, w, { q: 'Completa la frase', html: `<span class=hz2 style="line-height:1.5">${s[0].replaceAll(w.h, '＿＿')}</span><small>${s[2]}</small>`, opts: dis(w, 'h'), lab: hz }); });
   else take(P, 5).forEach(w => mk(1, w, { q: '¿Qué significa?', html: `<span class=hz>${w.h}</span>`, opts: dis(w, 'e'), lab: o => o.e }));
   take(P, 5).forEach(w => mk(1, w, { q: '¿Cuál es el pinyin correcto?', html: `<span class=hz>${w.h}</span>`, opts: dis(w, 'p'), lab: o => o.p }));
   // 书写
@@ -642,6 +663,7 @@ function exam(lv) {
   GUARD = 'examen';
   const Qs = buildExam(lv), res = []; let i = 0, left = 30 * 60;
   const fin = () => {
+    if (GUARD != 'examen') return; // ya terminó o salió
     clearInterval(TM); GUARD = '';
     const sc = [0, 1, 2].map(s => Math.round(Qs.filter((q, k) => q.s == s && res[k]).length / Qs.filter(q => q.s == s).length * 100)), tot = sc[0] + sc[1] + sc[2];
     S.exams.push({ d: day(new Date()), lv, s: sc }); S.exams = S.exams.slice(-30); save();
@@ -653,7 +675,7 @@ function exam(lv) {
       ${wrong.length ? `<h3>Para repasar (${wrong.length})</h3><div class=list>${wrong.map(q => `<div><b>${q.w.h}</b><i>${q.w.p}</i><span>${q.w.e}</span></div>`).join('')}</div><button class=main onclick="session('choice',wrongW)">Practicar los fallos</button>` : '<p>¡Perfecto, ninguna falta! 🎉</p>'}
       <button class=opt style="margin-top:.5rem" onclick="exam(${lv})">Nuevo examen</button><button class=opt style="margin-top:.5rem" onclick="home()">Inicio</button>`, 'examMenu');
   };
-  const next = good => { res[i] = good; i++; i < Qs.length ? show() : fin(); };
+  const next = good => { if (GUARD != 'examen') return; res[i] = good; i++; i < Qs.length ? show() : fin(); };
   const show = () => {
     const q = Qs[i];
     app(`<div class=exh><span class=sec>${SECN[q.s]}</span><span class=tm id=tm></span></div>

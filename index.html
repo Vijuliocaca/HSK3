@@ -141,6 +141,9 @@ body.nonav{padding-bottom:calc(14px + env(safe-area-inset-bottom))}
 .gexp{font-size:1.05rem;line-height:1.55}
 @media(max-width:380px){h1{font-size:1.3rem;gap:.4rem}.stat b{font-size:1.2rem}.stats .stat:nth-child(2) b{font-size:1.05rem}.stat span{font-size:.75rem}.stat{padding:.7rem .2rem}.stats{gap:.5rem}}
 .resumen{background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:.8rem .9rem;margin-top:1rem}.resumen summary{cursor:pointer;font-family:var(--serif);font-weight:700}.resumen[open] summary{margin-bottom:.5rem}
+.kn{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:.25em}
+.song{display:flex;gap:.8rem;background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:.9rem;margin:.6rem 0}
+.song .zh{font-family:var(--serif);font-size:1.5rem}.song .p2{color:var(--pri)}.rk{font-family:var(--serif);font-size:1.8rem;color:var(--gold);width:2.2rem;flex:none;text-align:center}
 </style>
 </head>
 <body>
@@ -190,6 +193,7 @@ body.nonav{padding-bottom:calc(14px + env(safe-area-inset-bottom))}
 <script src="gramatica1.js"></script>
 <script src="gramatica2.js"></script>
 <script src="gramatica3.js"></script>
+<script src="canciones.js"></script>
 <script>
 const $ = s => document.querySelector(s);
 const TABS = [['home', '🏠', 'Inicio'], ['today', '📅', 'Hoy'], ['examMenu', '📝', 'Examen'], ['stats', '📊', 'Progreso']];
@@ -278,7 +282,7 @@ function toneVars(p) { // variantes con otros tonos, para distinguirlos
 
 // --- progreso (localStorage; si falla, la app sigue sin guardar) ---
 let S = {}; try { S = JSON.parse(localStorage.hsk3) || {}; } catch {}
-S.w = S.w || {}; S.known = S.known || {}; S.gram = S.gram || {}; S.lv = S.lv || [1, 2, 3];
+S.w = S.w || {}; S.known = S.known || {}; S.gram = S.gram || {}; S.song = S.song || {}; S.lv = S.lv || [1, 2, 3];
 S.lv = [1, 2, 3, 4, 5].slice(0, Math.max(...S.lv, 1)); // los HSK son acumulativos: elegir uno incluye los anteriores S.streak = S.streak || 0; S.last = S.last || '';
 S.hist = S.hist || {}; S.exams = S.exams || []; S.exLv = S.exLv || 3; S.star = S.star || {};
 S.set = Object.assign({ goal: 20, rate: .8, size: 100, theme: 'auto', tones: true }, S.set);
@@ -331,6 +335,8 @@ const MODES = [
   ['hanzi', '🈶', 'Elegir hanzi', 'Significado → caracteres'],
   ['draw', '✍️', 'Dibujar trazos', 'Escribe el carácter trazo a trazo'],
   ['speed', '⏱️', 'Contrarreloj', '60 segundos: ¡cuantas más aciertes mejor!'],
+  ['song', '🎵', 'Canciones', 'Practica con letras de canciones chinas'],
+  ['top10', '🏆', 'Top 10 canciones', 'Cultura: las más chinas'],
 ];
 
 function home() {
@@ -365,6 +371,8 @@ function tog(k, n) { // al elegir un HSK se marcan también los anteriores; toca
 }
 const empty = (t = 'Primero estudia alguna lección', s = 'Los juegos usan solo las palabras que ya has estudiado.') => app(`<div class=top><button class=back onclick="home()">←</button></div><div class=prompt><span class=hz>📚</span>${t}<small>${s}</small></div><button class=main onclick="lessons()">Ir a las lecciones</button>`);
 function go(m) {
+  if (m == 'song') return canciones();
+  if (m == 'top10') return top10();
   if (m == 'hard') return hardList().length ? session('hard') : app(`<div class=top><button class=back onclick="home()">←</button></div><div class=prompt><span class=hz>🔥</span>Aún no tienes palabras difíciles<small>Aparecen aquí las que más fallas y las que marques con ⭐ en su ficha.</small></div>`);
   if (!pool().length) return empty();
   m == 'match' ? matchGame() : m == 'speed' ? speed() : session(m);
@@ -483,6 +491,67 @@ function gramEx(i) { // ordenar la frase y completar el hueco con los ejemplos d
     }
   };
   step();
+}
+
+// --- canciones ---
+const SONGS = self.SONGS || [], TOP10 = self.TOP10 || [], PUNT = /[，。！？、]/g;
+const knownSeg = g => { const w = byH.get(g.replace(PUNT, '')); return w && S.known[w.id] ? w : null; };
+const songWords = s => [...new Map(s.lines.flatMap(l => l[0].split('|')).map(g => byH.get(g.replace(PUNT, ''))).filter(Boolean).map(w => [w.id, w])).values()];
+function canciones() {
+  app(`<div class=top><button class=back onclick="home()">←</button><b>🎵 Canciones</b></div>
+    <p class=mut>Letras tradicionales para practicar con las palabras que ya has estudiado. Toca una canción para ver la letra y practicar.</p>
+    ${SONGS.map((s, i) => { const ws = songWords(s), k = ws.filter(w => S.known[w.id]).length, b = S.song[s.t]; return `<button class="lesson ${b >= 80 ? 'done' : ''}" onclick="cancion(${i})"><span style="flex:1;min-width:0"><b>${s.t}</b> <span class=mut>${s.p}</span><br><span class=mut>${s.es} · conoces ${k} de ${ws.length} palabras</span></span><span class=p>${b != null ? b + '%' : ''}</span></button>`; }).join('')}
+    <button class=mode onclick="top10()" style="margin-top:1rem"><span class=e>🏆</span><span><b>Top 10 canciones chinas</b><small>Cultura: las más conocidas</small></span></button>`);
+}
+function cancion(i) {
+  const s = SONGS[i];
+  app(`<div class=top><button class=back onclick="canciones()">←</button><b>${s.t}</b></div>
+    <div class=mut>${pc(s.p)} · ${s.es}</div><p class=gexp>${s.nota}</p>
+    <h3>Letra</h3>${s.lines.map((l, k) => `<div class=ex onclick="say(gplain(SONGS[${i}].lines[${k}][0]))"><div class=zh>${l[0].split('|').map(g => knownSeg(g) ? `<u class=kn>${g}</u>` : g).join('')} 🔊</div><div class=p2>${pc(l[1])}</div><div class=mut>${l[2]}</div></div>`).join('')}
+    <p class=mut>Subrayadas: palabras que ya has estudiado.</p>
+    <button class=main onclick="cancionEx(${i})">Practicar con esta canción${S.song[s.t] != null ? ' · mejor: ' + S.song[s.t] + '%' : ''}</button>`);
+}
+function cancionEx(i) { // completar la letra, ordenar la línea y escuchar: con las palabras que ya sabes
+  const s = SONGS[i], todas = SONGS.flatMap(x => x.lines), qs = [];
+  s.lines.forEach((l, k) => {
+    const segs = l[0].split('|');
+    if (segs.length >= 3) qs.push({ t: 'o', k });
+    segs.forEach((g, j) => { const w = knownSeg(g); if (w) qs.push({ t: 'c', k, j, w }); });
+    qs.push({ t: 'l', k });
+  });
+  const lista = shuffle(qs).slice(0, 8);
+  let n = 0, ok = 0;
+  const step = () => {
+    if (n >= lista.length) {
+      const pct = Math.round(ok / lista.length * 100); S.song[s.t] = Math.max(S.song[s.t] || 0, pct); save();
+      return app(`<h1>¡Hecho! 🎉</h1><p style="font-size:1.4rem">${ok}/${lista.length} aciertos</p><button class=main onclick="cancionEx(${i})">Otra ronda</button><button class=opt style="margin-top:.5rem" onclick="cancion(${i})">Volver a la letra</button><button class=opt style="margin-top:.5rem" onclick="canciones()">Todas las canciones</button>`);
+    }
+    const q = lista[n], l = s.lines[q.k], segs = l[0].split('|');
+    app(`<div class=play><div class=top><button class=back onclick="cancion(${i})">✕</button><div class=bar><i style="width:${n / lista.length * 100}%"></i></div></div><div id=q></div><div id=fb></div></div>`);
+    const done = good => {
+      if (q.t == 'c') grade(q.w.id, good); else { tick(good); save(); }
+      if (good) ok++;
+      $('#fb').innerHTML = `<div class="fb ${good ? 'g' : 'b'}"><b style="font-size:1.3rem">${gplain(l[0])}</b> <button class=back onclick="say(gplain(SONGS[${i}].lines[${q.k}][0]))">🔊</button><div class=p2>${pc(l[1])}</div><div class=mut>${l[2]}</div></div><button class=main id=nx>Siguiente</button>`;
+      $('#nx').onclick = () => { n++; step(); };
+    };
+    if (q.t == 'o') orderUI($('#q'), segs, l[2], done);
+    else if (q.t == 'c') {
+      const base = [...q.w.h].length, pool = W.filter(x => S.known[x.id] && [...x.h].length == base), otros = distinct(q.w, pool.length >= 4 ? pool : W.filter(x => [...x.h].length == base), x => x.h);
+      $('#q').innerHTML = `<div class=prompt><span class=hz2 style="line-height:1.5">${segs.map((g, j) => j == q.j ? g.replace(q.w.h, '＿＿') : g).join('')}</span><small>${l[2]}</small></div>`;
+      opts($('#q'), q.w, shuffle([q.w, ...otros]), o => `<span class=hz2>${o.h}</span><small>${pc(o.p)}</small>`, done);
+    } else {
+      const right = { es: l[2] }, falsas = distinct({ es: l[2] }, todas.map((x, id) => ({ id, es: x[2] })), x => x.es);
+      $('#q').innerHTML = `<div class=prompt><button class=main style="width:auto;margin:0 auto" onclick="say(gplain(SONGS[${i}].lines[${q.k}][0]))">🔊 Escuchar la línea</button><small>¿Qué significa?</small></div>`;
+      setTimeout(() => say(gplain(l[0])), 300);
+      opts($('#q'), right, shuffle([right, ...falsas]), o => o.es, done);
+    }
+  };
+  step();
+}
+function top10() {
+  app(`<div class=top><button class=back onclick="home()">←</button><b>🏆 Top 10 canciones chinas</b></div>
+    <p class=mut>Una selección de canciones que forman parte de la cultura popular china, para tener contexto. No es una clasificación oficial. Búscalas en tu plataforma de música y escúchalas mientras lees.</p>
+    ${TOP10.map((s, i) => `<div class=song><div class=rk>${i + 1}</div><div style="flex:1;min-width:0"><div class=zh onclick="say(TOP10[${i}].t)" style="cursor:pointer">${s.t} 🔊</div><div class=p2>${pc(s.p)}</div><div><b>${s.es}</b></div><div class=mut>${s.a} · ${s.y}</div><p class=gexp style="margin:.4rem 0 0">${s.d}</p></div></div>`).join('')}`);
 }
 
 // --- ficha de palabra, frases y trazos ---

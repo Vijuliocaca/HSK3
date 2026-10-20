@@ -114,6 +114,7 @@ body.nonav{padding-bottom:calc(14px + env(safe-area-inset-bottom))}
 .play .opts{flex:1.5;grid-auto-rows:1fr;margin-bottom:.5rem;gap:.7rem}
 .play .opt{font-size:1.3rem;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:.6rem;line-height:1.25}
 .play .opt small{font-size:1.05rem}
+.play .opt{scroll-margin-bottom:14rem}
 .play .main{padding:1.15rem;font-size:1.25rem}
 .play .prompt .main{width:auto;padding:2.4rem 2.2rem;font-size:1.6rem;border-radius:14px}
 .play .row .opt{padding:1.3rem;font-size:1.35rem}
@@ -555,6 +556,7 @@ function opts(el, w, list, label, done) {
     bs.forEach((x, j) => { x.disabled = true; if (list[j] === w) x.classList.add('ok'); });
     if (list[k] !== w) b.classList.add('no');
     done(list[k] === w);
+    setTimeout(() => el.querySelector('.opt.ok')?.scrollIntoView({ block: 'nearest' }), 60); // que el cuadro de «Siguiente» no tape la respuesta correcta
   });
 }
 const distract = w => shuffle([w, ...distinct(w, W, x => x.e)]);

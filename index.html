@@ -524,6 +524,45 @@ function logros() {
     ${L.map(l => `<div class=hbar style="flex-wrap:wrap;gap:.2rem .6rem"><span style="width:auto;font-size:1.3rem">${l.e}</span><span style="flex:1;min-width:8rem"><b>${l.n}</b><br><span class=mut>${l.v} ${l.u}${l.sig ? ' · siguiente: ' + l.sig : ' · ¡completo!'}</span></span><span style="font-size:1.4rem;letter-spacing:.15rem">${MED.map((m, i) => i < l.t ? m : '⚪').join('')}</span>${l.sig ? `<div class=bar style="flex-basis:100%"><i style="width:${Math.min(100, l.v / l.sig * 100)}%"></i></div>` : ''}</div>`).join('')}`, 'home');
 }
 
+// --- compartir el progreso: tarjeta dibujada en un canvas, solo con cifras (sin nombre ni datos personales) ---
+function tarjetaProgreso() {
+  const c = document.createElement('canvas'), g = c.getContext('2d'), F = getComputedStyle(document.documentElement).getPropertyValue('--serif') || 'serif';
+  c.width = 1080; c.height = 1350;
+  const rr = (x, y, w, h, r) => { g.beginPath(); g.moveTo(x + r, y); g.arcTo(x + w, y, x + w, y + h, r); g.arcTo(x + w, y + h, x, y + h, r); g.arcTo(x, y + h, x, y, r); g.arcTo(x, y, x + w, y, r); g.closePath(); };
+  const txt = (t, x, y, px, col, bold, max = 960) => { g.fillStyle = col; do g.font = `${bold ? 'bold ' : ''}${px--}px ${F}`; while (g.measureText(t).width > max && px > 12); g.fillText(t, x, y); }; // reduce la letra si no cabe
+  g.fillStyle = '#f3ead8'; g.fillRect(0, 0, 1080, 1350);
+  g.strokeStyle = '#b8892b'; g.lineWidth = 6; g.strokeRect(36, 36, 1008, 1278);
+  g.textAlign = 'center'; g.textBaseline = 'middle';
+  g.fillStyle = '#b3282d'; rr(450, 90, 180, 180, 24); g.fill(); txt('学', 540, 185, 120, '#fff');
+  txt('HSK Viju', 540, 350, 88, '#2b1d14', true);
+  txt(`Mi progreso · HSK ${Math.max(...S.lv)} · ${new Date().toLocaleDateString('es', { day: 'numeric', month: 'long', year: 'numeric' })}`, 540, 425, 38, '#8a7560');
+  const vivo = S.last == day(new Date()) || S.last == day(new Date(Date.now() - 864e5)), vistas = Object.keys(S.known).length, pct = Math.round(vistas / W.length * 100);
+  const dom = W.filter(w => (S.w[w.id]?.b || 0) >= 4).length, med = LOGROS.reduce((a, l) => a + l[3].filter(x => l[2]() >= x).length, 0);
+  [[vivo ? S.streak : 0, '🔥 días de racha'], [vistas, '📚 palabras estudiadas'], [dom, '🧠 palabras dominadas'], [med, `🏅 medallas de ${LOGROS.length * 3}`]].forEach(([n, l], i) => {
+    const x = 80 + (i % 2) * 480, y = 490 + (i >> 1) * 320;
+    g.fillStyle = '#fbf6ea'; rr(x, y, 440, 290, 20); g.fill(); g.strokeStyle = '#d9c9a6'; g.lineWidth = 3; g.stroke();
+    txt(String(n), x + 220, y + 115, 130, '#b3282d', true); txt(l, x + 220, y + 225, 36, '#2b1d14', false, 400);
+  });
+  g.fillStyle = '#d9c9a6'; rr(80, 1150, 920, 36, 18); g.fill();
+  g.fillStyle = '#b3282d'; if (pct) { rr(80, 1150, Math.max(36, 920 * pct / 100), 36, 18); g.fill(); }
+  txt(`${pct} % del vocabulario (${vistas} de ${W.length} palabras)`, 540, 1225, 36, '#2b1d14');
+  txt('vijuliocaca.github.io/HSK3', 540, 1285, 32, '#8a7560');
+  return c;
+}
+let PROG;
+function compartir() {
+  PROG = tarjetaProgreso();
+  app(`<div class=top><button class=back onclick="stats()">←</button><b>Compartir mi progreso</b></div>
+    <img src="${PROG.toDataURL('image/png')}" alt="Tarjeta con tus cifras de progreso" style="width:100%;max-width:420px;display:block;margin:0 auto;border-radius:8px;border:1px solid var(--bd)">
+    <p class=mut>La imagen solo lleva tus cifras, sin nombre ni datos personales.</p>
+    <button class=main onclick="enviarProgreso()">📤 Compartir</button><button class=opt style="margin-top:.5rem" onclick="enviarProgreso(true)">⬇️ Guardar imagen</button>`, 'home');
+}
+async function enviarProgreso(guardar) {
+  const blob = await new Promise(r => PROG.toBlob(r, 'image/png')), f = new File([blob], 'mi-progreso-hsk-viju.png', { type: 'image/png' });
+  if (!guardar && navigator.canShare?.({ files: [f] })) { try { return await navigator.share({ files: [f], title: 'HSK Viju', text: 'Mi progreso estudiando chino con HSK Viju' }); } catch (e) { if (e.name == 'AbortError') return; } }
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = f.name; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1e4);
+}
+
 function stats() {
   const p = W.filter(w => S.known[w.id]), dom = p.filter(w => (S.w[w.id]?.b || 0) >= 4).length;
   let tn = 0, tok = 0; Object.values(S.hist).forEach(h => { tn += h.n; tok += h.ok; });
@@ -531,7 +570,7 @@ function stats() {
   const mx = Math.max(5, ...ds.map(d => d.n));
   const bx = [0, 0, 0, 0, 0, 0]; p.forEach(w => bx[S.w[w.id]?.b || 0]++);
   const BN = ['Nueva', '1 día', '3 días', '1 semana', '2 semanas', 'Dominada'];
-  app(`<h1>Progreso</h1><button class=chip onclick="logros()">🏅 Logros y medallas</button>
+  app(`<h1>Progreso</h1><button class=chip onclick="logros()">🏅 Logros y medallas</button> <button class=chip onclick="compartir()">📤 Compartir</button>
     <div class=stats><div class=stat><b>${tn ? Math.round(tok / tn * 100) : 0}%</b><span class=mut>aciertos</span></div><div class=stat><b>${dom}</b><span class=mut>dominadas</span></div><div class=stat><b>${Object.keys(S.hist).length}</b><span class=mut>días activos</span></div></div>
     <h3>Respuestas, últimos 14 días</h3>
     <svg viewBox="0 0 280 110" class=chart>${ds.map((d, i) => { const h = d.n / mx * 80, k = d.ok / mx * 80, x = i * 20 + 3; return `<rect x=${x} y=${90 - h} width=14 height=${h} rx=2 style="fill:var(--no);opacity:.35"/><rect x=${x} y=${90 - k} width=14 height=${k} rx=2 style="fill:var(--ok)"/>${d.n ? `<text x=${x + 7} y=${86 - h} text-anchor=middle>${d.n}</text>` : ''}<text x=${x + 7} y=104 text-anchor=middle>${d.l}</text>`; }).join('')}</svg>

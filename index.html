@@ -669,11 +669,13 @@ function fiestaFechas(y) {
   return out;
 }
 let FCACHE = { d: '', v: [] };
-function fiestaProx() { // próximos 12 meses, con los días que faltan
+function fiestaProx() { // próximos 12 meses, con los días que faltan; el cálculo lunar (~40 ms) se guarda por día para no repetirlo en cada arranque
   const t = day(new Date()); if (FCACHE.d == t) return FCACHE.v;
-  const hoy = new Date(); hoy.setHours(0, 0, 0, 0); const y = hoy.getFullYear();
-  FCACHE = { d: t, v: [...fiestaFechas(y), ...fiestaFechas(y + 1)].filter(o => o.d >= hoy && o.d <= hoy.getTime() + 366 * 864e5).sort((a, b) => a.d - b.d).map(o => ({ ...o, n: Math.round((o.d - hoy) / 864e5) })) };
-  return FCACHE.v;
+  const hoy = new Date(); hoy.setHours(0, 0, 0, 0); const y = hoy.getFullYear(), dias = o => ({ ...o, n: Math.round((o.d - hoy) / 864e5) });
+  try { const c = JSON.parse(localStorage.hsk3f); if (c.d == t && c.k == FIESTAS.length) return (FCACHE = { d: t, v: c.v.map(([i, s]) => dias({ f: FIESTAS[i], d: new Date(s + 'T00:00') })) }).v; } catch {}
+  const v = [...fiestaFechas(y), ...fiestaFechas(y + 1)].filter(o => o.d >= hoy && o.d <= hoy.getTime() + 366 * 864e5).sort((a, b) => a.d - b.d);
+  try { localStorage.hsk3f = JSON.stringify({ d: t, k: FIESTAS.length, v: v.map(o => [FIESTAS.indexOf(o.f), o.d.toLocaleDateString('sv')]) }); } catch {}
+  return (FCACHE = { d: t, v: v.map(dias) }).v;
 }
 const nDias = n => n == 1 ? '1 día' : n + ' días';
 const fechaEs = d => d.toLocaleDateString('es', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });

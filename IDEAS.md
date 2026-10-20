@@ -3,7 +3,6 @@
 Lista de mejoras que se han hablado y todavía no están hechas. Recomendación: empezar por las pruebas automáticas (1).
 
 ## Para no perder el progreso
-1. **Pruebas automáticas en el repositorio:** guardar las baterías de prueba (recorrido de pantallas, desbordes a 320-412 px, datos) y ejecutarlas en cada subida.
 
 ## Para aprender mejor
 4. **Pronunciación:** grabarte, compararte con el modelo y, en Chrome, puntuar con reconocimiento de voz.

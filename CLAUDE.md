@@ -21,8 +21,8 @@ PWA para estudiar chino (HSK 1-5) en español. JavaScript puro, sin dependencias
 
 ## Modos de trabajo (por defecto: rápido)
 **Al empezar cada conversación, en tu primera respuesta recuerda al usuario los 3 modos en pocas líneas** (para que no se le olviden), di que trabajas en **modo rápido** salvo que él elija otro, y atiende lo que haya pedido. Cámbialo solo si lo dice.
-- **Rápido:** solo la comprobación de sintaxis y una prueba concreta de lo tocado. Sin capturas.
-- **Normal:** lo anterior más la revisión de las pantallas afectadas.
+- **Rápido:** `node tests/run.js` y una prueba concreta de lo tocado. Sin capturas.
+- **Normal:** lo anterior más `node tests/desbordes.js` y la revisión de las pantallas afectadas.
 - **Exhaustivo:** recorrido completo en Edge y desbordes a 320-412 px; solo cuando el usuario pida revisar bugs.
 
 ## Reglas para gastar menos
@@ -37,13 +37,13 @@ PWA para estudiar chino (HSK 1-5) en español. JavaScript puro, sin dependencias
 9. **Guardar las decisiones en memoria** (o en `IDEAS.md`) para no volver a preguntarlas.
 
 ## Cómo probar sin gastar de más
-- **Siempre:** comprobar que el script de `index.html` no tiene errores de sintaxis:
-  `node -e "new Function(require('fs').readFileSync('index.html','utf8').match(/<script>([\s\S]*?)<\/script>/g).pop().slice(8,-9))"`
+- **Siempre, antes de cada commit:** `node tests/run.js` (unos segundos, sin navegador). Comprueba el formato y el pinyin de todos los datos, que `index.html` y `sw.js` estén al día, que ninguna de las ~55 pantallas/lógicas falle y fechas clave. GitHub lo ejecuta también en cada subida (`.github/workflows/pruebas.yml`).
+- **Si el cambio toca el aspecto o varias pantallas:** `node tests/desbordes.js` (≈15 s): recorre 43 pantallas en Edge/Chrome real a 320, 360 y 412 px y avisa de errores de JavaScript y de desbordes horizontales, con la pantalla y el primer elemento culpable. Filtros: `SOLO=texto` y `RANGO=a-b`. Se salta solo si no encuentra el navegador (`BROWSER=ruta`).
+- **Pantalla o archivo de datos nuevo:** añade la pantalla a `tests/pantallas-lista.js` y, si tiene formato propio, su validación a `tests/datos.js`. Un `.js` nuevo ya se comprueba solo (debe estar en `index.html` y en `FILES` de `sw.js`). Los topes de `datos.js` (vocabulario 31, frases 122, temas 203) son casos conocidos que no deben empeorar.
 - **Si el cambio es pequeño:** solo lo anterior más una prueba concreta de lo tocado.
-- **Recorrido completo en Edge** (todas las pantallas, desbordes a 320-412 px): solo si el cambio toca varias pantallas o el usuario pide revisar bugs.
 - **No hacer capturas de pantalla** salvo que el cambio sea visual o lo pida el usuario. Las imágenes pesan mucho.
 - **No volcar listas enteras del vocabulario** para analizarlas: usa scripts de Node que impriman solo el resumen.
-- Edge está en `C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe` (`--headless=new --screenshot`). Las pruebas aún no están en el repositorio (ver `IDEAS.md`, idea 1).
+- Edge está en `C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe` (`--headless=new --screenshot`). Las pruebas están en `tests/`.
 
 ## Trampas de este equipo (Windows + Git Bash)
 - Node no ve `/tmp` de Git Bash: usa rutas de Windows (`C:/Users/...`) en scripts de Node.

@@ -201,6 +201,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script src="canciones.js"></script>
 <script src="dialogos.js"></script>
 <script src="lecturas.js"></script>
+<script src="chengyu.js"></script>
 <script>
 const $ = s => document.querySelector(s);
 const TABS = [['home', '🏠', 'Inicio'], ['today', '📅', 'Hoy'], ['examMenu', '📝', 'Examen'], ['stats', '📊', 'Progreso']];
@@ -354,6 +355,24 @@ const MODES = [
   ['top10', '🏆', 'Top 10 canciones', 'Cultura: las más chinas'],
 ];
 
+// palabra y 成语 del día; la palabra se fija por hanzi al abrir la app (no cambia aunque la estudies)
+const CY = (self.CHENGYU || []).flatMap(t => t.split('\n').map(l => l.split('|')));
+function wotd() {
+  const t = day(new Date()); let w = S.wotd?.d == t && byH.get(S.wotd.h);
+  if (!w) {
+    const c = W.filter(sel), n = c.filter(x => !S.known[x.id]), l = n.length ? n : c;
+    w = l[[...t].reduce((a, ch) => (a * 31 + ch.charCodeAt(0)) >>> 0, 7) % l.length]; // ponytail: hash simple de la fecha; no evita repetir en días distintos
+    if (w) { S.wotd = { d: t, h: w.h }; save(); }
+  }
+  return w;
+}
+function daily() {
+  const w = wotd(), ci = Math.floor((Date.now() - new Date().getTimezoneOffset() * 6e4) / 864e5) % CY.length, c = CY[ci];
+  return `<h3>Hoy en chino</h3>` + (w ? `<button class=mode onclick="BACK='home()';detail(${w.id})"><span class=e style="font-family:var(--serif)">${w.h}</span><span><b>${pc(w.p)}</b><small>${w.e} · palabra del día</small></span></button>` : '')
+    + (c ? `<details class=resumen><summary>🧧 成语 del día: <b>${c[0]}</b></summary><div class=p2>${pc(c[1])}</div><div class=mut>«${c[2]}»</div><div style="margin:.4rem 0"><b>${c[3]}</b></div>
+      <div class=ex onclick="say(CY[${ci}][4])"><div class=zh>${c[4]} 🔊</div><div class=p2>${pc(c[5])}</div><div class=mut>${c[6]}</div></div><button class=chip style="margin-top:.5rem" onclick="say('${c[0]}')">🔊 Escuchar el 成语</button></details>` : '');
+}
+
 function home() {
   const all = W.filter(sel), p = pool(), dom = p.filter(w => (S.w[w.id]?.b || 0) >= 4).length, nd = due().length;
   const streakOk = S.last == day(new Date()) || S.last == day(new Date(Date.now() - 864e5));
@@ -372,6 +391,7 @@ function home() {
     ${LEVELS.map(l => { const ws = W.filter(w => w.l == l), n = ws.filter(w => S.known[w.id]).length; return `<div class=hbar><span>HSK ${l}</span><div class=bar><i style="width:${n / ws.length * 100}%"></i></div><b style="width:4.8rem">${n}/${ws.length}</b></div>`; }).join('')}
     <div class=mut style="margin:.5rem 0">Total: <b>${vistas.length}</b> estudiadas de ${W.length} · <b>${domT}</b> dominadas · <b>${W.length - vistas.length}</b> por estudiar</div>
     <button class=chip onclick="list('done')">Ver las palabras estudiadas →</button></details>
+  ${daily()}
   <button class="mode big" style="margin-top:1rem" onclick="lessons()"><span class=e>📚</span><span><b>Aprender palabras nuevas</b><small>Lecciones por temas</small></span></button>
   <button class="mode big" onclick="gramatica()"><span class=e>📐</span><span><b>Gramática</b><small>Estructuras del chino por nivel</small></span></button>
   <button class="mode big" onclick="temas()"><span class=e>🗂️</span><span><b>Vocabulario por temas</b><small>Frutas, transporte, familia…</small></span></button>

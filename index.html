@@ -74,8 +74,8 @@ button:disabled{color:var(--tx);opacity:1;cursor:default}
 .cell .hz2{font-size:1.7rem}
 .cell.sel{border-color:var(--pri);box-shadow:0 0 0 2px var(--pri)}
 .shake{animation:sh .25s} @keyframes sh{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
-.list div{display:flex;gap:.75rem;padding:.55rem 0;border-bottom:1px solid var(--bd);align-items:baseline}
-.list b{font-size:1.3rem;min-width:4.5rem}.list i{color:var(--mut);font-style:normal;min-width:5rem}
+.list div{display:flex;gap:.75rem;padding:.8rem 0;border-bottom:1px solid var(--bd);align-items:center;font-size:1.1rem}
+.list b{font-size:1.7rem;min-width:5.5rem}.list i{color:var(--mut);font-style:normal;min-width:5.5rem;font-size:1.05rem}
 .box{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--bd);margin-left:auto;flex:none}
 .lesson{display:flex;align-items:center;gap:.8rem;width:100%;text-align:left;background:var(--card);border:1px solid var(--bd);border-radius:6px;padding:.7rem .9rem;margin:.4rem 0}
 .lesson.done{border-color:var(--ok)} .lesson b{} .lesson span.p{color:var(--mut);margin-left:auto;font-size:1.1rem}
@@ -101,6 +101,36 @@ nav button{flex:1;background:none;border:0;padding:.55rem 0 .5rem;font-size:.75r
 nav button span{font-size:1.4rem;line-height:1}
 nav button.on{color:var(--pri);font-weight:700}
 input[type=text],input[type=search]{width:100%;padding:.8rem;border-radius:6px;border:2px solid var(--bd);background:var(--card);color:var(--tx);font-size:1.1rem}
+/* pantallas de práctica: llenan toda la altura con pregunta y respuestas grandes */
+body.nonav{padding-bottom:calc(14px + env(safe-area-inset-bottom))}
+.play{display:flex;flex-direction:column;min-height:calc(100vh - 28px)}
+.play>#q{flex:1.6;display:flex;flex-direction:column;min-height:0}
+.play .prompt{flex:1;margin:0 0 .9rem;justify-content:center;align-items:center;gap:.8rem;font-size:1.7rem}
+.play .prompt .hz{font-size:clamp(4.5rem,26vw,7.5rem)}
+.play .prompt b{font-family:var(--serif);font-size:1.9rem;line-height:1.3}
+.play .prompt small{font-size:1.1rem}
+.play .hz2{font-size:2.6rem}
+.play .prompt .hz2{font-size:2.4rem}
+.play .opts{flex:1.5;grid-auto-rows:1fr;margin-bottom:.5rem;gap:.7rem}
+.play .opt{font-size:1.3rem;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:.6rem;line-height:1.25}
+.play .opt small{font-size:1.05rem}
+.play .main{padding:1.15rem;font-size:1.25rem}
+.play .prompt .main{width:auto;padding:2.4rem 2.2rem;font-size:1.6rem;border-radius:14px}
+.play .row .opt{padding:1.3rem;font-size:1.35rem}
+.play input[type=text]{font-size:1.6rem;padding:1.1rem;text-align:center}
+.play .slot{flex:1;min-height:5.5rem;align-content:flex-start;margin:.3rem 0 1rem}
+.play #bk{flex:1.3;align-content:center;gap:.6rem}
+.play .chip.hz2{font-size:2.1rem;padding:.5rem 1rem}
+.play .match{flex:1;grid-auto-rows:1fr;gap:.7rem;margin-bottom:.5rem}
+.play .cell{font-size:1.2rem}
+.play .cell .hz2{font-size:2.3rem}
+.play .cell small{font-size:.95rem}
+.play .fb{font-size:1.1rem}
+.play #fb{position:sticky;bottom:0;background:var(--bg);padding-bottom:.3rem;z-index:2}
+.play input::placeholder{font-size:1rem}
+.play .prompt>span:not(.hz):not(.hz2){font-size:2rem}
+.play .prompt .main{min-width:80%}
+.play .skbox{margin:0 auto}
 </style>
 </head>
 <body>
@@ -164,11 +194,12 @@ const app = (h, tab) => {
   if (tab == 'home') { GUARD = ''; if (depth) { depth = 0; skipPop = true; history.back(); } }
   else if (!depth) { history.pushState({ a: 1 }, ''); depth = 1; }
   $('#app').innerHTML = h; scrollTo(0, 0);
-  $('#nav').hidden = !tab;
+  $('#nav').hidden = !tab; document.body.classList.toggle('nonav', !tab);
   if (tab) $('#nav').innerHTML = TABS.map(t => `<button class="${t[0] == tab ? 'on' : ''}" onclick="${t[0]}()"><span>${t[1]}</span>${t[2]}</button>`).join('');
 };
 const shuffle = a => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.random() * (i + 1) | 0; [a[i], a[j]] = [a[j], a[i]]; } return a; };
 const sample = (a, n) => shuffle(a).slice(0, n);
+const distinct = (w, list, key, n = 3) => { const seen = new Set([key(w)]); return shuffle(list).filter(x => x.id != w.id && !seen.has(key(x)) && seen.add(key(x))).slice(0, n); }; // distractores con texto distinto entre sí y del correcto
 const nrm = s => s.normalize('NFD').replace(/[̀-ͯ0-9\s'’·.-]/g, '').toLowerCase().replace(/v/g, 'u');
 const say = t => { try { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(t); u.lang = 'zh-CN'; u.rate = S.set.rate; speechSynthesis.speak(u); } catch {} };
 
@@ -300,7 +331,7 @@ function home() {
   </div>
   <div class=prog><i style="width:${all.length ? p.length / all.length * 100 : 0}%"></i></div>
   <div class=row>${LEVELS.map(n => `<button class="chip ${S.lv.includes(n) ? 'on' : ''}" onclick="tog('lv',${n})">HSK ${n}</button>`).join('')}</div>
-  <button class="mode big" style="margin-top:1rem" onclick="lessons()"><span class=e>📚</span><span><b>Aprender palabras nuevas</b><small>Lecciones de 15 en 15</small></span></button>
+  <button class="mode big" style="margin-top:1rem" onclick="lessons()"><span class=e>📚</span><span><b>Aprender palabras nuevas</b><small>Lecciones por temas</small></span></button>
   <button class="mode big" onclick="temas()"><span class=e>🗂️</span><span><b>Vocabulario por temas</b><small>Frutas, transporte, familia…</small></span></button>
   ${nd ? `<button class="mode alert" onclick="today()"><span class=e>📅</span><span><b>Repasar lo de hoy</b><small>${nd} palabras pendientes</small></span></button>` : ''}
   <h3>Practicar lo estudiado</h3>
@@ -470,7 +501,7 @@ function opts(el, w, list, label, done) {
     done(list[k] === w);
   });
 }
-const distract = w => shuffle([w, ...sample(W.filter(x => x.id != w.id && x.e != w.e), 3)]);
+const distract = w => shuffle([w, ...distinct(w, W, x => x.e)]);
 
 // trocea una frase en palabras usando los espacios del pinyin (null si no cuadra con los hanzi)
 const segCache = {};
@@ -495,7 +526,7 @@ function seg(w) {
 }
 // modos que necesitan frase de ejemplo o palabras cortas (para dibujar)
 const FILT = { cloze: w => SENT[w.h], sentence: w => SENT[w.h], order: w => seg(w), draw: w => [...w.h].length <= 3 };
-const similar = (w, f) => shuffle([w, ...sample(W.filter(x => x.id != w.id && f(x)), 3)]);
+const similar = (w, f, key = x => x.h) => shuffle([w, ...distinct(w, W.filter(f), key)]);
 const Q = {
   cloze(el, w, done) {
     const s = SENT[w.h];
@@ -506,12 +537,12 @@ const Q = {
     const s = SENT[w.h];
     el.innerHTML = `<div class=prompt><button class=main style="width:auto;margin:0 auto" onclick="say(SENT[W[${w.id}].h][0])">🔊 Escuchar la frase</button><small>¿Qué significa?</small></div>`;
     setTimeout(() => say(s[0]), 300);
-    opts(el, w, similar(w, x => SENT[x.h]), o => SENT[o.h][2], done);
+    opts(el, w, similar(w, x => SENT[x.h], x => SENT[x.h][2]), o => SENT[o.h][2], done);
   },
   pinyin(el, w, done) {
     const v = toneVars(w.p), n = w.p.split(' ').length;
     el.innerHTML = `<div class=prompt><span class=hz>${w.h}</span><small>${w.e}</small></div>`;
-    const list = v.length >= 3 ? shuffle([w, ...v.slice(0, 3).map(p => ({ p }))]) : similar(w, x => x.p != w.p && x.p.split(' ').length == n);
+    const list = v.length >= 3 ? shuffle([w, ...v.slice(0, 3).map(p => ({ p }))]) : similar(w, x => x.p != w.p && x.p.split(' ').length == n, x => x.p);
     opts(el, w, list, o => o.p, done);
   },
   order(el, w, done) {
@@ -536,11 +567,11 @@ const Q = {
     opts(el, w, similar(w, x => [...x.h].length == n), o => `<span class=hz2>${o.h}</span>`, done);
   },
   draw(el, w, done) {
-    const cs = [...w.h].filter(c => /[㐀-鿿]/.test(c));
-    el.innerHTML = `<div class=prompt><b>${w.e}</b><small>${w.p}</small></div><div class=row style="justify-content:center">${cs.map((c, i) => `<div class=skbox id=dw${i}></div>`).join('')}</div><div class=mut id=dm style="text-align:center">Dibuja los trazos en orden</div>`;
+    const cs = [...w.h].filter(c => /[㐀-鿿]/.test(c)), sz = Math.max(110, Math.min(300, Math.floor((Math.min(innerWidth, 520) - 40 - (cs.length - 1) * 8) / cs.length)));
+    el.innerHTML = `<div class=prompt><b>${w.e}</b><small>${w.p}</small></div><div class=row style="justify-content:center;flex-wrap:nowrap">${cs.map((c, i) => `<div class=skbox id=dw${i} style="width:${sz}px;height:${sz}px"></div>`).join('')}</div><div class=mut id=dm style="text-align:center">Dibuja los trazos en orden</div>`;
     loadHW().then(() => {
       let fin = 0, bad = 0, sinDatos = 0;
-      cs.forEach((c, i) => HanziWriter.create('dw' + i, c, { width: 150, height: 150, padding: 8, showOutline: true, strokeColor: getComputedStyle(document.body).color, outlineColor: '#cdbd9a',
+      cs.forEach((c, i) => HanziWriter.create('dw' + i, c, { width: sz, height: sz, padding: 8, showOutline: true, strokeColor: getComputedStyle(document.body).color, outlineColor: '#cdbd9a',
         onLoadCharDataError: () => { $('#dm').textContent = 'Sin datos de trazos para ' + c; if (!sinDatos++) done(false); } })
         .quiz({ onMistake: () => bad++, onComplete: () => { if (++fin == cs.length && !sinDatos) done(bad <= cs.length); } }));
     }).catch(() => $('#dm').textContent = 'Necesitas internet la primera vez para dibujar (sal con ✕ y prueba otro modo)');
@@ -582,7 +613,7 @@ function session(mode, fixed) {
   const step = () => {
     if (i >= items.length) return summary(ok, items.length, bad, () => mode == 'mix' ? today() : session(mode, fixed));
     const w = items[i];
-    app(`<div class=top><button class=back onclick="home()">✕</button><div class=bar><i style="width:${i / items.length * 100}%"></i></div></div><div id=q></div><div id=fb></div>`);
+    app(`<div class=play><div class=top><button class=back onclick="home()">✕</button><div class=bar><i style="width:${i / items.length * 100}%"></i></div></div><div id=q></div><div id=fb></div></div>`);
     Q[mix ? mixMode(w) : mode]($('#q'), w, good => {
       grade(w.id, good); good ? ok++ : bad.push(w);
       const s = SENT[w.h];
@@ -596,8 +627,8 @@ function session(mode, fixed) {
 // contrarreloj: 60 segundos de preguntas de elegir traducción
 function speed() {
   const items = shuffle(pool()); let i = 0, ok = 0, n = 0, left = 60; const bad = [];
-  app(`<div class=exh><span class=sec>⏱️ Contrarreloj</span><span class=tm id=tm>60</span></div>
-    <div class=top><button class=back onclick="home()">✕</button><div class=bar><i id=sb style="width:100%"></i></div><b id=sc>0</b></div><div id=q></div>`);
+  app(`<div class=play><div class=exh><span class=sec>⏱️ Contrarreloj</span><span class=tm id=tm>60</span></div>
+    <div class=top><button class=back onclick="home()">✕</button><div class=bar><i id=sb style="width:100%"></i></div><b id=sc>0</b></div><div id=q></div></div>`);
   const end = () => {
     clearInterval(TM);
     const prev = S.best || 0, best = S.best = Math.max(prev, ok); save();
@@ -618,8 +649,8 @@ function matchGame(fixed) {
   const round = () => {
     if (r >= rounds) return summary(ok, items.length, bad, () => matchGame(fixed));
     const ws = items.slice(r * 5, r * 5 + 5), err = new Set(), R = shuffle(ws); let cur = null, left = ws.length;
-    app(`<div class=top><button class=back onclick="home()">✕</button><div class=bar><i style="width:${r / rounds * 100}%"></i></div></div>
-      <div class=match>${ws.map((w, i) => `<button class=cell data-i=${w.id} data-s=l><span class=hz2>${w.h}</span><small class=mut>${pc(w.p)}</small></button><button class=cell data-i=${R[i].id} data-s=r>${R[i].e}</button>`).join('')}</div>`);
+    app(`<div class=play><div class=top><button class=back onclick="home()">✕</button><div class=bar><i style="width:${r / rounds * 100}%"></i></div></div>
+      <div class=match>${ws.map((w, i) => `<button class=cell data-i=${w.id} data-s=l><span class=hz2>${w.h}</span><small class=mut>${pc(w.p)}</small></button><button class=cell data-i=${R[i].id} data-s=r>${R[i].e}</button>`).join('')}</div></div>`);
     const word = id => ws.find(w => w.id == id);
     document.querySelectorAll('.cell').forEach(b => b.onclick = () => {
       if (b.dataset.s == 'l') say(word(b.dataset.i).h);
@@ -664,12 +695,12 @@ function examMenu() {
 function buildExam(lv) {
   const P = W.filter(w => w.l == lv), PS = P.filter(w => SENT[w.h]), used = new Set();
   const take = (a, n) => sample(a.filter(w => !used.has(w.id)), n).map(w => (used.add(w.id), w)); // sin repetir palabras en el examen
-  const dis = (w, k) => shuffle([w, ...sample(P.filter(x => x.id != w.id && x[k] != w[k]), 3)]);
+  const dis = (w, k) => shuffle([w, ...distinct(w, P, x => x[k])]);
   const hz = o => `<span class=hz2>${o.h}</span>`, Qs = [];
   const mk = (s, w, o) => Qs.push({ s, w, ...o });
   // 听力
   take(P, 5).forEach(w => mk(0, w, { audio: w.h, q: '¿Qué significa lo que oyes?', opts: dis(w, 'e'), lab: o => o.e }));
-  if (PS.length >= 8) take(PS, 5).forEach(w => mk(0, w, { audio: SENT[w.h][0], q: 'Escucha la frase: ¿qué dice?', opts: shuffle([w, ...sample(PS.filter(x => x.id != w.id), 3)]), lab: o => SENT[o.h][2] }));
+  if (PS.length >= 8) take(PS, 5).forEach(w => mk(0, w, { audio: SENT[w.h][0], q: 'Escucha la frase: ¿qué dice?', opts: shuffle([w, ...distinct(w, PS, x => SENT[x.h][2])]), lab: o => SENT[o.h][2] }));
   else take(P, 5).forEach(w => mk(0, w, { audio: w.h, q: '¿Qué palabra oyes?', opts: dis(w, 'h'), lab: hz }));
   // 阅读
   if (PS.length >= 8) take(PS, 5).forEach(w => { const s = SENT[w.h]; mk(1, w, { q: 'Completa la frase', html: `<span class=hz2 style="line-height:1.5">${s[0].replaceAll(w.h, '＿＿')}</span><small>${s[2]}</small>`, opts: dis(w, 'h'), lab: hz }); });
@@ -699,9 +730,9 @@ function exam(lv) {
   const next = good => { if (GUARD != 'examen') return; res[i] = good; i++; i < Qs.length ? show() : fin(); };
   const show = () => {
     const q = Qs[i];
-    app(`<div class=exh><span class=sec>${SECN[q.s]}</span><span class=tm id=tm></span></div>
+    app(`<div class=play><div class=exh><span class=sec>${SECN[q.s]}</span><span class=tm id=tm></span></div>
       <div class=top><button class=back onclick="confirm('¿Salir del examen? Se perderá el progreso.')&&home()">✕</button><div class=bar><i style="width:${i / Qs.length * 100}%"></i></div><span class=mut>${i + 1}/${Qs.length}</span></div>
-      <div class=prompt><b style="font-size:1rem;color:var(--mut)">${q.q}</b>${q.audio ? '<button class=main id=pl style="width:auto;margin:0 auto">🔊 Escuchar</button>' : ''}${q.html || ''}</div><div id=q></div>`);
+      <div class=prompt><b style="font-size:1rem;color:var(--mut)">${q.q}</b>${q.audio ? '<button class=main id=pl style="width:auto;margin:0 auto">🔊 Escuchar</button>' : ''}${q.html || ''}</div><div id=q></div></div>`);
     const tick = () => { $('#tm').textContent = Math.floor(left / 60) + ':' + String(left % 60).padStart(2, '0'); };
     tick(); TM = setInterval(() => { left--; tick(); if (left <= 0) fin(); }, 1000);
     if (q.audio) { $('#pl').onclick = () => say(q.audio); setTimeout(() => say(q.audio), 300); }

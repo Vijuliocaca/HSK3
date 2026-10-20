@@ -18,7 +18,8 @@
 .slot.ok{border-color:var(--ok)} .slot.no{border-color:var(--no)}
 .chip.hz2{font-family:var(--serif);font-size:1.3rem;padding:.3rem .7rem}
 .seg{flex-wrap:nowrap;align-items:stretch}.seg1{width:100%;margin-top:.5rem;text-align:center}.seg .chip{flex:1 1 0;min-width:0;text-align:center;padding:.65rem .15rem;font-size:.95rem}
-.gear{margin-left:auto;background:none;border:0;font-size:1.4rem}
+.gear{margin-left:auto;background:none;border:0;font-size:1.4rem}.gear+.gear{margin-left:0}
+.lv summary{cursor:pointer;color:var(--gold);margin:.5rem 0;font-size:.9rem}
 .goal{display:flex;align-items:center;gap:.6rem;font-size:.85rem;margin:.2rem 0 1rem}
 #upd{position:fixed;left:12px;right:12px;top:calc(8px + env(safe-area-inset-top));z-index:9;background:var(--pri);color:#fff;border-radius:8px;padding:.6rem .8rem;display:flex;gap:.6rem;align-items:center;box-shadow:0 4px 14px rgba(0,0,0,.3)}
 #upd[hidden]{display:none} #upd button{margin-left:auto;background:#fff;color:var(--pri);border:0;border-radius:6px;padding:.3rem .7rem;font-weight:700}
@@ -332,11 +333,11 @@ function home() {
   const all = W.filter(sel), p = pool(), dom = p.filter(w => (S.w[w.id]?.b || 0) >= 4).length, nd = due().length;
   const streakOk = S.last == day(new Date()) || S.last == day(new Date(Date.now() - 864e5));
   const hoy = S.hist[day(new Date())]?.n || 0, meta = S.set.goal;
-  app(`<h1><span class=seal>学</span>HSK Viju<button class=gear onclick="settings()" aria-label="Ajustes">⚙️</button></h1><div class=mut>Preparación gratuita del examen</div>
+  app(`<h1><span class=seal>学</span>HSK Viju<button class=gear onclick="list('all')" aria-label="Vocabulario">📖</button><button class=gear onclick="settings()" aria-label="Ajustes">⚙️</button></h1><div class=mut>Preparación gratuita del examen</div>
   <div class=goal><span>🎯 Meta de hoy: <b>${Math.min(hoy, meta)}/${meta}</b>${hoy >= meta ? ' ✅' : ''}</span><div class=bar><i style="width:${Math.min(100, hoy / meta * 100)}%"></i></div></div>
   <div class=stats>
     <div class=stat><b>${streakOk ? S.streak : 0} 🔥</b><span class=mut>racha</span></div>
-    <div class=stat><b>${p.length}/${all.length}</b><span class=mut>estudiadas</span></div>
+    <div class=stat onclick="list('done')" style="cursor:pointer"><b>${p.length}/${all.length}</b><span class=mut>estudiadas</span></div>
     <div class=stat><b>${dom}</b><span class=mut>dominadas</span></div>
   </div>
   <div class=prog><i style="width:${all.length ? p.length / all.length * 100 : 0}%"></i></div>
@@ -385,6 +386,7 @@ function heat() { // últimas 8 semanas, empezando en lunes
   }
   return `<svg viewBox="0 0 176 122" class=chart style="max-width:340px">${r}</svg><div class=mut>Verde: meta cumplida (${S.set.goal}) · Dorado: algo de práctica</div>`;
 }
+const hb = (l, n, t, c) => `<div class=hbar><span>${l}</span><div class=bar><i style="width:${t ? n / t * 100 : 0}%;${c ? 'background:' + c : ''}"></i></div><b>${n}</b></div>`;
 function stats() {
   const p = W.filter(w => S.known[w.id]), dom = p.filter(w => (S.w[w.id]?.b || 0) >= 4).length;
   let tn = 0, tok = 0; Object.values(S.hist).forEach(h => { tn += h.n; tok += h.ok; });
@@ -392,7 +394,6 @@ function stats() {
   const mx = Math.max(5, ...ds.map(d => d.n));
   const bx = [0, 0, 0, 0, 0, 0]; p.forEach(w => bx[S.w[w.id]?.b || 0]++);
   const BN = ['Nueva', '1 día', '3 días', '1 semana', '2 semanas', 'Dominada'];
-  const hb = (l, n, t, c) => `<div class=hbar><span>${l}</span><div class=bar><i style="width:${t ? n / t * 100 : 0}%;${c ? 'background:' + c : ''}"></i></div><b>${n}</b></div>`;
   app(`<h1>Progreso</h1>
     <div class=stats><div class=stat><b>${tn ? Math.round(tok / tn * 100) : 0}%</b><span class=mut>aciertos</span></div><div class=stat><b>${dom}</b><span class=mut>dominadas</span></div><div class=stat><b>${Object.keys(S.hist).length}</b><span class=mut>días activos</span></div></div>
     <h3>Respuestas, últimos 14 días</h3>
@@ -735,14 +736,23 @@ function matchGame(fixed) {
 }
 
 const row = w => `<div onclick="detail(${w.id})"><b>${w.h}</b><i>${pc(w.p)}</i><span>${w.e}</span><span class=box style="${(S.w[w.id]?.b || 0) >= 4 ? 'background:var(--ok)' : S.known[w.id] ? 'background:var(--pri)' : ''}"></span></div>`;
-function list() {
-  BACK = 'list()';
+let LF = 'all'; // filtro del vocabulario: all | done | new | hard
+function list(f) {
+  if (f) LF = f; BACK = 'list()';
+  const all = W.filter(sel), st = all.filter(w => S.known[w.id]), dom = st.filter(w => (S.w[w.id]?.b || 0) >= 4).length, hard = new Set(hardList().map(w => w.id));
+  const pass = { all: () => 1, done: w => S.known[w.id], new: w => !S.known[w.id], hard: w => hard.has(w.id) }[LF];
+  const chip = (k, t) => `<button class="chip ${LF == k ? 'on' : ''}" onclick="list('${k}')">${t}</button>`;
   const draw = q => {
     q = q.trim().toLowerCase(); const nq = nrm(q);
-    const hit = W.filter(w => sel(w) && (!q || w.h.includes(q) || (nq && nrm(w.p).includes(nq)) || w.e.toLowerCase().includes(q)));
-    $('#l').innerHTML = hit.slice(0, 300).map(row).join('') + (hit.length > 300 ? `<p class=mut style="text-align:center">Se muestran 300 de ${hit.length}: usa el buscador para encontrar más.</p>` : '');
+    const hit = W.filter(w => sel(w) && pass(w) && (!q || w.h.includes(q) || (nq && nrm(w.p).includes(nq)) || w.e.toLowerCase().includes(q)));
+    $('#cnt').textContent = hit.length + (hit.length == 1 ? ' palabra' : ' palabras');
+    $('#l').innerHTML = hit.slice(0, 300).map(row).join('') + (hit.length > 300 ? `<p class=mut style="text-align:center">Se muestran 300 de ${hit.length}: usa el buscador para encontrar más.</p>` : '') + (!hit.length ? '<p class=mut style="text-align:center">No hay palabras con este filtro.</p>' : '');
   };
-  app(`<div class=top><button class=back onclick="home()">←</button><input type=search id=s placeholder="Buscar hanzi, pinyin o español"></div><div class=list id=l></div>`);
+  app(`<div class=top><button class=back onclick="home()">←</button><input type=search id=s placeholder="Buscar hanzi, pinyin o español"></div>
+    <div class=stats><div class=stat><b>${st.length}</b><span class=mut>estudiadas de ${all.length}</span></div><div class=stat><b>${dom}</b><span class=mut>dominadas</span></div><div class=stat><b>${all.length - st.length}</b><span class=mut>por estudiar</span></div></div>
+    <details class=lv><summary>Resumen por nivel</summary>${LEVELS.map(l => { const ws = W.filter(w => w.l == l), n = ws.filter(w => S.known[w.id]).length; return `<div class=hbar><span>HSK ${l}</span><div class=bar><i style="width:${n / ws.length * 100}%"></i></div><b style="width:4.8rem">${n}/${ws.length}</b></div>`; }).join('')}<div class=mut>Punto rojo: estudiada · verde: dominada · gris: nueva</div></details>
+    <div class=row style="margin:.6rem 0">${chip('all', 'Todas')}${chip('done', 'Estudiadas')}${chip('new', 'Sin estudiar')}${chip('hard', '⭐ Difíciles')}</div>
+    <div class=mut id=cnt></div><div class=list id=l></div>`);
   $('#s').oninput = e => draw(e.target.value); draw('');
 }
 

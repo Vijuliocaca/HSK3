@@ -20,6 +20,10 @@
 .seg{flex-wrap:nowrap;align-items:stretch}.seg1{width:100%;margin-top:.5rem;text-align:center}.seg .chip{flex:1 1 0;min-width:0;text-align:center;padding:.65rem .15rem;font-size:.95rem}
 .gear{margin-left:auto;background:none;border:0;font-size:1.4rem}.gear+.gear{margin-left:0}
 .lv summary{cursor:pointer;color:var(--gold);margin:.5rem 0;font-size:.9rem}
+:root[data-theme=hc]{--bg:#fff;--card:#fff;--tx:#000;--mut:#333;--pri:#8a0000;--gold:#5c3d00;--ok:#00562b;--no:#8a0000;--okbg:#c9f2d6;--nobg:#ffd1cc;--bd:#000;--t1:#b00000;--t2:#7a4a00;--t3:#00561f;--t4:#0033a0;--t5:#333}
+:root[data-theme=hc] .stat,:root[data-theme=hc] .mode,:root[data-theme=hc] .opt,:root[data-theme=hc] .chip{border-width:2px}
+:focus-visible{outline:3px solid var(--pri);outline-offset:2px;border-radius:4px}
+@media(prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important;scroll-behavior:auto !important}}
 .sem{gap:.3rem}.sem .stat{flex:1 !important;padding:.5rem 0}.sem .stat b{font-size:1.1rem}
 .exam{border:1px solid var(--bd);border-left:4px solid var(--no);background:var(--card);border-radius:6px;padding:.7rem .9rem;margin:.8rem 0}.exam .row{margin-top:.5rem}
 input[type=date]{padding:.6rem;border-radius:6px;border:2px solid var(--bd);background:var(--card);color:var(--tx);font:inherit}
@@ -228,6 +232,24 @@ const app = (h, tab) => {
   $('#nav').hidden = !tab; document.body.classList.toggle('nonav', !tab);
   if (tab) $('#nav').innerHTML = TABS.map(t => `<button class="${t[0] == tab ? 'on' : ''}" onclick="${t[0]}()"><span>${t[1]}</span>${t[2]}</button>`).join('');
 };
+// --- accesibilidad: se aplica a todas las pantallas desde aquí ---
+// lo clicable que no es un botón se alcanza con Tab, los botones de solo icono tienen nombre, las respuestas se anuncian y el chino lleva su idioma
+const ARIA = { '🔊': 'Escuchar', '⭐': 'Marcar o quitar de difíciles', '☆': 'Marcar o quitar de difíciles', '✍️': 'Ver trazos', '←': 'Volver', '✕': 'Salir', '📖': 'Vocabulario', '⚙️': 'Ajustes' };
+function a11y() {
+  document.querySelectorAll('#app [onclick]:not(button):not(a):not(input):not(summary)').forEach(e => { e.tabIndex = 0; e.setAttribute('role', 'button'); });
+  document.querySelectorAll('#app button:not([aria-label])').forEach(b => { const a = ARIA[b.textContent.trim()]; if (a) b.setAttribute('aria-label', a); });
+  document.querySelectorAll('#fb').forEach(e => e.setAttribute('aria-live', 'polite'));
+  document.querySelectorAll('#app .hz, #app .hz2, #app .zh').forEach(e => e.lang = 'zh-CN');
+}
+let A11Y;
+new MutationObserver(() => { clearTimeout(A11Y); A11Y = setTimeout(a11y, 40); }).observe($('#app'), { childList: true, subtree: true });
+document.addEventListener('keydown', e => { // teclado: Intro o Espacio activan lo clicable; 1-9 eligen opción; Intro pasa a «Siguiente»
+  const t = e.target, campo = /INPUT|TEXTAREA|SELECT/.test(t.tagName);
+  if ((e.key == 'Enter' || e.key == ' ') && t.getAttribute?.('role') == 'button' && t.tagName != 'BUTTON') { e.preventDefault(); t.click(); }
+  else if (!campo && !e.ctrlKey && !e.metaKey && !e.altKey && /^[1-9]$/.test(e.key)) document.querySelectorAll('#app .opts .opt:not(:disabled)')[+e.key - 1]?.click();
+  else if (e.key == 'Enter' && !/BUTTON|A|INPUT|SUMMARY/.test(t.tagName) && $('#nx')) $('#nx').click();
+});
+
 const shuffle = a => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.random() * (i + 1) | 0; [a[i], a[j]] = [a[j], a[i]]; } return a; };
 const sample = (a, n) => shuffle(a).slice(0, n);
 const distinct = (w, list, key, n = 3) => { const seen = new Set([key(w)]); return shuffle(list).filter(x => x.id != w.id && !seen.has(key(x)) && seen.add(key(x))).slice(0, n); }; // distractores con texto distinto entre sí y del correcto
@@ -528,7 +550,7 @@ function settings() {
     <h3>Meta diaria (respuestas)</h3><div class="row seg">${[10, 20, 30, 50].map(n => o('goal', n, n)).join('')}</div>
     <h3>Velocidad de la voz</h3><div class="row seg">${o('rate', .6, 'Lenta')}${o('rate', .8, 'Normal')}${o('rate', 1, 'Rápida')}</div><button class="chip seg1" onclick="say('你好，欢迎学习汉语')">🔊 Probar la voz</button>
     <h3>Tamaño de letra</h3><div class="row seg">${o('size', 90, 'Pequeño')}${o('size', 100, 'Normal')}${o('size', 115, 'Grande')}${o('size', 130, 'Enorme')}</div>
-    <h3>Tema</h3><div class="row seg">${o('theme', 'auto', 'Automático')}${o('theme', 'light', 'Claro')}${o('theme', 'dark', 'Oscuro')}</div>
+    <h3>Tema</h3><div class="row seg">${o('theme', 'auto', 'Automático')}${o('theme', 'light', 'Claro')}${o('theme', 'dark', 'Oscuro')}${o('theme', 'hc', 'Alto contraste')}</div>
     <h3>Colores de tono</h3><div class="row seg">${o('tones', true, 'Sí')}${o('tones', false, 'No')}</div>
     <p class=mut>Pinyin en colores: ${pc('mā má mǎ mà ma')} (1.º a 4.º tono y neutro).</p>
     <h3>Copia de seguridad</h3><p class=mut>Guarda tu progreso en un archivo para cambiar de móvil o por si se borran los datos del navegador.</p>

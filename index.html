@@ -78,7 +78,7 @@ button:disabled{color:var(--tx);opacity:1;cursor:default}
 .list b{font-size:1.3rem;min-width:4.5rem}.list i{color:var(--mut);font-style:normal;min-width:5rem}
 .box{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--bd);margin-left:auto;flex:none}
 .lesson{display:flex;align-items:center;gap:.8rem;width:100%;text-align:left;background:var(--card);border:1px solid var(--bd);border-radius:6px;padding:.7rem .9rem;margin:.4rem 0}
-.lesson.done{border-color:var(--ok)} .lesson b{white-space:nowrap} .lesson span.p{color:var(--mut);margin-left:auto;font-size:1.1rem}
+.lesson.done{border-color:var(--ok)} .lesson b{} .lesson span.p{color:var(--mut);margin-left:auto;font-size:1.1rem}
 .study{border-radius:8px;padding:1.5rem 1rem;text-align:center;margin:1rem 0}
 .study .hz{font-size:4.5rem} .study .py{font-size:1.6rem;margin:.3rem 0} .study .es{font-size:1.3rem}
 .ico{background:none;border:1px solid var(--bd);border-radius:50%;width:2.6rem;height:2.6rem;font-size:1.2rem;margin:.6rem .2rem 0}
@@ -172,12 +172,12 @@ const sample = (a, n) => shuffle(a).slice(0, n);
 const nrm = s => s.normalize('NFD').replace(/[̀-ͯ0-9\s'’·.-]/g, '').toLowerCase().replace(/v/g, 'u');
 const say = t => { try { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(t); u.lang = 'zh-CN'; u.rate = S.set.rate; speechSynthesis.speak(u); } catch {} };
 
-// --- datos: s='a' lista HSK 2.0, s='b' palabras añadidas del HSK 3.0 nuevo; pk = lección de 15 ---
+// --- datos: s='a' lista HSK 2.0, s='b' palabras añadidas del HSK 3.0 nuevo; pk = lección (ver abajo) ---
 const W = [], cnt = {};
 function add(s, lv, l) {
   if (!l.trim() || l[0] == '#') return;
   const [h, p, e] = l.split('|'), k = s + lv; cnt[k] = cnt[k] || 0;
-  W.push({ id: W.length, h, p, e: FIX[h] || e, l: lv, s, pk: k + '-' + (cnt[k]++ / 15 | 0) });
+  W.push({ id: W.length, h, p, e: FIX[h] || e, l: lv, s, pk0: k + '-' + (cnt[k]++ / 15 | 0) }); // pk0 = lección antigua (solo para migrar el progreso)
 }
 let lv0 = 0;
 RAW.split('\n').forEach(l => { if (l[0] == '#') lv0 = +l.slice(1); else add('a', lv0, l); });
@@ -189,6 +189,26 @@ const SENT = {};
 // temas: cada palabra en un solo tema (gana el primero); lo que no exista se ignora
 const usada = new Set(), byH = new Map(W.map(w => [w.h, w]));
 const TOP = (self.TEMAS || []).map(([e, n, t]) => ({ e, n, ws: t.split(/\s+/).map(h => byH.get(h)).filter(w => w && !usada.has(w.h) && usada.add(w.h)) }));
+
+// lecciones: temas relacionados juntos; lo que no tiene tema va agrupado por carácter compartido. pk = 'x<HSK>-<n>'
+const PW = {}, LKEYS = {}, LES = {};
+[...new Set(W.map(w => w.l))].forEach(lv => {
+  const out = [], used = new Set(); let carry = [], names = [];
+  const put = (name, ws) => { if (ws.length) out.push([name, ws]); };
+  TOP.forEach(t => {
+    const ws = t.ws.filter(w => w.l == lv); ws.forEach(w => used.add(w.id));
+    if (ws.length < 8) { carry.push(...ws); if (ws.length) names.push(t.e + ' ' + t.n); if (carry.length >= 8 || names.length >= 3) { put(names.join(' · '), carry); carry = []; names = []; } return; }
+    const k = Math.ceil(ws.length / 15);
+    for (let i = 0; i < k; i++) put(t.e + ' ' + t.n + (k > 1 ? ' ' + (i + 1) : ''), ws.slice(Math.round(i * ws.length / k), Math.round((i + 1) * ws.length / k)));
+  });
+  put(names.join(' · '), carry);
+  const g = new Map(); W.filter(w => w.l == lv && !used.has(w.id)).forEach(w => { const c = [...w.h][0]; g.set(c, [...(g.get(c) || []), w]); });
+  const rest = [...g.values()].flat();
+  const k = Math.max(1, Math.round(rest.length / 14)), gen = [];
+  for (let i = 0; i < k; i++) gen.push(['📚 Más vocabulario ' + (i + 1), rest.slice(Math.round(i * rest.length / k), Math.round((i + 1) * rest.length / k))]);
+  // en HSK 1-2 lo básico sin tema (pronombres, partículas, verbos comunes) va primero
+  LKEYS[lv] = (lv < 3 ? [...gen, ...out] : [...out, ...gen]).filter(l => l[1].length).map(([name, ws], i) => { const k = 'x' + lv + '-' + i; LES[k] = name; PW[k] = ws; ws.forEach(w => w.pk = k); return k; });
+});
 
 // --- pinyin: colores de tono y variantes de tono para practicar
 const SYL = /(?:zh|ch|sh|[bpmfdtnlgkhjqxzcsryw])?[aeiouüāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]+(?:ng|n)?/giu, TONE = {};
@@ -214,12 +234,13 @@ function toneVars(p) { // variantes con otros tonos, para distinguirlos
 
 // --- progreso (localStorage; si falla, la app sigue sin guardar) ---
 let S = {}; try { S = JSON.parse(localStorage.hsk3) || {}; } catch {}
-S.w = S.w || {}; S.packs = S.packs || {}; S.lv = S.lv || [1, 2, 3]; S.streak = S.streak || 0; S.last = S.last || '';
+S.w = S.w || {}; S.known = S.known || {}; S.lv = S.lv || [1, 2, 3]; S.streak = S.streak || 0; S.last = S.last || '';
 S.hist = S.hist || {}; S.exams = S.exams || []; S.exLv = S.exLv || 3; S.star = S.star || {};
 S.set = Object.assign({ goal: 20, rate: .8, size: 100, theme: 'auto', tones: true }, S.set);
 const applySet = () => { const r = document.documentElement; r.style.fontSize = S.set.size + '%'; S.set.theme == 'auto' ? r.removeAttribute('data-theme') : r.setAttribute('data-theme', S.set.theme); };
 applySet();
 const save = () => { try { localStorage.hsk3 = JSON.stringify(S); } catch {} };
+if (S.packs) { W.forEach(w => { if (S.packs[w.pk0]) S.known[w.id] = 1; }); delete S.packs; save(); } // migra las lecciones antiguas a palabras estudiadas
 const day = d => d.toLocaleDateString('sv');
 const DAYS = [0, 1, 3, 7, 14, 30]; // repeticion espaciada: dias hasta el siguiente repaso por caja
 
@@ -233,9 +254,9 @@ function grade(id, ok) {
   save();
 }
 const sel = w => S.lv.includes(w.l);
-const pool = () => W.filter(w => sel(w) && S.packs[w.pk]); // los juegos solo usan lo ya estudiado
-const seen = () => W.filter(w => S.packs[w.pk]); // el repaso de hoy abarca todo lo estudiado, de cualquier HSK
-const keysOf = l => [...new Set(W.filter(w => w.l == l).map(w => w.pk))]; // lecciones de un HSK, en orden
+const pool = () => W.filter(w => sel(w) && S.known[w.id]); // los juegos solo usan lo ya estudiado
+const seen = () => W.filter(w => S.known[w.id]); // el repaso de hoy abarca todo lo estudiado, de cualquier HSK
+const keysOf = l => LKEYS[l] || [], done = k => PW[k].every(w => S.known[w.id]); // lecciones de un HSK, en orden
 const lessonKeys = () => [...S.lv].sort().flatMap(keysOf), lessonNo = k => keysOf(+k[1]).indexOf(k) + 1;
 // difíciles: marcadas con ⭐ o con más fallos que aciertos (y aún no dominadas)
 const hardList = () => W.filter(w => { const r = S.w[w.id]; return S.star[w.id] || (r && (r.f || 0) >= 2 && r.f * 2 >= (r.o || 0) && r.b < 4); });
@@ -323,7 +344,7 @@ function heat() { // últimas 8 semanas, empezando en lunes
   return `<svg viewBox="0 0 176 122" class=chart style="max-width:340px">${r}</svg><div class=mut>Verde: meta cumplida (${S.set.goal}) · Dorado: algo de práctica</div>`;
 }
 function stats() {
-  const p = W.filter(w => S.packs[w.pk]), dom = p.filter(w => (S.w[w.id]?.b || 0) >= 4).length;
+  const p = W.filter(w => S.known[w.id]), dom = p.filter(w => (S.w[w.id]?.b || 0) >= 4).length;
   let tn = 0, tok = 0; Object.values(S.hist).forEach(h => { tn += h.n; tok += h.ok; });
   const ds = [...Array(14)].map((_, i) => { const d = new Date(Date.now() - (13 - i) * 864e5); return { l: d.getDate(), ...(S.hist[day(d)] || { n: 0, ok: 0 }) }; });
   const mx = Math.max(5, ...ds.map(d => d.n));
@@ -337,7 +358,7 @@ function stats() {
     <h3>Calendario de actividad</h3>${heat()}
     <h3>Las que más fallas</h3>${W.filter(w => S.w[w.id]?.f).sort((a, b) => S.w[b.id].f - S.w[a.id].f).slice(0, 8).map(w => `<div class=hbar><span style="width:auto;min-width:5.5rem"><b style="font-family:var(--serif);font-size:1.15rem">${w.h}</b></span><span class=mut style="width:auto;flex:1">${w.e}</span><b>${S.w[w.id].f}✗</b></div>`).join('') || '<p class=mut>Aún no hay fallos registrados.</p>'}
     <h3>Nivel de memoria</h3>${bx.map((n, i) => hb(BN[i], n, p.length, i == 5 ? 'var(--ok)' : '')).join('')}
-    <h3>Vocabulario estudiado</h3>${LEVELS.map(l => { const ws = W.filter(w => w.l == l); return hb('HSK ' + l, ws.filter(w => S.packs[w.pk]).length, ws.length); }).join('')}
+    <h3>Vocabulario estudiado</h3>${LEVELS.map(l => { const ws = W.filter(w => w.l == l); return hb('HSK ' + l, ws.filter(w => S.known[w.id]).length, ws.length); }).join('')}
     <h3>Exámenes</h3>${S.exams.length ? S.exams.slice(-6).reverse().map(e => { const t = e.s[0] + e.s[1] + e.s[2]; return `<div class=hbar><span>${e.d.slice(5)} · HSK ${e.lv}</span><div class=bar><i style="width:${t / 3}%;${t >= 180 ? 'background:var(--ok)' : ''}"></i></div><b>${t}</b></div>`; }).join('') : '<p class=mut>Aún no has hecho ningún examen simulado.</p>'}`, 'stats');
 }
 
@@ -358,7 +379,7 @@ function settings() {
 function temas() {
   app(`<div class=top><button class=back onclick="home()">←</button><b>Vocabulario por temas</b></div>
     <p class=mut>Solo salen las palabras de los HSK que tienes marcados en el inicio.</p>
-    <div class=grid>${TOP.map((t, i) => { const ws = t.ws.filter(sel); return ws.length ? `<button class=mode onclick="tema(${i})"><span class=e>${t.e}</span><span><b>${t.n}</b><small>${ws.filter(w => S.packs[w.pk]).length}/${ws.length} estudiadas</small></span></button>` : ''; }).join('')}</div>`);
+    <div class=grid>${TOP.map((t, i) => { const ws = t.ws.filter(sel); return ws.length ? `<button class=mode onclick="tema(${i})"><span class=e>${t.e}</span><span><b>${t.n}</b><small>${ws.filter(w => S.known[w.id]).length}/${ws.length} estudiadas</small></span></button>` : ''; }).join('')}</div>`);
 }
 function tema(i) {
   const t = TOP[i], ws = window.cur = t.ws.filter(sel); BACK = `tema(${i})`;
@@ -400,18 +421,18 @@ function skQuiz(i) {
 
 // --- lecciones ---
 function lessons() {
-  const keys = lessonKeys(), next = keys.find(k => !S.packs[k]);
+  const keys = lessonKeys(), next = keys.find(k => !done(k));
   let last = '';
   app(`<div class=top><button class=back onclick="home()">←</button><b>Lecciones</b></div>
-    ${next ? `<button class=main style="margin:0 0 .5rem" onclick="study('${next}')">Continuar: lección ${lessonNo(next)} (HSK ${next[1]})</button>` : '<p class=mut>¡Has estudiado todas las lecciones seleccionadas!</p>'}
+    ${next ? `<button class=main style="margin:0 0 .5rem" onclick="study('${next}')">Continuar: ${LES[next]} (HSK ${next[1]})</button>` : '<p class=mut>¡Has estudiado todas las lecciones seleccionadas!</p>'}
     ${keys.map(k => {
-      const ws = W.filter(w => w.pk == k), head = k[1] != last ? `<h3>HSK ${k[1]}</h3>` : ''; last = k[1];
-      return head + `<button class="lesson ${S.packs[k] ? 'done' : ''}" onclick="study('${k}')"><b>Lección ${lessonNo(k)}</b><span class=mut>${ws.slice(0, 4).map(w => w.h).join(' ')}…</span><span class=p>${S.packs[k] ? '✓' : ws.length}</span></button>`;
+      const ws = PW[k], dn = done(k), kn = ws.filter(w => S.known[w.id]).length, head = k[1] != last ? `<h3>HSK ${k[1]}</h3>` : ''; last = k[1];
+      return head + `<button class="lesson ${dn ? 'done' : ''}" onclick="study('${k}')"><span style="flex:1;min-width:0"><b>${lessonNo(k)}. ${LES[k]}</b><br><span class=mut>${ws.slice(0, 5).map(w => w.h).join(' ')}…</span></span><span class=p>${dn ? '✓' : kn ? kn + '/' + ws.length : ws.length}</span></button>`;
     }).join('')}`);
 }
 
 function study(pk, i = 0) {
-  const ws = W.filter(w => w.pk == pk), w = ws[i];
+  const ws = PW[pk], w = ws[i];
   PREV = () => study(pk, i);
   app(`<div class=top><button class=back onclick="lessons()">✕</button><div class=bar><i style="width:${(i + 1) / ws.length * 100}%"></i></div><span class=mut>${i + 1}/${ws.length}</span></div>
     ${card(w)}
@@ -420,8 +441,8 @@ function study(pk, i = 0) {
   say(w.h);
 }
 function studied(pk) {
-  S.packs[pk] = 1; save();
-  const ws = W.filter(w => w.pk == pk), next = lessonKeys().find(k => !S.packs[k]);
+  PW[pk].forEach(w => S.known[w.id] = 1); save();
+  const ws = PW[pk], next = lessonKeys().find(k => !done(k));
   window.cur = ws;
   app(`<h1>¡Lección estudiada! ✅</h1><p class=mut>Ahora practica estas ${ws.length} palabras antes de seguir.</p>
     <div class=grid><button class=mode onclick="matchGame(cur)"><span class=e>🔗</span><span><b>Emparejar</b></span></button>
@@ -617,7 +638,7 @@ function matchGame(fixed) {
   round();
 }
 
-const row = w => `<div onclick="detail(${w.id})"><b>${w.h}</b><i>${pc(w.p)}</i><span>${w.e}</span><span class=box style="${(S.w[w.id]?.b || 0) >= 4 ? 'background:var(--ok)' : S.packs[w.pk] ? 'background:var(--pri)' : ''}"></span></div>`;
+const row = w => `<div onclick="detail(${w.id})"><b>${w.h}</b><i>${pc(w.p)}</i><span>${w.e}</span><span class=box style="${(S.w[w.id]?.b || 0) >= 4 ? 'background:var(--ok)' : S.known[w.id] ? 'background:var(--pri)' : ''}"></span></div>`;
 function list() {
   BACK = 'list()';
   const draw = q => {

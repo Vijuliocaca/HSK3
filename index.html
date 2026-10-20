@@ -284,7 +284,7 @@ function tog(k, n) {
   if (!S[k].length) S[k] = [n];
   save(); home();
 }
-const empty = () => app(`<div class=top><button class=back onclick="home()">←</button></div><div class=prompt><span class=hz>📚</span>Primero estudia alguna lección<small>Los juegos usan solo las palabras que ya has estudiado.</small></div><button class=main onclick="lessons()">Ir a las lecciones</button>`);
+const empty = (t = 'Primero estudia alguna lección', s = 'Los juegos usan solo las palabras que ya has estudiado.') => app(`<div class=top><button class=back onclick="home()">←</button></div><div class=prompt><span class=hz>📚</span>${t}<small>${s}</small></div><button class=main onclick="lessons()">Ir a las lecciones</button>`);
 function go(m) {
   if (m == 'list') return list();
   if (m == 'hard') return hardList().length ? session('hard') : app(`<div class=top><button class=back onclick="home()">←</button></div><div class=prompt><span class=hz>🔥</span>Aún no tienes palabras difíciles<small>Aparecen aquí las que más fallas y las que marques con ⭐ en su ficha.</small></div>`);
@@ -499,10 +499,10 @@ const Q = {
     const cs = [...w.h].filter(c => /[㐀-鿿]/.test(c));
     el.innerHTML = `<div class=prompt><b>${w.e}</b><small>${w.p}</small></div><div class=row style="justify-content:center">${cs.map((c, i) => `<div class=skbox id=dw${i}></div>`).join('')}</div><div class=mut id=dm style="text-align:center">Dibuja los trazos en orden</div>`;
     loadHW().then(() => {
-      let fin = 0, bad = 0;
+      let fin = 0, bad = 0, sinDatos = 0;
       cs.forEach((c, i) => HanziWriter.create('dw' + i, c, { width: 150, height: 150, padding: 8, showOutline: true, strokeColor: getComputedStyle(document.body).color, outlineColor: '#cdbd9a',
-        onLoadCharDataError: () => $('#dm').textContent = 'Sin datos de trazos para ' + c })
-        .quiz({ onMistake: () => bad++, onComplete: () => { if (++fin == cs.length) done(bad <= cs.length); } }));
+        onLoadCharDataError: () => { $('#dm').textContent = 'Sin datos de trazos para ' + c; if (!sinDatos++) done(false); } })
+        .quiz({ onMistake: () => bad++, onComplete: () => { if (++fin == cs.length && !sinDatos) done(bad <= cs.length); } }));
     }).catch(() => $('#dm').textContent = 'Necesitas internet la primera vez para dibujar (sal con ✕ y prueba otro modo)');
   },
   choice(el, w, done) {
@@ -537,7 +537,7 @@ const mixMode = w => { const b = S.w[w.id]?.b || 0; return b <= 1 ? (Math.random
 function session(mode, fixed) {
   const mix = mode == 'mix' || mode == 'hard';
   const items = fixed ? shuffle(fixed).slice(0, 10) : mode == 'hard' ? shuffle(hardList().sort((a, b) => (S.w[b.id]?.f || 0) - (S.w[a.id]?.f || 0)).slice(0, 15)) : mix ? due().sort((a, b) => (S.w[a.id]?.d || 0) - (S.w[b.id]?.d || 0)).slice(0, 20) : pick(10, FILT[mode]);
-  if (!items.length) return empty();
+  if (!items.length) return pool().length ? empty('Aún no hay palabras para este modo', 'Estudia más lecciones o prueba otro modo.') : empty();
   let i = 0, ok = 0; const bad = [];
   const step = () => {
     if (i >= items.length) return summary(ok, items.length, bad, () => mode == 'mix' ? today() : session(mode, fixed));
@@ -565,7 +565,7 @@ function speed() {
     $('#app').insertAdjacentHTML('afterbegin', `<div class=mut>Récord: ${best} aciertos${ok >= best && ok ? ' 🏆 ¡nuevo!' : ''}</div>`);
   };
   const q = () => {
-    if (left <= 0) return;
+    if (left <= 0 || !$('#tm')) return; // salió de la pantalla
     const w = items[i++ % items.length];
     Q.choice($('#q'), w, good => { grade(w.id, good); n++; good ? ok++ : bad.push(w); $('#sc').textContent = ok; setTimeout(q, good ? 250 : 800); });
   };
@@ -600,8 +600,8 @@ function matchGame(fixed) {
 
 function list() {
   const draw = q => {
-    q = q.trim().toLowerCase();
-    $('#l').innerHTML = W.filter(w => sel(w) && (!q || w.h.includes(q) || nrm(w.p).includes(nrm(q)) || w.e.toLowerCase().includes(q)))
+    q = q.trim().toLowerCase(); const nq = nrm(q);
+    $('#l').innerHTML = W.filter(w => sel(w) && (!q || w.h.includes(q) || (nq && nrm(w.p).includes(nq)) || w.e.toLowerCase().includes(q)))
       .map(w => `<div onclick="detail(${w.id})"><b>${w.h}</b><i>${pc(w.p)}</i><span>${w.e}</span><span class=box style="${(S.w[w.id]?.b || 0) >= 4 ? 'background:var(--ok)' : S.packs[w.pk] ? 'background:var(--pri)' : ''}"></span></div>`).join('');
   };
   app(`<div class=top><button class=back onclick="home()">←</button><input type=search id=s placeholder="Buscar hanzi, pinyin o español"></div><div class=list id=l></div>`);

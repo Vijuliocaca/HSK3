@@ -561,5 +561,131 @@ f|4`, `听到|oír
 x|¿Cuál de estas afirmaciones NO se puede deducir de la conversación?|Chiki ha ganado siempre a Carlos al ajedrez|Chiki quiere jugar al fútbol|A Chiki el ajedrez le parece lento|Carlos propone jugar una partida
 z|4
 f|3`, `盘|partida (clasificador); bandeja
-赢|ganar`, 'carlos+chiki']
+赢|ganar`, 'carlos+chiki'],
+[2, '🩺 Una visita al médico', `你/好，/请/坐。/你/哪里/不/舒服？|Nǐ hǎo, qǐng zuò. Nǐ nǎlǐ bù shūfu?|Hola, siéntese. ¿Qué le molesta?
+我/头/疼，/睡/不/好。|Wǒ tóu téng, shuì bù hǎo.|Me duele la cabeza y duermo mal.|2
+你/工作/很/忙/吗？|Nǐ gōngzuò hěn máng ma?|¿Tiene mucho trabajo?
+对，/我/每天/开/会，/太/累/了。|Duì, wǒ měitiān kāi huì, tài lèi le.|Sí, cada día tengo reuniones. Es agotador.|2
+你/要/多/休息，/也/要/运动。|Nǐ yào duō xiūxi, yě yào yùndòng.|Debe descansar más y también hacer deporte.
+我/没有/时间。/我/还/要/回/家/看/猫。|Wǒ méiyǒu shíjiān. Wǒ hái yào huí jiā kàn māo.|No tengo tiempo. Además tengo que volver a casa a ver a mi gato.|2
+每天/走路/三十/分钟/就/可以。|Měitiān zǒulù sānshí fēnzhōng jiù kěyǐ.|Con caminar treinta minutos al día basta.
+好，/我/试试。/谢谢/你。|Hǎo, wǒ shìshi. Xièxie nǐ.|Bien, lo intentaré. Gracias.|2`, `o|¿Qué le aconseja el médico a Laura?|Descansar más y caminar un rato cada día|Tomar medicinas cada noche antes de dormir|Dejar de asistir a las reuniones de trabajo|Apuntarse a un gimnasio por las tardes
+x|¿Cuál de estas afirmaciones NO se puede deducir de la conversación?|A Laura le duele también la espalda|Laura duerme mal últimamente|Laura tiene una enorme carga de trabajo|Laura dice que le falta tiempo
+z|1
+f|7`, `头疼|dolor de cabeza
+走路|caminar
+分钟|minuto
+试试|probar; intentar
+三十|treinta`, 'teo+laura'],
+
+[1, '🍉 Un día de calor', `今天/很/热！|Jīntiān hěn rè!|¡Hoy hace mucho calor!
+是/啊，/我/想/吃/西瓜。|Shì a, wǒ xiǎng chī xīguā.|Sí, me apetece sandía.|2
+我/想/喝/冷/的/东西。|Wǒ xiǎng hē lěng de dōngxi.|Yo quiero beber algo frío.
+我/家/有/一/个/大/西瓜，/你/来/吧。|Wǒ jiā yǒu yí gè dà xīguā, nǐ lái ba.|En mi casa hay una sandía grande, ven.|2
+好！/我/带/一点/可乐。|Hǎo! Wǒ dài yìdiǎn kělè.|¡Vale! Llevo un poco de cola.
+可乐/不错，/可是/西瓜/更/好/吃。|Kělè búcuò, kěshì xīguā gèng hǎo chī.|La cola está bien, pero la sandía está más rica.|2
+那/我们/都/吃/吧。|Nà wǒmen dōu chī ba.|Pues comamos las dos cosas.
+好，/六/点/见！|Hǎo, liù diǎn jiàn!|Bien, ¡nos vemos a las seis!|2`, `o|¿Qué plan acuerdan YuYue y Samu?|Verse para comer sandía y tomar algo frío|Ir juntos al cine para huir del calor|Cocinar una comida nueva en casa de YuYue|Salir a correr por el parque al anochecer
+x|¿Cuál de estas afirmaciones NO se puede deducir de la conversación?|Samu compró la sandía esta mañana|Hoy hace mucho calor|YuYue llevará una bebida|Samu prefiere la sandía a la cola
+z|6
+f|2`, `带|llevar
+可乐|cola
+不错|bastante bien
+冷|frío`, 'yuyue+samu'],
+
+[2, '⛰️ Montaña y mar', `你/家/在/哪里？|Nǐ jiā zài nǎlǐ?|¿Dónde está tu casa?
+我/家/在/北边，/有/山/也/有/海。|Wǒ jiā zài běibian, yǒu shān yě yǒu hǎi.|Mi casa está en el norte, donde hay montañas y también mar.|2
+我/家/在/山/上，/可是/没有/海。|Wǒ jiā zài shān shang, kěshì méiyǒu hǎi.|Mi casa está en la montaña, pero allí no hay mar.
+你/想/看/海/吗？/夏天/来/吧！|Nǐ xiǎng kàn hǎi ma? Xiàtiān lái ba!|¿Quieres ver el mar? ¡Ven en verano!|2
+好/啊。/我/喜欢/爬/山，/你/呢？|Hǎo a. Wǒ xǐhuan pá shān, nǐ ne?|Vale. A mí me gusta subir montañas, ¿y a ti?
+我/更/喜欢/游泳，/不过/我/也/去/爬/山。|Wǒ gèng xǐhuan yóuyǒng, búguò wǒ yě qù pá shān.|A mí me gusta más nadar, aunque también subo montañas.|2
+那/我们/先/爬/山，/后/游泳。|Nà wǒmen xiān pá shān, hòu yóuyǒng.|Entonces primero subimos una montaña y luego nadamos.
+太/好/了，/我/带/你/去！|Tài hǎo le, wǒ dài nǐ qù!|¡Perfecto, yo te llevo!|2`, `o|¿Qué diferencia hay entre los lugares donde viven?|Lucía tiene montaña y mar; Anto, solo montaña|Anto tiene mar y montaña mientras que Lucía solo ciudad|Los dos viven junto al mar|Los dos viven en una gran ciudad
+x|¿Cuál de estas afirmaciones NO se puede deducir de la conversación?|A Anto no le gusta nada el mar|Lucía invita a Anto a visitarla|A Lucía le gusta nadar|Anto vive en la montaña
+z|2
+f|7`, `北边|norte; lado norte
+不过|sin embargo; aunque
+哪儿|dónde`, 'anto+lucia'],
+
+[1, '🐱 Dos gatos', `你/也/有/猫/吗？|Nǐ yě yǒu māo ma?|¿Tú también tienes gato?
+有！/它/很/小，/很/白。|Yǒu! Tā hěn xiǎo, hěn bái.|¡Sí! Es pequeño y muy blanco.|2
+我/的/猫/是/灰色/的。|Wǒ de māo shì huīsè de.|El mío es gris.
+你/的/猫/吃/什么？|Nǐ de māo chī shénme?|¿Qué come tu gato?|2
+它/吃/鱼/和/肉。|Tā chī yú hé ròu.|Come pescado y carne.
+我/的/猫/也/喜欢/鱼。|Wǒ de māo yě xǐhuan yú.|A mi gato también le gusta el pescado.|2
+下/个/星期，/你/来/我/家/吧。|Xià gè xīngqī, nǐ lái wǒ jiā ba.|La semana que viene, ven a mi casa.
+好，/让/我们/的/猫/做/朋友！|Hǎo, ràng wǒmen de māo zuò péngyou!|¡Vale, que nuestros gatos se hagan amigos!|2`, `o|¿Qué proponen al final de la conversación?|Que los dos gatos se conozcan en casa de Laura|Que Laura adopte otro gato más|Que Chiki lleve a su gato al veterinario esta semana|Que cambien de gato durante una semana
+x|¿Cuál de estas afirmaciones NO se puede deducir de la conversación?|El gato de Chiki es más grande que el de Laura|El gato de Laura tiene el pelo de color gris|Los dos gatos comen pescado habitualmente en casa|Chiki irá a casa de Laura
+z|8
+f|7`, `灰色|gris
+肉|carne
+让|dejar; hacer que`, 'laura+chiki'],
+
+[2, '🏔️ Un sábado de escalada', `星期六/早上，/我/六/点/起床。|Xīngqīliù zǎoshang, wǒ liù diǎn qǐchuáng.|El sábado por la mañana me levanto a las seis.
+我/和/朋友/开/车/去/山/里。|Wǒ hé péngyou kāi chē qù shān lǐ.|Voy en coche con mis amigos a la sierra.
+今天/的/山/很/高，/也/很/难/爬。|Jīntiān de shān hěn gāo, yě hěn nán pá.|La montaña de hoy es alta y difícil de subir.
+我们/慢慢/地/往/上/爬。|Wǒmen mànmàn de wǎng shàng pá.|Subimos despacio, paso a paso.
+到/了/上面，/我们/看到/很/美/的/风景。|Dào le shàngmiàn, wǒmen kàndào hěn měi de fēngjǐng.|Al llegar arriba vemos un paisaje precioso.
+我/是/医生，/我/知道/运动/对/身体/好。|Wǒ shì yīshēng, wǒ zhīdào yùndòng duì shēntǐ hǎo.|Soy médico y sé que el deporte es bueno para el cuerpo.`, `o|¿Qué muestra Téo en este texto sobre la escalada?|Que combina su afición con el cuidado de la salud|Que solo la practica para competir en torneos|Que le da bastante miedo y la practica por obligación|Que la practica porque no tiene otro plan
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Téo escala cada día antes de ir al hospital|Se levanta muy temprano los sábados|Suben despacio y con mucho cuidado hasta la cima|Desde arriba hay muy buenas vistas
+z|3
+f|5`, `起床|levantarse
+难|difícil
+慢慢|despacio
+往|hacia
+上面|arriba
+风景|paisaje
+看到|llegar a ver`, 'teo'],
+
+[2, '🌧️ Lluvia en la montaña', `今天/山/上/下/雨/了。|Jīntiān shān shang xià yǔ le.|Hoy llueve en la montaña.
+我/不/能/去/学校，/只/能/在/家/学习。|Wǒ bù néng qù xuéxiào, zhǐ néng zài jiā xuéxí.|No puedo ir a la escuela, solo estudiar en casa.
+我/喝/热/茶，/看/书。|Wǒ hē rè chá, kàn shū.|Bebo té caliente y leo.
+雨/声/很/好/听。|Yǔ shēng hěn hǎo tīng.|La lluvia suena muy bien.
+下午/雨/停/了，/天/上/有/一/个/彩虹。|Xiàwǔ yǔ tíng le, tiān shàng yǒu yí gè cǎihóng.|Por la tarde para de llover y aparece un arcoíris.
+我/想，/学习/以后/看/彩虹，/真/好！|Wǒ xiǎng, xuéxí yǐhòu kàn cǎihóng, zhēn hǎo!|Pienso: ¡ver un arcoíris después de estudiar es genial!`, `o|¿Cómo vive Anto el día de lluvia?|Disfruta de la calma y estudia en casa|Se enfada porque no puede salir a jugar|Se aburre y no logra concentrarse|Se preocupa por el camino de vuelta
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Anto sale a correr bajo la lluvia|Anto estudia dentro de casa durante la lluvia|Por la tarde deja de llover|Anto ve un arcoíris
+z|5
+f|3`, `雨声|sonido de la lluvia
+声|sonido
+彩虹|arcoíris
+停|parar`, 'anto'],
+
+[2, '🏉 Mi primer partido de rugby', `去年/我/第一次/打/橄榄球。|Qùnián wǒ dìyīcì dǎ gǎnlǎnqiú.|El año pasado jugué al rugby por primera vez.
+朋友/说，/你/个子/高，/打/橄榄球/很/好。|Péngyou shuō, nǐ gèzi gāo, dǎ gǎnlǎnqiú hěn hǎo.|Mis amigos decían: «Eres alto, jugarás muy bien al rugby».
+可是/第一/场/比赛/我/摔/了/很/多/次。|Kěshì dìyī chǎng bǐsài wǒ shuāi le hěn duō cì.|Pero en el primer partido me caí muchas veces.
+我/不/怕，/因为/我/喜欢/运动。|Wǒ bú pà, yīnwèi wǒ xǐhuan yùndòng.|No tengo miedo, porque me gusta el deporte.
+现在/我/打/得/越来越/好。|Xiànzài wǒ dǎ de yuèláiyuè hǎo.|Ahora juego cada vez mejor.
+篮球/和/橄榄球/我/都/爱。|Lánqiú hé gǎnlǎnqiú wǒ dōu ài.|Quiero a los dos deportes, el baloncesto y el rugby.`, `o|¿Qué actitud muestra Guidozcos ante sus caídas?|No se desanima: sigue adelante y mejora|Se rinde y decide abandonar el deporte por completo|Culpa a sus compañeros de equipo|Decide jugar solo al baloncesto
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Guidozcos ganó su primer partido de rugby|En su primer partido se cayó varias veces|Con el tiempo juega mejor|Le gustan el baloncesto y el rugby
+z|3
+f|2`, `去年|el año pasado
+摔|caerse
+场|partido; sesión (clasificador)
+越来越|cada vez más
+因为|porque
+怕|temer`, 'guidozcos'],
+
+[2, '✉️ Una carta a casa', `妈妈，/你/好！|Māma, nǐ hǎo!|Mamá, ¡hola!
+我/在/城市/很/好，/请/不要/担心。|Wǒ zài chéngshì hěn hǎo, qǐng búyào dānxīn.|Estoy bien en la ciudad, no te preocupes.
+我/每/个/星期/去/健身房，/身体/很/好。|Wǒ měi gè xīngqī qù jiànshēnfáng, shēntǐ hěn hǎo.|Voy cada semana al gimnasio y estoy muy sana.
+可是/我/想/吃/你/做/的/饭。|Kěshì wǒ xiǎng chī nǐ zuò de fàn.|Pero echo de menos tu comida.
+夏天/我/会/回/家，/去/海/边/游泳。|Xiàtiān wǒ huì huí jiā, qù hǎi biān yóuyǒng.|En verano volveré a casa y nadaré en la playa.
+我/爱/你！|Wǒ ài nǐ!|¡Te quiero!`, `o|¿Qué quiere transmitir Lucía en su carta?|Que está bien, pero añora su casa y volverá|Que se ha enfadado y no volverá a casa|Que necesita dinero y pide ayuda|Que ha decidido cambiar de ciudad otra vez este año
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Lucía piensa quedarse en la ciudad para siempre|Lucía se cuida haciendo deporte|Lucía echa de menos la comida que prepara su madre|Lucía volverá a casa en verano
+z|5
+f|3`, `担心|preocuparse
+海边|playa; costa`, 'lucia'],
+
+[2, '♟️ Mi primer torneo', `上/个/月/我/参加/了/一/个/下棋/比赛。|Shàng gè yuè wǒ cānjiā le yí gè xiàqí bǐsài.|El mes pasado participé en un torneo de ajedrez.
+我/有/一点/紧张。|Wǒ yǒu yìdiǎn jǐnzhāng.|Sentía algo de tensión.
+第一/盘/我/输/了。|Dìyī pán wǒ shū le.|En la primera partida perdí.
+第二/盘/我/想/得/很/慢，/赢/了！|Dì'èr pán wǒ xiǎng de hěn màn, yíng le!|En la segunda pensé muy despacio y gané.
+比赛/以后，/我/和/朋友/去/踢球。|Bǐsài yǐhòu, wǒ hé péngyou qù tīqiú.|Después del torneo fui a jugar al fútbol con mis amigos.
+下棋/累/脑子，/踢球/累/身体，/我/都/喜欢。|Xiàqí lèi nǎozi, tīqiú lèi shēntǐ, wǒ dōu xǐhuan.|El ajedrez cansa la mente y el fútbol el cuerpo; me gustan los dos.`, `o|¿Qué cambió entre la primera y la segunda partida?|Que Carlos pensó más despacio y consiguió ganar|Que Carlos cambió de rival y de tablero en la sala|Que Carlos llegó tarde y jugó más rápido|Que Carlos pidió ayuda a un amigo
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Carlos ganó el torneo completo|Carlos perdió la primera partida|Carlos ganó la segunda partida|Carlos fue a jugar al fútbol después
+z|4
+f|6`, `参加|participar
+紧张|tensión; nervios
+输|perder
+脑子|mente; cerebro`, 'carlos']
 );

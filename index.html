@@ -240,6 +240,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script>
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
+const APP_V = 'hsk3-v58'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: desde cualquier pantalla vuelve al inicio (y no cierra la app)
 let depth = 0, skipPop = false, GUARD = '', INICIO = false; // INICIO: lo pone home() justo antes de pintar; otras pantallas usan la pestaña 'home' solo para la barra y sí deben añadir entrada al historial
@@ -359,7 +360,8 @@ function toneVars(p) { // variantes con otros tonos, para distinguirlos
 // --- progreso (localStorage; si falla, la app sigue sin guardar) ---
 let S = {}; try { S = JSON.parse(localStorage.hsk3) || {}; } catch {}
 S.w = S.w || {}; S.known = S.known || {}; S.gram = S.gram || {}; S.gramR = S.gramR || {}; S.listas = S.listas || {}; S.song = S.song || {}; S.lv = S.lv || [1, 2, 3];
-S.lv = [1, 2, 3, 4, 5].slice(0, Math.max(...S.lv, 1)); // los HSK son acumulativos: elegir uno incluye los anteriores S.streak = S.streak || 0; S.last = S.last || '';
+S.lv = [1, 2, 3, 4, 5].slice(0, Math.max(...S.lv, 1)); // los HSK son acumulativos: elegir uno incluye los anteriores
+S.streak = S.streak || 0; S.last = S.last || '';
 S.hist = S.hist || {}; S.exams = S.exams || []; S.exLv = S.exLv || 3; S.star = S.star || {};
 S.set = Object.assign({ goal: 20, rate: .8, size: 100, theme: 'auto', tones: true }, S.set);
 const applySet = () => { const r = document.documentElement; r.style.fontSize = S.set.size + '%'; S.set.theme == 'auto' ? r.removeAttribute('data-theme') : r.setAttribute('data-theme', S.set.theme); };
@@ -638,7 +640,8 @@ function settings() {
     <div class=row><input type=time value="${S.set.rem || '19:00'}" onchange="S.set.rem = this.value || '19:00'; save()" aria-label="Hora del recordatorio"><button class=chip onclick="recordatorio()">Recordarme cada día</button></div>
     <h2>Copia de seguridad</h2><p class=mut>Guarda tu progreso en un archivo para cambiar de móvil o por si se borran los datos del navegador.</p>
     <div class="row seg"><button class=chip onclick="exportar()">Exportar</button><button class=chip onclick="$('#imp').click()">Importar</button></div>
-    <input type=file id=imp accept=".json,application/json" hidden onchange="importar(this.files[0])"><div id=impmsg aria-live=polite></div>`);
+    <input type=file id=imp accept=".json,application/json" hidden onchange="importar(this.files[0])"><div id=impmsg aria-live=polite></div>
+    <p class=mut style="margin-top:1.5rem">Versión de la app: ${APP_V}</p>`);
 }
 // recordatorio diario: evento .ics que se repite cada día con alarma; hora local del dispositivo (iCalendar exige saltos CRLF)
 function recordatorio() {
@@ -1124,9 +1127,9 @@ const Q = {
   },
   write(el, w, done) {
     el.innerHTML = `<div class=prompt><span class=hz>${w.h}</span><small>${w.e}</small></div>
-      <input type=text id=in autocomplete=off autocapitalize=off aria-label="Escribe el pinyin" placeholder="pinyin (los tonos son opcionales)"><button class=main id=go>Comprobar</button>`;
+      <input type=text id=in autocomplete=off autocapitalize=off autocorrect=off spellcheck=false aria-label="Escribe el pinyin" placeholder="pinyin (los tonos son opcionales)"><button class=main id=go>Comprobar</button>`;
     const go = () => { if (!$('#in').value.trim()) return; $('#in').disabled = $('#go').disabled = true; done(nrm($('#in').value) == nrm(w.p)); };
-    $('#go').onclick = go; $('#in').onkeydown = e => { if (e.key == 'Enter') go(); }; // sin «&&»: devolver false cancelaría la tecla (y Borrar dejaría de funcionar) $('#in').focus();
+    $('#go').onclick = go; $('#in').onkeydown = e => { if (e.key == 'Enter') go(); }; $('#in').focus();
   },
   cards(el, w, done) {
     el.innerHTML = `<div class=prompt><span class=hz>${w.h}</span></div><button class=main id=sh>Mostrar respuesta</button>`;
@@ -1376,9 +1379,9 @@ function exam(lv) {
     if (q.audio) { $('#pl').onclick = () => say(q.audio); setTimeout(() => say(q.audio), 300); }
     const el = $('#q');
     if (q.type) {
-      el.innerHTML = `<input type=text id=in autocomplete=off autocapitalize=off aria-label="Escribe el pinyin" placeholder="pinyin (los tonos son opcionales)"><button class=main id=go>Siguiente</button>`;
+      el.innerHTML = `<input type=text id=in autocomplete=off autocapitalize=off autocorrect=off spellcheck=false aria-label="Escribe el pinyin" placeholder="pinyin (los tonos son opcionales)"><button class=main id=go>Siguiente</button>`;
       const go = () => next(nrm($('#in').value) == nrm(q.w.p));
-      $('#go').onclick = go; $('#in').onkeydown = e => { if (e.key == 'Enter') go(); }; // sin «&&»: devolver false cancelaría la tecla (y Borrar dejaría de funcionar) $('#in').focus();
+      $('#go').onclick = go; $('#in').onkeydown = e => { if (e.key == 'Enter') go(); }; $('#in').focus();
     } else {
       el.innerHTML = '<div class=opts>' + q.opts.map(o => `<button class=opt>${q.lab(o)}</button>`).join('') + '</div>';
       [...el.querySelectorAll('.opt')].forEach((b, k, bs) => b.onclick = () => { bs.forEach(x => x.disabled = true); b.classList.add('pk'); setTimeout(() => next(q.opts[k] === q.w), 250); });

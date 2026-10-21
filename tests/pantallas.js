@@ -12,6 +12,7 @@ PANTALLAS.forEach(([nombre, js]) => t('pantalla «' + nombre + '»', () => { app
 t('escribir pinyin: Borrar y las demás teclas no se cancelan; Intro comprueba la respuesta', () => {
   const a = cargarApp(); a.ev(PREPARAR); a.ev("session('write')"); const campo = a.els['#in'];
   ['Backspace', 'Delete', 'a', ' ', 'ArrowLeft'].forEach(k => assert.notStrictEqual(campo.onkeydown({ key: k }), false, `la tecla ${k} se cancela`));
+  assert.strictEqual(campo.enfocado, true, 'el campo no recibe el foco al abrir el ejercicio (en el móvil no se abre el teclado)');
   campo.value = 'ni hao'; campo.onkeydown({ key: 'Enter' }); assert.strictEqual(campo.disabled, true, 'Intro no comprobó la respuesta');
 });
 

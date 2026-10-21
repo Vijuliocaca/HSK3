@@ -17,6 +17,10 @@ const coincide = (zh, py) => han(zh) == sil(py);
 // --- configuración ---
 t('index.html: todos los <script src> existen', () => scripts.forEach(f => assert(fs.existsSync(path.join(RAIZ, f)), 'falta ' + f)));
 t('index.html: el script principal no tiene errores de sintaxis', () => new Function(html.match(/<script>([\s\S]*?)<\/script>/g).pop().slice(8, -9)));
+t('la versión que muestra la app (APP_V en index.html) coincide con la de sw.js', () => {
+  const app = (html.match(/const APP_V = '(hsk3-v\d+)'/) || [])[1], sw = (leer('sw.js').match(/const V = '(hsk3-v\d+)'/) || [])[1];
+  assert(app && sw, 'falta APP_V en index.html o V en sw.js'); assert.strictEqual(app, sw, `index.html dice ${app} y sw.js ${sw}: sube las dos`);
+});
 t('sw.js: versión con formato hsk3-vNN', () => assert(/const V = 'hsk3-v\d+'/.test(leer('sw.js'))));
 t('sw.js: guarda todos los scripts de index.html', () => { const sw = leer('sw.js'); scripts.forEach(f => assert(sw.includes(`'${f}'`), f + ' no está en FILES')); });
 t('sw.js: no guarda archivos que no existen', () => [...leer('sw.js').match(/FILES = \[([^\]]*)\]/)[1].matchAll(/'([^']+)'/g)].forEach(m => m[1] == './' || assert(fs.existsSync(path.join(RAIZ, m[1])), 'FILES apunta a ' + m[1])));
@@ -24,6 +28,11 @@ t('sw.js: no guarda archivos que no existen', () => [...leer('sw.js').match(/FIL
 t('index.html: ningún manejador de teclado asignado devuelve false con «&&» (cancelaría la tecla, p. ej. Borrar)', () => {
   const malos = html.match(/\.on(keydown|keyup|keypress|beforeinput|submit)\s*=\s*\w+\s*=>\s*[^{\n]*&&/g) || [];
   assert.strictEqual(malos.length, 0, 'usa «{ if (...) ... }» en vez de «cond && accion»: ' + malos.join(' | ').slice(0, 160));
+});
+
+t('index.html: ningún comentario // termina en «;» (código que se quedó dentro del comentario y no se ejecuta)', () => {
+  const malas = html.split(String.fromCharCode(10)).map((l, i) => [i + 1, l]).filter(([, l]) => /(^|[^:"'`])\/\/[^`]*;[ \t]*$/.test(l));
+  assert.strictEqual(malas.length, 0, 'línea ' + malas.map(m => m[0]).join(', ') + ': pon el código en otra línea, antes del comentario');
 });
 
 // --- vocabulario ---

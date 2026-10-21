@@ -12,7 +12,7 @@ PWA para estudiar chino (HSK 1-5) en español. JavaScript puro, sin dependencias
 - `sw.js`: service worker. Su versión (`hsk3-vNN`) renueva la caché.
 
 ## Reglas al hacer cambios
-1. **Cada cambio en archivos de la app sube la versión de `sw.js`** (`hsk3-vNN` → `hsk3-vNN+1`). Un `.js` nuevo va en un `<script>` de `index.html` y en la lista `FILES` de `sw.js`.
+1. **Cada cambio en archivos de la app sube la versión de `sw.js`** (`hsk3-vNN` → `hsk3-vNN+1`) **y la de `APP_V` en `index.html`** (se ve al final de Ajustes y `tests/datos.js` exige que coincidan). Un `.js` nuevo va en un `<script>` de `index.html` y en la lista `FILES` de `sw.js`.
 2. **Haz commit y push solo cuando el usuario lo pida.** Mensajes en español, terminando con la línea `Co-Authored-By` que indique el sistema. Tras el push, GitHub Pages tarda unos 3 minutos en publicar.
 3. **El progreso se guarda por hanzi** (formato `v:2`, ver `toDisk` en `index.html`), así que se pueden añadir palabras donde sea. No repitas un mismo hanzi en la lista. Ajustes tiene Exportar/Importar copia de seguridad.
 4. **Contenido con derechos de autor:** no pongas grabaciones ni letras de canciones protegidas dentro de la app. Las canciones de práctica son solo tradicionales o de dominio público. El Top 10 lleva solo datos más el reproductor de YouTube incrustado.

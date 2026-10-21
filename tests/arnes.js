@@ -7,7 +7,7 @@ function cargarApp(opts = {}) {
   const els = {}, el = id => els[id] || (els[id] = {
     innerHTML: '', textContent: '', style: {}, hidden: false, tabIndex: 0, classList: { toggle() { }, add() { }, remove() { } },
     querySelectorAll: () => [], querySelector: () => null, insertAdjacentHTML(_, h) { this.innerHTML += h; },
-    setAttribute() { }, removeAttribute() { }, scrollIntoView() { }, click() { }, appendChild() { }, focus() { }, select() { }, replaceChildren() { }, append() { },
+    setAttribute() { }, removeAttribute() { }, scrollIntoView() { }, click() { }, appendChild() { }, focus() { this.enfocado = true; }, select() { }, replaceChildren() { }, append() { },
   });
   const salida = { blobs: [], clics: [], avisos: [] }, storage = { ...(opts.storage || {}) };
   const pila = [0], oyentes = []; // historial simulado: la primera entrada es la app; pushState añade una y atrás quita una y avisa a popstate

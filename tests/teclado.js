@@ -7,11 +7,11 @@ const candidatos = [process.env.BROWSER, 'C:/Program Files (x86)/Microsoft/Edge/
 const navegador = candidatos.find(p => fs.existsSync(p));
 if (!navegador) { console.log('teclado: no encuentro Edge ni Chrome (variable BROWSER). Prueba omitida.'); process.exit(0); }
 
-// campos a probar: [nombre, código que abre la pantalla, selector del campo]
+// campos a probar: [nombre, código que abre la pantalla, selector del campo, ¿debe abrirse ya enfocado? (así el teclado del móvil se abre solo)]
 const CAMPOS = [
-  ['escribir pinyin (juego)', "session('write')", '#in'],
-  ['buscador de vocabulario', "list('all')", '#s'],
-  ['nombre de una lista nueva', "listas(); nuevaLista();", '#nln'],
+  ['escribir pinyin (juego)', "session('write')", '#in', true],
+  ['buscador de vocabulario', "list('all')", '#s', false],
+  ['nombre de una lista nueva', "listas(); nuevaLista();", '#nln', true],
 ];
 const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'hsk-teclado-')), perfil = fs.mkdtempSync(path.join(os.tmpdir(), 'hsk-perfil-'));
 fs.readdirSync(RAIZ).filter(f => /\.(js|json|html|png)$/.test(f)).forEach(f => fs.copyFileSync(path.join(RAIZ, f), path.join(dir, f)));
@@ -40,11 +40,13 @@ let problemas = 0;
   if (ctl != 'abc') { console.log(`✗ control: el simulador de teclado no borra en un campo normal (queda «${ctl}»); la prueba no es fiable`); problemas++; }
   await ev("document.querySelector('#ctl').remove(); 1");
 
-  for (const [nombre, abrir, sel] of CAMPOS) {
+  for (const [nombre, abrir, sel, autofoco] of CAMPOS) {
     try {
       await ev(abrir + '; 1'); await esp(300);
       if (!await ev(`!!document.querySelector(${JSON.stringify(sel)})`)) throw new Error('no aparece el campo ' + sel);
-      await ev(`document.querySelector(${JSON.stringify(sel)}).focus(); 1`);
+      const enfocado = await ev(`document.activeElement === document.querySelector(${JSON.stringify(sel)})`);
+      if (autofoco && !enfocado) throw new Error('el campo no se abre enfocado (en el móvil no saldría el teclado)');
+      if (!enfocado) await ev(`document.querySelector(${JSON.stringify(sel)}).focus(); 1`); // solo si no debe abrirse enfocado
       await cmd('Input.insertText', { text: 'nihao' }); const a = await ev(`document.querySelector(${JSON.stringify(sel)}).value`);
       await borrar(); await borrar(); const b = await ev(`document.querySelector(${JSON.stringify(sel)}).value`);
       await ev(`document.querySelector(${JSON.stringify(sel)}).select(); 1`); await borrar(); const c = await ev(`document.querySelector(${JSON.stringify(sel)}).value`);

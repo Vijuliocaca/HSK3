@@ -191,7 +191,7 @@ t('olvido: el repaso de hoy empieza por lo que más se está olvidando; «reforz
 t('hoy: muestra la retención media, la curva del olvido y, con examen, la línea del examen y el ritmo de repasos', () => {
   const a = cargarApp(); a.ev('S.known[W[0].id] = S.known[W[1].id] = 1; S.w = {}; grade(W[0].id, true); grade(W[1].id, true); S.w[W[1].id].l -= 3 * DIA; S.w[W[1].id].d -= 3 * DIA'); a.ev('today()'); let h = a.html();
   assert(/<b>\d+ %<\/b><span class=mut>retención/.test(h), 'falta la retención media'); assert(h.includes('Curva del olvido') && h.includes('aria-label="Curva del olvido'), 'falta la curva'); assert(!h.includes('examen '), 'sin examen no debe haber línea de examen'); const sv = h.slice(h.indexOf('<svg viewBox="0 0 300 118"')); assert(sv.includes('<path') && !new RegExp('[a-z0-9]' + '/>', 'i').test(sv.slice(0, sv.indexOf('</svg>'))), 'en el SVG de la curva un valor sin comillas seguido de «/>» se traga el cierre y el resto no se dibuja');
-  a.ev('S.exam = { d: day(new Date(Date.now() + 10 * 864e5)) }'); a.ev('today()'); h = a.html();
+  a.ev('S.exam = { d: day(new Date(Date.now() + 10.5 * 864e5)) }'); a.ev('today()'); h = a.html();
   assert(/examen \d+ %/.test(h) && h.includes('Examen en <b>10 días</b>') && h.includes('al menos cada <b>3 días</b>'), 'con examen: línea del examen y ritmo de repasos');
   const vacia = cargarApp(); vacia.ev('today()'); assert(!vacia.html().includes('Curva del olvido'), 'sin palabras estudiadas no hay curva');
 });

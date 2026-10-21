@@ -267,7 +267,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script>
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
-const APP_V = 'hsk3-v78'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v79'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -542,12 +542,12 @@ function home() {
     ${LEVELS.map(l => { const ws = W.filter(w => w.l == l), n = ws.filter(w => S.known[w.id]).length; return `<div class=hbar><span>HSK ${l}</span><div class=bar><i style="width:${n / ws.length * 100}%"></i></div><b style="width:4.8rem">${n}/${ws.length}</b></div>`; }).join('')}
     <div class=mut style="margin:.5rem 0">Total: <b>${vistas.length}</b> estudiadas de ${W.length} · <b>${domT}</b> dominadas · <b>${W.length - vistas.length}</b> por estudiar</div>
     <button class=chip onclick="list('done')">Ver las palabras estudiadas →</button></details>
-  ${daily()}
   <button class="mode big" style="margin-top:1rem" onclick="lessons()"><span class="e sg">${ico('graduation-cap')}</span><span><b>Aprender palabras nuevas</b><small>Lecciones por temas</small></span></button>
   <button class="mode big" onclick="gramatica()"><span class="e sg">${ico('book-a')}</span><span><b>Gramática</b><small>Estructuras del chino por nivel</small></span></button>
   <button class="mode big" onclick="temas()"><span class="e sg">${ico('library')}</span><span><b>Vocabulario por temas</b><small>Frutas, transporte, familia…</small></span></button>
   ${nd ? `<button class="mode alert" onclick="today()"><span class="e sg">${ico('history')}</span><span><b>Repasar lo de hoy</b><small>${nd} palabras pendientes</small></span></button>` : ''}
-  ${MODE_GROUPS.map(([g, t]) => `<h2>${t}</h2><div class=grid>${MODES.filter(m => m[4] == g).map(m => `<button class=mode onclick="go('${m[0]}')"><span class="e sg">${ico(m[1])}</span><span><b>${m[2]}</b><small>${m[0] == 'hard' ? hardList().length + ' palabras' : m[3]}</small></span></button>`).join('')}</div>`).join('')}`, 'home');
+  ${MODE_GROUPS.map(([g, t]) => `<h2>${t}</h2><div class=grid>${MODES.filter(m => m[4] == g).map(m => `<button class=mode onclick="go('${m[0]}')"><span class="e sg">${ico(m[1])}</span><span><b>${m[2]}</b><small>${m[0] == 'hard' ? hardList().length + ' palabras' : m[3]}</small></span></button>`).join('')}</div>`).join('')}
+  ${daily()}`, 'home');
 }
 function tog(k, n) { // al elegir un HSK se marcan también los anteriores; tocar el más alto lo quita
   const mx = Math.max(...S.lv), top = n == mx && n > 1 ? n - 1 : n;

@@ -239,7 +239,7 @@ const $ = s => document.querySelector(s);
 const TABS = [['home', '首', 'Inicio'], ['today', '今', 'Hoy'], ['examMenu', '考', 'Examen'], ['stats', '进', 'Progreso']];
 let TM = 0;
 // botón atrás del móvil: desde cualquier pantalla vuelve al inicio (y no cierra la app)
-let depth = 0, skipPop = false, GUARD = '';
+let depth = 0, skipPop = false, GUARD = '', INICIO = false; // INICIO: lo pone home() justo antes de pintar; otras pantallas usan la pestaña 'home' solo para la barra y sí deben añadir entrada al historial
 addEventListener('popstate', () => {
   if (skipPop) { skipPop = false; return; }
   depth = 0;
@@ -248,7 +248,8 @@ addEventListener('popstate', () => {
 });
 const app = (h, tab) => {
   clearInterval(TM); stopMel();
-  if (tab == 'home') { GUARD = ''; if (depth) { depth = 0; skipPop = true; history.back(); } }
+  const inicio = tab == 'home' && INICIO; INICIO = false;
+  if (inicio) { GUARD = ''; if (depth) { depth = 0; skipPop = true; history.back(); } }
   else if (!depth) { history.pushState({ a: 1 }, ''); depth = 1; }
   $('#app').innerHTML = h; scrollTo(0, 0);
   const h1 = $('#app h1'), t = (h1 ? [...(h1.childNodes || [])].filter(n => n.nodeType == 3).map(n => n.textContent).join('') : $('#app .top > b')?.textContent || '').trim();
@@ -458,6 +459,7 @@ function home() {
   const streakOk = S.last == day(new Date()) || S.last == day(new Date(Date.now() - 864e5));
   const hoy = S.hist[day(new Date())]?.n || 0, meta = S.set.goal;
   const vistas = W.filter(w => S.known[w.id]), domT = vistas.filter(w => (S.w[w.id]?.b || 0) >= 4).length;
+  INICIO = true;
   app(`<h1><span class=seal>学</span>HSK Viju<button class=gear onclick="list('all')" aria-label="Vocabulario"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.2 5.1 7.6 4.5 3.5 4.5v13.2c4.1 0 6.7.6 8.5 2 1.8-1.4 4.4-2 8.5-2V4.5c-4.1 0-6.7.6-8.5 2zM12 6.5v13.2"/></svg></button><button class=gear onclick="settings()" aria-label="Ajustes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.21 4.82L10.61 2.1L13.39 2.1L13.79 4.82L15.81 5.66L18.02 4.01L19.99 5.98L18.34 8.19L19.18 10.21L21.9 10.61L21.9 13.39L19.18 13.79L18.34 15.81L19.99 18.02L18.02 19.99L15.81 18.34L13.79 19.18L13.39 21.9L10.61 21.9L10.21 19.18L8.19 18.34L5.98 19.99L4.01 18.02L5.66 15.81L4.82 13.79L2.1 13.39L2.1 10.61L4.82 10.21L5.66 8.19L4.01 5.98L5.98 4.01L8.19 5.66Z"/><circle cx="12" cy="12" r="3"/></svg></button></h1><div class=mut>Preparación gratuita del examen</div>
   <div class=goal><span>Meta de hoy: <b>${Math.min(hoy, meta)}/${meta}</b>${hoy >= meta ? ' ✓' : ''}</span><div class=bar><i style="width:${Math.min(100, hoy / meta * 100)}%"></i></div></div>
   <div class=stats>

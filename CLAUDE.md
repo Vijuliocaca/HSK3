@@ -37,13 +37,18 @@ PWA para estudiar chino (HSK 1-5) en español. JavaScript puro, sin dependencias
 9. **Guardar las decisiones en memoria** (o en `IDEAS.md`) para no volver a preguntarlas.
 
 ## Cómo probar sin gastar de más
-- **Siempre, antes de cada commit:** `node tests/run.js` (unos segundos, sin navegador). Comprueba el formato y el pinyin de todos los datos, que `index.html` y `sw.js` estén al día, que ninguna de las ~55 pantallas/lógicas falle y fechas clave. GitHub lo ejecuta también en cada subida (`.github/workflows/pruebas.yml`).
+- **Siempre, antes de cada commit:** `node tests/run.js` (unos segundos, sin navegador). Comprueba el formato y el pinyin de todos los datos, que `index.html` y `sw.js` estén al día, que ninguna de las ~55 pantallas/lógicas falle, que la flecha atrás de Android lleve siempre al inicio sin cerrar la app y fechas clave. GitHub lo ejecuta también en cada subida (`.github/workflows/pruebas.yml`).
 - **Si el cambio toca el aspecto o varias pantallas:** `node tests/desbordes.js` (≈15 s): recorre 43 pantallas en Edge/Chrome real a 320, 360 y 412 px y avisa de errores de JavaScript y de desbordes horizontales, con la pantalla y el primer elemento culpable. Filtros: `SOLO=texto` y `RANGO=a-b`. Se salta solo si no encuentra el navegador (`BROWSER=ruta`).
 - **Pantalla o archivo de datos nuevo:** añade la pantalla a `tests/pantallas-lista.js` y, si tiene formato propio, su validación a `tests/datos.js`. Un `.js` nuevo ya se comprueba solo (debe estar en `index.html` y en `FILES` de `sw.js`). Los topes de `datos.js` (vocabulario 31, frases 122, temas 203) son casos conocidos que no deben empeorar.
 - **Si el cambio es pequeño:** solo lo anterior más una prueba concreta de lo tocado.
 - **No hacer capturas de pantalla** salvo que el cambio sea visual o lo pida el usuario. Las imágenes pesan mucho.
 - **No volcar listas enteras del vocabulario** para analizarlas: usa scripts de Node que impriman solo el resumen.
 - Edge está en `C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe` (`--headless=new --screenshot`). Las pruebas están en `tests/`.
+
+## Botón atrás del móvil
+- Desde cualquier pantalla, atrás debe llevar al inicio y **no cerrar la app**. `app()` añade una entrada al historial (`pushState`) al salir del inicio y `popstate` vuelve a `home()`.
+- Las pantallas pasan `'home'` como pestaña solo para mostrar la barra inferior; **el inicio de verdad lo marca `home()` con `INICIO = true`**. No uses la pestaña `'home'` para decidir nada del historial (así se rompió en 13 pantallas).
+- `tests/atras.js` lo comprueba para todas las pantallas de `tests/pantallas-lista.js`: añade ahí las nuevas.
 
 ## Trampas de este equipo (Windows + Git Bash)
 - Node no ve `/tmp` de Git Bash: usa rutas de Windows (`C:/Users/...`) en scripts de Node.

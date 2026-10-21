@@ -1,9 +1,10 @@
-// Lecturas graduadas: [HSK, título, frases, preguntas, glosario]
+// Lecturas graduadas: [HSK, título, frases, preguntas, glosario, personaje]
 //   frases (una por línea): chino por palabras separadas con / | pinyin por palabras separado con espacios | español
 //   preguntas (una por línea, 4 por lectura): tipo|pregunta|opción 1|opción 2|opción 3|opción 4
 //     o = elige (la correcta va primera; la app mezcla) · x = elige la afirmación FALSA (la falsa va primera) · r = ordena los hechos (van en el orden correcto)
 //     los falsos de «o» y las verdaderas de «x» deben salir del propio texto para que no se resuelvan por descarte (lo comprueba tests/datos.js)
 //   glosario (opcional): hanzi|significado para palabras que no están en el vocabulario; se comparte entre todas las lecturas
+//   personaje: id de personajes.js; quién cuenta la lectura (se elige según de qué habla)
 (self.LECTS = self.LECTS || []).push(
 [1, '🐱 Mi gato', `我/有/一/只/小/猫。|Wǒ yǒu yì zhī xiǎo māo.|Tengo un gatito.
 它/很/小，/也/很/可爱。|Tā hěn xiǎo, yě hěn kě'ài.|Es muy pequeño y muy mono.
@@ -41,7 +42,7 @@ r|En el orden en que aparecen en el texto:|Dice que tiene un gatito|Cuenta cómo
 留在|quedarse en
 老家|pueblo natal
 小明|Xiao Ming (nombre)
-中国人|chino (persona)`],
+中国人|chino (persona)`, 'payolink'],
 
 [1, '👨‍👩‍👧 Mi familia', `我/家/有/四/口/人：/爸爸、/妈妈、/哥哥/和/我。|Wǒ jiā yǒu sì kǒu rén: bàba, māma, gēge hé wǒ.|En mi casa somos cuatro: papá, mamá, mi hermano mayor y yo.
 爸爸/是/医生，/他/在/医院/工作。|Bàba shì yīshēng, tā zài yīyuàn gōngzuò.|Mi padre es médico y trabaja en un hospital.
@@ -50,7 +51,7 @@ r|En el orden en que aparecen en el texto:|Dice que tiene un gatito|Cuenta cómo
 我们/都/很/爱/这个/家。|Wǒmen dōu hěn ài zhège jiā.|Todos queremos mucho a esta familia.`, `o|¿Quién trabaja en un hospital?|Su padre, que es médico|Su madre, que es enfermera|Su hermano, que es médico|Su padre, que es profesor
 o|¿Qué edad y qué ocupación tiene el hermano del narrador?|Dieciocho años y es universitario|Dieciocho años y es profesor|Ocho años y es universitario|Veinte años y es médico
 x|¿Cuál de estas afirmaciones es FALSA según el texto?|En la casa viven seis personas|La madre está muy ocupada|El padre es médico|El narrador tiene un hermano mayor
-r|En el orden en que aparecen en el texto:|Cuántos son en casa|A qué se dedica el padre|A qué se dedica la madre|Qué edad tiene el hermano`, ``],
+r|En el orden en que aparecen en el texto:|Cuántos son en casa|A qué se dedica el padre|A qué se dedica la madre|Qué edad tiene el hermano`, ``, 'samu'],
 
 [1, '📅 Mi día', `我/每天/六/点/起床。|Wǒ měitiān liù diǎn qǐchuáng.|Todos los días me levanto a las seis.
 七/点/我/吃/早饭，/喝/一/杯/牛奶。|Qī diǎn wǒ chī zǎofàn, hē yì bēi niúnǎi.|A las siete desayuno y bebo un vaso de leche.
@@ -60,7 +61,7 @@ r|En el orden en que aparecen en el texto:|Cuántos son en casa|A qué se dedica
 晚上/十/点/我/睡觉。|Wǎnshang shí diǎn wǒ shuìjiào.|A las diez de la noche me acuesto.`, `o|¿Qué hace el narrador justo después de desayunar?|Va a la escuela a clase|Come en la escuela al mediodía|Vuelve a casa por la tarde|Se levanta de la cama temprano
 o|¿Cuántas horas pasan entre que va a la escuela y que vuelve a casa?|Nueve horas|Siete horas|Ocho horas|Diez horas
 x|¿Cuál de estas afirmaciones es FALSA según el texto?|Desayuna a las ocho|Se acuesta a las diez de la noche|Come en la escuela al mediodía|Se levanta a las seis
-r|En el orden en que aparecen en el texto:|Desayuna y bebe leche|Va a la escuela a clase|Come en la escuela|Vuelve a casa`, ``],
+r|En el orden en que aparecen en el texto:|Desayuna y bebe leche|Va a la escuela a clase|Come en la escuela|Vuelve a casa`, ``, 'samu'],
 
 [1, '🛍️ En la tienda', `今天/我/和/妈妈/去/商店。|Jīntiān wǒ hé māma qù shāngdiàn.|Hoy voy a la tienda con mamá.
 我们/买/了/苹果、/米饭/和/水。|Wǒmen mǎi le píngguǒ, mǐfàn hé shuǐ.|Compramos manzanas, arroz y agua.
@@ -69,7 +70,7 @@ r|En el orden en que aparecen en el texto:|Desayuna y bebe leche|Va a la escuela
 妈妈/说/可以。|Māma shuō kěyǐ.|Mamá dice que sí.`, `o|¿Cuánto cuestan las manzanas y qué opina el narrador del precio?|Cinco yuanes el jin; no son caras|Cinco yuanes el jin; son caras|Diez yuanes el jin; no son caras|Dos yuanes el jin; no son caras
 o|Además de lo que ya compraron, ¿qué quiere el narrador y qué responde su madre?|Un vaso; ella dice que sí|Un vaso; ella dice que no|Un bolso; ella dice que sí|Más agua; ella dice que sí
 x|¿Cuál de estas afirmaciones es FALSA según el texto?|Compraron pan y leche|Fueron a la tienda con mamá|Compraron arroz|Las manzanas se compran por jin
-r|En el orden en que aparecen en el texto:|Van a la tienda con mamá|Compran manzanas, arroz y agua|Se dice el precio de las manzanas|El narrador pide también un vaso`, ``],
+r|En el orden en que aparecen en el texto:|Van a la tienda con mamá|Compran manzanas, arroz y agua|Se dice el precio de las manzanas|El narrador pide también un vaso`, ``, 'samu'],
 
 [2, '🧑‍🤝‍🧑 Mi amigo Xiao Ming', `小明/是/我/最/好/的/朋友。|Xiǎomíng shì wǒ zuì hǎo de péngyou.|Xiao Ming es mi mejor amigo.
 我们/是/同学，/每天/一起/上学。|Wǒmen shì tóngxué, měitiān yìqǐ shàngxué.|Somos compañeros y vamos juntos a la escuela cada día.
@@ -79,7 +80,7 @@ r|En el orden en que aparecen en el texto:|Van a la tienda con mamá|Compran man
 有/这样/的/朋友，/我/很/高兴。|Yǒu zhèyàng de péngyou, wǒ hěn gāoxìng.|Tener un amigo así me hace muy feliz.`, `o|¿Qué le gusta a cada uno?|A Xiao Ming el fútbol y al narrador cantar|A Xiao Ming cantar y al narrador el fútbol|A los dos les gusta el fútbol|A Xiao Ming el fútbol y al narrador dibujar
 o|¿Dónde pasan juntos los sábados?|En casa del narrador|En casa de Xiao Ming|En la escuela|En el campo de fútbol
 x|¿Cuál de estas afirmaciones es FALSA según el texto?|Xiao Ming nunca va a casa del narrador|Hacen los deberes juntos|A Xiao Ming le gusta el fútbol|El narrador considera a Xiao Ming su mejor amigo
-r|En el orden en que aparecen en el texto:|Presenta a su mejor amigo|Dice que van juntos a la escuela|Habla de lo que le gusta a cada uno|Cuenta lo que hacen los sábados`, ``],
+r|En el orden en que aparecen en el texto:|Presenta a su mejor amigo|Dice que van juntos a la escuela|Habla de lo que le gusta a cada uno|Cuenta lo que hacen los sábados`, ``, 'yuyue'],
 
 [2, '🚲 Ir en bicicleta', `我/家/离/学校/不/太/远，/所以/我/骑/自行车/去/学校。|Wǒ jiā lí xuéxiào bú tài yuǎn, suǒyǐ wǒ qí zìxíngchē qù xuéxiào.|Mi casa no está muy lejos de la escuela, así que voy en bicicleta.
 骑/车/要/十五/分钟。|Qí chē yào shíwǔ fēnzhōng.|Tardo quince minutos pedaleando.
@@ -88,7 +89,7 @@ r|En el orden en que aparecen en el texto:|Presenta a su mejor amigo|Dice que va
 我/到/学校/的/时候，/老师/还/没/来。|Wǒ dào xuéxiào de shíhou, lǎoshī hái méi lái.|Cuando llego a la escuela, el profesor aún no ha llegado.`, `o|¿Por qué va a la escuela en bicicleta?|Porque su casa no está muy lejos|Porque el autobús es muy caro para él|Porque le gusta hacer deporte cada día|Porque hoy no llueve y hace sol
 o|Hoy el profesor aún no ha llegado cuando llega el narrador. ¿Qué se deduce?|Que hoy el narrador llegó pronto|Que hoy el narrador llegó tarde|Que el profesor faltó a clase|Que hoy llovió y el profesor se retrasó
 x|¿Cuál de estas afirmaciones es FALSA según el texto?|Tarda una hora en llegar|Tarda quince minutos|Cuando llueve va en autobús|Hoy hace buen tiempo
-r|En el orden en que aparecen en el texto:|Explica por qué va en bicicleta|Dice cuánto tarda|Cuenta qué hace cuando llueve|Cuenta cómo le fue hoy`, ``],
+r|En el orden en que aparecen en el texto:|Explica por qué va en bicicleta|Dice cuánto tarda|Cuenta qué hace cuando llueve|Cuenta cómo le fue hoy`, ``, 'binhao'],
 
 [2, '🎁 Un regalo', `明天/是/妈妈/的/生日。|Míngtiān shì māma de shēngrì.|Mañana es el cumpleaños de mamá.
 我/想/给/她/买/一/个/礼物，/可是/不/知道/买/什么。|Wǒ xiǎng gěi tā mǎi yí ge lǐwù, kěshì bù zhīdào mǎi shénme.|Quiero comprarle un regalo, pero no sé qué.
@@ -98,7 +99,7 @@ r|En el orden en que aparecen en el texto:|Explica por qué va en bicicleta|Dice
 她/说/谢谢/你，/她/非常/喜欢。|Tā shuō xièxie nǐ, tā fēicháng xǐhuan.|Dice gracias; le gusta muchísimo.`, `o|¿Quién da la idea del regalo?|Un amigo del narrador|El padre del narrador|La propia madre|Una vendedora de la tienda
 o|¿Qué problema tenía el narrador al principio?|No sabía qué comprar|No tenía dinero|Se le había olvidado el cumpleaños|No encontraba la tienda
 x|¿Cuál de estas afirmaciones es FALSA según el texto?|El narrador compró un libro|Compró flores bonitas|La madre sonrió al ver el regalo|Un amigo le dijo qué le gustaba a su madre
-r|En el orden en que aparecen en el texto:|Recuerda que mañana es el cumpleaños|No sabe qué regalar|Compra flores y té|Su madre sonríe y da las gracias`, ``],
+r|En el orden en que aparecen en el texto:|Recuerda que mañana es el cumpleaños|No sabe qué regalar|Compra flores y té|Su madre sonríe y da las gracias`, ``, 'samu'],
 
 [2, '🌳 Un día en el parque', `这个/周末/天气/很/好，/我们/去/公园/玩。|Zhège zhōumò tiānqì hěn hǎo, wǒmen qù gōngyuán wán.|Este fin de semana hace buen tiempo y vamos al parque.
 公园/里/有/很/多/人，/有/的/人/跑步，/有/的/人/唱歌。|Gōngyuán lǐ yǒu hěn duō rén, yǒu de rén pǎobù, yǒu de rén chànggē.|Hay mucha gente: unos corren y otros cantan.
@@ -107,7 +108,7 @@ r|En el orden en que aparecen en el texto:|Recuerda que mañana es el cumpleaño
 真/是/快乐/的/一/天！|Zhēn shì kuàilè de yì tiān!|¡Qué día tan feliz!`, `o|¿Por qué compró el narrador dos botellas?|Porque su hermano pequeño tenía sed|Porque hacía mucho calor en el parque|Porque las vendían muy baratas allí|Porque quería regalárselas a alguien
 o|¿Qué se puede deducir de la última frase («¡Qué día tan feliz!»)?|Que disfrutó mucho del día|Que estaba muy cansado|Que quería volver pronto|Que se aburrió en el parque
 x|¿Cuál de estas afirmaciones es FALSA según el texto?|Todos los que estaban en el parque cantaban|Unos corrían|Fueron al parque con buen tiempo|Volvieron a casa después de jugar tres horas
-r|En el orden en que aparecen en el texto:|Deciden ir al parque|Ven gente corriendo y cantando|Compra agua para su hermano|Vuelven a casa`, ``],
+r|En el orden en que aparecen en el texto:|Deciden ir al parque|Ven gente corriendo y cantando|Compra agua para su hermano|Vuelven a casa`, ``, 'payolink'],
 
 [3, '🌸 Primavera en Pekín', `春天/来/了，/北京/的/花/都/开/了。|Chūntiān lái le, Běijīng de huā dōu kāi le.|Llegó la primavera y las flores de Pekín han florecido.
 周末，/我/和/朋友/去/公园/看/花。|Zhōumò, wǒ hé péngyou qù gōngyuán kàn huā.|El fin de semana fui con mis amigos a ver las flores.
@@ -117,7 +118,7 @@ r|En el orden en que aparecen en el texto:|Deciden ir al parque|Ven gente corrie
 可是/我们/一点/也/不/难过。|Kěshì wǒmen yìdiǎn yě bù nánguò.|Pero no estábamos nada tristes.`, `o|¿De qué colores eran las flores?|Rojas, blancas y amarillas|Rojas, rosas y blancas|Blancas, amarillas y azules|Rojas, amarillas y moradas
 o|¿Qué se deduce de «Pero no estábamos nada tristes» respecto a la lluvia?|Que la lluvia no estropeó su buen ánimo|Que se mojaron mucho y se enfadaron|Que ya esperaban que lloviera ese día|Que dejaron de ver las flores por ella
 x|¿Cuál de estas afirmaciones es FALSA según el texto?|Empezó a llover mientras hacían fotos|Fueron a ver las flores con sus amigos|Sacaron muchas fotos de las flores|Las flores ya habían florecido en Pekín
-r|En el orden en que aparecen en el texto:|Llega la primavera|Van a ver las flores|Sacan muchas fotos|Empieza a llover de camino a casa`, ``],
+r|En el orden en que aparecen en el texto:|Llega la primavera|Van a ver las flores|Sacan muchas fotos|Empieza a llover de camino a casa`, ``, 'yuyue'],
 
 [3, '🐼 En el zoológico', `上/个/月，/我/和/家人/去/了/动物园。|Shàng ge yuè, wǒ hé jiārén qù le dòngwùyuán.|El mes pasado fui con mi familia al zoo.
 我们/先/看/了/大熊猫。|Wǒmen xiān kàn le dàxióngmāo.|Primero vimos los pandas gigantes.
@@ -130,7 +131,7 @@ x|¿Cuál de estas afirmaciones es FALSA según el texto?|Los pandas dormían|Co
 r|En el orden en que aparecen en el texto:|Ven a los pandas|Ven a los tigres y a los monos|Comen en el zoo|Vuelven a casa`, `大熊猫|panda gigante
 竹子|bambú
 老虎|tigre
-猴子|mono`],
+猴子|mono`, 'payolink'],
 
 [3, '📖 Aprender chino', `我/学/汉语/已经/一/年/了。|Wǒ xué Hànyǔ yǐjīng yì nián le.|Llevo un año estudiando chino.
 刚/开始/的/时候，/我/觉得/声调/很/难。|Gāng kāishǐ de shíhou, wǒ juéde shēngdiào hěn nán.|Al principio los tonos me parecían muy difíciles.
@@ -143,7 +144,7 @@ x|¿Cuál de estas afirmaciones es FALSA según el texto?|Ya ha hecho el examen|
 r|En el orden en que aparecen en el texto:|Los tonos le parecían difíciles|Escucha canciones y ve películas|Ya puede charlar con amigos chinos|Planea hacer el examen`, `声调|tonos
 进步|progresar
 继续|continuar
-努力|esforzarse`],
+努力|esforzarse`, 'samu'],
 
 [3, '🍵 En casa de mi abuela', `放假/的/时候，/我/常常/去/奶奶/家。|Fàngjià de shíhou, wǒ chángcháng qù nǎinai jiā.|En vacaciones suelo ir a casa de mi abuela.
 奶奶/住/在/一/个/小/城市，/那里/很/安静。|Nǎinai zhù zài yí ge xiǎo chéngshì, nàlǐ hěn ānjìng.|Mi abuela vive en una ciudad pequeña y muy tranquila.
@@ -153,7 +154,7 @@ r|En el orden en que aparecen en el texto:|Los tonos le parecían difíciles|Esc
 我/希望/奶奶/身体/健康，/天天/开心。|Wǒ xīwàng nǎinai shēntǐ jiànkāng, tiāntiān kāixīn.|Deseo que mi abuela tenga salud y esté feliz cada día.`, `o|¿Cómo es la ciudad de la abuela?|Pequeña y tranquila|Pequeña y muy ruidosa|Grande y muy tranquila|Grande y bastante antigua
 o|¿Cuándo le prepara el té su abuela?|Cada tarde|Cada mañana|Solo los domingos|Después de cenar
 x|¿Cuál de estas afirmaciones es FALSA según el texto?|La abuela vive en una gran ciudad|El narrador va a verla en vacaciones|Charlan mientras toman el té|El narrador desea que su abuela tenga salud
-r|En el orden en que aparecen en el texto:|Va a casa de su abuela en vacaciones|La abuela prepara té por la tarde|Charlan y ella cuenta historias|Él le desea salud y felicidad`, `泡|preparar (té) con agua caliente`],
+r|En el orden en que aparecen en el texto:|Va a casa de su abuela en vacaciones|La abuela prepara té por la tarde|Charlan y ella cuenta historias|Él le desea salud y felicidad`, `泡|preparar (té) con agua caliente`, 'yuyue'],
 
 [4, '🚄 Un viaje en tren', `去年/暑假，/我/一/个/人/坐/火车/去/西安。|Qùnián shǔjià, wǒ yí ge rén zuò huǒchē qù Xī'ān.|El verano pasado fui solo en tren a Xi'an.
 火车/开/了/十/个/小时，/我/在/车上/认识/了/一/位/老人。|Huǒchē kāi le shí ge xiǎoshí, wǒ zài chēshang rènshi le yí wèi lǎorén.|El tren tardó diez horas y conocí a un anciano.
@@ -166,7 +167,7 @@ x|¿Cuál de estas afirmaciones es FALSA según el texto?|Fue a Xi'an en avión|
 r|En el orden en que aparecen en el texto:|Viaja en tren hasta Xi'an|Conoce a un anciano|Visita los guerreros de terracota|Concluye que viajar solo es divertido`, `兵马俑|guerreros de terracota
 士兵|soldado
 数量|cantidad
-吃惊|asombrarse`],
+吃惊|asombrarse`, 'payolink'],
 
 [4, '😴 Dormir bien', `很/多/人/觉得/睡觉/是/浪费/时间，/其实/这/是/错/的。|Hěn duō rén juéde shuìjiào shì làngfèi shíjiān, qíshí zhè shì cuò de.|Mucha gente cree que dormir es perder el tiempo, pero en realidad es un error.
 如果/睡/得/不/够，/第二/天/你/会/觉得/很/累，/也/很/难/集中/精神。|Rúguǒ shuì de bú gòu, dì'èr tiān nǐ huì juéde hěn lèi, yě hěn nán jízhōng jīngshén.|Si duermes poco, al día siguiente te sentirás cansado y te costará concentrarte.
@@ -181,7 +182,7 @@ r|En el orden en que aparecen en el texto:|Dormir no es perder el tiempo|Dormir 
 屏幕|pantalla
 睡眠|sueño
 黑暗|oscuro
-养成|crear (un hábito)`],
+养成|crear (un hábito)`, 'binhao'],
 
 [4, '💻 Comprar por internet', `现在/很/多/人/喜欢/在/网上/买/东西。|Xiànzài hěn duō rén xǐhuan zài wǎngshàng mǎi dōngxi.|Hoy a mucha gente le gusta comprar por internet.
 你/只要/打开/手机，/就/能/看到/很/多/商品。|Nǐ zhǐyào dǎkāi shǒujī, jiù néng kàndào hěn duō shāngpǐn.|Con solo abrir el móvil puedes ver muchísimos productos.
@@ -194,7 +195,7 @@ x|¿Cuál de estas afirmaciones es FALSA según el texto?|Lo comprado por intern
 r|En el orden en que aparecen en el texto:|Se abre el móvil y se ven muchos productos|El repartidor lleva el paquete a casa|Se cuentan las ventajas: más barato y se puede devolver|Se avisa de que conviene leer las valoraciones`, `快递|mensajería; paquete urgente
 退货|devolver un producto
 评价|valoración
-购物|comprar; ir de compras`],
+购物|comprar; ir de compras`, 'binhao'],
 
 [4, '🎻 Aprender violín', `小时候，/我/的/爸爸/让/我/学/小提琴。|Xiǎoshíhou, wǒ de bàba ràng wǒ xué xiǎotíqín.|De pequeño, mi padre me hizo aprender violín.
 刚/开始，/我/一点/也/不/喜欢，/因为/每天/都/要/练习/一/个/小时。|Gāng kāishǐ, wǒ yìdiǎn yě bù xǐhuan, yīnwèi měitiān dōu yào liànxí yí ge xiǎoshí.|Al principio no me gustaba nada, porque tenía que practicar una hora al día.
@@ -208,7 +209,7 @@ r|En el orden en que aparecen en el texto:|Su padre le hace aprender violín|Qui
 拉|tocar (violín); tirar
 放弃|rendirse; abandonar
 坚持|perseverar
-当年|en aquel entonces`],
+当年|en aquel entonces`, 'payolink'],
 
 [5, '🌕 Festival del Medio Otoño', `中秋节/是/中国/的/传统/节日，/在/农历/八月/十五。|Zhōngqiūjié shì Zhōngguó de chuántǒng jiérì, zài nónglì bāyuè shíwǔ.|El Festival del Medio Otoño es una fiesta tradicional china el día 15 del octavo mes lunar.
 这/一/天/的/月亮/又/大/又/圆，/象征/着/团圆。|Zhè yì tiān de yuèliang yòu dà yòu yuán, xiàngzhēng zhe tuányuán.|Ese día la luna es grande y redonda y simboliza la reunión familiar.
@@ -229,7 +230,7 @@ r|En el orden en que aparecen en el texto:|Se dice cuándo es la fiesta|Se expli
 奔月|volar a la luna
 传说|leyenda
 何处|dónde (literario)
-抬头|levantar la cabeza`],
+抬头|levantar la cabeza`, 'yuyue'],
 
 [5, '🍵 Historia del té', `中国/是/茶/的/故乡，/喝茶/已经/有/几/千/年/的/历史。|Zhōngguó shì chá de gùxiāng, hēchá yǐjīng yǒu jǐ qiān nián de lìshǐ.|China es la patria del té y se bebe desde hace miles de años.
 据说，/神农/在/煮/水/的/时候，/几/片/树叶/落/进/锅/里，/他/发现/这种/水/很/香。|Jùshuō, Shénnóng zài zhǔ shuǐ de shíhou, jǐ piàn shùyè luò jìn guō lǐ, tā fāxiàn zhèzhǒng shuǐ hěn xiāng.|Cuenta la leyenda que Shennong hervía agua cuando cayeron unas hojas, y descubrió que olía muy bien.
@@ -253,7 +254,7 @@ r|En el orden en que aparecen en el texto:|China es la patria del té|La leyenda
 种类|tipo; clase
 温度|temperatura
 泡|preparar (té)
-态度|actitud`],
+态度|actitud`, 'yuyue'],
 
 [5, '🚄 El tren de alta velocidad', `近/十/年，/中国/的/高铁/发展/得/非常/快。|Jìn shí nián, Zhōngguó de gāotiě fāzhǎn de fēicháng kuài.|En la última década el tren de alta velocidad chino se ha desarrollado muy rápido.
 从/北京/到/上海，/坐/高铁/只/需要/四/个/多/小时。|Cóng Běijīng dào Shànghǎi, zuò gāotiě zhǐ xūyào sì ge duō xiǎoshí.|De Pekín a Shanghái, el tren de alta velocidad tarda algo más de cuatro horas.
@@ -271,7 +272,7 @@ r|En el orden en que aparecen en el texto:|Se ha desarrollado muy rápido en die
 因此|por eso
 出行|viajar; salir
 不仅|no solo
-方式|modo; manera`],
+方式|modo; manera`, 'binhao'],
 
 [5, '🏙️ Ciudad y campo', `越来越/多/的/年轻人/选择/留在/大/城市/工作。|Yuèláiyuè duō de niánqīngrén xuǎnzé liúzài dà chéngshì gōngzuò.|Cada vez más jóvenes eligen quedarse a trabajar en las grandes ciudades.
 大/城市/机会/多、/收入/高，/但是/房价/贵、/压力/也/大。|Dà chéngshì jīhuì duō, shōurù gāo, dànshì fángjià guì, yālì yě dà.|En la gran ciudad hay más oportunidades y sueldos altos, pero la vivienda es cara y el estrés alto.
@@ -293,5 +294,5 @@ r|En el orden en que aparecen en el texto:|Muchos jóvenes se quedan en las gran
 改善|mejorar
 创业|emprender un negocio
 取决于|depender de
-追求|aspiración; búsqueda`]
+追求|aspiración; búsqueda`, 'binhao']
 );

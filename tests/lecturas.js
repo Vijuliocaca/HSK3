@@ -15,17 +15,19 @@ const ok = (cond, msg) => { if (!cond) { problemas++; console.log('  ✗', msg);
     // 1) Ayudas en la página general: orden, estado y efecto dentro de la lectura
     console.log('1) Pinyin y Español en la página general');
     await ev('lecturas()');
-    ok((await ev(`[...document.querySelectorAll('${AYUDAS}')].map(b => b.textContent).join()`)) == 'Pinyin,Español', 'los botones deben ser Pinyin y luego Español');
+    ok((await ev(`[...document.querySelectorAll('${AYUDAS}')].map(b => b.textContent).join()`)) == 'Con pinyin,En español', 'los botones deben ser «Con pinyin» y «En español»');
     ok((await ev(`document.querySelectorAll('${AYUDAS}.on').length`)) == 2, 'por defecto deben estar los dos activados');
-    await clic(AYUDAS, 'Pinyin'); await esp(60);
-    ok((await ev(`document.querySelectorAll('${AYUDAS}.on').length`)) == 1 && (await ev(`document.querySelector('${AYUDAS}.on').textContent`)) == 'Español', 'al pulsar Pinyin debe quedar solo Español activo');
+    const fila = await ev(`(() => { const bs = [...document.querySelectorAll('${AYUDAS}')].map(b => b.getBoundingClientRect()), c = document.querySelector('.ayudas').getBoundingClientRect(); return { ancho: bs.reduce((a, b) => a + b.width, 0), fila: c.width, izq: bs[0].left - c.left, der: c.right - bs[bs.length - 1].right }; })()`);
+    ok(fila.ancho >= fila.fila * 0.9 && fila.izq < 3 && fila.der < 3, `los dos botones deben ocupar toda la línea (suman ${Math.round(fila.ancho)} de ${Math.round(fila.fila)} px)`);
+    await clic(AYUDAS, 'Con pinyin'); await esp(60);
+    ok((await ev(`document.querySelectorAll('${AYUDAS}.on').length`)) == 1 && (await ev(`document.querySelector('${AYUDAS}.on').textContent`)) == 'En español', 'al pulsar Pinyin debe quedar solo Español activo');
     await clic('.mode'); await esp(80);   // abre la primera lectura
     ok(!(await visible('#lc .wd small')), 'con Pinyin desactivado no debe verse el pinyin');
     ok(await visible('#lc .tr'), 'con Español activado debe verse la traducción');
-    await ev('lecturas()'); await clic(AYUDAS, 'Pinyin'); await clic(AYUDAS, 'Español'); await esp(60);
+    await ev('lecturas()'); await clic(AYUDAS, 'Con pinyin'); await clic(AYUDAS, 'En español'); await esp(60);
     await clic('.mode'); await esp(80);
     ok(await visible('#lc .wd small'), 'con Pinyin activado debe verse el pinyin'); ok(!(await visible('#lc .tr')), 'con Español desactivado no debe verse la traducción');
-    await ev('lecturas()'); await clic(AYUDAS, 'Español'); await esp(60);
+    await ev('lecturas()'); await clic(AYUDAS, 'En español'); await esp(60);
     ok((await ev(`document.querySelectorAll('${AYUDAS}.on').length`)) == 2, 'debe poder volver a activar los dos');
 
     // 2) Lectura frase a frase con clics y teclas reales
@@ -51,6 +53,34 @@ const ok = (cond, msg) => { if (!cond) { problemas++; console.log('  ✗', msg);
     ok((await contador()) == `2/${n}`, 'la tecla Intro no pasó a la frase siguiente');
     // tocar una palabra abre su ficha
     await clic('#lc .wd'); await esp(60); ok((await ev("document.querySelector('#fi').textContent.trim().length")) > 3, 'al tocar una palabra no sale su ficha');
+
+    // 2b) El personaje, en el centro y encima del diálogo; la voz ilumina cada palabra; tocar al personaje repite la frase
+    console.log('2b) Personaje, voz y palabra iluminada');
+    await ev('lectura(0, 1)'); await esp(450);
+    const g = await ev(`(() => { const r = s => document.querySelector(s).getBoundingClientRect(), a = r('#av'), d = r('#lc'); return { descentrado: Math.abs((a.left + a.right) / 2 - document.documentElement.clientWidth / 2), encima: a.bottom <= d.top + 1, ancho: a.width }; })()`);
+    ok(g.descentrado < 6, `el personaje debe estar centrado (está ${Math.round(g.descentrado)} px descentrado)`); ok(g.encima, 'el personaje debe estar encima del diálogo'); ok(g.ancho >= 80, `el personaje debe ser grande (mide ${Math.round(g.ancho)} px)`);
+    ok((await ev("document.querySelector('.nombre').textContent")) == 'Payolink', 'el nombre del personaje debe ser Payolink');
+    ok(!(await ev("[...document.querySelectorAll('.chip')].some(e => e.textContent.includes('Escuchar otra vez'))")), 'no debe quedar el botón antiguo de escuchar');
+    const frase = await ev('LECT[0].ls[1].z.join("")'), nPal = await ev('LECT[0].ls[1].z.length');
+    // voz de prueba: apunta lo que se dice, avisa de que empieza y termina y, si se pide, da avisos de palabra; un observador anota qué palabra está iluminada
+    const voz = modo => ev(`(() => { window.__voz = []; window.__luz = []; S.set.rate = 4; window.__salto = iniPalabras(LECT[0].ls[1].z)[3];
+      Object.defineProperty(window, 'speechSynthesis', { configurable: true, value: { cancel() { }, speak(u) { window.__voz.push(u.text); setTimeout(() => u.onstart && u.onstart(), 5);
+        ${modo == 'bordes' ? "setTimeout(() => u.onboundary && u.onboundary({ name: 'word', charIndex: window.__salto }), 20);" : ''} setTimeout(() => u.onend && u.onend(), 700); } } });
+      new MutationObserver(() => { const k = [...document.querySelectorAll('#lc .wd')].findIndex(w => w.classList.contains('on')); if (k != window.__luz[window.__luz.length - 1]) window.__luz.push(k); }).observe(document.querySelector('#lc'), { attributes: true, subtree: true, attributeFilter: ['class'] }); })()`);
+    await voz('estimado'); await clic('#av'); await esp(1000);
+    const dicho = await ev('window.__voz'), luz = await ev('window.__luz');
+    ok(dicho.length == 1 && dicho[0] == frase, `tocar a la persona debe decir la frase una vez (dijo ${JSON.stringify(dicho)})`);
+    ok(luz.filter(k => k >= 0).join() == [...Array(nPal).keys()].join(), `las palabras deben iluminarse en orden, una a una (secuencia: ${luz.join(' ')})`);
+    ok(luz[luz.length - 1] == -1, 'al terminar la voz no debe quedar ninguna palabra iluminada');
+    ok(!(await ev("document.querySelector('#av').classList.contains('habla')")), 'al terminar, el personaje debe dejar de hablar');
+    // con avisos de palabra del navegador (boundary) se sigue el aviso y no la estimación
+    await ev('lectura(0, 1)'); await esp(450); await voz('bordes'); await clic('#av'); await esp(1000);
+    const luz2 = await ev('window.__luz'); ok(luz2.filter(k => k >= 0).join() == '0,3', `con avisos de palabra debe saltar a la palabra indicada (secuencia: ${luz2.join(' ')})`);
+    // tocar una palabra corta la voz de la frase y su iluminación
+    await ev('lectura(0, 1)'); await esp(450); await voz('estimado'); await clic('#av'); await esp(60); await clic('#lc .wd'); await esp(80);
+    ok((await ev("document.querySelectorAll('#lc .wd.on').length")) == 0 && !(await ev("document.querySelector('#av').classList.contains('habla')")), 'al tocar una palabra debe apagarse la iluminación de la frase');
+    // la palabra iluminada se ve de verdad (fondo distinto del normal)
+    ok(await ev("(async () => { const w = document.querySelector('#lc .wd'), a = getComputedStyle(w).backgroundColor; w.classList.add('on'); await new Promise(r => setTimeout(r, 300)); const b = getComputedStyle(w).backgroundColor; w.classList.remove('on'); return a != b; })()"), 'la palabra iluminada no cambia de aspecto');
 
     // 3) Preguntas: acertando
     console.log('3) Preguntas: respuestas correctas');

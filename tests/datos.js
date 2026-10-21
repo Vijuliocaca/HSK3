@@ -81,6 +81,16 @@ t('lecturas: palabras y pinyin alineados, todas con significado (vocabulario o g
     z.forEach((w, k) => { const h = [...w].filter(c => /[㐀-鿿]/.test(c)).join(''); assert(h.length == sil(py[k]), `${ti}: ${w} ${py[k]}`); assert(!h || H.has(h) || glosario.has(h), `${ti}: «${h}» sin significado`); }); });
   });
 });
+t('personajes: dibujo y datos completos; cada lectura tiene un personaje que existe y todos cuentan alguna', () => {
+  const P = ev('self.PERSONAJES'), ids = Object.keys(P), L = ev('self.LECTS');
+  assert(ids.length >= 4, 'el repertorio debe tener al menos los 4 personajes iniciales');
+  ids.forEach(id => { const p = P[id]; assert(p.n && /^\w+$/.test(p.n) && p.rasgos, id + ': falta el nombre (una sola palabra) o los rasgos');
+    ['piel', 'pelo', 'ropa', 'fondo'].forEach(k => assert(/^#[0-9a-f]{6}$/i.test(p[k]), `${id}.${k} debe ser un color #rrggbb`));
+    assert(['corto', 'rizado', 'largo', 'flequillo'].includes(p.estilo), id + ': estilo de pelo desconocido «' + p.estilo + '»'); });
+  assert.strictEqual(new Set(ids.map(id => P[id].n)).size, ids.length, 'nombres repetidos');
+  L.forEach(x => assert(P[x[5]], `${x[1]}: el personaje «${x[5]}» no existe en personajes.js`));
+  ids.forEach(id => assert(L.some(x => x[5] == id), id + ' no cuenta ninguna lectura'));
+});
 t('lecturas: 4 preguntas por lectura (o, o, x, r) con 4 opciones distintas; la respuesta no se adivina por la longitud', () => {
   // o = elige (respuesta primera) · x = elige la FALSA (la falsa primera) · r = ordena hechos (en orden correcto). Siempre en este orden: pantallas-lista.js usa lectQ(i, 2) y lectQ(i, 3).
   let masLarga = 0, masCorta = 0, total = 0;

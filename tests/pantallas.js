@@ -82,10 +82,28 @@ t('recordatorio: el .ics tiene la estructura de un calendario válido', () => {
   assert(ics.endsWith('\r\n') && !/[^\r]\n/.test(ics), 'los saltos de línea deben ser CRLF'); assert(/DTSTART:\d{8}T\d{6}\r\n/.test(ics));
 });
 
-// --- lecturas: ayudas en la página general, lectura frase a frase y preguntas ---
+// --- lecturas: ayudas en la página general, personajes, lectura frase a frase y preguntas ---
+t('lecturas: cada lectura la cuenta un personaje (con su nombre en la lista) y los avatares se dibujan', () => {
+  const a = cargarApp(); a.ev('lecturas()'); const h = a.html();
+  ['Payolink', 'Samu', 'YuYue', 'BinHao'].forEach(n => assert(h.includes(' · ' + n), 'la lista no muestra a ' + n));
+  assert(a.ev('LECT.every(d => PERS[d.p])'), 'una lectura no tiene personaje');
+  Object.keys(JSON.parse(a.ev('JSON.stringify(PERS)'))).forEach(id => { const s = a.ev(`avatarSVG(PERS.${id})`); assert(s.startsWith('<svg') && s.includes(a.ev(`PERS.${id}.piel`)) && s.includes('clip-path'), 'avatar mal dibujado: ' + id); });
+});
+t('lectura: la persona va arriba y centrada, el diálogo debajo, y se repite tocando a la persona', () => {
+  const a = cargarApp(); a.ev('lectura(0)'); const h = a.html();
+  assert(h.indexOf('class=avatar') > 0 && h.indexOf('class=avatar') < h.indexOf('class="burbuja'), 'el personaje debe ir antes (encima) del diálogo');
+  assert(h.includes('onclick="hablar(0,0)"') && h.includes('Escuchar otra vez la frase de Payolink'), 'tocar al personaje debe repetir la frase');
+  assert(h.includes('>Payolink<'), 'falta el nombre del personaje'); assert(!h.includes('>🔊 Escuchar otra vez<') && !h.includes('Escuchar otra vez</button>'), 'sobra el botón antiguo de escuchar');
+  a.ev('lectura(1)'); assert(a.html().includes('>Samu<'), 'la lectura 2 debe contarla Samu');
+});
+t('voz: cada palabra se ilumina en su turno (posición de cada palabra en la frase)', () => {
+  const a = cargarApp(), zs = a.ev('LECT[0].ls[1].z'), ini = JSON.parse(a.ev('JSON.stringify(iniPalabras(LECT[0].ls[1].z))'));
+  assert.strictEqual(ini[0], 0); ini.forEach((p, k) => { if (k) assert.strictEqual(p, ini[k - 1] + [...zs[k - 1]].length, 'posición mal calculada de la palabra ' + k); });
+  zs.forEach((z, k) => { assert.strictEqual(a.ev(`palabraEn(${JSON.stringify(ini)}, ${ini[k]})`), k, 'el inicio de la palabra ' + k); assert.strictEqual(a.ev(`palabraEn(${JSON.stringify(ini)}, ${ini[k] + [...z].length - 1})`), k, 'el final de la palabra ' + k); });
+});
 t('lecturas: Pinyin y Español están en la página general, en ese orden, y se recuerdan', () => {
   const a = cargarApp(); a.ev('lecturas()'); let h = a.html();
-  assert(h.indexOf('>Pinyin<') > 0 && h.indexOf('>Pinyin<') < h.indexOf('>Español<'), 'el orden debe ser Pinyin y luego Español');
+  assert(h.indexOf('>Con pinyin<') > 0 && h.indexOf('>Con pinyin<') < h.indexOf('>En español<'), 'el orden debe ser «Con pinyin» y luego «En español»');
   assert(/class="chip on" aria-pressed="true" onclick="setLect\('lpy'\)"/.test(h) && /class="chip on" aria-pressed="true" onclick="setLect\('les'\)"/.test(h), 'por defecto deben estar activados');
   a.ev("setLect('lpy')"); h = a.html(); assert(/class="chip " aria-pressed="false" onclick="setLect\('lpy'\)"/.test(h), 'Pinyin debería quedar desactivado');
   a.ev('lectura(0)'); assert(/class="burbuja[^"]*\bnp\b/.test(a.html()) && !/class="burbuja[^"]*\bne\b/.test(a.html()), 'sin pinyin pero con español');

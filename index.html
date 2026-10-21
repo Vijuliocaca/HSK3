@@ -21,8 +21,8 @@
 .chip.hz2{font-family:var(--serif);font-size:var(--fs-xl);padding:.3rem .7rem}
 .seg{flex-wrap:wrap;align-items:stretch}.seg1{width:100%;margin-top:.5rem;text-align:center}.seg .chip{flex:1 1 0;min-width:fit-content;text-align:center;padding:.65rem .15rem;font-size:var(--fs-md)}
 /* objetivos táctiles de 44 px como mínimo (2.75rem) */
-.gear{margin-left:auto;background:none;border:0;font:700 var(--fs-lg) var(--serif);color:var(--pri);min-width:2.75rem;min-height:2.75rem;padding:0;display:inline-grid;place-items:center;position:relative}
-.gear::before{content:"";position:absolute;inset:.4rem;border:1.5px solid currentColor;border-radius:4px}.gear+.gear{margin-left:0}
+.gear{margin-left:auto;background:none;border:0;color:var(--tx);min-width:2.75rem;min-height:2.75rem;padding:0;display:inline-grid;place-items:center}.gear+.gear{margin-left:0}
+.gear svg{width:1.5rem;height:1.5rem;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linejoin:round;stroke-linecap:round}
 .lv summary{cursor:pointer;color:var(--gold-tx);padding:.65rem 0;font-size:var(--fs-sm)}
 :root[data-theme=hc]{--bg:#fff;--card:#fff;--tx:#000;--mut:#333;--pri:#8a0000;--act:#8a0000;--on-act:#fff;--on-act-mut:#fff;--gold:#5c3d00;--gold-tx:#5c3d00;--ok:#00562b;--no:#8a0000;--okbg:#c9f2d6;--nobg:#ffd1cc;--bd:#000;--ctl:#000;--t1:#b00000;--t2:#7a4a00;--t3:#00561f;--t4:#0033a0;--t5:#333}
 :root[data-theme=hc] .stat,:root[data-theme=hc] .mode,:root[data-theme=hc] .opt,:root[data-theme=hc] .chip{border-width:2px}
@@ -458,7 +458,7 @@ function home() {
   const streakOk = S.last == day(new Date()) || S.last == day(new Date(Date.now() - 864e5));
   const hoy = S.hist[day(new Date())]?.n || 0, meta = S.set.goal;
   const vistas = W.filter(w => S.known[w.id]), domT = vistas.filter(w => (S.w[w.id]?.b || 0) >= 4).length;
-  app(`<h1><span class=seal>学</span>HSK Viju<button class=gear onclick="list('all')" aria-label="Vocabulario">词</button><button class=gear onclick="settings()" aria-label="Ajustes">设</button></h1><div class=mut>Preparación gratuita del examen</div>
+  app(`<h1><span class=seal>学</span>HSK Viju<button class=gear onclick="list('all')" aria-label="Vocabulario"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.2 5.1 7.6 4.5 3.5 4.5v13.2c4.1 0 6.7.6 8.5 2 1.8-1.4 4.4-2 8.5-2V4.5c-4.1 0-6.7.6-8.5 2zM12 6.5v13.2"/></svg></button><button class=gear onclick="settings()" aria-label="Ajustes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.21 4.82L10.61 2.1L13.39 2.1L13.79 4.82L15.81 5.66L18.02 4.01L19.99 5.98L18.34 8.19L19.18 10.21L21.9 10.61L21.9 13.39L19.18 13.79L18.34 15.81L19.99 18.02L18.02 19.99L15.81 18.34L13.79 19.18L13.39 21.9L10.61 21.9L10.21 19.18L8.19 18.34L5.98 19.99L4.01 18.02L5.66 15.81L4.82 13.79L2.1 13.39L2.1 10.61L4.82 10.21L5.66 8.19L4.01 5.98L5.98 4.01L8.19 5.66Z"/><circle cx="12" cy="12" r="3"/></svg></button></h1><div class=mut>Preparación gratuita del examen</div>
   <div class=goal><span>Meta de hoy: <b>${Math.min(hoy, meta)}/${meta}</b>${hoy >= meta ? ' ✓' : ''}</span><div class=bar><i style="width:${Math.min(100, hoy / meta * 100)}%"></i></div></div>
   <div class=stats>
     <div class=stat><b>${streakOk ? S.streak : 0}</b><span class=mut>racha</span></div>

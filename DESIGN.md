@@ -271,7 +271,7 @@ Esquinas apenas suavizadas, como madera lacada cortada: 4 px en sellos y chips, 
 
 ### Navigation
 - **Style:** barra fija abajo sobre panel de papel, con un filete dorado de 2 px arriba. Cuatro pestañas con sello: 首 Inicio, 今 Hoy, 考 Examen, 进 Progreso. El carácter va en serif china y la etiqueta en sans de 0.75rem en madera gastada; en la pestaña activa el sello se estampa (relleno de laca, carácter blanco), la etiqueta pasa a laca en negrita y lleva `aria-current="page"`.
-- **Cabecera:** dos sellos de contorno, 词 (vocabulario) y 设 (ajustes), con área táctil de 44 px.
+- **Cabecera:** dos iconos de línea en tinta, un libro abierto (vocabulario) y un engranaje (ajustes), dibujados en SVG con trazo de 1.75 y esquinas redondeadas, a 1.5rem y con área táctil de 44 px. No llevan marco de sello para no competir con el sello 学 del título.
 
 ### Seal mark (signature)
 Cuadrado de 2.25rem con borde de 1.5 px en laca, fondo de papel de arroz y un carácter en serif china de laca: la impresión de un sello en tinta. Firma cada modo: 配 Emparejar, 译 Elegir traducción, 卡 Tarjetas, 听 Escuchar, 拼 Escribir pinyin, 音 Elegir pinyin, 字 Elegir hanzi, 调 Entrenar tonos, 填 Completar, 句 Escuchar la frase, 序 Ordenar, 笔 Trazos, 快 Contrarreloj, 读 Lecturas, 话 Diálogos, 歌 Canciones, 节 Fiestas, 榜 Top 10, 影 Más Top 10, 难 Difíciles, 单 Mis listas, 奖 Logros. En las tablillas lacadas se invierte: carácter blanco y borde de oro (学 Aprender, 法 Gramática, 类 Temas). Los 58 temas de vocabulario llevan su sello en `temas.js` (果 Frutas, 车 Transporte, 医 Salud…), que también encabeza el nombre de sus lecciones; las fiestas usan el primer carácter de su nombre chino. En Logros, cada logro lleva su sello (恒 Racha, 学 Estudiadas, 熟 Dominadas…) y las medallas son tres sellos, 铜 银 金: en laca las ganadas y al 35 % de opacidad las pendientes, con el recuento en texto oculto para el lector. El lector de pantalla los ignora (`aria-hidden`) y lee solo el nombre.
@@ -307,7 +307,7 @@ Panel en papel de arroz con borde dorado discontinuo: la frase en chino (serif 1
 - **Don't** usar la serif china para texto latino ni para botones.
 - **Don't** usar bandas de color en un lado (`border-left` de más de 1 px) en tarjetas, avisos o explicaciones.
 - **Don't** poner títulos de sección en mayúsculas espaciadas ni antetítulos sobre los títulos.
-- **Don't** usar emojis, ni como iconos ni como adorno en botones, títulos o mensajes; el altavoz es el único icono dibujado (SVG) y ▶ el único símbolo de reproducir.
+- **Don't** usar emojis, ni como iconos ni como adorno en botones, títulos o mensajes; los únicos iconos dibujados son el altavoz y los dos de la cabecera (libro y engranaje), todos en SVG con el mismo trazo, y ▶ es el único símbolo de reproducir.
 - **Don't** usar `prompt()` ni `alert()`: los nombres, avisos y errores van en la pantalla.
 - **Don't** convertir la tradición en tópico de restaurante (dragones, farolillos, rojo y oro en cada superficie).
 - **Don't** usar degradados violeta, cifras-héroe ni cuadrículas de tarjetas idénticas (SaaS genérico).

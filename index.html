@@ -83,7 +83,7 @@ button:disabled{color:var(--tx);opacity:1;cursor:default}
 .stats{display:flex;gap:0;margin:1rem 0;border-radius:6px}
 .stats .stat{background:none;border:0;box-shadow:none;border-radius:0}.stats .stat b{line-height:2rem}.stats .stat+.stat{border-left:1px solid var(--bd)}
 .stat{flex:1;min-width:0;border-radius:6px;padding:.9rem .3rem;text-align:center;overflow-wrap:anywhere}
-.stats .stat b.fuego{position:relative;width:3.3rem;height:3.3rem;margin:-.7rem auto -.3rem}.fuego .i{position:absolute;inset:0;width:100%;height:100%;stroke-width:1.4}.fuego span{position:absolute;left:0;right:0;top:41%;font-size:.95rem;line-height:1.4rem;color:var(--tx)}.fuego span.m{font-size:.75rem}
+.stats .stat b.fuego{position:relative;width:3.4rem;height:3.4rem;margin:-.6rem auto -.2rem}.fuego .i{position:absolute;inset:0;width:100%;height:100%;fill:currentColor}.fuego span{position:absolute;left:0;right:0;top:40%;font-size:1rem;line-height:1.4rem;color:#fff}.fuego span.m{font-size:.75rem}
 .stat b{display:block;font-size:var(--fs-2xl);font-variant-numeric:tabular-nums}
 .stats .stat:nth-child(2){flex:1.5}.stats .stat:nth-child(3){flex:1.25}.stats .stat:nth-child(2) b{font-size:var(--fs-xl)}
 .prog{height:6px;background:var(--bd);border-radius:3px;overflow:hidden;margin:.25rem 0 1rem}
@@ -268,7 +268,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script>
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
-const APP_V = 'hsk3-v81'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v82'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin

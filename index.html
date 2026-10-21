@@ -116,7 +116,8 @@ button:disabled{color:var(--tx);opacity:1;cursor:default}
 .prompt small,.opt small{color:var(--mut);font-size:var(--fs-sm);display:block}
 .opts{display:grid;gap:.6rem}
 .opt,.main{width:100%;padding:.85rem;border-radius:6px;border:2px solid var(--bd);background:var(--card);font-size:var(--fs-md)}
-.fin{display:flex;flex-direction:column;gap:.6rem;min-height:calc(100svh - 300px - env(safe-area-inset-bottom));margin-top:.75rem}.fin button{flex:1;margin:0!important;font-size:1.3rem}
+#app:has(.fin){display:flex;flex-direction:column;min-height:calc(100svh - 19px - env(safe-area-inset-top) - env(safe-area-inset-bottom))}
+.fin{flex:1;display:flex;flex-direction:column;gap:.6rem;margin-top:.75rem}.fin button{flex:1;margin:0!important;font-size:1.3rem}
 .main{background:var(--act);color:var(--on-act);border-color:var(--act);margin-top:.75rem;font-weight:600}
 .main:disabled{color:var(--on-act)}
 .opt.ok,.cell.ok{background:var(--okbg);border-color:var(--ok)}
@@ -266,7 +267,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script>
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
-const APP_V = 'hsk3-v77'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v78'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin

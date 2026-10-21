@@ -119,11 +119,19 @@ t('lectura: una frase cada vez con su persona; Siguiente avanza, Anterior vuelve
   a.ev(`lectura(0, ${n - 1})`); assert(a.html().includes('>Ir a las preguntas<'), 'la última frase debe llevar a las preguntas');
   a.els['#nx'].onclick(); assert(a.els['#q'].innerHTML.includes('qlect'), 'no se abrieron las preguntas');
 });
-t('preguntas de lectura: «elige», «la falsa» y «ordenar» se presentan bien y sin releer el texto', () => {
-  const a = cargarApp(), P = i => JSON.parse(a.ev(`JSON.stringify(LECT[0].qs[${i}])`));
-  [0, 2].forEach(i => { a.ev(`lectQ(0, ${i})`); const q = P(i), h = a.els['#q'].innerHTML; assert(h.includes('prompt qlect') && h.includes(q.q.replace(/&/g, '&amp;')), 'falta la pregunta'); q.r.forEach(x => assert(h.includes(x), 'falta la opción «' + x + '»')); assert(!h.includes('class=wd'), 'no debe mostrar el texto de la lectura'); });
-  a.ev('lectQ(0, 2)'); assert(a.els['#q'].innerHTML.includes('FALSA'), 'la pregunta «falsa» debe decirlo');
-  a.ev('lectQ(0, 3)'); assert(a.els['#q'].innerHTML.includes('Ordena los hechos'), 'la pregunta de ordenar debe decirlo');
+t('preguntas de lectura: elige, la que no se deduce, frase en chino y ordenar se presentan bien y sin releer el texto', () => {
+  const a = cargarApp(), P = i => JSON.parse(a.ev(`JSON.stringify(LECT[0].qs[${i}])`)), q = () => a.els['#q'].innerHTML;
+  [0, 1].forEach(i => { a.ev(`lectQ(0, ${i})`); const f = P(i), h = q(); assert(h.includes('prompt qlect') && h.includes(f.q), 'falta la pregunta'); f.r.forEach(x => assert(h.includes(x), 'falta la opción «' + x + '»')); assert(!h.includes('class=wd'), 'no debe mostrar el texto de la lectura'); });
+  a.ev('lectQ(0, 1)'); assert(q().includes('NO se puede deducir'), 'la pregunta «no se deduce» debe decirlo');
+  a.ev('lectQ(0, 2)'); const z = P(2), fr = JSON.parse(a.ev(`JSON.stringify(LECT[0].ls[${z.k}])`));
+  assert(q().includes('Lee y elige') && q().includes(fr.e), 'la pregunta de frase debe dar el significado en español'); assert.strictEqual((q().match(/class=zhq/g) || []).length, 4, 'debe haber 4 frases en chino'); assert(q().includes(fr.z.join('')), 'falta la frase correcta');
+  a.ev('lectQ(0, 3)'); const f3 = JSON.parse(a.ev(`JSON.stringify(LECT[0].ls[${P(3).k}])`)); assert(q().includes('Ordena la frase') && q().includes(f3.e), 'la pregunta de ordenar debe dar el significado en español');
+});
+t('preguntas de frase en chino: 4 frases distintas de la lectura y la correcta no destaca por su longitud (ni la más larga ni la más corta)', () => {
+  const a = cargarApp(), n = a.ev('LECT.length');
+  for (let i = 0; i < n; i++) { const r = JSON.parse(a.ev(`(() => { const d = LECT[${i}], q = d.qs.find(q => q.t == 'z'), o = opcionesZ(d, q.k); return JSON.stringify({ t: d.t, n: o.length, dist: new Set(o.map(s => s.z.join(''))).size, esta: o[0] === d.ls[q.k], L: o.map(s => [...s.z.join('')].length) }); })()`));
+    assert(r.n == 4 && r.dist == 4 && r.esta, r.t + ': las opciones no son 4 frases distintas con la correcta incluida');
+    const [c, ...otras] = r.L; assert(!(c > Math.max(...otras)) && !(c < Math.min(...otras)), `${r.t}: la frase correcta destaca por su longitud (${c} frente a ${otras.join('/')})`); }
 });
 t('lecturas: los resultados de la versión anterior se reinician una sola vez', () => {
   const a = cargarApp({ storage: { hsk3: JSON.stringify({ v: 2, known: {}, w: {}, lv: [1], lect: { '🐱 Mi gato': 3 } }) } });

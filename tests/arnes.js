@@ -7,9 +7,10 @@ function cargarApp(opts = {}) {
   const els = {}, el = id => els[id] || (els[id] = {
     innerHTML: '', textContent: '', style: {}, hidden: false, tabIndex: 0, classList: { toggle() { }, add() { }, remove() { } },
     querySelectorAll: () => [], querySelector: () => null, insertAdjacentHTML(_, h) { this.innerHTML += h; },
-    setAttribute() { }, removeAttribute() { }, scrollIntoView() { }, click() { }, appendChild() { }, focus() { this.enfocado = true; }, select() { }, replaceChildren() { }, append() { },
+    setAttribute() { }, removeAttribute() { }, scrollIntoView() { }, click() { }, appendChild() { }, focus() { this.enfocado = true; }, dataset: {}, select() { }, replaceChildren() { }, append() { },
   });
   const salida = { blobs: [], clics: [], avisos: [] }, storage = { ...(opts.storage || {}) };
+  const botonAtras = () => { const m = el('#app').innerHTML.match(/<div class=top>\s*<button class=back onclick="([^"]*)"/); return m ? { click: () => vm.runInContext(m[1].replace(/&quot;/g, '"').replace(/&amp;/g, '&'), ctx) } : null; };
   const pila = [0], oyentes = []; // historial simulado: la primera entrada es la app; pushState añade una y atrás quita una y avisa a popstate
   const sb = {
     console, setTimeout, clearTimeout, setInterval, clearInterval, URL: { createObjectURL: () => 'blob:test', revokeObjectURL() { } },
@@ -19,7 +20,7 @@ function cargarApp(opts = {}) {
     navigator: {}, history: { pushState() { pila.push(1); }, back() { if (pila.length > 1) { pila.pop(); oyentes.forEach(f => f()); } } }, location: { reload() { } }, innerWidth: 400, innerHeight: 800,
     scrollTo() { }, addEventListener: (t, f) => { if (t == 'popstate') oyentes.push(f); }, matchMedia: () => ({ matches: false, addEventListener() { } }), MutationObserver: function () { this.observe = () => { }; },
     getComputedStyle: () => ({ getPropertyValue: () => '', color: '#000' }), alert: m => salida.avisos.push(m), confirm: () => sb.__confirmar !== false, prompt: () => opts.prompt || 'Lista de prueba',
-    document: { querySelector: s => el(s), querySelectorAll: () => [], documentElement: el('root'), body: el('body'), head: el('head'), hidden: false, addEventListener() { },
+    document: { querySelector: s => s == '#app .top .back' ? botonAtras() : el(s), querySelectorAll: () => [], documentElement: el('root'), body: el('body'), head: el('head'), hidden: false, addEventListener() { },
       createElement: () => { const e = el('x' + Math.random()); e.click = () => salida.clics.push(e); return e; } },
   };
   sb.window = sb.self = sb;

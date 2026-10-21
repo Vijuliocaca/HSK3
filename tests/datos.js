@@ -91,21 +91,25 @@ t('personajes: dibujo y datos completos; cada lectura tiene un personaje que exi
   L.forEach(x => assert(P[x[5]], `${x[1]}: el personaje «${x[5]}» no existe en personajes.js`));
   ids.forEach(id => assert(L.some(x => x[5] == id), id + ' no cuenta ninguna lectura'));
 });
-t('lecturas: 4 preguntas por lectura (o, o, x, r) con 4 opciones distintas; la respuesta no se adivina por la longitud', () => {
-  // o = elige (respuesta primera) · x = elige la FALSA (la falsa primera) · r = ordena hechos (en orden correcto). Siempre en este orden: pantallas-lista.js usa lectQ(i, 2) y lectQ(i, 3).
+t('lecturas: 4 preguntas (o, x, z, f): «o» y «x» con 4 opciones distintas y sin pistas de longitud; «z» y «f» apuntan a una frase; nada de preguntar por «la frase 2»', () => {
   let masLarga = 0, masCorta = 0, total = 0;
-  ev('self.LECTS').forEach(([, ti, , qs]) => {
-    const Q = lineas(qs).map(l => l.split('|'));
-    assert.strictEqual(Q.length, 4, ti + ': debe tener 4 preguntas');
-    assert.deepStrictEqual(Q.map(f => f[0]), ['o', 'o', 'x', 'r'], ti + ': los tipos deben ir en el orden o, o, x, r');
-    Q.forEach(f => {
+  ev('self.LECTS').forEach(([, ti, ls, qs]) => {
+    const frases = lineas(ls), Q = lineas(qs).map(l => l.split('|'));
+    assert.deepStrictEqual(Q.map(f => f[0]), ['o', 'x', 'z', 'f'], ti + ': los tipos deben ir en el orden o, x, z, f');
+    Q.slice(0, 2).forEach(f => {
       assert.strictEqual(f.length, 6, `${ti}: «${f[1].slice(0, 40)}» debe tener tipo, pregunta y 4 opciones`);
       assert.strictEqual(new Set(f.slice(2)).size, 4, `${ti}: opciones repetidas en «${f[1].slice(0, 40)}»`);
       assert(f.every(x => x == x.trim() && x), `${ti}: espacios sobrantes o campo vacío en «${f[1].slice(0, 40)}»`);
-      if (f[0] != 'r') { total++; const o = f.slice(3).map(x => x.length); if (f[2].length > Math.max(...o)) masLarga++; if (f[2].length < Math.min(...o)) masCorta++; }
+      assert(!/(primera|segunda|tercera|cuarta|quinta|sexta)\s+frase|\bfrase\s+\d|en la (primera|última) línea/i.test(f.slice(1).join(' ')), `${ti}: no preguntes por la posición de una frase («${f[1].slice(0, 50)}»): pregunta por el sentido`);
+      total++; const o = f.slice(3).map(x => x.length); if (f[2].length > Math.max(...o)) masLarga++; if (f[2].length < Math.min(...o)) masCorta++;
     });
+    Q.slice(2).forEach(f => assert(f.length == 2 && /^\d+$/.test(f[1]) && +f[1] >= 1 && +f[1] <= frases.length, `${ti}: «${f.join('|')}» debe apuntar a una frase de 1 a ${frases.length}`));
+    assert.notStrictEqual(Q[2][1], Q[3][1], ti + ': z y f deben pedir frases distintas');
+    const palabras = frases[+Q[3][1] - 1].split('|')[0].split('/').length;
+    assert(palabras >= 4 && palabras <= 9, `${ti}: la frase para ordenar tiene ${palabras} palabras (deben ser entre 4 y 9)`);
   });
-  assert(masLarga / total <= 0.35 && masCorta / total <= 0.35, `la respuesta correcta es la opción más larga en ${masLarga} y la más corta en ${masCorta} de ${total} preguntas (el azar daría ~25 %, máx. 35 %): iguala la longitud de las opciones`);
+  // la opción correcta no debe ser casi siempre la más larga (ni la más corta): se mide cerca del azar (25 %)
+  assert(masLarga / total <= 0.35 && masCorta / total <= 0.35 && masLarga / total >= 0.10 && masCorta / total >= 0.10, `la correcta es la más larga en ${masLarga} y la más corta en ${masCorta} de ${total} (el azar daría ~25 %; debe estar entre el 10 y el 35 %)`);
 });
 t('成语: 60, cada uno con 4 caracteres, 4 sílabas y ejemplo con pinyin correcto', () => {
   const C = lineas(ev('self.CHENGYU')[0]); assert.strictEqual(C.length, 60);

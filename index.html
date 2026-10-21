@@ -28,25 +28,24 @@
 :root[data-theme=hc] .stat,:root[data-theme=hc] .mode,:root[data-theme=hc] .opt,:root[data-theme=hc] .chip{border-width:2px}
 :root[data-theme=hc] .prog,:root[data-theme=hc] .bar{background:#ccc}
 :root[data-theme=hc] .stats{border-width:2px}:root[data-theme=hc] .stats .stat{border-width:0}:root[data-theme=hc] .stats .stat+.stat{border-left-width:2px}
-:focus-visible{outline:3px solid var(--pri);outline-offset:2px;border-radius:4px}
+:focus-visible{outline:3px solid var(--pri);outline-offset:2px}
 /* movimiento reducido: sin desplazamientos ni sacudidas; la entrada de pantalla queda en un fundido breve y el estado sigue cambiando */
 @media(prefers-reduced-motion:reduce){#app{animation:fade .2s}.shake{animation:none}.mode:active{transform:none}.prog i,.bar i{transition:none}html{scroll-behavior:auto}}
 @keyframes fade{from{opacity:0}}
 .sem{gap:.3rem}.sem .stat{flex:1 !important;padding:.5rem 0}.sem .stat b{font-size:var(--fs-lg)}
 .lect{display:flex;flex-direction:column;min-height:calc(100vh - 28px);min-height:calc(100dvh - 28px)}
-.centro{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.45rem;padding:.6rem 0;min-height:8rem}
-.avatar{display:grid;place-items:center;width:6.4rem;height:6.4rem;padding:0;border-radius:50%;border:3px solid var(--gold);background:var(--card);overflow:hidden;cursor:pointer;transition:box-shadow .15s,border-color .15s}.avatar svg{display:block;width:100%;height:100%}
+.escena{flex:1;display:flex;flex-direction:column;justify-content:center;padding:.5rem 0}
+.centro{display:flex;flex-direction:column;align-items:center;gap:.45rem;padding:.2rem 0}
+.avatar{display:grid;place-items:center;width:6.4rem;height:6.4rem;padding:0;border-radius:50%;border:3px solid var(--gold);background:var(--card);overflow:hidden;cursor:pointer;transition:box-shadow .15s,border-color .15s,transform .1s;-webkit-tap-highlight-color:transparent;touch-action:manipulation}.avatar:active{transform:scale(.95)}.avatar:focus-visible{outline-offset:4px}.avatar svg{display:block;width:100%;height:100%}
 .avatar.habla{border-color:var(--act);box-shadow:0 0 0 5px rgba(184,137,43,.4)}.nombre{font:600 var(--fs-sm) var(--title);color:var(--gold-tx);letter-spacing:.04em}
 .burbuja{position:relative;margin-top:.7rem;background:var(--card);border:2px solid var(--ctl);border-radius:18px;padding:1rem 1rem .9rem}
 .burbuja::before{content:"";position:absolute;left:50%;top:-.62rem;width:.9rem;height:.9rem;margin-left:-.45rem;background:var(--card);border-left:2px solid var(--ctl);border-top:2px solid var(--ctl);transform:rotate(45deg)}
 .burbuja:focus{outline:none}.burbuja .frase{line-height:1.25;text-align:center}.burbuja .wd small{font-size:var(--fs-sm)}
-.wd{transition:background .12s}.wd.on{background:rgba(184,137,43,.38);box-shadow:0 0 0 2px var(--gold)}
+.wd{transition:background .12s;-webkit-tap-highlight-color:transparent}.burbuja .wd{font-size:clamp(2.1rem,9.5vw,3rem)}.burbuja .frase.medio .wd{font-size:clamp(1.9rem,8.2vw,2.5rem)}.burbuja .frase.largo .wd{font-size:clamp(1.6rem,6.8vw,2.1rem)}.wd.on{background:rgba(184,137,43,.38);box-shadow:0 0 0 2px var(--gold)}
 .burbuja .tr{margin-top:.7rem;padding-top:.6rem;border-top:1px dashed var(--bd);color:var(--mut);font-size:var(--fs-md);text-align:center}
 .ayudas{flex-wrap:nowrap}.ayudas .chip{flex:1;min-height:3rem;font-size:var(--fs-md)}
 .lect .pie{margin-top:auto;position:sticky;bottom:0;background:var(--bg);padding:.6rem 0 .3rem}
-.play .prompt.qlect b{font-size:var(--fs-xl);font-weight:600}.play .prompt.qlect .chip{font-size:var(--fs-md);min-height:2.75rem}
-.chip.tx{font-size:var(--fs-md);text-align:left;padding:.7rem 1rem;line-height:1.3;justify-content:flex-start}.play .chip.tx{font-size:var(--fs-lg)}
-.ordtx .slot,.ordtx #bk{flex-direction:column;align-items:stretch;flex-wrap:nowrap}.ordtx #bk{justify-content:flex-start !important}.ordtx .slot{min-height:4rem}
+.zhq{font-family:var(--serif);font-size:var(--fs-xl);line-height:1.35}.play .prompt.qlect b{font-size:var(--fs-xl);font-weight:600}.play .prompt.qlect .chip{font-size:var(--fs-md);min-height:2.75rem}
 .exam{border:1px solid var(--pri);box-shadow:inset 0 0 0 3px var(--card),inset 0 0 0 4px var(--frame);background:var(--card);border-radius:6px;padding:.7rem .9rem;margin:.8rem 0}.exam .row{margin-top:.5rem}
 input[type=date],input[type=time]{padding:.6rem;border-radius:6px;border:2px solid var(--ctl);background:var(--card);color:var(--tx);font:inherit}
 .goal{display:flex;align-items:center;gap:.6rem;font-size:var(--fs-sm);margin:.2rem 0 1rem}
@@ -255,15 +254,16 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script>
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
-const APP_V = 'hsk3-v60'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v61'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
-// botón atrás del móvil: desde cualquier pantalla vuelve al inicio (y no cierra la app)
+// botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app
 let depth = 0, skipPop = false, GUARD = '', INICIO = false; // INICIO: lo pone home() justo antes de pintar; otras pantallas usan la pestaña 'home' solo para la barra y sí deben añadir entrada al historial
+function atras() { const b = document.querySelector('#app .top .back'); b ? b.click() : home(); } // al subir, la pantalla padre vuelve a añadir su entrada al historial (app() la añade porque depth = 0)
 addEventListener('popstate', () => {
   if (skipPop) { skipPop = false; return; }
   depth = 0;
-  if (GUARD && !confirm('¿Salir del examen? Se perderá el progreso.')) { history.pushState({ a: 1 }, ''); depth = 1; return; }
-  GUARD = ''; home();
+  if (GUARD) { if (!confirm('¿Salir del examen? Se perderá el progreso.')) { history.pushState({ a: 1 }, ''); depth = 1; return; } GUARD = ''; return home(); }
+  atras();
 });
 const app = (h, tab) => {
   clearInterval(TM); stopMel();
@@ -1075,11 +1075,10 @@ function seg(w) {
 // modos que necesitan frase de ejemplo o palabras cortas (para dibujar)
 const FILT = { cloze: w => SENT[w.h], sentence: w => SENT[w.h], order: w => seg(w), draw: w => [...w.h].length <= 3 };
 const similar = (w, f, key = x => x.h) => shuffle([w, ...distinct(w, W.filter(f), key)]);
-function orderUI(el, ch, meaning, done, op = {}) { // op.txt: trozos de texto largo (no hanzi) · op.titulo: texto de la consigna // construye una frase con sus trozos (palabras o frases de gramática)
+function orderUI(el, ch, meaning, done, op = {}) { // op.titulo: texto de la consigna · op.cls: clase extra de la consigna // construye una frase con sus trozos (palabras o frases de gramática)
     const bank = shuffle(ch.map((t, i) => i)), put = [];
     el.innerHTML = `<div class="prompt ${op.cls || ''}"><small>${op.titulo || 'Ordena la frase'}</small><b>${meaning}</b></div><div class=slot id=sl></div><div class=row id=bk style="justify-content:center"></div><button class=main id=ck disabled>Comprobar</button>`;
-    el.classList.toggle('ordtx', !!op.txt);
-    const btn = (i, f) => { const b = document.createElement('button'); b.className = op.txt ? 'chip tx' : 'chip hz2'; b.textContent = ch[i]; b.onclick = f; return b; };
+    const btn = (i, f) => { const b = document.createElement('button'); b.className = 'chip hz2'; b.textContent = ch[i]; b.onclick = f; return b; };
     const draw = () => {
       $('#sl').replaceChildren(...put.map(i => btn(i, () => { put.splice(put.indexOf(i), 1); draw(); })));
       $('#bk').replaceChildren(...bank.filter(i => !put.includes(i)).map(i => btn(i, () => { put.push(i); draw(); })));
@@ -1247,7 +1246,7 @@ function quiz(k, i) {
 }
 
 // lecturas: cada frase va por palabras (/) alineada con su pinyin; se toca una palabra para ver su ficha
-const LECT = (self.LECTS || []).map(([lv, t, ls, qs, , p]) => ({ lv, t, p, ls: ls.split('\n').map(l => { const [z, p, e] = l.split('|'); return { z: z.split('/'), p: p.split(' '), e }; }), qs: qs.split('\n').map(l => { const [t, q, ...r] = l.split('|'); return { t, q, r }; }) }));
+const LECT = (self.LECTS || []).map(([lv, t, ls, qs, , p]) => ({ lv, t, p, ls: ls.split('\n').map(l => { const [z, p, e] = l.split('|'); return { z: z.split('/'), p: p.split(' '), e }; }), qs: qs.split('\n').map(l => { const [t, q, ...r] = l.split('|'); return t == 'z' || t == 'f' ? { t, k: +q - 1 } : { t, q, r }; }) }));
 const GLOS = Object.fromEntries((self.LECTS || []).flatMap(x => x[4].split('\n').filter(Boolean).map(l => l.split('|')))), LPUNT = /[，。！？、：；“”,.!?:;]/g;
 // avatares: se dibujan en SVG a partir de los datos de personajes.js (piel, pelo y su estilo, ropa, fondo, gafas, corbata)
 const PERS = self.PERSONAJES || {};
@@ -1305,24 +1304,32 @@ function hablar(i, j) {
 // una frase cada vez: el personaje, en el centro, la dice; el diálogo va debajo y se pasa con «Siguiente». Tocar al personaje repite la frase.
 function lectura(i, j = 0) {
   pararHabla();
-  const d = LECT[i], l = d.ls[j], n = d.ls.length, ultima = j == n - 1, p = PERS[d.p], nom = p ? p.n : 'el narrador';
+  const d = LECT[i], l = d.ls[j], n = d.ls.length, ultima = j == n - 1, p = PERS[d.p], nom = p ? p.n : 'el narrador', nc = [...l.z.join('')].length, tam = nc > 16 ? 'largo' : nc > 10 ? 'medio' : '';
   app(`<div class=lect>
     <div class=top><button class=back onclick="lecturas()">✕</button><div class=bar role=progressbar aria-label="Progreso de la lectura" aria-valuemin=1 aria-valuemax=${n} aria-valuenow=${j + 1}><i style="width:${(j + 1) / n * 100}%"></i></div><span class=mut>${j + 1}/${n}</span></div>
     <p class=mut style="margin:0;text-align:center">${d.t}</p>
+    <div class=escena>
     <div class=centro><button class=avatar id=av onclick="hablar(${i},${j})" aria-label="Escuchar otra vez la frase de ${nom}">${p ? avatarSVG(p) : AVATAR}</button>${p ? `<div class=nombre>${p.n}</div>` : ''}</div>
     <div class="burbuja ${S.set.lpy ? '' : 'np'} ${S.set.les ? '' : 'ne'}" id=lc data-i=${i} data-j=${j} tabindex=-1 role=group aria-label="Frase ${j + 1} de ${n}">
-      <div class=frase>${l.z.map((z, k) => `<span class=wd onclick="palabra(${i},${j},${k})"><small>${pc(l.p[k])}</small>${z}</span>`).join('')}</div>
+      <div class="frase ${tam}">${l.z.map((z, k) => `<span class=wd onclick="palabra(${i},${j},${k})"><small>${pc(l.p[k])}</small>${z}</span>`).join('')}</div>
       <div class=tr>${l.e}</div>
     </div>
     <p class=mut style="margin:.6rem 0 0;text-align:center">Toca a ${nom} para oír la frase otra vez · toca una palabra para ver su ficha</p>
     <div id=fi></div>
+    </div>
     <div class=pie><div class=row style="flex-wrap:nowrap">${j ? `<button class=opt style="flex:1" onclick="lectura(${i},${j - 1})" aria-label="Frase anterior">←</button>` : ''}<button class=main id=nx style="flex:3;margin:0">${ultima ? 'Ir a las preguntas' : 'Siguiente'}</button></div></div>
   </div>`); // sin barra de pestañas (como los ejercicios): el botón Siguiente queda siempre a mano
   $('#nx').onclick = () => ultima ? lectQ(i) : lectura(i, j + 1);
   $('#lc').focus({ preventScroll: true }); setTimeout(() => hablar(i, j), 250);
 }
-// preguntas de comprensión: o = elige · x = elige la afirmación FALSA · r = ordena los hechos. Sin releer el texto (solo se puede oír).
-// En los datos, la respuesta de «o» y «x» va PRIMERA y las opciones se mezclan al mostrarlas.
+// preguntas de comprensión (4 por lectura): o = elige · x = elige la que NO se deduce del texto · z = elige la frase en chino que significa… · f = ordena la frase.
+// En los datos, la respuesta de «o» y «x» va PRIMERA y las opciones se mezclan al mostrarlas; «z» y «f» llevan el número de la frase. No se puede releer el texto (solo oírlo en «o» y «x»).
+function opcionesZ(d, k) { // la frase pedida y 3 más de la misma lectura, de longitud parecida (una más larga y otra más corta si las hay): no se acierta por la longitud
+  const L = s => [...s.z.join('')].length, t = d.ls[k], dist = s => Math.abs(L(s) - L(t)), otras = d.ls.filter((s, i) => i != k);
+  const mas = otras.filter(s => L(s) >= L(t)).sort((x, y) => L(x) - L(y)), menos = otras.filter(s => L(s) < L(t)).sort((x, y) => L(y) - L(x)), sel = [mas[0], menos[0]].filter(Boolean);
+  [...mas.slice(1), ...menos.slice(1)].sort((x, y) => dist(x) - dist(y)).forEach(s => { if (sel.length < 3) sel.push(s); });
+  return [t, ...sel];
+}
 function lectQ(i, desde = 0) {
   const d = LECT[i]; let n = desde, ok = 0; try { speechSynthesis.cancel(); } catch {}
   const step = () => {
@@ -1330,17 +1337,21 @@ function lectQ(i, desde = 0) {
       S.lect = S.lect || {}; S.lect[d.t] = Math.max(S.lect[d.t] || 0, ok); save();
       return app(`<h1><span class=seal>${ico('check')}</span>¡Hecho!</h1><p style="font-size:1.4rem">${ok}/${d.qs.length} aciertos</p><button class=main onclick="lectQ(${i})">Repetir las preguntas</button><button class=opt style="margin-top:.5rem" onclick="lectura(${i})">Leer otra vez</button><button class=opt style="margin-top:.5rem" onclick="lecturas()">Más lecturas</button>`);
     }
-    const { t, q, r } = d.qs[n];
-    app(`<div class=play><div class=top><button class=back onclick="lectura(${i})">✕</button><div class=bar><i style="width:${n / d.qs.length * 100}%"></i></div><span class=mut>${n + 1}/${d.qs.length}</span></div><div id=q></div><div id=fb></div></div>`);
+    const Q = d.qs[n];
+    app(`<div class=play><div class=top><button class=back onclick="lecturas()">✕</button><div class=bar><i style="width:${n / d.qs.length * 100}%"></i></div><span class=mut>${n + 1}/${d.qs.length}</span></div><div id=q></div><div id=fb></div></div>`);
     const el = $('#q'), fin = (good, correcta) => {
       good && ok++;
       $('#fb').innerHTML = `<div class="fb ${good ? 'g' : 'b'}">${good ? '✓ Correcto' : '✗ ' + correcta}</div><button class=main id=nx>${n + 1 < d.qs.length ? 'Siguiente' : 'Ver resultado'}</button>`;
       $('#nx').onclick = () => { n++; step(); };
     };
-    if (t == 'r') return orderUI(el, r, q, good => fin(good, 'Orden correcto: ' + r.map((e, k) => `${k + 1}. ${e}`).join(' · ')), { txt: true, titulo: 'Ordena los hechos', cls: 'qlect' });
-    const right = { t: r[0] };
-    el.innerHTML = `<div class="prompt qlect"><b>${q}</b><button class=chip style="margin-top:.6rem" onclick="sayLect(${i})">🔊 Oír el texto</button></div>`;
-    opts(el, right, shuffle(r.map(x => x === r[0] ? right : { t: x })), o => o.t, good => fin(good, (t == 'x' ? 'La falsa era: ' : 'Era: ') + right.t));
+    if (Q.t == 'f') { const l = d.ls[Q.k]; return orderUI(el, l.z, l.e, good => fin(good, 'Orden correcto: ' + l.z.join('')), { cls: 'qlect' }); }
+    if (Q.t == 'z') {
+      const l = d.ls[Q.k]; el.innerHTML = `<div class="prompt qlect"><small>Lee y elige</small><b>¿Qué frase del texto significa «${l.e}»?</b></div>`;
+      return opts(el, l, shuffle(opcionesZ(d, Q.k)), s => `<span class=zhq>${s.z.join('')}</span>${S.set.lpy ? `<small>${pc(s.p.join(' '))}</small>` : ''}`, good => fin(good, 'Era: ' + l.z.join('')));
+    }
+    const right = { t: Q.r[0] };
+    el.innerHTML = `<div class="prompt qlect"><b>${Q.q}</b><button class=chip style="margin-top:.6rem" onclick="sayLect(${i})">🔊 Oír el texto</button></div>`;
+    opts(el, right, shuffle(Q.r.map(x => x === Q.r[0] ? right : { t: x })), o => o.t, good => fin(good, (Q.t == 'x' ? 'La que no se deduce era: ' : 'Era: ') + right.t));
   };
   step();
 }

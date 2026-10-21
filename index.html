@@ -38,7 +38,7 @@
 .cabt{flex:1;min-width:0;padding-top:.3rem}.cabt .tit{margin:0;font-weight:600}.cabt .ayu{margin:.35rem 0 0;font-size:var(--fs-sm);color:var(--mut);line-height:1.4}
 .yo{display:flex;flex-direction:column;align-items:center;gap:.25rem;flex:none}
 .avatar{display:grid;place-items:center;width:4.8rem;height:4.8rem;padding:0;border-radius:50%;border:3px solid var(--gold);background:var(--card);overflow:hidden;cursor:pointer;transition:box-shadow .15s,border-color .15s,transform .1s;-webkit-tap-highlight-color:transparent;touch-action:manipulation}.avatar svg{display:block;width:100%;height:100%}.avatar:active{transform:scale(.95)}.avatar:focus-visible{outline-offset:4px}
-.avatar .ojos,.avatar .boca{transform-box:fill-box;transform-origin:center}.avatar .ojos{animation:parpadeo 4.6s infinite}.avatar .boca{transform-origin:50% 0}.avatar.habla .boca{animation:hablar .28s ease-in-out infinite alternate}@keyframes parpadeo{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}@keyframes hablar{from{transform:scaleY(.25)}to{transform:scaleY(1.35)}}@media(prefers-reduced-motion:reduce){.avatar .ojos,.avatar.habla .boca{animation:none}}.avatar.habla{border-color:var(--act);box-shadow:0 0 0 5px rgba(184,137,43,.4)}.nombre{font:600 var(--fs-sm) var(--title);color:var(--gold-tx);letter-spacing:.04em}
+.avatar .ojos,.avatar .boca{transform-box:fill-box;transform-origin:center}.avatar .ojos{animation:parpadeo 4.6s infinite}.avatar .boca{transform-origin:50% 0}.avatar.habla .boca{animation:hablar .28s ease-in-out infinite alternate}@keyframes parpadeo{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}@keyframes hablar{from{transform:scaleY(.25)}to{transform:scaleY(1.35)}}@media(prefers-reduced-motion:reduce){.avatar .ojos,.avatar.habla .boca{animation:none}}.avatar.gesto svg{animation:asentir .5s ease-out}@keyframes asentir{30%{transform:translateY(2px) rotate(-3deg)}65%{transform:translateY(-1px) rotate(1.5deg)}}@media(prefers-reduced-motion:reduce){.avatar.gesto svg{animation:none}}.avatar.habla{border-color:var(--act);box-shadow:0 0 0 5px rgba(184,137,43,.4)}.nombre{font:600 var(--fs-sm) var(--title);color:var(--gold-tx);letter-spacing:.04em}
 .conv{flex:1;display:flex;flex-direction:column;gap:.7rem;padding-bottom:.4rem}
 .b{background:var(--card);border:2px solid var(--ctl);border-radius:18px 4px 18px 18px;padding:.8rem .9rem .7rem;cursor:pointer;scroll-margin-bottom:7.5rem;-webkit-tap-highlight-color:transparent}.b.nueva{border-color:var(--pri)}.b.hablando{box-shadow:0 0 0 3px rgba(184,137,43,.4)}
 .b .frase{line-height:1.25;font-size:clamp(2.1rem,9.5vw,3rem)}.b .frase.medio{font-size:clamp(1.9rem,8.2vw,2.5rem)}.b .frase.largo{font-size:clamp(1.6rem,6.8vw,2.1rem)}
@@ -257,7 +257,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script>
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
-const APP_V = 'hsk3-v63'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v64'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app
 let depth = 0, skipPop = false, GUARD = '', INICIO = false; // INICIO: lo pone home() justo antes de pintar; otras pantallas usan la pestaña 'home' solo para la barra y sí deben añadir entrada al historial
@@ -1254,14 +1254,24 @@ const GLOS = Object.fromEntries((self.LECTS || []).flatMap(x => x[4].split('\n')
 // avatares: se dibujan en SVG a partir de los datos de personajes.js (piel, pelo y su estilo, ropa, fondo, gafas, corbata)
 const PERS = self.PERSONAJES || {};
 const AVATAR = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>'; // persona genérica si una lectura no indica personaje
+const PATRONES = { // adorno del fondo de cada avatar (id en personajes.js)
+  puntos: '<g fill="#fff" opacity=".55"><circle cx="10" cy="12" r="2"/><circle cx="54" cy="16" r="2.5"/><circle cx="52" cy="40" r="1.8"/><circle cx="9" cy="38" r="2.4"/><circle cx="46" cy="7" r="1.6"/></g>',
+  sol: '<path d="M32 30L0 10M32 30L0 30M32 30L6 54M32 30L64 8M32 30L64 30M32 30L58 54M32 30L18 0M32 30L46 0" stroke="#fff" stroke-width="3" opacity=".4"/>',
+  diagonal: '<path d="M-4 20L20-4M-4 40L40-4M-4 60L60-4M10 68L68 10M34 68L68 34" stroke="#fff" stroke-width="3" opacity=".45"/>',
+  cuadros: '<path d="M16 0v64M48 0v64M0 16h64M0 48h64" stroke="#fff" stroke-width="2" opacity=".45"/>' };
+const EXTRAS = { // accesorio de cada avatar, dibujado delante del pelo
+  gato: '<path d="M43 52l1.5-6.5 4.5 3zM55 52l-1.5-6.5-4.5 3z" fill="#e8a53c"/><circle cx="49" cy="56" r="6.5" fill="#e8a53c"/><circle cx="46.8" cy="55" r=".9" fill="#2b1d14"/><circle cx="51.2" cy="55" r=".9" fill="#2b1d14"/><path d="M48.2 57.4h1.6l-.8.9z" fill="#c4574a"/>',
+  auriculares: '<path d="M19.5 29a12.5 12.5 0 0 1 25 0" fill="none" stroke="#3a4a5a" stroke-width="2"/><rect x="16.5" y="26" width="4.5" height="8" rx="2.2" fill="#3a4a5a"/><rect x="43" y="26" width="4.5" height="8" rx="2.2" fill="#3a4a5a"/>',
+  flor: '<g fill="#e4572e"><circle cx="42" cy="20" r="1.6"/><circle cx="44" cy="22" r="1.6"/><circle cx="42" cy="24" r="1.6"/><circle cx="40" cy="22" r="1.6"/></g><circle cx="42" cy="22" r="1.2" fill="#f6c945"/>',
+  placa: '<rect x="40" y="52" width="7" height="5" rx="1" fill="#fff"/><rect x="41" y="53.2" width="3" height=".9" fill="#34495e"/>' };
 function avatarSVG(p) {
   const detras = { largo: `<path d="M18 30a14 14 0 0 1 28 0v14a3 3 0 0 1-3 3H21a3 3 0 0 1-3-3z" fill="${p.pelo}"/>`, rizado: `<g fill="${p.pelo}"><circle cx="21.5" cy="23" r="6"/><circle cx="26.5" cy="17.5" r="6.5"/><circle cx="34" cy="16.5" r="6.5"/><circle cx="42" cy="22" r="6"/><circle cx="32" cy="19" r="7"/></g>` }[p.estilo] || '';
   const delante = { corto: `<path d="M20 28a12 12 0 0 1 24 0q-3-6-12-6t-12 6z" fill="${p.pelo}"/>`, largo: `<path d="M20 28a12 12 0 0 1 24 0q-3-6-12-6t-12 6z" fill="${p.pelo}"/>`,
     flequillo: `<path d="M20 29a12 12 0 0 1 24 0c-4 0-8-3-12-5-3 3-7 5-12 5z" fill="${p.pelo}"/><rect x="19" y="26" width="3" height="11" rx="1.5" fill="${p.pelo}"/><rect x="42" y="26" width="3" height="11" rx="1.5" fill="${p.pelo}"/>` }[p.estilo] || '';
   return `<svg viewBox="0 0 64 64" aria-hidden="true"><defs><clipPath id="cp${p.n}"><circle cx="32" cy="32" r="32"/></clipPath></defs><g clip-path="url(#cp${p.n})">
-    <rect width="64" height="64" fill="${p.fondo}"/>${detras}
+    <rect width="64" height="64" fill="${p.fondo}"/>${PATRONES[p.patron] || ''}${detras}
     <path d="M10 66c0-13 10-19 22-19s22 6 22 19z" fill="${p.ropa}"/>${p.corbata ? '<path d="M29.5 47l2.5 3 2.5-3 1.2 14h-7.4z" fill="#b3282d"/>' : ''}
-    <rect x="28" y="37" width="8" height="12" rx="3" fill="${p.piel}"/><circle cx="32" cy="28" r="12" fill="${p.piel}"/>${delante}
+    <rect x="28" y="37" width="8" height="12" rx="3" fill="${p.piel}"/><circle cx="32" cy="28" r="12" fill="${p.piel}"/>${delante}${EXTRAS[p.extra] || ''}
     <g class=ojos><circle cx="27.5" cy="29" r="2.1" fill="#fff"/><circle cx="36.5" cy="29" r="2.1" fill="#fff"/><circle cx="27.8" cy="29.2" r="1.15" fill="#2b1d14"/><circle cx="36.8" cy="29.2" r="1.15" fill="#2b1d14"/></g>
     ${p.gafas ? '<g fill="none" stroke="#2b1d14" stroke-width="1.2"><circle cx="27.5" cy="29" r="3.8"/><circle cx="36.5" cy="29" r="3.8"/><path d="M31.3 29h1.4"/></g>' : ''}
     <path class=boca d="M28 34q4 4 8 0z" fill="#fff" stroke="rgba(43,29,20,.55)" stroke-width=".8" stroke-linejoin="round"/></g></svg>`;
@@ -1295,7 +1305,7 @@ function voz(i, j, fin) {
     speechSynthesis.cancel();
     const u = new SpeechSynthesisUtterance(l.z.join('')); u.lang = 'zh-CN'; u.rate = S.set.rate; HABLA.u = u;
     u.onstart = () => {
-      if (HABLA.u !== u) return; bur.classList.add('hablando'); $('#av') && $('#av').classList.add('habla'); luz(0);
+      if (HABLA.u !== u) return; bur.classList.add('hablando'); const av = $('#av'); if (av) { av.classList.add('habla'); av.classList.remove('gesto'); void av.offsetWidth; av.classList.add('gesto'); } luz(0);
       let acum = 0; const seg = 0.24 / S.set.rate; // segundos estimados por sílaba; se descartan si llegan avisos reales
       l.z.forEach((z, k) => { const t = acum; acum += Math.max(1, [...z].filter(c => /[㐀-鿿]/.test(c)).length); if (k) HABLA.t.push(setTimeout(() => luz(k), t * seg * 1000)); });
     };

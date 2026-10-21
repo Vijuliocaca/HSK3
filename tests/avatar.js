@@ -14,6 +14,9 @@ const ok = (c, m) => { if (!c) { problemas++; console.log('  ✗', m); } };
     ok((await anim('#av .boca')) == 'hablar', 'la boca debe moverse mientras habla');
     const t = async () => ev("getComputedStyle(document.querySelector('#av .boca')).transform"), a = await t(); await esp(150);
     ok(a != (await t()), 'la boca debe cambiar de forma con el tiempo');
+    await ev("document.querySelector('#av').classList.remove('habla')"); await ev('pararHabla()'); await ev("(() => { Object.defineProperty(window, 'speechSynthesis', { configurable: true, value: { cancel() { }, speak(u) { setTimeout(() => u.onstart && u.onstart(), 5); } } }); return 1; })()");
+    await ev('hablar(0, 0)'); await esp(60);
+    ok((await ev("document.querySelector('#av').classList.contains('gesto')")) && (await anim('#av svg')) == 'asentir', 'al empezar una frase la persona debe hacer un gesto');
   } catch (e) { problemas++; console.log('  ✗ error en la prueba:', e.message); }
   await b.cerrar();
   console.log(problemas ? `avatar: ${problemas} problemas` : 'avatar: OK');

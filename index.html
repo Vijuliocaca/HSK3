@@ -33,7 +33,7 @@
 @media(prefers-reduced-motion:reduce){#app{animation:fade .2s}.shake{animation:none}.mode:active{transform:none}.prog i,.bar i{transition:none}html{scroll-behavior:auto}}
 @keyframes fade{from{opacity:0}}
 .sem{gap:.3rem}.sem .stat{flex:1 !important;padding:.5rem 0}.sem .stat b{font-size:var(--fs-lg)}
-.lect{display:flex;flex-direction:column;min-height:calc(100vh - 28px);min-height:calc(100dvh - 28px)}
+.lect{position:relative;display:flex;flex-direction:column;min-height:calc(100vh - 28px);min-height:calc(100dvh - 28px)}
 .cab{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin:.2rem 0 .9rem}
 .cabt{flex:1;min-width:0;padding-top:.3rem}.cabt .tit{margin:0;font-weight:600}.cabt .ayu{margin:.35rem 0 0;font-size:var(--fs-sm);color:var(--mut);line-height:1.4}
 .yo{display:flex;flex-direction:column;align-items:center;gap:.25rem;flex:none}
@@ -42,6 +42,9 @@
 .conv[data-dos] .b{margin-right:1.4rem;border-radius:4px 18px 18px 18px}.conv[data-dos] .b.q2{margin-right:0;margin-left:1.4rem;border-radius:18px 4px 18px 18px}.quien{font:600 var(--fs-sm) var(--title);color:var(--gold-tx);letter-spacing:.04em;margin-bottom:.1rem}.b.q2 .quien{text-align:right}
 .avatar .cejas{transform-box:fill-box;transform-origin:center;transition:transform .2s}.avatar .boca{transition:scale .2s}
 .avatar.pregunta .cejas{transform:translateY(-1.6px)}.avatar.pregunta .boca{scale:.65}.avatar.alegre .cejas{transform:translateY(-1.2px)}.avatar.alegre .boca{scale:1.3 1.15}.avatar.feliz .boca{scale:1.4 .9}.avatar.feliz .cejas{transform:translateY(-.8px)}
+#fi{position:absolute;z-index:20;left:0;top:0}#fi:empty{display:none}
+#fi .fb{margin:0;position:relative;border:2px solid var(--ok);box-shadow:0 8px 22px rgba(0,0,0,.28)}#fi .fb::before{content:'';position:absolute;top:-8px;left:var(--ax,50%);width:12px;height:12px;margin-left:-6px;background:var(--okbg);border-left:2px solid var(--ok);border-top:2px solid var(--ok);transform:rotate(45deg)}#fi.arr .fb::before{top:auto;bottom:-8px;transform:rotate(225deg)}
+.wd.sel{box-shadow:0 2px 0 var(--ok);background:var(--okbg)}
 .avatar.gesto svg{animation:asentir .5s ease-out}@keyframes asentir{30%{transform:translateY(2px) rotate(-3deg)}65%{transform:translateY(-1px) rotate(1.5deg)}}@media(prefers-reduced-motion:reduce){.avatar.gesto svg{animation:none}}.avatar.habla{border-color:var(--act);box-shadow:0 0 0 5px rgba(184,137,43,.4)}.nombre{max-width:5.2rem;text-align:center;line-height:1.1;font:600 var(--fs-sm) var(--title);color:var(--gold-tx);letter-spacing:.04em}
 .conv{flex:1;display:flex;flex-direction:column;gap:.7rem;padding-bottom:.4rem}
 .b{background:var(--card);border:2px solid var(--ctl);border-radius:18px 4px 18px 18px;padding:.8rem .9rem .7rem;cursor:pointer;scroll-margin-bottom:7.5rem;-webkit-tap-highlight-color:transparent}.b.nueva{border-color:var(--pri)}.b.hablando{box-shadow:0 0 0 3px rgba(184,137,43,.4)}
@@ -197,7 +200,7 @@ body.nonav{padding-bottom:calc(14px + env(safe-area-inset-bottom))}
 a.chip{text-decoration:none;color:inherit;display:inline-block}
 .vframe{position:relative;padding-top:56.25%;margin:.4rem 0 .8rem;background:#000;border-radius:8px;overflow:hidden}.vframe iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.vframe.mut{padding:.8rem;background:none}
 #dl.np .p2{display:none} #dl.ne .ex .mut{display:none} #dl .ex{margin-top:.6rem;text-align:left} #dl .ex b{color:var(--pri);margin-right:.4rem}
-#conv.np .wd small{display:none} #conv.ne .tr{display:none} .wd{display:inline-block;text-align:center;margin:.15rem .1rem;padding:.1rem .25rem;border-radius:6px;cursor:pointer;font-family:var(--serif);font-size:var(--fs-2xl);line-height:1.3} .wd small{display:block;font-family:inherit;font-size:var(--fs-xs);color:var(--pri)} .wd:active{background:var(--card);outline:1px solid var(--pri)} #fi{position:sticky;bottom:.5rem}
+#conv.np .wd small{display:none} #conv.ne .tr{display:none} .wd{display:inline-block;text-align:center;margin:.15rem .1rem;padding:.1rem .25rem;border-radius:6px;cursor:pointer;font-family:var(--serif);font-size:var(--fs-2xl);line-height:1.3} .wd small{display:block;font-family:inherit;font-size:var(--fs-xs);color:var(--pri)} .wd:active{background:var(--card);outline:1px solid var(--pri)}
 .ex.now{border-style:solid;border-color:var(--pri);box-shadow:0 0 0 2px var(--pri)}
 </style>
 </head>
@@ -261,7 +264,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script>
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
-const APP_V = 'hsk3-v69'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v70'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -1366,7 +1369,7 @@ function anadir(i, k, mover) {
 function lectura(i, j = 0) {
   pararHabla();
   const d = LECT[i], n = d.ls.length, ps = personas(d), dos = ps.length > 1, nom = ps.length ? ps.map(p => p.n).join(' y ') : 'el narrador';
-  app(`<div class=lect>
+  app(`<div class=lect onclick="cerrarFi(event)">
     <div class=top><button class=back onclick="lecturas()">✕</button><div class=bar role=progressbar aria-label="Progreso de la lectura" aria-valuemin=1 aria-valuemax=${n}><i></i></div><span class=mut></span></div>
     <div class="cab ${dos ?'dos' : ''}"><div class=cabt><p class=tit>${d.t}</p><p class=ayu>${dos ? 'Toca a una persona para oír su última frase' : `Toca a ${nom} para oír la última frase`} (o toda la lectura al terminar), una frase para oírla o una palabra para ver su ficha.</p></div>
       <div class=avs>${(ps.length ? ps : [null]).map((p, q) => `<div class=yo><button class=avatar id=av${q ? 2 : ''} onclick="oir(${i},${q})" aria-label="Escuchar con la voz de ${p ? p.n : nom}">${p ? avatarSVG(p) : AVATAR}</button>${p ? `<div class=nombre>${p.n}</div>` : ''}</div>`).join('')}</div></div>
@@ -1410,10 +1413,20 @@ function lectQ(i, desde = 0) {
   };
   step();
 }
+// ficha de una palabra de la lectura: un recuadro bajo la palabra tocada (encima si abajo no cabe), sobre el resto de la pantalla; se cierra al tocar fuera
+function cerrarFi(e) { if (e && e.target && e.target.closest && e.target.closest('.wd, #fi')) return; const f = $('#fi'); f && (f.innerHTML = ''); document.querySelectorAll('#conv .wd.sel').forEach(x => x.classList.remove('sel')); }
 function palabra(i, j, k) {
-  const l = LECT[i].ls[j], h = l.z[k].replace(LPUNT, ''), w = byH.get(h);
-  $('#fi').innerHTML = `<div class="fb g"><b style="font-size:1.6rem">${h}</b> ${pc(l.p[k].replace(LPUNT, ''))} — ${w ? w.e : GLOS[h] || ''} <button class=back onclick="say('${h}')">🔊</button>${w ? `<button class=back id=st onclick="star(${w.id})">${S.star[w.id] ? '★' : '☆'}</button>` : ''}</div>`;
-  $('#fi').scrollIntoView({ block: 'nearest' }); pararHabla(); say(h);
+  const l = LECT[i].ls[j], h = l.z[k].replace(LPUNT, ''), w = byH.get(h), f = $('#fi');
+  f.innerHTML = `<div class="fb g"><b style="font-size:1.6rem">${h}</b> ${pc(l.p[k].replace(LPUNT, ''))} — ${w ? w.e : GLOS[h] || ''} <button class=back onclick="say('${h}')">🔊</button>${w ? `<button class=back id=st onclick="star(${w.id})">${S.star[w.id] ? '★' : '☆'}</button>` : ''}</div>`;
+  document.querySelectorAll('#conv .wd.sel').forEach(x => x.classList.remove('sel'));
+  const pal = document.querySelector(`#conv .b[data-k="${j}"] .wp:nth-child(${k + 1}) .wd`), host = $('.lect');
+  if (pal && pal.getBoundingClientRect && host && host.getBoundingClientRect) {
+    pal.classList.add('sel');
+    const r = pal.getBoundingClientRect(), H = host.getBoundingClientRect(), ancho = Math.min(300, H.width); f.style.width = ancho + 'px'; const alto = f.offsetHeight;
+    const izq = Math.max(0, Math.min(H.width - ancho, r.left - H.left + r.width / 2 - ancho / 2)), pie = $('#pie'), libre = (pie ? pie.getBoundingClientRect().top : innerHeight) - r.bottom, arriba = libre < alto + 12 && r.top - 60 > alto;
+    f.style.left = izq + 'px'; f.style.top = (arriba ? r.top - H.top - alto - 10 : r.bottom - H.top + 10) + 'px'; f.style.setProperty('--ax', r.left - H.left + r.width / 2 - izq + 'px'); f.classList.toggle('arr', arriba);
+  }
+  pararHabla(); say(h);
 }
 
 // contrarreloj: 60 segundos de preguntas de elegir traducción

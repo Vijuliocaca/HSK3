@@ -54,6 +54,18 @@ const ok = (cond, msg) => { if (!cond) { problemas++; console.log('  ✗', msg);
     // tocar una palabra abre su ficha
     await clic('#conv .wd'); await esp(60); ok((await ev("document.querySelector('#fi').textContent.trim().length")) > 3, 'al tocar una palabra no sale su ficha');
 
+    // la ficha de la palabra sale pegada a la palabra tocada (debajo, o encima si abajo no cabe), sobre el resto de la pantalla, sin empujar nada, y se cierra al tocar fuera
+    const ficha = j => ev(`(() => { const w = document.querySelector('#conv .b[data-k="${j}"] .wp:nth-child(2) .wd').getBoundingClientRect(), f = document.querySelector('#fi').getBoundingClientRect(), W = document.documentElement.clientWidth, c = document.querySelector('#conv').getBoundingClientRect(); return { debajo: f.top - w.bottom, encima: w.top - f.bottom, izq: f.left, der: W - f.right, alto: f.height, pos: getComputedStyle(document.querySelector('#fi')).position, conv: c.height, sel: document.querySelectorAll('#conv .wd.sel').length }; })()`);
+    await ev('lectura(0, 2)'); await esp(450); const c0 = await ev("document.querySelector('#conv').getBoundingClientRect().height");
+    await clic('#conv .b[data-k="2"] .wp:nth-child(2) .wd'); await esp(100); let fi = await ficha(2);
+    ok(fi.alto > 20 && fi.pos == 'absolute', 'la ficha debe verse y flotar sobre la pantalla (position absolute)'); ok((fi.debajo >= 0 && fi.debajo < 30) || (fi.encima >= 0 && fi.encima < 30), `la ficha debe quedar pegada a la palabra (debajo ${Math.round(fi.debajo)} px, encima ${Math.round(fi.encima)} px)`);
+    ok(fi.izq >= -0.5 && fi.der >= -0.5, `la ficha no debe salirse de la pantalla (izq ${Math.round(fi.izq)}, der ${Math.round(fi.der)})`); ok(fi.conv == c0, 'la ficha no debe empujar la conversación'); ok(fi.sel == 1, 'la palabra tocada debe quedar marcada');
+    ok((await ev("document.querySelector('#fi').textContent")).includes('—'), 'la ficha debe llevar la traducción');
+    await clic('.cab .tit'); await esp(60); ok((await ev("document.querySelector('#fi').textContent.trim().length")) == 0 && (await ev("document.querySelectorAll('#conv .wd.sel').length")) == 0, 'al tocar fuera la ficha debe cerrarse');
+    await clic('#conv .b[data-k="2"] .wp:nth-child(3) .wd'); await esp(60); await clic('#conv .b[data-k="2"] .wp:nth-child(1) .wd'); await esp(60); ok((await ev("document.querySelectorAll('#conv .wd.sel').length")) == 1 && (await ficha(2)).alto > 20, 'al tocar otra palabra solo debe quedar la última');
+    await ev(`lectura(0, ${n - 1})`); await esp(450); await ev('pararHabla()'); await clic('#conv .b:last-child .wp:nth-child(2) .wd'); await esp(100); fi = await ficha(n - 1);
+    ok((fi.debajo >= 0 || fi.encima >= 0) && fi.izq >= -0.5 && fi.der >= -0.5, `en la última frase la ficha no debe tapar la palabra ni salirse (debajo ${Math.round(fi.debajo)}, encima ${Math.round(fi.encima)})`);
+    await clic('.cab .tit'); await esp(60);
     // 2b) La persona, arriba a la derecha; la voz ilumina cada palabra (sin la puntuación); tocar a la persona repite la frase; con la lectura terminada se escucha entera
     console.log('2b) Personaje, voz y palabra iluminada');
     await ev('lectura(0, 1)'); await esp(450);

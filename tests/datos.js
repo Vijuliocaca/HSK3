@@ -72,7 +72,7 @@ t('diálogos: A/B alternos, 4 campos, pinyin correcto, preguntas con 3-4 opcione
   D.forEach(([lv, ti, ls, qs]) => { porNivel[lv] = (porNivel[lv] || 0) + 1;
     lineas(ls).forEach((l, j) => { const p = l.split('|'); assert(p.length == 4 && p[0] == 'AB'[j % 2], `${ti} línea ${j}`); assert(coincide(p[1], p[2]), `${ti}: ${p[1]}`); });
     lineas(qs).forEach(q => { const f = q.split('|'); assert(f.length >= 3 && new Set(f.slice(1)).size == f.length - 1, `${ti}: pregunta ${f[0]}`); }); });
-  assert.deepStrictEqual(porNivel, { 1: 4, 2: 4, 3: 4, 4: 4, 5: 4 });
+  assert.deepStrictEqual(porNivel, { 1: 4, 2: 4, 3: 4, 4: 4, 5: 4, 6: 4 });
 });
 t('lecturas: palabras y pinyin alineados, todas con significado (vocabulario o glosario)', () => {
   const L = ev('self.LECTS'), glosario = new Set(L.flatMap(x => lineas(x[4]).map(l => l.split('|')[0])));

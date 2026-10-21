@@ -233,6 +233,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script src="nuevo5d.js"></script>
 <script src="nuevo5e.js"></script>
 <script src="nuevo5f.js"></script>
+<script src="nuevo6a.js"></script>
 <script src="frases5a.js"></script>
 <script src="frases5b.js"></script>
 <script src="frases5c.js"></script>
@@ -241,6 +242,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script src="frases5f.js"></script>
 <script src="frases5g.js"></script>
 <script src="frases5h.js"></script>
+<script src="frases6a.js"></script>
 <script src="frases4a.js"></script>
 <script src="frases4b.js"></script>
 <script src="frases4c.js"></script>
@@ -259,7 +261,9 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script src="gramatica3.js"></script>
 <script src="canciones.js"></script>
 <script src="dialogos.js"></script>
+<script src="dialogos6.js"></script>
 <script src="lecturas.js"></script>
+<script src="lecturas6.js"></script>
 <script src="chengyu.js"></script>
 <script src="relaciones.js"></script>
 <script src="fiestas.js"></script>
@@ -268,7 +272,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script>
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
-const APP_V = 'hsk3-v86'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v89'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -398,7 +402,7 @@ function toneVars(p) { // variantes con otros tonos, para distinguirlos
 // --- progreso (localStorage; si falla, la app sigue sin guardar) ---
 let S = {}; try { S = JSON.parse(localStorage.hsk3) || {}; } catch {}
 S.w = S.w || {}; S.known = S.known || {}; S.gram = S.gram || {}; S.gramR = S.gramR || {}; S.listas = S.listas || {}; S.song = S.song || {}; S.lv = S.lv || [1, 2, 3];
-S.lv = [1, 2, 3, 4, 5].slice(0, Math.max(...S.lv, 1)); // los HSK son acumulativos: elegir uno incluye los anteriores
+S.lv = Array.from({ length: Math.max(...S.lv, 1) }, (_, i) => i + 1); // los HSK son acumulativos: elegir uno incluye los anteriores
 S.streak = S.streak || 0; S.last = S.last || '';
 S.hist = S.hist || {}; S.exams = S.exams || []; S.exLv = S.exLv || 3; S.star = S.star || {};
 S.set = Object.assign({ goal: 20, rate: .8, size: 100, theme: 'auto', tones: true, lpy: true, les: true }, S.set);
@@ -552,7 +556,7 @@ function home() {
 }
 function tog(k, n) { // al elegir un HSK se marcan también los anteriores; tocar el más alto lo quita
   const mx = Math.max(...S.lv), top = n == mx && n > 1 ? n - 1 : n;
-  S.lv = [1, 2, 3, 4, 5].slice(0, top);
+  S.lv = Array.from({ length: top }, (_, i) => i + 1);
   save(); home();
 }
 const empty = (t = 'Primero estudia alguna lección', s = 'Los juegos usan solo las palabras que ya has estudiado.') => app(`<div class=top><button class=back onclick="home()">←</button></div><div class=prompt><span class="hz hzi">${ico('graduation-cap')}</span>${t}<small>${s}</small></div><button class=main onclick="lessons()">Ir a las lecciones</button>`);
@@ -1273,7 +1277,7 @@ const DIAL = (self.DIALS || []).map(([lv, t, ls, qs]) => ({ lv, t, ls: ls.split(
 function dialogos() {
   S.dial = S.dial || {}; try { speechSynthesis.cancel(); } catch {}
   const hecho = d => S.dial[d.t] == null ? '' : S.dial[d.t] == d.qs.length ? ' ✓' : ` · mejor ${S.dial[d.t]}/${d.qs.length}`;
-  app(`<div class=top><button class=back onclick="home()">←</button><b>Diálogos</b></div>` + LEVELS.map(lv => `<h2>HSK ${lv}</h2><div class=list>${DIAL.map((d, i) => d.lv == lv ? `<button class=mode onclick="dialogo(${i})"><span class=e>${d.t.split(' ')[0]}</span><span><b>${d.t.slice(d.t.indexOf(' ') + 1)}</b><small>${d.ls.length} líneas${hecho(d)}</small></span></button>` : '').join('')}</div>`).join(''), 'home');
+  app(`<div class=top><button class=back onclick="home()">←</button><b>Diálogos</b></div>` + LEVELS.filter(lv => DIAL.some(d => d.lv == lv)).map(lv => `<h2>HSK ${lv}</h2><div class=list>${DIAL.map((d, i) => d.lv == lv ? `<button class=mode onclick="dialogo(${i})"><span class=e>${d.t.split(' ')[0]}</span><span><b>${d.t.slice(d.t.indexOf(' ') + 1)}</b><small>${d.ls.length} líneas${hecho(d)}</small></span></button>` : '').join('')}</div>`).join(''), 'home');
 }
 function sayAll(i) { // una voz grave para A y una aguda para B
   try { speechSynthesis.cancel(); DIAL[i].ls.forEach(([, z], j) => { const u = new SpeechSynthesisUtterance(z); u.lang = 'zh-CN'; u.rate = S.set.rate; u.pitch = j % 2 ? 1.35 : .85; speechSynthesis.speak(u); }); } catch {}
@@ -1357,7 +1361,7 @@ function lecturas() {
   app(`<div class=top><button class=back onclick="home()">←</button><b>Lecturas</b></div>
     <p class=mut>Cada lectura te la cuenta un personaje, frase a frase. Elige qué ayudas ver mientras lees (valen para todas):</p>
     <div class="row ayudas" role=group aria-label="Ayudas de lectura">${ayuda('lpy', 'Con pinyin')}${ayuda('les', 'En español')}</div>`
-    + LEVELS.map(lv => `<h2>HSK ${lv}</h2><div class=list>${LECT.map((d, i) => d.lv == lv ? `<button class=mode onclick="lectura(${i})"><span class=e>${d.t.split(' ')[0]}</span><span><b>${d.t.slice(d.t.indexOf(' ') + 1)}</b><small>${d.ls.length} frases${personas(d).length ? ' · ' + personas(d).map(p => p.n).join(' y ') : ''}${hecho(d)}</small></span></button>` : '').join('')}</div>`).join(''), 'home');
+    + LEVELS.filter(lv => LECT.some(d => d.lv == lv)).map(lv => `<h2>HSK ${lv}</h2><div class=list>${LECT.map((d, i) => d.lv == lv ? `<button class=mode onclick="lectura(${i})"><span class=e>${d.t.split(' ')[0]}</span><span><b>${d.t.slice(d.t.indexOf(' ') + 1)}</b><small>${d.ls.length} frases${personas(d).length ? ' · ' + personas(d).map(p => p.n).join(' y ') : ''}${hecho(d)}</small></span></button>` : '').join('')}</div>`).join(''), 'home');
 }
 function sayLect(i) {
   try { speechSynthesis.cancel(); LECT[i].ls.forEach(l => { const u = new SpeechSynthesisUtterance(l.z.join('')); u.lang = 'zh-CN'; u.rate = S.set.rate; speechSynthesis.speak(u); }); } catch {}

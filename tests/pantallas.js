@@ -89,12 +89,14 @@ t('lecturas: cada lectura la cuenta un personaje (con su nombre en la lista) y l
   assert(a.ev('LECT.every(d => PERS[d.p])'), 'una lectura no tiene personaje');
   Object.keys(JSON.parse(a.ev('JSON.stringify(PERS)'))).forEach(id => { const s = a.ev(`avatarSVG(PERS.${id})`); assert(s.startsWith('<svg') && s.includes(a.ev(`PERS.${id}.piel`)) && s.includes('clip-path'), 'avatar mal dibujado: ' + id); });
 });
-t('lectura: la persona va arriba y centrada, el diálogo debajo, y se repite tocando a la persona', () => {
-  const a = cargarApp(); a.ev('lectura(0)'); const h = a.html();
-  assert(h.indexOf('class=avatar') > 0 && h.indexOf('class=avatar') < h.indexOf('class="burbuja'), 'el personaje debe ir antes (encima) del diálogo');
-  assert(h.includes('onclick="hablar(0,0)"') && h.includes('Escuchar otra vez la frase de Payolink'), 'tocar al personaje debe repetir la frase');
-  assert(h.includes('>Payolink<'), 'falta el nombre del personaje'); assert(!h.includes('>🔊 Escuchar otra vez<') && !h.includes('Escuchar otra vez</button>'), 'sobra el botón antiguo de escuchar');
-  a.ev('lectura(1)'); assert(a.html().includes('>Samu<'), 'la lectura 2 debe contarla Samu');
+// el arnés guarda #conv aparte de #app: se vacía antes de cada lectura para ver solo lo que pinta esa lectura
+const lee = (a, js) => { const c = a.els['#conv']; if (c) c.innerHTML = ''; a.ev(js); return a.html() + a.els['#conv'].innerHTML; };
+t('lectura: la persona va arriba a la derecha, la conversación debajo, y se repite tocando a la persona', () => {
+  const a = cargarApp(), h = lee(a, 'lectura(0)');
+  assert(h.indexOf('class=cab') > 0 && h.indexOf('class=yo') > h.indexOf('class=cabt') && h.indexOf('class=yo') < h.indexOf('id=conv'), 'la persona debe ir en la cabecera, a la derecha del título y encima de la conversación');
+  assert(h.includes('onclick="oir(0)"') && h.includes('Escuchar con la voz de Payolink') && h.includes('onclick="hablar(0,0)"'), 'tocar al persona debe repetir la frase');
+  assert(h.includes('>Payolink<'), 'falta el nombre del personaje'); assert(!h.includes('Escuchar otra vez'), 'sobra el botón antiguo de escuchar');
+  assert(lee(a, 'lectura(1)').includes('>Samu<'), 'la lectura 2 debe contarla Samu');
 });
 t('voz: cada palabra se ilumina en su turno (posición de cada palabra en la frase)', () => {
   const a = cargarApp(), zs = a.ev('LECT[0].ls[1].z'), ini = JSON.parse(a.ev('JSON.stringify(iniPalabras(LECT[0].ls[1].z))'));
@@ -104,20 +106,29 @@ t('voz: cada palabra se ilumina en su turno (posición de cada palabra en la fra
 t('lecturas: Pinyin y Español están en la página general, en ese orden, y se recuerdan', () => {
   const a = cargarApp(); a.ev('lecturas()'); let h = a.html();
   assert(h.indexOf('>Con pinyin<') > 0 && h.indexOf('>Con pinyin<') < h.indexOf('>En español<'), 'el orden debe ser «Con pinyin» y luego «En español»');
-  assert(/class="chip on" aria-pressed="true" onclick="setLect\('lpy'\)"/.test(h) && /class="chip on" aria-pressed="true" onclick="setLect\('les'\)"/.test(h), 'por defecto deben estar activados');
-  a.ev("setLect('lpy')"); h = a.html(); assert(/class="chip " aria-pressed="false" onclick="setLect\('lpy'\)"/.test(h), 'Pinyin debería quedar desactivado');
-  a.ev('lectura(0)'); assert(/class="burbuja[^"]*\bnp\b/.test(a.html()) && !/class="burbuja[^"]*\bne\b/.test(a.html()), 'sin pinyin pero con español');
+  assert(['lpy', 'les'].every(k => h.includes(`class="chip on" aria-pressed="true" onclick="setLect('${k}')"`)), 'por defecto deben estar activados');
+  const cl = (h => h.match(/id=conv class="([^"]*)"/)[1].split(' '));
+  a.ev("setLect('lpy')"); h = a.html(); assert(h.includes('class="chip " aria-pressed="false" onclick="setLect(' + "'lpy')" + '"'), 'Pinyin debería quedar desactivado');
+  h = lee(a, 'lectura(0)'); assert(cl(h).includes('np') && !cl(h).includes('ne'), 'sin pinyin pero con español');
   assert.strictEqual(cargarApp({ storage: a.storage }).ev('S.set.lpy'), false, 'no se recuerda tras recargar');
-  a.ev("setLect('les')"); a.ev('lectura(0)'); assert(/class="burbuja[^"]*\bne\b/.test(a.html()), 'sin español debe llevar la clase ne');
+  a.ev("setLect('les')"); assert(cl(lee(a, 'lectura(0)')).includes('ne'), 'sin español debe llevar la clase ne');
 });
-t('lectura: una frase cada vez con su persona; Siguiente avanza, Anterior vuelve y la última lleva a las preguntas', () => {
-  const a = cargarApp(), n = a.ev('LECT[0].ls.length'), palabras = j => a.ev(`LECT[0].ls[${j}].z.length`), spans = () => (a.html().match(/class=wd/g) || []).length;
-  a.ev('lectura(0)'); assert.strictEqual(spans(), palabras(0), 'debe mostrar solo la 1.ª frase'); assert(a.html().includes('class=avatar') && a.html().includes('class="burbuja'), 'falta la persona o el globo');
-  assert(a.html().includes(`>1/${n}<`) && !a.html().includes('Frase anterior'), 'contador o botón Anterior incorrectos en la 1.ª frase');
-  assert(a.html().includes('>Siguiente<'), 'falta Siguiente'); a.els['#nx'].onclick();
-  assert.strictEqual(spans(), palabras(1), 'Siguiente no pasó a la 2.ª frase'); assert(a.html().includes(`>2/${n}<`) && a.html().includes('Frase anterior'), 'contador o botón Anterior incorrectos en la 2.ª frase');
-  a.ev(`lectura(0, ${n - 1})`); assert(a.html().includes('>Ir a las preguntas<'), 'la última frase debe llevar a las preguntas');
+t('lectura: la conversación crece hacia abajo con Siguiente y al terminar se puede releer, reescuchar o ir a las preguntas', () => {
+  const a = cargarApp(), n = a.ev('LECT[0].ls.length'), conv = () => a.els['#conv'].innerHTML, burbujas = () => (conv().match(/class="b /g) || []).length, spans = () => (conv().match(/class=wd/g) || []).length, pie = () => a.els['#pie'].innerHTML;
+  lee(a, 'lectura(0)'); assert.strictEqual(burbujas(), 1, 'debe empezar con solo la 1.ª frase'); assert.strictEqual(spans(), a.ev('LECT[0].ls[0].z.length'));
+  assert(pie().includes('>Siguiente<') && !pie().includes('Escuchar toda'), 'falta Siguiente');
+  a.els['#nx'].onclick(); assert.strictEqual(burbujas(), 2, 'Siguiente debe añadir la 2.ª frase debajo sin quitar la 1.ª');
+  assert.strictEqual(spans(), a.ev('LECT[0].ls[0].z.length + LECT[0].ls[1].z.length'), 'la 1.ª frase debe seguir a la vista');
+  for (let k = 2; k < n; k++) a.els['#nx'].onclick();
+  assert.strictEqual(burbujas(), n, 'al final deben verse todas las frases'); assert(pie().includes('Escuchar toda la lectura') && pie().includes('>Ir a las preguntas<'), 'al terminar: escuchar toda la lectura e ir a las preguntas');
+  assert.strictEqual(a.els['#conv'].dataset.fin, '1', 'la conversación debe marcarse como terminada (tocar a la persona lee todo)');
   a.els['#nx'].onclick(); assert(a.els['#q'].innerHTML.includes('qlect'), 'no se abrieron las preguntas');
+  lee(a, `lectura(0, ${n - 1})`); assert.strictEqual(burbujas(), n, 'lectura(i, j) debe pintar la conversación hasta la frase j');
+});
+t('lectura: la puntuación va fuera de la palabra, así no se ilumina ni lleva pinyin', () => {
+  const a = cargarApp(); lee(a, 'lectura(0)'); const h = a.els['#conv'].innerHTML, p = h.match(/<span class=pn>([^<]*)<[/]span>/);
+  assert(p && /^[，。！？、：；“”]+$/.test(p[1]), 'la puntuación debe ir en su propio span'); assert(!/<span class=wd[^>]*><small>[^<]*<[/]small>[^<]*[，。！？]<[/]span>/.test(h), 'dentro de la palabra no debe quedar puntuación');
+  assert(!/<small>[^<]*[,.!?]/.test(h), 'el pinyin no debe llevar puntuación');
 });
 t('preguntas de lectura: elige, la que no se deduce, frase en chino y ordenar se presentan bien y sin releer el texto', () => {
   const a = cargarApp(), P = i => JSON.parse(a.ev(`JSON.stringify(LECT[0].qs[${i}])`)), q = () => a.els['#q'].innerHTML;

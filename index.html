@@ -34,17 +34,20 @@
 @keyframes fade{from{opacity:0}}
 .sem{gap:.3rem}.sem .stat{flex:1 !important;padding:.5rem 0}.sem .stat b{font-size:var(--fs-lg)}
 .lect{display:flex;flex-direction:column;min-height:calc(100vh - 28px);min-height:calc(100dvh - 28px)}
-.escena{flex:1;display:flex;flex-direction:column;justify-content:center;padding:.5rem 0}
-.centro{display:flex;flex-direction:column;align-items:center;gap:.45rem;padding:.2rem 0}
-.avatar{display:grid;place-items:center;width:6.4rem;height:6.4rem;padding:0;border-radius:50%;border:3px solid var(--gold);background:var(--card);overflow:hidden;cursor:pointer;transition:box-shadow .15s,border-color .15s,transform .1s;-webkit-tap-highlight-color:transparent;touch-action:manipulation}.avatar:active{transform:scale(.95)}.avatar:focus-visible{outline-offset:4px}.avatar svg{display:block;width:100%;height:100%}
+.cab{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin:.2rem 0 .9rem}
+.cabt{flex:1;min-width:0;padding-top:.3rem}.cabt .tit{margin:0;font-weight:600}.cabt .ayu{margin:.35rem 0 0;font-size:var(--fs-sm);color:var(--mut);line-height:1.4}
+.yo{display:flex;flex-direction:column;align-items:center;gap:.25rem;flex:none}
+.avatar{display:grid;place-items:center;width:4.8rem;height:4.8rem;padding:0;border-radius:50%;border:3px solid var(--gold);background:var(--card);overflow:hidden;cursor:pointer;transition:box-shadow .15s,border-color .15s,transform .1s;-webkit-tap-highlight-color:transparent;touch-action:manipulation}.avatar svg{display:block;width:100%;height:100%}.avatar:active{transform:scale(.95)}.avatar:focus-visible{outline-offset:4px}
 .avatar.habla{border-color:var(--act);box-shadow:0 0 0 5px rgba(184,137,43,.4)}.nombre{font:600 var(--fs-sm) var(--title);color:var(--gold-tx);letter-spacing:.04em}
-.burbuja{position:relative;margin-top:.7rem;background:var(--card);border:2px solid var(--ctl);border-radius:18px;padding:1rem 1rem .9rem}
-.burbuja::before{content:"";position:absolute;left:50%;top:-.62rem;width:.9rem;height:.9rem;margin-left:-.45rem;background:var(--card);border-left:2px solid var(--ctl);border-top:2px solid var(--ctl);transform:rotate(45deg)}
-.burbuja:focus{outline:none}.burbuja .frase{line-height:1.25;text-align:center}.burbuja .wd small{font-size:var(--fs-sm)}
-.wd{transition:background .12s;-webkit-tap-highlight-color:transparent}.burbuja .wd{font-size:clamp(2.1rem,9.5vw,3rem)}.burbuja .frase.medio .wd{font-size:clamp(1.9rem,8.2vw,2.5rem)}.burbuja .frase.largo .wd{font-size:clamp(1.6rem,6.8vw,2.1rem)}.wd.on{background:rgba(184,137,43,.38);box-shadow:0 0 0 2px var(--gold)}
-.burbuja .tr{margin-top:.7rem;padding-top:.6rem;border-top:1px dashed var(--bd);color:var(--mut);font-size:var(--fs-md);text-align:center}
+.conv{flex:1;display:flex;flex-direction:column;gap:.7rem;padding-bottom:.4rem}
+.b{background:var(--card);border:2px solid var(--ctl);border-radius:18px 4px 18px 18px;padding:.8rem .9rem .7rem;cursor:pointer;scroll-margin-bottom:7.5rem;-webkit-tap-highlight-color:transparent}.b.nueva{border-color:var(--pri)}.b.hablando{box-shadow:0 0 0 3px rgba(184,137,43,.4)}
+.b .frase{line-height:1.25;font-size:clamp(2.1rem,9.5vw,3rem)}.b .frase.medio{font-size:clamp(1.9rem,8.2vw,2.5rem)}.b .frase.largo{font-size:clamp(1.6rem,6.8vw,2.1rem)}
+.b .wd{font-size:inherit}.b .wd small{font-size:var(--fs-sm)}
+.wp{display:inline-flex;align-items:flex-end;white-space:nowrap}.pn{display:inline-block;font-family:var(--serif);font-size:inherit;line-height:1.3;margin:.15rem 0;padding:.1rem 0}
+.wd{transition:background .12s;-webkit-tap-highlight-color:transparent}.wd.on{background:rgba(184,137,43,.38);box-shadow:0 0 0 2px var(--gold)}
+.b .tr{margin-top:.6rem;padding-top:.5rem;border-top:1px dashed var(--bd);color:var(--mut);font-size:var(--fs-md)}
 .ayudas{flex-wrap:nowrap}.ayudas .chip{flex:1;min-height:3rem;font-size:var(--fs-md)}
-.lect .pie{margin-top:auto;position:sticky;bottom:0;background:var(--bg);padding:.6rem 0 .3rem}
+.lect .pie{margin-top:auto;position:sticky;bottom:0;background:var(--bg);padding:.6rem 0 .3rem;display:flex;flex-direction:column;gap:.5rem}
 .zhq{font-family:var(--serif);font-size:var(--fs-xl);line-height:1.35}.play .prompt.qlect b{font-size:var(--fs-xl);font-weight:600}.play .prompt.qlect .chip{font-size:var(--fs-md);min-height:2.75rem}
 .exam{border:1px solid var(--pri);box-shadow:inset 0 0 0 3px var(--card),inset 0 0 0 4px var(--frame);background:var(--card);border-radius:6px;padding:.7rem .9rem;margin:.8rem 0}.exam .row{margin-top:.5rem}
 input[type=date],input[type=time]{padding:.6rem;border-radius:6px;border:2px solid var(--ctl);background:var(--card);color:var(--tx);font:inherit}
@@ -190,7 +193,7 @@ body.nonav{padding-bottom:calc(14px + env(safe-area-inset-bottom))}
 a.chip{text-decoration:none;color:inherit;display:inline-block}
 .vframe{position:relative;padding-top:56.25%;margin:.4rem 0 .8rem;background:#000;border-radius:8px;overflow:hidden}.vframe iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.vframe.mut{padding:.8rem;background:none}
 #dl.np .p2{display:none} #dl.ne .ex .mut{display:none} #dl .ex{margin-top:.6rem;text-align:left} #dl .ex b{color:var(--pri);margin-right:.4rem}
-#lc.np .wd small{display:none} #lc.ne .tr{display:none} .wd{display:inline-block;text-align:center;margin:.15rem .1rem;padding:.1rem .25rem;border-radius:6px;cursor:pointer;font-family:var(--serif);font-size:var(--fs-2xl);line-height:1.3} .wd small{display:block;font-family:inherit;font-size:var(--fs-xs);color:var(--pri)} .wd:active{background:var(--card);outline:1px solid var(--pri)} #fi{position:sticky;bottom:.5rem}
+#conv.np .wd small{display:none} #conv.ne .tr{display:none} .wd{display:inline-block;text-align:center;margin:.15rem .1rem;padding:.1rem .25rem;border-radius:6px;cursor:pointer;font-family:var(--serif);font-size:var(--fs-2xl);line-height:1.3} .wd small{display:block;font-family:inherit;font-size:var(--fs-xs);color:var(--pri)} .wd:active{background:var(--card);outline:1px solid var(--pri)} #fi{position:sticky;bottom:.5rem}
 .ex.now{border-style:solid;border-color:var(--pri);box-shadow:0 0 0 2px var(--pri)}
 </style>
 </head>
@@ -254,7 +257,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script>
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
-const APP_V = 'hsk3-v61'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v62'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app
 let depth = 0, skipPop = false, GUARD = '', INICIO = false; // INICIO: lo pone home() justo antes de pintar; otras pantallas usan la pestaña 'home' solo para la barra y sí deben añadir entrada al historial
@@ -1280,47 +1283,63 @@ function sayLect(i) {
 const HABLA = { t: [], u: null };
 function pararHabla() {
   HABLA.t.forEach(clearTimeout); HABLA.t = []; HABLA.u = null;
-  document.querySelectorAll('#lc .wd.on').forEach(e => e.classList.remove('on')); const av = $('#av'); av && av.classList.remove('habla');
+  document.querySelectorAll('#conv .wd.on, #conv .b.hablando').forEach(e => e.classList.remove('on', 'hablando')); const av = $('#av'); av && av.classList.remove('habla');
 }
 const iniPalabras = zs => { let c = 0; return zs.map(z => { const p = c; c += [...z].length; return p; }); }; // posición de cada palabra dentro de la frase
 const palabraEn = (ini, c) => { let k = 0; ini.forEach((p, n) => { if (p <= c) k = n; }); return k; };
-function hablar(i, j) {
-  const lc = $('#lc'); if (!lc || lc.dataset.i != i || lc.dataset.j != j) return; // la pantalla ya cambió
-  pararHabla();
-  const l = LECT[i].ls[j], ws = [...document.querySelectorAll('#lc .wd')], ini = iniPalabras(l.z), luz = k => ws.forEach((w, n) => w.classList.toggle('on', n == k));
+// dice la frase j (su burbuja ya está en pantalla) iluminando cada palabra; al terminar sin que la corten llama a fin
+function voz(i, j, fin) {
+  const bur = document.querySelector(`#conv .b[data-k="${j}"]`); if (!bur) return;
+  const l = LECT[i].ls[j], ws = [...bur.querySelectorAll('.wd')], ini = iniPalabras(l.z), luz = k => ws.forEach((w, n) => w.classList.toggle('on', n == k));
   try {
     speechSynthesis.cancel();
     const u = new SpeechSynthesisUtterance(l.z.join('')); u.lang = 'zh-CN'; u.rate = S.set.rate; HABLA.u = u;
     u.onstart = () => {
-      if (HABLA.u !== u) return; $('#av') && $('#av').classList.add('habla'); luz(0);
+      if (HABLA.u !== u) return; bur.classList.add('hablando'); $('#av') && $('#av').classList.add('habla'); luz(0);
       let acum = 0; const seg = 0.24 / S.set.rate; // segundos estimados por sílaba; se descartan si llegan avisos reales
       l.z.forEach((z, k) => { const t = acum; acum += Math.max(1, [...z].filter(c => /[㐀-鿿]/.test(c)).length); if (k) HABLA.t.push(setTimeout(() => luz(k), t * seg * 1000)); });
     };
     u.onboundary = e => { if (HABLA.u !== u || (e.name && e.name != 'word')) return; HABLA.t.forEach(clearTimeout); HABLA.t = []; luz(palabraEn(ini, e.charIndex)); };
-    u.onend = u.onerror = () => { if (HABLA.u === u) pararHabla(); };
+    u.onend = u.onerror = () => { if (HABLA.u !== u) return; pararHabla(); fin && fin(); };
     speechSynthesis.speak(u);
   } catch {}
 }
-// una frase cada vez: el personaje, en el centro, la dice; el diálogo va debajo y se pasa con «Siguiente». Tocar al personaje repite la frase.
+function hablar(i, j) { const c = $('#conv'); if (!c || c.dataset.i != i) return; pararHabla(); voz(i, j); } // una frase
+function hablarTodo(i) { // toda la lectura, frase tras frase, desplazando la pantalla a cada burbuja
+  const c = $('#conv'); if (!c || c.dataset.i != i) return; pararHabla();
+  const sigue = j => { if (j >= LECT[i].ls.length) return; const b = document.querySelector(`#conv .b[data-k="${j}"]`); b && b.scrollIntoView && b.scrollIntoView({ block: 'center', behavior: 'smooth' }); voz(i, j, () => sigue(j + 1)); };
+  sigue(0);
+}
+const oir = i => { const c = $('#conv'); c && (c.dataset.fin == '1' ? hablarTodo(i) : hablar(i, +c.dataset.n - 1)); }; // tocar a la persona: repite la última frase; con la lectura terminada, la lee entera
+// cada palabra va con su puntuación aparte: la iluminación y el pinyin solo cubren la palabra, no el punto ni la coma
+const palabraHTML = (i, j, k, z, py) => { const m = z.match(/^(.*?)([，。！？、：；“”]*)$/); return `<span class=wp><span class=wd onclick="event.stopPropagation();palabra(${i},${j},${k})"><small>${pc(py.replace(/[,.!?:;]+$/, ''))}</small>${m[1]}</span>${m[2] ? `<span class=pn>${m[2]}</span>` : ''}</span>`; };
+// añade la frase k al final de la conversación (las anteriores se quedan a la vista)
+function anadir(i, k, mover) {
+  const d = LECT[i], l = d.ls[k], n = d.ls.length, c = $('#conv'), fin = k == n - 1, nc = [...l.z.join('')].length, tam = nc > 16 ? 'largo' : nc > 10 ? 'medio' : '';
+  document.querySelectorAll('#conv .b.nueva').forEach(e => e.classList.remove('nueva'));
+  c.insertAdjacentHTML('beforeend', `<div class="b nueva" data-k=${k} onclick="hablar(${i},${k})"><div class="frase ${tam}">${l.z.map((z, m) => palabraHTML(i, k, m, z, l.p[m])).join('')}</div><div class=tr>${l.e}</div></div>`);
+  c.dataset.n = k + 1; c.dataset.fin = fin ? '1' : '';
+  const bar = $('.lect .bar'), pr = $('.lect .bar i'), cnt = $('.lect .top .mut'); bar && bar.setAttribute('aria-valuenow', k + 1); pr && (pr.style.width = (k + 1) / n * 100 + '%'); cnt && (cnt.textContent = `${k + 1}/${n}`);
+  $('#pie').innerHTML = fin ? '<button class=opt id=ot>🔊 Escuchar toda la lectura</button><button class=main id=nx style="margin:0">Ir a las preguntas</button>' : '<button class=main id=nx style="margin:0">Siguiente</button>';
+  $('#nx').onclick = () => fin ? lectQ(i) : (anadir(i, k + 1, true), hablar(i, k + 1));
+  if (fin) $('#ot').onclick = () => hablarTodo(i);
+  const b = mover && c.lastElementChild; b && b.scrollIntoView && b.scrollIntoView({ block: 'end', behavior: 'smooth' });
+}
+// la conversación completa en pantalla: la persona, arriba a la derecha, va diciendo las frases y cada «Siguiente» añade la siguiente debajo.
+// Al terminar se puede releer todo y escuchar la lectura entera. lectura(i, j) pinta la conversación hasta la frase j (0 = solo la primera).
 function lectura(i, j = 0) {
   pararHabla();
-  const d = LECT[i], l = d.ls[j], n = d.ls.length, ultima = j == n - 1, p = PERS[d.p], nom = p ? p.n : 'el narrador', nc = [...l.z.join('')].length, tam = nc > 16 ? 'largo' : nc > 10 ? 'medio' : '';
+  const d = LECT[i], n = d.ls.length, p = PERS[d.p], nom = p ? p.n : 'el narrador';
   app(`<div class=lect>
-    <div class=top><button class=back onclick="lecturas()">✕</button><div class=bar role=progressbar aria-label="Progreso de la lectura" aria-valuemin=1 aria-valuemax=${n} aria-valuenow=${j + 1}><i style="width:${(j + 1) / n * 100}%"></i></div><span class=mut>${j + 1}/${n}</span></div>
-    <p class=mut style="margin:0;text-align:center">${d.t}</p>
-    <div class=escena>
-    <div class=centro><button class=avatar id=av onclick="hablar(${i},${j})" aria-label="Escuchar otra vez la frase de ${nom}">${p ? avatarSVG(p) : AVATAR}</button>${p ? `<div class=nombre>${p.n}</div>` : ''}</div>
-    <div class="burbuja ${S.set.lpy ? '' : 'np'} ${S.set.les ? '' : 'ne'}" id=lc data-i=${i} data-j=${j} tabindex=-1 role=group aria-label="Frase ${j + 1} de ${n}">
-      <div class="frase ${tam}">${l.z.map((z, k) => `<span class=wd onclick="palabra(${i},${j},${k})"><small>${pc(l.p[k])}</small>${z}</span>`).join('')}</div>
-      <div class=tr>${l.e}</div>
-    </div>
-    <p class=mut style="margin:.6rem 0 0;text-align:center">Toca a ${nom} para oír la frase otra vez · toca una palabra para ver su ficha</p>
+    <div class=top><button class=back onclick="lecturas()">✕</button><div class=bar role=progressbar aria-label="Progreso de la lectura" aria-valuemin=1 aria-valuemax=${n}><i></i></div><span class=mut></span></div>
+    <div class=cab><div class=cabt><p class=tit>${d.t}</p><p class=ayu>Toca a ${nom} para oír la última frase (o toda la lectura al terminar), una frase para oírla o una palabra para ver su ficha.</p></div>
+      <div class=yo><button class=avatar id=av onclick="oir(${i})" aria-label="Escuchar con la voz de ${nom}">${p ? avatarSVG(p) : AVATAR}</button>${p ? `<div class=nombre>${p.n}</div>` : ''}</div></div>
+    <div id=conv class="conv ${S.set.lpy ? '' : 'np'} ${S.set.les ? '' : 'ne'}" data-i=${i} data-n=0 role=log aria-live=polite aria-label="Conversación"></div>
     <div id=fi></div>
-    </div>
-    <div class=pie><div class=row style="flex-wrap:nowrap">${j ? `<button class=opt style="flex:1" onclick="lectura(${i},${j - 1})" aria-label="Frase anterior">←</button>` : ''}<button class=main id=nx style="flex:3;margin:0">${ultima ? 'Ir a las preguntas' : 'Siguiente'}</button></div></div>
+    <div class=pie id=pie></div>
   </div>`); // sin barra de pestañas (como los ejercicios): el botón Siguiente queda siempre a mano
-  $('#nx').onclick = () => ultima ? lectQ(i) : lectura(i, j + 1);
-  $('#lc').focus({ preventScroll: true }); setTimeout(() => hablar(i, j), 250);
+  for (let k = 0; k <= j; k++) anadir(i, k, k == j);
+  setTimeout(() => hablar(i, j), 250);
 }
 // preguntas de comprensión (4 por lectura): o = elige · x = elige la que NO se deduce del texto · z = elige la frase en chino que significa… · f = ordena la frase.
 // En los datos, la respuesta de «o» y «x» va PRIMERA y las opciones se mezclan al mostrarlas; «z» y «f» llevan el número de la frase. No se puede releer el texto (solo oírlo en «o» y «x»).

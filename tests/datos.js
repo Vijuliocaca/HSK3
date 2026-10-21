@@ -78,7 +78,7 @@ t('lecturas: palabras y pinyin alineados, todas con significado (vocabulario o g
   const L = ev('self.LECTS'), glosario = new Set(L.flatMap(x => lineas(x[4]).map(l => l.split('|')[0])));
   L.forEach(([, ti, ls, qs]) => { lineas(ls).forEach(l => { const p = l.split('|'); assert(p.length == 3, ti);
     const z = p[0].split('/'), py = p[1].split(' '); assert(z.length == py.length, `${ti}: ${p[1]}`);
-    z.forEach((w, k) => { const h = [...w].filter(c => /[㐀-鿿]/.test(c)).join(''); assert(h.length == sil(py[k]), `${ti}: ${w} ${py[k]}`); assert(!h || H.has(h) || glosario.has(h), `${ti}: «${h}» sin significado`); }); });
+    z.forEach((w, k) => { assert(/^[^，。！？、：；“”]+[，。！？、：；“”]*$/.test(w), `${ti}: «${w}» debe tener palabra y la puntuación solo al final (la pantalla la separa para no iluminarla)`); const h =[...w].filter(c => /[㐀-鿿]/.test(c)).join(''); assert(h.length == sil(py[k]), `${ti}: ${w} ${py[k]}`); assert(!h || H.has(h) || glosario.has(h), `${ti}: «${h}» sin significado`); }); });
   });
 });
 t('personajes: dibujo y datos completos; cada lectura tiene un personaje que existe y todos cuentan alguna', () => {

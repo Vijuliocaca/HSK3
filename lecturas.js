@@ -421,7 +421,7 @@ f|2`, `一九|uno nueve (cifras del año)
 快餐|comida rápida
 吃到|llegar a comer; probar
 也是|también es`, 'yuyue'],
-[1, '🍗 Vamos al KFC', `你/好！/今天/你/想/吃/什么？|Nǐ hǎo! Jīntiān nǐ xiǎng chī shénme?|Hola, ¿qué quieres comer hoy?
+[1, '🍗 ¿Qué comemos hoy?', `你/好！/今天/你/想/吃/什么？|Nǐ hǎo! Jīntiān nǐ xiǎng chī shénme?|Hola, ¿qué quieres comer hoy?
 我/想/吃/鸡。/你/呢？|Wǒ xiǎng chī jī. Nǐ ne?|Quiero comer pollo. ¿Y tú?|2
 我/也/想/吃/鸡！/我们/去/肯德基/吧。|Wǒ yě xiǎng chī jī! Wǒmen qù Kěndéjī ba.|¡Yo también quiero pollo! Vamos al KFC.
 好。/我/不/能/喝/牛奶，/我/喝/水。|Hǎo. Wǒ bù néng hē niúnǎi, wǒ hē shuǐ.|Vale. Yo no puedo beber leche, beberé agua.|2
@@ -433,7 +433,7 @@ x|¿Cuál de estas afirmaciones NO se puede deducir de la conversación?|Payolin
 z|5
 f|4`, `肯德基|KFC`, 'yuyue+payolink'],
 
-[2, '💼 Después del trabajo', `你/好！/你/喜欢/你/的/工作/吗？|Nǐ hǎo! Nǐ xǐhuan nǐ de gōngzuò ma?|Hola, ¿te gusta tu trabajo?
+[2, '💼 Del trabajo a casa', `你/好！/你/喜欢/你/的/工作/吗？|Nǐ hǎo! Nǐ xǐhuan nǐ de gōngzuò ma?|Hola, ¿te gusta tu trabajo?
 我/很/喜欢！/我/每天/都/很/高兴。|Wǒ hěn xǐhuan! Wǒ měitiān dōu hěn gāoxìng.|¡Me gusta mucho! Todos los días estoy muy contento.|2
 你/几/点/上班？|Nǐ jǐ diǎn shàngbān?|¿A qué hora entras a trabajar?
 我/八/点/上班，/五/点/下班。|Wǒ bā diǎn shàngbān, wǔ diǎn xiàbān.|Entro a las ocho y salgo a las cinco.|2
@@ -458,7 +458,7 @@ z|7
 f|2`, `小白|Xiaobai (nombre del gato)
 看看|echar un vistazo`, 'yuyue+payolink'],
 
-[1, '🍵 Una bebida caliente', `你/喝/什么？|Nǐ hē shénme?|¿Qué bebes?
+[1, '🍵 Té en vez de leche', `你/喝/什么？|Nǐ hē shénme?|¿Qué bebes?
 我/喝/茶。/我/不/能/喝/牛奶。|Wǒ hē chá. Wǒ bù néng hē niúnǎi.|Yo bebo té. No puedo beber leche.|2
 为什么？|Wèishénme?|¿Por qué?
 我/喝/牛奶/以后/不/舒服。|Wǒ hē niúnǎi yǐhòu bù shūfu.|Después de beber leche me siento mal.|2
@@ -621,7 +621,7 @@ f|7`, `灰色|gris
 肉|carne
 让|dejar; hacer que`, 'laura+chiki'],
 
-[2, '🏔️ Un sábado de escalada', `星期六/早上，/我/六/点/起床。|Xīngqīliù zǎoshang, wǒ liù diǎn qǐchuáng.|El sábado por la mañana me levanto a las seis.
+[2, '🏔️ Un sábado en la montaña', `星期六/早上，/我/六/点/起床。|Xīngqīliù zǎoshang, wǒ liù diǎn qǐchuáng.|El sábado por la mañana me levanto a las seis.
 我/和/朋友/开/车/去/山/里。|Wǒ hé péngyou kāi chē qù shān lǐ.|Voy en coche con mis amigos a la sierra.
 今天/的/山/很/高，/也/很/难/爬。|Jīntiān de shān hěn gāo, yě hěn nán pá.|La montaña de hoy es alta y difícil de subir.
 我们/慢慢/地/往/上/爬。|Wǒmen mànmàn de wǎng shàng pá.|Subimos despacio, paso a paso.

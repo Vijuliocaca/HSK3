@@ -261,7 +261,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script>
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
-const APP_V = 'hsk3-v68'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v69'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -1317,15 +1317,22 @@ function pararHabla() {
 const iniPalabras = zs => { let c = 0; return zs.map(z => { const p = c; c += [...z].length; return p; }); }; // posición de cada palabra dentro de la frase
 const palabraEn = (ini, c) => { let k = 0; ini.forEach((p, n) => { if (p <= c) k = n; }); return k; };
 // dice la frase j (su burbuja ya está en pantalla) iluminando cada palabra; al terminar sin que la corten llama a fin
+// voz de una persona: su tono y velocidad y, si el dispositivo tiene varias voces chinas, la que le toca (n; las parejas de conversación van con n de distinta paridad)
+const vocesZh = () => { try { return speechSynthesis.getVoices().filter(v => /^zh/i.test(v.lang)).sort((a, b) => a.name < b.name ? -1 : 1); } catch { return []; } };
+function ponerVoz(u, p) {
+  const v = (p && p.voz) || {}, vs = vocesZh();
+  u.pitch = v.tono || 1; u.rate = S.set.rate * (v.vel || 1); if (vs.length > 1 && v.n != null) u.voice = vs[v.n % vs.length];
+  return u.rate;
+}
 function voz(i, j, fin) {
   const bur = document.querySelector(`#conv .b[data-k="${j}"]`); if (!bur) return;
   const l = LECT[i].ls[j], ws = [...bur.querySelectorAll('.wd')], ini = iniPalabras(l.z), luz = k => ws.forEach((w, n) => w.classList.toggle('on', n == k));
   try {
     speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(l.z.join('')); u.lang = 'zh-CN'; u.rate = S.set.rate; HABLA.u = u; if (personas(LECT[i]).length > 1) u.pitch = l.q ? 1.3 : .9; // en las conversaciones de dos, voces algo distintas
+    const u = new SpeechSynthesisUtterance(l.z.join('')); u.lang = 'zh-CN'; const vel = ponerVoz(u, personas(LECT[i])[l.q]); HABLA.u = u;
     u.onstart = () => {
       if (HABLA.u !== u) return; bur.classList.add('hablando'); const av = $(l.q ? '#av2' : '#av'), fr = l.z.join(''); if (av) { av.classList.add(...['habla', /？/.test(fr) ? 'pregunta' : /！/.test(fr) ? 'alegre' : ''].filter(Boolean)); av.classList.remove('gesto'); void av.offsetWidth; av.classList.add('gesto'); } luz(0);
-      let acum = 0; const seg = 0.24 / S.set.rate; // segundos estimados por sílaba; se descartan si llegan avisos reales
+      let acum = 0; const seg = 0.24 / vel; // segundos estimados por sílaba; se descartan si llegan avisos reales
       l.z.forEach((z, k) => { const t = acum; acum += Math.max(1, [...z].filter(c => /[㐀-鿿]/.test(c)).length); if (k) HABLA.t.push(setTimeout(() => luz(k), t * seg * 1000)); });
     };
     u.onboundary = e => { if (HABLA.u !== u || (e.name && e.name != 'word')) return; HABLA.t.forEach(clearTimeout); HABLA.t = []; luz(palabraEn(ini, e.charIndex)); };

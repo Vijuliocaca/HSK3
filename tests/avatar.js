@@ -29,6 +29,12 @@ const ok = (c, m) => { if (!c) { problemas++; console.log('  ✗', m); } };
     await esp(300); ok(!(await cl('#av')).includes('alegre') && !(await cl('#av')).includes('habla'), 'al acabar la frase la cara vuelve a la normal');
     await ev(`hablar(${i}, ${n - 1})`); await esp(320); ok((await cl('#av')).includes('feliz') && (await cl('#av2')).includes('feliz'), 'al terminar la lectura los dos deben sonreír');
     await ev('pararHabla()'); ok(!(await cl('#av')).includes('feliz'), 'pararHabla quita la sonrisa');
+    // voz de cada personaje: tono y velocidad propios y una voz china distinta (el dispositivo tiene 2: se reparten por la paridad de n)
+    await ev("(() => { window.__u = []; window.SpeechSynthesisUtterance = function (t) { this.text = t; }; const vs = [{ name: 'B', lang: 'zh-CN' }, { name: 'A', lang: 'zh-CN' }, { name: 'E', lang: 'en-US' }]; Object.defineProperty(window, 'speechSynthesis', { configurable: true, value: { cancel() { }, getVoices: () => vs, speak(u) { window.__u.push({ pitch: u.pitch, rate: u.rate, voz: u.voice && u.voice.name }); } } }); S.set.rate = 1; return 1; })()");
+    await ev(`lectura(${i}, ${n - 1})`); await esp(700); await ev('pararHabla(); window.__u = []'); await ev(`hablar(${i}, 0)`); await ev(`hablar(${i}, 1)`);
+    const us = await ev('window.__u'); ok(us.length == 2 && us[0].pitch == 1.3 && us[1].pitch == 1.15 && us[0].rate == 1.05 && us[1].rate == 1, `cada persona debe hablar con su tono y velocidad (${JSON.stringify(us)})`);
+    ok(us[0].voz == 'B' && us[1].voz == 'A' && us[0].voz != us[1].voz, `dos personas que conversan deben usar voces distintas (${us.map(u => u.voz)})`);
+    await ev('S.set.rate = 0.5; window.__u = []'); await ev(`hablar(${i}, 0)`); ok((await ev('window.__u'))[0].rate == 0.525, 'la velocidad propia debe multiplicar la del ajuste');
   } catch (e) { problemas++; console.log('  ✗ error en la prueba:', e.message); }
   await b.cerrar();
   console.log(problemas ? `avatar: ${problemas} problemas` : 'avatar: OK');

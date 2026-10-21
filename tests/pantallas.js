@@ -82,5 +82,36 @@ t('recordatorio: el .ics tiene la estructura de un calendario válido', () => {
   assert(ics.endsWith('\r\n') && !/[^\r]\n/.test(ics), 'los saltos de línea deben ser CRLF'); assert(/DTSTART:\d{8}T\d{6}\r\n/.test(ics));
 });
 
+// --- lecturas: ayudas en la página general, lectura frase a frase y preguntas ---
+t('lecturas: Pinyin y Español están en la página general, en ese orden, y se recuerdan', () => {
+  const a = cargarApp(); a.ev('lecturas()'); let h = a.html();
+  assert(h.indexOf('>Pinyin<') > 0 && h.indexOf('>Pinyin<') < h.indexOf('>Español<'), 'el orden debe ser Pinyin y luego Español');
+  assert(/class="chip on" aria-pressed="true" onclick="setLect\('lpy'\)"/.test(h) && /class="chip on" aria-pressed="true" onclick="setLect\('les'\)"/.test(h), 'por defecto deben estar activados');
+  a.ev("setLect('lpy')"); h = a.html(); assert(/class="chip " aria-pressed="false" onclick="setLect\('lpy'\)"/.test(h), 'Pinyin debería quedar desactivado');
+  a.ev('lectura(0)'); assert(/class="burbuja[^"]*\bnp\b/.test(a.html()) && !/class="burbuja[^"]*\bne\b/.test(a.html()), 'sin pinyin pero con español');
+  assert.strictEqual(cargarApp({ storage: a.storage }).ev('S.set.lpy'), false, 'no se recuerda tras recargar');
+  a.ev("setLect('les')"); a.ev('lectura(0)'); assert(/class="burbuja[^"]*\bne\b/.test(a.html()), 'sin español debe llevar la clase ne');
+});
+t('lectura: una frase cada vez con su persona; Siguiente avanza, Anterior vuelve y la última lleva a las preguntas', () => {
+  const a = cargarApp(), n = a.ev('LECT[0].ls.length'), palabras = j => a.ev(`LECT[0].ls[${j}].z.length`), spans = () => (a.html().match(/class=wd/g) || []).length;
+  a.ev('lectura(0)'); assert.strictEqual(spans(), palabras(0), 'debe mostrar solo la 1.ª frase'); assert(a.html().includes('class=avatar') && a.html().includes('class="burbuja'), 'falta la persona o el globo');
+  assert(a.html().includes(`>1/${n}<`) && !a.html().includes('Frase anterior'), 'contador o botón Anterior incorrectos en la 1.ª frase');
+  assert(a.html().includes('>Siguiente<'), 'falta Siguiente'); a.els['#nx'].onclick();
+  assert.strictEqual(spans(), palabras(1), 'Siguiente no pasó a la 2.ª frase'); assert(a.html().includes(`>2/${n}<`) && a.html().includes('Frase anterior'), 'contador o botón Anterior incorrectos en la 2.ª frase');
+  a.ev(`lectura(0, ${n - 1})`); assert(a.html().includes('>Ir a las preguntas<'), 'la última frase debe llevar a las preguntas');
+  a.els['#nx'].onclick(); assert(a.els['#q'].innerHTML.includes('qlect'), 'no se abrieron las preguntas');
+});
+t('preguntas de lectura: «elige», «la falsa» y «ordenar» se presentan bien y sin releer el texto', () => {
+  const a = cargarApp(), P = i => JSON.parse(a.ev(`JSON.stringify(LECT[0].qs[${i}])`));
+  [0, 2].forEach(i => { a.ev(`lectQ(0, ${i})`); const q = P(i), h = a.els['#q'].innerHTML; assert(h.includes('prompt qlect') && h.includes(q.q.replace(/&/g, '&amp;')), 'falta la pregunta'); q.r.forEach(x => assert(h.includes(x), 'falta la opción «' + x + '»')); assert(!h.includes('class=wd'), 'no debe mostrar el texto de la lectura'); });
+  a.ev('lectQ(0, 2)'); assert(a.els['#q'].innerHTML.includes('FALSA'), 'la pregunta «falsa» debe decirlo');
+  a.ev('lectQ(0, 3)'); assert(a.els['#q'].innerHTML.includes('Ordena los hechos'), 'la pregunta de ordenar debe decirlo');
+});
+t('lecturas: los resultados de la versión anterior se reinician una sola vez', () => {
+  const a = cargarApp({ storage: { hsk3: JSON.stringify({ v: 2, known: {}, w: {}, lv: [1], lect: { '🐱 Mi gato': 3 } }) } });
+  assert.strictEqual(a.ev('JSON.stringify(S.lect)'), '{}'); assert.strictEqual(a.ev('S.lectV'), 2);
+  a.ev("S.lect['🐱 Mi gato'] = 4; save()"); assert.strictEqual(cargarApp({ storage: a.storage }).ev("S.lect['🐱 Mi gato']"), 4, 'borró también los resultados nuevos');
+});
+
 console.log(fallos ? `pantallas: ${fallos} de ${total} pruebas fallan` : `pantallas: ${total} pruebas OK`);
 process.exit(fallos ? 1 : 0);

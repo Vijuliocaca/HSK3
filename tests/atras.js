@@ -19,6 +19,11 @@ t('atrás desde una pantalla a la que se llega desde otra (inicio → lecturas �
   a.ev('home()'); a.ev('lecturas()'); a.ev('lectura(0)'); a.ev('lectQ(0)');
   assert(a.atras(), 'se cerraría la app'); assert(esInicio(a), 'no vuelve al inicio'); assert.strictEqual(a.entradas(), 1);
 });
+t('atrás a mitad de una lectura (tras avanzar varias frases y abrir las preguntas) lleva al inicio sin acumular historial', () => {
+  a.ev('home()'); a.ev('lecturas()'); a.ev('lectura(0)'); a.ev('lectura(0, 1)'); a.ev('lectura(0, 2)'); assert.strictEqual(a.entradas(), 2, 'cada frase no debe añadir una entrada al historial');
+  assert(a.atras(), 'se cerraría la app'); assert(esInicio(a), 'no vuelve al inicio'); assert.strictEqual(a.entradas(), 1);
+  a.ev('lectura(0, 3)'); a.ev('lectQ(0)'); assert(a.atras(), 'se cerraría la app desde las preguntas'); assert(esInicio(a)); assert.strictEqual(a.entradas(), 1);
+});
 t('atrás desde el ejercicio de gramática desde «Hoy» (pestañas) lleva al inicio', () => {
   a.ev('home()'); a.ev('today()'); a.ev('gramRev()'); assert(a.atras(), 'se cerraría la app'); assert(esInicio(a)); assert.strictEqual(a.entradas(), 1);
 });

@@ -79,7 +79,23 @@ t('lecturas: palabras y pinyin alineados, todas con significado (vocabulario o g
   L.forEach(([, ti, ls, qs]) => { lineas(ls).forEach(l => { const p = l.split('|'); assert(p.length == 3, ti);
     const z = p[0].split('/'), py = p[1].split(' '); assert(z.length == py.length, `${ti}: ${p[1]}`);
     z.forEach((w, k) => { const h = [...w].filter(c => /[㐀-鿿]/.test(c)).join(''); assert(h.length == sil(py[k]), `${ti}: ${w} ${py[k]}`); assert(!h || H.has(h) || glosario.has(h), `${ti}: «${h}» sin significado`); }); });
-    lineas(qs).forEach(q => { const f = q.split('|'); assert(f.length == 4 && new Set(f.slice(1)).size == 3, `${ti}: ${f[0]}`); }); });
+  });
+});
+t('lecturas: 4 preguntas por lectura (o, o, x, r) con 4 opciones distintas; la respuesta no se adivina por la longitud', () => {
+  // o = elige (respuesta primera) · x = elige la FALSA (la falsa primera) · r = ordena hechos (en orden correcto). Siempre en este orden: pantallas-lista.js usa lectQ(i, 2) y lectQ(i, 3).
+  let masLarga = 0, masCorta = 0, total = 0;
+  ev('self.LECTS').forEach(([, ti, , qs]) => {
+    const Q = lineas(qs).map(l => l.split('|'));
+    assert.strictEqual(Q.length, 4, ti + ': debe tener 4 preguntas');
+    assert.deepStrictEqual(Q.map(f => f[0]), ['o', 'o', 'x', 'r'], ti + ': los tipos deben ir en el orden o, o, x, r');
+    Q.forEach(f => {
+      assert.strictEqual(f.length, 6, `${ti}: «${f[1].slice(0, 40)}» debe tener tipo, pregunta y 4 opciones`);
+      assert.strictEqual(new Set(f.slice(2)).size, 4, `${ti}: opciones repetidas en «${f[1].slice(0, 40)}»`);
+      assert(f.every(x => x == x.trim() && x), `${ti}: espacios sobrantes o campo vacío en «${f[1].slice(0, 40)}»`);
+      if (f[0] != 'r') { total++; const o = f.slice(3).map(x => x.length); if (f[2].length > Math.max(...o)) masLarga++; if (f[2].length < Math.min(...o)) masCorta++; }
+    });
+  });
+  assert(masLarga / total <= 0.35 && masCorta / total <= 0.35, `la respuesta correcta es la opción más larga en ${masLarga} y la más corta en ${masCorta} de ${total} preguntas (el azar daría ~25 %, máx. 35 %): iguala la longitud de las opciones`);
 });
 t('成语: 60, cada uno con 4 caracteres, 4 sílabas y ejemplo con pinyin correcto', () => {
   const C = lineas(ev('self.CHENGYU')[0]); assert.strictEqual(C.length, 60);

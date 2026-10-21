@@ -424,14 +424,17 @@ f|2`, `一九|uno nueve (cifras del año)
 [1, '🍗 ¿Qué comemos hoy?', `你/好！/今天/你/想/吃/什么？|Nǐ hǎo! Jīntiān nǐ xiǎng chī shénme?|Hola, ¿qué quieres comer hoy?
 我/想/吃/鸡。/你/呢？|Wǒ xiǎng chī jī. Nǐ ne?|Quiero comer pollo. ¿Y tú?|2
 我/也/想/吃/鸡！/我们/去/肯德基/吧。|Wǒ yě xiǎng chī jī! Wǒmen qù Kěndéjī ba.|¡Yo también quiero pollo! Vamos al KFC.
-好。/我/不/能/喝/牛奶，/我/喝/水。|Hǎo. Wǒ bù néng hē niúnǎi, wǒ hē shuǐ.|Vale. Yo no puedo beber leche, beberé agua.|2
-你/家/的/猫/吃/鸡/吗？|Nǐ jiā de māo chī jī ma?|¿Tu gato come pollo?
-它/喜欢/吃/鱼，/不/喜欢/吃/鸡。|Tā xǐhuan chī yú, bù xǐhuan chī jī.|Le gusta el pescado y no el pollo.|2
-那/你/吃/什么？|Nà nǐ chī shénme?|Entonces, ¿tú qué comes?
-我/吃/米饭/和/菜。|Wǒ chī mǐfàn hé cài.|Yo como arroz y verdura.|2`, `o|¿Por qué Payolink pide agua en vez de leche?|Porque su cuerpo no tolera los lácteos|Porque el agua le parece más barata|Porque en el KFC no sirven leche|Porque hoy prefiere algo más frío
-x|¿Cuál de estas afirmaciones NO se puede deducir de la conversación?|Payolink come en el KFC cada semana|YuYue propone ir al KFC|A Payolink no le sientan bien los lácteos|Al gato de Payolink le gusta el pescado
+好！/我们/几/点/去？|Hǎo! Wǒmen jǐ diǎn qù?|¡Vale! ¿A qué hora vamos?|2
+十二/点。/我们/要/一/杯/奶昔/吗？|Shí'èr diǎn. Wǒmen yào yì bēi nǎixī ma?|A las doce. ¿Pedimos un batido?
+不/要，/谢谢。/我/不/能/喝/牛奶。|Bú yào, xièxie. Wǒ bù néng hē niúnǎi.|No, gracias. No puedo beber leche.|2
+啊，/我/忘/了。/那/你/喝/什么？|A, wǒ wàng le. Nà nǐ hē shénme?|Ay, se me olvidó. Entonces, ¿qué bebes?
+我/喝/水，/你/可以/喝/可乐。|Wǒ hē shuǐ, nǐ kěyǐ hē kělè.|Yo, agua; tú puedes tomar cola.|2`, `o|¿Por qué Payolink rechaza el batido?|Porque su cuerpo no tolera la leche|Porque ya había bebido demasiada agua hoy|Porque prefiere pedir una cola grande|Porque el batido le parece muy caro
+x|¿Cuál de estas afirmaciones NO se puede deducir de la conversación?|Payolink come en el KFC cada semana|YuYue propone ir al KFC|A Payolink no le sientan bien los lácteos|Quedan a las doce para ir al KFC
 z|5
-f|4`, `肯德基|KFC`, 'yuyue+payolink'],
+f|6`, `肯德基|KFC
+奶昔|batido
+十二|doce
+忘|olvidar`, 'yuyue+payolink'],
 
 [2, '💼 Del trabajo a casa', `你/好！/你/喜欢/你/的/工作/吗？|Nǐ hǎo! Nǐ xǐhuan nǐ de gōngzuò ma?|Hola, ¿te gusta tu trabajo?
 我/很/喜欢！/我/每天/都/很/高兴。|Wǒ hěn xǐhuan! Wǒ měitiān dōu hěn gāoxìng.|¡Me gusta mucho! Todos los días estoy muy contento.|2
@@ -439,11 +442,11 @@ f|4`, `肯德基|KFC`, 'yuyue+payolink'],
 我/八/点/上班，/五/点/下班。|Wǒ bā diǎn shàngbān, wǔ diǎn xiàbān.|Entro a las ocho y salgo a las cinco.|2
 下班/以后，/你/做/什么？|Xiàbān yǐhòu, nǐ zuò shénme?|Después del trabajo, ¿qué haces?
 我/常常/骑/自行车/回/家。|Wǒ chángcháng qí zìxíngchē huí jiā.|Suelo volver a casa en bici.|2
-回/家/以后，/我们/一起/吃/西瓜/吧！|Huí jiā yǐhòu, wǒmen yìqǐ chī xīguā ba!|Al llegar a casa, ¡comamos sandía juntos!
-好/啊！/夏天/吃/西瓜/最/好。|Hǎo a! Xiàtiān chī xīguā zuì hǎo.|¡Vale! En verano la sandía es lo mejor.|2`, `o|¿Cómo se siente BinHao con su trabajo?|Contento: disfruta de cada día de trabajo|Cansado: trabaja demasiadas horas|Aburrido: preferiría tener otro empleo|Nervioso: teme llegar tarde a la oficina
+真/好！/天气/很/热，/到/家/以后/来/我/家/吃/西瓜/吧！|Zhēn hǎo! Tiānqì hěn rè, dào jiā yǐhòu lái wǒ jiā chī xīguā ba!|¡Qué bien! Hace mucho calor: cuando llegues, ven a mi casa a comer sandía.
+好！/这么/热/的/天，/吃/西瓜/最/好。|Hǎo! Zhème rè de tiān, chī xīguā zuì hǎo.|¡Vale! Con un día tan caluroso, la sandía es lo mejor.|2`, `o|¿Cómo se siente BinHao con su trabajo?|Contento: disfruta de cada día de trabajo|Cansado: trabaja demasiadas horas|Aburrido: preferiría tener otro empleo|Nervioso: teme llegar tarde a la oficina
 x|¿Cuál de estas afirmaciones NO se puede deducir de la conversación?|BinHao va al trabajo en coche|BinHao termina de trabajar a las cinco|BinHao vuelve a casa en bicicleta|Samu propone comer algo al llegar a casa
 z|4
-f|7`, ``, 'samu+binhao'],
+f|6`, `这么|tan; así`, 'samu+binhao'],
 
 [1, '🐱 El gato Xiaobai', `你/有/猫/吗？|Nǐ yǒu māo ma?|¿Tienes un gato?
 有，/我/有/一/只/小/猫。|Yǒu, wǒ yǒu yì zhī xiǎo māo.|Sí, tengo un gatito.|2
@@ -705,12 +708,13 @@ f|6`, `差不多|casi; más o menos`, 'laura+anto'],
 我/去/健身房。/我/跑步/和/游泳。|Wǒ qù jiànshēnfáng. Wǒ pǎobù hé yóuyǒng.|Yo voy al gimnasio. Corro y nado.
 我/跑/得/很/快，/可是/我/不/会/游泳。|Wǒ pǎo de hěn kuài, kěshì wǒ bú huì yóuyǒng.|Corro muy rápido, pero no sé nadar.|2
 没/关系，/我/可以/教/你。|Méi guānxi, wǒ kěyǐ jiāo nǐ.|No pasa nada, yo puedo enseñarte.
-太/好/了！/你/想/来/我们/的/比赛/吗？|Tài hǎo le! Nǐ xiǎng lái wǒmen de bǐsài ma?|¡Genial! ¿Quieres venir a nuestro partido?|2
+谢谢！/你/想/来/我们/的/比赛/吗？|Xièxie! Nǐ xiǎng lái wǒmen de bǐsài ma?|¡Gracias! ¿Quieres venir a nuestro partido?|2
 好/啊，/几/点？|Hǎo a, jǐ diǎn?|Vale, ¿a qué hora?
-星期六/下午/三/点。/我们/在/学校/见！|Xīngqīliù xiàwǔ sān diǎn. Wǒmen zài xuéxiào jiàn!|El sábado a las tres de la tarde. ¡Nos vemos en el colegio!|2`, `o|¿En qué quedan al final?|Ella irá a su partido el sábado por la tarde|Él irá a su gimnasio el domingo por la mañana|Los dos nadarán juntos el viernes|Los dos correrán juntos por el parque
+星期六/下午/三/点。/我们/在/球场/见！|Xīngqīliù xiàwǔ sān diǎn. Wǒmen zài qiúchǎng jiàn!|El sábado a las tres de la tarde. ¡Nos vemos en el campo!|2`, `o|¿En qué quedan al final?|Ella irá a su partido el sábado por la tarde|Él irá a su gimnasio el domingo por la mañana|Los dos nadarán juntos el viernes|Los dos correrán juntos por el parque
 x|¿Cuál de estas afirmaciones NO se puede deducir de la conversación?|Chiki juega también al rugby|Lucía va al gimnasio|Chiki corre muy rápido|Lucía puede enseñarle a nadar
 z|5
-f|3`, `教|enseñar`, 'lucia+chiki'],
+f|3`, `教|enseñar
+球场|campo de juego`, 'lucia+chiki'],
 
 [2, '🩹 Un golpe en el partido', `你/好，/我/的/腿/很/疼。|Nǐ hǎo, wǒ de tuǐ hěn téng.|Hola, me duele mucho la pierna.
 你/怎么/了？/是/打/球/的/时候/吗？|Nǐ zěnme le? Shì dǎ qiú de shíhou ma?|¿Qué te ha pasado? ¿Fue jugando?|2
@@ -730,13 +734,13 @@ f|7`, `腿|pierna
 
 [1, '🍉 Sandía y ajedrez', `你/会/下棋/吗？|Nǐ huì xiàqí ma?|¿Sabes jugar al ajedrez?
 会！/我/最/喜欢/下棋。|Huì! Wǒ zuì xǐhuan xiàqí.|¡Sí! Es lo que más me gusta.|2
-我/不/太/会，/可是/我/想/学。|Wǒ bú tài huì, kěshì wǒ xiǎng xué.|No se me da bien, pero quiero aprender.
-好/啊，/我/教/你。/你/吃/西瓜/吗？|Hǎo a, wǒ jiāo nǐ. Nǐ chī xīguā ma?|Vale, te enseño. ¿Quieres sandía?|2
-吃！/我/最/爱/吃/西瓜。|Chī! Wǒ zuì ài chī xīguā.|¡Sí! La sandía es lo que más me gusta.
-那/我们/一边/吃，/一边/下棋。|Nà wǒmen yìbiān chī, yìbiān xiàqí.|Pues comamos y juguemos al mismo tiempo.|2
-好！/第一/盘，/你/先/走。|Hǎo! Dìyī pán, nǐ xiān zǒu.|¡Vale! En la primera partida, mueves tú primero.
-谢谢！/你/真/好。|Xièxie! Nǐ zhēn hǎo.|¡Gracias! Eres muy amable.|2`, `o|¿Qué hacen mientras Samu aprende?|Comen sandía mientras juegan una partida|Beben té caliente mientras escuchan música tranquila|Miran un partido de fútbol juntos|Hacen los deberes en casa de Samu
-x|¿Cuál de estas afirmaciones NO se puede deducir de la conversación?|Samu es un campeón de ajedrez|Carlos sabe jugar muy bien al ajedrez desde pequeño|A Samu le encanta la sandía|Samu quiere aprender a jugar
+我/不/太/会，/可是/我/想/学。/你/可以/教/我/吗？|Wǒ bú tài huì, kěshì wǒ xiǎng xué. Nǐ kěyǐ jiāo wǒ ma?|No se me da bien, pero quiero aprender. ¿Me puedes enseñar?
+可以！/星期六/来/我/家/吧。|Kěyǐ! Xīngqīliù lái wǒ jiā ba.|¡Claro! Ven a mi casa el sábado.|2
+好！/我/带/一/个/大/西瓜/去。|Hǎo! Wǒ dài yí gè dà xīguā qù.|¡Vale! Llevo una sandía grande.
+太/好/了！/我们/一边/吃，/一边/下棋。|Tài hǎo le! Wǒmen yìbiān chī, yìbiān xiàqí.|¡Genial! Comamos y juguemos a la vez.|2
+那/第一/盘/谁/先/走？|Nà dìyī pán shéi xiān zǒu?|Entonces, ¿quién empieza la primera partida?
+你/先/走，/我/慢慢/教/你。|Nǐ xiān zǒu, wǒ mànmàn jiāo nǐ.|Empiezas tú; yo te enseño despacio.|2`, `o|¿Qué acuerdan para el sábado?|Jugar al ajedrez en casa de Carlos comiendo sandía|Ir a ver un torneo de ajedrez en la ciudad|Cocinar juntos una cena en casa de Samu|Salir a pasear por la montaña con sandía
+x|¿Cuál de estas afirmaciones NO se puede deducir de la conversación?|Samu es un campeón de ajedrez|Carlos sabe jugar muy bien al ajedrez desde pequeño|Samu llevará una sandía|Samu quiere aprender a jugar
 z|2
 f|6`, `一边|a la vez; mientras`, 'samu+carlos'],
 

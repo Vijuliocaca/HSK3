@@ -5,7 +5,6 @@ Lista de mejoras que se han hablado y todavía no están hechas. Recomendación:
 ## Para no perder el progreso
 
 ## Para aprender mejor
-4. **Pronunciación:** grabarte, compararte con el modelo y, en Chrome, puntuar con reconocimiento de voz.
 
 ## Cultura y diversión
 14. **Más canciones tradicionales con melodía y karaoke.** Faltan las partituras (簡譜) de 茉莉花 y 送别 para añadir su melodía.
@@ -36,5 +35,6 @@ Lista de mejoras que se han hablado y todavía no están hechas. Recomendación:
 - Carga más ligera: medida en Edge, aplazar gramática y canciones solo ahorraba ~3 % (el service worker precarga todo) y se descartó. Sí se guardó en caché por día el cálculo de las fiestas (~50 ms por arranque, sw v52). Si el arranque se nota lento en el móvil, la vía con más recorrido sería cargar las frases de ejemplo (frases*.js, ~500 KB) bajo demanda. Pendiente: emparejar y dibujar trazos con teclado, versión oscura del alto contraste.
 
 ## Decisiones ya tomadas
+- **Pronunciación (grabarse, compararse y puntuar con reconocimiento de voz): descartada.** No se hace ni se vuelve a proponer.
 - No se incluyen grabaciones ni letras de canciones con derechos de autor dentro de la app; el Top 10 usa el reproductor de YouTube (necesita conexión).
 - No se añade, por ahora, la opción de importar archivos de audio propios.

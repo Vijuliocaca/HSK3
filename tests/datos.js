@@ -84,7 +84,7 @@ t('lecturas: palabras y pinyin alineados, todas con significado (vocabulario o g
 t('personajes: dibujo y datos completos; cada lectura tiene un personaje que existe y todos cuentan alguna', () => {
   const P = ev('self.PERSONAJES'), ids = Object.keys(P), L = ev('self.LECTS');
   assert(ids.length >= 4, 'el repertorio debe tener al menos los 4 personajes iniciales');
-  ids.forEach(id => { const p = P[id]; assert(p.n && /^\w+$/.test(p.n) && p.rasgos, id + ': falta el nombre (una sola palabra) o los rasgos');
+  ids.forEach(id => { const p = P[id]; assert(p.n && /^\p{L}+( \p{L}+)?$/u.test(p.n) && p.rasgos, id + ': falta el nombre (una palabra o nombre y apellido) o los rasgos');
     ['piel', 'pelo', 'ropa', 'fondo'].forEach(k => assert(/^#[0-9a-f]{6}$/i.test(p[k]), `${id}.${k} debe ser un color #rrggbb`));
     assert(['corto', 'rizado', 'largo', 'flequillo'].includes(p.estilo), id + ': estilo de pelo desconocido «' + p.estilo + '»'); });
   assert.strictEqual(new Set(ids.map(id => P[id].n)).size, ids.length, 'nombres repetidos');

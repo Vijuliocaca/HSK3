@@ -88,7 +88,7 @@ t('lecturas: cada lectura la cuenta un personaje (con su nombre en la lista) y l
   ['Payolink', 'Samu', 'YuYue', 'BinHao'].forEach(n => assert(h.includes(' · ' + n), 'la lista no muestra a ' + n));
   assert(a.ev('LECT.every(d => personas(d).length >= 1)'), 'una lectura no tiene personaje');
   Object.keys(JSON.parse(a.ev('JSON.stringify(PERS)'))).forEach(id => { const s = a.ev(`avatarSVG(PERS.${id})`); assert(s.startsWith('<svg') && s.includes(a.ev(`PERS.${id}.piel`)) && s.includes('clip-path'), 'avatar mal dibujado: ' + id); });
-  Object.keys(JSON.parse(a.ev('JSON.stringify(PERS)'))).forEach(id => { assert(a.ev(`!!PATRONES[PERS.${id}.patron] && !!EXTRAS[PERS.${id}.extra]`), id + ': patrón de fondo o accesorio que no existe'); });
+  Object.keys(JSON.parse(a.ev('JSON.stringify(PERS)'))).forEach(id => { assert(a.ev(`!!PATRONES[PERS.${id}.patron] && PERS.${id}.extra.split('+').every(k => !!EXTRAS[k])`), id + ': patrón de fondo o accesorio que no existe'); });
 });
 // el arnés guarda #conv aparte de #app: se vacía antes de cada lectura para ver solo lo que pinta esa lectura
 const lee = (a, js) => { const c = a.els['#conv']; if (c) c.innerHTML = ''; a.ev(js); return a.html() + a.els['#conv'].innerHTML; };

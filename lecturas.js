@@ -468,5 +468,98 @@ f|2`, `小白|Xiaobai (nombre del gato)
 好，/谢谢/你！|Hǎo, xièxie nǐ!|Vale, ¡gracias!|2`, `o|¿Qué le ocurre a Payolink cuando bebe leche?|Se siente mal después de tomarla|Le entra mucho sueño enseguida|Se le quita por completo el apetito|Le sube un poco la temperatura
 x|¿Cuál de estas afirmaciones NO se puede deducir de la conversación?|A Payolink le gusta el té helado|BinHao pregunta qué quiere beber|Payolink toma té en lugar de leche|Los dos beberán té juntos
 z|6
-f|7`, ``, 'binhao+payolink']
+f|7`, ``, 'binhao+payolink'],
+[2, '🧗 El médico escalador', `我/是/医生。|Wǒ shì yīshēng.|Soy médico.
+我/每天/在/医院/工作。|Wǒ měitiān zài yīyuàn gōngzuò.|Todos los días trabajo en el hospital.
+下班/以后，/我/常常/去/运动。|Xiàbān yǐhòu, wǒ chángcháng qù yùndòng.|Después del trabajo suelo ir a hacer deporte.
+星期六/我/去/爬/山。|Xīngqīliù wǒ qù pá shān.|Los sábados voy a la montaña.
+我/最/喜欢/攀岩。|Wǒ zuì xǐhuan pānyán.|Lo que más me gusta es la escalada.
+医生/要/身体/好，/所以/我/多/运动。|Yīshēng yào shēntǐ hǎo, suǒyǐ wǒ duō yùndòng.|Un médico debe estar sano, por eso hago mucho deporte.`, `o|¿Por qué Téo hace tanto deporte?|Porque cree que un médico debe estar sano|Porque quiere cambiar de trabajo pronto|Porque tiene que ganar una competición|Porque su familia se lo exige
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Téo escala siempre acompañado de su familia|Téo trabaja como médico en un hospital|Téo hace deporte cuando sale del trabajo|Téo disfruta especialmente con la escalada
+z|3
+f|6`, `攀岩|escalada en roca`, 'teo'],
+
+[2, '♟️ Ajedrez y fútbol', `我/喜欢/下/国际象棋。|Wǒ xǐhuan xià guójìxiàngqí.|Me gusta jugar al ajedrez.
+下棋/的/时候，/我/要/想/很/多。|Xiàqí de shíhou, wǒ yào xiǎng hěn duō.|Al jugar al ajedrez hay que pensar mucho.
+我/也/喜欢/踢/足球。|Wǒ yě xǐhuan tī zúqiú.|También me gusta jugar al fútbol.
+星期天/我/和/朋友/一起/踢球。|Xīngqītiān wǒ hé péngyou yìqǐ tīqiú.|Los domingos juego al fútbol con mis amigos.
+下棋/要/慢，/踢球/要/快。|Xiàqí yào màn, tīqiú yào kuài.|Al ajedrez se juega despacio y al fútbol, rápido.
+我/觉得/这/两/样/都/很/有意思。|Wǒ juéde zhè liǎng yàng dōu hěn yǒuyìsi.|Creo que las dos cosas son muy divertidas.`, `o|¿Qué diferencia ve Carlos entre sus dos aficiones?|Una pide pensar con calma y la otra moverse deprisa|Una es mucho más cara que la otra|Una se juega solo y la otra en equipo|Una le resulta difícil y la otra fácil
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Carlos juega al fútbol cada día de la semana|A Carlos le gusta el ajedrez|Carlos juega al fútbol con sus amigos|Carlos disfruta con las dos aficiones
+z|2
+f|4`, `国际象棋|ajedrez
+下棋|jugar a un juego de tablero
+踢球|jugar al fútbol
+样|clase, tipo (clasificador)`, 'carlos'],
+
+[2, '🏛️ La política y su gato', `我/是/一/个/政治家。|Wǒ shì yí gè zhèngzhìjiā.|Soy política.
+我/每天/开/很/多/会。|Wǒ měitiān kāi hěn duō huì.|Todos los días tengo muchas reuniones.
+回/家/以后，/我/最/爱/我/的/猫。|Huí jiā yǐhòu, wǒ zuì ài wǒ de māo.|Al llegar a casa, a quien más quiero es a mi gato.
+它/不/说/话，/可是/它/懂/我。|Tā bù shuō huà, kěshì tā dǒng wǒ.|No habla, pero me entiende.
+它/一/叫，/我/就/笑/了。|Tā yí jiào, wǒ jiù xiào le.|En cuanto maúlla, me echo a reír.
+工作/很/累，/可是/有/猫/我/就/很/高兴。|Gōngzuò hěn lèi, kěshì yǒu māo wǒ jiù hěn gāoxìng.|El trabajo cansa, pero con mi gato me siento feliz.`, `o|¿Qué siente Laura por su gato?|Mucho cariño: con él se siente bien tras el trabajo|Fastidio porque la despierta por las noches|Indiferencia: apenas le presta atención|Miedo a que se escape de casa
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Laura tiene varios gatos en casa|Laura pasa el día en reuniones|Laura se relaja al volver a casa|Laura siente que su gato la comprende
+z|4
+f|3`, `政治家|político; política`, 'laura'],
+
+[2, '💪 De Asturias al gimnasio', `我/家/在/西班牙/的/阿斯图里亚斯。|Wǒ jiā zài Xībānyá de Āsītúlǐyǎsī.|Mi casa está en Asturias, en España.
+那里/有/山，/也/有/海。|Nàlǐ yǒu shān, yě yǒu hǎi.|Allí hay montañas y también mar.
+现在/我/住/在/城市，/可是/我/想/家。|Xiànzài wǒ zhù zài chéngshì, kěshì wǒ xiǎng jiā.|Ahora vivo en la ciudad, pero echo de menos mi casa.
+我/每/个/星期/去/三/次/健身房。|Wǒ měi gè xīngqī qù sān cì jiànshēnfáng.|Voy tres veces por semana al gimnasio.
+我/在/那里/跑步/和/游泳。|Wǒ zài nàlǐ pǎobù hé yóuyǒng.|Allí corro y nado.
+运动/以后，/我/觉得/很/舒服。|Yùndòng yǐhòu, wǒ juéde hěn shūfu.|Después de hacer deporte me siento muy bien.`, `o|¿Cómo se siente Lucía lejos de Asturias?|Añora su tierra, aunque vive en la ciudad|Está feliz de haberse ido para siempre|Está enfadada con la gente de su pueblo|Le da igual vivir en cualquier lugar
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Lucía va al gimnasio a diario|En su tierra hay montañas y mar|Lucía vive ahora en una ciudad|El deporte le sienta bien
+z|4
+f|3`, `阿斯图里亚斯|Asturias
+西班牙|España
+健身房|gimnasio`, 'lucia'],
+
+[2, '⚽ Un jugador pequeño', `我/的/个子/不/高。|Wǒ de gèzi bù gāo.|No soy alto.
+可是/我/踢/足球/踢/得/很/好。|Kěshì wǒ tī zúqiú tī de hěn hǎo.|Pero juego muy bien al fútbol.
+我/跑/得/很/快，/朋友/都/知道。|Wǒ pǎo de hěn kuài, péngyou dōu zhīdào.|Corro muy rápido, mis amigos lo saben.
+踢/完/球，/我/回/家/看/我/的/猫。|Tī wán qiú, wǒ huí jiā kàn wǒ de māo.|Al acabar de jugar, vuelvo a casa a ver a mi gato.
+它/坐/在/门/口/等/我。|Tā zuò zài mén kǒu děng wǒ.|Se sienta en la puerta y me espera.
+我/的/猫/也/很/小，/我们/是/好/朋友。|Wǒ de māo yě hěn xiǎo, wǒmen shì hǎo péngyou.|Mi gato también es pequeño: somos buenos amigos.`, `o|¿Qué quiere decir Chiki con «no soy alto, pero juego muy bien»?|Que su estatura no le impide destacar|Que preferiría practicar otro deporte|Que quiere crecer para jugar mejor|Que nadie quiere jugar con él
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Chiki juega también al baloncesto|Chiki corre muy rápido|Chiki tiene un gato pequeño|Su gato lo espera en la puerta
+z|4
+f|5`, `个子|estatura; talla
+知道|saber`, 'chiki'],
+
+[2, '🏀 Baloncesto y rugby', `我/个子/很/高。|Wǒ gèzi hěn gāo.|Soy muy alto.
+所以/我/喜欢/打/篮球。|Suǒyǐ wǒ xǐhuan dǎ lánqiú.|Por eso me gusta jugar al baloncesto.
+我/也/打/橄榄球。|Wǒ yě dǎ gǎnlǎnqiú.|También juego al rugby.
+橄榄球/比/篮球/更/累，/可是/很/好玩。|Gǎnlǎnqiú bǐ lánqiú gèng lèi, kěshì hěn hǎowán.|El rugby cansa más que el baloncesto, pero es muy divertido.
+比赛/以后，/我们/一起/吃/饭。|Bǐsài yǐhòu, wǒmen yìqǐ chī fàn.|Después del partido comemos juntos.
+我/想/一直/打/下去。|Wǒ xiǎng yìzhí dǎ xiàqù.|Quiero seguir jugando siempre.`, `o|¿Qué compara Guidozcos en el texto?|El cansancio y la diversión del rugby frente al baloncesto|Los precios de dos equipos deportivos|Las horas de entrenamiento de dos ligas|La altura de los jugadores de ambos deportes
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Guidozcos prefiere el rugby al baloncesto|Guidozcos es una persona alta|Guidozcos practica dos deportes|Después de los partidos comen en grupo
+z|5
+f|4`, `橄榄球|rugby
+好玩|divertido
+下去|seguir (hacia adelante)`, 'guidozcos'],
+
+[2, '📚 Estudiar en la montaña', `我/家/在/山/上。|Wǒ jiā zài shān shang.|Mi casa está en la montaña.
+早上/我/听到/鸟/叫。|Zǎoshang wǒ tīngdào niǎo jiào.|Por la mañana oigo cantar a los pájaros.
+我/每天/学习/很/长/时间。|Wǒ měitiān xuéxí hěn cháng shíjiān.|Estudio muchas horas cada día.
+山/上/很/安静，/我/可以/看/书。|Shān shang hěn ānjìng, wǒ kěyǐ kàn shū.|En la montaña hay mucha calma y puedo leer.
+去/学校/要/走/一/个/小时。|Qù xuéxiào yào zǒu yí gè xiǎoshí.|Para ir a la escuela hay que caminar una hora.
+虽然/很/远，/可是/我/喜欢/我/的/家。|Suīrán hěn yuǎn, kěshì wǒ xǐhuan wǒ de jiā.|Aunque está lejos, me gusta mi casa.`, `o|¿Por qué le gusta a Anto vivir en la montaña?|Porque allí tiene tranquilidad para estudiar|Porque queda cerca de su escuela|Porque tiene muchos vecinos con quienes charlar|Porque el trayecto de vuelta es muy corto
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Anto va a la escuela en autobús|Anto estudia muchas horas|En su casa hay mucha calma|Anto camina bastante para llegar a clase
+z|5
+f|4`, `听到|oír
+鸟|pájaro
+安静|tranquilo; silencioso
+虽然|aunque`, 'anto'],
+
+[2, '⚽ ¿Ajedrez o fútbol?', `这个/周末/你/想/做/什么？|Zhège zhōumò nǐ xiǎng zuò shénme?|Este fin de semana, ¿qué quieres hacer?
+我/想/踢/足球。/你/来/吗？|Wǒ xiǎng tī zúqiú. Nǐ lái ma?|Quiero jugar al fútbol. ¿Vienes?|2
+好/啊！/踢/完/球/我们/下棋，/怎么样？|Hǎo a! Tī wán qiú wǒmen xiàqí, zěnmeyàng?|¡Vale! Después del fútbol jugamos al ajedrez, ¿qué tal?
+下棋/太/慢/了，/我/不/喜欢。|Xiàqí tài màn le, wǒ bù xǐhuan.|Jugar al ajedrez es demasiado lento, no me gusta.|2
+可是/下棋/很/有意思！/要/多/想，/不/能/快。|Kěshì xiàqí hěn yǒuyìsi! Yào duō xiǎng, bù néng kuài.|¡Pero es muy interesante! Hay que pensar mucho, no se puede ir deprisa.
+好/吧，/就/一/盘。|Hǎo ba, jiù yì pán.|Vale, pero solo una partida.|2
+太/好/了！/先/踢球，/后/下棋。|Tài hǎo le! Xiān tīqiú, hòu xiàqí.|¡Genial! Primero fútbol, luego ajedrez.
+好！/但是/这/次/我/会/赢。|Hǎo! Dànshì zhè cì wǒ huì yíng.|¡Vale! Pero esta vez ganaré.|2`, `o|¿Cómo se ponen de acuerdo al final?|Jugarán primero al fútbol y luego una partida de ajedrez|Jugarán únicamente al ajedrez|Jugarán únicamente al fútbol|Se quedarán en casa sin jugar a nada
+x|¿Cuál de estas afirmaciones NO se puede deducir de la conversación?|Chiki ha ganado siempre a Carlos al ajedrez|Chiki quiere jugar al fútbol|A Chiki el ajedrez le parece lento|Carlos propone jugar una partida
+z|4
+f|3`, `盘|partida (clasificador); bandeja
+赢|ganar`, 'carlos+chiki']
 );

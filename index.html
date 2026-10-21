@@ -42,7 +42,7 @@
 .conv[data-dos] .b{margin-right:1.4rem;border-radius:4px 18px 18px 18px}.conv[data-dos] .b.q2{margin-right:0;margin-left:1.4rem;border-radius:18px 4px 18px 18px}.quien{font:600 var(--fs-sm) var(--title);color:var(--gold-tx);letter-spacing:.04em;margin-bottom:.1rem}.b.q2 .quien{text-align:right}
 .avatar .cejas{transform-box:fill-box;transform-origin:center;transition:transform .2s}.avatar .boca{transition:scale .2s}
 .avatar.pregunta .cejas{transform:translateY(-1.6px)}.avatar.pregunta .boca{scale:.65}.avatar.alegre .cejas{transform:translateY(-1.2px)}.avatar.alegre .boca{scale:1.3 1.15}.avatar.feliz .boca{scale:1.4 .9}.avatar.feliz .cejas{transform:translateY(-.8px)}
-.avatar.gesto svg{animation:asentir .5s ease-out}@keyframes asentir{30%{transform:translateY(2px) rotate(-3deg)}65%{transform:translateY(-1px) rotate(1.5deg)}}@media(prefers-reduced-motion:reduce){.avatar.gesto svg{animation:none}}.avatar.habla{border-color:var(--act);box-shadow:0 0 0 5px rgba(184,137,43,.4)}.nombre{font:600 var(--fs-sm) var(--title);color:var(--gold-tx);letter-spacing:.04em}
+.avatar.gesto svg{animation:asentir .5s ease-out}@keyframes asentir{30%{transform:translateY(2px) rotate(-3deg)}65%{transform:translateY(-1px) rotate(1.5deg)}}@media(prefers-reduced-motion:reduce){.avatar.gesto svg{animation:none}}.avatar.habla{border-color:var(--act);box-shadow:0 0 0 5px rgba(184,137,43,.4)}.nombre{max-width:5.2rem;text-align:center;line-height:1.1;font:600 var(--fs-sm) var(--title);color:var(--gold-tx);letter-spacing:.04em}
 .conv{flex:1;display:flex;flex-direction:column;gap:.7rem;padding-bottom:.4rem}
 .b{background:var(--card);border:2px solid var(--ctl);border-radius:18px 4px 18px 18px;padding:.8rem .9rem .7rem;cursor:pointer;scroll-margin-bottom:7.5rem;-webkit-tap-highlight-color:transparent}.b.nueva{border-color:var(--pri)}.b.hablando{box-shadow:0 0 0 3px rgba(184,137,43,.4)}
 .b .frase{line-height:1.25;font-size:clamp(2.1rem,9.5vw,3rem)}.b .frase.medio{font-size:clamp(1.9rem,8.2vw,2.5rem)}.b .frase.largo{font-size:clamp(1.6rem,6.8vw,2.1rem)}
@@ -261,7 +261,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script>
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
-const APP_V = 'hsk3-v66'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v67'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -1266,20 +1266,31 @@ const PATRONES = { // adorno del fondo de cada avatar (id en personajes.js)
   puntos: '<g fill="#fff" opacity=".55"><circle cx="10" cy="12" r="2"/><circle cx="54" cy="16" r="2.5"/><circle cx="52" cy="40" r="1.8"/><circle cx="9" cy="38" r="2.4"/><circle cx="46" cy="7" r="1.6"/></g>',
   sol: '<path d="M32 30L0 10M32 30L0 30M32 30L6 54M32 30L64 8M32 30L64 30M32 30L58 54M32 30L18 0M32 30L46 0" stroke="#fff" stroke-width="3" opacity=".4"/>',
   diagonal: '<path d="M-4 20L20-4M-4 40L40-4M-4 60L60-4M10 68L68 10M34 68L68 34" stroke="#fff" stroke-width="3" opacity=".45"/>',
-  cuadros: '<path d="M16 0v64M48 0v64M0 16h64M0 48h64" stroke="#fff" stroke-width="2" opacity=".45"/>' };
+  cuadros: '<path d="M16 0v64M48 0v64M0 16h64M0 48h64" stroke="#fff" stroke-width="2" opacity=".45"/>',
+  cruces: '<path d="M9 12h6M12 9v6M50 14h6M53 11v6M52 42h6M55 39v6M10 40h6M13 37v6" stroke="#fff" stroke-width="2.2" opacity=".6"/>',
+  tablero: `<path d="${[...Array(64).keys()].filter(k => (k % 8 + (k >> 3)) % 2).map(k => `M${k % 8 * 8} ${(k >> 3) * 8}h8v8h-8z`).join('')}" fill="#fff" opacity=".4"/>`,
+  olas: '<path d="M0 12q4-4 8 0t8 0t8 0t8 0t8 0t8 0t8 0t8 0M0 54q4-4 8 0t8 0t8 0t8 0t8 0t8 0t8 0t8 0" fill="none" stroke="#fff" stroke-width="2" opacity=".6"/>',
+  montanas: '<path d="M0 46l14-20 10 14 8-12 16 24 16-18v30H0z" fill="#fff" opacity=".5"/>' };
 const EXTRAS = { // accesorio de cada avatar, dibujado delante del pelo
   gato: '<path d="M43 52l1.5-6.5 4.5 3zM55 52l-1.5-6.5-4.5 3z" fill="#e8a53c"/><circle cx="49" cy="56" r="6.5" fill="#e8a53c"/><circle cx="46.8" cy="55" r=".9" fill="#2b1d14"/><circle cx="51.2" cy="55" r=".9" fill="#2b1d14"/><path d="M48.2 57.4h1.6l-.8.9z" fill="#c4574a"/>',
   auriculares: '<path d="M19.5 29a12.5 12.5 0 0 1 25 0" fill="none" stroke="#3a4a5a" stroke-width="2"/><rect x="16.5" y="26" width="4.5" height="8" rx="2.2" fill="#3a4a5a"/><rect x="43" y="26" width="4.5" height="8" rx="2.2" fill="#3a4a5a"/>',
   flor: '<g fill="#e4572e"><circle cx="42" cy="20" r="1.6"/><circle cx="44" cy="22" r="1.6"/><circle cx="42" cy="24" r="1.6"/><circle cx="40" cy="22" r="1.6"/></g><circle cx="42" cy="22" r="1.2" fill="#f6c945"/>',
-  placa: '<rect x="40" y="52" width="7" height="5" rx="1" fill="#fff"/><rect x="41" y="53.2" width="3" height=".9" fill="#34495e"/>' };
+  placa: '<rect x="40" y="52" width="7" height="5" rx="1" fill="#fff"/><rect x="41" y="53.2" width="3" height=".9" fill="#34495e"/>',
+  estetoscopio: '<path d="M26 47q-2 8 6 10q8-2 6-10" fill="none" stroke="#3a3f47" stroke-width="1.6"/><circle cx="32" cy="58" r="2" fill="#9aa5b1" stroke="#3a3f47" stroke-width=".8"/>',
+  ajedrez: '<g fill="#f8f4e8" stroke="#2b1d14" stroke-width=".8"><rect x="44" y="54" width="9" height="3" rx="1"/><path d="M45.5 54l1-6h4l1 6z"/><circle cx="48.5" cy="45.8" r="2.4"/></g>',
+  balon: '<circle cx="14" cy="55" r="6.5" fill="#fff" stroke="#2b1d14" stroke-width="1"/><path d="M14 51.5l3 2.2-1.1 3.5h-3.8l-1.1-3.5z" fill="#2b1d14"/>',
+  pesa: '<g fill="#555d66"><rect x="8" y="53" width="3" height="9" rx="1"/><rect x="11" y="50" width="3" height="15" rx="1"/><rect x="14" y="56" width="7" height="3"/><rect x="21" y="50" width="3" height="15" rx="1"/><rect x="24" y="53" width="3" height="9" rx="1"/></g>',
+  baloncesto: '<circle cx="50" cy="56" r="6.5" fill="#e07b22" stroke="#2b1d14" stroke-width="1"/><path d="M43.5 56h13M50 49.5v13M45 51.5q5 4.5 0 9M55 51.5q-5 4.5 0 9" fill="none" stroke="#2b1d14" stroke-width=".8"/>',
+  libro: '<rect x="42" y="50" width="12" height="9" rx="1" fill="#b3282d"/><rect x="43.5" y="51.5" width="9" height="6" fill="#f6efd9"/><path d="M48 51.5v6" stroke="#b3282d" stroke-width=".8"/>' };
+EXTRAS.gatogris = EXTRAS.gato.replaceAll('#e8a53c', '#9aa0a6');
 function avatarSVG(p) {
   const detras = { largo: `<path d="M18 30a14 14 0 0 1 28 0v14a3 3 0 0 1-3 3H21a3 3 0 0 1-3-3z" fill="${p.pelo}"/>`, rizado: `<g fill="${p.pelo}"><circle cx="21.5" cy="23" r="6"/><circle cx="26.5" cy="17.5" r="6.5"/><circle cx="34" cy="16.5" r="6.5"/><circle cx="42" cy="22" r="6"/><circle cx="32" cy="19" r="7"/></g>` }[p.estilo] || '';
   const delante = { corto: `<path d="M20 28a12 12 0 0 1 24 0q-3-6-12-6t-12 6z" fill="${p.pelo}"/>`, largo: `<path d="M20 28a12 12 0 0 1 24 0q-3-6-12-6t-12 6z" fill="${p.pelo}"/>`,
     flequillo: `<path d="M20 29a12 12 0 0 1 24 0c-4 0-8-3-12-5-3 3-7 5-12 5z" fill="${p.pelo}"/><rect x="19" y="26" width="3" height="11" rx="1.5" fill="${p.pelo}"/><rect x="42" y="26" width="3" height="11" rx="1.5" fill="${p.pelo}"/>` }[p.estilo] || '';
-  return `<svg viewBox="0 0 64 64" aria-hidden="true"><defs><clipPath id="cp${p.n}"><circle cx="32" cy="32" r="32"/></clipPath></defs><g clip-path="url(#cp${p.n})">
+  return `<svg viewBox="0 0 64 64" aria-hidden="true"><defs><clipPath id="cp${[...p.n].map(c => c.charCodeAt(0).toString(36)).join('')}"><circle cx="32" cy="32" r="32"/></clipPath></defs><g clip-path="url(#cp${[...p.n].map(c => c.charCodeAt(0).toString(36)).join('')})">
     <rect width="64" height="64" fill="${p.fondo}"/>${PATRONES[p.patron] || ''}${detras}
     <path d="M10 66c0-13 10-19 22-19s22 6 22 19z" fill="${p.ropa}"/>${p.corbata ? '<path d="M29.5 47l2.5 3 2.5-3 1.2 14h-7.4z" fill="#b3282d"/>' : ''}
-    <rect x="28" y="37" width="8" height="12" rx="3" fill="${p.piel}"/><circle cx="32" cy="28" r="12" fill="${p.piel}"/>${delante}<path class=cejas d="M24.3 24.4q3.2-1.6 6.4 0M33.3 24.4q3.2-1.6 6.4 0" fill="none" stroke="#2b1d14" stroke-opacity=".65" stroke-width="1" stroke-linecap="round"/>${EXTRAS[p.extra] || ''}
+    <rect x="28" y="37" width="8" height="12" rx="3" fill="${p.piel}"/><circle cx="32" cy="28" r="12" fill="${p.piel}"/>${delante}<path class=cejas d="M24.3 24.4q3.2-1.6 6.4 0M33.3 24.4q3.2-1.6 6.4 0" fill="none" stroke="#2b1d14" stroke-opacity=".65" stroke-width="1" stroke-linecap="round"/>${(p.extra || '').split('+').map(k => EXTRAS[k] || '').join('')}
     <g class=ojos><circle cx="27.5" cy="29" r="2.1" fill="#fff"/><circle cx="36.5" cy="29" r="2.1" fill="#fff"/><circle cx="27.8" cy="29.2" r="1.15" fill="#2b1d14"/><circle cx="36.8" cy="29.2" r="1.15" fill="#2b1d14"/></g>
     ${p.gafas ? '<g fill="none" stroke="#2b1d14" stroke-width="1.2"><circle cx="27.5" cy="29" r="3.8"/><circle cx="36.5" cy="29" r="3.8"/><path d="M31.3 29h1.4"/></g>' : ''}
     <path class=boca d="M28 34q4 4 8 0z" fill="#fff" stroke="rgba(43,29,20,.55)" stroke-width=".8" stroke-linejoin="round"/></g></svg>`;

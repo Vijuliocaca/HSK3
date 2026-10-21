@@ -38,7 +38,11 @@
 .cabt{flex:1;min-width:0;padding-top:.3rem}.cabt .tit{margin:0;font-weight:600}.cabt .ayu{margin:.35rem 0 0;font-size:var(--fs-sm);color:var(--mut);line-height:1.4}
 .yo{display:flex;flex-direction:column;align-items:center;gap:.25rem;flex:none}
 .avatar{display:grid;place-items:center;width:4.8rem;height:4.8rem;padding:0;border-radius:50%;border:3px solid var(--gold);background:var(--card);overflow:hidden;cursor:pointer;transition:box-shadow .15s,border-color .15s,transform .1s;-webkit-tap-highlight-color:transparent;touch-action:manipulation}.avatar svg{display:block;width:100%;height:100%}.avatar:active{transform:scale(.95)}.avatar:focus-visible{outline-offset:4px}
-.avatar .ojos,.avatar .boca{transform-box:fill-box;transform-origin:center}.avatar .ojos{animation:parpadeo 4.6s infinite}.avatar .boca{transform-origin:50% 0}.avatar.habla .boca{animation:hablar .28s ease-in-out infinite alternate}@keyframes parpadeo{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}@keyframes hablar{from{transform:scaleY(.25)}to{transform:scaleY(1.35)}}@media(prefers-reduced-motion:reduce){.avatar .ojos,.avatar.habla .boca{animation:none}}.avatar.gesto svg{animation:asentir .5s ease-out}@keyframes asentir{30%{transform:translateY(2px) rotate(-3deg)}65%{transform:translateY(-1px) rotate(1.5deg)}}@media(prefers-reduced-motion:reduce){.avatar.gesto svg{animation:none}}.avatar.habla{border-color:var(--act);box-shadow:0 0 0 5px rgba(184,137,43,.4)}.nombre{font:600 var(--fs-sm) var(--title);color:var(--gold-tx);letter-spacing:.04em}
+.avatar .ojos,.avatar .boca{transform-box:fill-box;transform-origin:center}.avatar .ojos{animation:parpadeo 4.6s infinite}.avatar .boca{transform-origin:50% 0}.avatar.habla .boca{animation:hablar .28s ease-in-out infinite alternate}@keyframes parpadeo{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}@keyframes hablar{from{transform:scaleY(.25)}to{transform:scaleY(1.35)}}@media(prefers-reduced-motion:reduce){.avatar .ojos,.avatar.habla .boca{animation:none}}.avs{display:flex;gap:.6rem;flex:none}.cab.dos .avatar{width:3.7rem;height:3.7rem}
+.conv[data-dos] .b{margin-right:1.4rem;border-radius:4px 18px 18px 18px}.conv[data-dos] .b.q2{margin-right:0;margin-left:1.4rem;border-radius:18px 4px 18px 18px}.quien{font:600 var(--fs-sm) var(--title);color:var(--gold-tx);letter-spacing:.04em;margin-bottom:.1rem}.b.q2 .quien{text-align:right}
+.avatar .cejas{transform-box:fill-box;transform-origin:center;transition:transform .2s}.avatar .boca{transition:scale .2s}
+.avatar.pregunta .cejas{transform:translateY(-1.6px)}.avatar.pregunta .boca{scale:.65}.avatar.alegre .cejas{transform:translateY(-1.2px)}.avatar.alegre .boca{scale:1.3 1.15}.avatar.feliz .boca{scale:1.4 .9}.avatar.feliz .cejas{transform:translateY(-.8px)}
+.avatar.gesto svg{animation:asentir .5s ease-out}@keyframes asentir{30%{transform:translateY(2px) rotate(-3deg)}65%{transform:translateY(-1px) rotate(1.5deg)}}@media(prefers-reduced-motion:reduce){.avatar.gesto svg{animation:none}}.avatar.habla{border-color:var(--act);box-shadow:0 0 0 5px rgba(184,137,43,.4)}.nombre{font:600 var(--fs-sm) var(--title);color:var(--gold-tx);letter-spacing:.04em}
 .conv{flex:1;display:flex;flex-direction:column;gap:.7rem;padding-bottom:.4rem}
 .b{background:var(--card);border:2px solid var(--ctl);border-radius:18px 4px 18px 18px;padding:.8rem .9rem .7rem;cursor:pointer;scroll-margin-bottom:7.5rem;-webkit-tap-highlight-color:transparent}.b.nueva{border-color:var(--pri)}.b.hablando{box-shadow:0 0 0 3px rgba(184,137,43,.4)}
 .b .frase{line-height:1.25;font-size:clamp(2.1rem,9.5vw,3rem)}.b .frase.medio{font-size:clamp(1.9rem,8.2vw,2.5rem)}.b .frase.largo{font-size:clamp(1.6rem,6.8vw,2.1rem)}
@@ -257,7 +261,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script>
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
-const APP_V = 'hsk3-v64'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v65'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app
 let depth = 0, skipPop = false, GUARD = '', INICIO = false; // INICIO: lo pone home() justo antes de pintar; otras pantallas usan la pestaña 'home' solo para la barra y sí deben añadir entrada al historial
@@ -1249,10 +1253,11 @@ function quiz(k, i) {
 }
 
 // lecturas: cada frase va por palabras (/) alineada con su pinyin; se toca una palabra para ver su ficha
-const LECT = (self.LECTS || []).map(([lv, t, ls, qs, , p]) => ({ lv, t, p, ls: ls.split('\n').map(l => { const [z, p, e] = l.split('|'); return { z: z.split('/'), p: p.split(' '), e }; }), qs: qs.split('\n').map(l => { const [t, q, ...r] = l.split('|'); return t == 'z' || t == 'f' ? { t, k: +q - 1 } : { t, q, r }; }) }));
+const LECT = (self.LECTS || []).map(([lv, t, ls, qs, , p]) => ({ lv, t, p, ls: ls.split('\n').map(l => { const [z, p, e, q] = l.split('|'); return { z: z.split('/'), p: p.split(' '), e, q: q == '2' ? 1 : 0 }; }), qs: qs.split('\n').map(l => { const [t, q, ...r] = l.split('|'); return t == 'z' || t == 'f' ? { t, k: +q - 1 } : { t, q, r }; }) }));
 const GLOS = Object.fromEntries((self.LECTS || []).flatMap(x => x[4].split('\n').filter(Boolean).map(l => l.split('|')))), LPUNT = /[，。！？、：；“”,.!?:;]/g;
 // avatares: se dibujan en SVG a partir de los datos de personajes.js (piel, pelo y su estilo, ropa, fondo, gafas, corbata)
 const PERS = self.PERSONAJES || {};
+const personas = d => (d.p || '').split('+').map(id => PERS[id]).filter(Boolean); // quién cuenta la lectura (una o dos personas)
 const AVATAR = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>'; // persona genérica si una lectura no indica personaje
 const PATRONES = { // adorno del fondo de cada avatar (id en personajes.js)
   puntos: '<g fill="#fff" opacity=".55"><circle cx="10" cy="12" r="2"/><circle cx="54" cy="16" r="2.5"/><circle cx="52" cy="40" r="1.8"/><circle cx="9" cy="38" r="2.4"/><circle cx="46" cy="7" r="1.6"/></g>',
@@ -1271,7 +1276,7 @@ function avatarSVG(p) {
   return `<svg viewBox="0 0 64 64" aria-hidden="true"><defs><clipPath id="cp${p.n}"><circle cx="32" cy="32" r="32"/></clipPath></defs><g clip-path="url(#cp${p.n})">
     <rect width="64" height="64" fill="${p.fondo}"/>${PATRONES[p.patron] || ''}${detras}
     <path d="M10 66c0-13 10-19 22-19s22 6 22 19z" fill="${p.ropa}"/>${p.corbata ? '<path d="M29.5 47l2.5 3 2.5-3 1.2 14h-7.4z" fill="#b3282d"/>' : ''}
-    <rect x="28" y="37" width="8" height="12" rx="3" fill="${p.piel}"/><circle cx="32" cy="28" r="12" fill="${p.piel}"/>${delante}${EXTRAS[p.extra] || ''}
+    <rect x="28" y="37" width="8" height="12" rx="3" fill="${p.piel}"/><circle cx="32" cy="28" r="12" fill="${p.piel}"/>${delante}<path class=cejas d="M24.3 24.4q3.2-1.6 6.4 0M33.3 24.4q3.2-1.6 6.4 0" fill="none" stroke="#2b1d14" stroke-opacity=".65" stroke-width="1" stroke-linecap="round"/>${EXTRAS[p.extra] || ''}
     <g class=ojos><circle cx="27.5" cy="29" r="2.1" fill="#fff"/><circle cx="36.5" cy="29" r="2.1" fill="#fff"/><circle cx="27.8" cy="29.2" r="1.15" fill="#2b1d14"/><circle cx="36.8" cy="29.2" r="1.15" fill="#2b1d14"/></g>
     ${p.gafas ? '<g fill="none" stroke="#2b1d14" stroke-width="1.2"><circle cx="27.5" cy="29" r="3.8"/><circle cx="36.5" cy="29" r="3.8"/><path d="M31.3 29h1.4"/></g>' : ''}
     <path class=boca d="M28 34q4 4 8 0z" fill="#fff" stroke="rgba(43,29,20,.55)" stroke-width=".8" stroke-linejoin="round"/></g></svg>`;
@@ -1284,7 +1289,7 @@ function lecturas() {
   app(`<div class=top><button class=back onclick="home()">←</button><b>Lecturas</b></div>
     <p class=mut>Cada lectura te la cuenta un personaje, frase a frase. Elige qué ayudas ver mientras lees (valen para todas):</p>
     <div class="row ayudas" role=group aria-label="Ayudas de lectura">${ayuda('lpy', 'Con pinyin')}${ayuda('les', 'En español')}</div>`
-    + LEVELS.map(lv => `<h2>HSK ${lv}</h2><div class=list>${LECT.map((d, i) => d.lv == lv ? `<button class=mode onclick="lectura(${i})"><span class=e>${d.t.split(' ')[0]}</span><span><b>${d.t.slice(d.t.indexOf(' ') + 1)}</b><small>${d.ls.length} frases${PERS[d.p] ? ' · ' + PERS[d.p].n : ''}${hecho(d)}</small></span></button>` : '').join('')}</div>`).join(''), 'home');
+    + LEVELS.map(lv => `<h2>HSK ${lv}</h2><div class=list>${LECT.map((d, i) => d.lv == lv ? `<button class=mode onclick="lectura(${i})"><span class=e>${d.t.split(' ')[0]}</span><span><b>${d.t.slice(d.t.indexOf(' ') + 1)}</b><small>${d.ls.length} frases${personas(d).length ? ' · ' + personas(d).map(p => p.n).join(' y ') : ''}${hecho(d)}</small></span></button>` : '').join('')}</div>`).join(''), 'home');
 }
 function sayLect(i) {
   try { speechSynthesis.cancel(); LECT[i].ls.forEach(l => { const u = new SpeechSynthesisUtterance(l.z.join('')); u.lang = 'zh-CN'; u.rate = S.set.rate; speechSynthesis.speak(u); }); } catch {}
@@ -1293,7 +1298,7 @@ function sayLect(i) {
 const HABLA = { t: [], u: null };
 function pararHabla() {
   HABLA.t.forEach(clearTimeout); HABLA.t = []; HABLA.u = null;
-  document.querySelectorAll('#conv .wd.on, #conv .b.hablando').forEach(e => e.classList.remove('on', 'hablando')); const av = $('#av'); av && av.classList.remove('habla');
+  document.querySelectorAll('#conv .wd.on, #conv .b.hablando').forEach(e => e.classList.remove('on', 'hablando')); document.querySelectorAll('.cab .avatar').forEach(a => a.classList.remove('habla', 'pregunta', 'alegre', 'feliz'));
 }
 const iniPalabras = zs => { let c = 0; return zs.map(z => { const p = c; c += [...z].length; return p; }); }; // posición de cada palabra dentro de la frase
 const palabraEn = (ini, c) => { let k = 0; ini.forEach((p, n) => { if (p <= c) k = n; }); return k; };
@@ -1303,14 +1308,14 @@ function voz(i, j, fin) {
   const l = LECT[i].ls[j], ws = [...bur.querySelectorAll('.wd')], ini = iniPalabras(l.z), luz = k => ws.forEach((w, n) => w.classList.toggle('on', n == k));
   try {
     speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(l.z.join('')); u.lang = 'zh-CN'; u.rate = S.set.rate; HABLA.u = u;
+    const u = new SpeechSynthesisUtterance(l.z.join('')); u.lang = 'zh-CN'; u.rate = S.set.rate; HABLA.u = u; if (personas(LECT[i]).length > 1) u.pitch = l.q ? 1.3 : .9; // en las conversaciones de dos, voces algo distintas
     u.onstart = () => {
-      if (HABLA.u !== u) return; bur.classList.add('hablando'); const av = $('#av'); if (av) { av.classList.add('habla'); av.classList.remove('gesto'); void av.offsetWidth; av.classList.add('gesto'); } luz(0);
+      if (HABLA.u !== u) return; bur.classList.add('hablando'); const av = $(l.q ? '#av2' : '#av'), fr = l.z.join(''); if (av) { av.classList.add(...['habla', /？/.test(fr) ? 'pregunta' : /！/.test(fr) ? 'alegre' : ''].filter(Boolean)); av.classList.remove('gesto'); void av.offsetWidth; av.classList.add('gesto'); } luz(0);
       let acum = 0; const seg = 0.24 / S.set.rate; // segundos estimados por sílaba; se descartan si llegan avisos reales
       l.z.forEach((z, k) => { const t = acum; acum += Math.max(1, [...z].filter(c => /[㐀-鿿]/.test(c)).length); if (k) HABLA.t.push(setTimeout(() => luz(k), t * seg * 1000)); });
     };
     u.onboundary = e => { if (HABLA.u !== u || (e.name && e.name != 'word')) return; HABLA.t.forEach(clearTimeout); HABLA.t = []; luz(palabraEn(ini, e.charIndex)); };
-    u.onend = u.onerror = () => { if (HABLA.u !== u) return; pararHabla(); fin && fin(); };
+    u.onend = u.onerror = () => { if (HABLA.u !== u) return; pararHabla(); if (j == LECT[i].ls.length - 1) document.querySelectorAll('.cab .avatar').forEach(a => a.classList.add('feliz')); fin && fin(); }; // al acabar la lectura, sonríen
     speechSynthesis.speak(u);
   } catch {}
 }
@@ -1320,14 +1325,14 @@ function hablarTodo(i) { // toda la lectura, frase tras frase, desplazando la pa
   const sigue = j => { if (j >= LECT[i].ls.length) return; const b = document.querySelector(`#conv .b[data-k="${j}"]`); b && b.scrollIntoView && b.scrollIntoView({ block: 'center', behavior: 'smooth' }); voz(i, j, () => sigue(j + 1)); };
   sigue(0);
 }
-const oir = i => { const c = $('#conv'); c && (c.dataset.fin == '1' ? hablarTodo(i) : hablar(i, +c.dataset.n - 1)); }; // tocar a la persona: repite la última frase; con la lectura terminada, la lee entera
+const oir = (i, q = 0) => { const c = $('#conv'); if (!c) return; if (c.dataset.fin == '1') return hablarTodo(i); let j = +c.dataset.n - 1; for (let k = j; k >= 0; k--) if (LECT[i].ls[k].q == q) { j = k; break; } hablar(i, j); }; // tocar a una persona: repite su última frase (o toda la lectura si ya terminó) // tocar a la persona: repite la última frase; con la lectura terminada, la lee entera
 // cada palabra va con su puntuación aparte: la iluminación y el pinyin solo cubren la palabra, no el punto ni la coma
 const palabraHTML = (i, j, k, z, py) => { const m = z.match(/^(.*?)([，。！？、：；“”]*)$/); return `<span class=wp><span class=wd onclick="event.stopPropagation();palabra(${i},${j},${k})"><small>${pc(py.replace(/[,.!?:;]+$/, ''))}</small>${m[1]}</span>${m[2] ? `<span class=pn>${m[2]}</span>` : ''}</span>`; };
 // añade la frase k al final de la conversación (las anteriores se quedan a la vista)
 function anadir(i, k, mover) {
   const d = LECT[i], l = d.ls[k], n = d.ls.length, c = $('#conv'), fin = k == n - 1, nc = [...l.z.join('')].length, tam = nc > 16 ? 'largo' : nc > 10 ? 'medio' : '';
   document.querySelectorAll('#conv .b.nueva').forEach(e => e.classList.remove('nueva'));
-  c.insertAdjacentHTML('beforeend', `<div class="b nueva" data-k=${k} onclick="hablar(${i},${k})"><div class="frase ${tam}">${l.z.map((z, m) => palabraHTML(i, k, m, z, l.p[m])).join('')}</div><div class=tr>${l.e}</div></div>`);
+  c.insertAdjacentHTML('beforeend', `<div class="b nueva ${l.q ? 'q2' : ''}" data-k=${k} onclick="hablar(${i},${k})">${personas(d).length > 1 ? `<div class=quien>${personas(d)[l.q].n}</div>` : ''}<div class="frase ${tam}">${l.z.map((z, m) => palabraHTML(i, k, m, z, l.p[m])).join('')}</div><div class=tr>${l.e}</div></div>`);
   c.dataset.n = k + 1; c.dataset.fin = fin ? '1' : '';
   const bar = $('.lect .bar'), pr = $('.lect .bar i'), cnt = $('.lect .top .mut'); bar && bar.setAttribute('aria-valuenow', k + 1); pr && (pr.style.width = (k + 1) / n * 100 + '%'); cnt && (cnt.textContent = `${k + 1}/${n}`);
   $('#pie').innerHTML = fin ? '<button class=opt id=ot>🔊 Escuchar toda la lectura</button><button class=main id=nx style="margin:0">Ir a las preguntas</button>' : '<button class=main id=nx style="margin:0">Siguiente</button>';
@@ -1339,12 +1344,12 @@ function anadir(i, k, mover) {
 // Al terminar se puede releer todo y escuchar la lectura entera. lectura(i, j) pinta la conversación hasta la frase j (0 = solo la primera).
 function lectura(i, j = 0) {
   pararHabla();
-  const d = LECT[i], n = d.ls.length, p = PERS[d.p], nom = p ? p.n : 'el narrador';
+  const d = LECT[i], n = d.ls.length, ps = personas(d), dos = ps.length > 1, nom = ps.length ? ps.map(p => p.n).join(' y ') : 'el narrador';
   app(`<div class=lect>
     <div class=top><button class=back onclick="lecturas()">✕</button><div class=bar role=progressbar aria-label="Progreso de la lectura" aria-valuemin=1 aria-valuemax=${n}><i></i></div><span class=mut></span></div>
-    <div class=cab><div class=cabt><p class=tit>${d.t}</p><p class=ayu>Toca a ${nom} para oír la última frase (o toda la lectura al terminar), una frase para oírla o una palabra para ver su ficha.</p></div>
-      <div class=yo><button class=avatar id=av onclick="oir(${i})" aria-label="Escuchar con la voz de ${nom}">${p ? avatarSVG(p) : AVATAR}</button>${p ? `<div class=nombre>${p.n}</div>` : ''}</div></div>
-    <div id=conv class="conv ${S.set.lpy ? '' : 'np'} ${S.set.les ? '' : 'ne'}" data-i=${i} data-n=0 role=log aria-live=polite aria-label="Conversación"></div>
+    <div class="cab ${dos ?'dos' : ''}"><div class=cabt><p class=tit>${d.t}</p><p class=ayu>${dos ? 'Toca a una persona para oír su última frase' : `Toca a ${nom} para oír la última frase`} (o toda la lectura al terminar), una frase para oírla o una palabra para ver su ficha.</p></div>
+      <div class=avs>${(ps.length ? ps : [null]).map((p, q) => `<div class=yo><button class=avatar id=av${q ? 2 : ''} onclick="oir(${i},${q})" aria-label="Escuchar con la voz de ${p ? p.n : nom}">${p ? avatarSVG(p) : AVATAR}</button>${p ? `<div class=nombre>${p.n}</div>` : ''}</div>`).join('')}</div></div>
+    <div id=conv class="conv ${S.set.lpy ? '' : 'np'} ${S.set.les ? '' : 'ne'}" data-i=${i} ${dos ? 'data-dos=1 ' : ''}data-n=0 role=log aria-live=polite aria-label="Conversación"></div>
     <div id=fi></div>
     <div class=pie id=pie></div>
   </div>`); // sin barra de pestañas (como los ejercicios): el botón Siguiente queda siempre a mano

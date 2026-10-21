@@ -86,7 +86,7 @@ t('recordatorio: el .ics tiene la estructura de un calendario válido', () => {
 t('lecturas: cada lectura la cuenta un personaje (con su nombre en la lista) y los avatares se dibujan', () => {
   const a = cargarApp(); a.ev('lecturas()'); const h = a.html();
   ['Payolink', 'Samu', 'YuYue', 'BinHao'].forEach(n => assert(h.includes(' · ' + n), 'la lista no muestra a ' + n));
-  assert(a.ev('LECT.every(d => PERS[d.p])'), 'una lectura no tiene personaje');
+  assert(a.ev('LECT.every(d => personas(d).length >= 1)'), 'una lectura no tiene personaje');
   Object.keys(JSON.parse(a.ev('JSON.stringify(PERS)'))).forEach(id => { const s = a.ev(`avatarSVG(PERS.${id})`); assert(s.startsWith('<svg') && s.includes(a.ev(`PERS.${id}.piel`)) && s.includes('clip-path'), 'avatar mal dibujado: ' + id); });
   Object.keys(JSON.parse(a.ev('JSON.stringify(PERS)'))).forEach(id => { assert(a.ev(`!!PATRONES[PERS.${id}.patron] && !!EXTRAS[PERS.${id}.extra]`), id + ': patrón de fondo o accesorio que no existe'); });
 });
@@ -95,7 +95,7 @@ const lee = (a, js) => { const c = a.els['#conv']; if (c) c.innerHTML = ''; a.ev
 t('lectura: la persona va arriba a la derecha, la conversación debajo, y se repite tocando a la persona', () => {
   const a = cargarApp(), h = lee(a, 'lectura(0)');
   assert(h.indexOf('class=cab') > 0 && h.indexOf('class=yo') > h.indexOf('class=cabt') && h.indexOf('class=yo') < h.indexOf('id=conv'), 'la persona debe ir en la cabecera, a la derecha del título y encima de la conversación');
-  assert(h.includes('onclick="oir(0)"') && h.includes('Escuchar con la voz de Payolink') && h.includes('onclick="hablar(0,0)"'), 'tocar al persona debe repetir la frase');
+  assert(h.includes('onclick="oir(0,0)"') && h.includes('Escuchar con la voz de Payolink') && h.includes('onclick="hablar(0,0)"'), 'tocar al persona debe repetir la frase');
   assert(h.includes('>Payolink<'), 'falta el nombre del personaje'); assert(!h.includes('Escuchar otra vez'), 'sobra el botón antiguo de escuchar');
   assert(lee(a, 'lectura(1)').includes('>Samu<'), 'la lectura 2 debe contarla Samu');
 });
@@ -131,6 +131,17 @@ t('lectura: la puntuación va fuera de la palabra, así no se ilumina ni lleva p
   assert(p && /^[，。！？、：；“”]+$/.test(p[1]), 'la puntuación debe ir en su propio span'); assert(!/<span class=wd[^>]*><small>[^<]*<[/]small>[^<]*[，。！？]<[/]span>/.test(h), 'dentro de la palabra no debe quedar puntuación');
   assert(!/<small>[^<]*[,.!?]/.test(h), 'el pinyin no debe llevar puntuación');
 });
+t('conversaciones de dos: dos personas arriba, burbujas de cada una con su nombre y tocar a una repite su última frase', () => {
+  const a = cargarApp(), i = a.ev("LECT.findIndex(d => d.p == 'yuyue+payolink')"), n = a.ev(`LECT[${i}].ls.length`), h = lee(a, `lectura(${i})`), conv = () => a.els['#conv'].innerHTML;
+  assert(i >= 0 && h.includes('class="cab dos"') && h.includes('id=av ') && h.includes('id=av2') && h.includes('>YuYue<') && h.includes('>Payolink<') && h.includes('data-dos=1'), 'la cabecera debe llevar a las dos personas');
+  assert(h.includes('oir(' + i + ',0)') && h.includes('oir(' + i + ',1)'), 'cada persona debe poder tocarse');
+  assert(conv().includes('class=quien>YuYue<') && !conv().includes('q2'), 'la 1.ª frase la dice YuYue (sin burbuja de la segunda persona)');
+  a.els['#nx'].onclick(); assert(conv().includes('b nueva q2') && conv().includes('class=quien>Payolink<'), 'la 2.ª frase la dice Payolink, en su propia burbuja');
+  a.els['#nx'].onclick(); a.els['#nx'].onclick(); a.ev('hablar = (i, j) => { (globalThis.__h = globalThis.__h || []).push(j); }');
+  a.ev(`oir(${i}, 1)`); a.ev(`oir(${i}, 0)`); assert.deepStrictEqual(JSON.parse(a.ev('JSON.stringify(globalThis.__h)')), [3, 2], 'tocar a una persona debe repetir SU última frase: ' + a.ev('JSON.stringify(globalThis.__h)') + ' en ' + a.els['#conv'].innerHTML.match(/data-k=/g).length + ' mostradas');
+  for (let q = 1; q < n; q++) a.ev(`LECT[${i}].ls[${q}].q`); assert.strictEqual(a.ev(`LECT[${i}].ls.map(l => l.q).join('')`), '01010101', 'las frases deben alternar');
+});
+t('lectura: las cejas existen en todos los avatares (base de las expresiones)', () => { const a = cargarApp(); Object.keys(JSON.parse(a.ev('JSON.stringify(PERS)'))).forEach(id => assert(a.ev(`avatarSVG(PERS.${id})`).includes('class=cejas'), id + ' sin cejas')); });
 t('preguntas de lectura: elige, la que no se deduce, frase en chino y ordenar se presentan bien y sin releer el texto', () => {
   const a = cargarApp(), P = i => JSON.parse(a.ev(`JSON.stringify(LECT[0].qs[${i}])`)), q = () => a.els['#q'].innerHTML;
   [0, 1].forEach(i => { a.ev(`lectQ(0, ${i})`); const f = P(i), h = q(); assert(h.includes('prompt qlect') && h.includes(f.q), 'falta la pregunta'); f.r.forEach(x => assert(h.includes(x), 'falta la opción «' + x + '»')); assert(!h.includes('class=wd'), 'no debe mostrar el texto de la lectura'); });

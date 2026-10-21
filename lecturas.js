@@ -1,5 +1,5 @@
 // Lecturas graduadas: [HSK, título, frases, preguntas, glosario, personaje]
-//   frases (una por línea): chino por palabras separadas con / | pinyin por palabras separado con espacios | español
+//   frases (una por línea): chino por palabras separadas con / | pinyin por palabras separado con espacios | español | (opcional) 2 si habla la segunda persona de una conversación
 //   preguntas (una por línea; 4 por lectura, siempre en este orden: o, x, z, f)
 //     o|pregunta|opción 1|opción 2|opción 3|opción 4    elige (comprensión o deducción); la correcta va PRIMERA y la app mezcla
 //     x|pregunta|opción 1|opción 2|opción 3|opción 4    elige la que NO se deduce del texto; esa va PRIMERA
@@ -7,7 +7,7 @@
 //     f|N    ordena las palabras de la frase N
 //     Los falsos de «o» y las ciertas de «x» deben ser plausibles, de longitud parecida y no pedir recordar una frase concreta (lo vigila tests/datos.js)
 //   glosario (opcional): hanzi|significado para palabras que no están en el vocabulario; se comparte entre todas las lecturas
-//   personaje: id de personajes.js; quién cuenta la lectura (se elige según de qué habla)
+//   personaje: id de personajes.js (o «id+id» para una conversación entre dos; la primera persona habla en las frases sin «2»); quién cuenta la lectura (se elige según de qué habla)
 (self.LECTS = self.LECTS || []).push(
 [1, '🐱 Mi gato', `我/有/一/只/小/猫。|Wǒ yǒu yì zhī xiǎo māo.|Tengo un gatito.
 它/很/小，/也/很/可爱。|Tā hěn xiǎo, yě hěn kě'ài.|Es muy pequeño y muy mono.
@@ -420,5 +420,53 @@ f|2`, `一九|uno nueve (cifras del año)
 油条|yóutiáo (masa frita alargada)
 快餐|comida rápida
 吃到|llegar a comer; probar
-也是|también es`, 'yuyue']
+也是|también es`, 'yuyue'],
+[1, '🍗 Vamos al KFC', `你/好！/今天/你/想/吃/什么？|Nǐ hǎo! Jīntiān nǐ xiǎng chī shénme?|Hola, ¿qué quieres comer hoy?
+我/想/吃/鸡。/你/呢？|Wǒ xiǎng chī jī. Nǐ ne?|Quiero comer pollo. ¿Y tú?|2
+我/也/想/吃/鸡！/我们/去/肯德基/吧。|Wǒ yě xiǎng chī jī! Wǒmen qù Kěndéjī ba.|¡Yo también quiero pollo! Vamos al KFC.
+好。/我/不/能/喝/牛奶，/我/喝/水。|Hǎo. Wǒ bù néng hē niúnǎi, wǒ hē shuǐ.|Vale. Yo no puedo beber leche, beberé agua.|2
+你/家/的/猫/吃/鸡/吗？|Nǐ jiā de māo chī jī ma?|¿Tu gato come pollo?
+它/喜欢/吃/鱼，/不/喜欢/吃/鸡。|Tā xǐhuan chī yú, bù xǐhuan chī jī.|Le gusta el pescado y no el pollo.|2
+那/你/吃/什么？|Nà nǐ chī shénme?|Entonces, ¿tú qué comes?
+我/吃/米饭/和/菜。|Wǒ chī mǐfàn hé cài.|Yo como arroz y verdura.|2`, `o|¿Por qué Payolink pide agua en vez de leche?|Porque su cuerpo no tolera los lácteos|Porque el agua le parece más barata|Porque en el KFC no sirven leche|Porque hoy prefiere algo más frío
+x|¿Cuál de estas afirmaciones NO se puede deducir de la conversación?|Payolink come en el KFC cada semana|YuYue propone ir al KFC|A Payolink no le sientan bien los lácteos|Al gato de Payolink le gusta el pescado
+z|5
+f|4`, `肯德基|KFC`, 'yuyue+payolink'],
+
+[2, '💼 Después del trabajo', `你/好！/你/喜欢/你/的/工作/吗？|Nǐ hǎo! Nǐ xǐhuan nǐ de gōngzuò ma?|Hola, ¿te gusta tu trabajo?
+我/很/喜欢！/我/每天/都/很/高兴。|Wǒ hěn xǐhuan! Wǒ měitiān dōu hěn gāoxìng.|¡Me gusta mucho! Todos los días estoy muy contento.|2
+你/几/点/上班？|Nǐ jǐ diǎn shàngbān?|¿A qué hora entras a trabajar?
+我/八/点/上班，/五/点/下班。|Wǒ bā diǎn shàngbān, wǔ diǎn xiàbān.|Entro a las ocho y salgo a las cinco.|2
+下班/以后，/你/做/什么？|Xiàbān yǐhòu, nǐ zuò shénme?|Después del trabajo, ¿qué haces?
+我/常常/骑/自行车/回/家。|Wǒ chángcháng qí zìxíngchē huí jiā.|Suelo volver a casa en bici.|2
+回/家/以后，/我们/一起/吃/西瓜/吧！|Huí jiā yǐhòu, wǒmen yìqǐ chī xīguā ba!|Al llegar a casa, ¡comamos sandía juntos!
+好/啊！/夏天/吃/西瓜/最/好。|Hǎo a! Xiàtiān chī xīguā zuì hǎo.|¡Vale! En verano la sandía es lo mejor.|2`, `o|¿Cómo se siente BinHao con su trabajo?|Contento: disfruta de cada día de trabajo|Cansado: trabaja demasiadas horas|Aburrido: preferiría tener otro empleo|Nervioso: teme llegar tarde a la oficina
+x|¿Cuál de estas afirmaciones NO se puede deducir de la conversación?|BinHao va al trabajo en coche|BinHao termina de trabajar a las cinco|BinHao vuelve a casa en bicicleta|Samu propone comer algo al llegar a casa
+z|4
+f|7`, ``, 'samu+binhao'],
+
+[1, '🐱 El gato Xiaobai', `你/有/猫/吗？|Nǐ yǒu māo ma?|¿Tienes un gato?
+有，/我/有/一/只/小/猫。|Yǒu, wǒ yǒu yì zhī xiǎo māo.|Sí, tengo un gatito.|2
+它/叫/什么/名字？|Tā jiào shénme míngzi?|¿Cómo se llama?
+它/叫/小白。/它/很/可爱。|Tā jiào Xiǎobái. Tā hěn kě'ài.|Se llama Xiaobai. Es muy mono.|2
+它/多/大/了？|Tā duō dà le?|¿Cuántos años tiene?
+它/两/岁/了。|Tā liǎng suì le.|Tiene dos años.|2
+我/可以/看看/它/吗？|Wǒ kěyǐ kànkan tā ma?|¿Puedo verlo?
+当然/可以！/来/我/家/吧。|Dāngrán kěyǐ! Lái wǒ jiā ba.|¡Claro que sí! Ven a mi casa.|2`, `o|¿Qué desea YuYue al final de la conversación?|Conocer en persona al gato de su amiga|Adoptar un gato como el de su amiga|Llevarle un regalo al gato|Averiguar qué come el gato
+x|¿Cuál de estas afirmaciones NO se puede deducir de la conversación?|Xiaobai es ya un gato muy viejo|Payolink tiene un gato pequeño|El gato se llama Xiaobai|Payolink invita a YuYue a su casa
+z|7
+f|2`, `小白|Xiaobai (nombre del gato)
+看看|echar un vistazo`, 'yuyue+payolink'],
+
+[1, '🍵 Una bebida caliente', `你/喝/什么？|Nǐ hē shénme?|¿Qué bebes?
+我/喝/茶。/我/不/能/喝/牛奶。|Wǒ hē chá. Wǒ bù néng hē niúnǎi.|Yo bebo té. No puedo beber leche.|2
+为什么？|Wèishénme?|¿Por qué?
+我/喝/牛奶/以后/不/舒服。|Wǒ hē niúnǎi yǐhòu bù shūfu.|Después de beber leche me siento mal.|2
+那/你/可以/喝/水/或者/茶。|Nà nǐ kěyǐ hē shuǐ huòzhě chá.|Entonces puedes beber agua o té.
+对，/我/喜欢/热/茶。|Duì, wǒ xǐhuan rè chá.|Sí, me gusta el té caliente.|2
+我/也/喝/茶。/我们/一起/喝/吧！|Wǒ yě hē chá. Wǒmen yìqǐ hē ba!|Yo también bebo té. ¡Bebamos juntos!
+好，/谢谢/你！|Hǎo, xièxie nǐ!|Vale, ¡gracias!|2`, `o|¿Qué le ocurre a Payolink cuando bebe leche?|Se siente mal después de tomarla|Le entra mucho sueño enseguida|Se le quita por completo el apetito|Le sube un poco la temperatura
+x|¿Cuál de estas afirmaciones NO se puede deducir de la conversación?|A Payolink le gusta el té helado|BinHao pregunta qué quiere beber|Payolink toma té en lugar de leche|Los dos beberán té juntos
+z|6
+f|7`, ``, 'binhao+payolink']
 );

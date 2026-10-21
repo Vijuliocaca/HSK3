@@ -17,6 +17,18 @@ const ok = (c, m) => { if (!c) { problemas++; console.log('  ✗', m); } };
     await ev("document.querySelector('#av').classList.remove('habla')"); await ev('pararHabla()'); await ev("(() => { Object.defineProperty(window, 'speechSynthesis', { configurable: true, value: { cancel() { }, speak(u) { setTimeout(() => u.onstart && u.onstart(), 5); } } }); return 1; })()");
     await ev('hablar(0, 0)'); await esp(60);
     ok((await ev("document.querySelector('#av').classList.contains('gesto')")) && (await anim('#av svg')) == 'asentir', 'al empezar una frase la persona debe hacer un gesto');
+    // conversación de dos: cada frase mueve a SU persona; las preguntas levantan las cejas, las exclamaciones sonríen y al terminar los dos sonríen
+    await ev("(() => { Object.defineProperty(window, 'speechSynthesis', { configurable: true, value: { cancel() { }, speak(u) { setTimeout(() => u.onstart && u.onstart(), 5); setTimeout(() => u.onend && u.onend(), 250); } } }); return 1; })()");
+    const i = await ev("LECT.findIndex(d => d.p == 'yuyue+payolink')"), n = await ev(`LECT[${i}].ls.length`), cl = s => ev(`[...document.querySelector('${s}').classList].join(' ')`);
+    await ev(`lectura(${i}, ${n - 1})`); await esp(700); await ev('pararHabla()');
+    ok((await ev("document.querySelectorAll('.cab .avatar').length")) == 2, 'la conversación debe mostrar a las dos personas');
+    await ev('hablar(0, 0)'.replace('0, 0', `${i}, 0`)); await esp(40); ok((await cl('#av')).includes('habla') && (await cl('#av')).includes('pregunta') && !(await cl('#av2')).includes('habla'), `la 1.ª frase (pregunta) la dice la 1.ª persona con cejas levantadas (${await cl('#av')} / ${await cl('#av2')})`);
+    await ev(`hablar(${i}, 1)`); await esp(40); ok((await cl('#av2')).includes('habla') && !(await cl('#av')).includes('habla'), 'la 2.ª frase la dice la 2.ª persona');
+    await ev(`hablar(${i}, 2)`); await esp(40); ok((await cl('#av')).includes('alegre'), 'una frase con exclamación debe poner cara alegre');
+    ok((await ev("getComputedStyle(document.querySelector('#av .boca')).scale")) != 'none', 'la expresión debe cambiar la boca');
+    await esp(300); ok(!(await cl('#av')).includes('alegre') && !(await cl('#av')).includes('habla'), 'al acabar la frase la cara vuelve a la normal');
+    await ev(`hablar(${i}, ${n - 1})`); await esp(320); ok((await cl('#av')).includes('feliz') && (await cl('#av2')).includes('feliz'), 'al terminar la lectura los dos deben sonreír');
+    await ev('pararHabla()'); ok(!(await cl('#av')).includes('feliz'), 'pararHabla quita la sonrisa');
   } catch (e) { problemas++; console.log('  ✗ error en la prueba:', e.message); }
   await b.cerrar();
   console.log(problemas ? `avatar: ${problemas} problemas` : 'avatar: OK');

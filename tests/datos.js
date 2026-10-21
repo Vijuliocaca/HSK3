@@ -76,7 +76,7 @@ t('diálogos: A/B alternos, 4 campos, pinyin correcto, preguntas con 3-4 opcione
 });
 t('lecturas: palabras y pinyin alineados, todas con significado (vocabulario o glosario)', () => {
   const L = ev('self.LECTS'), glosario = new Set(L.flatMap(x => lineas(x[4]).map(l => l.split('|')[0])));
-  L.forEach(([, ti, ls, qs]) => { lineas(ls).forEach(l => { const p = l.split('|'); assert(p.length == 3, ti);
+  L.forEach(([, ti, ls, qs]) => { lineas(ls).forEach(l => { const p = l.split('|'); assert(p.length == 3 || (p.length == 4 && p[3] == '2'), ti + ': la 4.ª columna, si existe, debe ser «2»');
     const z = p[0].split('/'), py = p[1].split(' '); assert(z.length == py.length, `${ti}: ${p[1]}`);
     z.forEach((w, k) => { assert(/^[^，。！？、：；“”]+[，。！？、：；“”]*$/.test(w), `${ti}: «${w}» debe tener palabra y la puntuación solo al final (la pantalla la separa para no iluminarla)`); const h =[...w].filter(c => /[㐀-鿿]/.test(c)).join(''); assert(h.length == sil(py[k]), `${ti}: ${w} ${py[k]}`); assert(!h || H.has(h) || glosario.has(h), `${ti}: «${h}» sin significado`); }); });
   });
@@ -88,8 +88,9 @@ t('personajes: dibujo y datos completos; cada lectura tiene un personaje que exi
     ['piel', 'pelo', 'ropa', 'fondo'].forEach(k => assert(/^#[0-9a-f]{6}$/i.test(p[k]), `${id}.${k} debe ser un color #rrggbb`));
     assert(['corto', 'rizado', 'largo', 'flequillo'].includes(p.estilo), id + ': estilo de pelo desconocido «' + p.estilo + '»'); });
   assert.strictEqual(new Set(ids.map(id => P[id].n)).size, ids.length, 'nombres repetidos');
-  L.forEach(x => assert(P[x[5]], `${x[1]}: el personaje «${x[5]}» no existe en personajes.js`));
-  ids.forEach(id => assert(L.some(x => x[5] == id), id + ' no cuenta ninguna lectura'));
+  L.forEach(x => x[5].split('+').forEach(id => assert(P[id], `${x[1]}: el personaje «${id}» no existe en personajes.js`)));
+  L.forEach(x => { const dos = x[5].includes('+'), q2 = x[2].split(String.fromCharCode(10)).filter(l => l.split('|')[3] == '2').length; assert(dos ? (x[5].split('+').length == 2 && q2 > 0 && q2 < x[2].split(String.fromCharCode(10)).length) : q2 == 0, `${x[1]}: una conversación lleva dos personajes y frases de cada uno; con un solo personaje no se usa la columna «2»`); });
+  ids.forEach(id => assert(L.some(x => x[5].split('+').includes(id)), id + ' no cuenta ninguna lectura'));
 });
 t('lecturas: 4 preguntas (o, x, z, f): «o» y «x» con 4 opciones distintas y sin pistas de longitud; «z» y «f» apuntan a una frase; nada de preguntar por «la frase 2»', () => {
   let masLarga = 0, masCorta = 0, total = 0;

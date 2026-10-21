@@ -97,7 +97,7 @@ const ok = (cond, msg) => { if (!cond) { problemas++; console.log('  ✗', msg);
     const px = s => ev(`parseFloat(getComputedStyle(document.querySelector(${JSON.stringify(s)})).fontSize)`);
     await ev('lectura(0, 1)'); await esp(450); const corto = await px('#conv .b:last-child .wd');
     ok(corto >= 33, `los caracteres de una frase corta deben ser grandes (≥ 33 px; miden ${corto} px)`);
-    await ev('lectura(LECT.length - 1, 4)'); await esp(450); const largo = await px('#conv .b:last-child .wd');
+    await ev('lectura(LECT.findIndex(d => d.t.includes("El KFC en China")), 4)'); await esp(450); const largo = await px('#conv .b:last-child .wd');
     ok(largo < corto && largo >= 24, `una frase larga usa caracteres algo menores pero legibles (${largo} px frente a ${corto} px)`);
     await ev('lectura(0, 1)'); await esp(450);
     // persona redonda: sin el rectángulo de «tocar» del móvil y con el foco de teclado también redondo

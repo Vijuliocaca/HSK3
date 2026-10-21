@@ -83,7 +83,7 @@ button:disabled{color:var(--tx);opacity:1;cursor:default}
 .stats{display:flex;gap:0;margin:1rem 0;border-radius:6px}
 .stats .stat{background:none;border:0;box-shadow:none;border-radius:0}.stats .stat b{line-height:2rem}.stats .stat+.stat{border-left:1px solid var(--bd)}
 .stat{flex:1;min-width:0;border-radius:6px;padding:.9rem .3rem;text-align:center;overflow-wrap:anywhere}
-.stats .stat b.fuego{position:relative;width:3.4rem;height:3.4rem;margin:-.6rem auto -.2rem}.fuego .i{position:absolute;inset:0;width:100%;height:100%;fill:currentColor;stroke:none}.fuego.on .i{fill:url(#fg)}.fuego span{position:absolute;left:0;right:0;top:47%;transform:translateX(.05rem);font-size:.88rem;line-height:1.4rem;color:#fff}.fuego span.m{font-size:.7rem}
+.stats .stat b.fuego{position:relative;display:block;width:3.2rem;height:3.2rem;margin:.15rem auto .1rem;background:currentColor;border-radius:4px;transform:rotate(-5deg);box-shadow:inset 0 0 0 2px rgba(255,255,255,.35)}.fuego .i{position:absolute;inset:.35rem;width:2.5rem;height:2.5rem;fill:var(--on-act-mut);stroke:none}.fuego span{position:absolute;left:0;right:0;top:1.45rem;text-align:center;font-size:.85rem;line-height:1.4rem;color:inherit}.fuego span.m{font-size:.7rem}
 .stat b{display:block;font-size:var(--fs-2xl);font-variant-numeric:tabular-nums}
 .stats .stat:nth-child(2){flex:1.5}.stats .stat:nth-child(3){flex:1.25}.stats .stat:nth-child(2) b{font-size:var(--fs-xl)}
 .prog{height:6px;background:var(--bd);border-radius:3px;overflow:hidden;margin:.25rem 0 1rem}
@@ -268,7 +268,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script>
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
-const APP_V = 'hsk3-v84'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v85'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -532,7 +532,7 @@ function home() {
   app(`<h1><span class=seal>学</span>HSK Viju<button class=gear onclick="list('all')" aria-label="Vocabulario">${ico('book-open')}</button><button class=gear onclick="settings()" aria-label="Ajustes">${ico('settings')}</button></h1><div class=mut>Preparación gratuita del examen</div>
   <div class=goal><span>Meta de hoy: <b>${Math.min(hoy, meta)}/${meta}</b>${hoy >= meta ? ' ✓' : ''}</span><div class=bar><i style="width:${Math.min(100, hoy / meta * 100)}%"></i></div></div>
   <div class=stats>
-    <div class=stat><b class="fuego ${streakOk && S.streak ? 'on' : ''}" style="color:${streakOk && S.streak ? 'var(--pri)' : 'var(--mut)'}"><svg width=0 height=0 style="position:absolute"><defs><linearGradient id=fg x1=0 y1=1 x2=0 y2=0><stop offset=.35 stop-color="var(--pri)"/><stop offset=1 stop-color="#f59a23"/></linearGradient></defs></svg>${ico('flame')}<span${(streakOk ? S.streak : 0) > 99 ? " class=m" : ""}>${streakOk ? S.streak : 0}</span></b><span class=mut>racha</span></div>
+    <div class=stat><b class=fuego style="color:${streakOk && S.streak ? 'var(--act)' : 'var(--mut)'}">${ico('flame')}<span${(streakOk ? S.streak : 0) > 99 ? " class=m" : ""}>${streakOk ? S.streak : 0}</span></b><span class=mut>racha</span></div>
     <div class=stat onclick="list('done')" style="cursor:pointer"><b style="white-space:nowrap">${p.length}/${all.length}</b><span class=mut>estudiadas</span></div>
     <div class=stat><b>${dom}</b><span class=mut>dominadas</span></div>
   </div>

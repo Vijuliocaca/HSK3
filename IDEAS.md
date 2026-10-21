@@ -54,4 +54,5 @@ Lista de mejoras que se han hablado y todavía no están hechas. Recomendación:
 - No se incluyen grabaciones ni letras de canciones con derechos de autor dentro de la app; el Top 10 usa el reproductor de YouTube (necesita conexión).
 - No se añade, por ahora, la opción de importar archivos de audio propios.
 
+- HSK 7 y 8 hechos (sw v99): HSK 7 = 351 palabras (A-D) y HSK 8 = 282 (E-G), cada nivel con 4 diálogos y 5 lecturas (nuevo7a-b, nuevo8a-b, frases7-8, dialogos7-8, lecturas7-8). Quedan por cubrir H-Z del vocabulario avanzado si se quiere seguir.
 - HSK 6 vocabulario completo (sw v93): A-Z, 767 palabras nuevas con frase (nuevo6a-e.js, frases6a-e.js). El nivel 5 de la app ya cubría casi todo el HSK 6 clásico, así que solo se añadieron las que faltaban. Siguiente posible nivel: HSK 7-9 (palabras realmente nuevas). HSK 6 ya tiene 4 diálogos (`dialogos6.js`) y 5 lecturas (`lecturas6.js`); las pantallas ocultan un nivel sin contenido.

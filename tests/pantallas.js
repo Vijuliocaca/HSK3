@@ -142,6 +142,59 @@ t('conversaciones de dos: dos personas arriba, burbujas de cada una con su nombr
   for (let q = 1; q < n; q++) a.ev(`LECT[${i}].ls[${q}].q`); assert.strictEqual(a.ev(`LECT[${i}].ls.map(l => l.q).join('')`), '01010101', 'las frases deben alternar');
 });
 t('lectura: las cejas existen en todos los avatares (base de las expresiones)', () => { const a = cargarApp(); Object.keys(JSON.parse(a.ev('JSON.stringify(PERS)'))).forEach(id => assert(a.ev(`avatarSVG(PERS.${id})`).includes('class=cejas'), id + ' sin cejas')); });
+// --- curva del olvido: estabilidad por palabra, retención, planificador del examen y pantalla «Hoy» ---
+const olvido = () => { const a = cargarApp(); a.ev('S.known[W[0].id] = 1; S.w = {}'); return a; };
+const envejecer = (a, dias) => a.ev(`(() => { const r = S.w[W[0].id]; r.l -= ${dias} * DIA; r.d -= ${dias} * DIA; })()`); // hace «dias» que se repasó
+t('olvido: la estabilidad crece al acertar a tiempo y la caja se deriva de ella', () => {
+  const a = olvido(), s = () => a.ev('S.w[W[0].id].s'), seq = [];
+  a.ev('grade(W[0].id, true)'); seq.push(s()); assert.strictEqual(seq[0], 1, 'la 1.ª vez se vuelve a ver al día siguiente');
+  for (let k = 0; k < 6; k++) { envejecer(a, seq[seq.length - 1]); a.ev('grade(W[0].id, true)'); seq.push(s()); }
+  seq.forEach((v, k) => { if (k) assert(v > seq[k - 1] * 1.5, `repaso ${k + 1}: ${v} no crece lo bastante sobre ${seq[k - 1]}`); });
+  assert(seq[6] > 30 && seq[6] <= 365, 'tras 7 aciertos a tiempo debe pasar de 30 días: ' + seq.join(' '));
+  assert.strictEqual(a.ev('S.w[W[0].id].b'), a.ev(`cajaDe(${seq[6]})`), 'la caja debe derivarse de la estabilidad');
+});
+t('olvido: repasar de más refuerza menos que repasar cuando ya se olvida', () => {
+  const crece = dias => { const a = olvido(); a.ev('grade(W[0].id, true)'); envejecer(a, 1); a.ev('grade(W[0].id, true)'); const s0 = a.ev('S.w[W[0].id].s'); envejecer(a, dias); a.ev('grade(W[0].id, true)'); return a.ev('S.w[W[0].id].s') / s0; };
+  const pronto = crece(0.1), aTiempo = crece(2.2), tarde = crece(6);
+  assert(pronto < aTiempo && aTiempo < tarde, `crecimiento pronto ${pronto.toFixed(2)} < a tiempo ${aTiempo.toFixed(2)} < tarde ${tarde.toFixed(2)}`);
+  assert(pronto > 1, 'acertar siempre debe alargar algo');
+});
+t('olvido: fallar baja la estabilidad a un tercio (sin reiniciar), la deja para mañana y cuenta el fallo', () => {
+  const a = olvido(); a.ev('S.w[W[0].id] = { b: 5, s: 60, o: 8, f: 0, l: Date.now() - 60 * DIA, d: Date.now(), t: day(new Date(Date.now() - 60 * 864e5)) }');
+  a.ev('grade(W[0].id, false)'); const r = JSON.parse(a.ev('JSON.stringify(S.w[W[0].id])'));
+  assert.strictEqual(r.s, 18, 'de 60 días debe pasar a 18 (un tercio)'); assert.strictEqual(r.f, 1); assert(r.d - Date.now() > 0.9 * 864e5 && r.d - Date.now() <= 864e5 + 1000, 'debe volver a verse mañana');
+  a.ev('grade(W[0].id, false)'); assert(Math.abs(a.ev('S.w[W[0].id].s') - 5.4) < 1e-9, 'otro fallo: 5,4'); a.ev('grade(W[0].id, false)'); a.ev('grade(W[0].id, false)'); assert.strictEqual(a.ev('S.w[W[0].id].s'), 1, 'nunca baja de 1 día');
+  assert(!a.ev('due().some(w => w.id == W[0].id)'), 'lo fallado hoy no vuelve hasta mañana');
+});
+t('olvido: la retención es 100 % al repasar, 90 % a los s días y decrece; los registros antiguos (solo caja) se leen con el intervalo de su caja', () => {
+  const a = olvido(), R = (s, dias) => a.ev(`retencion({ s: ${s}, l: Date.now() - ${dias} * DIA, d: 0 })`);
+  assert(Math.abs(R(10, 0) - 1) < 1e-6 && Math.abs(R(10, 10) - 0.9) < 1e-6 && R(10, 20) < R(10, 10) && R(20, 10) > R(10, 10), 'forma de la curva');
+  a.ev('S.w[W[0].id] = { b: 3, d: Date.now() + 2 * DIA, o: 3, f: 0, t: "2026-01-01" }'); assert.strictEqual(a.ev('estab(S.w[W[0].id])'), 7, 'caja 3 = 7 días'); assert(Math.abs(a.ev('retencion(S.w[W[0].id])') - Math.pow(.9, 5 / 7)) < 1e-3, 'se repasó hace 5 días (vence en 2)');
+  a.ev('grade(W[0].id, true)'); assert(a.ev('S.w[W[0].id].s') > 7 && a.ev('S.w[W[0].id].l') > 0, 'un registro antiguo debe seguir creciendo al acertar');
+});
+t('olvido: con el examen cerca ninguna palabra espera más de ~1/4 del tiempo que falta (sin examen no hay tope)', () => {
+  const a = olvido(); a.ev('S.w[W[0].id] = { b: 5, s: 60, o: 8, f: 0, l: Date.now(), d: Date.now() + 60 * DIA, t: day(new Date()) }');
+  assert.strictEqual(a.ev('tope()'), Infinity); assert.strictEqual(a.ev('venceEn(S.w[W[0].id])'), a.ev('S.w[W[0].id].d'));
+  const en = n => { a.ev(`S.exam = { d: day(new Date(Date.now() + ${n} * 864e5)) }`); return a.ev('tope()'); };
+  assert.strictEqual(en(8), 2); assert.strictEqual(en(100), 25); assert.strictEqual(en(2), 1); assert.strictEqual(en(1), 1);
+  a.ev(`S.exam = { d: day(new Date(Date.now() + 8 * 864e5)) }`); assert(a.ev('venceEn(S.w[W[0].id])') <= a.ev('Date.now()') + 2 * 864e5 + 5, 'el repaso debe adelantarse al tope');
+  a.ev('S.exam = { d: day(new Date(Date.now() - 3 * 864e5)) }'); assert.strictEqual(a.ev('tope()'), Infinity, 'con el examen pasado no hay tope');
+});
+t('olvido: el repaso de hoy empieza por lo que más se está olvidando; «reforzar» elige lo flojo aunque no toque', () => {
+  const a = cargarApp(); a.ev('S.known[W[0].id] = S.known[W[1].id] = S.known[W[2].id] = 1; S.w = {}');
+  a.ev('S.w[W[0].id] = { b: 2, s: 3, o: 3, f: 0, l: Date.now() - 4 * DIA, d: Date.now() - DIA, t: "2026-01-01" }; S.w[W[1].id] = { b: 3, s: 7, o: 3, f: 0, l: Date.now() - 20 * DIA, d: Date.now() - 13 * DIA, t: "2026-01-01" }; S.w[W[2].id] = { b: 3, s: 7, o: 3, f: 0, l: Date.now() - 6 * DIA, d: Date.now() + DIA, t: "2026-01-01" }');
+  const ids = JSON.parse(a.ev('JSON.stringify(due().sort((x, y) => retencion(S.w[x.id]) - retencion(S.w[y.id])).map(w => w.id))'));
+  assert.deepStrictEqual(ids, [a.ev('W[1].id'), a.ev('W[0].id')], 'la más olvidada (20 días con s = 7) va antes que la de 4 días con s = 3');
+  assert.deepStrictEqual(JSON.parse(a.ev('JSON.stringify(flojas(.95).map(w => w.id))')), [a.ev('W[1].id'), a.ev('W[0].id'), a.ev('W[2].id')], 'flojas ordena de menor a mayor retención');
+  a.ev("session('risk')"); assert(a.html().length > 50, 'el modo reforzar debe abrirse');
+});
+t('hoy: muestra la retención media, la curva del olvido y, con examen, la línea del examen y el ritmo de repasos', () => {
+  const a = cargarApp(); a.ev('S.known[W[0].id] = S.known[W[1].id] = 1; S.w = {}; grade(W[0].id, true); grade(W[1].id, true); S.w[W[1].id].l -= 3 * DIA; S.w[W[1].id].d -= 3 * DIA'); a.ev('today()'); let h = a.html();
+  assert(/<b>\d+ %<\/b><span class=mut>retención/.test(h), 'falta la retención media'); assert(h.includes('Curva del olvido') && h.includes('aria-label="Curva del olvido'), 'falta la curva'); assert(!h.includes('examen '), 'sin examen no debe haber línea de examen'); const sv = h.slice(h.indexOf('<svg viewBox="0 0 300 118"')); assert(sv.includes('<path') && !new RegExp('[a-z0-9]' + '/>', 'i').test(sv.slice(0, sv.indexOf('</svg>'))), 'en el SVG de la curva un valor sin comillas seguido de «/>» se traga el cierre y el resto no se dibuja');
+  a.ev('S.exam = { d: day(new Date(Date.now() + 10 * 864e5)) }'); a.ev('today()'); h = a.html();
+  assert(/examen \d+ %/.test(h) && h.includes('Examen en <b>10 días</b>') && h.includes('al menos cada <b>3 días</b>'), 'con examen: línea del examen y ritmo de repasos');
+  const vacia = cargarApp(); vacia.ev('today()'); assert(!vacia.html().includes('Curva del olvido'), 'sin palabras estudiadas no hay curva');
+});
 t('preguntas de lectura: elige, la que no se deduce, frase en chino y ordenar se presentan bien y sin releer el texto', () => {
   const a = cargarApp(), P = i => JSON.parse(a.ev(`JSON.stringify(LECT[0].qs[${i}])`)), q = () => a.els['#q'].innerHTML;
   [0, 1].forEach(i => { a.ev(`lectQ(0, ${i})`); const f = P(i), h = q(); assert(h.includes('prompt qlect') && h.includes(f.q), 'falta la pregunta'); f.r.forEach(x => assert(h.includes(x), 'falta la opción «' + x + '»')); assert(!h.includes('class=wd'), 'no debe mostrar el texto de la lectura'); });

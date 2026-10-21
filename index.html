@@ -264,7 +264,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script>
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
-const APP_V = 'hsk3-v72'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v73'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -405,10 +405,22 @@ if (S.packs) { W.forEach(w => { if (S.packs[w.pk0]) S.known[w.id] = 1; }); delet
 const day = d => d.toLocaleDateString('sv');
 const DAYS = [0, 1, 3, 7, 14, 30]; // repeticion espaciada: dias hasta el siguiente repaso por caja
 
+// Curva del olvido: la retención de una palabra cae como R = 0,9^(t/s), con s = «estabilidad» en días (a los s días se recuerda el 90 %).
+// Acertar la hace crecer (más si se repasa cuando ya empieza a olvidarse, menos si se repasa de más y según lo bien que la sabes); fallar la baja a un tercio (mín. 1 día)
+// y se vuelve a ver mañana. Los registros antiguos (solo caja) valen: su estabilidad es el intervalo de su caja. r.b (caja 0-5) se deriva de s para logros y estadísticas.
+const DIA = 864e5, estab = r => r.s ?? (DAYS[r.b || 0] || .5), ultimo = r => r.l ?? (r.d > 1e12 ? r.d - (DAYS[r.b || 0]) * DIA : Date.now()); // sin fecha válida (copia rara): como recién repasada
+const retencion = (r, cuando = Date.now()) => r ? Math.pow(.9, Math.max(0, cuando - ultimo(r)) / (estab(r) * DIA)) : null;
+const cajaDe = s => s >= 30 ? 5 : s >= 14 ? 4 : s >= 7 ? 3 : s >= 3 ? 2 : s >= 1 ? 1 : 0;
+// con el examen a la vista, ninguna palabra espera más de ~1/4 del tiempo que falta (así se ve al menos 4 veces antes del examen)
+const tope = () => { const n = examDays(); return n != null && n > 0 ? Math.max(1, Math.ceil(n / 4)) : Infinity; };
+const venceEn = r => Math.min(r.d, ultimo(r) + tope() * DIA);
 function grade(id, ok) {
-  const t = day(new Date()), r = S.w[id] || { b: 0, d: 0 };
-  r.b = ok ? Math.min(5, r.b + 1) : 0; ok ? r.o = (r.o || 0) + 1 : r.f = (r.f || 0) + 1;
-  r.d = Date.now() + DAYS[r.b] * 864e5; r.t = t;
+  const t = day(new Date()), ahora = Date.now(), r = S.w[id] || { b: 0, d: 0 }, vista = !!S.w[id], s0 = vista ? estab(r) : 0, R = vista ? retencion(r, ahora) : 1;
+  if (ok) {
+    const g = 1.4 + 1.2 * ((r.o || 0) + 1) / ((r.o || 0) + (r.f || 0) + 2), k = Math.min(1.5, Math.max(.3, (1 - R) / .1)); // crecimiento base según lo bien que la sabes; repasar cuando R ya baja refuerza más
+    r.s = s0 ? Math.min(365, s0 * (1 + (g - 1) * k)) : 1; r.o = (r.o || 0) + 1; r.d = ahora + r.s * DIA;
+  } else { r.s = Math.max(1, s0 * .3); r.f = (r.f || 0) + 1; r.d = ahora + DIA; }
+  r.b = cajaDe(r.s); r.l = ahora; r.t = t;
   S.w[id] = r;
   tick(ok); save();
 }
@@ -426,7 +438,9 @@ const hardList = () => W.filter(w => { const r = S.w[w.id]; return S.star[w.id] 
 const LEVELS = [...new Set(W.map(w => w.l))].sort((a, b) => a - b);
 const eod = () => new Date().setHours(23, 59, 59, 999);
 // toca repasar hoy: nunca practicada, o vence hoy; lo fallado hoy no vuelve hasta mañana
-const due = () => seen().filter(w => { const r = S.w[w.id]; return !r || (r.d <= eod() && !(r.b == 0 && r.t == day(new Date()))); });
+const due = () => seen().filter(w => { const r = S.w[w.id]; return !r || (venceEn(r) <= eod() && !(r.b == 0 && r.t == day(new Date()))); });
+// las que más se están olvidando (retención por debajo de u), las más flojas primero
+const flojas = (u = .85) => seen().filter(w => { const r = S.w[w.id]; return r && retencion(r) < u; }).sort((x, y) => retencion(S.w[x.id]) - retencion(S.w[y.id]));
 function pick(n, f = () => 1) {
   const key = new Map(pool().filter(f).map(w => [w, (S.w[w.id]?.d || 0) + Math.random() * 1e6]));
   return [...key.keys()].sort((a, b) => key.get(a) - key.get(b)).slice(0, n);
@@ -539,18 +553,31 @@ function go(m) {
 }
 
 // --- hoy: repaso espaciado ---
+// curva del olvido de todo lo estudiado: retención media prevista para cada día si no se repasa más
+function curvaOlvido(rs, horiz, nEx) {
+  const val = x => rs.reduce((s, r) => s + retencion(r, Date.now() + x * DIA), 0) / rs.length, pts = [...Array(horiz + 1).keys()].map(val);
+  const X = x => 30 + x / horiz * 258, Y = v => 94 - v * 82, ex = nEx != null && nEx > 0 && nEx <= horiz;
+  return `<svg viewBox="0 0 300 118" class=chart role=img aria-label="Curva del olvido: retención media prevista en los próximos ${horiz} días si no repasas">
+    <path d="M30 ${Y(.9)}H288" stroke="var(--ok)" stroke-dasharray="3 3" fill="none" opacity=".7"/><text x=2 y=${Y(.9) + 3}>90 %</text><text x=2 y=${Y(.5) + 3}>50 %</text><path d="M30 ${Y(.5)}H288" stroke="var(--bd)" fill="none"/>
+    <path d="M${pts.map((v, x) => X(x).toFixed(1) + ' ' + Y(v).toFixed(1)).join('L')}" stroke="var(--gold)" stroke-width="2.4" fill="none" stroke-linejoin="round"/>
+    ${ex ? `<path d="M${X(nEx)} 10V94" stroke="var(--act)" stroke-width="1.6"/><text x=${X(nEx)} y=8 text-anchor=${nEx > horiz * .8 ? 'end' : 'middle'} style="fill:var(--act)">examen ${Math.round(pts[nEx] * 100)} %</text>` : ''}
+    <text x=30 y=110>hoy</text><text x=${X(horiz / 2)} y=110 text-anchor=middle>+${Math.round(horiz / 2)} d</text><text x=288 y=110 text-anchor=end>+${horiz} d</text></svg>`;
+}
 function today() {
-  const d = due(), pl = seen();
-  const fc = [...Array(7)].map((_, k) => { const a = eod() + k * 864e5, b = a + 864e5; return pl.filter(w => { const r = S.w[w.id]; return r && r.d > a && r.d <= b; }).length; });
-  const mx = Math.max(1, ...fc), DN = ['dom', 'lun', 'mar', 'mié', 'jue', 'vie', 'sáb'];
+  const d = due(), pl = seen(), rs = pl.map(w => S.w[w.id]).filter(Boolean), media = rs.length ? rs.reduce((s, r) => s + retencion(r), 0) / rs.length : null, fl = flojas(.8).length, nEx = examDays();
+  const fc = [...Array(7)].map((_, k) => { const a = eod() + k * 864e5, b = a + 864e5; return pl.filter(w => { const r = S.w[w.id]; return r && venceEn(r) > a && venceEn(r) <= b; }).length; });
+  const mx = Math.max(1, ...fc), DN = ['dom', 'lun', 'mar', 'mié', 'jue', 'vie', 'sáb'], horiz = nEx != null && nEx > 0 ? Math.min(90, Math.max(14, nEx + 3)) : 30;
   app(`<h1>Hoy</h1><div class=mut>Repaso espaciado de lo que ya estudiaste</div>
-    <div class=stats><div class=stat><b>${d.length}</b><span class=mut>pendientes hoy</span></div><div class=stat><b>${pl.length - d.length}</b><span class=mut>al día</span></div></div>
+    <div class=stats><div class=stat><b>${d.length}</b><span class=mut>pendientes hoy</span></div><div class=stat><b>${pl.length - d.length}</b><span class=mut>al día</span></div>${media == null ? '' : `<div class=stat><b>${Math.round(media * 100)} %</b><span class=mut>retención</span></div>`}</div>
     ${!pl.length ? '<p class=mut>Aún no has estudiado ninguna lección.</p><button class=main onclick="lessons()">Ir a las lecciones</button>'
-      : d.length ? `<button class=main style="margin-top:0" onclick="session('mix')">Empezar repaso (${Math.min(20, d.length)} palabras)</button><p class=mut>Mezcla ejercicios según lo bien que sabes cada palabra.</p>`
+      : d.length ? `<button class=main style="margin-top:0" onclick="session('mix')">Empezar repaso (${Math.min(20, d.length)} palabras)</button><p class=mut>Empieza por las que estás a punto de olvidar y mezcla ejercicios según lo bien que sabes cada palabra.</p>`
       : '<div class=prompt><span class="hz hzi">' + ico('circle-check') + '</span>¡Todo repasado por hoy!<small>Vuelve mañana o aprende palabras nuevas.</small></div><button class=main onclick="lessons()">Aprender palabras nuevas</button>'}
+    ${fl && !d.length ? `<button class=chip onclick="session('risk')">Reforzar las ${Math.min(20, fl)} más flojas (retención < 80 %)</button>` : ''}
+    ${nEx != null && nEx > 0 ? `<p class=mut>Examen en <b>${nEx} ${nEx == 1 ? 'día' : 'días'}</b>: cada palabra se repasa al menos cada <b>${Math.min(tope(), 365)} ${tope() == 1 ? 'día' : 'días'}</b> para llegar con ella fresca.</p>` : ''}
     ${Object.keys(S.gram).length ? `<h2>Gramática</h2>${gramDue().length ? `<button class=main style="margin-top:0" onclick="gramRev()">Repasar gramática (${gramDue().length} ${gramDue().length == 1 ? 'punto' : 'puntos'})</button>` : '<p class=mut>✓ Gramática al día.</p>'}` : ''}
     <h2>Próximos 7 días</h2>
-    <svg viewBox="0 0 280 80" class=chart>${fc.map((n, i) => `<rect x=${i * 40 + 6} y=${60 - n / mx * 46} width=28 height=${n / mx * 46} rx=2 style="fill:var(--gold)"/><text x=${i * 40 + 20} y=${56 - n / mx * 46} text-anchor=middle>${n || ''}</text><text x=${i * 40 + 20} y=74 text-anchor=middle>${i ? DN[new Date(Date.now() + (i + 1) * 864e5).getDay()] : 'mañana'}</text>`).join('')}</svg>`, 'today');
+    <svg viewBox="0 0 280 80" class=chart>${fc.map((n, i) => `<rect x=${i * 40 + 6} y=${60 - n / mx * 46} width=28 height=${n / mx * 46} rx=2 style="fill:var(--gold)"/><text x=${i * 40 + 20} y=${56 - n / mx * 46} text-anchor=middle>${n || ''}</text><text x=${i * 40 + 20} y=74 text-anchor=middle>${i ? DN[new Date(Date.now() + (i + 1) * 864e5).getDay()] : 'mañana'}</text>`).join('')}</svg>
+    ${rs.length ? `<h2>Curva del olvido</h2>${curvaOlvido(rs, horiz, nEx)}<p class=mut>Retención media prevista si dejaras de repasar${nEx != null && nEx > 0 && nEx <= horiz ? ' (la línea roja marca el examen)' : ''}. Cada repaso a tiempo la sube y la alarga: así se fija lo aprendido.</p>` : ''}`, 'today');
 }
 
 // --- progreso ---
@@ -1174,8 +1201,8 @@ const mixMode = w => { const b = S.w[w.id]?.b || 0; return b <= 1 ? (Math.random
 
 // items: palabras fijas (practica tras una lección); sin items, elige las que toca repasar; 'mix' = repaso de hoy
 function session(mode, fixed) {
-  const mix = mode == 'mix' || mode == 'hard';
-  const items = fixed ? shuffle(fixed).slice(0, 10) : mode == 'hard' ? shuffle(hardList().sort((a, b) => (S.w[b.id]?.f || 0) - (S.w[a.id]?.f || 0)).slice(0, 15)) : mix ? due().sort((a, b) => (S.w[a.id]?.d || 0) - (S.w[b.id]?.d || 0)).slice(0, 20) : pick(10, FILT[mode]);
+  const mix = mode == 'mix' || mode == 'hard' || mode == 'risk';
+  const items = fixed ? shuffle(fixed).slice(0, 10) : mode == 'risk' ? flojas().slice(0, 20) : mode == 'hard' ? shuffle(hardList().sort((a, b) => (S.w[b.id]?.f || 0) - (S.w[a.id]?.f || 0)).slice(0, 15)) : mix ? due().sort((a, b) => (retencion(S.w[a.id]) ?? 0) - (retencion(S.w[b.id]) ?? 0)).slice(0, 20) : pick(10, FILT[mode]);
   if (!items.length) return pool().length ? empty('Aún no hay palabras para este modo', 'Estudia más lecciones o prueba otro modo.') : empty();
   let i = 0, ok = 0; const bad = [];
   const step = () => {

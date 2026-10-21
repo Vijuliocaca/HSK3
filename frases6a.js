@@ -137,7 +137,7 @@
 崇敬|人们对这位医生十分崇敬。|Rénmen duì zhè wèi yīshēng shífēn chóngjìng.|La gente siente gran reverencia por este médico.
 抽象|这个概念太抽象了，很难理解。|Zhège gàiniàn tài chōuxiàng le, hěn nán lǐjiě.|Este concepto es demasiado abstracto y difícil de entender.
 出面|这件事请你出面解决。|Zhè jiàn shì qǐng nǐ chūmiàn jiějué.|Te pido que des la cara y resuelvas este asunto.
-出洋相|他在大家面前出了洋相。|Tā zài dàjiā miànqián chū le yángxiàng.|Hizo el ridículo delante de todos.
+出洋相|他在大家面前出洋相。|Tā zài dàjiā miànqián chū yángxiàng.|Hizo el ridículo delante de todos.
 储蓄|他每个月都有储蓄的习惯。|Tā měi ge yuè dōu yǒu chǔxù de xíguàn.|Tiene la costumbre de ahorrar cada mes.
 川流不息|街上车辆川流不息。|Jiē shang chēliàng chuān liú bù xī.|Los vehículos pasan sin parar por la calle.
 穿越|探险队穿越了整个沙漠。|Tànxiǎnduì chuānyuè le zhěnggè shāmò.|La expedición atravesó todo el desierto.

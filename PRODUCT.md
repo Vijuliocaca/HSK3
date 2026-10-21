@@ -1,7 +1,7 @@
 # Product
 
 ## Users
-Hispanohablantes que preparan el examen HSK (niveles 1-5). Estudian en el móvil, con la app instalada como PWA, en sesiones cortas: en el transporte, en ratos libres o como repaso diario. Su tarea es memorizar vocabulario (hanzi, pinyin y tonos), entender frases y gramática y practicar con tests, diálogos y lecturas hasta llegar al examen.
+Hispanohablantes que preparan el examen HSK (niveles 1-8). Estudian en el móvil, con la app instalada como PWA, en sesiones cortas: en el transporte, en ratos libres o como repaso diario. Su tarea es memorizar vocabulario (hanzi, pinyin y tonos), entender frases y gramática y practicar con tests, diálogos y lecturas hasta llegar al examen.
 
 ## Product Purpose
 HSK Viju enseña chino en español, sin conexión y sin cuentas. Tiene que hacer fácil volver cada día: ver qué toca hoy, practicar unos minutos y notar que se avanza. Funciona cuando el usuario mantiene el hábito y llega al examen con el vocabulario de su nivel dominado.

@@ -1,6 +1,6 @@
 ---
 name: HSK Viju
-description: Estudio del chino HSK 1-5 en español, con la serenidad de un templo.
+description: Estudio del chino HSK 1-8 en español, con la serenidad de un templo.
 colors:
   lacquer-red: "#b3282d"
   lacquer-fill: "#b3282d"

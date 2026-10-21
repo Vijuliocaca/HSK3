@@ -172,7 +172,7 @@
 尺度|每个人对美的尺度不同。|Měi ge rén duì měi de chǐdù bù tóng.|Cada persona tiene un criterio de belleza distinto.
 尺寸|这双鞋的尺寸不合适。|Zhè shuāng xié de chǐcun bù héshì.|La talla de estos zapatos no es la adecuada.
 耻辱|战败是国家的耻辱。|Zhànbài shì guójiā de chǐrǔ.|La derrota es una humillación para el país.
-充气|他给轮胎充了气。|Tā gěi lúntāi chōng le qì.|Infló el neumático.
+充气|他给轮胎充气。|Tā gěi lúntāi chōngqì.|Infló el neumático.
 冲刺|运动员在最后一圈开始冲刺。|Yùndòngyuán zài zuìhòu yì quān kāishǐ chōngcì.|El atleta empezó a esprintar en la última vuelta.
 冲动|做决定时不要冲动。|Zuò juédìng shí búyào chōngdòng.|Al tomar decisiones no te dejes llevar por el impulso.
 冲破|小草冲破了泥土长出来了。|Xiǎocǎo chōngpò le nítǔ zhǎng chūlái le.|La hierba rompió la tierra y salió.

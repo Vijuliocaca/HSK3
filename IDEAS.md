@@ -56,3 +56,11 @@ Lista de mejoras que se han hablado y todavía no están hechas. Recomendación:
 
 - HSK 7 y 8 hechos (sw v99): HSK 7 = 351 palabras (A-D) y HSK 8 = 282 (E-G), cada nivel con 4 diálogos y 5 lecturas (nuevo7a-b, nuevo8a-b, frases7-8, dialogos7-8, lecturas7-8). Quedan por cubrir H-Z del vocabulario avanzado si se quiere seguir.
 - HSK 6 vocabulario completo (sw v93): A-Z, 767 palabras nuevas con frase (nuevo6a-e.js, frases6a-e.js). El nivel 5 de la app ya cubría casi todo el HSK 6 clásico, así que solo se añadieron las que faltaban. Siguiente posible nivel: HSK 7-9 (palabras realmente nuevas). HSK 6 ya tiene 4 diálogos (`dialogos6.js`) y 5 lecturas (`lecturas6.js`); las pantallas ocultan un nivel sin contenido.
+
+## Análisis completo (sw v111) — pendiente por prioridad
+1. **Temas para HSK 6-8:** solo el 5 %, 2 % y 1 % de sus palabras tienen tema; el 87-95 % de sus lecciones son «Más vocabulario N» (agrupadas por el primer carácter). Asignar temas en `temas.js`.
+2. **Gramática de HSK 6-8:** `gramatica1-3.js` solo cubre HSK 1-5 (103 puntos).
+3. **Lecturas:** solo 5 por nivel en HSK 3-8; el 51 % de las palabras de HSK 1 aparecen en alguna lectura, pero solo el 1-6 % en HSK 4-8. Las lecturas de HSK 1 usan unas 7 palabras de nivel superior cada una.
+4. **Carga:** 89 scripts (1,6 MB sin comprimir); el service worker va primero a la red para cada uno. Valorar juntar los datos o cargar HSK 6-8 solo si se activan.
+5. **Erhua (儿):** 31 palabras y 122 frases con sílabas ≠ caracteres (casos conocidos, topes en `tests/datos.js`).
+6. **Niveles 7 y 8:** el reparto es alfabético, no por dificultad; renombrarlos («Avanzado A/B») o repartirlos por frecuencia si se consigue una lista fiable.

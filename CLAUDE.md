@@ -3,12 +3,13 @@
 Responde siempre en español, directo y breve.
 
 ## Qué es
-PWA para estudiar chino (HSK 1-5) en español. JavaScript puro, sin dependencias ni compilación. Se publica en GitHub Pages: https://vijuliocaca.github.io/HSK3/ (repositorio `Vijuliocaca/HSK3`, rama `main`).
+PWA para estudiar chino (HSK 1-8) en español. JavaScript puro, sin dependencias ni compilación. Se publica en GitHub Pages: https://vijuliocaca.github.io/HSK3/ (repositorio `Vijuliocaca/HSK3`, rama `main`).
 
 ## Archivos
 - `index.html`: toda la lógica y los estilos. No lo leas entero: usa `grep` para localizar la función y lee solo ese trozo.
 - `palabras.js` y `nuevo*.js`: vocabulario (`hanzi|pinyin|español`). `frases*.js`: una frase de ejemplo por palabra. `ajustes.js`: traducciones corregidas.
 - `temas.js` (temas del vocabulario y lecciones), `gramatica1-3.js` (gramática), `canciones.js` (canciones y Top 10), `dialogos.js` (diálogos: hablante|chino|pinyin|español + preguntas), `lecturas.js` (historias: frases por palabras con /, pinyin alineado y español; 4 preguntas por lectura en este orden o/x/z/f —elige (comprensión), la que NO se deduce, frase en chino, ordenar la frase— y glosario; el formato y las reglas están en la cabecera del archivo y las vigila `tests/datos.js`; el 6.º campo es el id del personaje que la cuenta, o «id+id» en una conversación de dos, donde las frases de la segunda persona llevan una 4.ª columna «2»; las expresiones —cejas y boca— salen solas con ？ y ！), `personajes.js` (repertorio de personajes: nombre, rasgos para escribir historias a su medida, dibujo del avatar y voz —tono, velocidad y una voz china propia si el móvil tiene varias; las parejas de conversación, con `n` de distinta paridad, lo vigila `datos.js`—; para añadir a alguien, una entrada nueva y su id en el 6.º campo de las lecturas que cuente), `chengyu.js` (60 成语 para el inicio: chino|pinyin|literal|significado|ejemplo|pinyin|español), `relaciones.js` (antónimos A y sinónimos S: A|palabra|palabra; ambas deben existir en el vocabulario), `fiestas.js` (12 fiestas; regla G/L/E/Q; las lunares se calculan con Intl y `FIESTA_FIX` de index.html corrige desfases de un día: comprobar con fuentes al pasar a un año nuevo), `cultura.js` (Top 10 de películas, series y platos: t|p|es|a|y|d).
+- `nuevo6a-e.js`, `nuevo7a-f.js`, `nuevo8a-j.js` (HSK 6-8): cada archivo lleva su vocabulario (`NEW.push([nivel, ...])`) y, al final, las frases de ejemplo de esas palabras (`SENTR.push`); `dialogos6-8.js` y `lecturas6-8.js` son sus diálogos y lecturas. El nivel 5 de la app ya cubría casi todo el HSK 6 clásico, así que el 7 y el 8 se repartieron por orden alfabético (7: A-D y H-M; 8: E-G y N-Z).
 - `sw.js`: service worker. Su versión (`hsk3-vNN`) renueva la caché.
 
 ## Reglas al hacer cambios

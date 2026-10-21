@@ -62,6 +62,7 @@ input[type=date],input[type=time]{padding:.6rem;border-radius:6px;border:2px sol
 #upd{position:fixed;left:12px;right:12px;top:calc(8px + env(safe-area-inset-top));z-index:9;background:var(--act);color:var(--on-act);border-radius:8px;padding:.6rem .8rem;display:flex;gap:.6rem;align-items:center;box-shadow:0 4px 14px rgba(0,0,0,.3)}
 #upd[hidden]{display:none} #upd button{margin-left:auto;background:var(--on-act);color:var(--act);border:0;border-radius:6px;padding:.3rem .7rem;font-weight:700}
 *{box-sizing:border-box}
+html,body{overflow-anchor:none} /* al restaurar la posición el navegador no debe «anclar» y desplazarla unos píxeles */
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 ::selection{background:var(--nobg);color:var(--tx)}
 input{caret-color:var(--pri)} ::placeholder{color:var(--mut);opacity:1}
@@ -264,7 +265,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script>
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
-const APP_V = 'hsk3-v73'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v74'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -277,14 +278,20 @@ addEventListener('popstate', () => {
   if (GUARD) { if (!confirm('¿Salir del examen? Se perderá el progreso.')) { history.pushState({ a: 1 }, ''); depth++; return; } GUARD = ''; return home(); }
   BAJANDO = true; try { atras(); } finally { BAJANDO = false; }
 });
+// posición de cada pantalla al salir de ella: al volver con ← / ✕ o con el botón atrás se recupera (así la lista de lecturas o de diálogos queda a la altura de la que abriste)
+const SCR = {}; let VOLVIENDO = false;
+try { history.scrollRestoration = 'manual'; } catch {} // si no, el navegador recoloca la página tras popstate y pisa la posición que guardamos
+document.addEventListener('click', e => { if (e.target.closest && e.target.closest('#app .top .back')) { VOLVIENDO = true; setTimeout(() => { VOLVIENDO = false; }); } }, true);
 const app = (h, tab) => {
   clearInterval(TM); stopMel();
   const inicio = tab == 'home' && INICIO; INICIO = false;
-  $('#app').innerHTML = h; scrollTo(0, 0);
+  if (PANT !== null) SCR[PANT] = window.scrollY || 0;
+  $('#app').innerHTML = h;
   const h1 = $('#app h1'), t = (h1 ? [...(h1.childNodes || [])].filter(n => n.nodeType == 3).map(n => n.textContent).join('') : $('#app .top > b')?.textContent || '').trim();
   if (t && t != $('#sr').textContent) $('#sr').textContent = t; // el lector de pantalla anuncia la pantalla nueva
   document.title = t && t != 'HSK Viju' ? t + ' · HSK Viju' : 'HSK Viju';
-  if (inicio) { GUARD = ''; PANT = null; if (depth) { const d = depth; depth = 0; skipPop = true; history.go(-d); } }
+  scrollTo(0, (BAJANDO || VOLVIENDO) && SCR[t] != null ? SCR[t] : 0); VOLVIENDO = false;
+  if (inicio) { GUARD = ''; PANT = null; Object.keys(SCR).forEach(k => delete SCR[k]); if (depth) { const d = depth; depth = 0; skipPop = true; history.go(-d); } }
   else if (!BAJANDO && t !== PANT) { for (let k = PANT === null ? 3 : 1; k > 0; k--) { history.pushState({ a: 1 }, ''); depth++; } PANT = t; } // pantalla nueva: una entrada (volver a pintar la misma, p. ej. al cambiar una ayuda, no añade); al salir del inicio, 3 de reserva por si se abre una pantalla de nivel profundo (así atrás nunca llega al inicio sin entradas)
   else { PANT = t; if (BAJANDO && !depth) { history.pushState({ a: 1 }, ''); depth = 1; } } // red de seguridad: pantalla sin entradas debajo
   $('#nav').hidden = !tab; document.body.classList.toggle('nonav', !tab);
@@ -411,6 +418,15 @@ const DAYS = [0, 1, 3, 7, 14, 30]; // repeticion espaciada: dias hasta el siguie
 const DIA = 864e5, estab = r => r.s ?? (DAYS[r.b || 0] || .5), ultimo = r => r.l ?? (r.d > 1e12 ? r.d - (DAYS[r.b || 0]) * DIA : Date.now()); // sin fecha válida (copia rara): como recién repasada
 const retencion = (r, cuando = Date.now()) => r ? Math.pow(.9, Math.max(0, cuando - ultimo(r)) / (estab(r) * DIA)) : null;
 const cajaDe = s => s >= 30 ? 5 : s >= 14 ? 4 : s >= 7 ? 3 : s >= 3 ? 2 : s >= 1 ? 1 : 0;
+// repaso suave: leer una lectura o un diálogo y entenderlo (≥ 75 % de aciertos en sus preguntas) refresca las palabras que contiene y que ya estudiaste:
+// recuperan la mitad de lo olvidado desde el último repaso y su estabilidad sube un 5 %. Como mucho una vez al día por palabra; no cuenta como repaso completo.
+function suave(palabras, ok, n) {
+  if (!n || ok / n < .75) return 0; const ahora = Date.now(), t = day(new Date()); let c = 0;
+  new Set(palabras).forEach(h => { const w = byH.get(h), r = w && S.w[w.id]; if (!r || r.pt == t) return;
+    r.s = Math.min(365, estab(r) * 1.05); r.l = ahora - (ahora - ultimo(r)) / 2; r.d = r.l + r.s * DIA; r.b = cajaDe(r.s); r.pt = t; c++; });
+  if (c) save(); return c;
+}
+const nSuave = c => c ? `<p class=mut>De paso has refrescado <b>${c}</b> ${c == 1 ? 'palabra' : 'palabras'} de tu vocabulario.</p>` : '';
 // con el examen a la vista, ninguna palabra espera más de ~1/4 del tiempo que falta (así se ve al menos 4 veces antes del examen)
 const tope = () => { const n = examDays(); return n != null && n > 0 ? Math.max(1, Math.ceil(n / 4)) : Infinity; };
 const venceEn = r => Math.min(r.d, ultimo(r) + tope() * DIA);
@@ -1011,9 +1027,14 @@ function rel(w) {
   const fam = cs.map(c => { const ws = (BYC.get(c) || []).filter(x => x != w); return ws.length && ws.length <= 60 ? `<h2>Familia de ${c}</h2>` + relChips(ws.sort((a, b) => a.l - b.l || a.h.length - b.h.length).slice(0, 8)) : ''; }).join('');
   return (r?.A.length ? '<h2>Antónimos</h2>' + relChips(r.A) : '') + (r?.S.length ? '<h2>Sinónimos</h2>' + relChips(r.S) : '') + fam;
 }
+// retención estimada y próximo repaso de una palabra (para su ficha)
+function retTxt(id) {
+  const r = S.w[id]; if (!r) return S.known[id] ? 'Aún sin repasar: saldrá en tu repaso de hoy.' : ''; const R = Math.round(retencion(r) * 100), dias = Math.ceil((venceEn(r) - Date.now()) / DIA);
+  return `Retención estimada <b>${R} %</b> · ${dias <= 0 ? 'toca repasarla hoy' : dias == 1 ? 'próximo repaso mañana' : 'próximo repaso en ' + dias + ' días'}`;
+}
 function detail(id) {
   PREV = () => detail(id);
-  app(`<div class=top><button class=back onclick="${BACK}">←</button></div>${card(W[id])}<div class=row style="margin-top:.8rem"><button class=chip onclick="listaPicker(${id})">+ Listas</button></div><div class=row id=al></div>${rel(W[id])}`);
+  app(`<div class=top><button class=back onclick="${BACK}">←</button></div>${card(W[id])}<div class=row style="margin-top:.8rem"><button class=chip onclick="listaPicker(${id})">+ Listas</button></div>${retTxt(id) ? `<p class=mut id=rt>${retTxt(id)}</p>` : ''}<div class=row id=al></div>${rel(W[id])}`);
   say(W[id].h);
 }
 const loadHW = () => window.HanziWriter ? Promise.resolve() : new Promise((ok, no) => {
@@ -1270,8 +1291,8 @@ function quiz(k, i) {
   const K = KIND[k], d = K.L()[i]; let n = 0, ok = 0; try { speechSynthesis.cancel(); } catch {}
   const step = () => {
     if (n >= d.qs.length) {
-      S[k] = S[k] || {}; S[k][d.t] = Math.max(S[k][d.t] || 0, ok); save();
-      return app(`<h1><span class=seal>${ico('check')}</span>¡Hecho!</h1><p style="font-size:1.4rem">${ok}/${d.qs.length} aciertos</p><button class=main onclick="${K.q}(${i})">Repetir</button><button class=opt style="margin-top:.5rem" onclick="${K.one}(${i})">Volver al ${K.n}</button><button class=opt style="margin-top:.5rem" onclick="${K.all}()">${K.m}</button>`);
+      S[k] = S[k] || {}; S[k][d.t] = Math.max(S[k][d.t] || 0, ok); save(); const texto = (d.ls || []).map(l => l[1]).join(''), fresco = suave(seen().filter(w => [...w.h].length > 1 && texto.includes(w.h)).map(w => w.h), ok, d.qs.length);
+      return app(`<h1><span class=seal>${ico('check')}</span>¡Hecho!</h1><p style="font-size:1.4rem">${ok}/${d.qs.length} aciertos</p>${nSuave(fresco)}<button class=main onclick="${K.q}(${i})">Repetir</button><button class=opt style="margin-top:.5rem" onclick="${K.one}(${i})">Volver al ${K.n}</button><button class=opt style="margin-top:.5rem" onclick="${K.all}()">${K.m}</button>`);
     }
     const [q, ...r] = d.qs[n], right = { t: r[0] };
     app(`<div class=play><div class=top><button class=back onclick="${K.one}(${i})">✕</button><div class=bar><i style="width:${n / d.qs.length * 100}%"></i></div></div><div id=q></div><div id=fb></div></div>`);
@@ -1325,7 +1346,7 @@ function avatarSVG(p) {
     ${p.gafas ? '<g fill="none" stroke="#2b1d14" stroke-width="1.2"><circle cx="27.5" cy="29" r="3.8"/><circle cx="36.5" cy="29" r="3.8"/><path d="M31.3 29h1.4"/></g>' : ''}
     <path class=boca d="M28 34q4 4 8 0z" fill="#fff" stroke="rgba(43,29,20,.55)" stroke-width=".8" stroke-linejoin="round"/></g></svg>`;
 }
-const setLect = k => { S.set[k] = !S.set[k]; save(); lecturas(); }; // pinyin / español: un solo ajuste para todas las lecturas
+const setLect = k => { S.set[k] = !S.set[k]; save(); const y = window.scrollY || 0; lecturas(); scrollTo(0, y); }; // pinyin / español: un solo ajuste para todas las lecturas
 function lecturas() {
   S.lect = S.lect || {}; try { speechSynthesis.cancel(); } catch {}
   const hecho = d => S.lect[d.t] == null ? '' : S.lect[d.t] == d.qs.length ? ' ✓' : ` · mejor ${S.lect[d.t]}/${d.qs.length}`;
@@ -1389,7 +1410,7 @@ function anadir(i, k, mover) {
   $('#pie').innerHTML = fin ? '<button class=opt id=ot>🔊 Escuchar toda la lectura</button><button class=main id=nx style="margin:0">Ir a las preguntas</button>' : '<button class=main id=nx style="margin:0">Siguiente</button>';
   $('#nx').onclick = () => fin ? lectQ(i) : (anadir(i, k + 1, true), hablar(i, k + 1));
   if (fin) $('#ot').onclick = () => hablarTodo(i);
-  const b = mover && c.lastElementChild; b && b.scrollIntoView && b.scrollIntoView({ block: 'end', behavior: 'smooth' });
+  const b = mover && c.lastElementChild; b && b.scrollIntoView && b.scrollIntoView({ block: 'end', behavior: mover === true ? 'smooth' : 'auto' }); // suave solo al pulsar Siguiente: al abrir la lectura, de golpe (si no, el desplazamiento seguiría en la pantalla a la que vuelvas)
 }
 // la conversación completa en pantalla: la persona, arriba a la derecha, va diciendo las frases y cada «Siguiente» añade la siguiente debajo.
 // Al terminar se puede releer todo y escuchar la lectura entera. lectura(i, j) pinta la conversación hasta la frase j (0 = solo la primera).
@@ -1404,7 +1425,7 @@ function lectura(i, j = 0) {
     <div id=fi></div>
     <div class=pie id=pie></div>
   </div>`); // sin barra de pestañas (como los ejercicios): el botón Siguiente queda siempre a mano
-  for (let k = 0; k <= j; k++) anadir(i, k, k == j);
+  for (let k = 0; k <= j; k++) anadir(i, k, k == j && 'ya');
   setTimeout(() => hablar(i, j), 250);
 }
 // preguntas de comprensión (4 por lectura): o = elige · x = elige la que NO se deduce del texto · z = elige la frase en chino que significa… · f = ordena la frase.
@@ -1419,8 +1440,8 @@ function lectQ(i, desde = 0) {
   const d = LECT[i]; let n = desde, ok = 0; try { speechSynthesis.cancel(); } catch {}
   const step = () => {
     if (n >= d.qs.length) {
-      S.lect = S.lect || {}; S.lect[d.t] = Math.max(S.lect[d.t] || 0, ok); save();
-      return app(`<h1><span class=seal>${ico('check')}</span>¡Hecho!</h1><p style="font-size:1.4rem">${ok}/${d.qs.length} aciertos</p><button class=main onclick="lectQ(${i})">Repetir las preguntas</button><button class=opt style="margin-top:.5rem" onclick="lectura(${i})">Leer otra vez</button><button class=opt style="margin-top:.5rem" onclick="lecturas()">Más lecturas</button>`);
+      S.lect = S.lect || {}; S.lect[d.t] = Math.max(S.lect[d.t] || 0, ok); save(); const fresco = suave(d.ls.flatMap(l => l.z.map(z => z.replace(LPUNT, ''))), ok, d.qs.length);
+      return app(`<h1><span class=seal>${ico('check')}</span>¡Hecho!</h1><p style="font-size:1.4rem">${ok}/${d.qs.length} aciertos</p>${nSuave(fresco)}<button class=main onclick="lectQ(${i})">Repetir las preguntas</button><button class=opt style="margin-top:.5rem" onclick="lectura(${i})">Leer otra vez</button><button class=opt style="margin-top:.5rem" onclick="lecturas()">Más lecturas</button>`);
     }
     const Q = d.qs[n];
     app(`<div class=play><div class=top><button class=back onclick="lecturas()">✕</button><div class=bar><i style="width:${n / d.qs.length * 100}%"></i></div><span class=mut>${n + 1}/${d.qs.length}</span></div><div id=q></div><div id=fb></div></div>`);

@@ -687,5 +687,89 @@ z|4
 f|6`, `参加|participar
 紧张|tensión; nervios
 输|perder
-脑子|mente; cerebro`, 'carlos']
+脑子|mente; cerebro`, 'carlos'],
+[2, '🏔️ ¿Cómo estudias?', `你/住/在/山/上，/怎么/去/学校？|Nǐ zhù zài shān shang, zěnme qù xuéxiào?|Vives en la montaña, ¿cómo vas a la escuela?
+我/走路。/要/走/一/个/小时。|Wǒ zǒulù. Yào zǒu yí gè xiǎoshí.|Voy andando. Son una hora de camino.|2
+太/远/了！/你/不/累/吗？|Tài yuǎn le! Nǐ bú lèi ma?|¡Qué lejos! ¿No te cansas?
+有/一点/累，/可是/路/上/很/安静。|Yǒu yìdiǎn lèi, kěshì lù shang hěn ānjìng.|Un poco, pero el camino es muy tranquilo.|2
+你/每天/学习/几/个/小时？|Nǐ měitiān xuéxí jǐ gè xiǎoshí?|¿Cuántas horas estudias al día?
+差不多/五/个/小时。/我/喜欢/看/书。|Chàbuduō wǔ gè xiǎoshí. Wǒ xǐhuan kàn shū.|Casi cinco horas. Me gusta leer.|2
+真/好！/我/每天/开/会，/没有/时间/看/书。|Zhēn hǎo! Wǒ měitiān kāi huì, méiyǒu shíjiān kàn shū.|¡Qué bien! Yo tengo reuniones todos los días y no tengo tiempo de leer.
+那/你/可以/来/山/上，/这里/很/安静。|Nà nǐ kěyǐ lái shān shang, zhèlǐ hěn ānjìng.|Pues ven a la montaña, aquí hay mucha calma.|2`, `o|¿Qué le propone Anto a Laura al final?|Que vaya a la montaña, donde hay calma|Que estudie con él en la ciudad cada tarde|Que le preste sus libros de la escuela|Que lo acompañe a clase todos los días
+x|¿Cuál de estas afirmaciones NO se puede deducir de la conversación?|Anto va a la escuela en autobús|Anto camina una hora hasta la escuela|Laura tiene reuniones cada día|Anto disfruta leyendo en la montaña
+z|1
+f|6`, `差不多|casi; más o menos`, 'laura+anto'],
+
+[1, '🏃 ¿Gimnasio o fútbol?', `你/喜欢/运动/吗？|Nǐ xǐhuan yùndòng ma?|¿Te gusta el deporte?
+喜欢！/我/踢/足球。/你/呢？|Xǐhuan! Wǒ tī zúqiú. Nǐ ne?|¡Sí! Juego al fútbol. ¿Y tú?|2
+我/去/健身房。/我/跑步/和/游泳。|Wǒ qù jiànshēnfáng. Wǒ pǎobù hé yóuyǒng.|Yo voy al gimnasio. Corro y nado.
+我/跑/得/很/快，/可是/我/不/会/游泳。|Wǒ pǎo de hěn kuài, kěshì wǒ bú huì yóuyǒng.|Corro muy rápido, pero no sé nadar.|2
+没/关系，/我/可以/教/你。|Méi guānxi, wǒ kěyǐ jiāo nǐ.|No pasa nada, yo puedo enseñarte.
+太/好/了！/你/想/来/我们/的/比赛/吗？|Tài hǎo le! Nǐ xiǎng lái wǒmen de bǐsài ma?|¡Genial! ¿Quieres venir a nuestro partido?|2
+好/啊，/几/点？|Hǎo a, jǐ diǎn?|Vale, ¿a qué hora?
+星期六/下午/三/点。/我们/在/学校/见！|Xīngqīliù xiàwǔ sān diǎn. Wǒmen zài xuéxiào jiàn!|El sábado a las tres de la tarde. ¡Nos vemos en el colegio!|2`, `o|¿En qué quedan al final?|Ella irá a su partido el sábado por la tarde|Él irá a su gimnasio el domingo por la mañana|Los dos nadarán juntos el viernes|Los dos correrán juntos por el parque
+x|¿Cuál de estas afirmaciones NO se puede deducir de la conversación?|Chiki juega también al rugby|Lucía va al gimnasio|Chiki corre muy rápido|Lucía puede enseñarle a nadar
+z|5
+f|3`, `教|enseñar`, 'lucia+chiki'],
+
+[2, '🩹 Un golpe en el partido', `你/好，/我/的/腿/很/疼。|Nǐ hǎo, wǒ de tuǐ hěn téng.|Hola, me duele mucho la pierna.
+你/怎么/了？/是/打/球/的/时候/吗？|Nǐ zěnme le? Shì dǎ qiú de shíhou ma?|¿Qué te ha pasado? ¿Fue jugando?|2
+对，/我/打/橄榄球，/摔/了/一/下。|Duì, wǒ dǎ gǎnlǎnqiú, shuāi le yí xià.|Sí, jugando al rugby me caí.
+让/我/看看。/还好，/不/太/严重。|Ràng wǒ kànkan. Háihǎo, bú tài yánzhòng.|Déjame ver. Por suerte, no es grave.|2
+我/可以/打/球/吗？|Wǒ kěyǐ dǎ qiú ma?|¿Puedo jugar?
+这/个/星期/不/要/打，/多/休息。|Zhè gè xīngqī bú yào dǎ, duō xiūxi.|Esta semana no, descansa mucho.|2
+好，/我/等/一/个/星期。/谢谢/你！|Hǎo, wǒ děng yí gè xīngqī. Xièxie nǐ!|Vale, esperaré una semana. ¡Gracias!
+下/个/星期/再/来/看看，/别/担心。|Xià gè xīngqī zài lái kànkan, bié dānxīn.|La semana que viene vuelve a que te vea, no te preocupes.|2`, `o|¿Qué le recomienda Téo a Guidozcos?|Descansar una semana antes de volver a jugar|Seguir jugando con una venda en la pierna|Dejar el rugby para siempre y cambiar de deporte|Hacer más ejercicio para fortalecer la pierna
+x|¿Cuál de estas afirmaciones NO se puede deducir de la conversación?|La lesión de Guidozcos es muy grave|Guidozcos se cayó jugando al rugby|A Téo no le preocupa demasiado la pierna|Guidozcos volverá a la consulta en una semana
+z|6
+f|7`, `腿|pierna
+疼|doler; dolor
+还好|por suerte; no está mal
+严重|grave
+别|no (prohibición)`, 'guidozcos+teo'],
+
+[1, '🍉 Sandía y ajedrez', `你/会/下棋/吗？|Nǐ huì xiàqí ma?|¿Sabes jugar al ajedrez?
+会！/我/最/喜欢/下棋。|Huì! Wǒ zuì xǐhuan xiàqí.|¡Sí! Es lo que más me gusta.|2
+我/不/太/会，/可是/我/想/学。|Wǒ bú tài huì, kěshì wǒ xiǎng xué.|No se me da bien, pero quiero aprender.
+好/啊，/我/教/你。/你/吃/西瓜/吗？|Hǎo a, wǒ jiāo nǐ. Nǐ chī xīguā ma?|Vale, te enseño. ¿Quieres sandía?|2
+吃！/我/最/爱/吃/西瓜。|Chī! Wǒ zuì ài chī xīguā.|¡Sí! La sandía es lo que más me gusta.
+那/我们/一边/吃，/一边/下棋。|Nà wǒmen yìbiān chī, yìbiān xiàqí.|Pues comamos y juguemos al mismo tiempo.|2
+好！/第一/盘，/你/先/走。|Hǎo! Dìyī pán, nǐ xiān zǒu.|¡Vale! En la primera partida, mueves tú primero.
+谢谢！/你/真/好。|Xièxie! Nǐ zhēn hǎo.|¡Gracias! Eres muy amable.|2`, `o|¿Qué hacen mientras Samu aprende?|Comen sandía mientras juegan una partida|Beben té caliente mientras escuchan música tranquila|Miran un partido de fútbol juntos|Hacen los deberes en casa de Samu
+x|¿Cuál de estas afirmaciones NO se puede deducir de la conversación?|Samu es un campeón de ajedrez|Carlos sabe jugar muy bien al ajedrez desde pequeño|A Samu le encanta la sandía|Samu quiere aprender a jugar
+z|2
+f|6`, `一边|a la vez; mientras`, 'samu+carlos'],
+
+[2, '🍗 ¿Pollo frito cada semana?', `你/好，/我/每/个/星期/都/吃/肯德基。|Nǐ hǎo, wǒ měi gè xīngqī dōu chī Kěndéjī.|Hola, como KFC todas las semanas.
+每/个/星期/一/次/没/问题。|Měi gè xīngqī yí cì méi wèntí.|Una vez por semana no es ningún problema.|2
+可是/我/想/每天/吃，/太/好/吃/了！|Kěshì wǒ xiǎng měitiān chī, tài hǎo chī le!|¡Pero quiero comerlo a diario, está buenísimo!
+每天/吃/炸鸡/对/身体/不/好。|Měitiān chī zhájī duì shēntǐ bù hǎo.|Comer pollo frito a diario no es sano.|2
+那/我/应该/吃/什么？|Nà wǒ yīnggāi chī shénme?|Entonces, ¿qué debería comer?
+多/吃/蔬菜/和/水果，/少/吃/油/的。|Duō chī shūcài hé shuǐguǒ, shǎo chī yóu de.|Come más verdura y fruta, y menos fritos.|2
+好，/我/试试。/星期六/还/可以/吃/肯德基/吗？|Hǎo, wǒ shìshi. Xīngqīliù hái kěyǐ chī Kěndéjī ma?|Vale, lo intentaré. ¿Los sábados aún puedo comer KFC?
+可以！/不过/要/多/运动。|Kěyǐ! Búguò yào duō yùndòng.|¡Sí! Pero haz más deporte.|2`, `o|¿Qué consejo da Téo a YuYue?|Comer más verdura y fruta, y menos fritos|Dejar de ir al KFC para siempre|Comer pollo frito cada día para ganar fuerza|Beber más agua después de comer
+x|¿Cuál de estas afirmaciones NO se puede deducir de la conversación?|Le han prohibido a YuYue ir al KFC|Una vez por semana no es un problema|Conviene comer más verdura y fruta|Es bueno hacer más deporte
+z|4
+f|7`, `次|vez (clasificador)
+应该|deber; convenir
+蔬菜|verduras
+水果|fruta
+少|poco; menos
+油|aceite; grasa`, 'yuyue+teo'],
+
+[2, '🧀 Queso de Asturias', `我/从/家/带/来/了/奶酪。|Wǒ cóng jiā dài lái le nǎilào.|He traído queso de mi tierra.
+谢谢！/可是/我/不/能/吃。|Xièxie! Kěshì wǒ bù néng chī.|¡Gracias! Pero no puedo comerlo.|2
+为什么？/你/不/喜欢/吗？|Wèishénme? Nǐ bù xǐhuan ma?|¿Por qué? ¿No te gusta?
+我/喜欢，/可是/我/不/能/吃/奶/的/东西。|Wǒ xǐhuan, kěshì wǒ bù néng chī nǎi de dōngxi.|Me gusta, pero no puedo tomar lácteos.|2
+啊，/对/不/起！/那/我/给/你/带/苹果。|A, duì bu qǐ! Nà wǒ gěi nǐ dài píngguǒ.|¡Ay, perdona! Entonces te traeré manzanas.
+太/好/了！/我/的/猫/也/不/能/喝/牛奶。|Tài hǎo le! Wǒ de māo yě bù néng hē niúnǎi.|¡Genial! Mi gato tampoco puede beber leche.|2
+真/的/吗？/你们/一样/呢！|Zhēn de ma? Nǐmen yíyàng ne!|¿De verdad? ¡Sois iguales!
+哈哈，/是/啊。/下次/我/请/你/吃/饭！|Hāha, shì a. Xiàcì wǒ qǐng nǐ chī fàn!|Jaja, sí. ¡La próxima vez te invito yo a comer!|2`, `o|¿Por qué Payolink no come el queso?|Porque no puede tomar productos lácteos|Porque ya había comido demasiado antes de llegar|Porque no le gusta nada su sabor|Porque prefiere comer manzanas
+x|¿Cuál de estas afirmaciones NO se puede deducir de la conversación?|A Payolink le da alergia la fruta|Lucía trajo queso de su tierra|El gato de Payolink tampoco puede beber leche|Lucía traerá manzanas otro día
+z|6
+f|8`, `奶酪|queso
+奶|leche; lácteo
+对不起|perdón
+哈哈|jaja
+下次|la próxima vez`, 'lucia+payolink']
 );

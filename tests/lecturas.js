@@ -127,6 +127,7 @@ const ok = (cond, msg) => { if (!cond) { problemas++; console.log('  ✗', msg);
     ok(lados.der > lados.izq && lados.derR > lados.izqR && lados.v1, `las frases de cada persona deben ir en su lado (izq ${Math.round(lados.izq)}-${Math.round(lados.izqR)}, der ${Math.round(lados.der)}-${Math.round(lados.derR)})`);
     // 3) Preguntas: acertando
     console.log('3) Preguntas: respuestas correctas');
+    const R0 = await ev("(() => { const ws = ['猫', '小', '鱼'].map(h => byH.get(h)).filter(Boolean); ws.forEach(w => { S.known[w.id] = 1; S.w[w.id] = { b: 3, s: 7, o: 3, f: 0, l: Date.now() - 6 * DIA, d: Date.now() + DIA, t: '2026-01-01' }; }); return ws.length ? retencion(S.w[ws[0].id]) : -1; })()"); ok(R0 > 0, 'faltan palabras de prueba en el vocabulario');
     await ev(`lectura(0, ${n - 1})`); await esp(80); await clic('#nx'); await esp(80);
     const Q = JSON.parse(await ev('JSON.stringify(LECT[0].qs)')), titulo = await ev('LECT[0].t'), total = Q.length;
     const toks = k => ev(`LECT[0].ls[${k}].z`), hz = k => ev(`LECT[0].ls[${k}].z.join('')`);
@@ -147,6 +148,7 @@ const ok = (cond, msg) => { if (!cond) { problemas++; console.log('  ✗', msg);
     }
     ok((await ev("document.querySelector('h1') && document.querySelector('h1').textContent")).includes('Hecho') && (await ev('document.body.innerText')).includes(`${total}/${total} aciertos`), `el resultado debe decir ${total}/${total} aciertos`);
     ok((await ev(`S.lect[${JSON.stringify(titulo)}]`)) == total, 'el mejor resultado no se guardó');
+    ok((await ev("document.querySelector('#app').innerHTML")).includes('De paso has refrescado <b>') && !(await ev("document.querySelector('#app').innerHTML")).includes('refrescado <b>0'), 'al acertar la lectura debe avisar de las palabras refrescadas'); ok((await ev("retencion(S.w[byH.get('猫').id])")) > R0, 'la retención de las palabras de la lectura debe subir');
 
     // 4) Preguntas: fallando
     console.log('4) Preguntas: respuestas incorrectas');

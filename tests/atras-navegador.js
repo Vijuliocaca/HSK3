@@ -37,6 +37,17 @@ const ok = (cond, msg) => { if (!cond) { problemas++; console.log('  ✗', msg);
       let pasos = 0; while (!(await enInicio()) && pasos < 6) { if (!(await ev('navigation.canGoBack'))) break; await atras(); pasos++; }
       ok(await enInicio(), `«${nombre}»: atrás no llega al inicio tras ${pasos} pasos`); ok((await indice()) == 0, `«${nombre}»: queda historial de más al llegar al inicio (índice ${await indice()})`);
     }
+    console.log('5) Al volver, la lista conserva la altura desde la que abriste la lectura o el diálogo');
+    const alto = async (lista, abre, i, cuantos) => {
+      await ev('home()'); await esp(60); await ev(lista + '()'); await esp(80); ok((await ev('scrollY')) == 0, `${lista}: al entrar desde el inicio debe empezar arriba`);
+      await ev('scrollTo(0, 1300)'); await esp(50); const y0 = await ev('scrollY'); ok(y0 > 400, `${lista}: la pantalla debe ser lo bastante larga para la prueba (scrollY ${y0})`);
+      await ev(`${abre}(${i})`); await esp(80);
+      await atras(); await esp(150); ok(Math.abs((await ev('scrollY')) - y0) < 3, `${lista}: con el botón atrás debe volver a la altura ${y0} (está en ${await ev('scrollY')})`);
+      await ev(`${abre}(${i})`); await esp(80); await ev("document.querySelector('.top .back').click()"); await esp(150); ok(Math.abs((await ev('scrollY')) - y0) < 3, `${lista}: con el botón ← / ✕ de la pantalla debe volver a la altura ${y0} (está en ${await ev('scrollY')})`);
+      await ev('home()'); await esp(60); await ev(lista + '()'); await esp(80); ok((await ev('scrollY')) == 0, `${lista}: tras pasar por el inicio debe empezar arriba otra vez`);
+    };
+    await alto('lecturas', 'lectura', 30); await alto('dialogos', 'dialogo', 12);
+    await ev('home()'); await esp(60); await ev('lecturas()'); await esp(80); await ev('scrollTo(0, 900)'); await esp(50); const y1 = await ev('scrollY'); await ev("setLect('lpy')"); await esp(80); ok(Math.abs((await ev('scrollY')) - y1) < 3, 'al cambiar «Con pinyin» la lista no debe saltar arriba'); await ev("setLect('lpy')");
   } catch (e) { problemas++; console.log('  ✗ error en la prueba:', e.message); }
   await b.cerrar();
   console.log(problemas ? `atras-navegador: ${problemas} problemas` : 'atras-navegador: OK (historial real)');

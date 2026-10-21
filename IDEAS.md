@@ -5,8 +5,13 @@ Lista de mejoras que se han hablado y todavía no están hechas. Recomendación:
 ## Para no perder el progreso
 
 ## Para aprender mejor
+- **Respuestas con matices** (Otra vez / Difícil / Bien / Fácil) en vez de solo acierto o fallo, para afinar la estabilidad de `grade()`. Toca todos los ejercicios: es el cambio más grande que queda del repaso espaciado.
+- **Repasar desde una lectura las palabras que tocaste** para ver su ficha (marcarlas para el repaso de hoy).
+- **Velocidad de voz por lectura** (lenta / normal) junto a la persona.
+- **Insignias discretas por personaje** al completar todas sus lecturas (estilo sobrio de `PRODUCT.md`).
 
 ## Cultura y diversión
+- **Más personajes y más conversaciones** entre parejas (hay 11 personajes y 10 conversaciones; las parejas deben llevar `voz.n` de distinta paridad). Ideas: disfraces por fiesta (gorro, farolillo) usando `fiestas.js`, rasgos de dibujo (pecas, barba, gorro), elegir tu propio avatar para el perfil.
 14. **Más canciones tradicionales con melodía y karaoke.** Faltan las partituras (簡譜) de 茉莉花 y 送别 para añadir su melodía.
 
 ## Pulido
@@ -37,6 +42,9 @@ Lista de mejoras que se han hablado y todavía no están hechas. Recomendación:
 - Compartir el progreso como imagen: tarjeta en canvas con hoja de compartir o descarga (sw v51).
 - Carga más ligera: medida en Edge, aplazar gramática y canciones solo ahorraba ~3 % (el service worker precarga todo) y se descartó. Sí se guardó en caché por día el cálculo de las fiestas (~50 ms por arranque, sw v52). Si el arranque se nota lento en el móvil, la vía con más recorrido sería cargar las frases de ejemplo (frases*.js, ~500 KB) bajo demanda. Pendiente: emparejar y dibujar trazos con teclado, versión oscura del alto contraste.
 - Rediseño con impeccable (sw v53): `PRODUCT.md` y `DESIGN.md` («El patio del templo»), colores por función con contraste AA en los tres temas, objetivos táctiles de 44 px, serif china solo para hanzi, sin bandas laterales ni antetítulos, inicio agrupado en 4 secciones, sellos con hanzi en lugar de emojis, `<main>`, `h2` y anuncio de pantalla para el lector. Segunda tanda: sellos en los 58 temas, escala de tamaños con tokens `--fs-*`, campos con nombre, `color-scheme`, barras con `scaleX` y movimiento reducido con fundido. Tercera y cuarta: Ajustes sin desbordes al 130 %, `lang` en todos los hanzi, sin emojis en la interfaz (sellos y ✓), listas e importación sin diálogos nativos y título de pestaña por pantalla.
+- Personajes y lecturas (sw v54-v74): repertorio de 11 personajes con avatar SVG propio (fondo, accesorios, parpadeo, boca que habla, expresiones con ? y !, gesto al empezar cada frase) y voz propia (tono, velocidad y voz china); 49 lecturas y 10 conversaciones de dos con persona a cada lado; la lectura muestra la conversación entera que crece con «Siguiente», con «Escuchar toda la lectura» al terminar; ficha de palabra flotante bajo la palabra tocada; preguntas de comprensión (no de memoria ni por descarte) y repaso suave de las palabras que contienen.
+- Botón atrás (sw v66): una entrada de historial por pantalla nueva y atrás nunca añade entradas (Chrome del móvil omite las añadidas sin tocar la pantalla); al volver a una lista se recupera la altura de la que abriste la lectura o el diálogo (sw v74).
+- Repaso espaciado con curva del olvido (sw v73): estabilidad por palabra (R = 0,9^(t/s)), retención media y curva en «Hoy», repaso ordenado por riesgo, «reforzar las más flojas», planificador del examen (ninguna palabra espera más de ~1/4 del tiempo que falta) y retención estimada en la ficha de cada palabra (sw v74).
 
 ## Decisiones ya tomadas
 - **Pronunciación (grabarse, compararse y puntuar con reconocimiento de voz): descartada.** No se hace ni se vuelve a proponer.

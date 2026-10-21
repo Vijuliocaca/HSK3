@@ -195,6 +195,23 @@ t('hoy: muestra la retención media, la curva del olvido y, con examen, la líne
   assert(/examen \d+ %/.test(h) && h.includes('Examen en <b>10 días</b>') && h.includes('al menos cada <b>3 días</b>'), 'con examen: línea del examen y ritmo de repasos');
   const vacia = cargarApp(); vacia.ev('today()'); assert(!vacia.html().includes('Curva del olvido'), 'sin palabras estudiadas no hay curva');
 });
+t('olvido: leer una lectura o diálogo (≥ 75 % de aciertos) refresca de paso sus palabras ya estudiadas: recuperan la mitad de lo olvidado, una vez al día', () => {
+  const a = cargarApp(); a.ev('S.known[W[0].id] = S.known[W[1].id] = 1; S.w = {}; S.w[W[0].id] = { b: 3, s: 7, o: 3, f: 0, l: Date.now() - 10 * DIA, d: Date.now() - 3 * DIA, t: "2026-01-01" }');
+  const h0 = a.ev('W[0].h'), h1 = a.ev('W[1].h'), R0 = a.ev('retencion(S.w[W[0].id])');
+  assert.strictEqual(a.ev(`suave([${JSON.stringify(h0)}, ${JSON.stringify(h1)}, "zzz"], 2, 4)`), 0, 'con 2 de 4 aciertos no se refresca nada');
+  assert.strictEqual(a.ev(`suave([${JSON.stringify(h0)}, ${JSON.stringify(h0)}, ${JSON.stringify(h1)}, "zzz"], 3, 4)`), 1, 'solo cuenta la palabra con registro (sin repetir)');
+  const R1 = a.ev('retencion(S.w[W[0].id])'); assert(R1 > R0 && R1 < 1, `la retención debe subir (${R0.toFixed(2)} → ${R1.toFixed(2)})`);
+  assert(Math.abs(a.ev('S.w[W[0].id].s') - 7.35) < 1e-9, 'la estabilidad sube un 5 %'); assert.strictEqual(a.ev('S.w[W[0].id].pt'), a.ev('day(new Date())'));
+  assert.strictEqual(a.ev(`suave([${JSON.stringify(h0)}], 4, 4)`), 0, 'solo una vez al día por palabra'); assert(!a.ev('!!S.w[W[1].id]'), 'una palabra sin registro no se crea');
+  assert(a.ev('nSuave(2)').includes('<b>2</b> palabras') && a.ev('nSuave(1)').includes('<b>1</b> palabra ') && a.ev('nSuave(0)') == '', 'mensaje');
+});
+t('ficha de una palabra: muestra su retención estimada y el próximo repaso (y avisa si aún no se ha repasado)', () => {
+  const a = cargarApp(); a.ev('S.w = {}; S.known[W[0].id] = 1'); a.ev('detail(W[0].id)'); assert(a.html().includes('Aún sin repasar'), 'estudiada pero sin repasar');
+  a.ev('detail(W[5].id)'); assert(!a.html().includes('id=rt'), 'una palabra sin estudiar no lleva línea de retención');
+  a.ev('S.w[W[0].id] = { b: 3, s: 7, o: 3, f: 0, l: Date.now() - 2 * DIA, d: Date.now() + 5 * DIA, t: "2026-01-01" }'); a.ev('detail(W[0].id)'); const h = a.html();
+  assert(/Retención estimada <b>\d+ %<\/b> · próximo repaso en [45] días/.test(h), 'retención y próximo repaso: ' + (h.match(/id=rt>[^<]*<b>[^]*?<\/p>/) || [''])[0]);
+  a.ev('S.w[W[0].id].d = Date.now() - DIA; S.w[W[0].id].l = Date.now() - 8 * DIA'); a.ev('detail(W[0].id)'); assert(a.html().includes('toca repasarla hoy'), 'vencida: toca hoy');
+});
 t('preguntas de lectura: elige, la que no se deduce, frase en chino y ordenar se presentan bien y sin releer el texto', () => {
   const a = cargarApp(), P = i => JSON.parse(a.ev(`JSON.stringify(LECT[0].qs[${i}])`)), q = () => a.els['#q'].innerHTML;
   [0, 1].forEach(i => { a.ev(`lectQ(0, ${i})`); const f = P(i), h = q(); assert(h.includes('prompt qlect') && h.includes(f.q), 'falta la pregunta'); f.r.forEach(x => assert(h.includes(x), 'falta la opción «' + x + '»')); assert(!h.includes('class=wd'), 'no debe mostrar el texto de la lectura'); });

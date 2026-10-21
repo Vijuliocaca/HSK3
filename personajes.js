@@ -22,7 +22,7 @@ self.PERSONAJES = {
   chiki: { n: 'Chiki', rasgos: 'Juega al fútbol, tiene un gato y es bajito.',
     piel: '#e2b48c', pelo: '#1d1612', estilo: 'corto', ropa: '#c23b3b', fondo: '#dcefd6', patron: 'diagonal', extra: 'gato+balon', voz: { tono: 1.35, vel: 1.15, n: 6 } },
   guidozcos: { n: 'Guidozcos', rasgos: 'Juega al baloncesto y al rugby. Es alto.',
-    piel: '#c68e63', pelo: '#2a1d14', estilo: 'rizado', ropa: '#e98a1f', fondo: '#f6e3c7', patron: 'puntos', extra: 'baloncesto', voz: { tono: 0.75, vel: 0.95, n: 10 } },
+    piel: '#c68e63', pelo: '#2a1d14', estilo: 'rizado', ropa: '#e98a1f', fondo: '#f6e3c7', patron: 'puntos', extra: 'baloncesto', voz: { tono: 0.75, vel: 0.95, n: 11 } },
   anto: { n: 'Anto', rasgos: 'Estudia mucho y vive en la montaña.',
     piel: '#f0cdb0', pelo: '#5b3a29', estilo: 'largo', ropa: '#6b7f3a', fondo: '#dfe9e0', gafas: true, patron: 'montanas', extra: 'libro', voz: { tono: 1.05, vel: 0.9, n: 8 } },
 };

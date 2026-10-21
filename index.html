@@ -267,7 +267,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script>
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
-const APP_V = 'hsk3-v79'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v80'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -531,7 +531,7 @@ function home() {
   app(`<h1><span class=seal>学</span>HSK Viju<button class=gear onclick="list('all')" aria-label="Vocabulario">${ico('book-open')}</button><button class=gear onclick="settings()" aria-label="Ajustes">${ico('settings')}</button></h1><div class=mut>Preparación gratuita del examen</div>
   <div class=goal><span>Meta de hoy: <b>${Math.min(hoy, meta)}/${meta}</b>${hoy >= meta ? ' ✓' : ''}</span><div class=bar><i style="width:${Math.min(100, hoy / meta * 100)}%"></i></div></div>
   <div class=stats>
-    <div class=stat><b>${streakOk ? S.streak : 0}</b><span class=mut>racha</span></div>
+    <div class=stat><b><span style="color:${streakOk && S.streak ? 'var(--pri)' : 'var(--mut)'}">${ico('flame')}</span> ${streakOk ? S.streak : 0}</b><span class=mut>racha</span></div>
     <div class=stat onclick="list('done')" style="cursor:pointer"><b style="white-space:nowrap">${p.length}/${all.length}</b><span class=mut>estudiadas</span></div>
     <div class=stat><b>${dom}</b><span class=mut>dominadas</span></div>
   </div>

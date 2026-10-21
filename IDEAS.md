@@ -42,6 +42,6 @@ Lista de mejoras que se han hablado y todavía no están hechas. Recomendación:
 - **Pronunciación (grabarse, compararse y puntuar con reconocimiento de voz): descartada.** No se hace ni se vuelve a proponer.
 - Diseño: se trabaja con prototipos/código HTML, no con Figma. Las reglas visuales viven en `DESIGN.md`; el contexto de producto, en `PRODUCT.md`.
 - Fuentes: solo del sistema (sin descargas). Serif china solo para caracteres; Georgia para títulos; sans del sistema para el resto.
-- Iconos: sellos con un hanzi por sección; en SVG solo el altavoz y los iconos de la cabecera (libro de vocabulario y engranaje de ajustes), que el usuario prefirió dibujados antes que con hanzi.
+- Iconos: de línea, de Lucide (licencia ISC), en `iconos.js` y dentro de un marco de sello. El usuario descartó los emojis («gritan IA») y también los caracteres chinos como iconos («no se entienden»).
 - No se incluyen grabaciones ni letras de canciones con derechos de autor dentro de la app; el Top 10 usa el reproductor de YouTube (necesita conexión).
 - No se añade, por ahora, la opción de importar archivos de audio propios.

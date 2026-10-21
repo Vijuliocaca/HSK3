@@ -76,7 +76,9 @@ button:disabled{color:var(--tx);opacity:1;cursor:default}
 .mode.alert{border-color:var(--pri)}
 .mode span.e{font-size:var(--fs-2xl)} .mode b{display:block} .mode small{color:var(--mut)}
 /* sellos: cada sección firmada con su carácter, como tinta de sello sobre papel */
-.sg{font-family:var(--serif);font-weight:700}
+.i{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.125em;flex:none}
+.sg .i,.sgm .i{width:1.3rem;height:1.3rem} nav button span .i{width:1.35rem;height:1.35rem} .hzi{color:var(--pri)} .hzi .i{stroke-width:1.25}
+.med .m0{color:#a8682f}.med .m1{color:#77838f}.med .m2{color:#a6781f}
 .sgm{display:inline-grid;vertical-align:middle;}.sgm.off{opacity:.35}.med{display:inline-flex;gap:.3rem}.dok{color:var(--ok)}.exam .sgm,.resumen .sgm{width:1.8rem;height:1.8rem;font-size:var(--fs-md)}
 .mode span.e.sg,.sgm{display:inline-grid;place-items:center;flex:none;width:2.25rem;height:2.25rem;font-size:var(--fs-xl);line-height:1;color:var(--pri);border:1.5px solid currentColor;border-radius:4px;background:var(--bg)}
 .mode.big span.e.sg{color:var(--on-act);border-color:var(--inlay);background:transparent}
@@ -129,7 +131,7 @@ button:disabled{color:var(--tx);opacity:1;cursor:default}
 nav{position:fixed;left:0;right:0;bottom:0;display:flex;background:var(--card);border-top:2px solid var(--gold);padding-bottom:env(safe-area-inset-bottom);z-index:5}
 nav[hidden]{display:none}
 nav button{flex:1;background:none;border:0;padding:.55rem 0 .5rem;font-size:var(--fs-xs);color:var(--mut);display:flex;flex-direction:column;align-items:center;gap:.1rem}
-nav button span{font:700 var(--fs-lg)/1 var(--serif);width:1.9rem;height:1.9rem;display:grid;place-items:center;border-radius:4px}
+nav button span{width:1.9rem;height:1.9rem;display:grid;place-items:center;border-radius:4px}
 nav button.on span{background:var(--act);color:var(--on-act)}
 nav button.on{color:var(--pri);font-weight:700}
 input[type=text],input[type=search]{width:100%;padding:.8rem;border-radius:6px;border:2px solid var(--ctl);background:var(--card);color:var(--tx);font-size:var(--fs-lg)}
@@ -184,6 +186,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <div id="sr" class="sr" aria-live="polite"></div>
 <nav id="nav" hidden></nav>
 <div id="upd" hidden><span>Hay una versión nueva</span><button onclick="location.reload()">Actualizar</button></div>
+<script src="iconos.js"></script>
 <script src="palabras.js"></script>
 <script src="ajustes.js"></script>
 <script src="nuevo1.js"></script>
@@ -236,7 +239,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script src="cultura.js"></script>
 <script>
 const $ = s => document.querySelector(s);
-const TABS = [['home', '首', 'Inicio'], ['today', '今', 'Hoy'], ['examMenu', '考', 'Examen'], ['stats', '进', 'Progreso']];
+const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
 let TM = 0;
 // botón atrás del móvil: desde cualquier pantalla vuelve al inicio (y no cierra la app)
 let depth = 0, skipPop = false, GUARD = '', INICIO = false; // INICIO: lo pone home() justo antes de pintar; otras pantallas usan la pestaña 'home' solo para la barra y sí deben añadir entrada al historial
@@ -256,7 +259,7 @@ const app = (h, tab) => {
   if (t && t != $('#sr').textContent) $('#sr').textContent = t; // el lector de pantalla anuncia la pantalla nueva
   document.title = t && t != 'HSK Viju' ? t + ' · HSK Viju' : 'HSK Viju';
   $('#nav').hidden = !tab; document.body.classList.toggle('nonav', !tab);
-  if (tab) $('#nav').innerHTML = TABS.map(t => `<button class="${t[0] == tab ? 'on' : ''}" ${t[0] == tab ? 'aria-current="page"' : ''} onclick="${t[0]}()"><span aria-hidden="true">${t[1]}</span>${t[2]}</button>`).join('');
+  if (tab) $('#nav').innerHTML = TABS.map(t => `<button class="${t[0] == tab ? 'on' : ''}" ${t[0] == tab ? 'aria-current="page"' : ''} onclick="${t[0]}()"><span aria-hidden="true">${ico(t[1])}</span>${t[2]}</button>`).join('');
 };
 // --- accesibilidad: se aplica a todas las pantallas desde aquí ---
 // lo clicable que no es un botón se alcanza con Tab, los botones de solo icono tienen nombre, las respuestas se anuncian y el chino lleva su idioma
@@ -269,7 +272,9 @@ function a11y() {
   document.querySelectorAll('#app .hz, #app .hz2, #app .zh, #app .list b, #app .wd, #app .gpat, #app .zhs').forEach(e => e.lang = 'zh-CN');
 }
 // el 🔊 de las plantillas se dibuja como icono SVG; el observador actúa antes de pintar, así que el emoji no llega a verse
-const SPK = '<svg class=spk viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9.5h4l5-4.5v14l-5-4.5H3z" fill="currentColor"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+// iconos de línea de iconos.js (Lucide); siempre decorativos, el nombre lo da el texto o el aria-label del botón
+const ico = n => `<svg class=i viewBox="0 0 24 24" aria-hidden="true">${(self.ICONS || {})[n] || ''}</svg>`;
+const SPK = ico('volume-2').replace('class=i', 'class="i spk"');
 function speakers(root) {
   const tw = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, { acceptNode: n => n.data.includes('🔊') ? 1 : 3 }), ns = [];
   while (tw.nextNode()) ns.push(tw.currentNode);
@@ -316,15 +321,15 @@ const PW = {}, LKEYS = {}, LES = {};
   const put = (name, ws) => { if (ws.length) out.push([name, ws]); };
   TOP.forEach(t => {
     const ws = t.ws.filter(w => w.l == lv); ws.forEach(w => used.add(w.id));
-    if (ws.length < 8) { carry.push(...ws); if (ws.length) names.push(t.e + ' ' + t.n); if (carry.length >= 8 || names.length >= 3) { put(names.join(' · '), carry); carry = []; names = []; } return; }
+    if (ws.length < 8) { carry.push(...ws); if (ws.length) names.push(t.n); if (carry.length >= 8 || names.length >= 3) { put(names.join(' · '), carry); carry = []; names = []; } return; }
     const k = Math.ceil(ws.length / 15);
-    for (let i = 0; i < k; i++) put(t.e + ' ' + t.n + (k > 1 ? ' ' + (i + 1) : ''), ws.slice(Math.round(i * ws.length / k), Math.round((i + 1) * ws.length / k)));
+    for (let i = 0; i < k; i++) put(t.n + (k > 1 ? ' ' + (i + 1) : ''), ws.slice(Math.round(i * ws.length / k), Math.round((i + 1) * ws.length / k)));
   });
   if (carry.length && carry.length < 5 && out.length) { const p = out[out.length - 1]; p[0] += ' · ' + names.join(' · '); p[1].push(...carry); } else put(names.join(' · '), carry); // un resto pequeño se une a la lección anterior
   const g = new Map(); W.filter(w => w.l == lv && !used.has(w.id)).forEach(w => { const c = [...w.h][0]; g.set(c, [...(g.get(c) || []), w]); });
   const rest = [...g.values()].flat();
   const k = Math.max(1, Math.round(rest.length / 14)), gen = [];
-  for (let i = 0; i < k; i++) gen.push(['词 Más vocabulario ' + (i + 1), rest.slice(Math.round(i * rest.length / k), Math.round((i + 1) * rest.length / k))]);
+  for (let i = 0; i < k; i++) gen.push(['Más vocabulario ' + (i + 1), rest.slice(Math.round(i * rest.length / k), Math.round((i + 1) * rest.length / k))]);
   // en HSK 1-2 lo básico sin tema (pronombres, partículas, verbos comunes) va primero
   LKEYS[lv] = (lv < 3 ? [...gen, ...out] : [...out, ...gen]).filter(l => l[1].length).map(([name, ws], i) => { const k = 'x' + lv + '-' + i; LES[k] = name; PW[k] = ws; ws.forEach(w => w.pk = k); return k; });
 });
@@ -399,28 +404,28 @@ function pick(n, f = () => 1) {
 // --- pantallas ---
 // modos del inicio; el último campo es el grupo en el que aparecen (MODE_GROUPS)
 const MODES = [
-  ['match', '配', 'Emparejar', 'Une cada palabra con su traducción', 'p'],
-  ['choice', '译', 'Elegir traducción', 'Hanzi → español y al revés', 'p'],
-  ['cards', '卡', 'Tarjetas', 'Mira, piensa y comprueba', 'p'],
-  ['listen', '听', 'Escuchar', 'Oye la palabra y elige', 'p'],
-  ['write', '拼', 'Escribir pinyin', 'Escribe la pronunciación', 'p'],
-  ['pinyin', '音', 'Elegir pinyin', 'Distingue los tonos', 'p'],
-  ['hanzi', '字', 'Elegir hanzi', 'Significado → caracteres', 'p'],
-  ['tones', '调', 'Entrenar tonos', 'mā má mǎ mà: oye y distingue', 'p'],
-  ['cloze', '填', 'Completar la frase', 'Elige la palabra que falta', 'p'],
-  ['sentence', '句', 'Escuchar la frase', 'Oye una frase y elige su significado', 'p'],
-  ['order', '序', 'Ordenar la frase', 'Construye la frase con sus palabras', 'p'],
-  ['draw', '笔', 'Dibujar trazos', 'Escribe el carácter trazo a trazo', 'p'],
-  ['speed', '快', 'Contrarreloj', '60 segundos: ¡cuantas más aciertes mejor!', 'p'],
-  ['lect', '读', 'Lecturas', 'Historias cortas: toca las palabras', 'l'],
-  ['dial', '话', 'Diálogos', 'Escucha conversaciones y contesta', 'l'],
-  ['song', '歌', 'Canciones', 'Practica con letras de canciones chinas', 'l'],
-  ['fest', '节', 'Fiestas chinas', 'Calendario y costumbres', 'c'],
-  ['top10', '榜', 'Top 10 canciones', 'Cultura: las más chinas', 'c'],
-  ['cult', '影', 'Más Top 10', 'Películas, series y platos', 'c'],
-  ['hard', '难', 'Palabras difíciles', '', 'm'],
-  ['lists', '单', 'Mis listas', 'Tus propias palabras', 'm'],
-  ['logros', '奖', 'Logros', 'Medallas y rachas semanales', 'm'],
+  ['match', 'link', 'Emparejar', 'Une cada palabra con su traducción', 'p'],
+  ['choice', 'languages', 'Elegir traducción', 'Hanzi → español y al revés', 'p'],
+  ['cards', 'layers', 'Tarjetas', 'Mira, piensa y comprueba', 'p'],
+  ['listen', 'headphones', 'Escuchar', 'Oye la palabra y elige', 'p'],
+  ['write', 'keyboard', 'Escribir pinyin', 'Escribe la pronunciación', 'p'],
+  ['pinyin', 'spell-check', 'Elegir pinyin', 'Distingue los tonos', 'p'],
+  ['hanzi', 'type', 'Elegir hanzi', 'Significado → caracteres', 'p'],
+  ['tones', 'audio-waveform', 'Entrenar tonos', 'mā má mǎ mà: oye y distingue', 'p'],
+  ['cloze', 'text-cursor-input', 'Completar la frase', 'Elige la palabra que falta', 'p'],
+  ['sentence', 'ear', 'Escuchar la frase', 'Oye una frase y elige su significado', 'p'],
+  ['order', 'list-ordered', 'Ordenar la frase', 'Construye la frase con sus palabras', 'p'],
+  ['draw', 'brush', 'Dibujar trazos', 'Escribe el carácter trazo a trazo', 'p'],
+  ['speed', 'timer', 'Contrarreloj', '60 segundos: ¡cuantas más aciertes mejor!', 'p'],
+  ['lect', 'book-open-text', 'Lecturas', 'Historias cortas: toca las palabras', 'l'],
+  ['dial', 'messages-square', 'Diálogos', 'Escucha conversaciones y contesta', 'l'],
+  ['song', 'music', 'Canciones', 'Practica con letras de canciones chinas', 'l'],
+  ['fest', 'calendar-heart', 'Fiestas chinas', 'Calendario y costumbres', 'c'],
+  ['top10', 'trophy', 'Top 10 canciones', 'Cultura: las más chinas', 'c'],
+  ['cult', 'clapperboard', 'Más Top 10', 'Películas, series y platos', 'c'],
+  ['hard', 'flame', 'Palabras difíciles', '', 'm'],
+  ['lists', 'list-checks', 'Mis listas', 'Tus propias palabras', 'm'],
+  ['logros', 'medal', 'Logros', 'Medallas y rachas semanales', 'm'],
 ];
 const MODE_GROUPS = [['p', 'Practicar lo estudiado'], ['l', 'Leer y escuchar'], ['c', 'Cultura china'], ['m', 'Lo tuyo']];
 
@@ -440,7 +445,7 @@ function daily() {
   return `<h2>Hoy en chino</h2>` + (w ? `<button class=mode onclick="BACK='home()';detail(${w.id})"><span class="e zhs" style="font-family:var(--serif)">${w.h}</span><span><b>${pc(w.p)}</b><small>${w.e} · palabra del día</small></span></button>` : '')
     + (c ? `<details class=resumen><summary>成语 del día: <b>${c[0]}</b></summary><div class=p2>${pc(c[1])}</div><div class=mut>«${c[2]}»</div><div style="margin:.4rem 0"><b>${c[3]}</b></div>
       <div class=ex onclick="say(CY[${ci}][4])"><div class=zh>${c[4]} 🔊</div><div class=p2>${pc(c[5])}</div><div class=mut>${c[6]}</div></div><button class=chip style="margin-top:.5rem" onclick="say('${c[0]}')">🔊 Escuchar el 成语</button></details>` : '')
-    + (fp && fp.n <= 14 ? `<button class=mode onclick="fiestas()"><span class="e sg">${[...fp.f.z][0]}</span><span><b>${fp.f.z} ${fp.n ? 'en ' + nDias(fp.n) : 'es hoy'}</b><small>${fp.f.n} · calendario de fiestas</small></span></button>` : '');
+    + (fp && fp.n <= 14 ? `<button class=mode onclick="fiestas()"><span class="e sg">${ico('calendar-heart')}</span><span><b>${fp.f.z} ${fp.n ? 'en ' + nDias(fp.n) : 'es hoy'}</b><small>${fp.f.n} · calendario de fiestas</small></span></button>` : '');
 }
 
 // modo antes del examen: cuenta atrás y ritmo diario para llegar con todo el vocabulario del HSK elegido estudiado
@@ -460,7 +465,7 @@ function home() {
   const hoy = S.hist[day(new Date())]?.n || 0, meta = S.set.goal;
   const vistas = W.filter(w => S.known[w.id]), domT = vistas.filter(w => (S.w[w.id]?.b || 0) >= 4).length;
   INICIO = true;
-  app(`<h1><span class=seal>学</span>HSK Viju<button class=gear onclick="list('all')" aria-label="Vocabulario"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10.2 5.1 7.6 4.5 3.5 4.5v13.2c4.1 0 6.7.6 8.5 2 1.8-1.4 4.4-2 8.5-2V4.5c-4.1 0-6.7.6-8.5 2zM12 6.5v13.2"/></svg></button><button class=gear onclick="settings()" aria-label="Ajustes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.21 4.82L10.61 2.1L13.39 2.1L13.79 4.82L15.81 5.66L18.02 4.01L19.99 5.98L18.34 8.19L19.18 10.21L21.9 10.61L21.9 13.39L19.18 13.79L18.34 15.81L19.99 18.02L18.02 19.99L15.81 18.34L13.79 19.18L13.39 21.9L10.61 21.9L10.21 19.18L8.19 18.34L5.98 19.99L4.01 18.02L5.66 15.81L4.82 13.79L2.1 13.39L2.1 10.61L4.82 10.21L5.66 8.19L4.01 5.98L5.98 4.01L8.19 5.66Z"/><circle cx="12" cy="12" r="3"/></svg></button></h1><div class=mut>Preparación gratuita del examen</div>
+  app(`<h1><span class=seal>学</span>HSK Viju<button class=gear onclick="list('all')" aria-label="Vocabulario">${ico('book-open')}</button><button class=gear onclick="settings()" aria-label="Ajustes">${ico('settings')}</button></h1><div class=mut>Preparación gratuita del examen</div>
   <div class=goal><span>Meta de hoy: <b>${Math.min(hoy, meta)}/${meta}</b>${hoy >= meta ? ' ✓' : ''}</span><div class=bar><i style="width:${Math.min(100, hoy / meta * 100)}%"></i></div></div>
   <div class=stats>
     <div class=stat><b>${streakOk ? S.streak : 0}</b><span class=mut>racha</span></div>
@@ -475,18 +480,18 @@ function home() {
     <div class=mut style="margin:.5rem 0">Total: <b>${vistas.length}</b> estudiadas de ${W.length} · <b>${domT}</b> dominadas · <b>${W.length - vistas.length}</b> por estudiar</div>
     <button class=chip onclick="list('done')">Ver las palabras estudiadas →</button></details>
   ${daily()}
-  <button class="mode big" style="margin-top:1rem" onclick="lessons()"><span class="e sg">学</span><span><b>Aprender palabras nuevas</b><small>Lecciones por temas</small></span></button>
-  <button class="mode big" onclick="gramatica()"><span class="e sg">法</span><span><b>Gramática</b><small>Estructuras del chino por nivel</small></span></button>
-  <button class="mode big" onclick="temas()"><span class="e sg">类</span><span><b>Vocabulario por temas</b><small>Frutas, transporte, familia…</small></span></button>
-  ${nd ? `<button class="mode alert" onclick="today()"><span class="e sg">复</span><span><b>Repasar lo de hoy</b><small>${nd} palabras pendientes</small></span></button>` : ''}
-  ${MODE_GROUPS.map(([g, t]) => `<h2>${t}</h2><div class=grid>${MODES.filter(m => m[4] == g).map(m => `<button class=mode onclick="go('${m[0]}')"><span class="e sg">${m[1]}</span><span><b>${m[2]}</b><small>${m[0] == 'hard' ? hardList().length + ' palabras' : m[3]}</small></span></button>`).join('')}</div>`).join('')}`, 'home');
+  <button class="mode big" style="margin-top:1rem" onclick="lessons()"><span class="e sg">${ico('graduation-cap')}</span><span><b>Aprender palabras nuevas</b><small>Lecciones por temas</small></span></button>
+  <button class="mode big" onclick="gramatica()"><span class="e sg">${ico('book-a')}</span><span><b>Gramática</b><small>Estructuras del chino por nivel</small></span></button>
+  <button class="mode big" onclick="temas()"><span class="e sg">${ico('library')}</span><span><b>Vocabulario por temas</b><small>Frutas, transporte, familia…</small></span></button>
+  ${nd ? `<button class="mode alert" onclick="today()"><span class="e sg">${ico('history')}</span><span><b>Repasar lo de hoy</b><small>${nd} palabras pendientes</small></span></button>` : ''}
+  ${MODE_GROUPS.map(([g, t]) => `<h2>${t}</h2><div class=grid>${MODES.filter(m => m[4] == g).map(m => `<button class=mode onclick="go('${m[0]}')"><span class="e sg">${ico(m[1])}</span><span><b>${m[2]}</b><small>${m[0] == 'hard' ? hardList().length + ' palabras' : m[3]}</small></span></button>`).join('')}</div>`).join('')}`, 'home');
 }
 function tog(k, n) { // al elegir un HSK se marcan también los anteriores; tocar el más alto lo quita
   const mx = Math.max(...S.lv), top = n == mx && n > 1 ? n - 1 : n;
   S.lv = [1, 2, 3, 4, 5].slice(0, top);
   save(); home();
 }
-const empty = (t = 'Primero estudia alguna lección', s = 'Los juegos usan solo las palabras que ya has estudiado.') => app(`<div class=top><button class=back onclick="home()">←</button></div><div class=prompt><span class=hz>学</span>${t}<small>${s}</small></div><button class=main onclick="lessons()">Ir a las lecciones</button>`);
+const empty = (t = 'Primero estudia alguna lección', s = 'Los juegos usan solo las palabras que ya has estudiado.') => app(`<div class=top><button class=back onclick="home()">←</button></div><div class=prompt><span class="hz hzi">${ico('graduation-cap')}</span>${t}<small>${s}</small></div><button class=main onclick="lessons()">Ir a las lecciones</button>`);
 function go(m) {
   if (m == 'song') return canciones();
   if (m == 'top10') return top10();
@@ -497,7 +502,7 @@ function go(m) {
   if (m == 'fest') return fiestas();
   if (m == 'cult') return cultura('pelis');
   if (m == 'logros') return logros();
-  if (m == 'hard') return hardList().length ? session('hard') : app(`<div class=top><button class=back onclick="home()">←</button></div><div class=prompt><span class=hz>难</span>Aún no tienes palabras difíciles<small>Aparecen aquí las que más fallas y las que marques con ★ en su ficha.</small></div>`);
+  if (m == 'hard') return hardList().length ? session('hard') : app(`<div class=top><button class=back onclick="home()">←</button></div><div class=prompt><span class="hz hzi">${ico('flame')}</span>Aún no tienes palabras difíciles<small>Aparecen aquí las que más fallas y las que marques con ★ en su ficha.</small></div>`);
   if (!pool().length) return empty();
   m == 'match' ? matchGame() : m == 'speed' ? speed() : session(m);
 }
@@ -511,7 +516,7 @@ function today() {
     <div class=stats><div class=stat><b>${d.length}</b><span class=mut>pendientes hoy</span></div><div class=stat><b>${pl.length - d.length}</b><span class=mut>al día</span></div></div>
     ${!pl.length ? '<p class=mut>Aún no has estudiado ninguna lección.</p><button class=main onclick="lessons()">Ir a las lecciones</button>'
       : d.length ? `<button class=main style="margin-top:0" onclick="session('mix')">Empezar repaso (${Math.min(20, d.length)} palabras)</button><p class=mut>Mezcla ejercicios según lo bien que sabes cada palabra.</p>`
-      : '<div class=prompt><span class=hz>完</span>¡Todo repasado por hoy!<small>Vuelve mañana o aprende palabras nuevas.</small></div><button class=main onclick="lessons()">Aprender palabras nuevas</button>'}
+      : '<div class=prompt><span class="hz hzi">' + ico('circle-check') + '</span>¡Todo repasado por hoy!<small>Vuelve mañana o aprende palabras nuevas.</small></div><button class=main onclick="lessons()">Aprender palabras nuevas</button>'}
     ${Object.keys(S.gram).length ? `<h2>Gramática</h2>${gramDue().length ? `<button class=main style="margin-top:0" onclick="gramRev()">Repasar gramática (${gramDue().length} ${gramDue().length == 1 ? 'punto' : 'puntos'})</button>` : '<p class=mut>✓ Gramática al día.</p>'}` : ''}
     <h2>Próximos 7 días</h2>
     <svg viewBox="0 0 280 80" class=chart>${fc.map((n, i) => `<rect x=${i * 40 + 6} y=${60 - n / mx * 46} width=28 height=${n / mx * 46} rx=2 style="fill:var(--gold)"/><text x=${i * 40 + 20} y=${56 - n / mx * 46} text-anchor=middle>${n || ''}</text><text x=${i * 40 + 20} y=74 text-anchor=middle>${i ? DN[new Date(Date.now() + (i + 1) * 864e5).getDay()] : 'mañana'}</text>`).join('')}</svg>`, 'today');
@@ -538,18 +543,18 @@ const lunes = d => { const x = new Date(d + 'T12:00'); x.setDate(x.getDate() - (
 const semanas = () => { const m = {}; Object.entries(S.hist).forEach(([d, h]) => { if (h.n >= S.set.goal) m[lunes(d)] = (m[lunes(d)] || 0) + 1; }); return m; }; // días con meta por semana
 const SEMANA_OK = 5; // días con meta para contar la semana
 const LOGROS = [ // [icono, nombre, valor, [bronce, plata, oro], unidad]
-  ['恒', 'Racha de práctica', racha, [3, 7, 30], 'días seguidos'],
-  ['学', 'Palabras estudiadas', () => Object.keys(S.known).length, [100, 500, 2000], 'palabras'],
-  ['熟', 'Palabras dominadas', () => W.filter(w => (S.w[w.id]?.b || 0) >= 4).length, [50, 200, 500], 'palabras'],
-  ['答', 'Respuestas dadas', () => Object.values(S.hist).reduce((a, h) => a + h.n, 0), [100, 1000, 5000], 'respuestas'],
-  ['周', 'Semanas con meta', () => Object.values(semanas()).filter(n => n >= SEMANA_OK).length, [1, 4, 12], 'semanas'],
-  ['考', 'Exámenes aprobados', () => S.exams.filter(e => e.s[0] + e.s[1] + e.s[2] >= 180).length, [1, 3, 5], 'exámenes'],
-  ['法', 'Gramática practicada', () => Object.keys(S.gram).length, [10, 40, 100], 'puntos'],
-  ['话', 'Diálogos al 100 %', () => DIAL.filter(d => S.dial?.[d.t] == d.qs.length).length, [3, 10, 20], 'diálogos'],
-  ['读', 'Lecturas al 100 %', () => LECT.filter(d => S.lect?.[d.t] == d.qs.length).length, [3, 10, 20], 'lecturas'],
+  ['flame', 'Racha de práctica', racha, [3, 7, 30], 'días seguidos'],
+  ['book-open', 'Palabras estudiadas', () => Object.keys(S.known).length, [100, 500, 2000], 'palabras'],
+  ['brain', 'Palabras dominadas', () => W.filter(w => (S.w[w.id]?.b || 0) >= 4).length, [50, 200, 500], 'palabras'],
+  ['target', 'Respuestas dadas', () => Object.values(S.hist).reduce((a, h) => a + h.n, 0), [100, 1000, 5000], 'respuestas'],
+  ['calendar-check', 'Semanas con meta', () => Object.values(semanas()).filter(n => n >= SEMANA_OK).length, [1, 4, 12], 'semanas'],
+  ['clipboard-check', 'Exámenes aprobados', () => S.exams.filter(e => e.s[0] + e.s[1] + e.s[2] >= 180).length, [1, 3, 5], 'exámenes'],
+  ['puzzle', 'Gramática practicada', () => Object.keys(S.gram).length, [10, 40, 100], 'puntos'],
+  ['messages-square', 'Diálogos al 100 %', () => DIAL.filter(d => S.dial?.[d.t] == d.qs.length).length, [3, 10, 20], 'diálogos'],
+  ['book-open-text', 'Lecturas al 100 %', () => LECT.filter(d => S.lect?.[d.t] == d.qs.length).length, [3, 10, 20], 'lecturas'],
 ];
 function logros() {
-  const MED = ['铜', '银', '金'], hoy = day(new Date()), lu = lunes(hoy), sem = semanas(), hechos = sem[lu] || 0, DS = ['L', 'M', 'X', 'J', 'V', 'S', 'D'];
+  const MED = ['bronce', 'plata', 'oro'], hoy = day(new Date()), lu = lunes(hoy), sem = semanas(), hechos = sem[lu] || 0, DS = ['L', 'M', 'X', 'J', 'V', 'S', 'D'];
   const dias = DS.map((l, i) => { const d = new Date(lu + 'T12:00'); d.setDate(d.getDate() + i); const k = day(d), n = S.hist[k]?.n || 0;
     return `<div class=stat style="${k == hoy ? 'border:2px solid var(--pri)' : ''}"><b>${n >= S.set.goal ? '<span class=dok>✓</span>' : n ? '•' : k > hoy ? '·' : '○'}</b><span class=mut>${l}</span></div>`; }).join('');
   const L = LOGROS.map(([e, n, f, ts, u]) => { const v = f(), t = ts.filter(x => v >= x).length, sig = ts[t]; return { e, n, v, ts, u, t, sig }; });
@@ -558,7 +563,7 @@ function logros() {
     <h2>Esta semana</h2><div class="stats sem">${dias}</div>
     <p class=mut>${hechos} de ${SEMANA_OK} días con meta (${S.set.goal} respuestas) ${hechos >= SEMANA_OK ? '¡semana conseguida!' : 'para conseguir la semana'}.</p>
     <h2>Medallas</h2>
-    ${L.map(l => `<div class=hbar style="flex-wrap:wrap;gap:.2rem .6rem"><span class=sgm aria-hidden=true>${l.e}</span><span style="flex:1;min-width:8rem"><b>${l.n}</b><br><span class=mut>${l.v} ${l.u}${l.sig ? ' · siguiente: ' + l.sig : ' · ¡completo!'}</span></span><span class=med>${MED.map((m, i) => `<span class="sgm${i < l.t ? '' : ' off'}" aria-hidden=true>${m}</span>`).join('')}<span class=sr>${l.t} de 3 medallas</span></span>${l.sig ? `<div class=bar style="flex-basis:100%"><i style="width:${Math.min(100, l.v / l.sig * 100)}%"></i></div>` : ''}</div>`).join('')}`, 'home');
+    ${L.map(l => `<div class=hbar style="flex-wrap:wrap;gap:.2rem .6rem"><span class=sgm aria-hidden=true>${ico(l.e)}</span><span style="flex:1;min-width:8rem"><b>${l.n}</b><br><span class=mut>${l.v} ${l.u}${l.sig ? ' · siguiente: ' + l.sig : ' · ¡completo!'}</span></span><span class=med>${MED.map((m, i) => `<span class="sgm m${i}${i < l.t ? '' : ' off'}" aria-hidden=true>${ico('medal')}</span>`).join('')}<span class=sr>${l.t} de 3 medallas</span></span>${l.sig ? `<div class=bar style="flex-basis:100%"><i style="width:${Math.min(100, l.v / l.sig * 100)}%"></i></div>` : ''}</div>`).join('')}`, 'home');
 }
 
 // --- compartir el progreso: tarjeta dibujada en un canvas, solo con cifras (sin nombre ni datos personales) ---
@@ -665,7 +670,7 @@ const LN = () => Object.keys(S.listas), LW = n => (S.listas[n] || []).map(h => b
 function listas() {
   app(`<div class=top><button class=back onclick="home()">←</button><b>Mis listas</b></div>
     <p class=mut>Crea listas con las palabras que quieras (por ejemplo «Viaje a China») y practícalas. Añade palabras desde su ficha con «+ Listas».</p>
-    ${LN().map((n, i) => `<button class=mode onclick="lista(${i})"><span class="e sg">单</span><span><b>${esc(n)}</b><small>${LW(n).length} palabras</small></span></button>`).join('') || '<p class=mut>Aún no tienes ninguna lista.</p>'}
+    ${LN().map((n, i) => `<button class=mode onclick="lista(${i})"><span class="e sg">${ico('list-checks')}</span><span><b>${esc(n)}</b><small>${LW(n).length} palabras</small></span></button>`).join('') || '<p class=mut>Aún no tienes ninguna lista.</p>'}
     <div id=nl><button class=main onclick="nuevaLista()">+ Nueva lista</button></div>`, 'home');
 }
 function nuevaLista(id) { // muestra el campo del nombre en la pantalla (con id, dentro de la ficha de esa palabra)
@@ -682,7 +687,7 @@ function crearLista(id, n = $('#nln')?.value || '') { // con id, la palabra de e
 function lista(i) {
   const n = LN()[i], ws = window.cur = LW(n); BACK = `lista(${i})`;
   app(`<div class=top><button class=back onclick="listas()">←</button><b>${esc(n)}</b></div>
-    ${ws.length ? `<div class=grid>${[['matchGame(cur)', '配', 'Emparejar'], ["session('choice',cur)", '译', 'Elegir traducción'], ["session('cards',cur)", '卡', 'Tarjetas'], ["session('listen',cur)", '听', 'Escuchar'], ["session('write',cur)", '拼', 'Escribir pinyin'], ["session('hanzi',cur)", '字', 'Elegir hanzi']].map(m => `<button class=mode onclick="${m[0]}"><span class="e sg">${m[1]}</span><span><b>${m[2]}</b></span></button>`).join('')}</div>`
+    ${ws.length ? `<div class=grid>${[['matchGame(cur)', 'link', 'Emparejar'], ["session('choice',cur)", 'languages', 'Elegir traducción'], ["session('cards',cur)", 'layers', 'Tarjetas'], ["session('listen',cur)", 'headphones', 'Escuchar'], ["session('write',cur)", 'keyboard', 'Escribir pinyin'], ["session('hanzi',cur)", 'type', 'Elegir hanzi']].map(m => `<button class=mode onclick="${m[0]}"><span class="e sg">${ico(m[1])}</span><span><b>${m[2]}</b></span></button>`).join('')}</div>`
       : '<p class=mut>La lista está vacía. Abre una palabra y toca «+ Listas» para añadirla.</p>'}
     <div class=list>${ws.map(row).join('')}</div>
     <p class=mut>Para quitar una palabra, ábrela y desmarca la lista en «+ Listas».</p>
@@ -728,8 +733,8 @@ const fechaEs = d => d.toLocaleDateString('es', { weekday: 'long', day: 'numeric
 function fiestas() {
   const ls = fiestaProx(), sig = ls[0];
   app(`<div class=top><button class=back onclick="home()">←</button><b>Fiestas chinas</b></div>
-    ${sig ? `<div class=exam><b><span class=sgm aria-hidden=true>${[...sig.f.z][0]}</span> ${sig.f.z} · ${sig.f.n}</b><div class=mut>${sig.n ? 'Faltan ' + nDias(sig.n) : '¡Es hoy!'} · ${fechaEs(sig.d)}</div></div>` : ''}
-    ${ls.map(o => `<details class=resumen><summary><span class=sgm aria-hidden=true>${[...o.f.z][0]}</span> <b>${o.f.z}</b> ${o.f.n}<br><span class=mut>${fechaEs(o.d)} · ${o.n ? 'en ' + nDias(o.n) : 'hoy'}</span></summary>
+    ${sig ? `<div class=exam><b><span class=sgm aria-hidden=true>${ico('calendar-heart')}</span> ${sig.f.z} · ${sig.f.n}</b><div class=mut>${sig.n ? 'Faltan ' + nDias(sig.n) : '¡Es hoy!'} · ${fechaEs(sig.d)}</div></div>` : ''}
+    ${ls.map(o => `<details class=resumen><summary><span class=sgm aria-hidden=true>${ico('calendar-heart')}</span> <b>${o.f.z}</b> ${o.f.n}<br><span class=mut>${fechaEs(o.d)} · ${o.n ? 'en ' + nDias(o.n) : 'hoy'}</span></summary>
       <div class=p2>${pc(o.f.p)}</div><p>${o.f.d}</p><p class=mut>${o.f.c}</p>
       <div class=ex onclick="say(FIESTAS[${FIESTAS.indexOf(o.f)}].s)"><div class=zh>${o.f.s} 🔊</div><div class=p2>${pc(o.f.sp)}</div><div class=mut>${o.f.se}</div></div></details>`).join('')}
     <p class=mut>Las fechas lunares se calculan con el calendario chino y pueden variar un día. Los días festivos oficiales los publica cada año el gobierno chino.</p>`, 'home');
@@ -739,12 +744,12 @@ function fiestas() {
 function temas() {
   app(`<div class=top><button class=back onclick="home()">←</button><b>Vocabulario por temas</b></div>
     <p class=mut>Solo salen las palabras de los HSK que tienes marcados en el inicio.</p>
-    <div class=grid>${TOP.map((t, i) => { const ws = t.ws.filter(sel); return ws.length ? `<button class=mode onclick="tema(${i})"><span class="e sg">${t.e}</span><span><b>${t.n}</b><small>${ws.filter(w => S.known[w.id]).length}/${ws.length} estudiadas</small></span></button>` : ''; }).join('')}</div>`);
+    <div class=grid>${TOP.map((t, i) => { const ws = t.ws.filter(sel); return ws.length ? `<button class=mode onclick="tema(${i})"><span class="e sg">${ico(t.e)}</span><span><b>${t.n}</b><small>${ws.filter(w => S.known[w.id]).length}/${ws.length} estudiadas</small></span></button>` : ''; }).join('')}</div>`);
 }
 function tema(i) {
   const t = TOP[i], ws = window.cur = t.ws.filter(sel); BACK = `tema(${i})`;
-  app(`<div class=top><button class=back onclick="temas()">←</button><b>${t.e} ${t.n}</b></div>
-    <div class=grid>${[['matchGame(cur)', '配', 'Emparejar'], ["session('choice',cur)", '译', 'Elegir traducción'], ["session('cards',cur)", '卡', 'Tarjetas'], ["session('listen',cur)", '听', 'Escuchar'], ["session('write',cur)", '拼', 'Escribir pinyin'], ["session('hanzi',cur)", '字', 'Elegir hanzi']].map(m => `<button class=mode onclick="${m[0]}"><span class="e sg">${m[1]}</span><span><b>${m[2]}</b></span></button>`).join('')}</div>
+  app(`<div class=top><button class=back onclick="temas()">←</button><b>${t.n}</b></div>
+    <div class=grid>${[['matchGame(cur)', 'link', 'Emparejar'], ["session('choice',cur)", 'languages', 'Elegir traducción'], ["session('cards',cur)", 'layers', 'Tarjetas'], ["session('listen',cur)", 'headphones', 'Escuchar'], ["session('write',cur)", 'keyboard', 'Escribir pinyin'], ["session('hanzi',cur)", 'type', 'Elegir hanzi']].map(m => `<button class=mode onclick="${m[0]}"><span class="e sg">${ico(m[1])}</span><span><b>${m[2]}</b></span></button>`).join('')}</div>
     <div class=list>${ws.map(row).join('')}</div>`);
 }
 
@@ -800,7 +805,7 @@ function gramRun(qs, back, end) { // end(aciertos, total, {título: {ok, n}}) gu
   };
   step();
 }
-const gramDone = (ok, n, ...bs) => app(`<h1><span class=seal>好</span>¡Hecho!</h1><p style="font-size:1.4rem">${ok}/${n} aciertos</p>` + bs.filter(Boolean).map(([js, l], k) => `<button class="${k ? 'opt' : 'main'}" ${k ? 'style="margin-top:.5rem" ' : ''}onclick="${js}">${l}</button>`).join(''));
+const gramDone = (ok, n, ...bs) => app(`<h1><span class=seal>${ico('check')}</span>¡Hecho!</h1><p style="font-size:1.4rem">${ok}/${n} aciertos</p>` + bs.filter(Boolean).map(([js, l], k) => `<button class="${k ? 'opt' : 'main'}" ${k ? 'style="margin-top:.5rem" ' : ''}onclick="${js}">${l}</button>`).join(''));
 function gramEx(i) {
   const g = GR[i];
   gramRun(shuffle(gramQs(g, i)).slice(0, 6), `gram(${i})`, (ok, n) => {
@@ -866,7 +871,7 @@ function canciones() {
   app(`<div class=top><button class=back onclick="home()">←</button><b>Canciones</b></div>
     <p class=mut>Letras tradicionales para practicar con las palabras que ya has estudiado. Toca una canción para ver la letra y practicar.</p>
     ${SONGS.map((s, i) => { const ws = songWords(s), k = ws.filter(w => S.known[w.id]).length, b = S.song[s.t]; return `<button class="lesson ${b >= 80 ? 'done' : ''}" onclick="cancion(${i})"><span style="flex:1;min-width:0"><b>${s.t}</b> <span class=mut>${s.p}</span><br><span class=mut>${s.es} · conoces ${k} de ${ws.length} palabras</span></span><span class=p>${b != null ? b + '%' : ''}</span></button>`; }).join('')}
-    <button class=mode onclick="top10()" style="margin-top:1rem"><span class="e sg">榜</span><span><b>Top 10 canciones chinas</b><small>Cultura: las más conocidas</small></span></button>`);
+    <button class=mode onclick="top10()" style="margin-top:1rem"><span class="e sg">${ico('trophy')}</span><span><b>Top 10 canciones chinas</b><small>Cultura: las más conocidas</small></span></button>`);
 }
 function cancion(i) {
   const s = SONGS[i];
@@ -889,7 +894,7 @@ function cancionEx(i) { // completar la letra, ordenar la línea y escuchar: con
   const step = () => {
     if (n >= lista.length) {
       const pct = Math.round(ok / lista.length * 100); S.song[s.t] = Math.max(S.song[s.t] || 0, pct); save();
-      return app(`<h1><span class=seal>好</span>¡Hecho!</h1><p style="font-size:1.4rem">${ok}/${lista.length} aciertos</p><button class=main onclick="cancionEx(${i})">Otra ronda</button><button class=opt style="margin-top:.5rem" onclick="cancion(${i})">Volver a la letra</button><button class=opt style="margin-top:.5rem" onclick="canciones()">Todas las canciones</button>`);
+      return app(`<h1><span class=seal>${ico('check')}</span>¡Hecho!</h1><p style="font-size:1.4rem">${ok}/${lista.length} aciertos</p><button class=main onclick="cancionEx(${i})">Otra ronda</button><button class=opt style="margin-top:.5rem" onclick="cancion(${i})">Volver a la letra</button><button class=opt style="margin-top:.5rem" onclick="canciones()">Todas las canciones</button>`);
     }
     const q = lista[n], l = s.lines[q.k], segs = l[0].split('|');
     app(`<div class=play><div class=top><button class=back onclick="cancion(${i})">✕</button><div class=bar><i style="width:${n / lista.length * 100}%"></i></div></div><div id=q></div><div id=fb></div></div>`);
@@ -933,7 +938,7 @@ let PREV = home, BACK = 'list()';
 const exHtml = w => { const s = SENT[w.h]; return s ? `<div class=ex onclick="say(SENT[W[${w.id}].h][0])"><div class=zh>${s[0]} 🔊</div><div class=p2>${pc(s[1])}</div><div class=mut>${s[2]}</div></div>` : ''; };
 const star = id => { S.star[id] ? delete S.star[id] : S.star[id] = 1; save(); $('#st').textContent = S.star[id] ? '★' : '☆'; };
 const card = w => `<div class=study><div class=hz>${w.h}</div><div class=py>${pc(w.p)}</div><div class=es>${w.e}</div>
-  <button class=ico onclick="say(W[${w.id}].h)">🔊</button><button class=ico id=st onclick="star(${w.id})">${S.star[w.id] ? '★' : '☆'}</button><button class="ico sg" onclick="strokes(${w.id})" aria-label="Ver trazos">笔</button>${exHtml(w)}</div>`;
+  <button class=ico onclick="say(W[${w.id}].h)">🔊</button><button class=ico id=st onclick="star(${w.id})">${S.star[w.id] ? '★' : '☆'}</button><button class=ico onclick="strokes(${w.id})" aria-label="Ver trazos">${ico('brush')}</button>${exHtml(w)}</div>`;
 // relaciones en la ficha: familia (palabras que comparten un carácter, calculada), antónimos y sinónimos (relaciones.js)
 const BYC = new Map(), RELA = new Map();
 W.forEach(w => new Set(w.h).forEach(c => BYC.set(c, [...(BYC.get(c) || []), w])));
@@ -998,17 +1003,17 @@ function studied(pk) {
   PW[pk].forEach(w => S.known[w.id] = 1); save();
   const ws = PW[pk], next = lessonKeys().find(k => !done(k));
   window.cur = ws;
-  app(`<h1><span class=seal>学</span>¡Lección estudiada!</h1><p class=mut>Ahora practica estas ${ws.length} palabras antes de seguir.</p>
-    <div class=grid><button class=mode onclick="matchGame(cur)"><span class="e sg">配</span><span><b>Emparejar</b></span></button>
-    <button class=mode onclick="session('choice',cur)"><span class="e sg">译</span><span><b>Elegir traducción</b></span></button>
-    <button class=mode onclick="session('listen',cur)"><span class="e sg">听</span><span><b>Escuchar</b></span></button>
-    <button class=mode onclick="session('write',cur)"><span class="e sg">拼</span><span><b>Escribir pinyin</b></span></button></div>
+  app(`<h1><span class=seal>${ico('graduation-cap')}</span>¡Lección estudiada!</h1><p class=mut>Ahora practica estas ${ws.length} palabras antes de seguir.</p>
+    <div class=grid><button class=mode onclick="matchGame(cur)"><span class="e sg">${ico('link')}</span><span><b>Emparejar</b></span></button>
+    <button class=mode onclick="session('choice',cur)"><span class="e sg">${ico('languages')}</span><span><b>Elegir traducción</b></span></button>
+    <button class=mode onclick="session('listen',cur)"><span class="e sg">${ico('headphones')}</span><span><b>Escuchar</b></span></button>
+    <button class=mode onclick="session('write',cur)"><span class="e sg">${ico('keyboard')}</span><span><b>Escribir pinyin</b></span></button></div>
     ${next ? `<button class=main onclick="study('${next}')">Siguiente lección →</button>` : ''}
     <button class=opt style="margin-top:.5rem" onclick="lessons()">Todas las lecciones</button>`);
 }
 
 function summary(ok, n, bad, again) {
-  app(`<h1><span class=seal>好</span>¡Hecho!</h1><p style="font-size:1.4rem">${ok}/${n} aciertos</p>
+  app(`<h1><span class=seal>${ico('check')}</span>¡Hecho!</h1><p style="font-size:1.4rem">${ok}/${n} aciertos</p>
   ${bad.length ? `<p class=mut>Para repasar:</p><div class=list>${bad.map(w => `<div><b>${w.h}</b><i>${pc(w.p)}</i><span>${w.e}</span></div>`).join('')}</div>` : ''}
   <button class=main id=a>Otra ronda</button><button class=opt style="margin-top:.5rem" onclick="home()">Inicio</button>`);
   $('#a').onclick = again;
@@ -1207,7 +1212,7 @@ function quiz(k, i) {
   const step = () => {
     if (n >= d.qs.length) {
       S[k] = S[k] || {}; S[k][d.t] = Math.max(S[k][d.t] || 0, ok); save();
-      return app(`<h1><span class=seal>好</span>¡Hecho!</h1><p style="font-size:1.4rem">${ok}/${d.qs.length} aciertos</p><button class=main onclick="${K.q}(${i})">Repetir</button><button class=opt style="margin-top:.5rem" onclick="${K.one}(${i})">Volver al ${K.n}</button><button class=opt style="margin-top:.5rem" onclick="${K.all}()">${K.m}</button>`);
+      return app(`<h1><span class=seal>${ico('check')}</span>¡Hecho!</h1><p style="font-size:1.4rem">${ok}/${d.qs.length} aciertos</p><button class=main onclick="${K.q}(${i})">Repetir</button><button class=opt style="margin-top:.5rem" onclick="${K.one}(${i})">Volver al ${K.n}</button><button class=opt style="margin-top:.5rem" onclick="${K.all}()">${K.m}</button>`);
     }
     const [q, ...r] = d.qs[n], right = { t: r[0] };
     app(`<div class=play><div class=top><button class=back onclick="${K.one}(${i})">✕</button><div class=bar><i style="width:${n / d.qs.length * 100}%"></i></div></div><div id=q></div><div id=fb></div></div>`);

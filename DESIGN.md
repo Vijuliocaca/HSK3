@@ -32,6 +32,9 @@ colors:
   contrast-white: "#fff"
   contrast-black: "#000"
   contrast-track: "#ccc"
+  medal-bronze: "#a8682f"
+  medal-silver: "#77838f"
+  medal-gold: "#a6781f"
 typography:
   hanzi-display:
     fontFamily: "Noto Serif SC, Source Han Serif SC, Songti SC, STSong, SimSun, serif"
@@ -138,13 +141,13 @@ components:
 
 Estudiar en HSK Viju es como entrar en el patio de un templo: un espacio ordenado y tranquilo, enmarcado por columnas de laca roja y vigas con filete de oro gastado. El suelo es papel y piedra clara. En el centro, el carácter chino ocupa el lugar del altar: es lo más grande y lo único que pide atención. Todo lo demás (botones, cifras, menús) es arquitectura que lo enmarca sin competir.
 
-Los componentes se sienten **táctiles, como objetos**: tablillas con doble filete dorado, tablillas lacadas con incrustación de oro, una placa de cifras y sellos que firman cada sección con su carácter. Tienen peso y material, pero con la contención de un templo, no la acumulación de un restaurante. La densidad es baja y la composición, de una columna y vertical, pensada para el pulgar en un móvil.
+Los componentes se sienten **táctiles, como objetos**: tablillas con doble filete dorado, tablillas lacadas con incrustación de oro, una placa de cifras y marcos de sello que enmarcan el icono de cada sección. Tienen peso y material, pero con la contención de un templo, no la acumulación de un restaurante. La densidad es baja y la composición, de una columna y vertical, pensada para el pulgar en un móvil.
 
 El sistema rechaza la plantilla SaaS (tarjetas idénticas, degradados, cifras-héroe), la monotonía gris del libro de texto y la gamificación chillona tipo Duolingo.
 
 **Key Characteristics:**
 - El hanzi en serif china es siempre el elemento más grande de la pantalla.
-- Cada sección se firma con un sello de un carácter (听 Escuchar, 读 Lecturas, 考 Examen); el sello de la pestaña activa se estampa en laca.
+- Cada sección lleva un icono de línea dentro de un marco de sello en laca; en la pestaña activa el sello se estampa (relleno de laca). Los iconos explican, los caracteres no: el usuario lo pidió así.
 - Laca roja para la acción y el sello; oro para filetes y marcos; oro tinta solo cuando el dorado tiene que ser texto.
 - Superficies de papel con un doble filete interior que las convierte en objetos.
 - Una sola columna (máx. 520 px) y una barra de navegación fija abajo.
@@ -204,7 +207,7 @@ tone-1 a tone-4, más tone-neutral para el tono neutro. Todos ≥4,6:1 sobre pap
 - **Title** (sans 700, 1rem): nombres de modo (0.95rem en la rejilla), botón principal (600) y cifras de la placa (1.5rem, tabulares).
 - **Body** (sans 400, 1rem): explicaciones, opciones (1.05rem; 1.3rem en práctica) y gramática (1.05rem, line-height 1.55, `text-wrap: pretty`).
 - **Label** (sans, 0.8rem): descripciones de modo y etiquetas de la barra (0.75rem).
-- **Seal** (serif china 700, 1.25rem; 1.1rem en la barra y la cabecera): el carácter de cada sello.
+- **Seal** (serif china 700, 1.2rem): solo el carácter 学 del sello del logo.
 
 ### Scale
 Todos los tamaños del CSS salen de una escala de tokens: `--fs-xs` 0.8rem, `--fs-sm` 0.875rem, `--fs-md` 1rem, `--fs-lg` 1.15rem, `--fs-xl` 1.3rem, `--fs-2xl` 1.6rem, `--fs-3xl` 2rem y `--fs-4xl` 2.4rem, más `--fs-hz` (3.4rem) y `--fs-hz-lg` (4.5rem) para los caracteres. Hay dos excepciones a propósito: el hanzi de las pantallas de práctica (`clamp(4.5rem, 26vw, 7.5rem)`, que se adapta al ancho para ocupar la pantalla) y el texto de los ejes del gráfico SVG (9px, que escala con el propio SVG). El usuario puede ampliar todo desde Ajustes (tamaño de la raíz en %).
@@ -251,7 +254,7 @@ Esquinas apenas suavizadas, como madera lacada cortada: 4 px en sellos y chips, 
 - **Shape:** esquinas suaves (6 px).
 - **Primary:** tablilla de relleno de laca con texto blanco en sans semibold; ocupa todo el ancho (padding 0.85rem; 1.15rem en práctica).
 - **Hover / Focus:** sin hover propio; el foco es un contorno de laca de 3 px separado 2 px.
-- **Icon buttons:** círculos de 2.75rem con borde fino: escuchar (altavoz SVG), marcar como difícil (☆/★) y ver trazos (sello 笔).
+- **Icon buttons:** círculos de 2.75rem con borde fino: escuchar (altavoz), marcar como difícil (☆/★) y ver trazos (pincel).
 
 ### Chips
 - **Style:** panel de papel con borde de filete, esquinas de 4 px y 2.75rem de alto.
@@ -270,11 +273,11 @@ Esquinas apenas suavizadas, como madera lacada cortada: 4 px en sellos y chips, 
 - **Focus:** el contorno de laca común.
 
 ### Navigation
-- **Style:** barra fija abajo sobre panel de papel, con un filete dorado de 2 px arriba. Cuatro pestañas con sello: 首 Inicio, 今 Hoy, 考 Examen, 进 Progreso. El carácter va en serif china y la etiqueta en sans de 0.75rem en madera gastada; en la pestaña activa el sello se estampa (relleno de laca, carácter blanco), la etiqueta pasa a laca en negrita y lleva `aria-current="page"`.
-- **Cabecera:** dos iconos de línea en tinta, un libro abierto (vocabulario) y un engranaje (ajustes), dibujados en SVG con trazo de 1.75 y esquinas redondeadas, a 1.5rem y con área táctil de 44 px. No llevan marco de sello para no competir con el sello 学 del título.
+- **Style:** barra fija abajo sobre panel de papel, con un filete dorado de 2 px arriba. Cuatro pestañas con icono: casa (Inicio), calendario (Hoy), portapapeles con marca (Examen) y gráfico de columnas (Progreso). La etiqueta va en sans de 0.75rem en madera gastada; en la pestaña activa el icono se estampa (cuadrado de relleno de laca, trazo blanco), la etiqueta pasa a laca en negrita y lleva `aria-current="page"`.
+- **Cabecera:** dos iconos de línea en tinta, libro abierto (vocabulario) y engranaje (ajustes), a 1.5rem y con área táctil de 44 px. No llevan marco de sello para no competir con el sello 学 del título.
 
-### Seal mark (signature)
-Cuadrado de 2.25rem con borde de 1.5 px en laca, fondo de papel de arroz y un carácter en serif china de laca: la impresión de un sello en tinta. Firma cada modo: 配 Emparejar, 译 Elegir traducción, 卡 Tarjetas, 听 Escuchar, 拼 Escribir pinyin, 音 Elegir pinyin, 字 Elegir hanzi, 调 Entrenar tonos, 填 Completar, 句 Escuchar la frase, 序 Ordenar, 笔 Trazos, 快 Contrarreloj, 读 Lecturas, 话 Diálogos, 歌 Canciones, 节 Fiestas, 榜 Top 10, 影 Más Top 10, 难 Difíciles, 单 Mis listas, 奖 Logros. En las tablillas lacadas se invierte: carácter blanco y borde de oro (学 Aprender, 法 Gramática, 类 Temas). Los 58 temas de vocabulario llevan su sello en `temas.js` (果 Frutas, 车 Transporte, 医 Salud…), que también encabeza el nombre de sus lecciones; las fiestas usan el primer carácter de su nombre chino. En Logros, cada logro lleva su sello (恒 Racha, 学 Estudiadas, 熟 Dominadas…) y las medallas son tres sellos, 铜 银 金: en laca las ganadas y al 35 % de opacidad las pendientes, con el recuento en texto oculto para el lector. El lector de pantalla los ignora (`aria-hidden`) y lee solo el nombre.
+### Icon seal (signature)
+Cuadrado de 2.25rem con borde de 1.5 px en laca y fondo de papel de arroz, con un icono de línea de 1.3rem en laca dentro: la impresión de un sello en tinta, pero con un dibujo que se entiende al momento. Los iconos son de **Lucide** (licencia ISC) y viven en `iconos.js`, que solo incluye los que usa la app; se pintan con `ico(nombre)`, con trazo de 1.75, esquinas redondeadas y `aria-hidden` (el nombre lo da el texto del botón). Cada modo tiene el suyo (cadena Emparejar, auriculares Escuchar, teclado Escribir pinyin, pincel Dibujar trazos, cronómetro Contrarreloj, libro Lecturas, nota musical Canciones, trofeo Top 10…), y los 58 temas de `temas.js` guardan el nombre de su icono en el primer campo (manzana Frutas, coche Transporte, estetoscopio Salud…). En las tablillas lacadas se invierte: trazo blanco y borde de oro (birrete Aprender, libro con A Gramática, biblioteca Temas). En Logros cada logro lleva su icono y las medallas son tres medallas de línea en bronce, plata y oro; las pendientes, al 35 % de opacidad, con el recuento en texto oculto para el lector.
 
 ### Logo seal (signature)
 Cuadrado de relleno de laca de 2.1rem con 学 en serif blanca, girado −5° y con un brillo interior. Firma el título de la app. Su pariente es el **sello de resultado**: borde de laca de 3 px, girado −6°, en fuente de título, que se estampa al terminar un examen.
@@ -286,7 +289,7 @@ Las cifras del inicio, de Hoy y de Progreso forman una sola placa, como un 匾�
 La pieza central de la práctica: una tablilla de 2 px de borde que, al responder, se lava de jade (acierto, con ✓) o de cinabrio (error, con ✗). En las pantallas de práctica las opciones ocupan la mitad inferior en filas iguales y grandes para el pulgar. La explicación de la respuesta usa el mismo lavado, con borde completo.
 
 ### Celebration and confirmation
-Al terminar una práctica o una lección, el `h1` lleva un sello estampado (好 «¡Hecho!», 学 «¡Lección estudiada!») en lugar de confeti o emojis. Las confirmaciones viven en la propia pantalla: borrar una lista pide un segundo toque en el mismo botón, que pasa a laca con el texto «¿Borrar…? Toca otra vez»; importar una copia muestra un aviso con «Sustituir mi progreso» y «Cancelar». Las listas nuevas se nombran en un campo en línea. Solo salir del examen conserva el `confirm()` del navegador, porque también lo dispara el botón «atrás», que necesita una respuesta inmediata.
+Al terminar una práctica o una lección, el `h1` lleva un sello estampado de laca con un icono blanco (marca de verificación en «¡Hecho!», birrete en «¡Lección estudiada!») en lugar de confeti o emojis. Las confirmaciones viven en la propia pantalla: borrar una lista pide un segundo toque en el mismo botón, que pasa a laca con el texto «¿Borrar…? Toca otra vez»; importar una copia muestra un aviso con «Sustituir mi progreso» y «Cancelar». Las listas nuevas se nombran en un campo en línea. Solo salir del examen conserva el `confirm()` del navegador, porque también lo dispara el botón «atrás», que necesita una respuesta inmediata.
 
 ### Example tablet
 Panel en papel de arroz con borde dorado discontinuo: la frase en chino (serif 1.45rem) con el altavoz en laca, el pinyin en laca y la traducción en madera gastada. Al tocarlo suena; cuando está sonando, el borde se vuelve continuo y de laca.
@@ -295,7 +298,7 @@ Panel en papel de arroz con borde dorado discontinuo: la frase en chino (serif 1
 
 ### Do:
 - **Do** mantener el hanzi como el texto más grande de cada pantalla (3.4rem o más).
-- **Do** firmar cada sección nueva con un sello de un carácter que la represente, en serif china y con `aria-hidden`.
+- **Do** dar a cada sección nueva un icono de Lucide que la explique, dentro del marco de sello; añadir su trazo a `iconos.js` y pintarlo con `ico()`.
 - **Do** usar el marco de tablilla (doble filete dorado interior) para distinguir paneles.
 - **Do** usar el relleno de laca para fondos de acción y la laca de texto para texto y bordes.
 - **Do** acompañar cada color de tono de su diacrítico o número de tono.
@@ -307,7 +310,7 @@ Panel en papel de arroz con borde dorado discontinuo: la frase en chino (serif 1
 - **Don't** usar la serif china para texto latino ni para botones.
 - **Don't** usar bandas de color en un lado (`border-left` de más de 1 px) en tarjetas, avisos o explicaciones.
 - **Don't** poner títulos de sección en mayúsculas espaciadas ni antetítulos sobre los títulos.
-- **Don't** usar emojis, ni como iconos ni como adorno en botones, títulos o mensajes; los únicos iconos dibujados son el altavoz y los dos de la cabecera (libro y engranaje), todos en SVG con el mismo trazo, y ▶ es el único símbolo de reproducir.
+- **Don't** usar emojis ni caracteres chinos como iconos: los iconos son de línea (Lucide, en `iconos.js`), todos con el mismo trazo; ▶ es el único símbolo tipográfico de reproducir.
 - **Don't** usar `prompt()` ni `alert()`: los nombres, avisos y errores van en la pantalla.
 - **Don't** convertir la tradición en tópico de restaurante (dragones, farolillos, rojo y oro en cada superficie).
 - **Don't** usar degradados violeta, cifras-héroe ni cuadrículas de tarjetas idénticas (SaaS genérico).

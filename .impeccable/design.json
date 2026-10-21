@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-21T11:25:04.122Z",
+  "generatedAt": "2026-10-21T11:48:04.999Z",
   "title": "Design System: HSK Viju",
   "extensions": {
     "colorMeta": {
@@ -355,7 +355,7 @@
       "kind": "custom",
       "refersTo": "seal-mark",
       "description": "Ficha de modo firmada con el sello de su carácter.",
-      "html": "<div style=\"display:grid;grid-template-columns:1fr 1fr;gap:.6rem\"><button class=\"ds-mode\"><span class=\"ds-sg\">听</span><span><b>Escuchar</b><small>Oye la palabra y elige</small></span></button><button class=\"ds-mode\"><span class=\"ds-sg\">读</span><span><b>Lecturas</b><small>Historias cortas</small></span></button></div>",
+      "html": "<div style=\"display:grid;grid-template-columns:1fr 1fr;gap:.6rem\"><button class=\"ds-mode\"><span class=\"ds-sg\"><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3\"/></svg></span><span><b>Escuchar</b><small>Oye la palabra y elige</small></span></button><button class=\"ds-mode\"><span class=\"ds-sg\"><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 5v16\"/><path d=\"M16 13h2\"/><path d=\"M16 9h2\"/><path d=\"M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z\"/><path d=\"M6 13h2\"/><path d=\"M6 9h2\"/></svg></span><span><b>Lecturas</b><small>Historias cortas</small></span></button></div>",
       "css": ".ds-mode{display:flex;gap:.6rem;align-items:center;text-align:left;padding:.7rem .75rem;min-height:4.25rem;border-radius:6px;background:var(--card,#fbf6ea);border:1px solid var(--bd,#d9c9a6);box-shadow:inset 0 0 0 3px var(--card,#fbf6ea),inset 0 0 0 4px rgba(184,137,43,.45);color:var(--tx,#2b1d14);font:1rem system-ui,sans-serif;cursor:pointer}.ds-mode:focus-visible{outline:3px solid var(--pri,#b3282d);outline-offset:2px}.ds-mode:active{transform:scale(.98)}.ds-mode b{display:block;font-size:.95rem}.ds-mode small{display:block;font-size:.8rem;color:var(--mut,#8a7560)}.ds-sg{display:inline-grid;place-items:center;flex:none;width:2.25rem;height:2.25rem;font:700 1.25rem/1 \"Noto Serif SC\",\"Songti SC\",STSong,serif;color:var(--pri,#b3282d);border:1.5px solid currentColor;border-radius:4px;background:var(--bg,#f3ead8)}"
     },
     {
@@ -363,7 +363,7 @@
       "kind": "button",
       "refersTo": "mode-tablet-lacquer",
       "description": "Acceso principal: laca con incrustación de oro y sello invertido.",
-      "html": "<button class=\"ds-big\"><span class=\"ds-sgb\">学</span><span><b>Aprender palabras nuevas</b><small>Lecciones por temas</small></span></button>",
+      "html": "<button class=\"ds-big\"><span class=\"ds-sgb\"><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z\"/><path d=\"M22 10v6\"/><path d=\"M6 12.5V16a6 3 0 0 0 12 0v-3.5\"/></svg></span><span><b>Aprender palabras nuevas</b><small>Lecciones por temas</small></span></button>",
       "css": ".ds-big{display:flex;gap:.9rem;align-items:center;width:100%;text-align:left;padding:.85rem 1rem;border-radius:6px;background:var(--act,#b3282d);border:1px solid var(--act,#b3282d);box-shadow:inset 0 0 0 3px var(--act,#b3282d),inset 0 0 0 4px rgba(232,196,120,.75);color:#fff;font:1rem system-ui,sans-serif;cursor:pointer}.ds-big:focus-visible{outline:3px solid var(--pri,#b3282d);outline-offset:2px}.ds-big b{display:block}.ds-big small{display:block;color:var(--on-act-mut,#fde9c9)}.ds-sgb{display:inline-grid;place-items:center;flex:none;width:2.25rem;height:2.25rem;font:700 1.25rem/1 \"Noto Serif SC\",\"Songti SC\",STSong,serif;border:1.5px solid rgba(232,196,120,.85);border-radius:4px}"
     },
     {
@@ -379,7 +379,7 @@
       "kind": "nav",
       "refersTo": "nav",
       "description": "Barra fija con cuatro pestañas.",
-      "html": "<nav class=\"ds-nav\"><button class=\"ds-on\" aria-current=\"page\"><span>首</span>Inicio</button><button><span>今</span>Hoy</button><button><span>考</span>Examen</button><button><span>进</span>Progreso</button></nav>",
+      "html": "<nav class=\"ds-nav\"><button class=\"ds-on\" aria-current=\"page\"><span><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8\"/><path d=\"M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\"/></svg></span>Inicio</button><button><span><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M8 2v3\"/><path d=\"M16 2v3\"/><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><path d=\"M3 9h18\"/><path d=\"M8 13h.01\"/><path d=\"M12 13h.01\"/><path d=\"M16 13h.01\"/><path d=\"M8 17h.01\"/><path d=\"M12 17h.01\"/><path d=\"M16 17h.01\"/></svg></span>Hoy</button><button><span><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect width=\"8\" height=\"4\" x=\"8\" y=\"2\" rx=\"1\" ry=\"1\"/><path d=\"M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2\"/><path d=\"m9 14 2 2 4-4\"/></svg></span>Examen</button><button><span><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3 3v16a2 2 0 0 0 2 2h16\"/><path d=\"M18 17V9\"/><path d=\"M13 17V5\"/><path d=\"M8 17v-3\"/></svg></span>Progreso</button></nav>",
       "css": ".ds-nav{display:flex;background:var(--card,#fbf6ea);border-top:2px solid var(--gold,#b8892b)}.ds-nav button{flex:1;background:none;border:0;padding:.55rem 0 .5rem;font:.75rem system-ui,sans-serif;color:var(--mut,#8a7560);display:flex;flex-direction:column;align-items:center;gap:.1rem;cursor:pointer}.ds-nav span{font:700 1.1rem/1 \"Noto Serif SC\",\"Songti SC\",STSong,serif;width:1.9rem;height:1.9rem;display:grid;place-items:center;border-radius:4px}.ds-nav .ds-on{color:var(--pri,#b3282d);font-weight:700}.ds-nav .ds-on span{background:var(--act,#b3282d);color:#fff}.ds-nav button:focus-visible{outline:3px solid var(--pri,#b3282d);outline-offset:-3px}"
     },
     {
@@ -409,10 +409,10 @@
   ],
   "narrative": {
     "northStar": "El patio del templo",
-    "overview": "Estudiar en HSK Viju es como entrar en el patio de un templo: un espacio ordenado y tranquilo, enmarcado por columnas de laca roja y vigas con filete de oro gastado. El suelo es papel y piedra clara. En el centro, el carácter chino ocupa el lugar del altar: es lo más grande y lo único que pide atención. Todo lo demás (botones, cifras, menús) es arquitectura que lo enmarca sin competir.\n\nLos componentes se sienten **táctiles, como objetos**: tablillas con doble filete dorado, tablillas lacadas con incrustación de oro, una placa de cifras y sellos que firman cada sección con su carácter. Tienen peso y material, pero con la contención de un templo, no la acumulación de un restaurante. La densidad es baja y la composición, de una columna y vertical, pensada para el pulgar en un móvil.\n\nEl sistema rechaza la plantilla SaaS (tarjetas idénticas, degradados, cifras-héroe), la monotonía gris del libro de texto y la gamificación chillona tipo Duolingo.",
+    "overview": "Estudiar en HSK Viju es como entrar en el patio de un templo: un espacio ordenado y tranquilo, enmarcado por columnas de laca roja y vigas con filete de oro gastado. El suelo es papel y piedra clara. En el centro, el carácter chino ocupa el lugar del altar: es lo más grande y lo único que pide atención. Todo lo demás (botones, cifras, menús) es arquitectura que lo enmarca sin competir.\n\nLos componentes se sienten **táctiles, como objetos**: tablillas con doble filete dorado, tablillas lacadas con incrustación de oro, una placa de cifras y marcos de sello que enmarcan el icono de cada sección. Tienen peso y material, pero con la contención de un templo, no la acumulación de un restaurante. La densidad es baja y la composición, de una columna y vertical, pensada para el pulgar en un móvil.\n\nEl sistema rechaza la plantilla SaaS (tarjetas idénticas, degradados, cifras-héroe), la monotonía gris del libro de texto y la gamificación chillona tipo Duolingo.",
     "keyCharacteristics": [
       "El hanzi en serif china es siempre el elemento más grande de la pantalla.",
-      "Cada sección se firma con un sello de un carácter (听 Escuchar, 读 Lecturas, 考 Examen); el sello de la pestaña activa se estampa en laca.",
+      "Cada sección lleva un icono de línea dentro de un marco de sello en laca; en la pestaña activa el sello se estampa (relleno de laca). Los iconos explican, los caracteres no: el usuario lo pidió así.",
       "Laca roja para la acción y el sello; oro para filetes y marcos; oro tinta solo cuando el dorado tiene que ser texto.",
       "Superficies de papel con un doble filete interior que las convierte en objetos.",
       "Una sola columna (máx. 520 px) y una barra de navegación fija abajo.",
@@ -452,7 +452,7 @@
     ],
     "dos": [
       "**Do** mantener el hanzi como el texto más grande de cada pantalla (3.4rem o más).",
-      "**Do** firmar cada sección nueva con un sello de un carácter que la represente, en serif china y con `aria-hidden`.",
+      "**Do** dar a cada sección nueva un icono de Lucide que la explique, dentro del marco de sello; añadir su trazo a `iconos.js` y pintarlo con `ico()`.",
       "**Do** usar el marco de tablilla (doble filete dorado interior) para distinguir paneles.",
       "**Do** usar el relleno de laca para fondos de acción y la laca de texto para texto y bordes.",
       "**Do** acompañar cada color de tono de su diacrítico o número de tono.",
@@ -464,7 +464,7 @@
       "**Don't** usar la serif china para texto latino ni para botones.",
       "**Don't** usar bandas de color en un lado (`border-left` de más de 1 px) en tarjetas, avisos o explicaciones.",
       "**Don't** poner títulos de sección en mayúsculas espaciadas ni antetítulos sobre los títulos.",
-      "**Don't** usar emojis, ni como iconos ni como adorno en botones, títulos o mensajes; el altavoz es el único icono dibujado (SVG) y ▶ el único símbolo de reproducir.",
+      "**Don't** usar emojis ni caracteres chinos como iconos: los iconos son de línea (Lucide, en `iconos.js`), todos con el mismo trazo; ▶ es el único símbolo tipográfico de reproducir.",
       "**Don't** usar `prompt()` ni `alert()`: los nombres, avisos y errores van en la pantalla.",
       "**Don't** convertir la tradición en tópico de restaurante (dragones, farolillos, rojo y oro en cada superficie).",
       "**Don't** usar degradados violeta, cifras-héroe ni cuadrículas de tarjetas idénticas (SaaS genérico).",

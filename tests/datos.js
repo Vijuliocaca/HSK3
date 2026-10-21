@@ -42,7 +42,7 @@ t('frases: una frase por palabra', () => assert.strictEqual(new Set(frases.map(p
 t('frases: sílabas ≠ caracteres no empeora (tope 122)', () => { const n = frases.filter(p => !coincide(p[1], p[2])).length; assert(n <= 122, `${n} casos, el tope es 122`); });
 
 // --- temas y gramática y canciones ---
-t('temas: formato [sello, nombre, palabras]; palabras inexistentes no empeora (tope 203, la app las ignora)', () => {
+t('temas: formato [icono, nombre, palabras]; palabras inexistentes no empeora (tope 203, la app las ignora)', () => {
   const T = ev('self.TEMAS'); let falta = 0;
   T.forEach(x => { assert(x.length == 3 && x[0] && x[1] && x[2], 'tema mal formado'); x[2].split(/\s+/).forEach(h => { if (h && !H.has(h)) falta++; }); });
   assert(falta <= 203, `${falta} palabras de temas no existen, el tope es 203`);

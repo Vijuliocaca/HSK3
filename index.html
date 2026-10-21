@@ -261,26 +261,29 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script>
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
-const APP_V = 'hsk3-v65'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v66'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
-// botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app
-let depth = 0, skipPop = false, GUARD = '', INICIO = false; // INICIO: lo pone home() justo antes de pintar; otras pantallas usan la pestaña 'home' solo para la barra y sí deben añadir entrada al historial
+// botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
+// El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
+// interacción del usuario y la app se cerraba al volver a una lista. Al llegar al inicio, home() borra las entradas que sobren con history.go.
+let depth = 0, skipPop = false, GUARD = '', INICIO = false, BAJANDO = false, PANT = null; // INICIO: lo pone home() justo antes de pintar; otras pantallas usan la pestaña 'home' solo para la barra y sí deben añadir entrada al historial. BAJANDO: se está subiendo con atrás. PANT: título de la pantalla actual (null = inicio)
 function atras() { const b = document.querySelector('#app .top .back'); b ? b.click() : home(); } // al subir, la pantalla padre vuelve a añadir su entrada al historial (app() la añade porque depth = 0)
 addEventListener('popstate', () => {
   if (skipPop) { skipPop = false; return; }
-  depth = 0;
-  if (GUARD) { if (!confirm('¿Salir del examen? Se perderá el progreso.')) { history.pushState({ a: 1 }, ''); depth = 1; return; } GUARD = ''; return home(); }
-  atras();
+  depth = Math.max(0, depth - 1);
+  if (GUARD) { if (!confirm('¿Salir del examen? Se perderá el progreso.')) { history.pushState({ a: 1 }, ''); depth++; return; } GUARD = ''; return home(); }
+  BAJANDO = true; try { atras(); } finally { BAJANDO = false; }
 });
 const app = (h, tab) => {
   clearInterval(TM); stopMel();
   const inicio = tab == 'home' && INICIO; INICIO = false;
-  if (inicio) { GUARD = ''; if (depth) { depth = 0; skipPop = true; history.back(); } }
-  else if (!depth) { history.pushState({ a: 1 }, ''); depth = 1; }
   $('#app').innerHTML = h; scrollTo(0, 0);
   const h1 = $('#app h1'), t = (h1 ? [...(h1.childNodes || [])].filter(n => n.nodeType == 3).map(n => n.textContent).join('') : $('#app .top > b')?.textContent || '').trim();
   if (t && t != $('#sr').textContent) $('#sr').textContent = t; // el lector de pantalla anuncia la pantalla nueva
   document.title = t && t != 'HSK Viju' ? t + ' · HSK Viju' : 'HSK Viju';
+  if (inicio) { GUARD = ''; PANT = null; if (depth) { const d = depth; depth = 0; skipPop = true; history.go(-d); } }
+  else if (!BAJANDO && t !== PANT) { for (let k = PANT === null ? 3 : 1; k > 0; k--) { history.pushState({ a: 1 }, ''); depth++; } PANT = t; } // pantalla nueva: una entrada (volver a pintar la misma, p. ej. al cambiar una ayuda, no añade); al salir del inicio, 3 de reserva por si se abre una pantalla de nivel profundo (así atrás nunca llega al inicio sin entradas)
+  else { PANT = t; if (BAJANDO && !depth) { history.pushState({ a: 1 }, ''); depth = 1; } } // red de seguridad: pantalla sin entradas debajo
   $('#nav').hidden = !tab; document.body.classList.toggle('nonav', !tab);
   if (tab) $('#nav').innerHTML = TABS.map(t => `<button class="${t[0] == tab ? 'on' : ''}" ${t[0] == tab ? 'aria-current="page"' : ''} onclick="${t[0]}()"><span aria-hidden="true">${ico(t[1])}</span>${t[2]}</button>`).join('');
 };

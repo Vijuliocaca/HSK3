@@ -17,7 +17,7 @@ function cargarApp(opts = {}) {
     Blob: function (partes, o) { salida.blobs.push({ texto: partes.join(''), tipo: o && o.type }); },
     File: function (partes, nombre) { this.name = nombre; },
     localStorage: storage, speechSynthesis: { cancel() { }, speak() { } }, SpeechSynthesisUtterance: function (t) { this.t = t; },
-    navigator: {}, history: { pushState() { pila.push(1); }, back() { if (pila.length > 1) { pila.pop(); oyentes.forEach(f => f()); } } }, location: { reload() { } }, innerWidth: 400, innerHeight: 800,
+    navigator: {}, history: { pushState() { pila.push(1); if (sb.__enPop) salida.pushEnPop = (salida.pushEnPop || 0) + 1; }, replaceState() { }, back() { sb.history.go(-1); }, go(n) { const k = Math.min(-n, pila.length - 1); if (k > 0) { pila.length -= k; sb.__enPop = true; try { oyentes.forEach(f => f()); } finally { sb.__enPop = false; } } } }, location: { reload() { } }, innerWidth: 400, innerHeight: 800,
     scrollTo() { }, addEventListener: (t, f) => { if (t == 'popstate') oyentes.push(f); }, matchMedia: () => ({ matches: false, addEventListener() { } }), MutationObserver: function () { this.observe = () => { }; },
     getComputedStyle: () => ({ getPropertyValue: () => '', color: '#000' }), alert: m => salida.avisos.push(m), confirm: () => sb.__confirmar !== false, prompt: () => opts.prompt || 'Lista de prueba',
     document: { querySelector: s => s == '#app .top .back' ? botonAtras() : el(s), querySelectorAll: () => [], documentElement: el('root'), body: el('body'), head: el('head'), hidden: false, addEventListener() { },

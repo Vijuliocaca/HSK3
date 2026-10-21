@@ -16,17 +16,18 @@ const ok = (cond, msg) => { if (!cond) { problemas++; console.log('  ✗', msg);
     ok((await indice()) == 0 && (await enInicio()), 'la app debe empezar en el inicio con una sola entrada de historial');
 
     console.log('1) Lectura → lista de lecturas → inicio');
-    await ev('lecturas()'); await ev('lectura(0)'); await ev('lectura(0, 2)'); await esp(100);
-    ok((await indice()) == 1, `abrir pantallas debe añadir una sola entrada de historial (índice ${await indice()})`);
-    await atras(); ok(await enLista(), 'desde una lectura, atrás debe llevar a la lista de lecturas'); ok((await indice()) == 1, 'la lista debe conservar su entrada para el siguiente atrás');
+    await ev('lecturas()'); await ev('lectura(0)'); const e0 = await indice(); await ev('lectura(0, 2)'); await esp(100);
+    ok(e0 >= 2 && (await indice()) == e0, `cada pantalla nueva añade entradas, pero cambiar de frase no (índice ${e0} → ${await indice()})`);
+    await ev('window.__push = 0; const pp = history.pushState.bind(history); history.pushState = (...a) => { window.__push++; return pp(...a); }'); // atrás nunca debe añadir entradas (Chrome del móvil omite las que se añaden sin tocar la pantalla)
+    await atras(); ok(await enLista(), 'desde una lectura, atrás debe llevar a la lista de lecturas'); ok((await indice()) >= 1, 'la lista debe conservar su entrada para el siguiente atrás'); ok((await ev('window.__push')) == 0, 'atrás no debe añadir entradas al historial');
     await atras(); ok(await enInicio(), 'desde la lista de lecturas, atrás debe llevar al inicio'); ok((await indice()) == 0 && !(await ev('navigation.canGoBack')), 'en el inicio no debe quedar historial al que volver (ahí la app se cierra)');
 
     console.log('2) Preguntas → lista de lecturas');
     await ev('lectura(0)'); await ev('lectQ(0)'); await esp(100); await atras(); ok(await enLista(), 'desde las preguntas, atrás debe llevar a la lista de lecturas'); await atras(); ok(await enInicio(), 'y de ahí al inicio');
 
     console.log('3) Examen: atrás pide confirmación');
-    await ev('exam(1)'); await esp(100); await ev('window.confirm = () => false'); await atras();
-    ok(!(await enInicio()) && (await indice()) == 1, 'si rechazas la confirmación debes seguir en el examen, con su entrada de historial');
+    await ev('exam(1)'); await esp(100); const ex = await indice(); await ev('window.confirm = () => false'); await atras();
+    ok(!(await enInicio()) && (await indice()) == ex, 'si rechazas la confirmación debes seguir en el examen, con su entrada de historial');
     await ev('window.confirm = () => true'); await atras(); ok(await enInicio(), 'si aceptas, atrás debe llevar al inicio');
 
     console.log('4) Todas las pantallas: subir de nivel hasta el inicio, sin bucles y sin cerrar la app');

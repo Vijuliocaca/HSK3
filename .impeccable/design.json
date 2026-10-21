@@ -1,0 +1,474 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-21T11:25:04.122Z",
+  "title": "Design System: HSK Viju",
+  "extensions": {
+    "colorMeta": {
+      "lacquer-red": {
+        "role": "primary",
+        "displayName": "Laca roja de templo",
+        "canonical": "oklch(50.46% 0.175 24.544)",
+        "tonalRamp": [
+          "oklch(15% 0.07 24.544)",
+          "oklch(25% 0.175 24.544)",
+          "oklch(35% 0.175 24.544)",
+          "oklch(45% 0.175 24.544)",
+          "oklch(55% 0.175 24.544)",
+          "oklch(65% 0.175 24.544)",
+          "oklch(80% 0.175 24.544)",
+          "oklch(95% 0.07 24.544)"
+        ]
+      },
+      "lacquer-fill": {
+        "role": "primary",
+        "displayName": "Relleno de laca",
+        "canonical": "oklch(50.46% 0.175 24.544)",
+        "tonalRamp": [
+          "oklch(15% 0.07 24.544)",
+          "oklch(25% 0.175 24.544)",
+          "oklch(35% 0.175 24.544)",
+          "oklch(45% 0.175 24.544)",
+          "oklch(55% 0.175 24.544)",
+          "oklch(65% 0.175 24.544)",
+          "oklch(80% 0.175 24.544)",
+          "oklch(95% 0.07 24.544)"
+        ]
+      },
+      "aged-gold": {
+        "role": "secondary",
+        "displayName": "Oro envejecido",
+        "canonical": "oklch(65.956% 0.121 80.532)",
+        "tonalRamp": [
+          "oklch(15% 0.048 80.532)",
+          "oklch(25% 0.121 80.532)",
+          "oklch(35% 0.121 80.532)",
+          "oklch(45% 0.121 80.532)",
+          "oklch(55% 0.121 80.532)",
+          "oklch(65% 0.121 80.532)",
+          "oklch(80% 0.121 80.532)",
+          "oklch(95% 0.048 80.532)"
+        ]
+      },
+      "gold-ink": {
+        "role": "secondary",
+        "displayName": "Oro tinta",
+        "canonical": "oklch(52.049% 0.109 76.6)",
+        "tonalRamp": [
+          "oklch(15% 0.044 76.6)",
+          "oklch(25% 0.109 76.6)",
+          "oklch(35% 0.109 76.6)",
+          "oklch(45% 0.109 76.6)",
+          "oklch(55% 0.109 76.6)",
+          "oklch(65% 0.109 76.6)",
+          "oklch(80% 0.109 76.6)",
+          "oklch(95% 0.044 76.6)"
+        ]
+      },
+      "jade": {
+        "role": "tertiary",
+        "displayName": "Jade",
+        "canonical": "oklch(48.935% 0.095 156.91)",
+        "tonalRamp": [
+          "oklch(15% 0.038 156.91)",
+          "oklch(25% 0.095 156.91)",
+          "oklch(35% 0.095 156.91)",
+          "oklch(45% 0.095 156.91)",
+          "oklch(55% 0.095 156.91)",
+          "oklch(65% 0.095 156.91)",
+          "oklch(80% 0.095 156.91)",
+          "oklch(95% 0.038 156.91)"
+        ]
+      },
+      "rice-paper": {
+        "role": "neutral",
+        "displayName": "Papel de arroz",
+        "canonical": "oklch(93.931% 0.026 84.593)",
+        "tonalRamp": [
+          "oklch(15% 0.01 84.593)",
+          "oklch(25% 0.026 84.593)",
+          "oklch(35% 0.026 84.593)",
+          "oklch(45% 0.026 84.593)",
+          "oklch(55% 0.026 84.593)",
+          "oklch(65% 0.026 84.593)",
+          "oklch(80% 0.026 84.593)",
+          "oklch(95% 0.01 84.593)"
+        ]
+      },
+      "paper-panel": {
+        "role": "neutral",
+        "displayName": "Panel de papel",
+        "canonical": "oklch(97.375% 0.017 87.998)",
+        "tonalRamp": [
+          "oklch(15% 0.007 87.998)",
+          "oklch(25% 0.017 87.998)",
+          "oklch(35% 0.017 87.998)",
+          "oklch(45% 0.017 87.998)",
+          "oklch(55% 0.017 87.998)",
+          "oklch(65% 0.017 87.998)",
+          "oklch(80% 0.017 87.998)",
+          "oklch(95% 0.007 87.998)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Tinta",
+        "canonical": "oklch(24.547% 0.027 53.79)",
+        "tonalRamp": [
+          "oklch(15% 0.011 53.79)",
+          "oklch(25% 0.027 53.79)",
+          "oklch(35% 0.027 53.79)",
+          "oklch(45% 0.027 53.79)",
+          "oklch(55% 0.027 53.79)",
+          "oklch(65% 0.027 53.79)",
+          "oklch(80% 0.027 53.79)",
+          "oklch(95% 0.011 53.79)"
+        ]
+      },
+      "weathered-wood": {
+        "role": "neutral",
+        "displayName": "Madera gastada",
+        "canonical": "oklch(49.616% 0.04 66.687)",
+        "tonalRamp": [
+          "oklch(15% 0.016 66.687)",
+          "oklch(25% 0.04 66.687)",
+          "oklch(35% 0.04 66.687)",
+          "oklch(45% 0.04 66.687)",
+          "oklch(55% 0.04 66.687)",
+          "oklch(65% 0.04 66.687)",
+          "oklch(80% 0.04 66.687)",
+          "oklch(95% 0.016 66.687)"
+        ]
+      },
+      "gold-leaf-line": {
+        "role": "neutral",
+        "displayName": "Filete de pan de oro",
+        "canonical": "oklch(84.015% 0.05 86.334)",
+        "tonalRamp": [
+          "oklch(15% 0.02 86.334)",
+          "oklch(25% 0.05 86.334)",
+          "oklch(35% 0.05 86.334)",
+          "oklch(45% 0.05 86.334)",
+          "oklch(55% 0.05 86.334)",
+          "oklch(65% 0.05 86.334)",
+          "oklch(80% 0.05 86.334)",
+          "oklch(95% 0.02 86.334)"
+        ]
+      },
+      "control-edge": {
+        "role": "neutral",
+        "displayName": "Borde de control",
+        "canonical": "oklch(61.492% 0.05 86.34)",
+        "tonalRamp": [
+          "oklch(15% 0.02 86.34)",
+          "oklch(25% 0.05 86.34)",
+          "oklch(35% 0.05 86.34)",
+          "oklch(45% 0.05 86.34)",
+          "oklch(55% 0.05 86.34)",
+          "oklch(65% 0.05 86.34)",
+          "oklch(80% 0.05 86.34)",
+          "oklch(95% 0.02 86.34)"
+        ]
+      },
+      "night-temple": {
+        "role": "neutral",
+        "displayName": "Noche de templo",
+        "canonical": "oklch(19.176% 0.014 34.406)",
+        "tonalRamp": [
+          "oklch(15% 0.006 34.406)",
+          "oklch(25% 0.014 34.406)",
+          "oklch(35% 0.014 34.406)",
+          "oklch(45% 0.014 34.406)",
+          "oklch(55% 0.014 34.406)",
+          "oklch(65% 0.014 34.406)",
+          "oklch(80% 0.014 34.406)",
+          "oklch(95% 0.006 34.406)"
+        ]
+      },
+      "night-lacquer": {
+        "role": "primary",
+        "displayName": "Laca nocturna",
+        "canonical": "oklch(63.854% 0.17 24.811)",
+        "tonalRamp": [
+          "oklch(15% 0.068 24.811)",
+          "oklch(25% 0.17 24.811)",
+          "oklch(35% 0.17 24.811)",
+          "oklch(45% 0.17 24.811)",
+          "oklch(55% 0.17 24.811)",
+          "oklch(65% 0.17 24.811)",
+          "oklch(80% 0.17 24.811)",
+          "oklch(95% 0.068 24.811)"
+        ]
+      },
+      "night-lacquer-fill": {
+        "role": "primary",
+        "displayName": "Relleno nocturno",
+        "canonical": "oklch(55.062% 0.165 25.102)",
+        "tonalRamp": [
+          "oklch(15% 0.066 25.102)",
+          "oklch(25% 0.165 25.102)",
+          "oklch(35% 0.165 25.102)",
+          "oklch(45% 0.165 25.102)",
+          "oklch(55% 0.165 25.102)",
+          "oklch(65% 0.165 25.102)",
+          "oklch(80% 0.165 25.102)",
+          "oklch(95% 0.066 25.102)"
+        ]
+      },
+      "night-gold": {
+        "role": "secondary",
+        "displayName": "Oro nocturno",
+        "canonical": "oklch(75.611% 0.123 84.493)",
+        "tonalRamp": [
+          "oklch(15% 0.049 84.493)",
+          "oklch(25% 0.123 84.493)",
+          "oklch(35% 0.123 84.493)",
+          "oklch(45% 0.123 84.493)",
+          "oklch(55% 0.123 84.493)",
+          "oklch(65% 0.123 84.493)",
+          "oklch(80% 0.123 84.493)",
+          "oklch(95% 0.049 84.493)"
+        ]
+      },
+      "night-control-edge": {
+        "role": "neutral",
+        "displayName": "Borde de control nocturno",
+        "canonical": "oklch(52.593% 0.028 46.851)",
+        "tonalRamp": [
+          "oklch(15% 0.011 46.851)",
+          "oklch(25% 0.028 46.851)",
+          "oklch(35% 0.028 46.851)",
+          "oklch(45% 0.028 46.851)",
+          "oklch(55% 0.028 46.851)",
+          "oklch(65% 0.028 46.851)",
+          "oklch(80% 0.028 46.851)",
+          "oklch(95% 0.011 46.851)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "hanzi-display": {
+        "displayName": "Hanzi",
+        "purpose": "El carácter chino: siempre el texto más grande de la pantalla."
+      },
+      "headline": {
+        "displayName": "Título",
+        "purpose": "h1 de cada pantalla en Georgia, junto al sello."
+      },
+      "section": {
+        "displayName": "Sección",
+        "purpose": "h2 en Georgia y tinta, con filete de oro debajo."
+      },
+      "title": {
+        "displayName": "Título de elemento",
+        "purpose": "Nombres de modo, cifras y botón principal (sans)."
+      },
+      "body": {
+        "displayName": "Cuerpo",
+        "purpose": "Explicaciones, opciones y traducciones."
+      },
+      "label": {
+        "displayName": "Etiqueta",
+        "purpose": "Descripciones de modo y etiquetas de la barra."
+      },
+      "seal": {
+        "displayName": "Sello",
+        "purpose": "Carácter de un sello de sección, en serif china."
+      }
+    },
+    "shadows": [
+      {
+        "name": "marco-tablilla",
+        "value": "inset 0 0 0 3px var(--card), inset 0 0 0 4px rgba(184,137,43,.45)",
+        "purpose": "Doble filete dorado interior de los paneles."
+      },
+      {
+        "name": "brillo-sello",
+        "value": "inset 0 0 0 2px rgba(255,255,255,.35)",
+        "purpose": "Sello 学."
+      },
+      {
+        "name": "aviso-flotante",
+        "value": "0 4px 14px rgba(0,0,0,.3)",
+        "purpose": "Aviso de nueva versión."
+      },
+      {
+        "name": "anillo-seleccion",
+        "value": "0 0 0 2px var(--pri)",
+        "purpose": "Celda elegida y frase que suena."
+      }
+    ],
+    "motion": [
+      {
+        "name": "entrada-pantalla",
+        "value": ".25s, opacity 0 y translateY(6px)",
+        "purpose": "Entrada de cada pantalla."
+      },
+      {
+        "name": "pulsar",
+        "value": "transform scale(.98), .1s",
+        "purpose": "Respuesta táctil de los modos."
+      },
+      {
+        "name": "sacudida",
+        "value": ".25s, translateX ±6px",
+        "purpose": "Respuesta incorrecta."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compacto",
+        "value": "380px"
+      },
+      {
+        "name": "columna",
+        "value": "520px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botón principal",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Tablilla de laca roja para la acción principal.",
+      "html": "<button class=\"ds-main\">Comprobar</button>",
+      "css": ".ds-main{width:100%;padding:.85rem;border-radius:6px;border:2px solid var(--act,#b3282d);background:var(--act,#b3282d);color:#fff;font:600 1.05rem system-ui,sans-serif;cursor:pointer}.ds-main:focus-visible{outline:3px solid var(--pri,#b3282d);outline-offset:2px}.ds-main:active{transform:scale(.98)}"
+    },
+    {
+      "name": "Opción de respuesta",
+      "kind": "custom",
+      "refersTo": "option",
+      "description": "Tablilla de respuesta; se lava de jade o cinabrio al responder.",
+      "html": "<div style=\"display:grid;gap:.6rem\"><button class=\"ds-opt\">comer</button><button class=\"ds-opt ds-ok\">beber</button><button class=\"ds-opt ds-no\">dormir</button></div>",
+      "css": ".ds-opt{width:100%;padding:.85rem;border-radius:6px;border:2px solid var(--bd,#d9c9a6);background:var(--card,#fbf6ea);color:var(--tx,#2b1d14);font:1.05rem system-ui,sans-serif;cursor:pointer}.ds-opt:focus-visible{outline:3px solid var(--pri,#b3282d);outline-offset:2px}.ds-ok{background:var(--okbg,#dcebd5);border-color:var(--ok,#2f7a4f)}.ds-ok::after{content:\" ✓\";color:var(--ok,#2f7a4f);font-weight:700}.ds-no{background:var(--nobg,#f6d9d2);border-color:var(--no,#b3282d)}.ds-no::after{content:\" ✗\";color:var(--no,#b3282d);font-weight:700}"
+    },
+    {
+      "name": "Chip de nivel",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Filtro de nivel HSK; el activo en laca.",
+      "html": "<div style=\"display:flex;gap:.5rem\"><button class=\"ds-chip ds-on\">HSK 1</button><button class=\"ds-chip\">HSK 2</button></div>",
+      "css": ".ds-chip{padding:.4rem .9rem;min-height:2.75rem;border-radius:4px;border:1px solid var(--bd,#d9c9a6);background:var(--card,#fbf6ea);color:var(--tx,#2b1d14);font:1rem system-ui,sans-serif;cursor:pointer}.ds-chip:focus-visible{outline:3px solid var(--pri,#b3282d);outline-offset:2px}.ds-on{background:var(--act,#b3282d);border-color:var(--act,#b3282d);color:#fff}"
+    },
+    {
+      "name": "Modo con sello",
+      "kind": "custom",
+      "refersTo": "seal-mark",
+      "description": "Ficha de modo firmada con el sello de su carácter.",
+      "html": "<div style=\"display:grid;grid-template-columns:1fr 1fr;gap:.6rem\"><button class=\"ds-mode\"><span class=\"ds-sg\">听</span><span><b>Escuchar</b><small>Oye la palabra y elige</small></span></button><button class=\"ds-mode\"><span class=\"ds-sg\">读</span><span><b>Lecturas</b><small>Historias cortas</small></span></button></div>",
+      "css": ".ds-mode{display:flex;gap:.6rem;align-items:center;text-align:left;padding:.7rem .75rem;min-height:4.25rem;border-radius:6px;background:var(--card,#fbf6ea);border:1px solid var(--bd,#d9c9a6);box-shadow:inset 0 0 0 3px var(--card,#fbf6ea),inset 0 0 0 4px rgba(184,137,43,.45);color:var(--tx,#2b1d14);font:1rem system-ui,sans-serif;cursor:pointer}.ds-mode:focus-visible{outline:3px solid var(--pri,#b3282d);outline-offset:2px}.ds-mode:active{transform:scale(.98)}.ds-mode b{display:block;font-size:.95rem}.ds-mode small{display:block;font-size:.8rem;color:var(--mut,#8a7560)}.ds-sg{display:inline-grid;place-items:center;flex:none;width:2.25rem;height:2.25rem;font:700 1.25rem/1 \"Noto Serif SC\",\"Songti SC\",STSong,serif;color:var(--pri,#b3282d);border:1.5px solid currentColor;border-radius:4px;background:var(--bg,#f3ead8)}"
+    },
+    {
+      "name": "Tablilla lacada",
+      "kind": "button",
+      "refersTo": "mode-tablet-lacquer",
+      "description": "Acceso principal: laca con incrustación de oro y sello invertido.",
+      "html": "<button class=\"ds-big\"><span class=\"ds-sgb\">学</span><span><b>Aprender palabras nuevas</b><small>Lecciones por temas</small></span></button>",
+      "css": ".ds-big{display:flex;gap:.9rem;align-items:center;width:100%;text-align:left;padding:.85rem 1rem;border-radius:6px;background:var(--act,#b3282d);border:1px solid var(--act,#b3282d);box-shadow:inset 0 0 0 3px var(--act,#b3282d),inset 0 0 0 4px rgba(232,196,120,.75);color:#fff;font:1rem system-ui,sans-serif;cursor:pointer}.ds-big:focus-visible{outline:3px solid var(--pri,#b3282d);outline-offset:2px}.ds-big b{display:block}.ds-big small{display:block;color:var(--on-act-mut,#fde9c9)}.ds-sgb{display:inline-grid;place-items:center;flex:none;width:2.25rem;height:2.25rem;font:700 1.25rem/1 \"Noto Serif SC\",\"Songti SC\",STSong,serif;border:1.5px solid rgba(232,196,120,.85);border-radius:4px}"
+    },
+    {
+      "name": "Campo de texto",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Entrada de pinyin o búsqueda.",
+      "html": "<input class=\"ds-input\" type=\"text\" placeholder=\"Escribe el pinyin\">",
+      "css": ".ds-input{width:100%;padding:.8rem;border-radius:6px;border:2px solid var(--ctl,#928362);caret-color:var(--pri,#b3282d);background:var(--card,#fbf6ea);color:var(--tx,#2b1d14);font-size:1.1rem}.ds-input:focus-visible{outline:3px solid var(--pri,#b3282d);outline-offset:2px}"
+    },
+    {
+      "name": "Navegación inferior",
+      "kind": "nav",
+      "refersTo": "nav",
+      "description": "Barra fija con cuatro pestañas.",
+      "html": "<nav class=\"ds-nav\"><button class=\"ds-on\" aria-current=\"page\"><span>首</span>Inicio</button><button><span>今</span>Hoy</button><button><span>考</span>Examen</button><button><span>进</span>Progreso</button></nav>",
+      "css": ".ds-nav{display:flex;background:var(--card,#fbf6ea);border-top:2px solid var(--gold,#b8892b)}.ds-nav button{flex:1;background:none;border:0;padding:.55rem 0 .5rem;font:.75rem system-ui,sans-serif;color:var(--mut,#8a7560);display:flex;flex-direction:column;align-items:center;gap:.1rem;cursor:pointer}.ds-nav span{font:700 1.1rem/1 \"Noto Serif SC\",\"Songti SC\",STSong,serif;width:1.9rem;height:1.9rem;display:grid;place-items:center;border-radius:4px}.ds-nav .ds-on{color:var(--pri,#b3282d);font-weight:700}.ds-nav .ds-on span{background:var(--act,#b3282d);color:#fff}.ds-nav button:focus-visible{outline:3px solid var(--pri,#b3282d);outline-offset:-3px}"
+    },
+    {
+      "name": "Tablilla de estadística",
+      "kind": "card",
+      "refersTo": "mode-tile",
+      "description": "Panel con marco de doble filete dorado.",
+      "html": "<div class=\"ds-plaque\"><div><b>12 🔥</b><span>racha</span></div><div><b>340/2270</b><span>estudiadas</span></div><div><b>95</b><span>dominadas</span></div></div>",
+      "css": ".ds-plaque{display:flex;background:var(--card,#fbf6ea);border:1px solid var(--bd,#d9c9a6);box-shadow:inset 0 0 0 3px var(--card,#fbf6ea),inset 0 0 0 4px rgba(184,137,43,.45);border-radius:6px}.ds-plaque>div{flex:1;padding:.9rem .3rem;text-align:center}.ds-plaque>div+div{border-left:1px solid var(--bd,#d9c9a6)}.ds-plaque b{display:block;font:700 1.5rem/2rem system-ui,sans-serif;font-variant-numeric:tabular-nums}.ds-plaque span{color:var(--mut,#8a7560);font-size:.9rem}"
+    },
+    {
+      "name": "Sello 学",
+      "kind": "custom",
+      "refersTo": "seal",
+      "description": "Sello de laca girado que firma el título.",
+      "html": "<span class=\"ds-seal\">学</span>",
+      "css": ".ds-seal{display:inline-grid;place-items:center;width:2.1rem;height:2.1rem;background:var(--pri,#b3282d);color:#fff;font:700 1.2rem \"Noto Serif SC\",serif;border-radius:4px;transform:rotate(-5deg);box-shadow:inset 0 0 0 2px rgba(255,255,255,.35)}"
+    },
+    {
+      "name": "Tablilla de ejemplo",
+      "kind": "custom",
+      "refersTo": "option",
+      "description": "Frase de ejemplo tocable con borde dorado discontinuo.",
+      "html": "<div class=\"ds-ex\"><div class=\"zh\">我喜欢喝茶。</div><div class=\"p2\">Wǒ xǐhuan hē chá.</div><div class=\"m\">Me gusta beber té.</div></div>",
+      "css": ".ds-ex{padding:1rem .8rem;background:var(--bg,#f3ead8);border:1px dashed var(--gold,#b8892b);border-radius:8px;text-align:center;cursor:pointer}.ds-ex .zh{font:1.45rem/1.5 \"Noto Serif SC\",serif}.ds-ex .p2{color:var(--pri,#b3282d);margin:.3rem 0}.ds-ex .m{color:var(--mut,#8a7560)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "El patio del templo",
+    "overview": "Estudiar en HSK Viju es como entrar en el patio de un templo: un espacio ordenado y tranquilo, enmarcado por columnas de laca roja y vigas con filete de oro gastado. El suelo es papel y piedra clara. En el centro, el carácter chino ocupa el lugar del altar: es lo más grande y lo único que pide atención. Todo lo demás (botones, cifras, menús) es arquitectura que lo enmarca sin competir.\n\nLos componentes se sienten **táctiles, como objetos**: tablillas con doble filete dorado, tablillas lacadas con incrustación de oro, una placa de cifras y sellos que firman cada sección con su carácter. Tienen peso y material, pero con la contención de un templo, no la acumulación de un restaurante. La densidad es baja y la composición, de una columna y vertical, pensada para el pulgar en un móvil.\n\nEl sistema rechaza la plantilla SaaS (tarjetas idénticas, degradados, cifras-héroe), la monotonía gris del libro de texto y la gamificación chillona tipo Duolingo.",
+    "keyCharacteristics": [
+      "El hanzi en serif china es siempre el elemento más grande de la pantalla.",
+      "Cada sección se firma con un sello de un carácter (听 Escuchar, 读 Lecturas, 考 Examen); el sello de la pestaña activa se estampa en laca.",
+      "Laca roja para la acción y el sello; oro para filetes y marcos; oro tinta solo cuando el dorado tiene que ser texto.",
+      "Superficies de papel con un doble filete interior que las convierte en objetos.",
+      "Una sola columna (máx. 520 px) y una barra de navegación fija abajo.",
+      "Celebración sobria: un sello estampado, no confeti."
+    ],
+    "rules": [
+      {
+        "name": "La Regla del Oro que Enmarca",
+        "body": "El oro envejecido es material de marco. Si el dorado tiene que leerse como texto, se usa oro tinta.",
+        "section": "colors"
+      },
+      {
+        "name": "La Regla de la Laca que Actúa",
+        "body": "El rojo marca lo que se puede pulsar ahora o lo que acaba de pasar (elegido, error, sello). Un fondo rojo es siempre relleno de laca, nunca la laca de texto.",
+        "section": "colors"
+      },
+      {
+        "name": "La Regla del Tono con Marca",
+        "body": "El color del tono nunca va solo: el pinyin conserva su diacrítico o el número de tono, por el daltonismo.",
+        "section": "colors"
+      },
+      {
+        "name": "La Regla del Carácter Primero",
+        "body": "En cada pantalla, el hanzi es el texto de mayor tamaño. Ningún título ni cifra puede superarlo.",
+        "section": "typography"
+      },
+      {
+        "name": "La Regla de la Serif para el Chino",
+        "body": "La serif china no se usa para texto latino: en Windows cae en SimSun y estropea las letras. Lo mixto va con la fuente de título.",
+        "section": "typography"
+      },
+      {
+        "name": "La Regla del Objeto Enmarcado",
+        "body": "Un panel se distingue por su marco (filete dorado interior), no por flotar ni por una banda de color en un lado.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** mantener el hanzi como el texto más grande de cada pantalla (3.4rem o más).",
+      "**Do** firmar cada sección nueva con un sello de un carácter que la represente, en serif china y con `aria-hidden`.",
+      "**Do** usar el marco de tablilla (doble filete dorado interior) para distinguir paneles.",
+      "**Do** usar el relleno de laca para fondos de acción y la laca de texto para texto y bordes.",
+      "**Do** acompañar cada color de tono de su diacrítico o número de tono.",
+      "**Do** dar a cada control al menos 2.75rem (44 px) de área táctil.",
+      "**Do** definir cada color nuevo en los cuatro temas: claro, oscuro (sistema y forzado) y alto contraste."
+    ],
+    "donts": [
+      "**Don't** usar el oro envejecido como texto: para eso está el oro tinta.",
+      "**Don't** usar la serif china para texto latino ni para botones.",
+      "**Don't** usar bandas de color en un lado (`border-left` de más de 1 px) en tarjetas, avisos o explicaciones.",
+      "**Don't** poner títulos de sección en mayúsculas espaciadas ni antetítulos sobre los títulos.",
+      "**Don't** usar emojis, ni como iconos ni como adorno en botones, títulos o mensajes; el altavoz es el único icono dibujado (SVG) y ▶ el único símbolo de reproducir.",
+      "**Don't** usar `prompt()` ni `alert()`: los nombres, avisos y errores van en la pantalla.",
+      "**Don't** convertir la tradición en tópico de restaurante (dragones, farolillos, rojo y oro en cada superficie).",
+      "**Don't** usar degradados violeta, cifras-héroe ni cuadrículas de tarjetas idénticas (SaaS genérico).",
+      "**Don't** usar mascotas, colores chillones ni celebraciones ruidosas (clon de Duolingo)."
+    ]
+  }
+}

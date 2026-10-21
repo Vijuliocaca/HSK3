@@ -59,7 +59,7 @@ t('lecciones: terminar una lección cuenta las palabras nuevas de hoy una sola v
   a.ev(`studied(${JSON.stringify(pk)})`); a.ev(`studied(${JSON.stringify(pk)})`); assert.strictEqual(a.ev('S.newD.n'), n);
 });
 t('listas propias: crear, añadir y quitar una palabra', () => {
-  const a = cargarApp({ prompt: 'Viaje' }); a.ev('nuevaLista()'); assert.strictEqual(a.ev('JSON.stringify(Object.keys(S.listas))'), '["Viaje"]');
+  const a = cargarApp(); a.ev('crearLista(null, "Viaje")'); assert.strictEqual(a.ev('JSON.stringify(Object.keys(S.listas))'), '["Viaje"]');
   a.ev('alternaLista(0, 7)'); assert.strictEqual(a.ev('S.listas["Viaje"].length'), 1); a.ev('alternaLista(0, 7)'); assert.strictEqual(a.ev('S.listas["Viaje"].length'), 0);
 });
 t('palabra del día: no cambia al estudiarla', () => {

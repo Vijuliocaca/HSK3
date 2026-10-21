@@ -8,6 +8,13 @@ const t = (nombre, f) => { total++; try { f(); } catch (e) { fallos++; console.l
 const app = cargarApp(); app.ev(PREPARAR);
 PANTALLAS.forEach(([nombre, js]) => t('pantalla «' + nombre + '»', () => { app.els['#app'].innerHTML = ''; app.ev(js); assert(app.html().length > 40, 'la pantalla quedó vacía'); }));
 
+// --- campo de pinyin: las teclas que no son Intro no deben cancelarse (si el manejador devuelve false, Borrar deja de funcionar) ---
+t('escribir pinyin: Borrar y las demás teclas no se cancelan; Intro comprueba la respuesta', () => {
+  const a = cargarApp(); a.ev(PREPARAR); a.ev("session('write')"); const campo = a.els['#in'];
+  ['Backspace', 'Delete', 'a', ' ', 'ArrowLeft'].forEach(k => assert.notStrictEqual(campo.onkeydown({ key: k }), false, `la tecla ${k} se cancela`));
+  campo.value = 'ni hao'; campo.onkeydown({ key: 'Enter' }); assert.strictEqual(campo.disabled, true, 'Intro no comprobó la respuesta');
+});
+
 // --- progreso guardado por hanzi (no por posición) ---
 t('progreso: se guarda por hanzi y se recupera por hanzi', () => {
   const a = cargarApp(); a.ev('S.known[5] = 1; S.w[5] = { b: 2, d: 0 }; S.star[5] = 1; save()');

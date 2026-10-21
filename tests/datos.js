@@ -21,6 +21,11 @@ t('sw.js: versión con formato hsk3-vNN', () => assert(/const V = 'hsk3-v\d+'/.t
 t('sw.js: guarda todos los scripts de index.html', () => { const sw = leer('sw.js'); scripts.forEach(f => assert(sw.includes(`'${f}'`), f + ' no está en FILES')); });
 t('sw.js: no guarda archivos que no existen', () => [...leer('sw.js').match(/FILES = \[([^\]]*)\]/)[1].matchAll(/'([^']+)'/g)].forEach(m => m[1] == './' || assert(fs.existsSync(path.join(RAIZ, m[1])), 'FILES apunta a ' + m[1])));
 
+t('index.html: ningún manejador de teclado asignado devuelve false con «&&» (cancelaría la tecla, p. ej. Borrar)', () => {
+  const malos = html.match(/\.on(keydown|keyup|keypress|beforeinput|submit)\s*=\s*\w+\s*=>\s*[^{\n]*&&/g) || [];
+  assert.strictEqual(malos.length, 0, 'usa «{ if (...) ... }» en vez de «cond && accion»: ' + malos.join(' | ').slice(0, 160));
+});
+
 // --- vocabulario ---
 const raw = ev('RAW'), nuevas = ev('self.NEW'), palabras = [];
 raw.split('\n').forEach(l => { if (l.trim() && l[0] != '#') palabras.push(l); });

@@ -1121,7 +1121,7 @@ const Q = {
     el.innerHTML = `<div class=prompt><span class=hz>${w.h}</span><small>${w.e}</small></div>
       <input type=text id=in autocomplete=off autocapitalize=off aria-label="Escribe el pinyin" placeholder="pinyin (los tonos son opcionales)"><button class=main id=go>Comprobar</button>`;
     const go = () => { if (!$('#in').value.trim()) return; $('#in').disabled = $('#go').disabled = true; done(nrm($('#in').value) == nrm(w.p)); };
-    $('#go').onclick = go; $('#in').onkeydown = e => e.key == 'Enter' && go(); $('#in').focus();
+    $('#go').onclick = go; $('#in').onkeydown = e => { if (e.key == 'Enter') go(); }; // sin «&&»: devolver false cancelaría la tecla (y Borrar dejaría de funcionar) $('#in').focus();
   },
   cards(el, w, done) {
     el.innerHTML = `<div class=prompt><span class=hz>${w.h}</span></div><button class=main id=sh>Mostrar respuesta</button>`;
@@ -1373,7 +1373,7 @@ function exam(lv) {
     if (q.type) {
       el.innerHTML = `<input type=text id=in autocomplete=off autocapitalize=off aria-label="Escribe el pinyin" placeholder="pinyin (los tonos son opcionales)"><button class=main id=go>Siguiente</button>`;
       const go = () => next(nrm($('#in').value) == nrm(q.w.p));
-      $('#go').onclick = go; $('#in').onkeydown = e => e.key == 'Enter' && go(); $('#in').focus();
+      $('#go').onclick = go; $('#in').onkeydown = e => { if (e.key == 'Enter') go(); }; // sin «&&»: devolver false cancelaría la tecla (y Borrar dejaría de funcionar) $('#in').focus();
     } else {
       el.innerHTML = '<div class=opts>' + q.opts.map(o => `<button class=opt>${q.lab(o)}</button>`).join('') + '</div>';
       [...el.querySelectorAll('.opt')].forEach((b, k, bs) => b.onclick = () => { bs.forEach(x => x.disabled = true); b.classList.add('pk'); setTimeout(() => next(q.opts[k] === q.w), 250); });

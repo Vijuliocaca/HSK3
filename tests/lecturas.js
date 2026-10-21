@@ -120,6 +120,11 @@ const ok = (cond, msg) => { if (!cond) { problemas++; console.log('  ✗', msg);
     ok(est.contorno != 'none', 'con el foco de teclado debe verse un contorno');
     ok(/rgba\(0, 0, 0, 0\)|transparent/.test(est.resalte), `al tocar a la persona no debe salir el rectángulo de resalte del móvil (resalte: ${est.resalte})`);
 
+    // conversación de dos: cada persona en su lado (la primera a la izquierda, la segunda a la derecha) y sus frases en ese mismo lado
+    const dos = await ev("LECT.findIndex(d => d.p == 'yuyue+payolink')"); await ev(`lectura(${dos}, 3)`); await esp(450); await ev('pararHabla()');
+    const lados = await ev(`(() => { const r = s => document.querySelector(s).getBoundingClientRect(), W = document.documentElement.clientWidth, b = [...document.querySelectorAll('#conv .b')].map(e => e.getBoundingClientRect()); return { a1: r('#av').right / W, a2: r('#av2').left / W, izq: b[0].left, der: b[1].left, izqR: b[0].right, derR: b[1].right, v1: b[0].left < b[2].left + 1 && b[1].left > b[0].left, W }; })()`);
+    ok(lados.a1 < 0.5 && lados.a2 > 0.5, `la 1.ª persona debe ir a la izquierda y la 2.ª a la derecha (${lados.a1.toFixed(2)} / ${lados.a2.toFixed(2)})`);
+    ok(lados.der > lados.izq && lados.derR > lados.izqR && lados.v1, `las frases de cada persona deben ir en su lado (izq ${Math.round(lados.izq)}-${Math.round(lados.izqR)}, der ${Math.round(lados.der)}-${Math.round(lados.derR)})`);
     // 3) Preguntas: acertando
     console.log('3) Preguntas: respuestas correctas');
     await ev(`lectura(0, ${n - 1})`); await esp(80); await clic('#nx'); await esp(80);

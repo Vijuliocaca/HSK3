@@ -309,7 +309,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script>
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
-const APP_V = 'hsk3-v125'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v126'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -1395,18 +1395,22 @@ function adornoFiesta() {
   let v = ''; try { const o = fiestaProx().find(x => x.n >= 0 && x.n <= 3 && ['L 1/1', 'L 1/15', 'L 8/15'].includes(x.f.r)); if (o) v = { 'L 1/1': '<path d="M21 22.5a11 11 0 0 1 22 0z" fill="#c62828"/><circle cx="32" cy="10" r="2.6" fill="#ffd54f"/>', 'L 1/15': '<rect x="40" y="7" width="9" height="11" rx="3.5" fill="#d32f2f"/><path d="M44.5 4v3M44.5 18v3" stroke="#ffd54f" stroke-width="1.2"/>', 'L 8/15': '<circle cx="47" cy="13" r="6" fill="#ffe082"/><circle cx="45" cy="11.5" r="1.2" fill="#f5c84c"/>' }[o.f.r]; } catch {}
   return (ADORNO = { d: t, v }).v;
 }
+// cejas (grosor y curvatura), bigote, perilla, coleta y pendientes: rasgos opcionales del avatar
+const CEJAS = { normal: [1, 1.6], gruesas: [2, 1.2], finas: [.6, 1.6], arqueadas: [.9, 3.2] };
 function avatarSVG(p) {
+  const [cg, cc] = CEJAS[p.cejas] || CEJAS.normal;
   const detras = { medio: `<path d="M19 30a13 13 0 0 1 26 0v8a3 3 0 0 1-3 3H22a3 3 0 0 1-3-3z" fill="${p.pelo}"/>`, largo: `<path d="M18 30a14 14 0 0 1 28 0v14a3 3 0 0 1-3 3H21a3 3 0 0 1-3-3z" fill="${p.pelo}"/>`, rizado: `<g fill="${p.pelo}"><circle cx="21.5" cy="23" r="6"/><circle cx="26.5" cy="17.5" r="6.5"/><circle cx="34" cy="16.5" r="6.5"/><circle cx="42" cy="22" r="6"/><circle cx="32" cy="19" r="7"/></g>` }[p.estilo] || '';
   const delante = { medio: `<path d="M20 28a12 12 0 0 1 24 0q-3-6-12-6t-12 6z" fill="${p.pelo}"/>`, corto: `<path d="M20 28a12 12 0 0 1 24 0q-3-6-12-6t-12 6z" fill="${p.pelo}"/>`, largo: `<path d="M20 28a12 12 0 0 1 24 0q-3-6-12-6t-12 6z" fill="${p.pelo}"/>`,
     calvo: `<path d="M20.3 31c-1.4-4-1-8 .8-10.5.3 3.8 1.6 7 2.2 10.5z" fill="${p.pelo}"/><path d="M43.7 31c1.4-4 1-8-.8-10.5-.3 3.8-1.6 7-2.2 10.5z" fill="${p.pelo}"/><path d="M29 17.6q3-1.4 6 0" fill="none" stroke="${p.pelo}" stroke-width=".9" stroke-linecap="round"/>`,
     flequillo: `<path d="M20 29a12 12 0 0 1 24 0c-4 0-8-3-12-5-3 3-7 5-12 5z" fill="${p.pelo}"/><rect x="19" y="26" width="3" height="11" rx="1.5" fill="${p.pelo}"/><rect x="42" y="26" width="3" height="11" rx="1.5" fill="${p.pelo}"/>` }[p.estilo] || '';
   return `<svg viewBox="0 0 64 64" aria-hidden="true"><defs><clipPath id="cp${[...p.n].map(c => c.charCodeAt(0).toString(36)).join('')}"><circle cx="32" cy="32" r="32"/></clipPath></defs><g clip-path="url(#cp${[...p.n].map(c => c.charCodeAt(0).toString(36)).join('')})">
-    <rect width="64" height="64" fill="${p.fondo}"/>${PATRONES[p.patron] || ''}${detras}
+    <rect width="64" height="64" fill="${p.fondo}"/>${PATRONES[p.patron] || ''}${p.coleta ? `<path d="M43 23q9 1 8 13-.5 5-4 7 .5-8-4-13z" fill="${p.pelo}"/><circle cx="43.5" cy="24.5" r="1.4" fill="#c23b3b"/>` : ''}${detras}
     <path d="M10 66c0-13 10-19 22-19s22 6 22 19z" fill="${p.ropa}"/>${p.corbata ? '<path d="M29.5 47l2.5 3 2.5-3 1.2 14h-7.4z" fill="#b3282d"/>' : ''}
-    <rect x="28" y="37" width="8" height="12" rx="3" fill="${p.piel}"/><circle cx="32" cy="28" r="12" fill="${p.piel}"/>${delante}<path class=cejas d="M24.3 24.4q3.2-1.6 6.4 0M33.3 24.4q3.2-1.6 6.4 0" fill="none" stroke="#2b1d14" stroke-opacity=".65" stroke-width="1" stroke-linecap="round"/>${(p.extra || '').split('+').map(k => EXTRAS[k] || '').join('')}
+    <rect x="28" y="37" width="8" height="12" rx="3" fill="${p.piel}"/><circle cx="32" cy="28" r="12" fill="${p.piel}"/>${delante}${p.pendientes ? `<circle cx="20.2" cy="34" r="1.6" fill="${p.pendientes}"/><circle cx="43.8" cy="34" r="1.6" fill="${p.pendientes}"/>` : ''}<path class=cejas d="M24.3 24.4q3.2-${cc} 6.4 0M33.3 24.4q3.2-${cc} 6.4 0" fill="none" stroke="#2b1d14" stroke-opacity=".65" stroke-width="${cg}" stroke-linecap="round"/>${(p.extra || '').split('+').map(k => EXTRAS[k] || '').join('')}
     ${p.ojos == 'almendrados' ? '<g class=ojos><ellipse cx="27.5" cy="29" rx="2.5" ry="1.6" transform="rotate(-8 27.5 29)" fill="#fff"/><ellipse cx="36.5" cy="29" rx="2.5" ry="1.6" transform="rotate(8 36.5 29)" fill="#fff"/><circle cx="27.8" cy="29.2" r="1.05" fill="#2b1d14"/><circle cx="36.8" cy="29.2" r="1.05" fill="#2b1d14"/><path d="M24.9 28.3q2.6-1.5 5.2.1M33.9 28.4q2.6-1.6 5.2-.1" fill="none" stroke="#2b1d14" stroke-width=".7" stroke-linecap="round"/></g>' : '<g class=ojos><circle cx="27.5" cy="29" r="2.1" fill="#fff"/><circle cx="36.5" cy="29" r="2.1" fill="#fff"/><circle cx="27.8" cy="29.2" r="1.15" fill="#2b1d14"/><circle cx="36.8" cy="29.2" r="1.15" fill="#2b1d14"/></g>'}
     ${p.gafas ? '<g fill="none" stroke="#2b1d14" stroke-width="1.2"><circle cx="27.5" cy="29" r="3.8"/><circle cx="36.5" cy="29" r="3.8"/><path d="M31.3 29h1.4"/></g>' : ''}
     ${p.pecas ? PECAS : ''}${p.barba ? `<path d="M21.5 31q0 12.5 10.5 12.5T42.5 31q-4 7.5-10.5 7.5T21.5 31z" fill="${p.pelo}"/>` : ''}
+    ${p.bigote ? `<path d="M27 33q2.5-2 5-.4 2.5-1.6 5 .4-2.5 1.6-5 .3-2.5 1.2-5-.3z" fill="${p.pelo}"/>` : ''}${p.perilla ? `<path d="M29.2 37q2.8 5 5.6 0-2.8 1.3-5.6 0z" fill="${p.pelo}"/>` : ''}
     <path class=boca d="M28 34q4 4 8 0z" fill="#fff" stroke="rgba(43,29,20,.55)" stroke-width=".8" stroke-linejoin="round"/>${p.gorro ? `<path d="M20.5 23.5a11.5 11.5 0 0 1 23 0z" fill="${p.gorro}"/><rect x="19.5" y="20.5" width="25" height="4" rx="2" fill="${p.gorro}"/><circle cx="32" cy="10.5" r="2.4" fill="${p.gorro}"/>` : ''}${adornoFiesta()}</g></svg>`;
 }
 const setLect = k => { S.set[k] = !S.set[k]; save(); const y = window.scrollY || 0; lecturas(); scrollTo(0, y); }; // pinyin / español: un solo ajuste para todas las lecturas

@@ -58,7 +58,7 @@ Lista de mejoras que se han hablado y todavía no están hechas. Recomendación:
 - HSK 6 vocabulario completo (sw v93): A-Z, 767 palabras nuevas con frase (nuevo6a-e.js, frases6a-e.js). El nivel 5 de la app ya cubría casi todo el HSK 6 clásico, así que solo se añadieron las que faltaban. Siguiente posible nivel: HSK 7-9 (palabras realmente nuevas). HSK 6 ya tiene 4 diálogos (`dialogos6.js`) y 5 lecturas (`lecturas6.js`); las pantallas ocultan un nivel sin contenido.
 
 ## Análisis completo (sw v111) — pendiente por prioridad
-1. **Temas para HSK 6-8:** solo el 5 %, 2 % y 1 % de sus palabras tienen tema; el 87-95 % de sus lecciones son «Más vocabulario N» (agrupadas por el primer carácter). Asignar temas en `temas.js`.
+1. **Temas para HSK 6-8: hecho (sw v112).** `temas6.js` reparte las 2862 palabras sin tema en los temas de `temas.js` (revisadas a mano); ya no hay lecciones «Más vocabulario» y todas las palabras tienen tema.
 2. **Gramática de HSK 6-8:** `gramatica1-3.js` solo cubre HSK 1-5 (103 puntos).
 3. **Lecturas:** solo 5 por nivel en HSK 3-8; el 51 % de las palabras de HSK 1 aparecen en alguna lectura, pero solo el 1-6 % en HSK 4-8. Las lecturas de HSK 1 usan unas 7 palabras de nivel superior cada una.
 4. **Carga:** 89 scripts (1,6 MB sin comprimir); el service worker va primero a la red para cada uno. Valorar juntar los datos o cargar HSK 6-8 solo si se activan.

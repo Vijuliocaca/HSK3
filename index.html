@@ -309,7 +309,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script>
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
-const APP_V = 'hsk3-v138'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v139'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -1506,39 +1506,50 @@ function personajes() {
     <div class=grid>${Object.entries(PERS).map(([id, p]) => `<div class=mode style="flex-direction:column;text-align:center;align-items:center;gap:.4rem"><span class=avatar style="width:5.5rem;height:5.5rem;cursor:default" aria-hidden=true>${avatarSVG(p)}</span><span><b>${p.n}</b><small>${n(id)} ${n(id) == 1 ? 'lectura' : 'lecturas'}</small></span></div>`).join('')}</div>`, 'home');
 }
 // editor de personaje propio (S.yo): ED es el borrador; solo se guarda con «Guardar»
-const ED_DEF = { n: 'Tú', piel: '#f1caa6', pelo: '#1d1612', estilo: 'corto', ropa: '#4a7fb5', fondo: '#d8e9ee' };
+const ED_DEF = { n: 'Tú', genero: 'h', rasgos: 'Escribe aquí sus rasgos.', tono: 1, vel: 1, piel: '#f1caa6', pelo: '#1d1612', estilo: 'corto', ropa: '#4a7fb5', fondo: '#d8e9ee' };
 const C_PIEL = ['#fde3cf', '#f1caa6', '#e0ac7e', '#c68642', '#8d5524', '#5c3a21'], C_PELO = ['#1d1612', '#4a3020', '#8a5a2b', '#c9a24b', '#e8d7a0', '#b3472d', '#8a8f98', '#e6e6e6', '#3b6fb5', '#d46a9f', '#6c4ab6', '#3f9a6a'],
   C_VIVOS = ['#c0562a', '#e4a52c', '#3c7d6a', '#34495e', '#6b5b95', '#c23b5a', '#4a7fb5', '#222222', '#f5f5f5', '#8a5a2b'], C_FONDO = ['#d8e9ee', '#f3d9d6', '#f1dfb8', '#dfe3ec', '#e1ecd5', '#e8dcf0', '#f4f1ea', '#2e3748'], C_OJOS = ['#2b1d14', '#6b4a2b', '#3b6fb5', '#3f8a5a', '#7a8088', '#8a5ab5'];
 const N = (v, t) => [v, t];
 const ED_TABS = {
+  Perfil: [['genero', 'Género', [N('h', 'Hombre'), N('m', 'Mujer'), N('f', 'Femboy')]], ['rasgos', 'Rasgos (para escribir historias a su medida)', 't']],
   Cara: [['forma', 'Forma de la cara', [N('', 'Redonda'), N('ovalada', 'Ovalada'), N('cuadrada', 'Cuadrada')]], ['piel', 'Piel', C_PIEL], ['ojos', 'Forma de ojos', [N('', 'Redondos'), N('almendrados', 'Almendrados')]], ['ojoColor', 'Color de ojos', C_OJOS], ['cejas', 'Cejas', [N('', 'Normales'), N('gruesas', 'Gruesas'), N('finas', 'Finas'), N('arqueadas', 'Arqueadas')]], ['boca', 'Boca', [N('', 'Sonrisa'), N('neutra', 'Neutra'), N('labios', 'Labios rojos')]], ['nariz', 'Nariz', 'b'], ['colorete', 'Colorete', 'b'], ['pecas', 'Pecas', 'b'], ['lunar', 'Lunar', 'b']],
   Pelo: [['estilo', 'Peinado', ['corto', 'medio', 'largo', 'flequillo', 'rizado', 'despeinado', 'undercut', 'cayetano', 'cresta', 'mullet', 'afro', 'mono', 'coletas', 'trenzas', 'calvo'].map(v => N(v, v == 'mono' ? 'moño' : v))], ['pelo', 'Color de pelo', C_PELO], ['mechas', 'Mechas', ['', ...C_PELO]], ['coleta', 'Coleta', 'b'], ['barba', 'Barba', 'b'], ['bigote', 'Bigote', 'b'], ['perilla', 'Perilla', 'b']],
   Ropa: [['ropa', 'Color', C_VIVOS], ['cuello', 'Cuello', [N('', 'Redondo'), N('v', 'En V'), N('camisa', 'Camisa'), N('capucha', 'Capucha')]], ['estampado', 'Estampado', [N('', 'Liso'), N('rayas', 'Rayas'), N('puntos', 'Puntos'), N('cuadros', 'Cuadros')]], ['bufanda', 'Bufanda', ['', ...C_VIVOS]], ['corbata', 'Corbata', 'b']],
   Extras: [['gafas', 'Gafas', [N('', 'Sin gafas'), N('redondas', 'Redondas'), N('cuadradas', 'Cuadradas'), N('sol', 'De sol')]], ['gorra', 'Gorra', ['', ...C_VIVOS]], ['boina', 'Boina', ['', ...C_VIVOS]], ['gorro', 'Gorro', ['', ...C_VIVOS]], ['pendientes', 'Pendientes', ['', '#f5c84c', '#c0c4cc', '#c23b5a', '#4a7fb5']], ['extra', 'Accesorio', ['', 'gato', 'gatogris', 'auriculares', 'flor', 'placa', 'estetoscopio', 'ajedrez', 'balon', 'pesa', 'baloncesto', 'libro', 'pi'].map(v => N(v, v ? v : 'Ninguno'))]],
-  Fondo: [['fondo', 'Color', C_FONDO], ['patron', 'Adorno', [N('', 'Liso'), ...Object.keys(PATRONES).map(v => N(v, v))]]] };
-let ED = null, ED_TAB = 'Cara';
+  Fondo: [['fondo', 'Color', C_FONDO], ['patron', 'Adorno', [N('', 'Liso'), ...Object.keys(PATRONES).map(v => N(v, v))]]], Voz: [['tono', 'Tono', 'r', .5, 1.6], ['vel', 'Velocidad', 'r', .8, 1.2]] };
+let ED = null, ED_TAB = 'Perfil';
+// lo que el género no admite (peinados, barba, bigote, perilla, pendientes) no se ofrece: así el código copiado pasa tests/datos.js
+const edFila = k => { const GR = self.GENERO_RASGOS; return !GR.solo[k] || GR.solo[k].includes(ED.genero); };
+const edOpc = (k, v) => k == 'estilo' ? v.filter(x => self.GENERO_RASGOS.estilo[ED.genero].includes(x[0])) : v;
 function edPanel() {
-  return ED_TABS[ED_TAB].map(([k, t, v]) => {
+  return ED_TABS[ED_TAB].filter(([k]) => edFila(k)).map(([k, t, v, mn, mx]) => {
     const on = x => (ED[k] || '') == x;
     const bot = v == 'b' ? `<button class="chip ${ED[k] ? 'on' : ''}" aria-pressed="${!!ED[k]}" onclick="edSet('${k}', ${!ED[k]})">${ED[k] ? 'Sí' : 'No'}</button>`
-      : v.map(x => typeof x == 'string' ? `<button class=sw aria-pressed="${on(x)}" aria-label="${t}: ${x || 'ninguno'}" style="background:${x || 'transparent'}" onclick="edSet('${k}', '${x}')">${x ? '' : '✕'}</button>` : `<button class="chip ${on(x[0]) ? 'on' : ''}" aria-pressed="${on(x[0])}" onclick="edSet('${k}', '${x[0]}')">${x[1]}</button>`).join('');
+      : v == 't' ? `<textarea rows=3 maxlength=200 style="width:100%" aria-label="${t}" oninput="ED.${k} = this.value">${ED[k] || ''}</textarea>`
+      : v == 'r' ? `<input type=range min=${mn} max=${mx} step=.05 value=${ED[k]} aria-label="${t}" oninput="edNum('${k}', +this.value)"><output id=o${k}>${ED[k]}</output>${k == 'vel' ? '<button class=chip onclick="edVoz()">▶ Probar voz</button>' : ''}`
+      : edOpc(k, v).map(x => typeof x == 'string' ? `<button class=sw aria-pressed="${on(x)}" aria-label="${t}: ${x || 'ninguno'}" style="background:${x || 'transparent'}" onclick="edSet('${k}', '${x}')">${x ? '' : '✕'}</button>` : `<button class="chip ${on(x[0]) ? 'on' : ''}" aria-pressed="${on(x[0])}" onclick="edSet('${k}', '${x[0]}')">${x[1]}</button>`).join('');
     return `<b>${t}</b><div class=edf>${bot}</div>`;
   }).join('');
 }
+function edNum(k, x) { ED[k] = x; $('#o' + k).textContent = x; }
+function edVoz() { try { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance('你好！我是' + ED.n); u.lang = 'zh-CN'; u.pitch = ED.tono; u.rate = S.set.rate * ED.vel; speechSynthesis.speak(u); } catch {} }
 function edPinta() { $('#edprev').innerHTML = avatarSVG(ED); $('#edbody').innerHTML = edPanel(); document.querySelectorAll('#edtabs .chip').forEach(b => { const on = b.textContent == ED_TAB; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); }); }
-function edSet(k, v) { if (v === '' || v === false) delete ED[k]; else ED[k] = v; edPinta(); }
+function edSet(k, v) {
+  if (v === '' || v === false) delete ED[k]; else ED[k] = v;
+  if (k == 'genero') { const GR = self.GENERO_RASGOS; if (!GR.estilo[v].includes(ED.estilo)) ED.estilo = GR.estilo[v][0]; Object.keys(GR.solo).forEach(c => { if (!GR.solo[c].includes(v)) delete ED[c]; }); }
+  edPinta();
+}
 function edTab(t) { ED_TAB = t; edPinta(); }
-function edAzar() { const r = a => a[Math.floor(Math.random() * a.length)]; Object.values(ED_TABS).flat().forEach(([k, , v]) => { const x = v == 'b' ? Math.random() < .2 : r(v), val = Array.isArray(x) ? x[0] : x; if (val === '' || val === false || (['gorra', 'boina', 'gorro', 'bufanda', 'extra'].includes(k) && Math.random() < .75)) delete ED[k]; else ED[k] = val; }); edPinta(); }
+function edAzar() { const r = a => a[Math.floor(Math.random() * a.length)]; Object.values(ED_TABS).flat().filter(([k, , v]) => v != 't' && v != 'r' && k != 'genero' && edFila(k)).forEach(([k, , v]) => { const x = v == 'b' ? Math.random() < .2 : r(edOpc(k, v)), val = Array.isArray(x) ? x[0] : x; if (val === '' || val === false || (['gorra', 'boina', 'gorro', 'bufanda', 'extra'].includes(k) && Math.random() < .75)) delete ED[k]; else ED[k] = val; }); edPinta(); }
 function edNombre(v) { ED.n = v.replace(/[^\p{L}\p{N} ]/gu, '').trim().slice(0, 12) || 'Tú'; $('#edprev').innerHTML = avatarSVG(ED); }
-function edCodigo() { // entrada lista para pegar en PERSONAJES (personajes.js): genero y voz.n se eligen para que pasen tests/datos.js
-  const GR = self.GENERO_RASGOS, g = ['h', 'm', 'f'].find(g => GR.estilo[g].includes(ED.estilo) && Object.keys(GR.solo).every(k => !ED[k] || GR.solo[k].includes(g))) || 'h';
+function edCodigo() { // entrada lista para pegar en PERSONAJES (personajes.js); voz.n es el siguiente número libre
   const id = ED.n.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-zA-Z0-9]/g, '').toLowerCase() || 'yo', vn = Math.max(-1, ...Object.values(PERS).map(p => p.voz.n)) + 1;
-  const v = x => typeof x == 'string' ? `'${x}'` : x, cod = `  ${id}: { n: '${ED.n}', genero: '${g}', rasgos: 'Escribe aquí sus rasgos.',\n    ${Object.entries(ED).filter(([k]) => k != 'n').map(([k, x]) => `${k}: ${v(x)}`).join(', ')}, voz: { tono: 1, vel: 1, n: ${vn} } },`;
+  const v = x => typeof x == 'string' ? `'${x.replace(/[\\']/g, '\\$&')}'` : x, aparte = ['n', 'genero', 'rasgos', 'tono', 'vel'], cod = `  ${id}: { n: '${ED.n}', genero: '${ED.genero}', rasgos: ${v(ED.rasgos || 'Escribe aquí sus rasgos.')},\n    ${Object.entries(ED).filter(([k]) => !aparte.includes(k)).map(([k, x]) => `${k}: ${v(x)}`).join(', ')}, voz: { tono: ${ED.tono}, vel: ${ED.vel}, n: ${vn} } },`;
   $('#edcod').value = cod; $('#edcod').hidden = false; $('#edcod').select(); try { navigator.clipboard.writeText(cod); } catch {}
 }
 function edGuardar() { S.yo = { ...ED }; save(); personajes(); }
 function crear() {
-  ED = { ...(S.yo || ED_DEF) };
+  ED = { ...ED_DEF, ...S.yo };
   app(`<div class=top><button class=back onclick="personajes()">←</button><b>Tu personaje</b></div>
     <div style="text-align:center"><span id=edprev class=avatar style="width:8rem;height:8rem;cursor:default;margin:0 auto" aria-hidden=true></span><div class=edf style="justify-content:center;align-items:center;margin-top:.6rem"><label>Nombre <input id=edn maxlength=12 value="${ED.n}" oninput="edNombre(this.value)" style="width:8rem"></label><button class=chip onclick="edAzar()">🎲 Al azar</button></div></div>
     <div id=edtabs class=edf role=group aria-label="Partes">${Object.keys(ED_TABS).map(t => `<button class=chip aria-pressed=false onclick="edTab('${t}')">${t}</button>`).join('')}</div>

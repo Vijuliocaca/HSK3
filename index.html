@@ -310,7 +310,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
 const vSW = t => (/const V = '([^']+)'/.exec(t) || [])[1]; // la versión que declara un sw.js
-const APP_V = 'hsk3-v169'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v170'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -1470,7 +1470,7 @@ const DIENTES = '<path d="M31 35.2h2v2.4q0 .5-1 .5t-1-.5z" fill="#fff" stroke="r
 let AV_ID = 0;
 function avatarSVG(p) {
   const [cg, cc, ci2, cu] = CEJAS[p.cejas] || CEJAS.normal;
-  const cejas = `<path class=cejas transform="translate(0 ${p.cejasY || 0})" d="M24.3 ${24.4 - ci2}q3.2-${cc} 6.4 ${2 * ci2}M33.3 ${24.4 + ci2}q3.2-${cc} 6.4 ${-2 * ci2}${cu ? 'M30.7 24.8h2.6' : ''}" fill="none" stroke="${p.cejaColor || '#2b1d14'}" stroke-opacity="${p.cejaColor ? .9 : .65}" stroke-width="${cg}" stroke-linecap="round"/>`;
+  const cejas = `<path class=cejas transform="translate(0 ${p.cejasY || 0})" d="M24.3 ${24.4 - ci2}q3.2-${cc} 6.4 ${2 * ci2}M33.3 ${24.4 + ci2}q3.2-${cc} 6.4 ${-2 * ci2}${cu ? 'M30.7 24.8h2.6' : ''}" fill="none" stroke="${p.cejaColor || p.pelo}" stroke-width="${cg}" stroke-linecap="round"/>`;
   const sombrero = p.gorra || p.boina || p.gorro || p.paja || p.corona || p.orejas || /cocinero/.test(p.extra || ''); // con sombrero, el pelo que sobresale por arriba se queda en uno más bajo
   const est = sombrero ? { afro: 'medio', mono: 'corto', bunes: 'corto', cresta: 'corto', tupe: 'corto', despeinado: 'corto', rizado: 'medio', cayetano: 'corto', pixie: 'corto', colaalta: 'corto', pinchos: 'corto', plano: 'corto', rizoslargos: 'medio', emo: 'corto' }[p.estilo] || p.estilo : p.estilo;
   const ex = { ovalada: .8, corazon: 1 }[p.forma] || 0;
@@ -1552,7 +1552,7 @@ function avatarSVG(p) {
     const w = { gruesas: 2.4, aviador: .9, cuadradas: 1, ovaladas: 1, gato: 1.1, redondas: 1.2 }[k], tinte = k == 'aviador' ? ' fill="#c9a24b" fill-opacity=".14"' : ' fill="none"';
     return `<g${tinte} stroke="${c}" stroke-width="${w}" stroke-linejoin="round"><path d="${d}"/>${k == 'gato' || k == 'aviador' ? mir : `<path d="${d}" transform="translate(9 0)"/>`}${k == 'aviador' ? '<path d="M31.9 27.4h.2M22.7 26.6l-2.7-.9M41.3 26.6l2.7-.9" fill="none"/>' : '<path d="M31.800 28.500h.4" fill="none"/>'}</g>`; };
   const gafas = G == 'sol' ? `<g fill="${gm(gc, '#1d1d22')}" stroke="${gm(gc, '#1d1d22')}" stroke-width="1.2" stroke-linejoin="round"><rect x="23.200" y="25.800" width="8.600" height="6" rx="2.500"/><rect x="32.200" y="25.800" width="8.600" height="6" rx="2.500"/><path d="M31.500 27.500h1"/></g>` : G == 'media' ? `<g fill="none" stroke="${gm(gc, '#2b1d14')}" stroke-width="1.100" stroke-linecap="round"><path d="M23.500 29v-2.200q0-1.500 1.500-1.500h5.500q1.500 0 1.500 1.500V29M32.500 29v-2.200q0-1.500 1.500-1.500h5.500q1.500 0 1.500 1.500V29M31.500 27h1"/></g>` : MONT[G] ? mg(G) : '';
-  const oc = p.ojoColor || '#2b1d14';
+  const oc = p.ojoColor || '#1d1612';
   const pupilas = (r, y = 29.2) => [27.8, 36.8].map(x => `<circle cx="${x}" cy="${y}" r="${r}" fill="${oc}"/><circle cx="${x}" cy="${y}" r="${r * .45}" fill="#120b07"/><circle cx="${x + .45}" cy="${y - .5}" r=".3" fill="#fff"/>`).join('');
   const blancos = (r, y = 29) => `<circle cx="27.5" cy="${y}" r="${r}" fill="#fff"/><circle cx="36.5" cy="${y}" r="${r}" fill="#fff"/>`, trazo = (d, w = 1) => `<path d="${d}" fill="none" stroke="#2b1d14" stroke-width="${w}" stroke-linecap="round"/>`;
   const OJOS = { // forma de los ojos; todos llevan class=ojos (parpadean)
@@ -1689,7 +1689,7 @@ function edRestablecer(id) { delete S.mod[id]; delete (S.modBase || {})[id]; PER
 // editor de personaje propio (S.yo): ED es el borrador; solo se guarda con «Guardar»
 const ED_DEF = { n: 'Tú', genero: 'h', rasgos: 'Escribe aquí sus rasgos.', tono: 1, vel: 1, piel: '#f1caa6', pelo: '#1d1612', estilo: 'corto', ropa: '#4a7fb5', fondo: '#d8e9ee' };
 const C_PIEL = ['#fde3cf', '#f1caa6', '#e0ac7e', '#c68642', '#8d5524', '#5c3a21'], C_PELO = ['#1d1612', '#4a3020', '#8a5a2b', '#c9a24b', '#e8d7a0', '#b3472d', '#8a8f98', '#e6e6e6', '#3b6fb5', '#d46a9f', '#6c4ab6', '#3f9a6a'],
-  C_VIVOS = ['#c0562a', '#e4a52c', '#3c7d6a', '#34495e', '#6b5b95', '#c23b5a', '#4a7fb5', '#222222', '#f5f5f5', '#8a5a2b'], C_FONDO = ['#d8e9ee', '#f3d9d6', '#f1dfb8', '#dfe3ec', '#e1ecd5', '#e8dcf0', '#f4f1ea', '#2e3748'], C_OJOS = ['#2b1d14', '#6b4a2b', '#3b6fb5', '#3f8a5a', '#7a8088', '#8a5ab5'];
+  C_VIVOS = ['#c0562a', '#e4a52c', '#3c7d6a', '#34495e', '#6b5b95', '#c23b5a', '#4a7fb5', '#222222', '#f5f5f5', '#8a5a2b'], C_FONDO = ['#d8e9ee', '#f3d9d6', '#f1dfb8', '#dfe3ec', '#e1ecd5', '#e8dcf0', '#f4f1ea', '#2e3748'], C_OJOS = ['#1d1612', '#6b4a2b', '#3b6fb5', '#3f8a5a', '#7a8088', '#8a5ab5'];
 const N = (v, t) => [v, t];
 const ED_TABS = {
   Perfil: [['genero', 'Género', [N('h', 'Hombre'), N('m', 'Mujer'), N('f', 'Femboy')]], ['rasgos', 'Rasgos (para escribir historias a su medida)', 't'], ['plantilla', 'Plantillas (cambian ropa y complementos)', 'p'], ['compartir', 'Compartir o importar', 's']],

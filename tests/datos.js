@@ -125,7 +125,7 @@ t('cultura: 3 listas de 10 con todos los campos y títulos con pinyin correcto',
 });
 t('fiestas: 12, con regla válida, nombre y saludo con pinyin correcto', () => {
   const F = lineas(ev('self.FIESTAS')[0]).map(l => l.split('|')); assert.strictEqual(F.length, 12);
-  F.forEach(p => { assert(p.length == 10 && p.every(Boolean), p[0]); assert(/^(G \d+\/\d+|L \d+\/\d+|E|Q)$/.test(p[4]), `${p[0]}: regla «${p[4]}»`); assert(coincide(p[0], p[2]) && coincide(p[7], p[8]), p[0]); });
+  F.forEach(p => { assert(p.length == 9 && p.every(Boolean), p[0]); assert(/^(G \d+\/\d+|L \d+\/\d+|E|Q)$/.test(p[3]), `${p[0]}: regla «${p[3]}»`); assert(coincide(p[0], p[1]) && coincide(p[6], p[7]), p[0]); });
 });
 t('relaciones: antónimos (A) y sinónimos (S) con las dos palabras en el vocabulario', () => lineas(ev('self.RELS')[0]).forEach(l => { const [k, a, b] = l.split('|'); assert(k == 'A' || k == 'S', l); assert(H.has(a) && H.has(b), 'no existe: ' + l); assert(a != b, l); }));
 

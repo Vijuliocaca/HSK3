@@ -188,6 +188,11 @@ t('olvido: el repaso de hoy empieza por lo que más se está olvidando; «reforz
   assert.deepStrictEqual(JSON.parse(a.ev('JSON.stringify(flojas(.95).map(w => w.id))')), [a.ev('W[1].id'), a.ev('W[0].id'), a.ev('W[2].id')], 'flojas ordena de menor a mayor retención');
   a.ev("session('risk')"); assert(a.html().length > 50, 'el modo reforzar debe abrirse');
 });
+t('olvido: «Fácil» crece más que «Bien» y «Difícil» menos (tarjetas)', () => {
+  const a = cargarApp(); a.ev('S.w = {}; ["facil", "dificil", undefined].forEach((n, i) => { grade(W[i].id, true, n); grade(W[i].id, true, n); })');
+  const [f, d, b] = JSON.parse(a.ev('JSON.stringify([0, 1, 2].map(i => S.w[W[i].id].s))'));
+  assert(f > b && b > d, `estabilidades fácil ${f}, bien ${b}, difícil ${d}`);
+});
 t('hoy: muestra la retención media, la curva del olvido y, con examen, la línea del examen y el ritmo de repasos', () => {
   const a = cargarApp(); a.ev('S.known[W[0].id] = S.known[W[1].id] = 1; S.w = {}; grade(W[0].id, true); grade(W[1].id, true); S.w[W[1].id].l -= 3 * DIA; S.w[W[1].id].d -= 3 * DIA'); a.ev('today()'); let h = a.html();
   assert(/<b>\d+ %<\/b><span class=mut>retención/.test(h), 'falta la retención media'); assert(h.includes('Curva del olvido') && h.includes('aria-label="Curva del olvido'), 'falta la curva'); assert(!h.includes('examen '), 'sin examen no debe haber línea de examen'); const sv = h.slice(h.indexOf('<svg viewBox="0 0 300 118"')); assert(sv.includes('<path') && !new RegExp('[a-z0-9]' + '/>', 'i').test(sv.slice(0, sv.indexOf('</svg>'))), 'en el SVG de la curva un valor sin comillas seguido de «/>» se traga el cierre y el resto no se dibuja');

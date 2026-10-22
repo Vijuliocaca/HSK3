@@ -1,6 +1,7 @@
 // Repertorio de personajes que cuentan las lecturas. Cada lectura indica quién la cuenta en su 6.º campo (ver lecturas.js).
 // n: nombre que se ve · rasgos: para escribir historias a su medida (no se muestra en la app)
 // El resto describe el dibujo del avatar (avatarSVG en index.html): piel, pelo (color y estilo: corto | rizado | largo | flequillo), ropa, fondo, gafas, corbata, patron (puntos | sol | diagonal | cuadros | cruces | tablero | olas | montanas: adorno del fondo) y extra (gato | gatogris | auriculares | flor | placa | estetoscopio | ajedrez | balon | pesa | baloncesto | libro; se pueden juntar con «+»: accesorios propios). El nombre puede llevar tildes y un apellido. voz: { tono (0.5-1.6), vel (0.8-1.2, multiplica la velocidad del ajuste), n }: tono y velocidad propios y, si el móvil tiene varias voces chinas, la n-ésima; dos personas que hablan juntas deben llevar n de distinta paridad (así suenan distinto aunque el móvil solo tenga dos voces).
+// Rasgos opcionales de dibujo: pecas (true), barba (true) y gorro (color); en el Año Nuevo chino, la Fiesta de los Faroles y el Medio Otoño el avatar lleva un adorno de temporada (adornoFiesta en index.html).
 // Para añadir a alguien: una entrada nueva aquí y su id en el 6.º campo de las lecturas que cuente.
 self.PERSONAJES = {
   payolink: { n: 'Payolink', rasgos: 'Tiene un gato. Intolerante a la lactosa (no toma leche ni lácteos).',

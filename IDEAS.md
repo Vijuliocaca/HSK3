@@ -5,19 +5,12 @@ Lista de mejoras que se han hablado y todavía no están hechas. Recomendación:
 ## Para no perder el progreso
 
 ## Para aprender mejor
-- **Respuestas con matices** (Otra vez / Difícil / Bien / Fácil) en vez de solo acierto o fallo, para afinar la estabilidad de `grade()`. Toca todos los ejercicios: es el cambio más grande que queda del repaso espaciado.
-- **Repasar desde una lectura las palabras que tocaste** para ver su ficha (marcarlas para el repaso de hoy).
-- **Velocidad de voz por lectura** (lenta / normal) junto a la persona.
-- **Insignias discretas por personaje** al completar todas sus lecturas (estilo sobrio de `PRODUCT.md`).
 
 ## Cultura y diversión
-- **Más personajes y más conversaciones** entre parejas (hay 11 personajes y 10 conversaciones; las parejas deben llevar `voz.n` de distinta paridad). Ideas: disfraces por fiesta (gorro, farolillo) usando `fiestas.js`, rasgos de dibujo (pecas, barba, gorro), elegir tu propio avatar para el perfil.
 14. **Más canciones tradicionales con melodía y karaoke.** Faltan las partituras (簡譜) de 茉莉花 y 送别 para añadir su melodía.
 
 ## Pulido
-- Los datos de `fiestas.js` y `cultura.js` aún traen un emoji por elemento (campo `e`), aunque la app ya no los muestra en pestañas ni cabeceras.
 - Los temas claro y oscuro siguen escritos dos veces en `index.html`; unificarlos con `light-dark()` cuando no importe dejar fuera iOS < 17.5.
-- Falta la versión oscura del tema de alto contraste.
 
 ## Notas sobre notificaciones (app instalada)
 - Las notificaciones push reales (el servidor te avisa a una hora) necesitan un servidor que las envíe; GitHub Pages es solo estático. Se puede montar con un servicio externo gratuito, pero hay que crear cuentas y guardar las suscripciones.
@@ -57,10 +50,22 @@ Lista de mejoras que se han hablado y todavía no están hechas. Recomendación:
 - HSK 7 y 8 hechos (sw v99): HSK 7 = 351 palabras (A-D) y HSK 8 = 282 (E-G), cada nivel con 4 diálogos y 5 lecturas (nuevo7a-b, nuevo8a-b, frases7-8, dialogos7-8, lecturas7-8). Quedan por cubrir H-Z del vocabulario avanzado si se quiere seguir.
 - HSK 6 vocabulario completo (sw v93): A-Z, 767 palabras nuevas con frase (nuevo6a-e.js, frases6a-e.js). El nivel 5 de la app ya cubría casi todo el HSK 6 clásico, así que solo se añadieron las que faltaban. Siguiente posible nivel: HSK 7-9 (palabras realmente nuevas). HSK 6 ya tiene 4 diálogos (`dialogos6.js`) y 5 lecturas (`lecturas6.js`); las pantallas ocultan un nivel sin contenido.
 
-## Análisis completo (sw v111) — pendiente por prioridad
-1. **Temas para HSK 6-8: hecho (sw v112).** `temas6.js` reparte las 2862 palabras sin tema en los temas de `temas.js` (revisadas a mano); ya no hay lecciones «Más vocabulario» y todas las palabras tienen tema.
-2. **Gramática de HSK 6-8:** `gramatica1-3.js` solo cubre HSK 1-5 (103 puntos).
-3. **Lecturas:** solo 5 por nivel en HSK 3-8; el 51 % de las palabras de HSK 1 aparecen en alguna lectura, pero solo el 1-6 % en HSK 4-8. Las lecturas de HSK 1 usan unas 7 palabras de nivel superior cada una.
-4. **Carga:** 89 scripts (1,6 MB sin comprimir); el service worker va primero a la red para cada uno. Valorar juntar los datos o cargar HSK 6-8 solo si se activan.
-5. **Erhua (儿):** 31 palabras y 122 frases con sílabas ≠ caracteres (casos conocidos, topes en `tests/datos.js`).
-6. **Niveles 7 y 8:** el reparto es alfabético, no por dificultad; renombrarlos («Avanzado A/B») o repartirlos por frecuencia si se consigue una lista fiable.
+## Hecho en la última tanda (sw v116)
+- **Respuestas con matices en las tarjetas:** Otra vez / Difícil / Bien / Fácil; «Difícil» hace crecer menos la estabilidad y «Fácil» más (`grade(id, ok, niv)`). Los demás ejercicios siguen siendo acierto/fallo porque no hay forma natural de graduar una respuesta de elegir.
+- **Repasar desde una lectura:** al terminar, botón «Repasar las N palabras que tocaste» (sesión mixta con ellas).
+- **Velocidad de voz** (lenta / normal / rápida) dentro de cada lectura, la misma que en Ajustes.
+- **Insignias por personaje** en Logros: se ganan con el 100 % en todas sus lecturas.
+- **Rasgos de dibujo nuevos** (pecas, barba, gorro), adornos de temporada en los avatares y **avatar del perfil** elegible en Ajustes (se ve junto a la meta de hoy). Personajes y conversaciones nuevas: los añade el usuario.
+- **Gramática de HSK 6-8:** 38 puntos (`gramatica4.js`).
+- **Lecturas nuevas:** 3 más en cada nivel de HSK 3 a 8 (`lecturas9a-b.js`).
+- **Tema de alto contraste oscuro**, sin emojis en `fiestas.js`/`cultura.js`.
+- **Carga:** el service worker espera a la red como máximo 4 s y si no, sirve la copia guardada.
+
+## Pendiente
+- **Canciones con melodía (idea 14):** faltan las partituras de 茉莉花 y 送别.
+- **Unificar temas claro/oscuro con `light-dark()`:** descartado por ahora (rompe iOS < 17.5).
+- **Notificaciones push reales:** necesitan un servidor; queda el recordatorio .ics.
+- **Erhua (儿):** 31 palabras y 122 frases con sílabas ≠ caracteres (casos conocidos, topes en `tests/datos.js`).
+- **Carga:** 90 scripts (1,7 MB sin comprimir); juntarlos exigiría un paso de compilación que el proyecto no tiene.
+- **Niveles 7 y 8:** el reparto es alfabético, no por dificultad; renombrarlos o repartirlos por frecuencia si se consigue una lista fiable.
+- **Lecturas:** solo el 1-6 % de las palabras de HSK 4-8 aparecen en alguna lectura; las lecturas de HSK 1 usan unas 7 palabras de nivel superior.

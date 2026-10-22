@@ -1,7 +1,7 @@
 // Más Top 10 culturales (selección, no clasificación oficial). Sin vídeos ni material con derechos: solo datos.
 // Cada elemento: t = título en chino, p = pinyin, es = título en español, a = autor/lugar, y = año/tipo, d = descripción
 self.CULT = {
-  pelis: { e: "🎬", n: "películas", intro: "Una selección de películas chinas que mucha gente conoce y que ayudan a entender su cine. No es una clasificación oficial.", xs: [
+  pelis: { n: "películas", intro: "Una selección de películas chinas que mucha gente conoce y que ayudan a entender su cine. No es una clasificación oficial.", xs: [
     { t: "红高粱", p: "Hóng gāoliang", es: "Sorgo rojo", a: "Zhang Yimou (张艺谋)", y: "1987",
       d: "Primera película de Zhang Yimou, ambientada en la China rural de los años 30. Ganó el Oso de Oro del Festival de Berlín de 1988 y ayudó a que el cine chino se conociera en el mundo." },
     { t: "霸王别姬", p: "Bàwáng bié Jī", es: "Adiós a mi concubina", a: "Chen Kaige (陈凯歌)", y: "1993",
@@ -22,7 +22,7 @@ self.CULT = {
       d: "Comedia de bandidos en la China de los años 20. Es famosa por sus diálogos rápidos, que mucha gente cita todavía." },
     { t: "哪吒之魔童降世", p: "Nézhā zhī mótóng jiàngshì", es: "Ne Zha: el niño demonio", a: "Yang Yu (饺子)", y: "2019",
       d: "Película de animación que reinterpreta un mito clásico chino. Fue un gran éxito de taquilla en China." }] },
-  series: { e: "📺", n: "series", intro: "Una selección de series de televisión chinas muy conocidas. No es una clasificación oficial.", xs: [
+  series: { n: "series", intro: "Una selección de series de televisión chinas muy conocidas. No es una clasificación oficial.", xs: [
     { t: "西游记", p: "Xīyóu jì", es: "Viaje al Oeste", a: "CCTV", y: "1986",
       d: "Adaptación de la novela clásica sobre el Rey Mono (孙悟空). Se repone en televisión casi cada verano y es la versión más querida por varias generaciones." },
     { t: "红楼梦", p: "Hónglóu mèng", es: "El sueño del aposento rojo", a: "CCTV", y: "1987",
@@ -43,7 +43,7 @@ self.CULT = {
       d: "Intrigas entre concubinas en el palacio de la dinastía Qing. Fue muy popular en China y también se emitió en otros países." },
     { t: "琅琊榜", p: "Lángyá bǎng", es: "La lista de Langya", a: "Drama de época", y: "2015",
       d: "Un estratega prepara en secreto una venganza política. Fue muy aplaudida por su guion y sus personajes." }] },
-  platos: { e: "🍜", n: "platos típicos", intro: "Una selección de platos muy conocidos de la cocina china, de distintas regiones. No es una clasificación oficial.", xs: [
+  platos: { n: "platos típicos", intro: "Una selección de platos muy conocidos de la cocina china, de distintas regiones. No es una clasificación oficial.", xs: [
     { t: "北京烤鸭", p: "Běijīng kǎoyā", es: "Pato laqueado de Pekín", a: "Pekín", y: "plato principal",
       d: "Pato asado de piel crujiente que se come en finas tortitas con cebolleta y salsa dulce de soja. Es uno de los platos más emblemáticos de la capital." },
     { t: "饺子", p: "Jiǎozi", es: "Empanadillas chinas", a: "Norte de China", y: "especial de Año Nuevo",

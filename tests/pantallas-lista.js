@@ -16,7 +16,7 @@ const PANTALLAS = [
   ['una lectura de HSK 5', 'lectura(LECT.length - 1)'], ['lectura de HSK 5 (última frase)', 'lectura(LECT.length - 1, LECT[LECT.length - 1].ls.length - 1)'],
   ['pregunta de lectura: elige', 'lectQ(0, 0)'], ['pregunta de lectura: la que no se deduce', 'lectQ(0, 1)'], ['pregunta de lectura: frase en chino', 'lectQ(0, 2)'], ['pregunta de lectura: ordenar la frase', 'lectQ(0, 3)'],
   ['pregunta larga de HSK 5: elige', 'lectQ(LECT.length - 1, 0)'], ['pregunta larga de HSK 5: frase en chino', 'lectQ(LECT.length - 1, 2)'], ['pregunta larga de HSK 5: ordenar la frase', 'lectQ(LECT.length - 1, 3)'],
-  ['diálogos', 'dialogos()'], ['un diálogo', 'dialogo(0)'], ['fiestas', 'fiestas()'], ['mis listas', 'listas()'], ['una lista', 'lista(0)'],
+  ['diálogos', 'dialogos()'], ['un diálogo', 'dialogo(0)'], ['fiestas', 'fiestas()'], ['personajes', 'personajes()'], ['mis listas', 'listas()'], ['una lista', 'lista(0)'],
   ['ficha de palabra', 'detail(0)'], ['entrenar tonos', 'tonos()'], ['cuestionario de diálogo', 'dialQ(0)'], ['cuestionario de lectura', 'lectQ(0)'],
   ['repaso de gramática', 'gramRev()'], ['práctica de gramática', 'gramEx(0)'],
   ['juego: elegir traducción', "session('choice')"], ['juego: tarjetas', "session('cards')"], ['juego: escuchar', "session('listen')"],

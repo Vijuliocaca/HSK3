@@ -310,7 +310,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script>
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
-const APP_V = 'hsk3-v116'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v117'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -591,7 +591,8 @@ function home() {
   <button class="mode big" onclick="temas()"><span class="e sg">${ico('library')}</span><span><b>Vocabulario por temas</b><small>Frutas, transporte, familia…</small></span></button>
   ${nd ? `<button class="mode alert" onclick="today()"><span class="e sg">${ico('history')}</span><span><b>Repasar lo de hoy</b><small>${nd} palabras pendientes</small></span></button>` : ''}
   ${MODE_GROUPS.map(([g, t]) => `<h2>${t}</h2><div class=grid>${MODES.filter(m => m[4] == g).map(m => `<button class=mode onclick="go('${m[0]}')"><span class="e sg">${ico(m[1])}</span><span><b>${m[2]}</b><small>${m[0] == 'hard' ? hardList().length + ' palabras' : m[3]}</small></span></button>`).join('')}</div>`).join('')}
-  ${daily()}`, 'home');
+  ${daily()}
+  <button class="mode" style="margin-top:1rem" onclick="personajes()"><span class="e sg">${ico('users')}</span><span><b>Personajes</b><small>Quién cuenta cada lectura y cómo se ve</small></span></button>`, 'home');
 }
 function tog(k, n) { // al elegir un HSK se marcan también los anteriores; tocar el más alto lo quita
   const mx = Math.max(...S.lv), top = n == mx && n > 1 ? n - 1 : n;
@@ -1476,7 +1477,14 @@ function anadir(i, k, mover) {
 }
 // la conversación completa en pantalla: la persona, arriba a la derecha, va diciendo las frases y cada «Siguiente» añade la siguiente debajo.
 // Al terminar se puede releer todo y escuchar la lectura entera. lectura(i, j) pinta la conversación hasta la frase j (0 = solo la primera).
-function elegirAvatar(id) { S.set.avatar = id; save(); settings(); } // el avatar del perfil aparece junto a la meta de hoy en el inicio
+// galería de personajes: todos los avatares con su nombre y las lecturas que cuentan (toca uno para elegirlo como tu avatar)
+function personajes() {
+  const n = id => LECT.filter(d => d.p.split('+').includes(id)).length;
+  app(`<div class=top><button class=back onclick="home()">←</button><b>Personajes</b></div>
+    <p class=mut>Ellos te cuentan las lecturas y las conversaciones. Toca uno para usarlo como tu avatar.</p>
+    <div class=grid>${Object.entries(PERS).map(([id, p]) => `<button class=mode style="flex-direction:column;text-align:center;align-items:center;gap:.4rem" onclick="elegirAvatar('${id}', 'personajes')" aria-pressed=${S.set.avatar == id}><span class="avatar ${S.set.avatar == id ? 'sel' : ''}" style="width:5.5rem;height:5.5rem;cursor:inherit" aria-hidden=true>${avatarSVG(p)}</span><span><b>${p.n}</b><small>${n(id)} ${n(id) == 1 ? 'lectura' : 'lecturas'}${S.set.avatar == id ? ' · tu avatar' : ''}</small></span></button>`).join('')}</div>`, 'home');
+}
+function elegirAvatar(id, v = 'settings') { S.set.avatar = id; save(); window[v](); } // el avatar del perfil aparece junto a la meta de hoy en el inicio
 function velLect(v, b) { S.set.rate = v; save(); b.parentNode.querySelectorAll(".chip").forEach(x => x.classList.toggle("on", x === b)); } // velocidad de la voz desde la lectura (la misma de Ajustes)
 function lectura(i, j = 0) {
   pararHabla(); if (!j) TOC = new Set();

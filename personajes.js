@@ -9,7 +9,7 @@ self.GENERO_RASGOS = {
   solo: { barba: ['h'], bigote: ['h'], perilla: ['h'], pendientes: ['m', 'f'] } };
 self.PERSONAJES = {
   payolink: { n: 'Payolink', genero: 'h', rasgos: 'Tiene un gato. Intolerante a la lactosa (no toma leche ni lácteos).',
-    piel: '#f1caa6', pelo: '#1d1612', estilo: 'mullet', ropa: '#6b5b95', fondo: '#d8e9ee', patron: 'puntos', extra: 'gato+libro+cascos', cejasY: 2.5, voz: { tono: 1.15, vel: 1, n: 0 } },
+    piel: '#f1caa6', pelo: '#1d1612', estilo: 'mullet', ropa: '#6b5b95', fondo: '#d8e9ee', patron: 'ikurrina', extra: 'gato+libro+cascos', cejasY: 2.5, voz: { tono: 1.15, vel: 1, n: 0 } },
   samu: { n: 'Samu', genero: 'h', rasgos: 'Le encanta la sandía.',
     perilla: true, piel: '#7a4a31', pelo: '#1d1612', estilo: 'rizado', ropa: '#c0562a', fondo: '#f1dfb8', patron: 'sol', extra: 'auriculares', voz: { tono: 0.8, vel: 0.95, n: 2 } },
   yuyue: { n: 'YuYue', genero: 'f', rasgos: 'Es china. Le gusta el KFC.',

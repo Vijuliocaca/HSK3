@@ -641,7 +641,7 @@ f|5`, `起床|levantarse
 看到|llegar a ver`, 'teo'],
 
 [2, '🌧️ Lluvia en la montaña', `今天/山/上/下/雨/了。|Jīntiān shān shang xià yǔ le.|Hoy llueve en la montaña.
-我/不/能/去/学校，/只/能/在/家/学习。|Wǒ bù néng qù xuéxiào, zhǐ néng zài jiā xuéxí.|No puedo ir a la escuela, solo estudiar en casa.
+我/不/能/去/学校，/只/能/在/家/学习。|Wǒ bù néng qù xuéxiào, zhǐ néng zài jiā xuéxí.|No puedo ir a la escuela; solo puedo estudiar en casa.
 我/喝/热/茶，/看/书。|Wǒ hē rè chá, kàn shū.|Bebo té caliente y leo.
 雨/声/很/好/听。|Yǔ shēng hěn hǎo tīng.|La lluvia suena muy bien.
 下午/雨/停/了，/天/上/有/一/个/彩虹。|Xiàwǔ yǔ tíng le, tiān shàng yǒu yí gè cǎihóng.|Por la tarde para de llover y aparece un arcoíris.

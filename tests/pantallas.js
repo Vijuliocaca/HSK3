@@ -94,7 +94,7 @@ t('avatar: ninguna opción del editor deja ${} sin sustituir, undefined o NaN, y
   const a = cargarApp(), mal = JSON.parse(a.ev(`JSON.stringify((() => {
     const mal = new Set(), probar = (o, et) => { const s = avatarSVG(o); const m = s.match(/\\$\\{[^}]*\\}|undefined|NaN|\\[object/); if (m) mal.add(et + ': ' + m[0]); };
     const base = { ...ED_DEF, forma: 'ovalada', ojos: 'almendrados', pecas: true, colorete: true, lunar: true, nariz: true, pecasY: 1, barba: true, bigote: true, perilla: true, coleta: true, corbata: true, bufanda: '#c23b5a', pendientes: '#f5c84c', mechas: '#e6e6e6', cejaColor: '#3b6fb5', ojoColor: '#3f8a5a', gafasColor: '#c23b5a' };
-    Object.values(ED_TABS).flat().forEach(([k, , v, mn]) => { const vals = v == 'b' ? [true] : v == 'r' || v == 't' ? [] : v == 'm' ? mn.map(x => x[0]) : v.map(x => Array.isArray(x) ? x[0] : x); vals.forEach(x => { probar({ ...base, [k]: x }, k + '=' + x); probar({ ...base, [k]: x, gafas: 'aviador', gorra: '#c0562a' }, k + '=' + x + '+gafas+gorra'); }); });
+    Object.values(ED_TABS).flat().forEach(([k, , v, mn]) => { const vals = v == 'b' ? [true] : v == 'r' || v == 't' || v == 'p' || v == 's' ? [] : v == 'm' ? mn.map(x => x[0]) : v.map(x => Array.isArray(x) ? x[0] : x); vals.forEach(x => { probar({ ...base, [k]: x }, k + '=' + x); probar({ ...base, [k]: x, gafas: 'aviador', gorra: '#c0562a' }, k + '=' + x + '+gafas+gorra'); }); });
     Object.entries(PERS).forEach(([id, p]) => probar(p, 'PERS.' + id));
     return [...mal]; })())`));
   assert.deepStrictEqual(mal, [], 'dibujo roto: ' + mal.slice(0, 5).join(' | '));

@@ -2,7 +2,7 @@
 (self.DIALS = self.DIALS || []).push(
 [6, '🏥 Revisión médica', `A|医生，我最近总是很累，是不是身体出了问题？|Yīshēng, wǒ zuìjìn zǒngshì hěn lèi, shì bu shì shēntǐ chū le wèntí?|Doctor, últimamente estoy siempre cansado, ¿tendré algún problema de salud?
 B|先别紧张。您多大年纪了？有没有定期检查身体？|Xiān bié jǐnzhāng. Nín duō dà niánjì le? Yǒu méiyǒu dìngqī jiǎnchá shēntǐ?|No se ponga nervioso. ¿Qué edad tiene? ¿Se hace revisiones periódicas?
-A|我四十五岁，已经三年没有检查了，工作太忙。|Wǒ sìshíwǔ suì, yǐjīng sān nián méiyǒu jiǎnchá le, gōngzuò tài máng.|Tengo 45 años y hace tres que no me reviso; trabajo demasiado.
+A|我四十五岁，已经三年没有检查了，工作太忙。|Wǒ sìshíwǔ suì, yǐjīng sān nián méiyǒu jiǎnchá le, gōngzuò tài máng.|Tengo 45 años y hace tres años que no me hago una revisión; trabajo demasiado.
 B|这样不行。很多疾病，比如癌症，早期发现治愈的机会很大。|Zhèyàng bù xíng. Hěn duō jíbìng, bǐrú áizhèng, zǎoqī fāxiàn zhìyù de jīhuì hěn dà.|Eso no está bien. Muchas enfermedades, como el cáncer, tienen muchas posibilidades de curarse si se detectan pronto.
 A|那我现在就做全面检查。|Nà wǒ xiànzài jiù zuò quánmiàn jiǎnchá.|Entonces me haré ahora mismo una revisión completa.
 B|对，也要保重身体，少熬夜，多运动。|Duì, yě yào bǎozhòng shēntǐ, shǎo áoyè, duō yùndòng.|Sí, y cuídese: trasnoche menos y haga más ejercicio.`, `¿Qué le pasa a A?|Está muy cansado últimamente|Tiene fiebre|Se ha roto una pierna

@@ -35,6 +35,14 @@ const ok = (c, m) => { if (!c) { problemas++; console.log('  ✗', m); } };
     const us = await ev('window.__u'); ok(us.length == 2 && us[0].pitch == 1.3 && us[1].pitch == 1.15 && us[0].rate == 1.05 && us[1].rate == 1, `cada persona debe hablar con su tono y velocidad (${JSON.stringify(us)})`);
     ok(us[0].voz == 'B' && us[1].voz == 'A' && us[0].voz != us[1].voz, `dos personas que conversan deben usar voces distintas (${us.map(u => u.voz)})`);
     await ev('S.set.rate = 0.5; window.__u = []'); await ev(`hablar(${i}, 0)`); ok((await ev('window.__u'))[0].rate == 0.525, 'la velocidad propia debe multiplicar la del ajuste');
+    // expresiones por palabras clave (sin ？ ni ！): triste, enfado, susto y cansado
+    await ev("(() => { Object.defineProperty(window, 'speechSynthesis', { configurable: true, value: { cancel() { }, getVoices: () => [], speak(u) { setTimeout(() => u.onstart && u.onstart(), 5); } } }); return 1; })()");
+    for (const [clase, re] of [['cansado', '累'], ['triste', '难过|伤心|可惜'], ['susto', '害怕|担心|紧张']]) {
+      const hit = await ev(`(() => { for (let i = 0; i < LECT.length; i++) for (let k = 0; k < LECT[i].ls.length; k++) { const fr = LECT[i].ls[k].z.join(''); if (!/[？！]/.test(fr) && /${re}/.test(fr) && !LECT[i].p.includes('+')) return [i, k]; } return null; })()`);
+      if (!hit) { console.log('  (sin frase de ejemplo para ' + clase + ')'); continue; }
+      await ev(`lectura(${hit[0]}, ${hit[1]})`); await esp(300); await ev('pararHabla()'); await ev(`hablar(${hit[0]}, ${hit[1]})`); await esp(60);
+      ok((await ev("[...document.querySelector('#av').classList].join(' ')")).includes(clase), 'una frase con «' + re + '» debe poner cara de ' + clase);
+    }
   } catch (e) { problemas++; console.log('  ✗ error en la prueba:', e.message); }
   await b.cerrar();
   console.log(problemas ? `avatar: ${problemas} problemas` : 'avatar: OK');

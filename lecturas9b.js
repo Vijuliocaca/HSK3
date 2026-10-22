@@ -5,7 +5,7 @@
 奶奶/给/孩子们/发/了/压岁钱。|Nǎinai gěi háizimen fā le yāsuìqián.|La abuela dio a los niños el dinero de Año Nuevo.
 窗外/传来/了/鞭炮/声。|Chuāngwài chuánlái le biānpào shēng.|Desde fuera de la ventana llegan los petardos.
 大家/一边/吃/一边/聊，/笑声/不断。|Dàjiā yìbiān chī yìbiān liáo, xiàoshēng búduàn.|Todos comen y charlan sin parar de reír.
-对/我/来/说，/团圆/就是/最/大/的/幸福。|Duì wǒ lái shuō, tuányuán jiùshì zuì dà de xìngfú.|Para mí, la reunión familiar es la mayor felicidad.`, `o|¿Qué es lo más importante para la narradora en esta fiesta?|Estar reunida con su familia|Comer muchos jiaozi y por eso lo evitó siempre|Recibir dinero de Año Nuevo y por eso lo evitó siempre|Ver los petardos y por eso lo evitó siempre
+对/我/来/说，/团圆/就是/最/大/的/幸福。|Duì wǒ lái shuō, tuányuán jiùshì zuì dà de xìngfú.|Para mí, la reunión familiar es la mayor felicidad.`, `o|¿Qué es lo más importante para la narradora en esta fiesta?|Estar reunida con toda su familia|Comer muchos jiaozi con la abuela|Recibir el dinero de Año Nuevo|Ver los petardos desde la ventana
 x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|La familia cena en un restaurante de la ciudad|Hay jiaozi calientes sobre la mesa|La abuela reparte dinero a los niños, según se cuenta en el texto|Se oyen petardos fuera
 z|2
 f|4`, `桌|mesa
@@ -20,7 +20,7 @@ f|4`, `桌|mesa
 他/的/防守/非常/严密，/我/几乎/找/不/到/机会。|Tā de fángshǒu fēicháng yánmì, wǒ jīhū zhǎo bu dào jīhuì.|Su defensa era muy sólida y casi no encontraba oportunidades.
 但是/我/没有/着急，/而是/耐心/地/等待/他/的/失误。|Dànshì wǒ méiyǒu zháojí, érshì nàixīn de děngdài tā de shīwù.|Pero no me impacienté, sino que esperé con paciencia su error.
 终于，/他/走/错/了/一/步，/我/抓住/机会/赢/了。|Zhōngyú, tā zǒu cuò le yí bù, wǒ zhuāzhù jīhuì yíng le.|Por fin se equivocó en una jugada y aproveché para ganar.
-比赛/以后，/他/笑/着/说，/我/的/沉着/让/他/佩服。|Bǐsài yǐhòu, tā xiào zhe shuō, wǒ de chénzhuó ràng tā pèifu.|Después de la partida me dijo, sonriendo, que mi serenidad lo impresionaba.`, `o|¿Qué cualidad destaca el rival del narrador?|Su serenidad y paciencia|Su rapidez al jugar y por eso lo evitó siempre|Su fuerza física y por eso lo evitó siempre|Su ambición por ganar y por eso lo evitó siempre
+比赛/以后，/他/笑/着/说，/我/的/沉着/让/他/佩服。|Bǐsài yǐhòu, tā xiào zhe shuō, wǒ de chénzhuó ràng tā pèifu.|Después de la partida me dijo, sonriendo, que mi serenidad lo impresionaba.`, `o|¿Qué cualidad destaca el rival del narrador?|Su serenidad y paciencia|Su rapidez al mover las piezas|Su fuerza física en el torneo|Su ambición por ganar siempre
 x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El narrador ganó porque su rival no cometió ningún error|El rival tenía mucha experiencia|La defensa del rival era muy sólida|El narrador esperó con paciencia
 z|5
 f|1`, `国际象棋|ajedrez
@@ -33,7 +33,7 @@ f|1`, `国际象棋|ajedrez
 有/一/次，/我/忙/得/忘记/了/喂/它，/它/竟然/打翻/了/杯子。|Yǒu yí cì, wǒ máng de wàngjì le wèi tā, tā jìngrán dǎfān le bēizi.|Una vez, de lo ocupada que estaba, olvidé darle de comer y volcó un vaso.
 我/没有/生气，/反而/觉得/它/很/可爱。|Wǒ méiyǒu shēngqì, fǎn'ér juéde tā hěn kě'ài.|No me enfadé; al contrario, me pareció adorable.
 同事/们/说，/有/了/它，/办公室/的/气氛/轻松/多/了。|Tóngshì men shuō, yǒu le tā, bàngōngshì de qìfēn qīngsōng duō le.|Los compañeros dicen que con él el ambiente de la oficina es más relajado.
-一/只/小/动物，/有时候/比/一/场/会议/更/管用。|Yì zhī xiǎo dòngwù, yǒushíhou bǐ yì chǎng huìyì gèng guǎnyòng.|Un animalito a veces resulta más útil que una reunión.`, `o|¿Qué aporta el gato a la oficina?|Un ambiente más relajado|Menos trabajo para todos y por eso lo evitó siempre|Más reuniones y por eso lo evitó siempre|Un problema de limpieza y por eso lo evitó siempre
+一/只/小/动物，/有时候/比/一/场/会议/更/管用。|Yì zhī xiǎo dòngwù, yǒushíhou bǐ yì chǎng huìyì gèng guǎnyòng.|Un animalito a veces resulta más útil que una reunión.`, `o|¿Qué aporta el gato a la oficina?|Un ambiente más relajado|Menos trabajo para todos|Más reuniones de equipo|Un problema de limpieza
 x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El gato rompió un ordenador y la narradora se enfadó mucho|El gato duerme sobre los documentos|Nadie se atreve a echarlo|Los compañeros notan un mejor ambiente
 z|6
 f|4`, `灰色|gris
@@ -61,7 +61,7 @@ f|4`, `乳糖|lactosa
 我/戴/上/耳机，/就/像/进入/了/另/一/个/世界。|Wǒ dài shang ěrjī, jiù xiàng jìnrù le lìng yí ge shìjiè.|Me pongo los auriculares y es como entrar en otro mundo.
 音乐/让/我/忘记/了/疲劳，/也/让/时间/过/得/更/快。|Yīnyuè ràng wǒ wàngjì le píláo, yě ràng shíjiān guò de gèng kuài.|La música me hace olvidar el cansancio y que el tiempo pase más rápido.
 有/时候，/我/会/不由自主/地/跟着/节奏/点头。|Yǒu shíhou, wǒ huì bùyóuzìzhǔ de gēnzhe jiézòu diǎntóu.|A veces asiento sin querer al ritmo de la música.
-这/段/路，/是/我/一/天/中/最/安静/的/时光。|Zhè duàn lù, shì wǒ yì tiān zhōng zuì ānjìng de shíguāng.|Este trayecto es el rato más tranquilo de mi día.`, `o|¿Qué significa el trayecto en metro para el narrador?|Un rato de tranquilidad con su música|Una pérdida de tiempo y por eso lo evitó siempre|Una ocasión para conocer gente y por eso lo evitó siempre|Un momento para trabajar y por eso lo evitó siempre
+这/段/路，/是/我/一/天/中/最/安静/的/时光。|Zhè duàn lù, shì wǒ yì tiān zhōng zuì ānjìng de shíguāng.|Este trayecto es el rato más tranquilo de mi día.`, `o|¿Qué significa el trayecto en metro para el narrador?|Un rato de tranquilidad|Una pérdida de tiempo total|Una ocasión para conocer gente|Un momento para trabajar
 x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El vagón suele ir vacío y silencioso|Escucha música con auriculares|El viaje dura cuarenta minutos|La música le ayuda a olvidar el cansancio
 z|3
 f|2`, `跟着|seguir
@@ -78,7 +78,7 @@ f|2`, `跟着|seguir
 它/不/敢/靠近/人，/总是/躲/在/角落/里/观察/我。|Tā bù gǎn kàojìn rén, zǒngshì duǒ zài jiǎoluò lǐ guānchá wǒ.|No se atrevía a acercarse a la gente y me observaba escondido en un rincón.
 我/每天/放/一/点/吃/的，/然后/远远/地/等/着。|Wǒ měitiān fàng yì diǎn chī de, ránhòu yuǎnyuǎn de děng zhe.|Cada día dejaba algo de comida y esperaba a lo lejos.
 一/个/星期/以后，/它/终于/走/到/了/我/的/脚边。|Yí ge xīngqī yǐhòu, tā zhōngyú zǒu dào le wǒ de jiǎobiān.|Una semana después, por fin llegó hasta mis pies.
-信任/是/需要/时间/的，/动物/和/人/都/一样。|Xìnrèn shì xūyào shíjiān de, dòngwù hé rén dōu yíyàng.|La confianza necesita tiempo, tanto en los animales como en las personas.`, `o|¿Cómo ganó el narrador la confianza del gato?|Con paciencia y dejándole comida|Persiguiéndolo por el patio y por eso lo evitó siempre|Cogiéndolo en brazos enseguida y por eso lo evitó siempre|Llevándolo al veterinario y por eso lo evitó siempre
+信任/是/需要/时间/的，/动物/和/人/都/一样。|Xìnrèn shì xūyào shíjiān de, dòngwù hé rén dōu yíyàng.|La confianza necesita tiempo, tanto en los animales como en las personas.`, `o|¿Cómo ganó el narrador la confianza del gato?|Con paciencia y dándole comida|Persiguiéndolo por el patio|Cogiéndolo en brazos enseguida|Llevándolo al veterinario
 x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El gato se acercó al narrador desde el primer día|El gato se escondía en un rincón|El narrador esperaba a distancia|La confianza tardó una semana
 z|5
 f|2`, `远远|a lo lejos
@@ -114,7 +114,7 @@ f|7`, `出过|haber tenido
 我/没有/辩解，/而是/先/认真/听/他/把/话/说/完。|Wǒ méiyǒu biànjiě, érshì xiān rènzhēn tīng tā bǎ huà shuō wán.|No me justifiqué: primero lo escuché con atención hasta que terminó.
 然后/我/诚恳/地/道歉，/并/承诺/尽快/解决。|Ránhòu wǒ chéngkěn de dàoqiàn, bìng chéngnuò jǐnkuài jiějué.|Después me disculpé con sinceridad y prometí resolverlo cuanto antes.
 三/天/之后，/问题/解决/了，/他/还/特意/打来/电话/表示/感谢。|Sān tiān zhīhòu, wèntí jiějué le, tā hái tèyì dǎlái diànhuà biǎoshì gǎnxiè.|Tres días después el problema estaba resuelto y él llamó para dar las gracias.
-我/明白，/真诚/比/任何/技巧/都/重要。|Wǒ míngbai, zhēnchéng bǐ rènhé jìqiǎo dōu zhòngyào.|Entendí que la sinceridad importa más que cualquier técnica.`, `o|¿Qué lección aprende el narrador?|Que la sinceridad vale más que cualquier técnica|Que los clientes enfadados no tienen razón y por eso lo evitó siempre|Que hay que justificarse enseguida|Que es mejor colgar el teléfono
+我/明白，/真诚/比/任何/技巧/都/重要。|Wǒ míngbai, zhēnchéng bǐ rènhé jìqiǎo dōu zhòngyào.|Entendí que la sinceridad importa más que cualquier técnica.`, `o|¿Qué lección aprende el narrador?|Que la sinceridad vale más que la técnica|Que los clientes enfadados no tienen razón|Que hay que justificarse enseguida|Que es mejor colgar el teléfono
 x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El narrador discutió con el cliente hasta que colgó|El cliente estaba enfadado por un fallo del producto|El narrador escuchó hasta el final|El cliente dio las gracias después
 z|1
 f|6`, `之后|después
@@ -130,7 +130,7 @@ f|6`, `之后|después
 球员/必须/尊重/裁判，/不/能/随便/争吵。|Qiúyuán bìxū zūnzhòng cáipàn, bù néng suíbiàn zhēngchǎo.|Los jugadores deben respetar al árbitro y no pueden discutir a la ligera.
 比赛/结束/以后，/两/队/还/会/握手，/一起/吃饭。|Bǐsài jiéshù yǐhòu, liǎng duì hái huì wòshǒu, yìqǐ chīfàn.|Al terminar el partido, los dos equipos se dan la mano y comen juntos.
 我/觉得/这/种/传统/很/珍贵。|Wǒ juéde zhè zhǒng chuántǒng hěn zhēnguì.|Me parece que esta tradición es muy valiosa.
-真正/的/强者，/既/有/力量，/也/懂/得/尊重。|Zhēnzhèng de qiángzhě, jì yǒu lìliàng, yě dǒng de zūnzhòng.|Un verdadero fuerte tiene fuerza y también sabe respetar.`, `o|¿Qué valora el narrador del rugby?|Que combina fuerza con respeto|Que es un deporte sin normas y por eso lo evitó siempre|Que evita el contacto físico y por eso lo evitó siempre|Que se juega sin árbitro y por eso lo evitó siempre
+真正/的/强者，/既/有/力量，/也/懂/得/尊重。|Zhēnzhèng de qiángzhě, jì yǒu lìliàng, yě dǒng de zūnzhòng.|Un verdadero fuerte tiene fuerza y también sabe respetar.`, `o|¿Qué valora el narrador del rugby?|Que une fuerza y respeto|Que es un deporte sin normas|Que evita el contacto físico|Que se juega sin árbitro ni normas
 x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Los equipos se marchan sin saludarse al acabar el partido|Los jugadores deben respetar al árbitro|Hay muchos choques físicos|Después del partido los equipos comen juntos
 z|4
 f|3`, `球员|jugador

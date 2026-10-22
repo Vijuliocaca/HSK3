@@ -309,7 +309,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script>
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
-const APP_V = 'hsk3-v144'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v145'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -1472,14 +1472,14 @@ function avatarSVG(p) {
     const w = { gruesas: 2.4, aviador: .9, cuadradas: 1, ovaladas: 1, gato: 1.1, redondas: 1.2 }[k], tinte = k == 'aviador' ? ' fill="#c9a24b" fill-opacity=".22"' : ' fill="none"';
     return `<g${tinte} stroke="${c}" stroke-width="${w}" stroke-linejoin="round"><path d="${d}"/>${k == 'gato' ? mir : `<path d="${d}" transform="translate(9 0)"/>`}${k == 'aviador' ? '<path d="M31 27.200q1 -.600 2 0M22.600 26.800l-2.600-.800M41.400 26.800l2.600-.800" fill="none"/>' : '<path d="M31.800 28.500h.4" fill="none"/>'}</g>`; };
   const gafas = G == 'sol' ? `<g fill="${gm(gc, '#1d1d22')}" stroke="${gm(gc, '#1d1d22')}" stroke-width="1.2" stroke-linejoin="round"><rect x="23.200" y="25.800" width="8.600" height="6" rx="2.500"/><rect x="32.200" y="25.800" width="8.600" height="6" rx="2.500"/><path d="M31.500 27.500h1"/></g>` : G == 'media' ? `<g fill="none" stroke="${gm(gc, '#2b1d14')}" stroke-width="1.100" stroke-linecap="round"><path d="M23.500 29v-2.200q0-1.500 1.500-1.500h5.500q1.500 0 1.500 1.500V29M32.500 29v-2.200q0-1.500 1.500-1.500h5.500q1.500 0 1.500 1.500V29M31.500 27h1"/></g>` : MONT[G] ? mg(G) : '';
-  const oc = p.ojoColor || '#2b1d14';
+  const oc = p.ojoColor || '#2b1d14', pupilas = r => [27.8, 36.8].map(x => `<circle cx="${x}" cy="29.2" r="${r}" fill="${oc}"/><circle cx="${x}" cy="29.2" r="${r * .45}" fill="#120b07"/><circle cx="${x + .45}" cy="28.7" r=".3" fill="#fff"/>`).join('');
   const rostro = (k, svg) => p[k] ? `<g transform="translate(0 ${p[k + 'Y'] || 0})">${svg}</g>` : '';
   const gorra = (p.gorra ? `<path d="M20.5 24a11.5 11.5 0 0 1 23 0z" fill="${p.gorra}"/><path d="M31 24h17q2.5 0 2.5 2.5H31z" fill="${p.gorra}" stroke="rgba(0,0,0,.25)" stroke-width=".6"/><circle cx="32" cy="12.5" r="1.2" fill="${p.gorra}"/>` : '') + (p.boina ? `<ellipse cx="33.5" cy="18" rx="13.5" ry="6" fill="${p.boina}"/><circle cx="33" cy="11.5" r="1.4" fill="${p.boina}"/>` : '');
   return `<svg viewBox="0 0 64 64" aria-hidden="true"><defs><clipPath id="cp${ci}"><circle cx="32" cy="32" r="32"/></clipPath><clipPath id="cr${ci}"><path d="${roja}"/></clipPath></defs><g clip-path="url(#cp${ci})">
     <rect width="64" height="64" fill="${p.fondo}"/>${PATRONES[p.patron] || ''}${p.coleta ? `<path d="M43 23q9 1 8 13-.5 5-4 7 .5-8-4-13z" fill="${p.pelo}"/><circle cx="43.5" cy="24.5" r="1.4" fill="#c23b3b"/>` : ''}${detras}
     ${cuelloA}<path d="${roja}" fill="${p.ropa}"/><g clip-path="url(#cr${ci})">${estampado}</g>${p.corbata ? '<path d="M29.5 47l2.5 3 2.5-3 1.2 14h-7.4z" fill="#b3282d"/>' : ''}
     <rect x="28" y="37" width="8" height="12" rx="3" fill="${p.piel}"/>${cuelloF}${cara}${delante}${mech}${p.pendientes ? `<circle cx="${20.2 + ex}" cy="34" r="1.6" fill="${p.pendientes}"/><circle cx="${43.8 - ex}" cy="34" r="1.6" fill="${p.pendientes}"/>` : ''}${cejas}${extrasSVG(p.extra)}
-    ${p.ojos == 'almendrados' ? '<g class=ojos><ellipse cx="27.5" cy="29" rx="2.5" ry="1.6" transform="rotate(-8 27.5 29)" fill="#fff"/><ellipse cx="36.5" cy="29" rx="2.5" ry="1.6" transform="rotate(8 36.5 29)" fill="#fff"/><circle cx="27.8" cy="29.2" r="1.05" fill="${oc}"/><circle cx="36.8" cy="29.2" r="1.05" fill="${oc}"/><path d="M24.9 28.3q2.6-1.5 5.2.1M33.9 28.4q2.6-1.6 5.2-.1" fill="none" stroke="#2b1d14" stroke-width=".7" stroke-linecap="round"/></g>' : '<g class=ojos><circle cx="27.5" cy="29" r="2.1" fill="#fff"/><circle cx="36.5" cy="29" r="2.1" fill="#fff"/><circle cx="27.8" cy="29.2" r="1.15" fill="${oc}"/><circle cx="36.8" cy="29.2" r="1.15" fill="${oc}"/></g>'}
+    ${p.ojos == 'almendrados' ? `<g class=ojos><ellipse cx="27.5" cy="29" rx="2.5" ry="1.6" transform="rotate(-8 27.5 29)" fill="#fff"/><ellipse cx="36.5" cy="29" rx="2.5" ry="1.6" transform="rotate(8 36.5 29)" fill="#fff"/>${pupilas(1.4)}<path d="M24.9 28.3q2.6-1.5 5.2.1M33.9 28.4q2.6-1.6 5.2-.1" fill="none" stroke="#2b1d14" stroke-width=".7" stroke-linecap="round"/></g>` : `<g class=ojos><circle cx="27.5" cy="29" r="2.1" fill="#fff"/><circle cx="36.5" cy="29" r="2.1" fill="#fff"/>${pupilas(1.5)}</g>`}
     ${gafas}
     ${rostro('pecas', PECAS)}${rostro('colorete', '<g fill="#e57373" fill-opacity=".35"><circle cx="24.5" cy="33.5" r="2.4"/><circle cx="39.5" cy="33.5" r="2.4"/></g>')}${rostro('lunar', '<circle cx="38.5" cy="35" r=".7" fill="#2b1d14" fill-opacity=".7"/>')}${rostro('nariz', '<path d="M31 32q1 1.5 2 0" fill="none" stroke="rgba(43,29,20,.45)" stroke-width=".8" stroke-linecap="round"/>')}${p.barba ? `<path d="M21.5 31q0 12.5 10.5 12.5T42.5 31q-4 7.5-10.5 7.5T21.5 31z" fill="${p.pelo}"/>` : ''}
     ${p.bigote ? `<path d="M27 33q2.5-2 5-.4 2.5-1.6 5 .4-2.5 1.6-5 .3-2.5 1.2-5-.3z" fill="${p.pelo}"/>` : ''}${p.perilla ? `<path d="M29.2 37q2.8 5 5.6 0-2.8 1.3-5.6 0z" fill="${p.pelo}"/>` : ''}
@@ -1602,7 +1602,9 @@ const ED_TABS = {
   Ropa: [['ropa', 'Color de la ropa', C_VIVOS], ['cuello', 'Cuello', [N('', 'Redondo'), N('v', 'En V'), N('camisa', 'Camisa'), N('capucha', 'Capucha')]], ['estampado', 'Estampado', [N('', 'Liso'), N('rayas', 'Rayas'), N('puntos', 'Puntos'), N('cuadros', 'Cuadros')]], ['bufanda', 'Bufanda', ['', ...C_VIVOS]], ['corbata', 'Corbata', 'b']],
   Extras: [['gafas', 'Gafas', [N('', 'Sin gafas'), N('redondas', 'Redondas'), N('cuadradas', 'Cuadradas finas'), N('gruesas', 'De pasta'), N('ovaladas', 'Ovaladas'), N('gato', 'De gato'), N('aviador', 'Aviador grandes'), N('media', 'Media montura'), N('sol', 'De sol')]], ['gafasColor', 'Color de la montura', ['', '#2b1d14', '#b8962e', '#c0c4cc', '#c23b5a', '#4a7fb5', '#e4a52c', '#f5f5f5']], ['gorra', 'Gorra', ['', ...C_VIVOS]], ['boina', 'Boina', ['', ...C_VIVOS]], ['gorro', 'Gorro', ['', ...C_VIVOS]], ['pendientes', 'Pendientes', ['', '#f5c84c', '#c0c4cc', '#c23b5a', '#4a7fb5']], ['extra', 'Accesorios (2 de lado y 2 de cabeza o pecho)', 'm', Object.keys(EXTRAS_ES).map(v => N(v, EXTRAS_ES[v]))]],
   Fondo: [['fondo', 'Color de fondo', C_FONDO], ['patron', 'Adorno', [N('', 'Liso'), ...Object.keys(PATRONES).map(v => N(v, v))]]], Voz: [['tono', 'Tono', 'r', .5, 1.6, .05, 1], ['vel', 'Velocidad', 'r', .8, 1.2, .05, 1]] };
-let ED = null, ED_ID = null, ED_TAB = 'Perfil';
+let ED = null, ED_ID = null, ED_TAB = 'Perfil', ED_ZOOM = false;
+function edVer() { $('#edprev').innerHTML = avatarSVG(ED).replace('viewBox="0 0 64 64"', ED_ZOOM ? 'viewBox="14 11 36 36"' : 'viewBox="0 0 64 64"'); } // vista de la cara de cerca, para ver detalles como el color de los ojos
+function edZoom() { ED_ZOOM = !ED_ZOOM; edVer(); }
 // lo que el género no admite (peinados, barba, bigote, perilla, pendientes) no se ofrece: así el código copiado pasa tests/datos.js
 const ED_DEP = { pecasY: 'pecas', coloreteY: 'colorete', lunarY: 'lunar', narizY: 'nariz', gafasColor: 'gafas' }; // opciones que solo salen si está puesto lo que ajustan
 const ED_SOMBREROS = ['gorra', 'boina', 'gorro']; // solo uno a la vez (y ninguno con el gorro de cocinero)
@@ -1622,11 +1624,11 @@ function edPanel() {
     return `<div class=edh><b>${t}</b>${ac && v != 'm' && typeof v[0] != 'string' && v != 'b' ? ` <span class=mut>· ${ac}</span>` : ''}</div><div class=edf>${bot}</div>`;
   }).join('');
 }
-function edNum(k, x) { if (k.endsWith('Y') && !x) delete ED[k]; else ED[k] = x; const o = $('#o' + k); if (o) o.textContent = x; $('#edprev').innerHTML = avatarSVG(ED); }
-function edColor(k, x) { ED[k] = x; if (ED_SOMBREROS.includes(k)) edSombrero(k); $('#edprev').innerHTML = avatarSVG(ED); } // sin repintar el panel, para no cerrar el selector de color
+function edNum(k, x) { if (k.endsWith('Y') && !x) delete ED[k]; else ED[k] = x; const o = $('#o' + k); if (o) o.textContent = x; edVer(); }
+function edColor(k, x) { ED[k] = x; if (ED_SOMBREROS.includes(k)) edSombrero(k); edVer(); } // sin repintar el panel, para no cerrar el selector de color
 function edSombrero(k) { ED_SOMBREROS.filter(h => h != k).forEach(h => delete ED[h]); ED.extra = (ED.extra || '').split('+').filter(x => x && x != 'cocinero').join('+'); if (!ED.extra) delete ED.extra; }
 function edVoz() { try { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance('你好！我是' + ED.n); u.lang = 'zh-CN'; u.pitch = ED.tono; u.rate = S.set.rate * ED.vel; speechSynthesis.speak(u); } catch {} }
-function edPinta(aviso = '') { $('#edprev').innerHTML = avatarSVG(ED); $('#edbody').innerHTML = edPanel(); $('#edaviso').textContent = aviso; document.querySelectorAll('#edtabs .chip').forEach(b => { const on = b.textContent == ED_TAB; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); }); }
+function edPinta(aviso = '') { edVer(); $('#edbody').innerHTML = edPanel(); $('#edaviso').textContent = aviso; document.querySelectorAll('#edtabs .chip').forEach(b => { const on = b.textContent == ED_TAB; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); }); }
 function edSet(k, v) {
   if (v === '' || v === false) { delete ED[k]; delete ED[k + 'Y']; if (k == 'gafas') delete ED.gafasColor; } else ED[k] = v;
   if (v && ED_SOMBREROS.includes(k)) edSombrero(k);
@@ -1639,7 +1641,7 @@ function edExtra(x) { // máximo 2 accesorios de lado (L/R) y 2 de cabeza o pech
   else { if ((x == 'cocinero' && a.includes('auriculares')) || (x == 'auriculares' && a.includes('cocinero'))) return edPinta('Los auriculares y el gorro de cocinero no caben a la vez.'); if (a.filter(k => c(k) == c(x)).length >= 2) return edPinta(c(x) ? 'Ya llevas 2 accesorios de cabeza o pecho: quita uno.' : 'Ya llevas 2 accesorios de lado: quita uno.'); a.push(x); if (x == 'cocinero') ED_SOMBREROS.forEach(h => delete ED[h]); }
   edSet('extra', a.join('+'));
 }
-function edTab(t) { ED_TAB = t; edPinta(); }
+function edTab(t) { ED_TAB = t; ED_ZOOM = t == 'Cara'; edPinta(); }
 function edAzar() {
   const r = a => a[Math.floor(Math.random() * a.length)];
   Object.values(ED_TABS).flat().filter(([k, , v]) => v != 't' && v != 'r' && v != 'm' && k != 'genero' && edFila(k)).forEach(([k, , v]) => { const x = v == 'b' ? Math.random() < .2 : r(edOpc(k, v)), val = Array.isArray(x) ? x[0] : x; if (val === '' || val === false || (ED_SOMBREROS.concat('bufanda').includes(k) && Math.random() < .75)) delete ED[k]; else ED[k] = val; });
@@ -1647,7 +1649,7 @@ function edAzar() {
   if (Math.random() < .6) { ED.extra = Object.keys(EXTRAS_ES).sort(() => Math.random() - .5).slice(0, 1 + (Math.random() < .3)).join('+'); if (/cocinero/.test(ED.extra)) ED_SOMBREROS.forEach(h => delete ED[h]); }
   edPinta();
 }
-function edNombre(v) { ED.n = v.replace(/[^\p{L}\p{N} ]/gu, '').trim().slice(0, 40) || 'Tú'; $('#edprev').innerHTML = avatarSVG(ED); }
+function edNombre(v) { ED.n = v.replace(/[^\p{L}\p{N} ]/gu, '').trim().slice(0, 40) || 'Tú'; edVer(); }
 function edCodigo() { // entrada lista para pegar en PERSONAJES (personajes.js); voz.n es el siguiente número libre
   const id = ED_ID || ED.n.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-zA-Z0-9]/g, '').toLowerCase() || 'yo', vn = ED_ID ? PERS[ED_ID].voz.n : Math.max(-1, ...Object.values(PERS).map(p => p.voz.n)) + 1;
   const v = x => typeof x == 'string' ? `'${x.replace(/[\\']/g, '\\$&')}'` : x, aparte = ['n', 'genero', 'rasgos', 'tono', 'vel'], cod = `  ${id}: { n: '${ED.n}', genero: '${ED.genero}', rasgos: ${v(ED.rasgos || 'Escribe aquí sus rasgos.')},\n    ${Object.entries(ED).filter(([k]) => !aparte.includes(k)).map(([k, x]) => `${k}: ${v(x)}`).join(', ')}, voz: { tono: ${ED.tono}, vel: ${ED.vel}, n: ${vn} } },`;
@@ -1659,11 +1661,11 @@ function edGuardar() {
 }
 // el avatar y las pestañas se quedan fijos arriba: así se ve cada cambio mientras se elige
 function crear(id) { // sin id: tu personaje propio; con id: retoca ese personaje (se cargan TODOS sus rasgos)
-  ED_ID = id || null; ED_TAB = 'Perfil';
+  ED_ID = id || null; ED_TAB = 'Perfil'; ED_ZOOM = false;
   if (id) { ED = { ...ED_DEF, ...PERS[id], tono: PERS[id].voz.tono, vel: PERS[id].voz.vel }; delete ED.voz; } else ED = { ...ED_DEF, ...S.yo };
   if (ED.gafas === true) ED.gafas = 'redondas';
   app(`<div class=top><button class=back onclick="${ED_ID ? `personaje('${ED_ID}')` : 'personajes()'}">←</button><b>${ED_ID ? esc(PERS[ED_ID].n) : 'Tu personaje'}</b></div>
-    <div class=edhead><div class=edtop><span id=edprev class=avatar style="width:6rem;height:6rem;cursor:default;flex:none" aria-hidden=true></span>
+    <div class=edhead><div class=edtop><button id=edprev class=avatar style="width:9rem;height:9rem;flex:none" onclick="edZoom()" aria-label="Acercar o alejar el avatar"></button>
       <div class=edcol><label>Nombre <input id=edn maxlength=40 value="${esc(ED.n)}" oninput="edNombre(this.value)"></label>
         <div class=edf><button class=chip onclick="edAzar()">🎲 Al azar</button><button class="chip on" onclick="edGuardar()">Guardar</button></div></div></div>
       <div id=edtabs class=edtabs role=group aria-label="Partes">${Object.keys(ED_TABS).map(t => `<button class=chip aria-pressed=false onclick="edTab('${t}')">${t}</button>`).join('')}</div></div>

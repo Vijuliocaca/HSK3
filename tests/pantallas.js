@@ -90,6 +90,16 @@ t('lecturas: cada lectura la cuenta un personaje (con su nombre en la lista) y l
   Object.keys(JSON.parse(a.ev('JSON.stringify(PERS)'))).forEach(id => { const s = a.ev(`avatarSVG(PERS.${id})`); assert(s.startsWith('<svg') && s.includes(a.ev(`PERS.${id}.piel`)) && s.includes('clip-path'), 'avatar mal dibujado: ' + id); });
   Object.keys(JSON.parse(a.ev('JSON.stringify(PERS)'))).forEach(id => { assert(a.ev(`(!PERS.${id}.patron || !!PATRONES[PERS.${id}.patron]) && (PERS.${id}.extra || '').split('+').filter(Boolean).every(k => !!EXTRAS[k])`), id + ': patrón de fondo o accesorio que no existe'); });
 });
+t('avatar: ninguna opción del editor deja ${} sin sustituir, undefined o NaN, y el color de ojos se aplica', () => {
+  const a = cargarApp(), mal = JSON.parse(a.ev(`JSON.stringify((() => {
+    const mal = new Set(), probar = (o, et) => { const s = avatarSVG(o); const m = s.match(/\\$\\{[^}]*\\}|undefined|NaN|\\[object/); if (m) mal.add(et + ': ' + m[0]); };
+    const base = { ...ED_DEF, forma: 'ovalada', ojos: 'almendrados', pecas: true, colorete: true, lunar: true, nariz: true, pecasY: 1, barba: true, bigote: true, perilla: true, coleta: true, corbata: true, bufanda: '#c23b5a', pendientes: '#f5c84c', mechas: '#e6e6e6', cejaColor: '#3b6fb5', ojoColor: '#3f8a5a', gafasColor: '#c23b5a' };
+    Object.values(ED_TABS).flat().forEach(([k, , v, mn]) => { const vals = v == 'b' ? [true] : v == 'r' || v == 't' ? [] : v == 'm' ? mn.map(x => x[0]) : v.map(x => Array.isArray(x) ? x[0] : x); vals.forEach(x => { probar({ ...base, [k]: x }, k + '=' + x); probar({ ...base, [k]: x, gafas: 'aviador', gorra: '#c0562a' }, k + '=' + x + '+gafas+gorra'); }); });
+    Object.entries(PERS).forEach(([id, p]) => probar(p, 'PERS.' + id));
+    return [...mal]; })())`));
+  assert.deepStrictEqual(mal, [], 'dibujo roto: ' + mal.slice(0, 5).join(' | '));
+  ['', 'almendrados'].forEach(o => assert(a.ev(`avatarSVG({ ...ED_DEF, ojos: '${o}', ojoColor: '#3b6fb5' }).includes('fill="#3b6fb5"')`), 'el color de ojos no se aplica (ojos «' + o + '»)'));
+});
 // el arnés guarda #conv aparte de #app: se vacía antes de cada lectura para ver solo lo que pinta esa lectura
 const lee = (a, js) => { const c = a.els['#conv']; if (c) c.innerHTML = ''; a.ev(js); return a.html() + a.els['#conv'].innerHTML; };
 t('lectura: la persona va arriba a la derecha, la conversación debajo, y se repite tocando a la persona', () => {

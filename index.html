@@ -309,7 +309,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script>
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
-const APP_V = 'hsk3-v132'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v133'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -1377,7 +1377,7 @@ const PATRONES = { // adorno del fondo de cada avatar (id en personajes.js)
 const EXTRAS = { // accesorio de cada avatar, dibujado delante del pelo
   gato: '<path d="M43 52l1.5-6.5 4.5 3zM55 52l-1.5-6.5-4.5 3z" fill="#e8a53c"/><circle cx="49" cy="56" r="6.5" fill="#e8a53c"/><circle cx="46.8" cy="55" r=".9" fill="#2b1d14"/><circle cx="51.2" cy="55" r=".9" fill="#2b1d14"/><path d="M48.2 57.4h1.6l-.8.9z" fill="#c4574a"/>',
   auriculares: '<path d="M19.5 29a12.5 12.5 0 0 1 25 0" fill="none" stroke="#3a4a5a" stroke-width="2"/><rect x="16.5" y="26" width="4.5" height="8" rx="2.2" fill="#3a4a5a"/><rect x="43" y="26" width="4.5" height="8" rx="2.2" fill="#3a4a5a"/>',
-  flor: '<g fill="#e4572e"><circle cx="42" cy="20" r="1.6"/><circle cx="44" cy="22" r="1.6"/><circle cx="42" cy="24" r="1.6"/><circle cx="40" cy="22" r="1.6"/></g><circle cx="42" cy="22" r="1.2" fill="#f6c945"/>',
+  flor: '<g transform="translate(24 56) scale(1.6) translate(-42 -22)"><g fill="#e4572e"><circle cx="42" cy="20" r="1.6"/><circle cx="44" cy="22" r="1.6"/><circle cx="42" cy="24" r="1.6"/><circle cx="40" cy="22" r="1.6"/></g><circle cx="42" cy="22" r="1.2" fill="#f6c945"/></g>',
   placa: '<rect x="40" y="52" width="7" height="5" rx="1" fill="#fff"/><rect x="41" y="53.2" width="3" height=".9" fill="#34495e"/>',
   estetoscopio: '<path d="M26 47q-2 8 6 10q8-2 6-10" fill="none" stroke="#3a3f47" stroke-width="1.6"/><circle cx="32" cy="58" r="2" fill="#9aa5b1" stroke="#3a3f47" stroke-width=".8"/>',
   ajedrez: '<g fill="#f8f4e8" stroke="#2b1d14" stroke-width=".8"><rect x="44" y="54" width="9" height="3" rx="1"/><path d="M45.5 54l1-6h4l1 6z"/><circle cx="48.5" cy="45.8" r="2.4"/></g>',

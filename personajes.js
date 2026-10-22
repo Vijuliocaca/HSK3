@@ -5,7 +5,7 @@
 // Para añadir a alguien: una entrada nueva aquí y su id en el 6.º campo de las lecturas que cuente.
 // Qué rasgos de dibujo admite cada género (h hombre, m mujer, f femboy); lo vigila tests/datos.js. Los no listados (cejas, ojos, gafas, pecas, gorro, coleta, extras, colores) valen para todos. El «mullet» es el de hombre.
 self.GENERO_RASGOS = {
-  estilo: { h: ['corto', 'cayetano', 'cresta', 'despeinado', 'undercut', 'mullet', 'rizado', 'calvo', 'medio'], m: ['largo', 'medio', 'flequillo', 'rizado', 'corto', 'despeinado', 'afro', 'mono', 'bob', 'pixie', 'raya', 'rapado', 'tupe', 'ondulado', 'bunes', 'coletas', 'trenzas'], f: ['largo', 'medio', 'flequillo', 'rizado', 'corto', 'despeinado', 'undercut', 'calvo', 'afro', 'mono', 'bob', 'pixie', 'raya', 'rapado', 'tupe', 'ondulado', 'bunes', 'coletas', 'trenzas'] },
+  estilo: { h: ['corto', 'cayetano', 'cresta', 'despeinado', 'undercut', 'mullet', 'rizado', 'calvo', 'medio'], m: ['largo', 'medio', 'flequillo', 'rizado', 'corto', 'despeinado', 'afro', 'mono', 'bob', 'pixie', 'raya', 'rapado', 'tupe', 'ondulado', 'bunes', 'rayamedio', 'rizoslargos', 'colaalta', 'plano', 'casco', 'pinchos', 'entradas', 'emo', 'trenza', 'coletas', 'trenzas'], f: ['largo', 'medio', 'flequillo', 'rizado', 'corto', 'despeinado', 'undercut', 'calvo', 'afro', 'mono', 'bob', 'pixie', 'raya', 'rapado', 'tupe', 'ondulado', 'bunes', 'rayamedio', 'rizoslargos', 'colaalta', 'plano', 'casco', 'pinchos', 'entradas', 'emo', 'trenza', 'coletas', 'trenzas'] },
   solo: { barba: ['h'], bigote: ['h'], perilla: ['h'], pendientes: ['m', 'f'] } };
 self.PERSONAJES = {
   payolink: { n: 'Payolink', genero: 'h', rasgos: 'Tiene un gato. Intolerante a la lactosa (no toma leche ni lácteos).',

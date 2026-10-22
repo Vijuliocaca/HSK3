@@ -33,5 +33,5 @@ self.PERSONAJES = {
   chana: { n: 'Chanawanalaiguanaquefumamarihuana', genero: 'm', rasgos: 'Le gusta bailar. Es novia de Chiki y tiene una gata. Su madre es médica.',
     cejas: 'arqueadas', pendientes: '#f5c84c', piel: '#f1cfae', pelo: '#6b4426', estilo: 'largo', ropa: '#d1587a', fondo: '#f6dfe8', patron: 'sol', extra: 'gato', voz: { tono: 1.25, vel: 1.05, n: 10 } },
   kevin: { n: 'Kevin', genero: 'f', rasgos: 'Es Dentista, le gustan los videojuegos, fumar y los niños.',
-    piel: '#f1caa6', pelo: '#1d1612', estilo: 'mono', ropa: '#e4a52c', fondo: '#2e3748', forma: 'cuadrada', ojos: 'almendrados', ojoColor: '#6b4a2b', cejas: 'arqueadas', boca: 'labios', nariz: true, colorete: true, pecas: true, lunar: true, cuello: 'v', corbata: true, gafas: 'cuadradas', pendientes: '#f5c84c', patron: 'olas', voz: { tono: 0.5, vel: 1, n: 12 } }
+    piel: '#f1caa6', pelo: '#1d1612', estilo: 'mono', ropa: '#e4a52c', fondo: '#2e3748', ojoColor: '#2b1d14', gafas: 'aviador', pendientes: '#f5c84c', patron: 'olas', cejaColor: '#1d1612', boca: 'labios', colorete: true, lunar: true, lunarY: 1, coloreteY: -0.5, corbata: true, cuello: 'v', forma: 'cuadrada', ojos: 'almendrados', voz: { tono: 0.5, vel: 1, n: 12 } }
 };

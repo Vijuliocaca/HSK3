@@ -11,7 +11,7 @@ const MIME = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; cha
 (async () => {
   const b = await lanzar();
   if (!b) { console.log('actualizar: no encuentro Edge ni Chrome (variable BROWSER). Prueba omitida.'); process.exit(0); }
-  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'hsk-web-')); fs.readdirSync(RAIZ).filter(f => /\.(js|json|html|png)$/.test(f)).forEach(f => fs.copyFileSync(path.join(RAIZ, f), path.join(dir, f)));
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'hsk-web-')); fs.readdirSync(RAIZ).filter(f => /\.(js|json|html|png)$/.test(f)).forEach(f => fs.copyFileSync(path.join(RAIZ, f), path.join(dir, f))); fs.cpSync(path.join(RAIZ, 'trazos'), path.join(dir, 'trazos'), { recursive: true });
   let reg = []; const srv = http.createServer((q, r) => {
     const f = path.join(dir, q.url == '/' ? 'index.html' : decodeURIComponent(q.url.split('?')[0]));
     if (!f.startsWith(dir) || !fs.existsSync(f)) { r.statusCode = 404; return r.end(); }

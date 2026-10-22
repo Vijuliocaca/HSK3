@@ -28,7 +28,7 @@ const ok = (c, m) => { if (!c) { problemas++; console.log('  ✗', m); } };
     await ev("crear('anto')"); const antes = await ev('({ piel: ED.piel, estilo: ED.estilo, forma: ED.forma, ojoColor: ED.ojoColor })');
     await ev("edPlantilla('Médico')"); ok((await ev('ED.cuello')) == 'bata' && (await ev('ED.extra')) == 'estetoscopio' && !(await ev('ED.gafas')), 'la plantilla Médico cambia ropa y complementos');
     ok(JSON.stringify(await ev('({ piel: ED.piel, estilo: ED.estilo, forma: ED.forma, ojoColor: ED.ojoColor })')) == JSON.stringify(antes), 'la plantilla no toca cara ni pelo');
-    for (const n of await ev('Object.keys(PLANTILLAS)')) { await ev(`edPlantilla('${n}')`); const e = await ev('ED.extra || ""'); const lado = e.split('+').filter(x => x && !['auriculares', 'cocinero', 'estetoscopio', 'mochila'].includes(x)).length; ok(lado <= 2, `plantilla ${n}: más de 2 accesorios de lado`); }
+    for (const n of await ev('Object.keys(PLANTILLAS)')) { await ev(`edPlantilla('${n}')`); const e = await ev('ED.extra || ""'); const lado = e.split('+').filter(x => x && !['auriculares', 'cascos', 'cocinero', 'estetoscopio', 'mochila'].includes(x)).length; ok(lado <= 2, `plantilla ${n}: más de 2 accesorios de lado`); }
     // compartir e importar
     await ev("crear('kevin')"); await ev('edCompartir()'); const cod = await ev("document.querySelector('#edcom').value"), kev = await ev('JSON.stringify(ED)');
     ok(cod.startsWith('HSKP1:'), 'el código empieza por HSKP1:');

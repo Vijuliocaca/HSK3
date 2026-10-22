@@ -11,7 +11,7 @@ self.PERSONAJES = {
   yuyue: { n: 'YuYue', rasgos: 'Es china. Le gusta el KFC.',
     pendientes: '#f5c84c', cejas: 'finas', piel: '#f2d3b6', pelo: '#1d1612', estilo: 'calvo', ojos: 'almendrados', ropa: '#3c7d6a', fondo: '#f3d9d6', patron: 'diagonal', extra: 'flor', voz: { tono: 1.3, vel: 1.05, n: 1 } },
   binhao: { n: 'BinHao', rasgos: 'Le encanta su trabajo.',
-    cejas: 'gruesas', piel: '#e9c3a0', pelo: '#2a211c', estilo: 'corto', ojos: 'almendrados', ropa: '#34495e', fondo: '#dfe3ec', gafas: true, corbata: true, patron: 'cuadros', extra: 'placa', voz: { tono: 0.9, vel: 1, n: 3 } },
+    cejas: 'gruesas', piel: '#e9c3a0', pelo: '#2a211c', estilo: 'corto', ojos: 'almendrados', ropa: '#34495e', fondo: '#dfe3ec', gafas: 'cuadradas', corbata: true, patron: 'cuadros', extra: 'placa', voz: { tono: 0.9, vel: 1, n: 3 } },
   teo: { n: 'Téo', rasgos: 'Es médico. Hace mucho deporte y escalada.',
     cejas: 'arqueadas', piel: '#e8c19b', pelo: '#3a2a1e', estilo: 'corto', ropa: '#e9eef2', fondo: '#d6ecf0', patron: 'cruces', extra: 'estetoscopio', voz: { tono: 0.85, vel: 0.9, n: 4 } },
   carlos: { n: 'Carlos Cordero', rasgos: 'Juega al ajedrez y al fútbol.',

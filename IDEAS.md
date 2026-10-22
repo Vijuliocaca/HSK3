@@ -55,7 +55,7 @@ Lista de mejoras que se han hablado y todavía no están hechas. Recomendación:
 - **Repasar desde una lectura:** al terminar, botón «Repasar las N palabras que tocaste» (sesión mixta con ellas).
 - **Velocidad de voz** (lenta / normal / rápida) dentro de cada lectura, la misma que en Ajustes.
 - **Insignias por personaje** en Logros: se ganan con el 100 % en todas sus lecturas.
-- **Rasgos de dibujo nuevos** (pecas, barba, gorro), adornos de temporada en los avatares y **avatar del perfil** elegible en Ajustes (se ve junto a la meta de hoy). Personajes y conversaciones nuevas: los añade el usuario.
+- **Rasgos de dibujo nuevos** (pecas, barba, gorro), adornos de temporada en los avatares. Personajes y conversaciones nuevas: los añade el usuario.
 - **Gramática de HSK 6-8:** 38 puntos (`gramatica4.js`).
 - **Lecturas nuevas:** 3 más en cada nivel de HSK 3 a 8 (`lecturas9a-b.js`).
 - **Tema de alto contraste oscuro**, sin emojis en `fiestas.js`/`cultura.js`.

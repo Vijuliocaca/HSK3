@@ -39,7 +39,6 @@
 .cabt{flex:1;min-width:0;padding-top:.3rem}.cabt .tit{margin:0;font-weight:600}.cabt .ayu{margin:.35rem 0 0;font-size:var(--fs-sm);color:var(--mut);line-height:1.4}
 .yo{display:flex;flex-direction:column;align-items:center;gap:.25rem;flex:none}
 .avatar{display:grid;place-items:center;width:4.8rem;height:4.8rem;padding:0;border-radius:50%;border:3px solid var(--gold);background:var(--card);overflow:hidden;cursor:pointer;transition:box-shadow .15s,border-color .15s,transform .1s;-webkit-tap-highlight-color:transparent;touch-action:manipulation}.avatar svg{display:block;width:100%;height:100%}.avatar:active{transform:scale(.95)}.avatar:focus-visible{outline-offset:4px}
-.avatar.sel{border-color:var(--pri);box-shadow:0 0 0 2px var(--pri)}
 .avatar .ojos,.avatar .boca{transform-box:fill-box;transform-origin:center}.avatar .ojos{animation:parpadeo 4.6s infinite}.avatar .boca{transform-origin:50% 0}.avatar.habla .boca{animation:hablar .28s ease-in-out infinite alternate}@keyframes parpadeo{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}@keyframes hablar{from{transform:scaleY(.25)}to{transform:scaleY(1.35)}}@media(prefers-reduced-motion:reduce){.avatar .ojos,.avatar.habla .boca{animation:none}}.avs{display:flex;gap:.6rem;flex:none}.cab.dos{flex-wrap:wrap;margin-bottom:.6rem}.cab.dos .cabt{flex:1 0 100%;padding-top:0}.cab.dos .avs{flex:1 0 100%;justify-content:space-between;margin-top:.6rem}.cab.dos .avatar{width:4.2rem;height:4.2rem}
 .conv[data-dos] .b{margin-right:1.4rem;border-radius:4px 18px 18px 18px}.conv[data-dos] .b.q2{margin-right:0;margin-left:1.4rem;border-radius:18px 4px 18px 18px}.quien{font:600 var(--fs-sm) var(--title);color:var(--gold-tx);letter-spacing:.04em;margin-bottom:.1rem}.b.q2 .quien{text-align:right}
 .avatar .cejas{transform-box:fill-box;transform-origin:center;transition:transform .2s}.avatar .boca{transition:scale .2s}
@@ -310,7 +309,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script>
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
-const APP_V = 'hsk3-v124'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v125'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -573,7 +572,7 @@ function home() {
   const vistas = W.filter(w => S.known[w.id]), domT = vistas.filter(w => (S.w[w.id]?.b || 0) >= 4).length;
   INICIO = true;
   app(`<h1><span class=seal>学</span>HSK Viju<button class=gear onclick="list('all')" aria-label="Vocabulario">${ico('book-open')}</button><button class=gear onclick="settings()" aria-label="Ajustes">${ico('settings')}</button></h1><div class=mut>Preparación gratuita del examen</div>
-  <div class=goal>${S.set.avatar && PERS[S.set.avatar] ? `<span class=avatar style="width:2.4rem;height:2.4rem;cursor:default;flex:none" aria-hidden=true>${avatarSVG(PERS[S.set.avatar])}</span>` : ''}<span>Meta de hoy: <b>${Math.min(hoy, meta)}/${meta}</b>${hoy >= meta ? ' ✓' : ''}</span><div class=bar><i style="width:${Math.min(100, hoy / meta * 100)}%"></i></div></div>
+  <div class=goal><span>Meta de hoy: <b>${Math.min(hoy, meta)}/${meta}</b>${hoy >= meta ? ' ✓' : ''}</span><div class=bar><i style="width:${Math.min(100, hoy / meta * 100)}%"></i></div></div>
   <div class=stats>
     <div class=stat><b class=fuego style="color:${streakOk && S.streak ? 'var(--act)' : 'var(--mut)'}">${ico('flame')}<span${(streakOk ? S.streak : 0) > 99 ? " class=m" : ""}>${streakOk ? S.streak : 0}</span></b><span class=mut>racha</span></div>
     <div class=stat onclick="list('done')" style="cursor:pointer"><b style="white-space:nowrap">${p.length}/${all.length}</b><span class=mut>estudiadas</span></div>
@@ -758,7 +757,6 @@ function settings() {
     <h2>Meta diaria (respuestas)</h2><div class="row seg">${[10, 20, 30, 50].map(n => o('goal', n, n)).join('')}</div>
     <h2>Velocidad de la voz</h2><div class="row seg">${o('rate', .6, 'Lenta')}${o('rate', .8, 'Normal')}${o('rate', 1, 'Rápida')}</div><button class="chip seg1" onclick="say('你好，欢迎学习汉语')">🔊 Probar la voz</button>
     <h2>Tamaño de letra</h2><div class="row seg">${o('size', 90, 'Pequeño')}${o('size', 100, 'Normal')}${o('size', 115, 'Grande')}${o('size', 130, 'Enorme')}</div>
-    <h2>Tu avatar</h2><div class=row style="gap:.5rem" role=group aria-label="Elige tu avatar"><button class="chip ${S.set.avatar ? '' : 'on'}" onclick="elegirAvatar('')">Ninguno</button>${Object.entries(PERS).map(([id, p]) => `<button class="avatar ${S.set.avatar == id ? 'sel' : ''}" style="width:3.2rem;height:3.2rem" aria-label="${p.n}" aria-pressed=${S.set.avatar == id} onclick="elegirAvatar('${id}')">${avatarSVG(p)}</button>`).join('')}</div>
     <h2>Tema</h2><div class="row seg">${o('theme', 'auto', 'Automático')}${o('theme', 'light', 'Claro')}${o('theme', 'dark', 'Oscuro')}${o('theme', 'hc', 'Alto contraste')}${o('theme', 'hcd', 'Alto contraste oscuro')}</div>
     <h2>Colores de tono</h2><div class="row seg">${o('tones', true, 'Sí')}${o('tones', false, 'No')}</div>
     <p class=mut>Pinyin en colores: ${pc('mā má mǎ mà ma')} (1.º a 4.º tono y neutro).</p>
@@ -1479,14 +1477,13 @@ function anadir(i, k, mover) {
 }
 // la conversación completa en pantalla: la persona, arriba a la derecha, va diciendo las frases y cada «Siguiente» añade la siguiente debajo.
 // Al terminar se puede releer todo y escuchar la lectura entera. lectura(i, j) pinta la conversación hasta la frase j (0 = solo la primera).
-// galería de personajes: todos los avatares con su nombre y las lecturas que cuentan (toca uno para elegirlo como tu avatar)
+// galería de personajes: todos los avatares con su nombre y las lecturas que cuentan
 function personajes() {
   const n = id => LECT.filter(d => d.p.split('+').includes(id)).length;
   app(`<div class=top><button class=back onclick="home()">←</button><b>Personajes</b></div>
-    <p class=mut>Ellos te cuentan las lecturas y las conversaciones. Toca uno para usarlo como tu avatar.</p>
-    <div class=grid>${Object.entries(PERS).map(([id, p]) => `<button class=mode style="flex-direction:column;text-align:center;align-items:center;gap:.4rem" onclick="elegirAvatar('${id}', 'personajes')" aria-pressed=${S.set.avatar == id}><span class="avatar ${S.set.avatar == id ? 'sel' : ''}" style="width:5.5rem;height:5.5rem;cursor:inherit" aria-hidden=true>${avatarSVG(p)}</span><span><b>${p.n}</b><small>${n(id)} ${n(id) == 1 ? 'lectura' : 'lecturas'}${S.set.avatar == id ? ' · tu avatar' : ''}</small></span></button>`).join('')}</div>`, 'home');
+    <p class=mut>Ellos te cuentan las lecturas y las conversaciones.</p>
+    <div class=grid>${Object.entries(PERS).map(([id, p]) => `<div class=mode style="flex-direction:column;text-align:center;align-items:center;gap:.4rem"><span class=avatar style="width:5.5rem;height:5.5rem;cursor:default" aria-hidden=true>${avatarSVG(p)}</span><span><b>${p.n}</b><small>${n(id)} ${n(id) == 1 ? 'lectura' : 'lecturas'}</small></span></div>`).join('')}</div>`, 'home');
 }
-function elegirAvatar(id, v = 'settings') { S.set.avatar = id; save(); window[v](); } // el avatar del perfil aparece junto a la meta de hoy en el inicio
 function velLect(v, b) { S.set.rate = v; save(); b.parentNode.querySelectorAll(".chip").forEach(x => x.classList.toggle("on", x === b)); } // velocidad de la voz desde la lectura (la misma de Ajustes)
 function lectura(i, j = 0) {
   pararHabla(); if (!j) TOC = new Set();

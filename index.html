@@ -310,7 +310,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
 const vSW = t => (/const V = '([^']+)'/.exec(t) || [])[1]; // la versión que declara un sw.js
-const APP_V = 'hsk3-v174'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v175'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -1377,6 +1377,7 @@ const PATRONES = { // adorno del fondo de cada avatar (id en personajes.js)
   cruces: '<path d="M9 12h6M12 9v6M50 14h6M53 11v6M52 42h6M55 39v6M10 40h6M13 37v6" stroke="#fff" stroke-width="2.2" opacity=".6"/>',
   tablero: `<path d="${[...Array(64).keys()].filter(k => (k % 8 + (k >> 3)) % 2).map(k => `M${k % 8 * 8} ${(k >> 3) * 8}h8v8h-8z`).join('')}" fill="#fff" opacity=".4"/>`,
   olas: '<path d="M0 12q4-4 8 0t8 0t8 0t8 0t8 0t8 0t8 0t8 0M0 54q4-4 8 0t8 0t8 0t8 0t8 0t8 0t8 0t8 0" fill="none" stroke="#fff" stroke-width="2" opacity=".6"/>',
+  serpientes: '<g fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".55"><path d="M4 3C14 3 14 12 8 14C2 16 3 24 11 26M60 8C50 8 50 17 56 19C62 21 61 29 53 31M3 46C11 42 14 52 22 50C28 48 27 56 33 58"/></g><g fill="#fff" opacity=".6"><ellipse cx="12.5" cy="26.3" rx="3.2" ry="2.3" transform="rotate(20 12.5 26.3)"/><ellipse cx="51.5" cy="31.3" rx="3.2" ry="2.3" transform="rotate(160 51.5 31.3)"/><ellipse cx="34.5" cy="58.3" rx="3.2" ry="2.3" transform="rotate(20 34.5 58.3)"/></g><g fill="#1d2b20"><circle cx="13.1" cy="25.400000000000002" r=".5"/><circle cx="50.9" cy="30.400000000000002" r=".5"/><circle cx="35.1" cy="57.4" r=".5"/></g><path d="M15.5 26.8l2.5.6M48.5 31.8l-2.5.6M37.5 58.8l2.5.6" stroke="#e57373" stroke-width=".5" stroke-linecap="round" fill="none"/>',
   montanas: '<path d="M0 46l14-20 10 14 8-12 16 24 16-18v30H0z" fill="#fff" opacity=".5"/>' };
 const EXTRAS = { // accesorio de cada avatar, dibujado delante del pelo
   gato: '<path d="M43 52l1.5-6.5 4.5 3zM55 52l-1.5-6.5-4.5 3z" fill="#e8a53c"/><circle cx="49" cy="56" r="6.5" fill="#e8a53c"/><circle cx="46.8" cy="55" r=".9" fill="#2b1d14"/><circle cx="51.2" cy="55" r=".9" fill="#2b1d14"/><path d="M48.2 57.4h1.6l-.8.9z" fill="#c4574a"/>',

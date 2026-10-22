@@ -692,7 +692,7 @@ f|6`, `参加|participar
 输|perder
 脑子|mente; cerebro`, 'carlos'],
 [2, '🏔️ ¿Cómo estudias?', `你/住/在/山/上，/怎么/去/学校？|Nǐ zhù zài shān shang, zěnme qù xuéxiào?|Vives en la montaña, ¿cómo vas a la escuela?
-我/走路。/要/走/一/个/小时。|Wǒ zǒulù. Yào zǒu yí gè xiǎoshí.|Voy andando. Son una hora de camino.|2
+我/走路。/要/走/一/个/小时。|Wǒ zǒulù. Yào zǒu yí gè xiǎoshí.|Voy andando. Es una hora de camino.|2
 太/远/了！/你/不/累/吗？|Tài yuǎn le! Nǐ bú lèi ma?|¡Qué lejos! ¿No te cansas?
 有/一点/累，/可是/路/上/很/安静。|Yǒu yìdiǎn lèi, kěshì lù shang hěn ānjìng.|Un poco, pero el camino es muy tranquilo.|2
 你/每天/学习/几/个/小时？|Nǐ měitiān xuéxí jǐ gè xiǎoshí?|¿Cuántas horas estudias al día?

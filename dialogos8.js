@@ -15,7 +15,7 @@ B|你说得对。我打算分批买入，分散风险。|Nǐ shuō de duì. Wǒ 
 ¿Qué piensa hacer B?|Comprar por lotes|Cambiar de banco|Dejar de invertir`],
 
 [8, '⚖️ Un pleito con el vecino', `A|你听说了吗？楼上的邻居和房东打官司了。|Nǐ tīngshuō le ma? Lóu shàng de línjū hé fángdōng dǎ guānsi le.|¿Te has enterado? El vecino de arriba tiene un pleito con el casero.
-B|为什么？因为房租涨得太高吗？|Wèishénme? Yīnwèi fángzū zhǎng de tài gāo ma?|¿Por qué? ¿Porque subieron demasiado el alquiler?
+B|为什么？因为房租涨得太高吗？|Wèishénme? Yīnwèi fángzū zhǎng de tài gāo ma?|¿Por qué? ¿Será porque el alquiler subió demasiado?
 A|不是。房东没有把押金返还给他，双方一直有纷争。|Bú shì. Fángdōng méiyǒu bǎ yājīn fǎnhuán gěi tā, shuāngfāng yìzhí yǒu fēnzhēng.|No. El casero no le devolvió la fianza y llevan tiempo en disputa.
 B|希望法官能给一个公正的判决。|Xīwàng fǎguān néng gěi yí ge gōngzhèng de pànjué.|Ojalá el juez dicte una sentencia justa.`, `¿Con quién tiene el pleito el vecino?|Con el casero|Con otro vecino|Con su jefe
 ¿Cuál es el motivo?|No le devolvió la fianza|Subió el alquiler|Hizo ruido

@@ -118,5 +118,19 @@ f|5`, `篮球|baloncesto
 所以/我/要/一直/跳/下去。|Suǒyǐ wǒ yào yìzhí tiào xiàqu.|Así que seguiré bailando.`, `o|¿Qué siente la narradora por el baile?|Disfruta bailando y quiere seguir practicando|Baila solo porque su madre se lo exige|Lo dejó hace poco por falta de tiempo|Prefiere el fútbol, aunque baila por compañía
 x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Su novio baila mejor que ella|Su novio es mejor jugando al fútbol que bailando|Su gata la espera cuando vuelve a casa|Su madre cree que bailar es bueno para la salud
 z|5
-f|6`, `下去|seguir (hacia adelante)`, 'chana']
+f|6`, `下去|seguir (hacia adelante)`, 'chana'],
+
+[3, '🦷 El dentista', `我/是/牙医。|Wǒ shì yáyī.|Soy dentista.
+我/喜欢/小孩，/可是/小孩/有时候/怕/我。|Wǒ xǐhuan xiǎohái, kěshì xiǎohái yǒushíhou pà wǒ.|Me gustan los niños, pero a veces ellos me tienen miedo.
+下班/以后，/我/常常/玩/游戏。|Xiàbān yǐhòu, wǒ chángcháng wán yóuxì.|Después del trabajo suelo jugar a videojuegos.
+我/也/抽烟，/可是/我/对/小孩/说/不要/抽烟。|Wǒ yě chōuyān, kěshì wǒ duì xiǎohái shuō búyào chōuyān.|También fumo, pero a los niños les digo que no fumen.
+牙/不/好，/就/要/多/刷牙。|Yá bù hǎo, jiù yào duō shuāyá.|Si los dientes están mal, hay que cepillarse más.
+所以/我/想/一直/做/牙医。|Suǒyǐ wǒ xiǎng yìzhí zuò yáyī.|Así que quiero seguir siendo dentista.`, `o|¿Cómo se siente el narrador con su vida?|Contento con su trabajo y sus aficiones, aunque no sea perfecto|Harto de su trabajo y decidido a buscar otro empleo|Triste porque los niños siempre se alejan de él|Arrepentido de haber elegido una profesión tan larga
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Después del trabajo detesta jugar a videojuegos|Algunos niños le tienen un poco de miedo|Él mismo fuma, pero aconseja a los niños que no lo hagan|Le gusta su trabajo y quiere seguir con él
+z|2
+f|3`, `牙|diente
+牙医|dentista
+抽烟|fumar
+刷牙|cepillarse los dientes
+小孩|niño`, 'kevin']
 );

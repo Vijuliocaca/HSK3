@@ -86,7 +86,7 @@ t('personajes: dibujo y datos completos; cada lectura tiene un personaje que exi
   assert(ids.length >= 4, 'el repertorio debe tener al menos los 4 personajes iniciales');
   ids.forEach(id => { const p = P[id]; assert(p.n && /^\p{L}+( \p{L}+)?$/u.test(p.n) && p.rasgos, id + ': falta el nombre (una palabra o nombre y apellido) o los rasgos');
     ['piel', 'pelo', 'ropa', 'fondo'].forEach(k => assert(/^#[0-9a-f]{6}$/i.test(p[k]), `${id}.${k} debe ser un color #rrggbb`));
-    assert(['corto', 'rizado', 'largo', 'flequillo', 'calvo', 'medio', 'cayetano', 'cresta', 'despeinado', 'undercut', 'mullet', 'afro', 'mono', 'coletas', 'trenzas'].includes(p.estilo), id + ': estilo de pelo desconocido «' + p.estilo + '»');
+    assert(['corto', 'rizado', 'largo', 'flequillo', 'calvo', 'medio', 'cayetano', 'cresta', 'despeinado', 'undercut', 'mullet', 'afro', 'mono', 'coletas', 'trenzas', 'bob', 'pixie', 'raya', 'rapado', 'tupe', 'ondulado', 'bunes'].includes(p.estilo), id + ': estilo de pelo desconocido «' + p.estilo + '»');
     assert(['h', 'm', 'f'].includes(p.genero), id + ': genero debe ser «h» (hombre), «m» (mujer) o «f» (femboy)');
     const GR = ev('self.GENERO_RASGOS');
     assert(GR.estilo[p.genero].includes(p.estilo), `${id}: el peinado «${p.estilo}» no es de género ${p.genero}`);

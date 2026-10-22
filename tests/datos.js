@@ -86,7 +86,7 @@ t('personajes: dibujo y datos completos; cada lectura tiene un personaje que exi
   assert(ids.length >= 4, 'el repertorio debe tener al menos los 4 personajes iniciales');
   ids.forEach(id => { const p = P[id]; assert(p.n && /^\p{L}+( \p{L}+)?$/u.test(p.n) && p.rasgos, id + ': falta el nombre (una palabra o nombre y apellido) o los rasgos');
     ['piel', 'pelo', 'ropa', 'fondo'].forEach(k => assert(/^#[0-9a-f]{6}$/i.test(p[k]), `${id}.${k} debe ser un color #rrggbb`));
-    assert(['corto', 'rizado', 'largo', 'flequillo'].includes(p.estilo), id + ': estilo de pelo desconocido «' + p.estilo + '»');
+    assert(['corto', 'rizado', 'largo', 'flequillo', 'calvo', 'medio'].includes(p.estilo), id + ': estilo de pelo desconocido «' + p.estilo + '»');
     assert(p.voz && p.voz.tono >= .5 && p.voz.tono <= 1.6 && p.voz.vel >= .8 && p.voz.vel <= 1.2 && Number.isInteger(p.voz.n), id + ': la voz debe llevar tono (0.5-1.6), vel (0.8-1.2) y n (entero)'); });
   assert.strictEqual(new Set(ids.map(id => P[id].voz.n)).size, ids.length, 'dos personajes comparten el número de voz n');
   L.filter(x => x[5].includes('+')).forEach(x => { const [p1, p2] = x[5].split('+'); assert(P[p1].voz.n % 2 != P[p2].voz.n % 2, `${x[1]}: ${p1} y ${p2} deben llevar n de distinta paridad para sonar distinto`); });

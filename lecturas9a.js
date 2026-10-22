@@ -108,5 +108,15 @@ f|5`, `篮球|baloncesto
 传球|pasar el balón
 队友|compañero de equipo
 学会|aprender a
-自豪|orgulloso`, 'guidozcos']
+自豪|orgulloso`, 'guidozcos'],
+
+[3, '💃 Bailar los sábados', `我/很/喜欢/跳舞。|Wǒ hěn xǐhuan tiàowǔ.|Me gusta mucho bailar.
+每/个/星期六，/我/和/男朋友/一起/去/跳舞。|Měi gè xīngqīliù, wǒ hé nánpéngyou yìqǐ qù tiàowǔ.|Cada sábado voy a bailar con mi novio.
+他/踢/足球/踢/得/很/好，/可是/跳舞/跳/得/不/好。|Tā tī zúqiú tī de hěn hǎo, kěshì tiàowǔ tiào de bù hǎo.|Él juega muy bien al fútbol, pero baila mal.
+回/家/以后，/我/的/猫/总是/在/门口/等/我。|Huí jiā yǐhòu, wǒ de māo zǒngshì zài ménkǒu děng wǒ.|Al volver a casa, mi gata siempre me espera en la puerta.
+我/妈妈/是/医生，/她/说/跳舞/对/身体/很/好。|Wǒ māma shì yīshēng, tā shuō tiàowǔ duì shēntǐ hěn hǎo.|Mi madre es médica y dice que bailar es muy bueno para el cuerpo.
+所以/我/要/一直/跳/下去。|Suǒyǐ wǒ yào yìzhí tiào xiàqu.|Así que seguiré bailando.`, `o|¿Qué siente la narradora por el baile?|Disfruta bailando y quiere seguir practicando|Baila solo porque su madre se lo exige|Lo dejó hace poco por falta de tiempo|Prefiere el fútbol, aunque baila por compañía
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Su novio baila mejor que ella|Su novio es mejor jugando al fútbol que bailando|Su gata la espera cuando vuelve a casa|Su madre cree que bailar es bueno para la salud
+z|5
+f|6`, `下去|seguir (hacia adelante)`, 'chana']
 );

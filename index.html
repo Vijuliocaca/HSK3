@@ -46,7 +46,7 @@
 #fi{position:absolute;z-index:20;left:0;top:0}#fi:empty{display:none}
 #fi .fb{margin:0;position:relative;border:2px solid var(--ok);box-shadow:0 8px 22px rgba(0,0,0,.28)}#fi .fb::before{content:'';position:absolute;top:-8px;left:var(--ax,50%);width:12px;height:12px;margin-left:-6px;background:var(--okbg);border-left:2px solid var(--ok);border-top:2px solid var(--ok);transform:rotate(45deg)}#fi.arr .fb::before{top:auto;bottom:-8px;transform:rotate(225deg)}
 .wd.sel{box-shadow:0 2px 0 var(--ok);background:var(--okbg)}
-.avatar.gesto svg{animation:asentir .5s ease-out}@keyframes asentir{30%{transform:translateY(2px) rotate(-3deg)}65%{transform:translateY(-1px) rotate(1.5deg)}}@media(prefers-reduced-motion:reduce){.avatar.gesto svg{animation:none}}.avatar.habla{border-color:var(--act);box-shadow:0 0 0 5px rgba(184,137,43,.4)}.nombre{max-width:5.2rem;text-align:center;line-height:1.1;font:600 var(--fs-sm) var(--title);color:var(--gold-tx);letter-spacing:.04em}
+.avatar.gesto svg{animation:asentir .5s ease-out}@keyframes asentir{30%{transform:translateY(2px) rotate(-3deg)}65%{transform:translateY(-1px) rotate(1.5deg)}}@media(prefers-reduced-motion:reduce){.avatar.gesto svg{animation:none}}.avatar.habla{border-color:var(--act);box-shadow:0 0 0 5px rgba(184,137,43,.4)}.nombre{max-width:5.2rem;overflow-wrap:anywhere;text-align:center;line-height:1.1;font:600 var(--fs-sm) var(--title);color:var(--gold-tx);letter-spacing:.04em}
 .conv{flex:1;display:flex;flex-direction:column;gap:.7rem;padding-bottom:.4rem}
 .b{background:var(--card);border:2px solid var(--ctl);border-radius:18px 4px 18px 18px;padding:.8rem .9rem .7rem;cursor:pointer;scroll-margin-bottom:7.5rem;-webkit-tap-highlight-color:transparent}.b.nueva{border-color:var(--pri)}.b.hablando{box-shadow:0 0 0 3px rgba(184,137,43,.4)}
 .b .frase{line-height:1.25;font-size:clamp(2.1rem,9.5vw,3rem)}.b .frase.medio{font-size:clamp(1.9rem,8.2vw,2.5rem)}.b .frase.largo{font-size:clamp(1.6rem,6.8vw,2.1rem)}
@@ -309,7 +309,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script>
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
-const APP_V = 'hsk3-v135'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v136'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -677,7 +677,7 @@ const LOGROS = [ // [icono, nombre, valor, [bronce, plata, oro], unidad]
 function insigniasPers() {
   const filas = Object.entries(PERS).map(([id, p]) => { const ls = LECT.filter(d => d.p.split('+').includes(id)), ok = ls.filter(d => (S.lect?.[d.t] || 0) >= d.qs.length).length; return { p, n: ls.length, ok }; }).filter(x => x.n);
   if (!filas.length) return '';
-  return `<h2>Personajes</h2><p class=mut>Saca el 100 % en todas las lecturas de alguien para ganar su insignia.</p>${filas.map(({ p, n, ok }) => `<div class=hbar style="align-items:center;gap:.6rem"><span class=avatar style="width:3rem;height:3rem;cursor:default;flex:none" aria-hidden=true>${avatarSVG(p)}</span><span style="flex:1;min-width:6rem"><b>${p.n}</b><br><span class=mut>${ok}/${n} lecturas al 100 %</span></span>${ok == n ? `<span class="sgm m2" aria-hidden=true>${ico('medal')}</span><span class=sr>insignia conseguida</span>` : ''}</div>`).join('')}`;
+  return `<h2>Personajes</h2><p class=mut>Saca el 100 % en todas las lecturas de alguien para ganar su insignia.</p>${filas.map(({ p, n, ok }) => `<div class=hbar style="align-items:center;gap:.6rem"><span class=avatar style="width:3rem;height:3rem;cursor:default;flex:none" aria-hidden=true>${avatarSVG(p)}</span><span style="flex:1;min-width:0;overflow-wrap:anywhere"><b>${p.n}</b><br><span class=mut>${ok}/${n} lecturas al 100 %</span></span>${ok == n ? `<span class="sgm m2" aria-hidden=true>${ico('medal')}</span><span class=sr>insignia conseguida</span>` : ''}</div>`).join('')}`;
 }
 function logros() {
   const MED = ['bronce', 'plata', 'oro'], hoy = day(new Date()), lu = lunes(hoy), sem = semanas(), hechos = sem[lu] || 0, DS = ['L', 'M', 'X', 'J', 'V', 'S', 'D'];

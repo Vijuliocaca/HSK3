@@ -30,4 +30,6 @@ self.PERSONAJES = {
     perilla: true, piel: '#f3dcc8', pelo: '#d9b45a', estilo: 'cresta', ropa: '#e98a1f', fondo: '#f6e3c7', patron: 'puntos', extra: 'baloncesto+pi', voz: { tono: 0.75, vel: 0.95, n: 11 } },
   anto: { n: 'Anto', genero: 'h', rasgos: 'Es un chico (hombre). Estudia mucho y vive en la montaña.',
     cejas: 'gruesas', piel: '#f0cdb0', pelo: '#1d1612', estilo: 'despeinado', ropa: '#6b7f3a', fondo: '#dfe9e0', gafas: true, patron: 'montanas', extra: 'libro', voz: { tono: 1.05, vel: 0.9, n: 8 } },
+  chana: { n: 'Chanawanalaiguanaquefumamarihuana', genero: 'm', rasgos: 'Le gusta bailar. Es novia de Chiki y tiene una gata. Su madre es médica.',
+    cejas: 'arqueadas', pendientes: '#f5c84c', piel: '#f1cfae', pelo: '#6b4426', estilo: 'largo', ropa: '#d1587a', fondo: '#f6dfe8', patron: 'sol', extra: 'gato', voz: { tono: 1.25, vel: 1.05, n: 10 } },
 };

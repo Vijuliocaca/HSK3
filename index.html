@@ -309,7 +309,8 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script>
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
-const APP_V = 'hsk3-v163'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const vSW = t => (/const V = '([^']+)'/.exec(t) || [])[1]; // la versión que declara un sw.js
+const APP_V = 'hsk3-v164'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -2010,8 +2011,11 @@ function exam(lv) {
 home();
 if ('serviceWorker' in navigator) {
   const tenia = !!navigator.serviceWorker.controller; // en la primera instalación no avisamos
-  navigator.serviceWorker.register('sw.js').then(r => { document.addEventListener('visibilitychange', () => document.hidden || r.update().catch(() => {})); }).catch(() => {});
-  navigator.serviceWorker.addEventListener('controllerchange', () => { if (tenia) $('#upd').hidden = false; });
+  // Aviso de versión nueva: se compara la V de sw.js (pedido siempre a la red) con la de este código. Así avisa en cuanto GitHub publica, sin esperar a que el service worker
+  // descargue y active la versión, y no avisa si esta carga ya es la última (antes avisaba siempre que el service worker se actualizaba, aunque la página ya fuera nueva).
+  const hayNueva = () => fetch('sw.js', { cache: 'no-store' }).then(r => r.text()).then(t => { const v = vSW(t); if (v && v != APP_V) $('#upd').hidden = false; }).catch(() => {});
+  navigator.serviceWorker.register('sw.js').then(r => { const mira = () => { r.update().catch(() => {}); hayNueva(); }; document.addEventListener('visibilitychange', () => document.hidden || mira()); setInterval(() => document.hidden || mira(), 5 * 60 * 1000); setTimeout(hayNueva, 3000); }).catch(() => {});
+  navigator.serviceWorker.addEventListener('controllerchange', () => { if (tenia) hayNueva(); });
 }
 </script>
 </body>

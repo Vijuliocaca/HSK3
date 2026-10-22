@@ -128,6 +128,11 @@ t('personajes retocados: S.mod se aplica; si cambia el original, gana el origina
   assert.strictEqual(d.ev('PERS.anto.estilo'), 'rapado', 'un retoque sin nota de base debe conservarse'); d.ev("personaje('anto'); edRestablecer('anto')");
   assert.strictEqual(d.ev('PERS.anto.estilo'), 'corto'); assert(d.ev('!S.modBase.anto'));
 });
+t('actualización: vSW lee la versión de sw.js (la que compara el aviso «Hay una versión nueva»)', () => {
+  const a = cargarApp(), sw = require('fs').readFileSync(require('path').join(__dirname, '..', 'sw.js'), 'utf8');
+  assert.strictEqual(a.ev(`vSW(${JSON.stringify(sw)})`), a.ev('APP_V')); assert.strictEqual(a.ev("vSW('nada')"), undefined);
+  assert(/cache: 'no-cache'/.test(sw) && !/cache: 'reload'/.test(sw), 'la instalación del service worker debe revalidar (no-cache), no descargar todo (reload)');
+});
 // el arnés guarda #conv aparte de #app: se vacía antes de cada lectura para ver solo lo que pinta esa lectura
 const lee = (a, js) => { const c = a.els['#conv']; if (c) c.innerHTML = ''; a.ev(js); return a.html() + a.els['#conv'].innerHTML; };
 t('lectura: la persona va arriba a la derecha, la conversación debajo, y se repite tocando a la persona', () => {

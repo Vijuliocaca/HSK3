@@ -133,5 +133,22 @@ t('fiestas: 12, con regla válida, nombre y saludo con pinyin correcto', () => {
 });
 t('relaciones: antónimos (A) y sinónimos (S) con las dos palabras en el vocabulario', () => lineas(ev('self.RELS')[0]).forEach(l => { const [k, a, b] = l.split('|'); assert(k == 'A' || k == 'S', l); assert(H.has(a) && H.has(b), 'no existe: ' + l); assert(a != b, l); }));
 
+t('español de lecturas y diálogos: sin errores típicos de concordancia, tildes, signos ni relleno en las preguntas', () => {
+  const L = '(?<![\\p{L}])', R = '(?![\\p{L}])', pat = [
+    [new RegExp(L + 'Son (una|un|la|el)' + R, 'u'), '«Son una…» (singular con «son»)'], [new RegExp(L + 'Es (dos|tres|cuatro|cinco|seis|siete|ocho|nueve|diez|las|los)' + R, 'u'), '«Es dos…» (plural con «es»)'],
+    [new RegExp(L + '(a|de) el' + R, 'u'), '«a el» / «de el»: es «al» / «del»'], [new RegExp(L + '(\\p{L}{3,}) \\1' + R, 'iu'), 'palabra repetida'], [/ [,.;:!?]/, 'espacio antes de la puntuación'], [/ {2,}/, 'doble espacio'],
+    [/[a-záéíóúñ][.!?] [a-záéíóúñ]/, 'minúscula tras punto'], [/¿(Por que|Porque|Porqué)/, 'por qué'], [/¿(Que|Como|Donde|Cuando|Cual|Quien|Cuanto|Cuantos)(?![\p{L}])/u, 'interrogativo sin tilde'],
+    [new RegExp(L + '(tambien|aqui|alli|asi|ademas|ultimo|facil|dificil|numero|musica|telefono|mama|papa|ingles|espanol|ningun|despues|ahi|rapido|medico|economia|historia clinica)' + R, 'iu'), 'falta la tilde'],
+    [new RegExp(L + '(hubieron|habemos|haiga|vinistes|dijistes)' + R, 'iu'), 'forma incorrecta'], [/por eso lo evitó siempre/, 'relleno absurdo en una opción'],
+    [new RegExp(L + '(un) (hora|casa|semana|ciudad|persona|noche|tarde|cosa|vez|mesa|clase|comida|cena|película|canción|palabra|tienda|calle|montaña|playa|foto|puerta|ventana|fiesta|reunión)' + R, 'iu'), '«un» + femenino'],
+    [new RegExp(L + '(una) (día|año|libro|mes|teléfono|coche|amigo|problema|mapa|idioma|viaje|trabajo|lugar|restaurante|parque|pueblo|tren|examen|regalo|mercado|cuarto|baño|árbol|gato|perro)' + R, 'iu'), '«una» + masculino'],
+    [new RegExp(L + '(dos|tres|cuatro|cinco|seis|siete|ocho|nueve|diez|muchos|muchas|varios|varias) (hora|día|año|mes|semana|minuto|persona|vez|libro|amigo|amiga|niño|niña|cosa|clase|casa|noche|película|canción|palabra)' + R, 'iu'), 'número + singular']];
+  const textos = [];
+  ev('self.LECTS').forEach(x => { lineas(x[2]).forEach(l => { const p = l.split('|'); if (p[2]) textos.push([x[1], p[2]]); }); lineas(x[3]).forEach(l => l.split('|').slice(1).forEach(o => textos.push([x[1], o]))); });
+  ev('self.DIALS').forEach(x => { lineas(x[2]).forEach(l => { const p = l.split('|'); if (p[3]) textos.push([x[1], p[3]]); }); lineas(x[3]).forEach(l => l.split('|').slice(1).forEach(o => textos.push([x[1], o]))); });
+  const mal = []; textos.forEach(([ti, es]) => { pat.forEach(([re, nom]) => { if (re.test(es)) mal.push(`${ti}: ${nom} → «${es.slice(0, 70)}»`); });
+    if ((es.match(/¿/g) || []).length != (es.match(/\?/g) || []).length || (es.match(/¡/g) || []).length != (es.match(/!/g) || []).length) mal.push(`${ti}: signos ¿? o ¡! sin pareja → «${es.slice(0, 70)}»`); });
+  assert(mal.length == 0, mal.length + ' problemas; el primero: ' + mal[0]);
+});
 console.log(fallos ? `datos: ${fallos} de ${total} pruebas fallan` : `datos: ${total} pruebas OK`);
 process.exit(fallos ? 1 : 0);

@@ -1,4 +1,6 @@
-# Ejecuta las pruebas (datos y pantallas) en cada subida y en cada pull request.
+# Ejecuta las pruebas en cada subida y en cada pull request.
+# «pruebas»: datos, pantallas y botón atrás (sin navegador; es lo que bloquea).
+# «navegador»: las de Chrome real (recorrido a 320-412 px, teclado, lecturas, editor y capas del avatar, atrás); avisa pero no bloquea.
 name: Pruebas
 on: [push, pull_request]
 jobs:
@@ -10,3 +12,12 @@ jobs:
         with:
           node-version: 20
       - run: node tests/run.js
+  navegador:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22 # las pruebas con navegador usan WebSocket y fetch del propio Node
+      - run: node tests/run.js --navegador

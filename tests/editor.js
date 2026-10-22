@@ -40,6 +40,32 @@ const ok = (c, m) => { if (!c) { problemas++; console.log('  ✗', m); } };
     const svg = await ev('avatarSVG(ED)'); ok(!/onload|onerror|<script|<img|alert/.test(svg), 'un código manipulado no mete código en el dibujo');
     ok((await ev('ED.pelo')) == '#1d1612' && (await ev('ED.estilo')) == 'corto' && !(await ev('ED.pecasY')) && (await ev('ED.extra')) == 'guitarra', 'los valores fuera de las opciones se descartan');
     await ev('crear()'); await ev("document.querySelector('#edimp').value = 'esto no es un código'; edImportar()"); ok((await ev("document.querySelector('#edaviso').textContent")).includes('no es válido'), 'un código inválido avisa');
+    // reglas del editor: género, sombreros, accesorios, camiseta y prendas
+    const filas = () => ev("[...document.querySelectorAll('#edbody b')].map(e => e.textContent)"), chips = () => ev("[...document.querySelectorAll('#edbody .chip')].map(e => e.textContent.trim())");
+    await ev("crear(); edSet('genero', 'h'); edSet('barba', true); edSet('estilo', 'mullet'); edTab('Pelo')");
+    ok((await filas()).includes('Barba') && (await chips()).includes('mullet'), 'un hombre puede tener barba y mullet');
+    await ev("edSet('genero', 'm')");
+    ok(!(await filas()).includes('Barba') && !(await chips()).includes('mullet') && !(await ev('ED.barba')) && (await ev('ED.estilo')) != 'mullet', 'al pasar a mujer desaparecen la barba y el mullet, y el peinado se corrige');
+    await ev("crear(); edSet('gorra', '#ff0000'); edSet('boina', '#00ff00')"); ok(!(await ev('ED.gorra')) && (await ev('ED.boina')) == '#00ff00', 'solo un sombrero a la vez (gorra → boina)');
+    await ev("edExtra('cocinero')"); ok(!(await ev('ED.boina')) && (await ev('ED.extra')) == 'cocinero', 'el gorro de cocinero quita el sombrero');
+    await ev("edSet('paja', '#e8c27a')"); ok(!(await ev('ED.extra')) && (await ev('ED.paja')), 'un sombrero quita el gorro de cocinero');
+    await ev("crear(); edExtra('guitarra'); edExtra('mando'); edExtra('balon')");
+    ok((await ev('ED.extra')) == 'guitarra+mando' && (await ev("document.querySelector('#edaviso').textContent")).includes('lado'), 'máximo 2 accesorios de lado, y avisa');
+    await ev("edExtra('auriculares'); edExtra('cocinero')"); ok((await ev('ED.extra')) == 'guitarra+mando+auriculares' && (await ev("document.querySelector('#edaviso').textContent")).includes('cocinero'), 'auriculares y gorro de cocinero no se juntan');
+    await ev("crear(); edSet('camiseta', 'argentina'); edTab('Ropa')"); const r1 = await filas();
+    ok(!r1.includes('Color de la ropa') && !r1.includes('Prenda y cuello') && !r1.includes('Estampado') && r1.includes('Camiseta de fútbol'), 'con camiseta de fútbol se ocultan color, prenda y estampado');
+    await ev("edSet('camiseta', '')"); ok((await filas()).includes('Prenda y cuello'), 'sin camiseta vuelven las filas de ropa');
+    await ev("edSet('cuello', 'chaqueta'); edSet('corbata', true)"); ok((await filas()).includes('Corbata') && (await ev('ED.corbata')), 'con chaqueta se puede poner corbata');
+    await ev("edSet('cuello', 'peto')"); ok(!(await filas()).includes('Corbata') && !(await ev('ED.corbata')), 'con peto no hay corbata (se quita y se oculta la fila)');
+    await ev("crear(); edSet('nariz', true); edSet('narizForma', 'ancha'); edSet('nariz', false)"); ok(!(await ev('ED.narizForma')), 'quitar la nariz quita su forma');
+    await ev("crear(); edSet('gafas', 'aviador'); edSet('gafasColor', '#c23b5a'); edSet('gafas', '')"); ok(!(await ev('ED.gafasColor')), 'quitar las gafas quita el color de la montura');
+    // cada pestaña se pinta sin errores y con filas, para cualquier género
+    for (const g of ['h', 'm', 'f']) { await ev(`crear(); edSet('genero', '${g}')`); for (const tab of await ev('Object.keys(ED_TABS)')) { await ev(`edTab('${tab}')`); ok((await ev("document.querySelector('#edbody').children.length")) > 0, `pestaña ${tab} vacía (género ${g})`); } }
+    // retoque de un personaje con el editor real: se guarda, sobrevive a recargar, y un cambio en el original gana
+    await ev("crear('anto'); edSet('estilo', 'rapado'); edGuardar()"); await ev('location.reload()'); await esp(1500);
+    ok((await ev('PERS.anto.estilo')) == 'rapado' && !!(await ev('S.modBase.anto')), 'el retoque de un personaje sobrevive a recargar la app');
+    await ev("(() => { const o = JSON.parse(localStorage.hsk3); o.modBase.anto = 'otra versión'; localStorage.hsk3 = JSON.stringify(o); })()"); await ev('location.reload()'); await esp(1500);
+    ok((await ev('PERS.anto.estilo')) == 'corto', 'si cambia personajes.js, gana el original sobre el retoque');
   } catch (e) { problemas++; console.log('  ✗ error en la prueba:', e.message); }
   await b.cerrar();
   console.log(problemas ? `editor: ${problemas} problemas` : 'editor: OK');

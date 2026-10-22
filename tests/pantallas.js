@@ -100,6 +100,34 @@ t('avatar: ninguna opción del editor deja ${} sin sustituir, undefined o NaN, y
   assert.deepStrictEqual(mal, [], 'dibujo roto: ' + mal.slice(0, 5).join(' | '));
   ['', 'almendrados'].forEach(o => assert(a.ev(`avatarSVG({ ...ED_DEF, ojos: '${o}', ojoColor: '#3b6fb5' }).includes('fill="#3b6fb5"')`), 'el color de ojos no se aplica (ojos «' + o + '»)'));
 });
+// cada personaje (y cada plantilla del editor) usa solo rasgos y valores que el editor ofrece: así un error al pegar «Copiar código» (una errata en un peinado, una camiseta que no existe…) falla aquí
+t('personajes y plantillas: cada rasgo es una opción válida del editor (valores, colores, rangos, accesorios y sombreros sin choques)', () => {
+  const a = cargarApp(), mal = JSON.parse(a.ev(`JSON.stringify((() => {
+    const mal = [], filas = Object.fromEntries(Object.values(ED_TABS).flat().map(f => [f[0], f])), hex = x => /^#[0-9a-f]{6}$/i.test(x), SIN = ['n', 'genero', 'rasgos', 'voz'], lado = k => EXTRA_LADO[k] != 'C';
+    const mira = (id, p, esPlantilla) => { Object.entries(p).forEach(([k, v]) => { if (SIN.includes(k)) return; const f = filas[k]; if (!f) return mal.push(id + ': rasgo desconocido «' + k + '»'); const [, , kind, mn, mx] = f;
+      if (kind == 'b') { if (v !== true) mal.push(id + '.' + k + ' debe ser true'); } else if (kind == 'r') { if (typeof v != 'number' || v < mn || v > mx) mal.push(id + '.' + k + ' fuera de rango'); }
+      else if (kind == 'm') { String(v).split('+').forEach(e => { if (!EXTRAS_ES[e]) mal.push(id + ': accesorio desconocido «' + e + '»'); }); }
+      else if (typeof kind[0] == 'string') { if (!hex(v)) mal.push(id + '.' + k + ' debe ser un color #rrggbb'); }
+      else if (!(k == 'gafas' && v === true) && !kind.some(o => o[0] === v)) mal.push(id + '.' + k + ': «' + v + '» no es una opción'); });
+      const ex = String(p.extra || '').split('+').filter(Boolean); if (ex.filter(lado).length > 2 || ex.filter(e => !lado(e)).length > 2) mal.push(id + ': demasiados accesorios (máx. 2 de lado y 2 de cabeza o pecho)');
+      if (ex.includes('cocinero') && ex.includes('auriculares')) mal.push(id + ': auriculares y gorro de cocinero a la vez');
+      const gorros = ['gorra', 'boina', 'gorro', 'paja', 'corona', 'orejas'].filter(k => p[k]).concat(ex.includes('cocinero') ? ['cocinero'] : []); if (gorros.length > 1) mal.push(id + ': más de un sombrero (' + gorros.join(', ') + ')');
+      if (p.camiseta && (p.cuello || p.estampado)) mal.push(id + ': con camiseta de fútbol sobran cuello y estampado'); };
+    Object.entries(PERS).forEach(([id, p]) => mira(id, p)); Object.entries(PLANTILLAS).forEach(([n, p]) => mira('plantilla ' + n, p));
+    return mal; })())`));
+  assert.deepStrictEqual(mal, [], mal.slice(0, 5).join(' | '));
+});
+// retoques hechos en la app (S.mod): se aplican, y si después cambia personajes.js gana el original; sin nota de base (retoques antiguos) se conservan
+t('personajes retocados: S.mod se aplica; si cambia el original, gana el original; Restablecer limpia', () => {
+  const a = cargarApp(); a.ev(PREPARAR); a.ev("crear('anto'); edSet('estilo', 'rapado'); edGuardar()");
+  assert.strictEqual(a.ev('PERS.anto.estilo'), 'rapado'); assert(a.ev('!!S.modBase.anto'), 'no se anotó cómo era el original');
+  const b = cargarApp({ storage: a.storage }); assert.strictEqual(b.ev('PERS.anto.estilo'), 'rapado', 'el retoque no sobrevive a recargar');
+  const o = JSON.parse(a.storage.hsk3); o.modBase.anto = 'otra versión'; const c = cargarApp({ storage: { hsk3: JSON.stringify(o) } });
+  assert.strictEqual(c.ev('PERS.anto.estilo'), 'corto', 'un cambio en personajes.js debe ganar al retoque antiguo'); assert(c.ev('!S.mod.anto'));
+  const v = JSON.parse(a.storage.hsk3); delete v.modBase; const d = cargarApp({ storage: { hsk3: JSON.stringify(v) } });
+  assert.strictEqual(d.ev('PERS.anto.estilo'), 'rapado', 'un retoque sin nota de base debe conservarse'); d.ev("personaje('anto'); edRestablecer('anto')");
+  assert.strictEqual(d.ev('PERS.anto.estilo'), 'corto'); assert(d.ev('!S.modBase.anto'));
+});
 // el arnés guarda #conv aparte de #app: se vacía antes de cada lectura para ver solo lo que pinta esa lectura
 const lee = (a, js) => { const c = a.els['#conv']; if (c) c.innerHTML = ''; a.ev(js); return a.html() + a.els['#conv'].innerHTML; };
 t('lectura: la persona va arriba a la derecha, la conversación debajo, y se repite tocando a la persona', () => {

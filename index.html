@@ -310,7 +310,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
 const vSW = t => (/const V = '([^']+)'/.exec(t) || [])[1]; // la versión que declara un sw.js
-const APP_V = 'hsk3-v168'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v169'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -1556,8 +1556,8 @@ function avatarSVG(p) {
   const pupilas = (r, y = 29.2) => [27.8, 36.8].map(x => `<circle cx="${x}" cy="${y}" r="${r}" fill="${oc}"/><circle cx="${x}" cy="${y}" r="${r * .45}" fill="#120b07"/><circle cx="${x + .45}" cy="${y - .5}" r=".3" fill="#fff"/>`).join('');
   const blancos = (r, y = 29) => `<circle cx="27.5" cy="${y}" r="${r}" fill="#fff"/><circle cx="36.5" cy="${y}" r="${r}" fill="#fff"/>`, trazo = (d, w = 1) => `<path d="${d}" fill="none" stroke="#2b1d14" stroke-width="${w}" stroke-linecap="round"/>`;
   const OJOS = { // forma de los ojos; todos llevan class=ojos (parpadean)
-    rasgados: `<ellipse cx="27.5" cy="29.3" rx="2.7" ry="1.05" transform="rotate(-13 27.5 29.3)" fill="#fff"/><ellipse cx="36.5" cy="29.3" rx="2.7" ry="1.05" transform="rotate(13 36.5 29.3)" fill="#fff"/>${pupilas(1)}${trazo('M24.7 29.1q2.8-2.1 5.6.6M33.7 29.7q2.8-2.7 5.6-.6')}`,
-    almendrados: `<ellipse cx="27.5" cy="29" rx="2.5" ry="1.6" transform="rotate(-8 27.5 29)" fill="#fff"/><ellipse cx="36.5" cy="29" rx="2.5" ry="1.6" transform="rotate(8 36.5 29)" fill="#fff"/>${pupilas(1.4)}${trazo('M24.9 28.3q2.6-1.5 5.2.1M33.9 28.4q2.6-1.6 5.2-.1', .7)}`,
+    rasgados: `<path d="M24.800 27.900Q27.600 26.500 30.400 29.300Q27.600 30.600 24.800 27.900zM39.200 27.900Q36.400 26.500 33.600 29.300Q36.400 30.600 39.200 27.900z" fill="#fff"/>${pupilas(.95, 28.600)}${trazo('M24.800 27.900Q27.600 26.500 30.400 29.300M39.200 27.900Q36.400 26.500 33.600 29.300', .8)}`,
+    almendrados: `<path d="M25 28.400Q27.700 26.200 30.400 28.900Q27.700 31.400 25 28.400zM39 28.400Q36.300 26.200 33.600 28.900Q36.300 31.400 39 28.400z" fill="#fff"/>${pupilas(1.2, 28.700)}${trazo('M25 28.400Q27.700 26.200 30.400 28.900M39 28.400Q36.300 26.200 33.600 28.900', .7)}`,
     grandes: `${blancos(2.9)}${pupilas(2.1)}`,
     pequenos: `${blancos(1.6)}${pupilas(1.05)}`,
     asombrados: `${blancos(2.6)}${pupilas(.95)}`,

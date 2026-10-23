@@ -310,7 +310,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
 const vSW = t => (/const V = '([^']+)'/.exec(t) || [])[1]; // la versión que declara un sw.js
-const APP_V = 'hsk3-v185'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v186'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -1495,7 +1495,7 @@ function avatarSVG(p) {
     flequillo: `<path d="M20 29a12 12 0 0 1 24 0c-4 0-8-3-12-5-3 3-7 5-12 5z" fill="${p.pelo}"/><rect x="19" y="26" width="3" height="11" rx="1.5" fill="${p.pelo}"/><rect x="42" y="26" width="3" height="11" rx="1.5" fill="${p.pelo}"/>`, afro: FR, bob: FR + `<path d="M20.500 28v-4q11.500-6 23 0v4q-11.500-4-23 0z" fill="${p.pelo}"/>`, ondulado: FR, bunes: FR + `<circle cx="22" cy="14" r="4.500" fill="${p.pelo}"/><circle cx="42" cy="14" r="4.500" fill="${p.pelo}"/>`,
     rapado: `<path d="M20.200 28a11.800 11.800 0 0 1 23.600 0q-3-6.500-11.800-6.500t-11.800 6.500z" fill="${p.pelo}" fill-opacity=".55"/>`,
     pixie: `<path d="M20.200 29a11.800 11.800 0 0 1 23.600 0c-2-3-4-4.500-6-5-1 2-3 3.500-5 3.500 0-2-1-3.500-2.500-4.500-1 3-4 5-8 6z" fill="${p.pelo}"/><path d="M20 29q-1.500 4 .5 7l2-4z" fill="${p.pelo}"/>`,
-    raya: `<path d="M19.800 29a12.200 12.200 0 0 1 24.400 0c-1-4.500-3-7-6-8.500-4 5-11 7-16.800 8.500z" fill="${p.pelo}"/><path d="M37 17.500q-3 3-6 5" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width=".8"/>`,
+    raya: `<path d="M19.800 29a12.200 13.200 0 0 1 24.400 0c-1-4.500-3-7-6-8.500-4 5-11 7-16.800 8.500z" fill="${p.pelo}"/><path d="M37 17.500q-3 3-6 5" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width=".8"/>`,
     tupe: `<path d="M20.300 28c-1.500-9 4-14.500 12-14.500s13 5 11.700 14.500c-1-4.500-3.500-6.500-6-7.500-5 1.500-11 .5-14-.5-2.500 1.500-3.500 4-3.700 8z" fill="${p.pelo}"/><path d="M25 19q6-3.500 13 0" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width=".8" stroke-linecap="round"/>`, mono: FR + `<circle cx="32" cy="11.5" r="5.5" fill="${p.pelo}"/>`, coletas: FR + '<circle cx="21" cy="24" r="1.4" fill="#c23b3b"/><circle cx="43" cy="24" r="1.4" fill="#c23b3b"/>', trenzas: FR }[est] || '';
   const encima = { emo: `<path d="M19.5 28a12.5 12.5 0 0 1 25 0c-1-3-3-4.5-5-5.500L25 33.500l-4.500 3.500q-1-4-1-9z" fill="${p.pelo}"/>` }[est] || '';
   const mech = p.mechas && est != 'calvo' ? `<path d="M30 15.5q5 .5 8 5M25.5 18q-3 2-4 5" fill="none" stroke="${p.mechas}" stroke-width="1.8" stroke-linecap="round"/>` : '';

@@ -215,5 +215,80 @@ f|5`, ``, 'kevin+yuyue'],
 从/那/以后，/过/马路/的/时候/我/不/戴/耳机。|Cóng nà yǐhòu, guò mǎlù de shíhou wǒ bú dài ěrjī.|Desde entonces, al cruzar la calle no me pongo los auriculares.`, `o|¿Qué lección saca Samu?|No llevar auriculares al cruzar la calle|Dejar de escuchar música para siempre|Pedir a sus amigos que le llamen más fuerte|Comprar unos auriculares más pequeños
 x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Un coche casi atropella a Samu|Samu suele escuchar música al andar|Su amigo se molestó un poco|Samu tiene unos auriculares grandes
 z|3
-f|2`, ``, 'samu']
+f|2`, ``, 'samu'],
+
+[3, '🏀 Un partido de baloncesto', `今天/下午，/我/和/朋友/打/篮球。|Jīntiān xiàwǔ, wǒ hé péngyou dǎ lánqiú.|Esta tarde juego al baloncesto con mis amigos.
+我/有/糖尿病，/打/球/以前/要/先/检查。|Wǒ yǒu tángniàobìng, dǎ qiú yǐqián yào xiān jiǎnchá.|Tengo diabetes, así que antes de jugar tengo que hacerme un control.
+打/球/的/时候，/我/觉得/有点/累。|Dǎ qiú de shíhou, wǒ juéde yǒudiǎn lèi.|Mientras juego me siento un poco cansado.
+朋友/马上/给/我/一/瓶/果汁。|Péngyou mǎshàng gěi wǒ yì píng guǒzhī.|Mis amigos enseguida me dan una botella de zumo.
+喝/了/以后，/我/又/有/力气/了。|Hē le yǐhòu, wǒ yòu yǒu lìqi le.|Después de beberlo vuelvo a tener fuerzas.
+我们/赢/了，/大家/都/很/开心。|Wǒmen yíng le, dàjiā dōu hěn kāixīn.|Ganamos y todos estamos muy contentos.`, `o|¿Qué hacen sus amigos cuando él se siente cansado?|Le dan un zumo enseguida|Le piden que deje de jugar|Llaman a una ambulancia|Le dicen que beba agua
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Perdió el partido por estar cansado|Juega con sus amigos por la tarde|Se hace un control antes de jugar|El zumo le devuelve las fuerzas
+z|3
+f|4`, `果汁|zumo
+力气|fuerza
+赢|ganar
+马上|enseguida
+有点|un poco
+检查|revisar; hacer un control`, 'jersio'],
+
+[3, '🩺 Mi control de cada noche', `每天/晚上/吃饭/以前，/我/都/要/测/血糖。|Měitiān wǎnshang chīfàn yǐqián, wǒ dōu yào cè xuètáng.|Cada noche antes de cenar me mido el azúcar en sangre.
+我/用/一/个/小/机器，/一/分钟/就/好/了。|Wǒ yòng yí ge xiǎo jīqì, yì fēnzhōng jiù hǎo le.|Uso un aparatito y en un minuto está listo.
+如果/血糖/太/高，/我/就/不/能/吃/甜/的。|Rúguǒ xuètáng tài gāo, wǒ jiù bù néng chī tián de.|Si el azúcar está muy alto, no puedo comer dulces.
+朋友/都/知道，/因为/我/常常/说。|Péngyou dōu zhīdào, yīnwèi wǒ chángcháng shuō.|Mis amigos lo saben porque lo digo a menudo.
+他们/笑/我/说/得/太/多。|Tāmen xiào wǒ shuō de tài duō.|Se ríen de que lo digo demasiado.
+可是/我/觉得，/大家/知道/更/安全。|Kěshì wǒ juéde, dàjiā zhīdào gèng ānquán.|Pero creo que es más seguro que todos lo sepan.`, `o|¿Por qué se lo cuenta a todo el mundo?|Cree que es más seguro que lo sepan|Quiere que le regalen dulces|Le da vergüenza no decirlo|Se lo exige su médico
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Se mide el azúcar con una máquina enorme en el hospital|Se mide el azúcar antes de cenar|Con el azúcar alto evita los dulces|Sus amigos se ríen un poco de él
+z|3
+f|1`, `血糖|azúcar en sangre
+测|medir
+机器|aparato
+安全|seguro`, 'jersio'],
+
+[3, '👩‍⚕️ Mi madre es médica', `我/妈妈/是/医生，/她/每天/都/很/忙。|Wǒ māma shì yīshēng, tā měitiān dōu hěn máng.|Mi madre es médica y está ocupada cada día.
+她/常常/说，/要/多/吃/菜，/多/睡觉。|Tā chángcháng shuō, yào duō chī cài, duō shuìjiào.|Siempre dice que hay que comer más verdura y dormir más.
+我/跳舞/以后/很/累，/她/就/给/我/做/饭。|Wǒ tiàowǔ yǐhòu hěn lèi, tā jiù gěi wǒ zuò fàn.|Cuando termino de bailar, cansada, me prepara la comida.
+我/的/猫/也/喜欢/她。|Wǒ de māo yě xǐhuan tā.|Mi gata también la quiere.
+有时候，/我/想/当/医生，/可是/我/更/爱/跳舞。|Yǒushíhou, wǒ xiǎng dāng yīshēng, kěshì wǒ gèng ài tiàowǔ.|A veces quiero ser médica, pero me gusta más bailar.
+妈妈/说/只要/我/开心，/她/就/开心。|Māma shuō zhǐyào wǒ kāixīn, tā jiù kāixīn.|Mamá dice que mientras yo sea feliz, ella lo es.`, `o|¿Qué prefiere hacer la narradora?|Bailar, aunque a veces lo duda|Ser médica como su madre, sin dudarlo|Cuidar de su gata todo el día|Cocinar para su madre
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Su madre trabaja poco y casi nunca está ocupada|Su madre le aconseja comer más verdura|Su madre le prepara la comida|Su gata también quiere a su madre
+z|2
+f|6`, `只要|con tal de que`, 'chana'],
+
+[3, '🎁 Un regalo para mi novio', `明天/是/我/男朋友/的/生日。|Míngtiān shì wǒ nánpéngyou de shēngrì.|Mañana es el cumpleaños de mi novio.
+他/喜欢/踢/足球。|Tā xǐhuan tī zúqiú.|Le gusta jugar al fútbol.
+我/想/给/他/买/一/件/新/球衣。|Wǒ xiǎng gěi tā mǎi yí jiàn xīn qiúyī.|Quiero comprarle una camiseta de fútbol nueva.
+他/个子/不/高，/所以/我/买/了/小/号。|Tā gèzi bù gāo, suǒyǐ wǒ mǎi le xiǎo hào.|Como no es alto, compré la talla pequeña.
+晚上，/我/还/要/给/他/跳/一/个/舞。|Wǎnshang, wǒ hái yào gěi tā tiào yí ge wǔ.|Por la noche también le bailaré algo.
+我/想/他/会/很/开心。|Wǒ xiǎng tā huì hěn kāixīn.|Creo que se pondrá muy contento.`, `o|¿Qué le regala la narradora a su novio?|Una camiseta de fútbol y un baile|Un balón y una cena|Un libro sobre baile|Una entrada para un partido
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Le compró una camiseta de talla grande|Mañana es el cumpleaños de su novio|A su novio le gusta el fútbol|Piensa bailar para él por la noche
+z|5
+f|3`, `球衣|camiseta de fútbol
+号|talla
+舞|baile`, 'chana'],
+
+[3, '🚭 Fumar un poco menos', `我/是/牙医，/可是/我/抽烟。|Wǒ shì yáyī, kěshì wǒ chōuyān.|Soy dentista, pero fumo.
+有/一/个/小孩/说，/你/的/牙/是/黄/的。|Yǒu yí ge xiǎohái shuō, nǐ de yá shì huáng de.|Un niño dijo que mis dientes eran amarillos.
+我/回/家/想/了/很/久。|Wǒ huí jiā xiǎng le hěn jiǔ.|Volví a casa y lo pensé mucho.
+现在/我/每天/少/抽/一/支。|Xiànzài wǒ měitiān shǎo chōu yì zhī.|Ahora cada día fumo un cigarrillo menos.
+玩/游戏/的/时候，/我/也/不/抽。|Wán yóuxì de shíhou, wǒ yě bù chōu.|Cuando juego a videojuegos, tampoco fumo.
+我/要/做/一/个/好/牙医。|Wǒ yào zuò yí ge hǎo yáyī.|Quiero ser un buen dentista.`, `o|¿Qué hace Kevin después de lo que dijo el niño?|Fuma un cigarrillo menos cada día|Deja de fumar de golpe|Cambia de trabajo|Le pide perdón al niño
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Dejó los videojuegos para fumar menos|Un niño le dijo que sus dientes estaban amarillos|Pensó mucho en ese comentario|Quiere ser un buen dentista
+z|5
+f|4`, `黄|amarillo
+支|(cigarrillo, bolígrafo)
+抽|fumar`, 'kevin'],
+
+[3, '🍭 Pegatinas para los niños', `在/我/的/诊所，/有/很/多/小孩。|Zài wǒ de zhěnsuǒ, yǒu hěn duō xiǎohái.|En mi clínica hay muchos niños.
+他们/好/怕/疼，/所以/我/先/和/他们/玩。|Tāmen hǎo pà téng, suǒyǐ wǒ xiān hé tāmen wán.|Tienen mucho miedo al dolor, así que primero juego con ellos.
+我/有/很/多/贴纸，/他们/都/想/要。|Wǒ yǒu hěn duō tiēzhǐ, tāmen dōu xiǎng yào.|Tengo muchas pegatinas y todos quieren una.
+检查/完/以后，/每/个/孩子/都/有/一/张。|Jiǎnchá wán yǐhòu, měi ge háizi dōu yǒu yì zhāng.|Al terminar la revisión, cada niño recibe una.
+他们/笑/着/走/出/去。|Tāmen xiào zhe zǒu chū qù.|Salen riendo.
+我/觉得/这/是/我/最/好/的/工作。|Wǒ juéde zhè shì wǒ zuì hǎo de gōngzuò.|Creo que este es mi mejor trabajo.`, `o|¿Cómo consigue Kevin que los niños pierdan el miedo?|Jugando con ellos y dándoles pegatinas|Poniéndoles dibujos animados|Diciéndoles que no dolerá nada|Dejándoles jugar con su consola
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Los niños se van llorando de la clínica|Antes de revisarlos, Kevin juega con ellos|Todos los niños quieren pegatinas|Cada niño se lleva una pegatina
+z|3
+f|5`, `诊所|clínica
+疼|doler; dolor
+贴纸|pegatina
+张|(para hojas, pegatinas)`, 'kevin']
 );

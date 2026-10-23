@@ -156,6 +156,21 @@ f|5`, `男孩|niño; chico
 游戏机|consola de videojuegos
 张开|abrir (la boca)`, 'kevin'],
 
+[3, '🍦 El helado de Jersio', `我/是/以色列/人，/也/喜欢/打/篮球。|Wǒ shì Yǐsèliè rén, yě xǐhuan dǎ lánqiú.|Soy israelí y también me gusta jugar al baloncesto.
+我/有/糖尿病，/我/常常/告诉/朋友。|Wǒ yǒu tángniàobìng, wǒ chángcháng gàosu péngyou.|Tengo diabetes y se lo digo a menudo a mis amigos.
+可是/每天/晚上，/我/都/去/麦当劳。|Kěshì měitiān wǎnshang, wǒ dōu qù Màidāngláo.|Pero cada noche voy al McDonald's.
+我/不/吃/汉堡，/只/吃/一/个/冰淇淋。|Wǒ bù chī hànbǎo, zhǐ chī yí ge bīngqílín.|No como hamburguesa, solo un helado.
+朋友/说/这/对/身体/不/好。|Péngyou shuō zhè duì shēntǐ bù hǎo.|Mis amigos dicen que eso no es bueno para la salud.
+我/笑/了，/明天/我/还/去。|Wǒ xiào le, míngtiān wǒ hái qù.|Me río: mañana volveré.`, `o|¿Qué cena Jersio cada noche en el McDonald's?|Un helado, sin hamburguesa|Una hamburguesa con patatas|Una ensalada y un refresco|Un menú completo de pollo
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Jersio prefiere la hamburguesa al helado|Jersio es de Israel y juega al baloncesto|Jersio tiene diabetes y se lo cuenta a sus amigos|Sus amigos creen que cenar así no es sano
+z|5
+f|3`, `糖尿病|diabetes
+冰淇淋|helado
+麦当劳|McDonald's
+以色列|Israel
+汉堡|hamburguesa`, 'jersio'],
+
+
 [2, '🐈 Mi gata', `我/有/一/只/小/猫。|Wǒ yǒu yì zhī xiǎo māo.|Tengo una gatita.
 它/是/白色/的，/很/漂亮。|Tā shì báisè de, hěn piàoliang.|Es blanca y muy bonita.
 我/跳舞/的/时候，/它/在/看/我。|Wǒ tiàowǔ de shíhou, tā zài kàn wǒ.|Cuando bailo, ella me mira.

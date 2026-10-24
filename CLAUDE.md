@@ -70,4 +70,4 @@ PWA para estudiar chino (HSK 1-8) en español. JavaScript puro, sin dependencias
 - Comprobar la publicación: comparar con `curl` el `md5sum` de cada archivo contra la web y mirar la versión de `sw.js`.
 
 ## Pendiente
-Lista de ideas y decisiones ya tomadas en `IDEAS.md`.
+Lista de ideas y decisiones ya tomadas en `IDEAS.md` (solo ideas del usuario). Las sugerencias que llegan desde Ajustes → Sugerencias van aparte, en `SUGERENCIAS.md`, con su estado (Nueva/Aceptada/Hecha/Descartada); no las mezcles con `IDEAS.md` ni las implementes sin que el usuario las acepte.

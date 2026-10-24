@@ -311,7 +311,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
 const vSW = t => (/const V = '([^']+)'/.exec(t) || [])[1]; // la versión que declara un sw.js
-const APP_V = 'hsk3-v187'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v189'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -767,7 +767,37 @@ function settings() {
     <h2>Copia de seguridad</h2><p class=mut>Guarda tu progreso en un archivo para cambiar de móvil o por si se borran los datos del navegador.</p>
     <div class="row seg"><button class=chip onclick="exportar()">Exportar</button><button class=chip onclick="$('#imp').click()">Importar</button></div>
     <input type=file id=imp accept=".json,application/json" hidden onchange="importar(this.files[0])"><div id=impmsg aria-live=polite></div>
+    <h2>Sugerencias</h2><p class=mut>¿Un error, una palabra que falta o una idea? Anótalo y envíamelo.</p>
+    <button class=chip onclick="sugerencias()">💡 Sugerir o ver mis sugerencias${(S.sug || []).length ? ' (' + S.sug.length + ')' : ''}</button>
     <p class=mut style="margin-top:1.5rem">Versión de la app: ${APP_V}</p>`);
+}
+// sugerencias: se guardan en el móvil (S.sug, entran en la copia de seguridad) y se envían con el menú de compartir
+const SUG_QUE = ['Un dato está mal (traducción, pinyin, hanzi o frase)', 'El audio o la voz fallan', 'La app falla (error, pantalla en blanco, se cierra)', 'Se ve mal (texto cortado, colores, tamaños)', 'Un botón o gesto no responde (o atrás va mal)', 'El progreso o el repaso no cuadran (racha, aciertos, fechas)', 'He perdido datos o la copia de seguridad falla', 'Va lenta o no funciona sin conexión', 'Falta contenido (palabras, lecturas, temas…)', 'Es una idea o mejora', 'Otro'];
+const SUG_DONDE = ['Inicio', 'Hoy y repaso del día', 'Fichas de palabra', 'Vocabulario por niveles y temas', ...MODES.map(m => m[2]), 'Examen', 'Gramática', 'Expresiones (成语)', 'Personajes y editor', 'Progreso', 'Ajustes y copia de seguridad', 'Instalación y actualizaciones', 'Toda la app / no sé'];
+const SUG_VEZ = ['Siempre', 'A veces', 'Solo pasó una vez'];
+function sugerencias() {
+  const l = S.sug || [], sel = (id, a, ph) => `<select id=${id} aria-label="${ph}" style="width:100%"><option value="">${ph}</option>${a.map((t, i) => `<option value=${i}>${t}</option>`).join('')}</select>`;
+  app(`<div class=top><button class=back onclick="settings()">←</button><b>Sugerencias</b></div>
+    <p class=mut>Rellena lo que sepas; solo «qué ha pasado» es obligatorio. Se añaden solos la versión y los datos del móvil.</p>
+    <h2>¿Qué tipo de problema?</h2>${sel('sugq', SUG_QUE, 'Elige…')}
+    <h2>¿Dónde ocurre?</h2>${sel('sugp', SUG_DONDE, 'Elige la parte de la app…')}
+    <input id=sugd placeholder="Detalle: palabra, lectura, número de pregunta…" aria-label="Detalle" style="width:100%;margin-top:.5rem">
+    <h2>¿Qué ha pasado?</h2><textarea id=sugt rows=4 placeholder="Describe lo que viste, con los pasos si puedes" aria-label="Qué ha pasado" style="width:100%"></textarea>
+    <h2>¿Qué esperabas?</h2><textarea id=sugx rows=2 placeholder="Lo que debería pasar (opcional)" aria-label="Qué esperabas" style="width:100%"></textarea>
+    <h2>¿Se repite?</h2>${sel('sugv', SUG_VEZ, 'No lo sé')}
+    <p><button class="chip on" onclick="sugGuardar()">Guardar</button></p>
+    <h2>Mis sugerencias</h2>${l.length ? `<button class=chip onclick="sugEnviar()">Enviar todas</button>` + l.map((s, i) => `<div class=fb><b>${esc(s.q || 'Sugerencia')}</b><br><span class=mut>${s.d} · ${esc(s.p || 'sin lugar')}${s.w ? ' · ' + esc(s.w) : ''}${s.r ? ' · ' + esc(s.r) : ''}</span><br>${esc(s.t)}${s.x ? '<br><i>Esperaba: ' + esc(s.x) + '</i>' : ''} <button class=chip onclick="S.sug.splice(${i}, 1); save(); sugerencias()" aria-label="Borrar">✕</button></div>`).join('') : '<p class=mut>Aún no hay ninguna.</p>'}`);
+}
+const sugV = (id, a) => $('#' + id).value === '' ? '' : a[$('#' + id).value];
+function sugGuardar() {
+  const t = $('#sugt').value.trim(); if (!t) { $('#sugt').focus(); return; }
+  (S.sug = S.sug || []).push({ q: sugV('sugq', SUG_QUE), p: sugV('sugp', SUG_DONDE), w: $('#sugd').value.trim(), t, x: $('#sugx').value.trim(), r: sugV('sugv', SUG_VEZ), d: day(new Date()),
+    e: `${APP_V}, ${innerWidth}x${innerHeight}, tema ${S.set.theme}, letra ${S.set.size}%, ${navigator.onLine ? 'con' : 'sin'} conexión, ${navigator.userAgent.replace(/^Mozilla\/5\.0 /, '')}` });
+  save(); sugerencias();
+}
+function sugEnviar() {
+  const txt = 'Sugerencias HSK Viju\n\n' + S.sug.map((s, i) => `${i + 1}. [${s.q || 'Sugerencia'}] ${s.p || ''}${s.w ? ' · ' + s.w : ''}\n${s.t}${s.x ? '\nEsperaba: ' + s.x : ''}${s.r ? '\nSe repite: ' + s.r : ''}\n(${s.d}; ${s.e})`).join('\n\n');
+  if (navigator.share) navigator.share({ text: txt }).catch(() => {}); else { try { navigator.clipboard.writeText(txt); } catch {} alert('Copiadas: pégalas en un mensaje.'); }
 }
 // recordatorio diario: evento .ics que se repite cada día con alarma; hora local del dispositivo (iCalendar exige saltos CRLF)
 function recordatorio() {

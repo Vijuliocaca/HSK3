@@ -8,7 +8,7 @@ const PREPARAR = `
   S.gram[GR[0].t] = 80; S.gram[GR[1].t] = 40; S.listas = { 'Mi lista': [W[0].h, W[1].h, W[2].h] };
   S.exam = { d: dia(20) }; S.exams.push({ d: '2026-01-01', lv: 1, s: [70, 70, 70] }); S.dial = {}; S.lect = {};`;
 const PANTALLAS = [
-  ['inicio', 'home()'], ['hoy', 'today()'], ['progreso', 'stats()'], ['logros', 'logros()'], ['ajustes', 'settings()'],
+  ['inicio', 'home()'], ['hoy', 'today()'], ['progreso', 'stats()'], ['logros', 'logros()'], ['ajustes', 'settings()'], ['sugerencias', 'sugerencias()'],
   ['examen (menú)', 'examMenu()'], ['lecciones', 'lessons()'], ['vocabulario', "list('all')"], ['estudiadas', "list('done')"],
   ['temas', 'temas()'], ['un tema', 'tema(0)'], ['gramática', 'gramatica()'], ['punto de gramática', 'gram(0)'],
   ['canciones', 'canciones()'], ['top 10 canciones', 'top10()'], ['top 10 películas', "cultura('pelis')"], ['top 10 series', "cultura('series')"], ['top 10 platos', "cultura('platos')"],

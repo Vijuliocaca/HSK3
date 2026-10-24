@@ -28,11 +28,9 @@ t('lectura abierta directamente desde otra pantalla: atrás también lleva a la 
 t('preguntas de una lectura: atrás lleva a la lista de lecturas', () => {
   a.ev('home()'); a.ev('lecturas()'); a.ev('lectura(0, 4)'); a.ev('lectQ(0)'); assert(a.atras()); assert(enLista(a), 'desde las preguntas atrás debe llevar a la lista de lecturas'); assert(a.atras()); assert(esInicio(a));
 });
-t('diálogo: preguntas → diálogo → lista de diálogos → inicio', () => {
-  a.ev('home()'); a.ev('dialogos()'); a.ev('dialogo(0)'); a.ev('dialQ(0)');
-  assert(a.atras()); assert(a.html().includes('Preguntas de comprensión'), 'de las preguntas debe volver al diálogo');
-  assert(a.atras()); assert(a.html().includes('<b>Diálogos</b>'), 'del diálogo debe volver a la lista de diálogos');
-  assert(a.atras()); assert(esInicio(a)); assert.strictEqual(a.entradas(), 1);
+t('diálogo: preguntas → lista de diálogos → inicio', () => {
+  a.ev('home()'); a.ev('dialogos()'); a.ev('lectura(LECT.findIndex(d => d.dl), 2)'); assert(a.atras()); assert(a.html().includes('<b>Diálogos</b>'), 'del diálogo debe volver a la lista de diálogos');
+  a.ev('lectQ(LECT.findIndex(d => d.dl))'); assert(a.atras()); assert(a.html().includes('<b>Diálogos</b>'), 'de las preguntas debe volver a la lista de diálogos'); assert(a.atras()); assert(esInicio(a)); assert.strictEqual(a.entradas(), 1);
 });
 t('gramática: ejercicio → punto → lista de gramática → inicio', () => {
   a.ev('home()'); a.ev('gramatica()'); a.ev('gram(0)'); a.ev('gramEx(0)');

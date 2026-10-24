@@ -67,10 +67,11 @@ t('canciones: letra con pinyin correcto y melodías con una línea por verso', (
 }));
 
 // --- contenido de las pantallas nuevas ---
-t('diálogos: dos hablantes alternos (A/B o nombres), 4 campos, pinyin correcto, preguntas con 3-4 opciones distintas, al menos 4 por nivel', () => {
-  const D = ev('self.DIALS'), porNivel = {};
-  D.forEach(([lv, ti, ls, qs]) => { porNivel[lv] = (porNivel[lv] || 0) + 1; const nombres = [];
-    lineas(ls).forEach((l, j) => { const p = l.split('|'); assert(p.length == 4 && p[0] == (nombres[j % 2] = nombres[j % 2] || p[0]) && (j < 2 || nombres[0] != nombres[1]), `${ti} línea ${j}`); assert(coincide(p[1], p[2]), `${ti}: ${p[1]}`); });
+t('diálogos: dos personajes que existen alternan (id de personajes.js), 4 campos, pinyin correcto, preguntas con 3-4 opciones distintas, al menos 4 por nivel', () => {
+  const D = ev('self.DIALS'), P = ev('self.PERSONAJES'), vozN = id => P[id].voz.n, porNivel = {}, titulos = new Set(ev('self.LECTS').map(x => x[1]));
+  D.forEach(([lv, ti, ls, qs]) => { porNivel[lv] = (porNivel[lv] || 0) + 1; const nombres = []; assert(!titulos.has(ti), ti + ': el título se repite en una lectura (el progreso se guarda por título)'); titulos.add(ti);
+    lineas(ls).forEach((l, j) => { const p = l.split('|'); assert(p.length == 4 && p[0] == (nombres[j % 2] = nombres[j % 2] || p[0]) && (j < 2 || nombres[0] != nombres[1]), `${ti} línea ${j}`); assert(coincide(p[1], p[2]), `${ti}: ${p[1]}`); assert(P[p[0]], `${ti}: el personaje «${p[0]}» no existe`); });
+    assert(vozN(nombres[0]) % 2 != vozN(nombres[1]) % 2 || nombres.join() == 'chana,chiki', `${ti}: ${nombres} deben llevar n de distinta paridad (chana y chiki, el único par de dos con la misma, ya existía)`);
     lineas(qs).forEach(q => { const f = q.split('|'); assert(f.length >= 3 && new Set(f.slice(1)).size == f.length - 1, `${ti}: pregunta ${f[0]}`); }); });
   for (let lv = 1; lv <= 8; lv++) assert(porNivel[lv] >= 4, 'cada nivel necesita al menos 4 diálogos: HSK ' + lv);
 });

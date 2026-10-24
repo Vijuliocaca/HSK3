@@ -46,7 +46,7 @@ const ok = (cond, msg) => { if (!cond) { problemas++; console.log('  ✗', msg);
       await ev(`${abre}(${i})`); await esp(80); await ev("document.querySelector('.top .back').click()"); await esp(150); ok(Math.abs((await ev('scrollY')) - y0) < 3, `${lista}: con el botón ← / ✕ de la pantalla debe volver a la altura ${y0} (está en ${await ev('scrollY')})`);
       await ev('home()'); await esp(60); await ev(lista + '()'); await esp(80); ok((await ev('scrollY')) == 0, `${lista}: tras pasar por el inicio debe empezar arriba otra vez`);
     };
-    await alto('lecturas', 'lectura', 30); await alto('dialogos', 'dialogo', 12);
+    await alto('lecturas', 'lectura', 30); await alto('dialogos', 'lectura', (await ev('LECT.findIndex(d => d.dl)')) + 12);
     await ev('home()'); await esp(60); await ev('lecturas()'); await esp(80); await ev('scrollTo(0, 900)'); await esp(50); const y1 = await ev('scrollY'); await ev("setLect('lpy')"); await esp(80); ok(Math.abs((await ev('scrollY')) - y1) < 3, 'al cambiar «Con pinyin» la lista no debe saltar arriba'); await ev("setLect('lpy')");
   } catch (e) { problemas++; console.log('  ✗ error en la prueba:', e.message); }
   await b.cerrar();

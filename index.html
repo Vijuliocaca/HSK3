@@ -40,7 +40,7 @@
 .yo{display:flex;flex-direction:column;align-items:center;gap:.25rem;flex:none}
 .avatar{display:grid;place-items:center;width:4.8rem;height:4.8rem;padding:0;border-radius:50%;border:3px solid var(--gold);background:var(--card);overflow:hidden;cursor:pointer;transition:box-shadow .15s,border-color .15s,transform .1s;-webkit-tap-highlight-color:transparent;touch-action:manipulation}.avatar svg{display:block;width:100%;height:100%}.avatar:active{transform:scale(.95)}.avatar:focus-visible{outline-offset:4px}
 .avatar .ojos,.avatar .boca{transform-box:fill-box;transform-origin:center}.avatar .ojos{animation:parpadeo 4.6s infinite}.avatar .boca{transform-origin:50% 0}.avatar.habla .boca{animation:hablar .28s ease-in-out infinite alternate}@keyframes parpadeo{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}@keyframes hablar{from{transform:scaleY(.25)}to{transform:scaleY(1.35)}}@media(prefers-reduced-motion:reduce){.avatar .ojos,.avatar.habla .boca{animation:none}}.sw{width:2.2rem;height:2.2rem;min-height:0;padding:0;border-radius:50%;border:2px solid var(--line,#bbb);font-size:var(--fs-sm)}.sw[aria-pressed=true]{border-color:var(--gold);box-shadow:0 0 0 3px rgba(184,137,43,.45)}.edf{display:flex;flex-wrap:wrap;gap:.4rem;margin:.3rem 0 .8rem}input[type=color].sw{padding:0;background:none;cursor:pointer}.pt{display:inline-block;width:1rem;height:1rem;border-radius:50%;border:1px solid var(--bd);vertical-align:middle}.edhead{position:sticky;top:0;z-index:4;background:var(--bg);padding:.4rem 8px;border-bottom:1px solid var(--bd);margin:0 -8px .6rem}.edtop{display:flex;gap:.8rem;align-items:center}.edcol{flex:1;min-width:0}.edcol input{width:100%;box-sizing:border-box}.edcol .edf{margin:.4rem 0 0}.edcol .chip{padding:.35rem .6rem;min-height:0}.edcol .chip:disabled{opacity:.4}.edtabs{display:flex;gap:.3rem;overflow-x:auto;margin-top:.5rem;padding-bottom:.2rem}.edtabs .chip{flex:none}.edh{margin-top:.2rem}.aspg{display:grid;grid-template-columns:auto 1fr;gap:.2rem .9rem;margin:.6rem 0}.avs{display:flex;gap:.6rem;flex:none}.cab.dos{flex-wrap:wrap;margin-bottom:.6rem}.cab.dos .cabt{flex:1 0 100%;padding-top:0}.cab.dos .avs{flex:1 0 100%;justify-content:space-between;margin-top:.6rem}.cab.dos .avatar{width:4.2rem;height:4.2rem}
-.conv[data-dos] .b{margin-right:1.4rem;border-radius:4px 18px 18px 18px}.conv[data-dos] .b.q2{margin-right:0;margin-left:1.4rem;border-radius:18px 4px 18px 18px}.quien{font:600 var(--fs-sm) var(--title);color:var(--gold-tx);letter-spacing:.04em;margin-bottom:.1rem}.b.q2 .quien{text-align:right}
+.conv[data-dos] .b{margin-right:1.4rem;border-radius:4px 18px 18px 18px}.conv[data-dos] .b.q2{margin-right:0;margin-left:1.4rem;border-radius:18px 4px 18px 18px}.quien{font:600 var(--fs-sm) var(--title);color:var(--gold-tx);letter-spacing:.04em;margin-bottom:.1rem;overflow-wrap:anywhere}.b.q2 .quien{text-align:right}
 .avatar .cejas{transform-box:fill-box;transform-origin:center;transition:transform .2s}.avatar .boca{transition:scale .2s}
 .avatar.pregunta .cejas{transform:translateY(-1.6px)}.avatar.pregunta .boca{scale:.65}.avatar.alegre .cejas{transform:translateY(-1.2px)}.avatar.alegre .boca{scale:1.3 1.15}.avatar.triste .cejas{transform:translateY(-.7px)}.avatar.triste .boca{scale:1 -.7}.avatar.enfado .cejas{transform:translateY(1.4px)}.avatar.enfado .boca{scale:.9 -.45}.avatar.susto .cejas{transform:translateY(-1.8px)}.avatar.susto .boca{scale:.5 1.4}.avatar.cansado .cejas{transform:translateY(.7px)}.avatar.cansado .boca{scale:.6 .4}.avatar.feliz .boca{scale:1.4 .9}.avatar.feliz .cejas{transform:translateY(-.8px)}
 #fi{position:absolute;z-index:20;left:0;top:0}#fi:empty{display:none}
@@ -311,7 +311,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
 const vSW = t => (/const V = '([^']+)'/.exec(t) || [])[1]; // la versión que declara un sw.js
-const APP_V = 'hsk3-v190'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v193'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -453,7 +453,10 @@ applySet();
 const KEYED = ['w', 'known', 'star'], HID = new Map(W.map(w => [w.h, w.id]));
 if (S.v == 2) { S.orph = {}; KEYED.forEach(f => { const o = {}; for (const [h, v] of Object.entries(S[f])) HID.has(h) ? o[HID.get(h)] = v : (S.orph[f] = S.orph[f] || {})[h] = v; S[f] = o; }); }
 const toDisk = () => { const o = { ...S, v: 2 }; KEYED.forEach(f => { o[f] = { ...S.orph?.[f], ...Object.fromEntries(Object.entries(S[f]).map(([i, v]) => [W[i].h, v])) }; }); delete o.orph; return JSON.stringify(o); };
-const save = () => { try { localStorage.hsk3 = toDisk(); } catch {} };
+let ST = 0; // guardado aplazado: serializar todo el progreso cuesta ~50 ms (más en el móvil), así que las respuestas lo agrupan; al salir de la app se fuerza
+const save = () => { clearTimeout(ST); ST = 0; try { localStorage.hsk3 = toDisk(); } catch {} };
+const pronto = () => { clearTimeout(ST); ST = setTimeout(save, 500); };
+addEventListener('pagehide', () => { if (ST) save(); }); document.addEventListener('visibilitychange', () => { if (ST && document.hidden) save(); });
 if (S.packs) { W.forEach(w => { if (S.packs[w.pk0]) S.known[w.id] = 1; }); delete S.packs; save(); } // migra las lecciones antiguas a palabras estudiadas
 const day = d => d.toLocaleDateString('sv');
 const DAYS = [0, 1, 3, 7, 14, 30]; // repeticion espaciada: dias hasta el siguiente repaso por caja
@@ -487,7 +490,7 @@ function grade(id, ok, niv, prod) { // niv (solo en las tarjetas): 'dificil' cre
   r.b = cajaDe(r.s); r.l = ahora; r.t = t;
   if (prod != null) { const k = (prod ? 'p' : 'c') + (ok ? 'o' : 'f'); r[k] = (r[k] || 0) + 1; }
   S.w[id] = r;
-  tick(ok); save();
+  tick(ok); pronto();
 }
 function tick(ok) { // cuenta una respuesta para la meta, la racha y las estadísticas
   const t = day(new Date()), h = S.hist[t] = S.hist[t] || { n: 0, ok: 0 }; h.n++; if (ok) h.ok++;
@@ -689,8 +692,8 @@ const LOGROS = [ // [icono, nombre, valor, [bronce, plata, oro], unidad]
   ['calendar-check', 'Semanas con meta', () => Object.values(semanas()).filter(n => n >= SEMANA_OK).length, [1, 4, 12], 'semanas'],
   ['clipboard-check', 'Exámenes aprobados', () => S.exams.filter(e => e.s[0] + e.s[1] + e.s[2] >= 180).length, [1, 3, 5], 'exámenes'],
   ['puzzle', 'Gramática practicada', () => Object.keys(S.gram).length, [10, 40, 100], 'puntos'],
-  ['messages-square', 'Diálogos al 100 %', () => DIAL.filter(d => S.dial?.[d.t] == d.qs.length).length, [3, 10, 20], 'diálogos'],
-  ['book-open-text', 'Lecturas al 100 %', () => LECT.filter(d => S.lect?.[d.t] == d.qs.length).length, [3, 10, 20], 'lecturas'],
+  ['messages-square', 'Diálogos al 100 %', () => LECT.filter(d => d.dl && S.lect?.[d.t] == d.qs.length).length, [3, 10, 20], 'diálogos'],
+  ['book-open-text', 'Lecturas al 100 %', () => LECT.filter(d => !d.dl && S.lect?.[d.t] == d.qs.length).length, [3, 10, 20], 'lecturas'],
 ];
 // insignia por personaje: se gana al sacar el 100 % en todas las lecturas que cuenta
 function insigniasPers() {
@@ -838,7 +841,7 @@ async function importar(f) {
     const d = JSON.parse(await f.text());
     if (!d || typeof d != 'object' || !d.w || !d.known || !d.lv) throw 0;
     window.IMP = d;
-    $('#impmsg').innerHTML = '<div class="fb b">Esto sustituye tu progreso actual por el del archivo.<div class=row style="margin-top:.5rem"><button class="chip on" onclick="localStorage.hsk3 = JSON.stringify(IMP); location.reload()">Sustituir mi progreso</button><button class=chip onclick="$(\'#impmsg\').innerHTML = \'\'">Cancelar</button></div></div>';
+    $('#impmsg').innerHTML = '<div class="fb b">Esto sustituye tu progreso actual por el del archivo.<div class=row style="margin-top:.5rem"><button class="chip on" onclick="clearTimeout(ST); ST = 0; localStorage.hsk3 = JSON.stringify(IMP); location.reload()">Sustituir mi progreso</button><button class=chip onclick="$(\'#impmsg\').innerHTML = \'\'">Cancelar</button></div></div>';
   } catch { $('#impmsg').innerHTML = '<div class="fb b">El archivo no es una copia de seguridad válida.</div>'; }
 }
 
@@ -1381,50 +1384,30 @@ function tonosQ() {
   step();
 }
 
-// diálogos: A y B se alternan; S.dial guarda por título el mejor resultado (no por posición)
-const DIAL = (self.DIALS || []).map(([lv, t, ls, qs]) => ({ lv, t, ls: ls.split('\n').map(l => l.split('|')), qs: qs.split('\n').map(l => l.split('|')) }));
-function dialogos() {
-  S.dial = S.dial || {}; try { speechSynthesis.cancel(); } catch {}
-  const hecho = d => S.dial[d.t] == null ? '' : S.dial[d.t] == d.qs.length ? ' ✓' : ` · mejor ${S.dial[d.t]}/${d.qs.length}`;
-  app(`<div class=top><button class=back onclick="home()">←</button><b>Diálogos</b></div>` + LEVELS.filter(lv => DIAL.some(d => d.lv == lv)).map(lv => `<h2>HSK ${lv}</h2><div class=list>${DIAL.map((d, i) => d.lv == lv ? `<button class=mode onclick="dialogo(${i})"><span class=e>${d.t.split(' ')[0]}</span><span><b>${d.t.slice(d.t.indexOf(' ') + 1)}</b><small>${d.ls.length} líneas${hecho(d)}</small></span></button>` : '').join('')}</div>`).join(''), 'home');
-}
-function sayAll(i) { // una voz grave para A y una aguda para B
-  try { speechSynthesis.cancel(); DIAL[i].ls.forEach(([, z], j) => { const u = new SpeechSynthesisUtterance(z); u.lang = 'zh-CN'; u.rate = S.set.rate; u.pitch = j % 2 ? 1.35 : .85; speechSynthesis.speak(u); }); } catch {}
-}
-function dialogo(i) {
-  const d = DIAL[i];
-  app(`<div class=top><button class=back onclick="dialogos()">←</button><b>${d.t}</b></div>
-    <div class=row><button class=chip onclick="sayAll(${i})">🔊 Escuchar todo</button><button class="chip on" onclick="this.classList.toggle('on');$('#dl').classList.toggle('np')">Pinyin</button><button class="chip on" onclick="this.classList.toggle('on');$('#dl').classList.toggle('ne')">Español</button></div>
-    <div id=dl>${d.ls.map(([w, z, p, e], j) => `<div class=ex onclick="say(DIAL[${i}].ls[${j}][1])"><div class=zh><b>${w}</b>${z} 🔊</div><div class=p2>${pc(p)}</div><div class=mut>${e}</div></div>`).join('')}</div>
-    <button class=main style="margin-top:1rem" onclick="dialQ(${i})">Preguntas de comprensión</button>`, 'home');
-  sayAll(i);
-}
-
-// cuestionario de los diálogos (k = 'dial'); el mejor resultado se guarda en S[k] por título
-const KIND = { dial: { L: () => DIAL, q: 'dialQ', one: 'dialogo', all: 'dialogos', say: 'sayAll', n: 'diálogo', m: 'Más diálogos' } };
-const dialQ = i => quiz('dial', i);
-function quiz(k, i) {
-  const K = KIND[k], d = K.L()[i]; let n = 0, ok = 0; try { speechSynthesis.cancel(); } catch {}
-  const step = () => {
-    if (n >= d.qs.length) {
-      S[k] = S[k] || {}; S[k][d.t] = Math.max(S[k][d.t] || 0, ok); save(); const texto = (d.ls || []).map(l => l[1]).join(''), fresco = suave(seen().filter(w => [...w.h].length > 1 && texto.includes(w.h)).map(w => w.h), ok, d.qs.length);
-      return app(`<h1><span class=seal>${ico('check')}</span>¡Hecho!</h1><p style="font-size:1.4rem">${ok}/${d.qs.length} aciertos</p>${nSuave(fresco)}<button class=main onclick="${K.q}(${i})">Repetir</button><button class=opt style="margin-top:.5rem" onclick="${K.one}(${i})">Volver al ${K.n}</button><button class=opt style="margin-top:.5rem" onclick="${K.all}()">${K.m}</button>`);
-    }
-    const [q, ...r] = d.qs[n], right = { t: r[0] };
-    app(`<div class=play><div class=top><button class=back onclick="${K.one}(${i})">✕</button><div class=bar><i style="width:${n / d.qs.length * 100}%"></i></div></div><div id=q></div><div id=fb></div></div>`);
-    const el = $('#q'); el.innerHTML = `<div class=prompt><b>${q}</b><button class=chip style="margin-top:.6rem" onclick="${K.say}(${i})">🔊 Oír otra vez</button></div>`;
-    opts(el, right, shuffle([right, ...r.slice(1).map(t => ({ t }))]), o => o.t, good => {
-      good && ok++;
-      $('#fb').innerHTML = `<div class="fb ${good ? 'g' : 'b'}">${good ? '✓ Correcto' : '✗ Era: ' + right.t}</div><button class=main id=nx>Siguiente</button>`;
-      $('#nx').onclick = () => { n++; step(); };
-    });
-  };
-  step();
-}
-
 // lecturas: cada frase va por palabras (/) alineada con su pinyin; se toca una palabra para ver su ficha
 const LECT = (self.LECTS || []).map(([lv, t, ls, qs, , p]) => ({ lv, t, p, ls: ls.split('\n').map(l => { const [z, p, e, q] = l.split('|'); return { z: z.split('/'), p: p.split(' '), e, q: q == '2' ? 1 : 0 }; }), qs: qs.split('\n').map(l => { const [t, q, ...r] = l.split('|'); return t == 'z' || t == 'f' ? { t, k: +q - 1 } : { t, q, r }; }) }));
 const GLOS = Object.fromEntries((self.LECTS || []).flatMap(x => x[4].split('\n').filter(Boolean).map(l => l.split('|')))), LPUNT = /[，。！？、：；“”,.!?:;]/g;
+// diálogos: son conversaciones de dos personajes (dialogos*.js) y se convierten al formato de las lecturas para usar su mismo reproductor, con avatares, voces, ayudas y preguntas.
+// El hablante de cada línea es el id del personaje (alternan). Las palabras salen del pinyin (cada grupo de sílabas separado por espacios es una palabra); a las preguntas de los datos
+// se suman «z» y «f» con frases del propio diálogo. El mejor resultado se guarda en S.lect, como el de las lecturas.
+Object.assign(GLOS, Object.fromEntries((self.DIALGLOS || '').split('\n').filter(Boolean).map(l => l.split('|'))));
+const esHan = c => /[㐀-鿿]/.test(c), conocidas = new Set([...W.map(w => w.h), ...Object.keys(GLOS)]);
+function palabrasDe(z, py) { // palabras = la coincidencia más larga con el vocabulario o el glosario (si no, un carácter); el pinyin se reparte por sílabas y la puntuación va con la palabra anterior
+  const cs = [...z], sil = [...py.matchAll(SYL)], hz = [], pys = []; let i = 0, s = 0;
+  while (i < cs.length) {
+    if (!esHan(cs[i])) { if (hz.length) hz[hz.length - 1] += cs[i]; else hz.push(cs[i]); i++; continue; }
+    let n = 1; for (let m = Math.min(6, cs.length - i); m > 1; m--) { const w = cs.slice(i, i + m); if (w.every(esHan) && conocidas.has(w.join(''))) { n = m; break; } }
+    hz.push(cs.slice(i, i + n).join('')); i += n;
+  }
+  hz.forEach(w => { const n = [...w].filter(esHan).length, ini = sil[s].index; s += n; pys.push(py.slice(ini, sil[s] ? sil[s].index : py.length).replace(/\s+/g, '').replace(/'$/, '')); });
+  return { z: hz, p: pys };
+}
+(self.DIALS || []).forEach(([lv, t, ls, qs]) => {
+  const L = ls.split('\n').map(l => l.split('|')), ls2 = L.map(([, z, p, e], j) => ({ ...palabrasDe(z, p), e, q: j % 2 })), largo = k => ls2[k].z.join('').length;
+  const orden = ls2.map((_, k) => k).sort((a, b) => largo(b) - largo(a)), fk = orden.find(k => ls2[k].z.length >= 4 && ls2[k].z.length <= 9) ?? [...orden].sort((a, b) => ls2[a].z.length - ls2[b].z.length)[0], zk = orden.filter(k => k != fk)[Math.floor((orden.length - 2) / 2)]; // la de en medio por longitud: la correcta no destaca
+  LECT.push({ lv, t, dl: 1, p: L[0][0] + '+' + L[1][0], ls: ls2, qs: [...qs.split('\n').map(l => { const [q, ...r] = l.split('|'); return { t: 'o', q, r }; }), { t: 'z', k: zk }, { t: 'f', k: fk }] });
+});
+S.dial && Object.entries(S.dial).forEach(([t, n]) => { S.lect = S.lect || {}; if (S.lect[t] == null) S.lect[t] = n; }); // resultados guardados cuando los diálogos tenían su propio cuestionario
 // avatares: se dibujan en SVG a partir de los datos de personajes.js (piel, pelo y su estilo, ropa, fondo, gafas, corbata)
 const PERS = self.PERSONAJES || {};
 const PERS0 = JSON.parse(JSON.stringify(PERS)); // el original de personajes.js, para «Restablecer»
@@ -1649,15 +1632,17 @@ function avatarSVG(p) {
     ${p.bigote ? `<path d="M27 33q2.5-2 5-.4 2.5-1.6 5 .4-2.5 1.6-5 .3-2.5 1.2-5-.3z" fill="${p.pelo}"/>` : ''}${p.perilla ? `<path d="M29.2 37q2.8 5 5.6 0-2.8 1.3-5.6 0z" fill="${p.pelo}"/>` : ''}
     ${p.gorro ? `<path d="M20.5 23.5a11.5 11.5 0 0 1 23 0z" fill="${p.gorro}"/><rect x="19.5" y="20.5" width="25" height="4" rx="2" fill="${p.gorro}"/><circle cx="32" cy="10.5" r="2.4" fill="${p.gorro}"/>` : ''}${gorra}${extrasSVG(p.extra)}${adornoFiesta()}</g></svg>`;
 }
-const setLect = k => { S.set[k] = !S.set[k]; save(); const y = window.scrollY || 0; lecturas(); scrollTo(0, y); }; // pinyin / español: un solo ajuste para todas las lecturas
-function lecturas() {
-  S.lect = S.lect || {}; try { speechSynthesis.cancel(); } catch {}
+let LDL = false; // la lista abierta es la de diálogos
+const setLect = k => { S.set[k] = !S.set[k]; save(); const y = window.scrollY || 0; lecturas(LDL); scrollTo(0, y); }; // pinyin / español: un solo ajuste para todas las lecturas y diálogos
+const dialogos = () => lecturas(true), volverA = d => d.dl ? 'dialogos()' : 'lecturas()'; // los diálogos son lecturas de dos personajes: misma pantalla, otra lista
+function lecturas(dl) {
+  LDL = !!dl; S.lect = S.lect || {}; try { speechSynthesis.cancel(); } catch {}
   const hecho = d => S.lect[d.t] == null ? '' : S.lect[d.t] == d.qs.length ? ' ✓' : ` · mejor ${S.lect[d.t]}/${d.qs.length}`;
   const ayuda = (k, txt) => `<button class="chip ${S.set[k] ? 'on' : ''}" aria-pressed="${!!S.set[k]}" onclick="setLect('${k}')">${txt}</button>`;
-  app(`<div class=top><button class=back onclick="home()">←</button><b>Lecturas</b></div>
-    <p class=mut>Cada lectura te la cuenta un personaje, frase a frase. Elige qué ayudas ver mientras lees (valen para todas):</p>
+  app(`<div class=top><button class=back onclick="home()">←</button><b>${dl ? 'Diálogos' : 'Lecturas'}</b></div>
+    <p class=mut>${dl ? 'Cada diálogo lo mantienen dos personajes, frase a frase.' : 'Cada lectura te la cuenta un personaje, frase a frase.'} Elige qué ayudas ver mientras lees (valen para todas):</p>
     <div class="row ayudas" role=group aria-label="Ayudas de lectura">${ayuda('lpy', 'Con pinyin')}${ayuda('les', 'En español')}</div>`
-    + LEVELS.filter(lv => LECT.some(d => d.lv == lv)).map(lv => `<h2>HSK ${lv}</h2><div class=list>${LECT.map((d, i) => d.lv == lv ? `<button class=mode onclick="lectura(${i})"><span class=e>${d.t.split(' ')[0]}</span><span><b>${d.t.slice(d.t.indexOf(' ') + 1)}</b><small>${d.ls.length} frases${personas(d).length ? ' · ' + personas(d).map(p => p.n).join(' y ') : ''}${hecho(d)}</small></span></button>` : '').join('')}</div>`).join(''), 'home');
+    + LEVELS.filter(lv => LECT.some(d => d.lv == lv && !!d.dl == !!dl)).map(lv => `<h2>HSK ${lv}</h2><div class=list>${LECT.map((d, i) => d.lv == lv && !!d.dl == !!dl ? `<button class=mode onclick="lectura(${i})"><span class=e>${d.t.split(' ')[0]}</span><span><b>${d.t.slice(d.t.indexOf(' ') + 1)}</b><small>${d.ls.length} frases${personas(d).length ? ' · ' + personas(d).map(p => p.n).join(' y ') : ''}${hecho(d)}</small></span></button>` : '').join('')}</div>`).join(''), 'home');
 }
 function sayLect(i) {
   try { speechSynthesis.cancel(); LECT[i].ls.forEach(l => { const u = new SpeechSynthesisUtterance(l.z.join('')); u.lang = 'zh-CN'; u.rate = S.set.rate; speechSynthesis.speak(u); }); } catch {}
@@ -1881,7 +1866,7 @@ function lectura(i, j = 0) {
   pararHabla(); if (!j) TOC = new Set();
   const d = LECT[i], n = d.ls.length, ps = personas(d), dos = ps.length > 1, nom = ps.length ? ps.map(p => p.n).join(' y ') : 'el narrador';
   app(`<div class=lect onclick="cerrarFi(event)">
-    <div class=top><button class=back onclick="lecturas()">✕</button><div class=bar role=progressbar aria-label="Progreso de la lectura" aria-valuemin=1 aria-valuemax=${n}><i></i></div><span class=mut></span></div>
+    <div class=top><button class=back onclick="${volverA(d)}">✕</button><div class=bar role=progressbar aria-label="Progreso de la lectura" aria-valuemin=1 aria-valuemax=${n}><i></i></div><span class=mut></span></div>
     <div class="cab ${dos ?'dos' : ''}"><div class=cabt><p class=tit>${d.t}</p><p class=ayu>${dos ? 'Toca a una persona para oír su última frase' : `Toca a ${nom} para oír la última frase`} (o toda la lectura al terminar), una frase para oírla o una palabra para ver su ficha.</p></div>
       <div class=avs>${(ps.length ? ps : [null]).map((p, q) => `<div class=yo><button class=avatar id=av${q ? 2 : ''} onclick="oir(${i},${q})" aria-label="Escuchar con la voz de ${p ? p.n : nom}">${p ? avatarSVG(p) : AVATAR}</button>${p ? `<div class=nombre>${p.n}</div>` : ''}</div>`).join('')}</div></div>
     <div class="row seg" role=group aria-label="Velocidad de la voz" style="margin:.4rem 0">${[[.6, "Voz lenta"], [.8, "Voz normal"], [1, "Voz rápida"]].map(([v, t]) => `<button class="chip ${S.set.rate == v ? "on" : ""}" onclick="velLect(${v}, this)">${t}</button>`).join("")}</div>
@@ -1905,10 +1890,10 @@ function lectQ(i, desde = 0) {
   const step = () => {
     if (n >= d.qs.length) {
       S.lect = S.lect || {}; S.lect[d.t] = Math.max(S.lect[d.t] || 0, ok); const hoy = day(new Date()); S.lectD = { d: hoy, n: (S.lectD?.d == hoy ? S.lectD.n : 0) + 1 }; save(); const fresco = suave(d.ls.flatMap(l => l.z.map(z => z.replace(LPUNT, ''))), ok, d.qs.length);
-      return app(`<h1><span class=seal>${ico('check')}</span>¡Hecho!</h1><p style="font-size:1.4rem">${ok}/${d.qs.length} aciertos</p>${nSuave(fresco)}<div class=fin><button class=main onclick="lectQ(${i})">Repetir las preguntas</button>${TOC.size ? `<button class=opt onclick="session('mix', [...TOC].map(id => W[id]))">Repasar las ${TOC.size} palabras que tocaste</button>` : ''}<button class=opt onclick="lectura(${i})">Leer otra vez</button><button class=opt onclick="lecturas()">Más lecturas</button></div>`);
+      return app(`<h1><span class=seal>${ico('check')}</span>¡Hecho!</h1><p style="font-size:1.4rem">${ok}/${d.qs.length} aciertos</p>${nSuave(fresco)}<div class=fin><button class=main onclick="lectQ(${i})">Repetir las preguntas</button>${TOC.size ? `<button class=opt onclick="session('mix', [...TOC].map(id => W[id]))">Repasar las ${TOC.size} palabras que tocaste</button>` : ''}<button class=opt onclick="lectura(${i})">Leer otra vez</button><button class=opt onclick="${volverA(d)}">${d.dl ? 'Más diálogos' : 'Más lecturas'}</button></div>`);
     }
     const Q = d.qs[n];
-    app(`<div class=play><div class=top><button class=back onclick="lecturas()">✕</button><div class=bar><i style="width:${n / d.qs.length * 100}%"></i></div><span class=mut>${n + 1}/${d.qs.length}</span></div><div id=q></div><div id=fb></div></div>`);
+    app(`<div class=play><div class=top><button class=back onclick="${volverA(d)}">✕</button><div class=bar><i style="width:${n / d.qs.length * 100}%"></i></div><span class=mut>${n + 1}/${d.qs.length}</span></div><div id=q></div><div id=fb></div></div>`);
     const el = $('#q'), fin = (good, correcta) => {
       good && ok++;
       $('#fb').innerHTML = `<div class="fb ${good ? 'g' : 'b'}">${good ? '✓ Correcto' : '✗ ' + correcta}</div><button class=main id=nx>${n + 1 < d.qs.length ? 'Siguiente' : 'Ver resultado'}</button>`;

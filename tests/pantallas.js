@@ -297,6 +297,23 @@ t('aviso de copia: sale sin exportar, se calla al exportar o con «Más tarde»'
   a.ev('S.expZ = ""; S.exp = day(new Date())'); assert.strictEqual(a.ev('avisoCopia(40)'), '');
   a.ev('S.exp = day(new Date(Date.now() - 40 * 864e5))'); assert(/Hace 40 días/.test(a.ev('avisoCopia(40)')), 'no cuenta los días');
 });
+t('guardado: grade se aplaza y save() lo escribe de golpe', () => {
+  const a = cargarApp(); a.ev(PREPARAR); a.ev('grade(W[0].id, true)');
+  assert(!a.storage.hsk3 || !JSON.parse(a.storage.hsk3).hist || !Object.keys(JSON.parse(a.storage.hsk3).hist).length, 'grade guardó al instante');
+  a.ev('save()'); assert(Object.keys(JSON.parse(a.storage.hsk3).hist).length, 'save() no escribió');
+});
+
+// --- diálogos: son lecturas de dos personajes ---
+t('diálogos: cada uno se convierte en una conversación con sus personajes, palabras con significado y preguntas o/z/f', () => {
+  const a = cargarApp(), r = JSON.parse(a.ev(`JSON.stringify(LECT.filter(d => d.dl).map(d => ({ t: d.t, ps: personas(d).length, q: d.ls.map(l => l.q).join(''), sin: d.ls.flatMap(l => l.z.map(z => z.replace(LPUNT, ''))).filter(h => !byH.get(h) && !GLOS[h]), qs: d.qs.map(x => x.t).join(''), f: d.ls[d.qs.at(-1).k].z.length, z: d.qs.at(-2).k != d.qs.at(-1).k, n: d.ls.length })))`));
+  assert(r.length >= 35, 'faltan diálogos: ' + r.length);
+  r.forEach(d => { assert.strictEqual(d.ps, 2, d.t + ': deben hablar dos personajes'); assert(/^(01)+0?$/.test(d.q), d.t + ': las frases deben alternar'); assert.deepStrictEqual(d.sin, [], d.t + ': palabras sin significado (añádelas a DIALGLOS en dialogos9.js)'); assert(/^o+zf$/.test(d.qs), d.t); assert(d.f >= 4 && d.f <= 12 && d.z, d.t + ': frase de ordenar fuera de 4-12 palabras'); });
+  assert.strictEqual(new Set(r.map(d => d.t)).size, r.length, 'títulos repetidos');
+});
+t('diálogos: la lista de diálogos muestra solo diálogos y la de lecturas solo lecturas', () => {
+  const a = cargarApp(); a.ev('lecturas()'); const l = a.html(); a.ev('dialogos()'); const d = a.html();
+  assert(l.includes('<b>Lecturas</b>') && !l.includes('Presentarse') && l.includes('Mi gato'), 'lecturas mal'); assert(d.includes('<b>Diálogos</b>') && d.includes('Presentarse') && !d.includes('Mi gato'), 'diálogos mal');
+});
 
 console.log(fallos ? `pantallas: ${fallos} de ${total} pruebas fallan` : `pantallas: ${total} pruebas OK`);
 process.exit(fallos ? 1 : 0);

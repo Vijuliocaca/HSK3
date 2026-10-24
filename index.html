@@ -311,7 +311,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
 const vSW = t => (/const V = '([^']+)'/.exec(t) || [])[1]; // la versión que declara un sw.js
-const APP_V = 'hsk3-v189'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v190'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -476,7 +476,8 @@ const nSuave = c => c ? `<p class=mut>De paso has refrescado <b>${c}</b> ${c == 
 // con el examen a la vista, ninguna palabra espera más de ~1/4 del tiempo que falta (así se ve al menos 4 veces antes del examen)
 const tope = () => { const n = examDays(); return n != null && n > 0 ? Math.max(1, Math.ceil(n / 4)) : Infinity; };
 const venceEn = r => Math.min(r.d, ultimo(r) + tope() * DIA);
-function grade(id, ok, niv) { // niv (solo en las tarjetas): 'dificil' crece menos, 'facil' crece más; sin niv, como siempre
+const PROD = new Set(['write', 'hanzi', 'order', 'draw', 'cloze']); // modos que piden producir (escribir o elegir la forma); el resto, reconocer
+function grade(id, ok, niv, prod) { // niv (solo en las tarjetas): 'dificil' crece menos, 'facil' crece más; sin niv, como siempre. prod (true/false, solo en las sesiones): cuenta aparte producir (po/pf) y reconocer (co/cf)
   const t = day(new Date()), ahora = Date.now(), r = S.w[id] || { b: 0, d: 0 }, vista = !!S.w[id], s0 = vista ? estab(r) : 0, R = vista ? retencion(r, ahora) : 1;
   if (ok) {
     const g = 1.4 + 1.2 * ((r.o || 0) + 1) / ((r.o || 0) + (r.f || 0) + 2), k = Math.min(1.5, Math.max(.3, (1 - R) / .1)); // crecimiento base según lo bien que la sabes; repasar cuando R ya baja refuerza más
@@ -484,6 +485,7 @@ function grade(id, ok, niv) { // niv (solo en las tarjetas): 'dificil' crece men
     r.s = s0 ? Math.min(365, s0 * (1 + (g - 1) * k * m)) : niv == 'facil' ? 3 : 1; r.o = (r.o || 0) + 1; r.d = ahora + r.s * DIA;
   } else { r.s = Math.max(1, s0 * .3); r.f = (r.f || 0) + 1; r.d = ahora + DIA; }
   r.b = cajaDe(r.s); r.l = ahora; r.t = t;
+  if (prod != null) { const k = (prod ? 'p' : 'c') + (ok ? 'o' : 'f'); r[k] = (r[k] || 0) + 1; }
   S.w[id] = r;
   tick(ok); save();
 }
@@ -573,7 +575,7 @@ function home() {
   const hoy = S.hist[day(new Date())]?.n || 0, meta = S.set.goal;
   const vistas = W.filter(w => S.known[w.id]), domT = vistas.filter(w => (S.w[w.id]?.b || 0) >= 4).length;
   INICIO = true;
-  app(`<h1><span class=seal>学</span>HSK Viju<button class=gear onclick="list('all')" aria-label="Vocabulario">${ico('book-open')}</button><button class=gear onclick="settings()" aria-label="Ajustes">${ico('settings')}</button></h1><div class=mut>Preparación gratuita del examen</div>
+  app(`<h1><span class=seal>学</span>HSK Viju<button class=gear onclick="list('all')" aria-label="Buscar en el vocabulario">${ico('search')}</button><button class=gear onclick="settings()" aria-label="Ajustes">${ico('settings')}</button></h1><div class=mut>Preparación gratuita del examen</div>
   <div class=goal><span>Meta de hoy: <b>${Math.min(hoy, meta)}/${meta}</b>${hoy >= meta ? ' ✓' : ''}</span><div class=bar><i style="width:${Math.min(100, hoy / meta * 100)}%"></i></div></div>
   <div class=stats>
     <div class=stat><b class=fuego style="color:${streakOk && S.streak ? 'var(--act)' : 'var(--mut)'}">${ico('flame')}<span${(streakOk ? S.streak : 0) > 99 ? " class=m" : ""}>${streakOk ? S.streak : 0}</span></b><span class=mut>racha</span></div>
@@ -581,7 +583,7 @@ function home() {
     <div class=stat><b>${dom}</b><span class=mut>dominadas</span></div>
   </div>
   <div class=prog><i style="width:${all.length ? p.length / all.length * 100 : 0}%"></i></div>
-  ${examCard()}
+  ${examCard()}${avisoCopia(vistas.length)}
   <div class=row>${LEVELS.map(n => `<button class="chip ${S.lv.includes(n) ? 'on' : ''}" onclick="tog('lv',${n})">HSK ${n}</button>`).join('')}</div><div class=mut style="margin-top:.4rem">Cada HSK incluye el vocabulario de los anteriores.</div>
   <details class=resumen ${S.resOpen ? 'open' : ''} ontoggle="S.resOpen = this.open; save()"><summary>Resumen de palabras estudiadas</summary>
     ${LEVELS.map(l => { const ws = W.filter(w => w.l == l), n = ws.filter(w => S.known[w.id]).length; return `<div class=hbar><span>HSK ${l}</span><div class=bar><i style="width:${n / ws.length * 100}%"></i></div><b style="width:4.8rem">${n}/${ws.length}</b></div>`; }).join('')}
@@ -594,6 +596,12 @@ function home() {
   ${MODE_GROUPS.map(([g, t]) => `<h2>${t}</h2><div class=grid>${MODES.filter(m => m[4] == g).map(m => `<button class=mode onclick="go('${m[0]}')"><span class="e sg">${ico(m[1])}</span><span><b>${m[2]}</b><small>${m[0] == 'hard' ? hardList().length + ' palabras' : m[3]}</small></span></button>`).join('')}</div>`).join('')}
   ${daily()}
   <button class="mode" style="margin-top:1rem" onclick="personajes()"><span class="e sg">${ico('users')}</span><span><b>Personajes</b><small>Quién cuenta cada lectura y cómo se ve</small></span></button>`, 'home');
+}
+// aviso de copia de seguridad: con progreso (≥ 30 palabras) y sin exportar en 30 días; «Más tarde» lo calla una semana
+function avisoCopia(n) {
+  const t = day(new Date()); if (n < 30 || S.expZ > t) return '';
+  const dias = S.exp ? Math.round((new Date(t) - new Date(S.exp)) / DIA) : null; if (dias != null && dias < 30) return '';
+  return `<div class="fb b"><b>Haz una copia de seguridad</b><br>${dias == null ? 'Aún no has exportado tu progreso.' : `Hace ${dias} días de tu última copia.`} Si el navegador borra los datos, se perdería.<div class=row style="margin-top:.5rem"><button class="chip on" onclick="exportar(); home()">Exportar ahora</button><button class=chip onclick="S.expZ = day(new Date(Date.now() + 7 * 864e5)); save(); home()">Más tarde</button></div></div>`;
 }
 function tog(k, n) { // al elegir un HSK se marcan también los anteriores; tocar el más alto lo quita
   const mx = Math.max(...S.lv), top = n == mx && n > 1 ? n - 1 : n;
@@ -627,16 +635,25 @@ function curvaOlvido(rs, horiz, nEx) {
     ${ex ? `<path d="M${X(nEx)} 10V94" stroke="var(--act)" stroke-width="1.6"/><text x=${X(nEx)} y=8 text-anchor=${nEx > horiz * .8 ? 'end' : 'middle'} style="fill:var(--act)">examen ${Math.round(pts[nEx] * 100)} %</text>` : ''}
     <text x=30 y=110>hoy</text><text x=${X(horiz / 2)} y=110 text-anchor=middle>+${Math.round(horiz / 2)} d</text><text x=288 y=110 text-anchor=end>+${horiz} d</text></svg>`;
 }
+// plan del día: repasar lo pendiente, 5 palabras nuevas y una lectura (se cuentan con S.newD y S.lectD)
+const prodFlojas = () => seen().filter(w => { const r = S.w[w.id], n = r ? (r.po || 0) + (r.pf || 0) : 0; return n >= 3 && (r.pf || 0) / n >= .4; }).sort((a, b) => S.w[b.id].pf / (S.w[b.id].po + S.w[b.id].pf) - S.w[a.id].pf / (S.w[a.id].po + S.w[a.id].pf));
+function planHoy(d) {
+  const h = day(new Date()), nuevas = S.newD?.d == h ? S.newD.n : 0, lect = S.lectD?.d == h ? S.lectD.n : 0;
+  const pasos = [[!d.length, `Repasar lo pendiente${d.length ? ` (${d.length})` : ''}`, "session('mix')"], [nuevas >= 5, `Aprender 5 palabras nuevas (${Math.min(nuevas, 5)}/5)`, 'lessons()'], [lect >= 1, 'Leer una lectura', 'lecturas()']];
+  return `<h2>Plan de hoy</h2>${pasos.every(p => p[0]) ? '<p class=mut>✓ ¡Plan completo! Lo demás es extra.</p>' : ''}<div class=row>${pasos.map(([ok, t, f]) => `<button class="chip ${ok ? 'on' : ''}" onclick="${f}">${ok ? '✓ ' : ''}${t}</button>`).join('')}</div>`;
+}
 function today() {
   const d = due(), pl = seen(), rs = pl.map(w => S.w[w.id]).filter(Boolean), media = rs.length ? rs.reduce((s, r) => s + retencion(r), 0) / rs.length : null, fl = flojas(.8).length, nEx = examDays();
   const fc = [...Array(7)].map((_, k) => { const a = eod() + k * 864e5, b = a + 864e5; return pl.filter(w => { const r = S.w[w.id]; return r && venceEn(r) > a && venceEn(r) <= b; }).length; });
   const mx = Math.max(1, ...fc), DN = ['dom', 'lun', 'mar', 'mié', 'jue', 'vie', 'sáb'], horiz = nEx != null && nEx > 0 ? Math.min(90, Math.max(14, nEx + 3)) : 30;
-  app(`<h1>Hoy</h1><div class=mut>Repaso espaciado de lo que ya estudiaste</div>
+  const pf = prodFlojas();
+  app(`<h1>Hoy</h1><div class=mut>Repaso espaciado de lo que ya estudiaste</div>${planHoy(d)}
     <div class=stats><div class=stat><b>${d.length}</b><span class=mut>pendientes hoy</span></div><div class=stat><b>${pl.length - d.length}</b><span class=mut>al día</span></div>${media == null ? '' : `<div class=stat><b>${Math.round(media * 100)} %</b><span class=mut>retención</span></div>`}</div>
     ${!pl.length ? '<p class=mut>Aún no has estudiado ninguna lección.</p><button class=main onclick="lessons()">Ir a las lecciones</button>'
       : d.length ? `<button class=main style="margin-top:0" onclick="session('mix')">Empezar repaso (${Math.min(20, d.length)} palabras)</button><p class=mut>Empieza por las que estás a punto de olvidar y mezcla ejercicios según lo bien que sabes cada palabra.</p>`
       : '<div class=prompt><span class="hz hzi">' + ico('circle-check') + '</span>¡Todo repasado por hoy!<small>Vuelve mañana o aprende palabras nuevas.</small></div><button class=main onclick="lessons()">Aprender palabras nuevas</button>'}
     ${fl && !d.length ? `<button class=chip onclick="session('risk')">Reforzar las ${Math.min(20, fl)} más flojas (retención < 80 %)</button>` : ''}
+    ${pf.length >= 3 ? `<button class=chip onclick="session('write', prodFlojas())">Practicar a escribir: ${pf.length} palabras que reconoces pero te cuestan producir</button>` : ''}
     ${nEx != null && nEx > 0 ? `<p class=mut>Examen en <b>${nEx} ${nEx == 1 ? 'día' : 'días'}</b>: cada palabra se repasa al menos cada <b>${Math.min(tope(), 365)} ${tope() == 1 ? 'día' : 'días'}</b> para llegar con ella fresca.</p>` : ''}
     ${Object.keys(S.gram).length ? `<h2>Gramática</h2>${gramDue().length ? `<button class=main style="margin-top:0" onclick="gramRev()">Repasar gramática (${gramDue().length} ${gramDue().length == 1 ? 'punto' : 'puntos'})</button>` : '<p class=mut>✓ Gramática al día.</p>'}` : ''}
     <h2>Próximos 7 días</h2>
@@ -742,6 +759,7 @@ function stats() {
   const BN = ['Nueva', '1 día', '3 días', '1 semana', '2 semanas', 'Dominada'];
   app(`<h1>Progreso</h1><button class=chip onclick="logros()">Logros y medallas</button> <button class=chip onclick="compartir()">Compartir</button>
     <div class=stats><div class=stat><b>${tn ? Math.round(tok / tn * 100) : 0}%</b><span class=mut>aciertos</span></div><div class=stat><b>${dom}</b><span class=mut>dominadas</span></div><div class=stat><b>${Object.keys(S.hist).length}</b><span class=mut>días activos</span></div></div>
+    ${(() => { const t = k => W.reduce((s, w) => s + (S.w[w.id]?.[k] || 0), 0), c = [t('co'), t('cf')], p = [t('po'), t('pf')], f = a => a[0] + a[1] ? Math.round(a[0] / (a[0] + a[1]) * 100) + ' %' : '–'; return c[0] + c[1] + p[0] + p[1] ? `<p class=mut>Reconocer (elegir, escuchar, tarjetas): <b>${f(c)}</b> · Producir (escribir, hanzi, ordenar): <b>${f(p)}</b></p>` : ''; })()}
     <h2>Respuestas, últimos 14 días</h2>
     <svg viewBox="0 0 280 110" class=chart>${ds.map((d, i) => { const h = d.n / mx * 80, k = d.ok / mx * 80, x = i * 20 + 3; return `<rect x=${x} y=${90 - h} width=14 height=${h} rx=2 style="fill:var(--no);opacity:.35"/><rect x=${x} y=${90 - k} width=14 height=${k} rx=2 style="fill:var(--ok)"/>${d.n ? `<text x=${x + 7} y=${86 - h} text-anchor=middle>${d.n}</text>` : ''}<text x=${x + 7} y=104 text-anchor=middle>${d.l}</text>`; }).join('')}</svg>
     <h2>Calendario de actividad</h2>${heat()}
@@ -810,6 +828,7 @@ function recordatorio() {
   const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([ics], { type: 'text/calendar' })); a.download = 'recordatorio-hsk-viju.ics'; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1e4);
 }
 function exportar() {
+  S.exp = day(new Date()); save();
   const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([toDisk()], { type: 'application/json' }));
   a.download = 'hsk-viju-' + day(new Date()) + '.json'; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1e4);
 }
@@ -1116,9 +1135,18 @@ function retTxt(id) {
   const r = S.w[id]; if (!r) return S.known[id] ? 'Aún sin repasar: saldrá en tu repaso de hoy.' : ''; const R = Math.round(retencion(r) * 100), dias = Math.ceil((venceEn(r) - Date.now()) / DIA);
   return `Retención estimada <b>${R} %</b> · ${dias <= 0 ? 'toca repasarla hoy' : dias == 1 ? 'próximo repaso mañana' : 'próximo repaso en ' + dias + ' días'}`;
 }
+// pronunciación: reconocimiento de voz del navegador (zh-CN); solo da una pista, no cuenta para el repaso. Si no existe, el botón no sale.
+const SR = self.SpeechRecognition || self.webkitSpeechRecognition;
+function decir(id) {
+  const w = W[id], m = $('#dic'), r = new SR(), limpio = s => s.replace(/[\s，。！？、,.!?]/g, ''); r.lang = 'zh-CN'; r.maxAlternatives = 3;
+  m.innerHTML = '<p class=mut>Escuchando… di «' + w.h + '»</p>';
+  r.onresult = e => { const alts = [...e.results[0]].map(a => limpio(a.transcript)), ok = alts.some(a => a.includes(w.h)); m.innerHTML = `<div class="fb ${ok ? 'g' : 'b'}">${ok ? '✓ Te he entendido: ' + w.h : 'He oído «' + esc(alts[0]) + '». Prueba otra vez, despacio y marcando los tonos.'}</div>`; };
+  r.onerror = () => { m.innerHTML = '<p class=mut>No he podido escucharte (¿permiso del micrófono o sin conexión?).</p>'; };
+  try { r.start(); } catch { r.onerror(); }
+}
 function detail(id) {
   PREV = () => detail(id);
-  app(`<div class=top><button class=back onclick="${BACK}">←</button></div>${card(W[id])}<div class=row style="margin-top:.8rem"><button class=chip onclick="listaPicker(${id})">+ Listas</button></div>${retTxt(id) ? `<p class=mut id=rt>${retTxt(id)}</p>` : ''}<div class=row id=al></div>${rel(W[id])}`);
+  app(`<div class=top><button class=back onclick="${BACK}">←</button></div>${card(W[id])}<div class=row style="margin-top:.8rem"><button class=chip onclick="listaPicker(${id})">+ Listas</button>${SR ? `<button class=chip onclick="decir(${id})">🎤 Dila tú</button>` : ''}</div><div id=dic aria-live=polite></div>${retTxt(id) ? `<p class=mut id=rt>${retTxt(id)}</p>` : ''}<div class=row id=al></div>${rel(W[id])}`);
   say(W[id].h);
 }
 const loadHW = () => window.HanziWriter ? Promise.resolve() : new Promise((ok, no) => {
@@ -1317,8 +1345,9 @@ function session(mode, fixed) {
     if (i >= items.length) return summary(ok, items.length, bad, () => mode == 'mix' ? today() : session(mode, fixed));
     const w = items[i];
     app(`<div class=play><div class=top><button class=back onclick="home()">✕</button><div class=bar><i style="width:${i / items.length * 100}%"></i></div></div><div id=q></div><div id=fb></div></div>`);
-    Q[mix ? mixMode(w) : mode]($('#q'), w, (good, niv) => {
-      grade(w.id, good, niv); good ? ok++ : bad.push(w);
+    const m = mix ? mixMode(w) : mode;
+    Q[m]($('#q'), w, (good, niv) => {
+      grade(w.id, good, niv, PROD.has(m)); good ? ok++ : bad.push(w);
       const s = SENT[w.h];
       $('#fb').innerHTML = `<div class="fb ${good ? 'g' : 'b'}"><b style="font-size:1.4rem">${w.h}</b> ${pc(w.p)} — ${w.e} <button class=back onclick="say('${w.h}')">🔊</button>${s ? `<div class=mut style="margin-top:.3rem">${s[0]} · ${s[2]}</div>` : ''}</div><button class=main id=nx>Siguiente</button>`;
       $('#nx').onclick = () => { i++; step(); };
@@ -1875,7 +1904,7 @@ function lectQ(i, desde = 0) {
   const d = LECT[i]; let n = desde, ok = 0; try { speechSynthesis.cancel(); } catch {}
   const step = () => {
     if (n >= d.qs.length) {
-      S.lect = S.lect || {}; S.lect[d.t] = Math.max(S.lect[d.t] || 0, ok); save(); const fresco = suave(d.ls.flatMap(l => l.z.map(z => z.replace(LPUNT, ''))), ok, d.qs.length);
+      S.lect = S.lect || {}; S.lect[d.t] = Math.max(S.lect[d.t] || 0, ok); const hoy = day(new Date()); S.lectD = { d: hoy, n: (S.lectD?.d == hoy ? S.lectD.n : 0) + 1 }; save(); const fresco = suave(d.ls.flatMap(l => l.z.map(z => z.replace(LPUNT, ''))), ok, d.qs.length);
       return app(`<h1><span class=seal>${ico('check')}</span>¡Hecho!</h1><p style="font-size:1.4rem">${ok}/${d.qs.length} aciertos</p>${nSuave(fresco)}<div class=fin><button class=main onclick="lectQ(${i})">Repetir las preguntas</button>${TOC.size ? `<button class=opt onclick="session('mix', [...TOC].map(id => W[id]))">Repasar las ${TOC.size} palabras que tocaste</button>` : ''}<button class=opt onclick="lectura(${i})">Leer otra vez</button><button class=opt onclick="lecturas()">Más lecturas</button></div>`);
     }
     const Q = d.qs[n];
@@ -1967,7 +1996,7 @@ function list(f) {
   const chip = (k, t) => `<button class="chip ${LF == k ? 'on' : ''}" onclick="list('${k}')">${t}</button>`;
   const draw = q => {
     q = q.trim().toLowerCase(); const nq = nrm(q);
-    const hit = W.filter(w => sel(w) && pass(w) && (!q || w.h.includes(q) || (nq && nrm(w.p).includes(nq)) || w.e.toLowerCase().includes(q)));
+    const hit = W.filter(w => (sel(w) || q) && pass(w) && (!q || w.h.includes(q) || (nq && nrm(w.p).includes(nq)) || w.e.toLowerCase().includes(q)));
     $('#cnt').textContent = hit.length + (hit.length == 1 ? ' palabra' : ' palabras');
     $('#l').innerHTML = hit.slice(0, 300).map(row).join('') + (hit.length > 300 ? `<p class=mut style="text-align:center">Se muestran 300 de ${hit.length}: usa el buscador para encontrar más.</p>` : '') + (!hit.length ? '<p class=mut style="text-align:center">No hay palabras con este filtro.</p>' : '');
   };

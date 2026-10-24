@@ -280,5 +280,23 @@ t('lecturas: los resultados de la versión anterior se reinician una sola vez', 
   a.ev("S.lect['🐱 Mi gato'] = 4; save()"); assert.strictEqual(cargarApp({ storage: a.storage }).ev("S.lect['🐱 Mi gato']"), 4, 'borró también los resultados nuevos');
 });
 
+// --- plan del día, producir/reconocer, aviso de copia y buscador ---
+t('grade: cuenta aparte reconocer (co/cf) y producir (po/pf)', () => {
+  const a = cargarApp(); a.ev(PREPARAR); a.ev('grade(W[0].id, true, undefined, false); grade(W[0].id, false, undefined, true); grade(W[0].id, true)');
+  assert.strictEqual(a.ev('JSON.stringify([S.w[W[0].id].co, S.w[W[0].id].pf, S.w[W[0].id].po, S.w[W[0].id].cf])'), '[1,1,null,null]');
+});
+t('Hoy: muestra el plan y sube los pasos hechos; Progreso muestra reconocer/producir', () => {
+  const a = cargarApp(); a.ev(PREPARAR); a.ev('S.newD = { d: day(new Date()), n: 5 }; S.lectD = { d: day(new Date()), n: 1 }; grade(W[0].id, true, undefined, true); today()');
+  assert(/Plan de hoy/.test(a.html()) && /✓ Aprender 5/.test(a.html()) && /✓ Leer una lectura/.test(a.html()), 'plan mal');
+  a.ev('stats()'); assert(/Producir/.test(a.html()), 'sin reconocer/producir');
+});
+t('aviso de copia: sale sin exportar, se calla al exportar o con «Más tarde»', () => {
+  const a = cargarApp(); a.ev(PREPARAR); a.ev('W.slice(0, 40).forEach(w => S.known[w.id] = 1)');
+  assert(a.ev('avisoCopia(40)').includes('copia de seguridad'), 'no avisa'); assert.strictEqual(a.ev('avisoCopia(10)'), '');
+  a.ev('S.expZ = day(new Date(Date.now() + 864e5))'); assert.strictEqual(a.ev('avisoCopia(40)'), '');
+  a.ev('S.expZ = ""; S.exp = day(new Date())'); assert.strictEqual(a.ev('avisoCopia(40)'), '');
+  a.ev('S.exp = day(new Date(Date.now() - 40 * 864e5))'); assert(/Hace 40 días/.test(a.ev('avisoCopia(40)')), 'no cuenta los días');
+});
+
 console.log(fallos ? `pantallas: ${fallos} de ${total} pruebas fallan` : `pantallas: ${total} pruebas OK`);
 process.exit(fallos ? 1 : 0);

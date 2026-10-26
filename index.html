@@ -35,8 +35,8 @@
 @keyframes fade{from{opacity:0}}
 .sem{gap:.3rem}.sem .stat{flex:1 !important;padding:.5rem 0}.sem .stat b{font-size:var(--fs-lg)}
 .lect{position:relative;display:flex;flex-direction:column;min-height:calc(100vh - 28px);min-height:calc(100dvh - 28px)}
-.cab{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin:.2rem 0 .9rem}
-.cabt{flex:1;min-width:0;padding-top:.3rem}.cabt .tit{margin:0;font-weight:600}.cabt .ayu{margin:.35rem 0 0;font-size:var(--fs-sm);color:var(--mut);line-height:1.4}
+.cab{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:.5rem 1rem;margin:.2rem 0 .9rem}.cab.dos .cabt{flex-basis:100%}.avs{display:flex;align-items:center;gap:.6rem;margin-left:auto}.cab.dos .avs{margin:0 auto}.vel{display:flex;flex-direction:column;gap:.25rem}.vel .chip{padding:.3rem .55rem;font-size:var(--fs-sm);text-align:center}
+.cabt{flex:1 1 9rem;min-width:0;padding-top:.3rem}.cabt .tit{margin:0;font-weight:600}.cabt .ayu{margin:.35rem 0 0;font-size:var(--fs-sm);color:var(--mut);line-height:1.4}
 .yo{display:flex;flex-direction:column;align-items:center;gap:.25rem;flex:none}
 .avatar{display:grid;place-items:center;width:4.8rem;height:4.8rem;padding:0;border-radius:50%;border:3px solid var(--gold);background:var(--card);overflow:hidden;cursor:pointer;transition:box-shadow .15s,border-color .15s,transform .1s;-webkit-tap-highlight-color:transparent;touch-action:manipulation}.avatar svg{display:block;width:100%;height:100%}.avatar:active{transform:scale(.95)}.avatar:focus-visible{outline-offset:4px}
 .avatar .ojos,.avatar .boca{transform-box:fill-box;transform-origin:center}.avatar .ojos{animation:parpadeo 4.6s infinite}.avatar .boca{transform-origin:50% 0}.avatar.habla .boca{animation:hablar .28s ease-in-out infinite alternate}@keyframes parpadeo{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}@keyframes hablar{from{transform:scaleY(.25)}to{transform:scaleY(1.35)}}@media(prefers-reduced-motion:reduce){.avatar .ojos,.avatar.habla .boca{animation:none}}.sw{width:2.2rem;height:2.2rem;min-height:0;padding:0;border-radius:50%;border:2px solid var(--line,#bbb);font-size:var(--fs-sm)}.sw[aria-pressed=true]{border-color:var(--gold);box-shadow:0 0 0 3px rgba(184,137,43,.45)}.edf{display:flex;flex-wrap:wrap;gap:.4rem;margin:.3rem 0 .8rem}input[type=color].sw{padding:0;background:none;cursor:pointer}.pt{display:inline-block;width:1rem;height:1rem;border-radius:50%;border:1px solid var(--bd);vertical-align:middle}.edhead{position:sticky;top:0;z-index:4;background:var(--bg);padding:.4rem 8px;border-bottom:1px solid var(--bd);margin:0 -8px .6rem}.edtop{display:flex;gap:.8rem;align-items:center}.edcol{flex:1;min-width:0}.edcol input{width:100%;box-sizing:border-box}.edcol .edf{margin:.4rem 0 0}.edcol .chip{padding:.35rem .6rem;min-height:0}.edcol .chip:disabled{opacity:.4}.edtabs{display:flex;gap:.3rem;overflow-x:auto;margin-top:.5rem;padding-bottom:.2rem}.edtabs .chip{flex:none}.edh{margin-top:.2rem}.aspg{display:grid;grid-template-columns:auto 1fr;gap:.2rem .9rem;margin:.6rem 0}.avs{display:flex;gap:.6rem;flex:none}.cab.dos{flex-wrap:wrap;margin-bottom:.6rem}.cab.dos .cabt{flex:1 0 100%;padding-top:0}.cab.dos .avs{flex:1 0 100%;justify-content:space-between;margin-top:.6rem}.cab.dos .avatar{width:4.2rem;height:4.2rem}
@@ -311,7 +311,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
 const vSW = t => (/const V = '([^']+)'/.exec(t) || [])[1]; // la versión que declara un sw.js
-const APP_V = 'hsk3-v194'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v199'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -592,8 +592,8 @@ function home() {
     ${LEVELS.map(l => { const ws = W.filter(w => w.l == l), n = ws.filter(w => S.known[w.id]).length; return `<div class=hbar><span>HSK ${l}</span><div class=bar><i style="width:${n / ws.length * 100}%"></i></div><b style="width:4.8rem">${n}/${ws.length}</b></div>`; }).join('')}
     <div class=mut style="margin:.5rem 0">Total: <b>${vistas.length}</b> estudiadas de ${W.length} · <b>${domT}</b> dominadas · <b>${W.length - vistas.length}</b> por estudiar</div>
     <button class=chip onclick="list('done')">Ver las palabras estudiadas →</button></details>
-  ${nd ? `<button class="mode alert" style="margin-top:1rem" onclick="today()"><span class="e sg">${ico('history')}</span><span><b>Hoy</b><small>${nd} palabras pendientes</small></span></button>` : ''}
-  <button class="mode"${nd ? '' : ' style="margin-top:1rem"'} onclick="lessons()"><span class="e sg">${ico('graduation-cap')}</span><span><b>Aprender palabras nuevas</b><small>Lecciones por temas</small></span></button>
+  <button class="mode${nd || hoy < meta ? ' big' : ''}" style="margin-top:1rem" onclick="today()"><span class="e sg">${ico('history')}</span><span><b>Hoy</b><small>${nd ? nd + ' palabras pendientes' : hoy < meta ? 'Meta de hoy: ' + hoy + '/' + meta : 'Todo hecho por hoy'}</small></span></button>
+  <button class="mode" onclick="lessons()"><span class="e sg">${ico('graduation-cap')}</span><span><b>Aprender palabras nuevas</b><small>Lecciones por temas</small></span></button>
   <button class="mode" onclick="gramatica()"><span class="e sg">${ico('book-a')}</span><span><b>Gramática</b><small>Estructuras del chino por nivel</small></span></button>
   <button class="mode" onclick="temas()"><span class="e sg">${ico('library')}</span><span><b>Vocabulario por temas</b><small>Frutas, transporte, familia…</small></span></button>
   ${MODE_GROUPS.map(([g, t]) => `<h2>${t}</h2><div class=grid>${MODES.filter(m => m[4] == g).map(m => `<button class=mode onclick="go('${m[0]}')"><span class="e sg">${ico(m[1])}</span><span><b>${m[2]}</b><small>${m[0] == 'hard' ? hardList().length + ' palabras' : m[3]}</small></span></button>`).join('')}</div>`).join('')}
@@ -642,9 +642,10 @@ function curvaOlvido(rs, horiz, nEx) {
 const prodFlojas = () => seen().filter(w => { const r = S.w[w.id], n = r ? (r.po || 0) + (r.pf || 0) : 0; return n >= 3 && (r.pf || 0) / n >= .4; }).sort((a, b) => S.w[b.id].pf / (S.w[b.id].po + S.w[b.id].pf) - S.w[a.id].pf / (S.w[a.id].po + S.w[a.id].pf));
 function planHoy(d) {
   const h = day(new Date()), nuevas = S.newD?.d == h ? S.newD.n : 0, lect = S.lectD?.d == h ? S.lectD.n : 0;
-  const pasos = [[!d.length, `Repasar lo pendiente${d.length ? ` (${d.length})` : ''}`, "session('mix')"], [nuevas >= 5, `Aprender 5 palabras nuevas (${Math.min(nuevas, 5)}/5)`, 'lessons()'], [lect >= 1, 'Leer una lectura', 'lecturas()']];
+  const pasos = [[!d.length, `Repasar lo pendiente${d.length ? ` (${d.length})` : ''}`, "session('mix')"], [nuevas >= 5, `Aprender 5 palabras nuevas (${Math.min(nuevas, 5)}/5)`, 'nuevaLeccion()'], [lect >= 1, 'Leer una lectura', 'lecturas()']];
   return `<h2>Plan de hoy</h2>${pasos.every(p => p[0]) ? '<p class=mut>✓ ¡Plan completo! Lo demás es extra.</p>' : ''}<div class=row>${pasos.map(([ok, t, f]) => `<button class="chip ${ok ? 'on' : ''}" onclick="${f}">${ok ? '✓ ' : ''}${t}</button>`).join('')}</div>`;
 }
+const nuevaLeccion = () => { const k = lessonKeys().find(k => !done(k)); k ? study(k) : lessons(); }; // empieza ya la lección que toca
 function today() {
   const d = due(), pl = seen(), rs = pl.map(w => S.w[w.id]).filter(Boolean), media = rs.length ? rs.reduce((s, r) => s + retencion(r), 0) / rs.length : null, fl = flojas(.8).length, nEx = examDays();
   const fc = [...Array(7)].map((_, k) => { const a = eod() + k * 864e5, b = a + 864e5; return pl.filter(w => { const r = S.w[w.id]; return r && venceEn(r) > a && venceEn(r) <= b; }).length; });
@@ -653,8 +654,8 @@ function today() {
   app(`<h1>Hoy</h1><div class=mut>Repaso espaciado de lo que ya estudiaste</div>${planHoy(d)}
     <div class=stats><div class=stat><b>${d.length}</b><span class=mut>pendientes hoy</span></div><div class=stat><b>${pl.length - d.length}</b><span class=mut>al día</span></div>${media == null ? '' : `<div class=stat><b>${Math.round(media * 100)} %</b><span class=mut>retención</span></div>`}</div>
     ${!pl.length ? '<p class=mut>Aún no has estudiado ninguna lección.</p><button class=main onclick="lessons()">Ir a las lecciones</button>'
-      : d.length ? `<button class=main style="margin-top:0" onclick="session('mix')">Empezar repaso (${Math.min(20, d.length)} palabras)</button><p class=mut>Empieza por las que estás a punto de olvidar y mezcla ejercicios según lo bien que sabes cada palabra.</p>`
-      : '<div class=prompt><span class="hz hzi">' + ico('circle-check') + '</span>¡Todo repasado por hoy!<small>Vuelve mañana o aprende palabras nuevas.</small></div><button class=main onclick="lessons()">Aprender palabras nuevas</button>'}
+      : d.length ? `<button class=main style="margin-top:0" onclick="session('mix')">Empezar repaso (${d.length} palabras)</button><p class=mut>Empieza por las que estás a punto de olvidar y mezcla ejercicios según lo bien que sabes cada palabra.</p>`
+      : '<div class=prompt><span class="hz hzi">' + ico('circle-check') + '</span>¡Todo repasado por hoy!<small>Vuelve mañana o aprende palabras nuevas.</small></div><button class=main onclick="nuevaLeccion()">Aprender palabras nuevas</button>'}
     ${fl && !d.length ? `<button class=chip onclick="session('risk')">Reforzar las ${Math.min(20, fl)} más flojas (retención < 80 %)</button>` : ''}
     ${pf.length >= 3 ? `<button class=chip onclick="session('write', prodFlojas())">Practicar a escribir: ${pf.length} palabras que reconoces pero te cuestan producir</button>` : ''}
     ${nEx != null && nEx > 0 ? `<p class=mut>Examen en <b>${nEx} ${nEx == 1 ? 'día' : 'días'}</b>: cada palabra se repasa al menos cada <b>${Math.min(tope(), 365)} ${tope() == 1 ? 'día' : 'días'}</b> para llegar con ella fresca.</p>` : ''}
@@ -1205,7 +1206,7 @@ function studied(pk) {
     <div class=grid><button class=mode onclick="matchGame(cur)"><span class="e sg">${ico('link')}</span><span><b>Emparejar</b></span></button>
     <button class=mode onclick="session('choice',cur)"><span class="e sg">${ico('languages')}</span><span><b>Elegir traducción</b></span></button>
     <button class=mode onclick="session('listen',cur)"><span class="e sg">${ico('headphones')}</span><span><b>Escuchar</b></span></button>
-    <button class=mode onclick="session('write',cur)"><span class="e sg">${ico('keyboard')}</span><span><b>Escribir pinyin</b></span></button></div>
+    <button class=mode onclick="session('write',cur)"><span class="e sg">${ico('keyboard')}</span><span><b>Escribir pinyin</b></span></button>${ws.some(lineaDe) ? `<button class=mode onclick="session('lect',cur.filter(lineaDe))"><span class="e sg">${ico('book-open')}</span><span><b>En lecturas</b></span></button>` : ''}</div>
     ${next ? `<button class=main onclick="study('${next}')">Siguiente lección →</button>` : ''}
     <button class=opt style="margin-top:.5rem" onclick="lessons()">Todas las lecciones</button>`);
 }
@@ -1252,7 +1253,9 @@ function seg(w) {
   return segCache[w.id] = res;
 }
 // modos que necesitan frase de ejemplo o palabras cortas (para dibujar)
-const FILT = { cloze: w => SENT[w.h], sentence: w => SENT[w.h], order: w => seg(w), draw: w => [...w.h].length <= 3 };
+// frases de lecturas y diálogos que contienen cada palabra (se indexan al primer uso)
+let LIN; const lineaDe = w => { if (!LIN) { LIN = new Map(); LECT.forEach(d => d.ls.forEach(l => l.z.forEach(t => { const h = t.replace(LPUNT, ''); (LIN.get(h) || LIN.set(h, []).get(h)).push([d, l]); }))); } const a = LIN.get(w.h); return a && a[Math.floor(Math.random() * a.length)]; };
+const FILT = { lect: lineaDe, cloze: w => SENT[w.h], sentence: w => SENT[w.h], order: w => seg(w), draw: w => [...w.h].length <= 3 };
 const similar = (w, f, key = x => x.h) => shuffle([w, ...distinct(w, W.filter(f), key)]);
 function orderUI(el, ch, meaning, done, op = {}) { // op.titulo: texto de la consigna · op.cls: clase extra de la consigna // construye una frase con sus trozos (palabras o frases de gramática)
     const bank = shuffle(ch.map((t, i) => i)), put = [];
@@ -1271,11 +1274,29 @@ function orderUI(el, ch, meaning, done, op = {}) { // op.titulo: texto de la con
     draw();
 }
 
+// distractores para completar una frase: misma longitud y, mejor, con algún carácter en común; así no se deduce por la forma
+const parecidas = w => { const n = [...w.h].length, c = W.filter(x => x.id != w.id && [...x.h].length == n), k = new Set([w.e]), r = []; [...shuffle(c.filter(x => [...x.h].some(ch => w.h.includes(ch)))), ...shuffle(c.filter(x => x.l == w.l))].forEach(x => { if (r.length < 3 && !k.has(x.e)) { k.add(x.e); r.push(x); } }); return r; };
 const Q = {
+  lect(el, w, done) { // la palabra en su frase de una lectura o diálogo
+    const [d, l] = lineaDe(w), zh = l.z.map(t => t.replace(LPUNT, '') == w.h ? `<b style="color:var(--act)">${t}</b>` : t).join('');
+    el.innerHTML = `<div class=prompt><span class=hz2 style="line-height:1.5">${zh}</span><small>${d.t} · ¿qué significa la palabra en rojo?</small></div>`;
+    opts(el, w, distract(w), o => o.e, done);
+  },
   cloze(el, w, done) {
     const s = SENT[w.h];
     el.innerHTML = `<div class=prompt><span class=hz2 style="line-height:1.5">${s[0].replaceAll(w.h, '＿＿')}</span><small>${s[2]}</small></div>`;
-    opts(el, w, similar(w, x => x.l == w.l), o => `<span class=hz2>${o.h}</span>`, done);
+    opts(el, w, shuffle([w, ...parecidas(w)]), o => `<span class=hz2>${o.h}</span>`, done);
+  },
+  pair(el, w, done) { // une 4 palabras con su traducción; cuenta como acierto si la palabra repasada no falla
+    const ws = shuffle([w, ...distinct(w, W, x => x.e)]), R = shuffle(ws); let cur = null, left = ws.length, fallo = false;
+    el.innerHTML = `<div class=prompt><small>Une cada palabra con su significado</small></div><div class=match>${ws.map((x, i) => `<button class=cell data-i=${x.id} data-s=l><span class=hz2>${x.h}</span></button><button class=cell data-i=${R[i].id} data-s=r>${R[i].e}</button>`).join('')}</div>`;
+    el.querySelectorAll('.cell').forEach(b => b.onclick = () => {
+      if (b.dataset.s == 'l') say(W[b.dataset.i].h);
+      if (!cur || cur.dataset.s == b.dataset.s) { cur?.classList.remove('sel'); cur = b; b.classList.add('sel'); return; }
+      const a = cur; cur = null;
+      if (a.dataset.i == b.dataset.i) { [a, b].forEach(x => { x.classList.remove('sel'); x.classList.add('ok'); x.disabled = true; }); if (!--left) done(!fallo); }
+      else { if ((a.dataset.i == w.id) || (b.dataset.i == w.id)) fallo = true; [a, b].forEach(x => { x.classList.remove('sel'); x.classList.add('no', 'shake'); }); setTimeout(() => [a, b].forEach(x => x.classList.remove('no', 'shake')), 450); }
+    });
   },
   sentence(el, w, done) {
     const s = SENT[w.h];
@@ -1336,12 +1357,16 @@ const Q = {
   },
 };
 // en el repaso de hoy: ejercicio según la caja de la palabra
-const mixMode = w => { const b = S.w[w.id]?.b || 0; return b <= 1 ? (Math.random() < .5 ? 'cards' : 'choice') : b < 4 ? (Math.random() < .5 ? 'listen' : 'choice') : (Math.random() < .5 ? 'write' : 'listen'); };
+const mixMode = w => { // sin tarjetas: elige entre ejercicios que se puedan hacer con la palabra, según lo bien que se sepa
+  const b = S.w[w.id]?.b || 0; if (b >= 1 && Math.random() < .3 && lineaDe(w)) return 'lect';
+  const o = (b <= 1 ? ['choice', 'pair', 'cloze'] : b < 4 ? ['listen', 'cloze', 'order', 'pair', 'sentence'] : ['write', 'cloze', 'order', 'listen']).filter(m => !FILT[m] || FILT[m](w));
+  return o[Math.floor(Math.random() * o.length)];
+};
 
 // items: palabras fijas (practica tras una lección); sin items, elige las que toca repasar; 'mix' = repaso de hoy
 function session(mode, fixed) {
   const mix = mode == 'mix' || mode == 'hard' || mode == 'risk';
-  const items = fixed ? shuffle(fixed).slice(0, 10) : mode == 'risk' ? flojas().slice(0, 20) : mode == 'hard' ? shuffle(hardList().sort((a, b) => (S.w[b.id]?.f || 0) - (S.w[a.id]?.f || 0)).slice(0, 15)) : mix ? due().sort((a, b) => (retencion(S.w[a.id]) ?? 0) - (retencion(S.w[b.id]) ?? 0)).slice(0, 20) : pick(10, FILT[mode]);
+  const items = fixed ? shuffle(fixed).slice(0, 10) : mode == 'risk' ? flojas().slice(0, 20) : mode == 'hard' ? shuffle(hardList().sort((a, b) => (S.w[b.id]?.f || 0) - (S.w[a.id]?.f || 0)).slice(0, 15)) : mix ? due().sort((a, b) => (retencion(S.w[a.id]) ?? 0) - (retencion(S.w[b.id]) ?? 0)) : pick(10, FILT[mode]);
   if (!items.length) return pool().length ? empty('Aún no hay palabras para este modo', 'Estudia más lecciones o prueba otro modo.') : empty();
   let i = 0, ok = 0; const bad = [];
   const step = () => {
@@ -1868,8 +1893,7 @@ function lectura(i, j = 0) {
   app(`<div class=lect onclick="cerrarFi(event)">
     <div class=top><button class=back onclick="${volverA(d)}">✕</button><div class=bar role=progressbar aria-label="Progreso de la lectura" aria-valuemin=1 aria-valuemax=${n}><i></i></div><span class=mut></span></div>
     <div class="cab ${dos ?'dos' : ''}"><div class=cabt><p class=tit>${d.t}</p><p class=ayu>${dos ? 'Toca a una persona para oír su última frase' : `Toca a ${nom} para oír la última frase`} (o toda la lectura al terminar), una frase para oírla o una palabra para ver su ficha.</p></div>
-      <div class=avs>${(ps.length ? ps : [null]).map((p, q) => `<div class=yo><button class=avatar id=av${q ? 2 : ''} onclick="oir(${i},${q})" aria-label="Escuchar con la voz de ${p ? p.n : nom}">${p ? avatarSVG(p) : AVATAR}</button>${p ? `<div class=nombre>${p.n}</div>` : ''}</div>`).join('')}</div></div>
-    <div class="row seg" role=group aria-label="Velocidad de la voz" style="margin:.4rem 0">${[[.6, "Voz lenta"], [.8, "Voz normal"], [1, "Voz rápida"]].map(([v, t]) => `<button class="chip ${S.set.rate == v ? "on" : ""}" onclick="velLect(${v}, this)">${t}</button>`).join("")}</div>
+      <div class=avs>${(ps.length ? ps : [null]).map((p, q) => `${q == (dos ? 1 : 0) ? `<div class=vel role=group aria-label="Velocidad de la voz">${[[.6, "Lenta"], [.8, "Normal"], [1, "Rápida"]].map(([v, t]) => `<button class="chip ${S.set.rate == v ? "on" : ""}" onclick="velLect(${v}, this)" aria-label="Voz ${t.toLowerCase()}">${t}</button>`).join("")}</div>` : ""}<div class=yo><button class=avatar id=av${q ? 2 : ''} onclick="oir(${i},${q})" aria-label="Escuchar con la voz de ${p ? p.n : nom}">${p ? avatarSVG(p) : AVATAR}</button>${p ? `<div class=nombre>${p.n}</div>` : ''}</div>`).join('')}</div></div>
     <div id=conv class="conv ${S.set.lpy ? '' : 'np'} ${S.set.les ? '' : 'ne'}" data-i=${i} ${dos ? 'data-dos=1 ' : ''}data-n=0 role=log aria-live=polite aria-label="Conversación"></div>
     <div id=fi></div>
     <div class=pie id=pie></div>

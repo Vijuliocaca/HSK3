@@ -311,7 +311,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
 const vSW = t => (/const V = '([^']+)'/.exec(t) || [])[1]; // la versión que declara un sw.js
-const APP_V = 'hsk3-v203'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v204'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -1232,12 +1232,12 @@ function opts(el, w, list, label, done) {
 const distract = w => shuffle([w, ...distinct(w, W, x => x.e)]);
 
 // trocea una frase en palabras usando los espacios del pinyin (null si no cuadra con los hanzi)
-const segCache = {};
+const segCache = {}, segPy = {}; // segPy: pinyin de cada trozo de seg(w)
 function seg(w) {
   if (w.id in segCache) return segCache[w.id];
   const s = SENT[w.h]; let res = null;
   if (s) {
-    const chars = [...s[0]], isP = c => /[，。？！、；：,.?!"“”]/.test(c); let i = 0, ok = true; const out = [];
+    const chars = [...s[0]], isP = c => /[，。？！、；：,.?!"“”]/.test(c); let i = 0, ok = true; const out = [], pys = [];
     for (const t of s[1].split(/\s+/).filter(Boolean)) {
       let n = (t.match(SYL) || []).length; if (!n) continue;
       while (i < chars.length && isP(chars[i])) i++;
@@ -1245,13 +1245,24 @@ function seg(w) {
       while (n > 0 && i < chars.length && !isP(chars[i])) { part += chars[i++]; n--; }
       if (n) { ok = false; break; }
       if (t.replace(SYL, '').replace(/[^a-z]/gi, '') == 'r' && chars[i] == '儿') part += chars[i++];
-      out.push(part);
+      out.push(part); pys.push(t);
     }
     while (ok && i < chars.length) { if (isP(chars[i])) i++; else ok = false; }
-    if (ok && out.join('') == chars.filter(c => !isP(c)).join('') && out.length >= 3 && out.length <= 8) res = out;
+    if (ok && out.join('') == chars.filter(c => !isP(c)).join('') && out.length >= 3 && out.length <= 8) { res = out; segPy[w.id] = pys; }
   }
   return segCache[w.id] = res;
 }
+// pinyin de cada carácter de una frase de ejemplo (null en la puntuación); null si no cuadra con los hanzi
+function pinyinChars(s) {
+  const cs = [...s[0]], out = Array(cs.length).fill(null), isP = c => /[，。？！、；：,.?!"“”]/.test(c); let i = 0;
+  for (const t of s[1].split(/\s+/).filter(Boolean)) {
+    const sy = t.match(SYL) || []; if (!sy.length) continue;
+    for (const y of sy) { while (i < cs.length && isP(cs[i])) i++; if (i >= cs.length) return null; out[i++] = y; }
+    if (t.replace(SYL, '').replace(/[^a-z]/gi, '') == 'r' && cs[i] == '儿') out[i++] = 'r';
+  }
+  return cs.some((c, k) => !out[k] && !isP(c)) ? null : out;
+}
+const tk = (c, p) => `<span class=tk><span>${c}</span>${p == null ? '' : `<small class="mut py">${p ? pc(p) : '&nbsp;'}</small>`}</span>`; // carácter con su pinyin encima (si p es null, sin pinyin)
 // modos que necesitan frase de ejemplo o palabras cortas (para dibujar)
 // frases de lecturas y diálogos que contienen cada palabra (se indexan al primer uso)
 let LIN; const lineaDe = w => { if (!LIN) { LIN = new Map(); LECT.forEach(d => d.ls.forEach(l => l.z.forEach(t => { const h = t.replace(LPUNT, ''); (LIN.get(h) || LIN.set(h, []).get(h)).push([d, l]); }))); } const a = LIN.get(w.h); return a && a[Math.floor(Math.random() * a.length)]; };
@@ -1260,7 +1271,7 @@ const similar = (w, f, key = x => x.h) => shuffle([w, ...distinct(w, W.filter(f)
 function orderUI(el, ch, meaning, done, op = {}) { // op.titulo: texto de la consigna · op.cls: clase extra de la consigna // construye una frase con sus trozos (palabras o frases de gramática)
     const bank = shuffle(ch.map((t, i) => i)), put = [];
     el.innerHTML = `<div class="prompt ${op.cls || ''}"><small>${op.titulo || 'Ordena la frase'}</small><b>${meaning}</b></div><div class=slot id=sl></div><div class=row id=bk style="justify-content:center"></div><button class=main id=ck disabled>Comprobar</button>`;
-    const btn = (i, f) => { const b = document.createElement('button'); b.className = 'chip hz2'; b.textContent = ch[i]; b.onclick = f; return b; };
+    const btn = (i, f) => { const b = document.createElement('button'); b.className = 'chip hz2'; if (op.py) b.innerHTML = tk(ch[i], op.py[i]); else b.textContent = ch[i]; b.onclick = f; return b; };
     const draw = () => {
       $('#sl').replaceChildren(...put.map(i => btn(i, () => { put.splice(put.indexOf(i), 1); draw(); })));
       $('#bk').replaceChildren(...bank.filter(i => !put.includes(i)).map(i => btn(i, () => { put.push(i); draw(); })));
@@ -1284,8 +1295,10 @@ const Q = {
   },
   cloze(el, w, done) {
     const s = SENT[w.h];
-    el.innerHTML = `<div class=prompt><span class=hz2 style="line-height:1.5">${s[0].replaceAll(w.h, '＿＿')}</span><small>${s[2]}</small></div>`;
-    opts(el, w, shuffle([w, ...parecidas(w)]), o => `<span class=hz2>${o.h}</span>`, done);
+    const cs = [...s[0]], hw = [...w.h].length, py = pinyinChars(s); let zh = '';
+    for (let i = 0; i < cs.length; i++) { if (cs.slice(i, i + hw).join('') == w.h) { zh += tk('＿＿', py ? '' : null); i += hw - 1; } else zh += tk(cs[i], py ? py[i] || '' : null); } // el hueco no lleva pinyin: lo delataría
+    el.innerHTML = `<div class=prompt><span class=hz2 style="line-height:1.5">${zh}</span><small>${s[2]}</small></div>`;
+    opts(el, w, shuffle([w, ...parecidas(w)]), o => `<span class=hz2>${o.h}</span><small class=py>${pc(o.p)}</small>`, done);
   },
   pair(el, w, done) { // une 4 palabras con su traducción; cuenta como acierto si la palabra repasada no falla
     const ws = shuffle([w, ...distinct(w, W, x => x.e, 4)]), R = shuffle(ws); let cur = null, left = ws.length, fallo = false;
@@ -1310,11 +1323,11 @@ const Q = {
     const list = v.length >= 3 ? shuffle([w, ...v.slice(0, 3).map(p => ({ p }))]) : similar(w, x => x.p != w.p && x.p.split(' ').length == n, x => x.p);
     opts(el, w, list, o => o.p, done);
   },
-  order(el, w, done) { orderUI(el, seg(w), SENT[w.h][2], done); },
+  order(el, w, done) { orderUI(el, seg(w), SENT[w.h][2], done, { py: segPy[w.id] }); },
   hanzi(el, w, done) {
     const n = [...w.h].length;
     el.innerHTML = `<div class=prompt><b>${w.e}</b><small class=py>${w.p}</small></div>`;
-    opts(el, w, similar(w, x => [...x.h].length == n), o => `<span class=hz2>${o.h}</span>`, done);
+    opts(el, w, similar(w, x => [...x.h].length == n), o => `<span class=hz2>${o.h}</span><small class=py>${pc(o.p)}</small>`, done);
   },
   draw(el, w, done) {
     const cs = [...w.h].filter(c => /[㐀-鿿]/.test(c)), sz = Math.max(220, Math.min(420, innerWidth - 32, innerHeight - 300));
@@ -1333,7 +1346,7 @@ const Q = {
   },
   choice(el, w, done) {
     const d = Math.random() < .5;
-    el.innerHTML = `<div class=prompt>${d ? `<span class=hz>${w.h}</span>` : w.e}</div>`;
+    el.innerHTML = `<div class=prompt>${d ? `<span class=hz>${w.h}</span><small class=py>${pc(w.p)}</small>` : w.e}</div>`;
     opts(el, w, distract(w), o => d ? o.e : `<span class=hz2>${o.h}</span><small class=py>${pc(o.p)}</small>`, done);
   },
   listen(el, w, done) {
@@ -1380,7 +1393,7 @@ function session(mode, fixed) {
     Q[m]($('#q'), w, (good, niv) => {
       grade(w.id, good, niv, PROD.has(m)); good ? ok++ : bad.push(w);
       const s = SENT[w.h];
-      $('#fb').innerHTML = `<div class="fb ${good ? 'g' : 'b'}"><b style="font-size:1.4rem">${w.h}</b> <span class=py>${pc(w.p)}</span> — ${w.e} <button class=back onclick="say('${w.h}')">🔊</button>${s ? `<div class=mut style="margin-top:.3rem">${s[0]} · ${s[2]}</div>` : ''}</div><button class=main id=nx>Siguiente</button>`;
+      $('#fb').innerHTML = `<div class="fb ${good ? 'g' : 'b'}"><b style="font-size:1.4rem">${w.h}</b> <span class=py>${pc(w.p)}</span> — ${w.e} <button class=back onclick="say('${w.h}')">🔊</button>${s ? `<div class=mut style="margin-top:.3rem">${s[0]} · ${s[2]}<div class=py>${pc(s[1])}</div></div>` : ''}</div><button class=main id=nx>Siguiente</button>`;
       $('#nx').onclick = () => { i++; step(); };
     });
   };

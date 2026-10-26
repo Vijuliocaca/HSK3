@@ -165,7 +165,7 @@ nav button.on{color:var(--pri);font-weight:700}
 input[type=text],input[type=search]{width:100%;padding:.8rem;border-radius:6px;border:2px solid var(--ctl);background:var(--card);color:var(--tx);font-size:var(--fs-lg)}
 /* pantallas de práctica: llenan toda la altura con pregunta y respuestas grandes */
 body.nonav{padding-bottom:calc(14px + env(safe-area-inset-bottom))}
-.np .py{display:none}.tk{display:inline-flex;flex-direction:column-reverse;align-items:center;vertical-align:top;margin:0 .08rem}.tk small{font-size:var(--fs-sm)}.play .top .chip{padding:.35rem .7rem;flex:none}.play{display:flex;flex-direction:column;min-height:calc(100vh - 28px);min-height:calc(100dvh - 28px)}
+.row.hsk{display:grid;grid-template-columns:repeat(4,1fr)}.row.hsk .chip{min-width:0;padding-inline:0}.np .py{display:none}.tk{display:inline-flex;flex-direction:column-reverse;align-items:center;vertical-align:top;margin:0 .08rem}.tk small{font-size:var(--fs-sm)}.play .tk.hz small{font-size:var(--fs-xl)}.play .top .chip{padding:.35rem .7rem;flex:none}.play{display:flex;flex-direction:column;min-height:calc(100vh - 28px);min-height:calc(100dvh - 28px)}
 .play>#q{flex:1.6;display:flex;flex-direction:column;min-height:0}
 .play .prompt{flex:1;margin:0 0 .9rem;justify-content:center;align-items:center;gap:.8rem;font-size:var(--fs-2xl)}
 .play .prompt .hz{font-size:clamp(4.5rem,26vw,7.5rem)}
@@ -311,7 +311,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
 const vSW = t => (/const V = '([^']+)'/.exec(t) || [])[1]; // la versión que declara un sw.js
-const APP_V = 'hsk3-v207'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v209'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -587,7 +587,7 @@ function home() {
   </div>
   <div class=prog><i style="width:${all.length ? p.length / all.length * 100 : 0}%"></i></div>
   ${examCard()}${avisoCopia(vistas.length)}
-  <div class=row>${LEVELS.map(n => `<button class="chip ${S.lv.includes(n) ? 'on' : ''}" onclick="tog('lv',${n})">HSK ${n}</button>`).join('')}</div><div class=mut style="margin-top:.4rem">Cada HSK incluye el vocabulario de los anteriores.</div>
+  <div class="row hsk">${LEVELS.map(n => `<button class="chip ${S.lv.includes(n) ? 'on' : ''}" onclick="tog('lv',${n})">HSK ${n}</button>`).join('')}</div><div class=mut style="margin-top:.4rem">Cada HSK incluye el vocabulario de los anteriores.</div>
   <details class=resumen ${S.resOpen ? 'open' : ''} ontoggle="S.resOpen = this.open; save()"><summary>Resumen de palabras estudiadas</summary>
     ${LEVELS.map(l => { const ws = W.filter(w => w.l == l), n = ws.filter(w => S.known[w.id]).length; return `<div class=hbar><span>HSK ${l}</span><div class=bar><i style="width:${n / ws.length * 100}%"></i></div><b style="width:4.8rem">${n}/${ws.length}</b></div>`; }).join('')}
     <div class=mut style="margin:.5rem 0">Total: <b>${vistas.length}</b> estudiadas de ${W.length} · <b>${domT}</b> dominadas · <b>${W.length - vistas.length}</b> por estudiar</div>
@@ -1262,6 +1262,7 @@ function pinyinChars(s) {
   }
   return cs.some((c, k) => !out[k] && !isP(c)) ? null : out;
 }
+const hzp = (cls, h, p) => `<span class="${cls} tk"><span>${h}</span><small class="mut py">${pc(p)}</small></span>`; // palabra con su pinyin encima
 const tk = (c, p) => `<span class=tk><span>${c}</span>${p == null ? '' : `<small class="mut py">${p ? pc(p) : '&nbsp;'}</small>`}</span>`; // carácter con su pinyin encima (si p es null, sin pinyin)
 // modos que necesitan frase de ejemplo o palabras cortas (para dibujar)
 // frases de lecturas y diálogos que contienen cada palabra (se indexan al primer uso)
@@ -1298,11 +1299,11 @@ const Q = {
     const cs = [...s[0]], hw = [...w.h].length, py = pinyinChars(s); let zh = '';
     for (let i = 0; i < cs.length; i++) { if (cs.slice(i, i + hw).join('') == w.h) { zh += tk('＿＿', py ? '' : null); i += hw - 1; } else zh += tk(cs[i], py ? py[i] || '' : null); } // el hueco no lleva pinyin: lo delataría
     el.innerHTML = `<div class=prompt><span class=hz2 style="line-height:1.5">${zh}</span><small>${s[2]}</small></div>`;
-    opts(el, w, shuffle([w, ...parecidas(w)]), o => `<span class=hz2>${o.h}</span><small class=py>${pc(o.p)}</small>`, done);
+    opts(el, w, shuffle([w, ...parecidas(w)]), o => hzp('hz2', o.h, o.p), done);
   },
   pair(el, w, done) { // une 4 palabras con su traducción; cuenta como acierto si la palabra repasada no falla
     const ws = shuffle([w, ...distinct(w, W, x => x.e, 4)]), R = shuffle(ws); let cur = null, left = ws.length, fallo = false;
-    el.innerHTML = `<div class=prompt><small>Une cada palabra con su significado</small></div><div class=match>${ws.map((x, i) => `<button class=cell data-i=${x.id} data-s=l><span class=hz2>${x.h}</span><small class="mut py">${pc(x.p)}</small></button><button class=cell data-i=${R[i].id} data-s=r>${R[i].e}</button>`).join('')}</div>`;
+    el.innerHTML = `<div class=prompt><small>Une cada palabra con su significado</small></div><div class=match>${ws.map((x, i) => `<button class=cell data-i=${x.id} data-s=l>${hzp('hz2', x.h, x.p)}</button><button class=cell data-i=${R[i].id} data-s=r>${R[i].e}</button>`).join('')}</div>`;
     el.querySelectorAll('.cell').forEach(b => b.onclick = () => {
       if (b.dataset.s == 'l') say(W[b.dataset.i].h);
       if (!cur || cur.dataset.s == b.dataset.s) { cur?.classList.remove('sel'); cur = b; b.classList.add('sel'); return; }
@@ -1327,7 +1328,7 @@ const Q = {
   hanzi(el, w, done) {
     const n = [...w.h].length;
     el.innerHTML = `<div class=prompt><b>${w.e}</b><small class=py>${w.p}</small></div>`;
-    opts(el, w, similar(w, x => [...x.h].length == n), o => `<span class=hz2>${o.h}</span><small class=py>${pc(o.p)}</small>`, done);
+    opts(el, w, similar(w, x => [...x.h].length == n), o => hzp('hz2', o.h, o.p), done);
   },
   draw(el, w, done) {
     const cs = [...w.h].filter(c => /[㐀-鿿]/.test(c)), sz = Math.max(220, Math.min(420, innerWidth - 32, innerHeight - 300));
@@ -1346,7 +1347,7 @@ const Q = {
   },
   choice(el, w, done) {
     const d = Math.random() < .5;
-    el.innerHTML = `<div class=prompt>${d ? `<span class=hz>${w.h}</span><small class=py>${pc(w.p)}</small>` : w.e}</div>`;
+    el.innerHTML = `<div class=prompt>${d ? hzp('hz', w.h, w.p) : w.e}</div>`;
     opts(el, w, distract(w), o => d ? o.e : `<span class=hz2>${o.h}</span><small class=py>${pc(o.p)}</small>`, done);
   },
   listen(el, w, done) {
@@ -1363,7 +1364,7 @@ const Q = {
   cards(el, w, done) {
     el.innerHTML = `<div class=prompt><span class=hz>${w.h}</span></div><button class=main id=sh>Mostrar respuesta</button>`;
     $('#sh').onclick = () => {
-      el.innerHTML = `<div class=prompt><span class=hz>${w.h}</span><span class=py>${pc(w.p)}</span><b>${w.e}</b></div>
+      el.innerHTML = `<div class=prompt>${hzp('hz', w.h, w.p)}<b>${w.e}</b></div>
         <div class="row seg"><button class=opt id=ko>Otra vez</button><button class=opt id=di>Difícil</button><button class=opt id=ok>Bien</button><button class=opt id=fa>Fácil</button></div>`;
       say(w.h); $('#ko').onclick = () => done(false); $('#di').onclick = () => done(true, 'dificil'); $('#ok').onclick = () => done(true); $('#fa').onclick = () => done(true, 'facil');
     };
@@ -1993,7 +1994,7 @@ function matchGame(fixed) {
     if (r >= rounds) return summary(ok, items.length, bad, () => matchGame(fixed));
     const ws = items.slice(r * 5, r * 5 + 5), err = new Set(), R = shuffle(ws); let cur = null, left = ws.length;
     app(`<div class="play${pyOff()}"><div class=top><button class=back onclick="home()">✕</button><div class=bar><i style="width:${r / rounds * 100}%"></i></div>${pyBtn()}</div>
-      <div class=match>${ws.map((w, i) => `<button class=cell data-i=${w.id} data-s=l><span class=hz2>${w.h}</span><small class="mut py">${pc(w.p)}</small></button><button class=cell data-i=${R[i].id} data-s=r>${R[i].e}</button>`).join('')}</div></div>`);
+      <div class=match>${ws.map((w, i) => `<button class=cell data-i=${w.id} data-s=l>${hzp('hz2', w.h, w.p)}</button><button class=cell data-i=${R[i].id} data-s=r>${R[i].e}</button>`).join('')}</div></div>`);
     const word = id => ws.find(w => w.id == id);
     document.querySelectorAll('.cell').forEach(b => b.onclick = () => {
       if (b.dataset.s == 'l') say(word(b.dataset.i).h);
@@ -2036,7 +2037,7 @@ const SECN = ['听力 · Comprensión auditiva', '阅读 · Comprensión lectora
 function examMenu() {
   app(`<h1>Examen simulado</h1><div class=mut>30 preguntas · 30 minutos · 3 partes · aprobado con 180/300</div>
     <h2>HSK del examen</h2>
-    <div class=row>${LEVELS.map(n => `<button class="chip ${S.exLv == n ? 'on' : ''}" onclick="S.exLv=${n};save();examMenu()">HSK ${n}</button>`).join('')}</div>
+    <div class="row hsk">${LEVELS.map(n => `<button class="chip ${S.exLv == n ? 'on' : ''}" onclick="S.exLv=${n};save();examMenu()">HSK ${n}</button>`).join('')}</div>
     <p class=mut>Usa solo el vocabulario de ese HSK, hayas estudiado las lecciones o no, y ninguna palabra se repite en el examen. Incluye frases de ejemplo en todos los HSK.</p>
     <h2>Fecha de tu examen</h2>
     <div class=row><input type=date aria-label="Fecha del examen" value="${S.exam?.d || ''}" min="${day(new Date())}" onchange="setExam(this.value)"><button class=chip onclick="setExam('')">Quitar</button></div>

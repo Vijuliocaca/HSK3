@@ -165,7 +165,7 @@ nav button.on{color:var(--pri);font-weight:700}
 input[type=text],input[type=search]{width:100%;padding:.8rem;border-radius:6px;border:2px solid var(--ctl);background:var(--card);color:var(--tx);font-size:var(--fs-lg)}
 /* pantallas de práctica: llenan toda la altura con pregunta y respuestas grandes */
 body.nonav{padding-bottom:calc(14px + env(safe-area-inset-bottom))}
-.row.hsk{display:grid;grid-template-columns:repeat(4,1fr)}.row.hsk .chip{min-width:0;padding-inline:0}.np .py{display:none}.tk{display:inline-flex;flex-direction:column-reverse;align-items:center;vertical-align:top;margin:0 .08rem}.tk small{font-size:var(--fs-sm)}.play .tk.hz small{font-size:var(--fs-xl)}.play .top .chip{padding:.35rem .7rem;flex:none}.play{display:flex;flex-direction:column;min-height:calc(100vh - 28px);min-height:calc(100dvh - 28px)}
+.row.hsk{display:grid;grid-template-columns:repeat(4,1fr)}.row.hsk .chip{min-width:0;padding-inline:0}.np .py{display:none}.tk{display:inline-flex;flex-direction:column-reverse;align-items:center;vertical-align:top;margin:0 .08rem}.tk small{font-size:var(--fs-sm)}.play .tk.hz small{font-size:var(--fs-xl)}.play .top .chip,.lect .top .chip{padding:.35rem .7rem;flex:none}.lect .top{position:sticky;top:0;z-index:3;background:var(--bg);margin:0 0 .5rem;padding:.75rem 0 .5rem}.play{display:flex;flex-direction:column;min-height:calc(100vh - 28px);min-height:calc(100dvh - 28px)}
 .play>#q{flex:1.6;display:flex;flex-direction:column;min-height:0}
 .play .prompt{flex:1;margin:0 0 .9rem;justify-content:center;align-items:center;gap:.8rem;font-size:var(--fs-2xl)}
 .play .prompt .hz{font-size:clamp(4.5rem,26vw,7.5rem)}
@@ -311,7 +311,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
 const vSW = t => (/const V = '([^']+)'/.exec(t) || [])[1]; // la versión que declara un sw.js
-const APP_V = 'hsk3-v211'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v213'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -1916,11 +1916,13 @@ function crear(id) { // sin id: tu personaje propio; con id: retoca ese personaj
   edPinta();
 }
 function velLect(v, b) { S.set.rate = v; save(); b.parentNode.querySelectorAll(".chip").forEach(x => x.classList.toggle("on", x === b)); } // velocidad de la voz desde la lectura (la misma de Ajustes)
+// botón Pinyin de la lectura: el mismo ajuste que «Con pinyin» de la lista, sin repintar para no perder el sitio
+function togLpy(b) { S.set.lpy = !S.set.lpy; save(); b.classList.toggle('on', S.set.lpy); b.setAttribute('aria-pressed', !!S.set.lpy); $('#conv').classList.toggle('np', !S.set.lpy); }
 function lectura(i, j = 0) {
   pararHabla(); if (!j) TOC = new Set();
   const d = LECT[i], n = d.ls.length, ps = personas(d), dos = ps.length > 1, nom = ps.length ? ps.map(p => p.n).join(' y ') : 'el narrador';
   app(`<div class=lect onclick="cerrarFi(event)">
-    <div class=top><button class=back onclick="${volverA(d)}">✕</button><div class=bar role=progressbar aria-label="Progreso de la lectura" aria-valuemin=1 aria-valuemax=${n}><i></i></div><span class=mut></span></div>
+    <div class=top><button class=back onclick="${volverA(d)}">✕</button><div class=bar role=progressbar aria-label="Progreso de la lectura" aria-valuemin=1 aria-valuemax=${n}><i></i></div><span class=mut></span><button class="chip ${S.set.lpy ? 'on' : ''}" aria-pressed="${!!S.set.lpy}" onclick="togLpy(this)">Pinyin</button></div>
     <div class="cab ${dos ?'dos' : ''}"><div class=cabt><p class=tit>${d.t}</p><p class=ayu>${dos ? 'Toca a una persona para oír su última frase' : `Toca a ${nom} para oír la última frase`} (o toda la lectura al terminar), una frase para oírla o una palabra para ver su ficha.</p></div>
       <div class=avs>${(ps.length ? ps : [null]).map((p, q) => `${q == (dos ? 1 : 0) ? `<div class=vel role=group aria-label="Velocidad de la voz">${[[.6, "Lenta"], [.8, "Normal"], [1, "Rápida"]].map(([v, t]) => `<button class="chip ${S.set.rate == v ? "on" : ""}" onclick="velLect(${v}, this)" aria-label="Voz ${t.toLowerCase()}">${t}</button>`).join("")}</div>` : ""}<div class=yo><button class=avatar id=av${q ? 2 : ''} onclick="oir(${i},${q})" aria-label="Escuchar con la voz de ${p ? p.n : nom}">${p ? avatarSVG(p) : AVATAR}</button>${p ? `<div class=nombre>${p.n}</div>` : ''}</div>`).join('')}</div></div>
     <div id=conv class="conv ${S.set.lpy ? '' : 'np'} ${S.set.les ? '' : 'ne'}" data-i=${i} ${dos ? 'data-dos=1 ' : ''}data-n=0 role=log aria-live=polite aria-label="Conversación"></div>

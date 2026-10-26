@@ -311,7 +311,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
 const vSW = t => (/const V = '([^']+)'/.exec(t) || [])[1]; // la versión que declara un sw.js
-const APP_V = 'hsk3-v204'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v207'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -1245,7 +1245,7 @@ function seg(w) {
       while (n > 0 && i < chars.length && !isP(chars[i])) { part += chars[i++]; n--; }
       if (n) { ok = false; break; }
       if (t.replace(SYL, '').replace(/[^a-z]/gi, '') == 'r' && chars[i] == '儿') part += chars[i++];
-      out.push(part); pys.push(t);
+      out.push(part); pys.push(t.replace(/[，。？！、；：,.?!"“”]/g, '')); // sin puntuación: los trozos de hanzi tampoco la llevan
     }
     while (ok && i < chars.length) { if (isP(chars[i])) i++; else ok = false; }
     if (ok && out.join('') == chars.filter(c => !isP(c)).join('') && out.length >= 3 && out.length <= 8) { res = out; segPy[w.id] = pys; }
@@ -1289,7 +1289,7 @@ function orderUI(el, ch, meaning, done, op = {}) { // op.titulo: texto de la con
 const parecidas = w => { const n = [...w.h].length, c = W.filter(x => x.id != w.id && [...x.h].length == n), k = new Set([w.e]), r = []; [...shuffle(c.filter(x => [...x.h].some(ch => w.h.includes(ch)))), ...shuffle(c.filter(x => x.l == w.l))].forEach(x => { if (r.length < 3 && !k.has(x.e)) { k.add(x.e); r.push(x); } }); return r; };
 const Q = {
   lect(el, w, done) { // la palabra en su frase de una lectura o diálogo
-    const [d, l] = lineaDe(w), zh = l.z.map((t, k) => { const rojo = t.replace(LPUNT, '') == w.h; return `<span class=tk><span${rojo ? ' style="color:var(--act)"' : ''}>${t}</span><small class="mut py">${rojo ? '&nbsp;' : pc(l.p[k] || '')}</small></span>`; }).join(''); // el pinyin solo en las palabras que no son la pedida
+    const [d, l] = lineaDe(w), zh = l.z.map((t, k) => { const [, pre, core, post] = t.match(/^([“‘"]*)(.*?)([，。！？、：；”’,.!?:;"]*)$/), rojo = core == w.h; return `<span style="white-space:nowrap">${pre}<span class=tk><span${rojo ? ' style="color:var(--act)"' : ''}>${core}</span><small class="mut py">${rojo ? '&nbsp;' : pc((l.p[k] || '').replace(LPUNT, ''))}</small></span>${post}</span>`; }).join(''); // la puntuación queda fuera de la columna para que el pinyin quede centrado sobre las letras // el pinyin solo en las palabras que no son la pedida
     el.innerHTML = `<div class=prompt><span class=hz2 style="line-height:1.5">${zh}</span><small>${d.t} · ¿qué significa la palabra en rojo?</small></div>`;
     opts(el, w, distract(w), o => o.e, done);
   },

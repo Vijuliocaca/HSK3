@@ -311,7 +311,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
 const vSW = t => (/const V = '([^']+)'/.exec(t) || [])[1]; // la versión que declara un sw.js
-const APP_V = 'hsk3-v200'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v201'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -1350,7 +1350,7 @@ const Q = {
   cards(el, w, done) {
     el.innerHTML = `<div class=prompt><span class=hz>${w.h}</span></div><button class=main id=sh>Mostrar respuesta</button>`;
     $('#sh').onclick = () => {
-      el.innerHTML = `<div class=prompt><span class=hz>${w.h}</span><span>${pc(w.p)}</span><b>${w.e}</b></div>
+      el.innerHTML = `<div class=prompt><span class=hz>${w.h}</span><span class=py>${pc(w.p)}</span><b>${w.e}</b></div>
         <div class="row seg"><button class=opt id=ko>Otra vez</button><button class=opt id=di>Difícil</button><button class=opt id=ok>Bien</button><button class=opt id=fa>Fácil</button></div>`;
       say(w.h); $('#ko').onclick = () => done(false); $('#di').onclick = () => done(true, 'dificil'); $('#ok').onclick = () => done(true); $('#fa').onclick = () => done(true, 'facil');
     };
@@ -1358,7 +1358,7 @@ const Q = {
 };
 // en el repaso de hoy: ejercicio según la caja de la palabra
 // pinyin visible u oculto en los ejercicios (S.set.rpy; por defecto visible)
-const pyOff = () => S.set.rpy === false ? ' np' : '', pyBtn = () => `<button class="chip ${S.set.rpy === false ? '' : 'on'}" onclick="togPy(this)" aria-label="Mostrar u ocultar el pinyin">拼音</button>`;
+const pyOff = () => S.set.rpy === false ? ' np' : '', pyBtn = () => `<button class="chip ${S.set.rpy === false ? '' : 'on'}" onclick="togPy(this)" aria-label="Mostrar u ocultar el pinyin">Pinyin</button>`;
 function togPy(b) { S.set.rpy = S.set.rpy === false; save(); b.classList.toggle('on', S.set.rpy !== false); document.querySelector('.play').classList.toggle('np', S.set.rpy === false); }
 const mixMode = w => { // sin tarjetas: elige entre ejercicios que se puedan hacer con la palabra, según lo bien que se sepa
   const b = S.w[w.id]?.b || 0; if (b >= 1 && Math.random() < .3 && lineaDe(w)) return 'lect';
@@ -1380,7 +1380,7 @@ function session(mode, fixed) {
     Q[m]($('#q'), w, (good, niv) => {
       grade(w.id, good, niv, PROD.has(m)); good ? ok++ : bad.push(w);
       const s = SENT[w.h];
-      $('#fb').innerHTML = `<div class="fb ${good ? 'g' : 'b'}"><b style="font-size:1.4rem">${w.h}</b> ${pc(w.p)} — ${w.e} <button class=back onclick="say('${w.h}')">🔊</button>${s ? `<div class=mut style="margin-top:.3rem">${s[0]} · ${s[2]}</div>` : ''}</div><button class=main id=nx>Siguiente</button>`;
+      $('#fb').innerHTML = `<div class="fb ${good ? 'g' : 'b'}"><b style="font-size:1.4rem">${w.h}</b> <span class=py>${pc(w.p)}</span> — ${w.e} <button class=back onclick="say('${w.h}')">🔊</button>${s ? `<div class=mut style="margin-top:.3rem">${s[0]} · ${s[2]}</div>` : ''}</div><button class=main id=nx>Siguiente</button>`;
       $('#nx').onclick = () => { i++; step(); };
     });
   };

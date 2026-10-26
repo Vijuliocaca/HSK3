@@ -311,7 +311,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
 const vSW = t => (/const V = '([^']+)'/.exec(t) || [])[1]; // la versión que declara un sw.js
-const APP_V = 'hsk3-v213'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v214'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -670,6 +670,7 @@ function today() {
       : '<div class=prompt><span class="hz hzi">' + ico('circle-check') + '</span>¡Todo repasado por hoy!<small>Vuelve mañana o aprende palabras nuevas.</small></div>'}
     ${fl && !d.length ? `<button class=chip onclick="session('risk')">Reforzar las ${Math.min(20, fl)} más flojas (retención < 80 %)</button>` : ''}
     ${pf.length >= 3 ? `<button class=chip onclick="session('write', prodFlojas())">Practicar a escribir: ${pf.length} palabras que reconoces pero te cuestan producir</button>` : ''}
+    <button class=chip style="margin-top:.5rem" onclick="session('prueba')">Probar todos los ejercicios del repaso</button>
     ${nEx != null && nEx > 0 ? `<p class=mut>Examen en <b>${nEx} ${nEx == 1 ? 'día' : 'días'}</b>: cada palabra se repasa al menos cada <b>${Math.min(tope(), 365)} ${tope() == 1 ? 'día' : 'días'}</b> para llegar con ella fresca.</p>` : ''}
     ${Object.keys(S.gram).length ? `<h2>Gramática</h2>${gramDue().length ? `<button class=main style="margin-top:0" onclick="gramRev()">Repasar gramática (${gramDue().length} ${gramDue().length == 1 ? 'punto' : 'puntos'})</button>` : '<p class=mut>✓ Gramática al día.</p>'}` : ''}
     <h2>Próximos 7 días</h2>
@@ -1393,18 +1394,20 @@ const mixMode = w => { // sin tarjetas: elige entre ejercicios que se puedan hac
 };
 
 // items: palabras fijas (practica tras una lección); sin items, elige las que toca repasar; 'mix' = repaso de hoy
+// prueba de todos los ejercicios del repaso (un solo ejemplo de cada uno, sin tocar el progreso)
+const PRUEBA = [['choice', 'Elegir traducción'], ['pair', 'Unir pares'], ['cloze', 'Completar la frase'], ['sentence', 'Frase con traducción'], ['order', 'Ordenar la frase'], ['listen', 'Escuchar'], ['write', 'Escribir pinyin'], ['lect', 'Palabra en una lectura']];
 function session(mode, fixed) {
-  const mix = mode == 'mix' || mode == 'hard' || mode == 'risk';
-  const items = fixed ? shuffle(fixed).slice(0, 10) : mode == 'risk' ? flojas().slice(0, 20) : mode == 'hard' ? shuffle(hardList().sort((a, b) => (S.w[b.id]?.f || 0) - (S.w[a.id]?.f || 0)).slice(0, 15)) : mix ? due().sort((a, b) => (retencion(S.w[a.id]) ?? 0) - (retencion(S.w[b.id]) ?? 0)) : pick(10, FILT[mode]);
+  const mix = mode == 'mix' || mode == 'hard' || mode == 'risk', prueba = mode == 'prueba';
+  const items = prueba ? PRUEBA.map(([m]) => { const c = (seen().length >= 8 ? seen() : W).filter(w => !FILT[m] || FILT[m](w)); return c[Math.floor(Math.random() * c.length)]; }) : fixed ? shuffle(fixed).slice(0, 10) : mode == 'risk' ? flojas().slice(0, 20) : mode == 'hard' ? shuffle(hardList().sort((a, b) => (S.w[b.id]?.f || 0) - (S.w[a.id]?.f || 0)).slice(0, 15)) : mix ? due().sort((a, b) => (retencion(S.w[a.id]) ?? 0) - (retencion(S.w[b.id]) ?? 0)) : pick(10, FILT[mode]);
   if (!items.length) return pool().length ? empty('Aún no hay palabras para este modo', 'Estudia más lecciones o prueba otro modo.') : empty();
   let i = 0, ok = 0; const bad = [];
   const step = () => {
     if (i >= items.length) return summary(ok, items.length, bad, () => mode == 'mix' ? today() : session(mode, fixed), mode == 'mix' ? (PLAN ? '<button class=main onclick="planLeccion()">Siguiente: aprender palabras nuevas →</button>' : lecturaDeHoy()) : '');
-    const w = items[i];
-    app(`<div class="play${pyOff()}"><div class=top><button class=back onclick="home()">✕</button><div class=bar><i style="width:${i / items.length * 100}%"></i></div>${pyBtn()}</div><div id=q></div><div id=fb></div></div>`);
-    const m = mix ? mixMode(w) : mode;
+    const w = items[i], aviso = prueba ? `<div class=mut style="text-align:center">Prueba ${i + 1}/${items.length}: ${PRUEBA[i][1]}</div>` : '';
+    app(`<div class="play${pyOff()}"><div class=top><button class=back onclick="home()">✕</button><div class=bar><i style="width:${i / items.length * 100}%"></i></div>${pyBtn()}</div>${aviso}<div id=q></div><div id=fb></div></div>`);
+    const m = prueba ? PRUEBA[i][0] : mix ? mixMode(w) : mode;
     Q[m]($('#q'), w, (good, niv) => {
-      grade(w.id, good, niv, PROD.has(m)); good ? ok++ : bad.push(w);
+      if (!prueba) grade(w.id, good, niv, PROD.has(m)); good ? ok++ : bad.push(w);
       const s = SENT[w.h];
       $('#fb').innerHTML = `<div class="fb ${good ? 'g' : 'b'}"><b style="font-size:1.4rem">${w.h}</b> <span class=py>${pc(w.p)}</span> — ${w.e} <button class=back onclick="say('${w.h}')">🔊</button>${s ? `<div class=mut style="margin-top:.3rem">${s[0]} · ${s[2]}<div class=py>${pc(s[1])}</div></div>` : ''}</div><button class=main id=nx>Siguiente</button>`;
       $('#nx').onclick = () => { i++; step(); };

@@ -287,6 +287,9 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script src="lecturas7.js"></script>
 <script src="lecturas8.js"></script>
 <script src="lecturas9b.js"></script>
+<script src="lecturas9c.js"></script>
+<script src="lecturas9d.js"></script>
+<script src="audioindice.js"></script>
 <script src="lecturas9a.js"></script>
 <script src="gramatica4.js"></script>
 <script src="temas6.js"></script>
@@ -311,7 +314,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
 const vSW = t => (/const V = '([^']+)'/.exec(t) || [])[1]; // la versión que declara un sw.js
-const APP_V = 'hsk3-v214'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v222'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -375,8 +378,11 @@ document.addEventListener('keydown', e => { // teclado: Intro o Espacio activan 
 const shuffle = a => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.random() * (i + 1) | 0; [a[i], a[j]] = [a[j], a[i]]; } return a; };
 const sample = (a, n) => shuffle(a).slice(0, n);
 const distinct = (w, list, key, n = 3) => { const seen = new Set([key(w)]); return shuffle(list).filter(x => x.id != w.id && !seen.has(key(x)) && seen.add(key(x))).slice(0, n); }; // distractores con texto distinto entre sí y del correcto
+const pyOk = (a, b) => { const f = s => s.toLowerCase().replace(/v/g, 'ü').replace(/([a-zü]+)([1-5])/g, (_, x, d) => setTone(x, +d)).normalize('NFC').replace(/[s'’·.-]/g, ''); return f(a) == f(b); }; // compara con los tonos: vale «mā», «ma1» o «ni3hao3» (el neutro, sin marca)
 const nrm = s => s.normalize('NFD').replace(/[̀-ͯ0-9\s'’·.-]/g, '').toLowerCase().replace(/v/g, 'u');
-const say = t => { try { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(t); u.lang = 'zh-CN'; u.rate = S.set.rate; speechSynthesis.speak(u); } catch {} };
+let AUD = null; // audio pregrabado (audioindice.js, ver tools/generar-audio.js): si el texto está, suena la voz neuronal; si no, la del sistema
+const say = t => { try { speechSynthesis.cancel(); if (AUD) AUD.pause(); const f = (self.AUDIO || {})[t]; if (f) { AUD = new Audio('audio/' + f); AUD.playbackRate = Math.min(1.25, S.set.rate / .8); AUD.onerror = () => { AUD = null; sinAudio(t); }; AUD.play().catch(() => sinAudio(t)); return; } sinAudio(t); } catch {} };
+const sinAudio = t => { try { const u = new SpeechSynthesisUtterance(t); u.lang = 'zh-CN'; u.rate = S.set.rate; const v = vocesZh()[0]; if (v) u.voice = v; speechSynthesis.speak(u); } catch {} };
 
 // --- datos: s='a' lista HSK 2.0, s='b' palabras añadidas del HSK 3.0 nuevo; pk = lección (ver abajo) ---
 const W = [], cnt = {};
@@ -397,20 +403,21 @@ const usada = new Set(), byH = new Map(W.map(w => [w.h, w]));
 const TOP = (self.TEMAS || []).map(([e, n, t]) => ({ e, n, ws: t.split(/\s+/).map(h => byH.get(h)).filter(w => w && !usada.has(w.h) && usada.add(w.h)) }));
 
 // lecciones: temas relacionados juntos; lo que no tiene tema va agrupado por carácter compartido. pk = 'x<HSK>-<n>'
-const PW = {}, LKEYS = {}, LES = {};
+const PW = {}, LKEYS = {}, LES = {}, TAM_LECCION = 8; // palabras por lección (máx. ~8): más pequeñas se fijan mejor y la carga de repaso diaria no se dispara
+
 [...new Set(W.map(w => w.l))].forEach(lv => {
   const out = [], used = new Set(); let carry = [], names = [];
   const put = (name, ws) => { if (ws.length) out.push([name, ws]); };
   TOP.forEach(t => {
     const ws = t.ws.filter(w => w.l == lv); ws.forEach(w => used.add(w.id));
     if (ws.length < 8) { carry.push(...ws); if (ws.length) names.push(t.n); if (carry.length >= 8 || names.length >= 3) { put(names.join(' · '), carry); carry = []; names = []; } return; }
-    const k = Math.ceil(ws.length / 15);
+    const k = Math.ceil(ws.length / TAM_LECCION);
     for (let i = 0; i < k; i++) put(t.n + (k > 1 ? ' ' + (i + 1) : ''), ws.slice(Math.round(i * ws.length / k), Math.round((i + 1) * ws.length / k)));
   });
   if (carry.length && carry.length < 5 && out.length) { const p = out[out.length - 1]; p[0] += ' · ' + names.join(' · '); p[1].push(...carry); } else put(names.join(' · '), carry); // un resto pequeño se une a la lección anterior
   const g = new Map(); W.filter(w => w.l == lv && !used.has(w.id)).forEach(w => { const c = [...w.h][0]; g.set(c, [...(g.get(c) || []), w]); });
   const rest = [...g.values()].flat();
-  const k = Math.max(1, Math.round(rest.length / 14)), gen = [];
+  const k = Math.max(1, Math.round(rest.length / (TAM_LECCION - 1))), gen = [];
   for (let i = 0; i < k; i++) gen.push(['Más vocabulario ' + (i + 1), rest.slice(Math.round(i * rest.length / k), Math.round((i + 1) * rest.length / k))]);
   // en HSK 1-2 lo básico sin tema (pronombres, partículas, verbos comunes) va primero
   LKEYS[lv] = (lv < 3 ? [...gen, ...out] : [...out, ...gen]).filter(l => l[1].length).map(([name, ws], i) => { const k = 'x' + lv + '-' + i; LES[k] = name; PW[k] = ws; ws.forEach(w => w.pk = k); return k; });
@@ -804,7 +811,7 @@ function settings() {
     <input type=file id=imp accept=".json,application/json" hidden onchange="importar(this.files[0])"><div id=impmsg aria-live=polite></div>
     <h2>Sugerencias</h2><p class=mut>¿Un error, una palabra que falta o una idea? Anótalo y envíamelo.</p>
     <button class=chip onclick="sugerencias()">💡 Sugerir o ver mis sugerencias${(S.sug || []).length ? ' (' + S.sug.length + ')' : ''}</button>
-    <p class=mut style="margin-top:1.5rem">Versión de la app: ${APP_V}</p>`);
+    <p class=mut style="margin-top:1.5rem">Los niveles HSK de la app son orientativos: reparten el vocabulario a su manera y no coinciden palabra por palabra con las listas oficiales de cada nivel del examen.</p><p class=mut style="margin-top:1.5rem">Versión de la app: ${APP_V}</p>`);
 }
 // sugerencias: se guardan en el móvil (S.sug, entran en la copia de seguridad) y se envían con el menú de compartir
 const SUG_QUE = ['Un dato está mal (traducción, pinyin, hanzi o frase)', 'El audio o la voz fallan', 'La app falla (error, pantalla en blanco, se cierra)', 'Se ve mal (texto cortado, colores, tamaños)', 'Un botón o gesto no responde (o atrás va mal)', 'El progreso o el repaso no cuadran (racha, aciertos, fechas)', 'He perdido datos o la copia de seguridad falla', 'Va lenta o no funciona sin conexión', 'Falta contenido (palabras, lecturas, temas…)', 'Es una idea o mejora', 'Otro'];
@@ -1370,8 +1377,8 @@ const Q = {
   },
   write(el, w, done) {
     el.innerHTML = `<div class=prompt><span class=hz>${w.h}</span><small>${w.e}</small></div>
-      <input type=text id=in autocomplete=off autocapitalize=off autocorrect=off spellcheck=false aria-label="Escribe el pinyin" placeholder="pinyin (los tonos son opcionales)"><button class=main id=go>Comprobar</button>`;
-    const go = () => { if (!$('#in').value.trim()) return; $('#in').disabled = $('#go').disabled = true; done(nrm($('#in').value) == nrm(w.p)); };
+      <input type=text id=in autocomplete=off autocapitalize=off autocorrect=off spellcheck=false aria-label="Escribe el pinyin" placeholder="pinyin con tonos: mā o ma1"><button class=main id=go>Comprobar</button>`;
+    const go = () => { if (!$('#in').value.trim()) return; $('#in').disabled = $('#go').disabled = true; done(pyOk($('#in').value, w.p)); };
     $('#go').onclick = go; $('#in').onkeydown = e => { if (e.key == 'Enter') go(); }; $('#in').focus();
   },
   cards(el, w, done) {
@@ -1384,12 +1391,13 @@ const Q = {
   },
 };
 // en el repaso de hoy: ejercicio según la caja de la palabra
-// pinyin visible u oculto en los ejercicios (S.set.rpy; por defecto visible)
-const pyOff = () => S.set.rpy === false ? ' np' : '', pyBtn = () => `<button class="chip ${S.set.rpy === false ? '' : 'on'}" onclick="togPy(this)" aria-label="Mostrar u ocultar el pinyin">Pinyin</button>`;
-function togPy(b) { S.set.rpy = S.set.rpy === false; save(); b.classList.toggle('on', S.set.rpy !== false); document.querySelector('.play').classList.toggle('np', S.set.rpy === false); }
+// pinyin visible u oculto en los ejercicios (S.set.rpy; sin elegir, visible hasta que la palabra llega a la caja 2)
+const pyHide = w => S.set.rpy === undefined ? (S.w[w?.id]?.b || 0) >= 2 : S.set.rpy === false; // sin elección del usuario, el pinyin se oculta en las palabras de caja ≥ 2: leer el carácter, no la muleta
+const pyOff = w => pyHide(w) ? ' np' : '', pyBtn = w => `<button class="chip ${pyHide(w) ? '' : 'on'}" onclick="togPy(this)" aria-label="Mostrar u ocultar el pinyin">Pinyin</button>`;
+function togPy(b) { const p = document.querySelector('.play'); S.set.rpy = p.classList.contains('np'); save(); b.classList.toggle('on', S.set.rpy); p.classList.toggle('np', !S.set.rpy); }
 const mixMode = w => { // sin tarjetas: elige entre ejercicios que se puedan hacer con la palabra, según lo bien que se sepa
   const b = S.w[w.id]?.b || 0; if (b >= 1 && Math.random() < .3 && lineaDe(w)) return 'lect';
-  const o = (b <= 1 ? ['choice', 'pair', 'cloze'] : b < 4 ? ['listen', 'cloze', 'order', 'pair', 'sentence'] : ['write', 'cloze', 'order', 'listen']).filter(m => !FILT[m] || FILT[m](w));
+  const o = (b <= 1 ? ['choice', 'pair', 'cloze'] : b < 4 ? ['listen', 'cloze', 'order', 'pair', 'sentence', 'hanzi'] : ['write', 'cloze', 'order', 'listen', 'hanzi', 'draw']).filter(m => !FILT[m] || FILT[m](w));
   return o[Math.floor(Math.random() * o.length)];
 };
 
@@ -1404,7 +1412,7 @@ function session(mode, fixed) {
   const step = () => {
     if (i >= items.length) return summary(ok, items.length, bad, () => mode == 'mix' ? today() : session(mode, fixed), mode == 'mix' ? (PLAN ? '<button class=main onclick="planLeccion()">Siguiente: aprender palabras nuevas →</button>' : lecturaDeHoy()) : '');
     const w = items[i], aviso = prueba ? `<div class=mut style="text-align:center">Prueba ${i + 1}/${items.length}: ${PRUEBA[i][1]}</div>` : '';
-    app(`<div class="play${pyOff()}"><div class=top><button class=back onclick="home()">✕</button><div class=bar><i style="width:${i / items.length * 100}%"></i></div>${pyBtn()}</div>${aviso}<div id=q></div><div id=fb></div></div>`);
+    app(`<div class="play${pyOff(w)}"><div class=top><button class=back onclick="home()">✕</button><div class=bar><i style="width:${i / items.length * 100}%"></i></div>${pyBtn(w)}</div>${aviso}<div id=q></div><div id=fb></div></div>`);
     const m = prueba ? PRUEBA[i][0] : mix ? mixMode(w) : mode;
     Q[m]($('#q'), w, (good, niv) => {
       if (!prueba) grade(w.id, good, niv, PROD.has(m)); good ? ok++ : bad.push(w);
@@ -1715,7 +1723,14 @@ const iniPalabras = zs => { let c = 0; return zs.map(z => { const p = c; c += [.
 const palabraEn = (ini, c) => { let k = 0; ini.forEach((p, n) => { if (p <= c) k = n; }); return k; };
 // dice la frase j (su burbuja ya está en pantalla) iluminando cada palabra; al terminar sin que la corten llama a fin
 // voz de una persona: su tono y velocidad y, si el dispositivo tiene varias voces chinas, la que le toca (n; las parejas de conversación van con n de distinta paridad)
-const vocesZh = () => { try { return speechSynthesis.getVoices().filter(v => /^zh/i.test(v.lang)).sort((a, b) => a.name < b.name ? -1 : 1); } catch { return []; } };
+// voces chinas del dispositivo, las más naturales primero (Natural/Neural de Edge, Google, voces de Apple); el cantonés (zh-HK, yue) solo si no hay otra
+const calidadVoz = v => (/natural|neural|online/i.test(v.name) ? 4 : 0) + (/google/i.test(v.name) ? 3 : 0) + (/xiao|yun|ting-?ting|mei-?jia|lili|lilian|yu-?shu/i.test(v.name) ? 2 : 0) + (/^(zh[-_]CN|cmn)/i.test(v.lang) ? 1 : 0);
+const vocesZh = () => {
+  try {
+    const vs = speechSynthesis.getVoices().filter(v => /^(zh|cmn)/i.test(v.lang)), man = vs.filter(v => !/HK|yue/i.test(v.lang + v.name)), l = (man.length ? man : vs).sort((a, b) => calidadVoz(b) - calidadVoz(a) || (a.name < b.name ? -1 : 1));
+    const buenas = l.filter(v => calidadVoz(v) >= 3); return buenas.length > 1 ? buenas : l;
+  } catch { return []; }
+};
 function ponerVoz(u, p) {
   const v = (p && p.voz) || {}, vs = vocesZh();
   u.pitch = v.tono || 1; u.rate = S.set.rate * (v.vel || 1); if (vs.length > 1 && v.n != null) u.voice = vs[v.n % vs.length];
@@ -2117,8 +2132,8 @@ function exam(lv) {
     if (q.audio) { $('#pl').onclick = () => say(q.audio); setTimeout(() => say(q.audio), 300); }
     const el = $('#q');
     if (q.type) {
-      el.innerHTML = `<input type=text id=in autocomplete=off autocapitalize=off autocorrect=off spellcheck=false aria-label="Escribe el pinyin" placeholder="pinyin (los tonos son opcionales)"><button class=main id=go>Siguiente</button>`;
-      const go = () => next(nrm($('#in').value) == nrm(q.w.p));
+      el.innerHTML = `<input type=text id=in autocomplete=off autocapitalize=off autocorrect=off spellcheck=false aria-label="Escribe el pinyin" placeholder="pinyin con tonos: mā o ma1"><button class=main id=go>Siguiente</button>`;
+      const go = () => next(pyOk($('#in').value, q.w.p));
       $('#go').onclick = go; $('#in').onkeydown = e => { if (e.key == 'Enter') go(); }; $('#in').focus();
     } else {
       el.innerHTML = '<div class=opts>' + q.opts.map(o => `<button class=opt>${q.lab(o)}</button>`).join('') + '</div>';

@@ -79,3 +79,45 @@
   ["价格|[倒是]|不|贵，|就是|太|远|了。", "Jiàgé dàoshì bú guì, jiùshì tài yuǎn le.", "El precio sí que no es caro; lo que pasa es que está muy lejos.", "一共 一起 一边"],
   ["这个|办法|倒是|不错，|不过|有点|麻烦。", "Zhège bànfǎ dàoshì búcuò, búguò yǒudiǎn máfan.", "Este método está bien, eso sí, es algo molesto."]]]
 );
+// Puntos de HSK 1-3 que faltaban (sw v218): sugerir, prohibir, pedir opinión, negar el pasado, o, cambio de estado, un poco, cada, cómo, ordinales, con, A-no-A, enfatizar con 是…的, solo si
+(self.GRAM = self.GRAM || []).push(
+[1, "Sugerir con 吧", "Frase + 吧", "吧 al final suaviza una propuesta, una orden o una suposición: «¿vamos?», «supongo que…».", [
+  ["我们|一起|去|[吧]。", "Wǒmen yìqǐ qù ba.", "Vamos juntos, ¿te parece?", "吗 呢 了"],
+  ["你|是|学生|[吧]？", "Nǐ shì xuésheng ba?", "Supongo que eres estudiante, ¿no?", "呢 了 的"]]],
+[1, "Prohibir con 别", "别 + verbo", "别 (o 不要) + verbo es «no hagas…». Suele ir con 了 al final.", [
+  ["你|[别]|去|了。", "Nǐ bié qù le.", "No vayas.", "没 很 太"],
+  ["请|[别]|说话。", "Qǐng bié shuōhuà.", "Por favor, no hables.", "没 很 太"]]],
+[1, "Pedir opinión: 怎么样", "A + 怎么样？", "怎么样 pregunta «¿qué tal?» por una cosa, un plan o el estado de alguien.", [
+  ["你|觉得|这个|办法|[怎么样]？", "Nǐ juéde zhège bànfǎ zěnmeyàng?", "¿Qué te parece este método?", "什么 多少 为什么"],
+  ["今天|天气|[怎么样]？", "Jīntiān tiānqì zěnmeyàng?", "¿Qué tal el tiempo hoy?", "什么 多少 为什么"]]],
+[2, "Negar el pasado con 没", "没 (有) + verbo", "不 niega el presente, el futuro o un hábito; 没 niega que algo haya ocurrido, y entonces el verbo no lleva 了.", [
+  ["我|昨天|[没]|去|学校。", "Wǒ zuótiān méi qù xuéxiào.", "Ayer no fui a la escuela.", "别 很 太"],
+  ["他|还|[没]|吃饭。", "Tā hái méi chīfàn.", "Todavía no ha comido.", "别 很 太"]]],
+[2, "O en afirmaciones: 或者", "A 或者 B", "或者 une opciones en una frase afirmativa; 还是 se reserva para las preguntas.", [
+  ["你|喝|茶|[或者]|咖啡|都|可以。", "Nǐ hē chá huòzhě kāfēi dōu kěyǐ.", "Puedes tomar té o café, lo que quieras.", "还是 和 也"],
+  ["周末|我|看书|[或者]|看|电影。", "Zhōumò wǒ kàn shū huòzhě kàn diànyǐng.", "El fin de semana leo o veo películas.", "还是 和 也"]]],
+[2, "Cambio de estado: 了 final", "Frase + 了", "Un 了 al final dice que algo es nuevo o ha cambiado: «ya…», «ahora…».", [
+  ["现在|九点|[了]。", "Xiànzài jiǔ diǎn le.", "Ya son las nueve.", "吗 呢 过"],
+  ["我|会|说|汉语|[了]。", "Wǒ huì shuō Hànyǔ le.", "Ya sé hablar chino.", "吗 呢 过"]]],
+[2, "Un poco (negativo): 有点", "有点 + adjetivo", "有点 + adjetivo dice «un poco…» con matiz de queja; 一点 va después del adjetivo (大一点).", [
+  ["今天|[有点]|冷。", "Jīntiān yǒudiǎn lěng.", "Hoy hace un poco de frío.", "一点 一下 很多"],
+  ["这个|菜|[有点]|咸。", "Zhège cài yǒudiǎn xián.", "Este plato está un poco salado.", "一点 一下 很多"]]],
+[2, "Cada: 每", "每 + (número) + clasificador / tiempo + 都", "每 significa «cada» y suele ir con 都 delante del verbo.", [
+  ["我|[每]|天|都|学习|汉语。", "Wǒ měi tiān dōu xuéxí Hànyǔ.", "Estudio chino todos los días.", "都 也 很"],
+  ["[每]|个|人|都|喜欢|他。", "Měi gè rén dōu xǐhuan tā.", "A todo el mundo le gusta.", "都 也 很"]]],
+[2, "Cómo y por qué: 怎么", "怎么 + verbo", "怎么 + verbo pregunta «¿cómo?» (manera) o «¿por qué?» con sorpresa.", [
+  ["去|火车站|[怎么]|走？", "Qù huǒchēzhàn zěnme zǒu?", "¿Cómo se va a la estación?", "什么 哪 谁"],
+  ["你|今天|[怎么]|没|来？", "Nǐ jīntiān zěnme méi lái?", "¿Por qué no has venido hoy?", "什么 哪 谁"]]],
+[2, "Ordinales con 第", "第 + número (+ clasificador)", "第 delante de un número forma el ordinal: 第一 «primero», 第三层 «tercer piso».", [
+  ["这|是|我的|[第]|一|本|书。", "Zhè shì wǒ de dì yī běn shū.", "Este es mi primer libro.", "每 次 个"],
+  ["他|住|在|[第]|三|层。", "Tā zhù zài dì sān céng.", "Vive en el tercer piso.", "每 次 个"]]],
+[2, "Con alguien: 跟…一起", "A + 跟 + B + 一起 + verbo", "跟 + persona + 一起 + verbo dice que haces algo «con» alguien.", [
+  ["我|[跟]|朋友|一起|去|看|电影。", "Wǒ gēn péngyou yìqǐ qù kàn diànyǐng.", "Voy al cine con un amigo.", "给 对 比"],
+  ["你|想|[跟]|我|一起|吃饭|吗？", "Nǐ xiǎng gēn wǒ yìqǐ chīfàn ma?", "¿Quieres comer conmigo?", "给 对 比"]]],
+[2, "Preguntar con verbo-no-verbo", "Verbo + 不 + verbo", "Repetir el verbo con 不 en medio hace una pregunta de sí o no, sin 吗.", [
+  ["你|喜欢|[不]|喜欢|这个？", "Nǐ xǐhuan bù xǐhuan zhège?", "¿Te gusta esto o no?", "没 吗 别"],
+  ["他|会|[不]|会|说|汉语？", "Tā huì bú huì shuō Hànyǔ?", "¿Sabe hablar chino?", "没 吗 别"]]],
+[3, "Enfatizar con 是…的", "是 + dato + verbo + 的", "是…的 destaca cómo, cuándo o dónde ocurrió algo que ya sabes que pasó.", [
+  ["我|是|坐|飞机|来|[的]。", "Wǒ shì zuò fēijī lái de.", "Vine en avión.", "了 过 着"],
+  ["他|是|昨天|到|[的]。", "Tā shì zuótiān dào de.", "Llegó ayer.", "了 过 着"]]]
+);

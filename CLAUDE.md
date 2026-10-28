@@ -51,6 +51,7 @@ PWA para estudiar chino (HSK 1-8) en español. JavaScript puro, sin dependencias
 - **Si tocas los trazos o `sw.js`:** `node tests/trazos.js` (≈10 s): con el servidor apagado, la pantalla de trazos dibuja.
 - **Si tocas campos de texto o teclado:** `node tests/teclado.js` (≈10 s, Edge/Chrome real): teclea y borra en los tres campos de la app. Regla: **un manejador `el.onkeydown = e => ...` nunca debe devolver `false`** (p. ej. con `cond && accion`): cancela la tecla y rompe Borrar. Usa `{ if (cond) accion(); }`. `datos.js` lo vigila.
 - **Pantalla o archivo de datos nuevo:** añade la pantalla a `tests/pantallas-lista.js` y, si tiene formato propio, su validación a `tests/datos.js`. Un `.js` nuevo ya se comprueba solo (debe estar en `index.html` y en `FILES` de `sw.js`). Los topes de `datos.js` (vocabulario 31, frases 122, temas 203) son casos conocidos que no deben empeorar.
+- **Fechas en los tests:** `run.js` repite pantallas y atrás con la hora de Madrid fijada a horas trampa (`RELOJ`, en `arnes.js`: 23:30 tras cada cambio de hora y en Nochevieja). Para «dentro de n días» usa días de calendario (`setDate`), no `n * 864e5`, y lee la hora con `a.ev('Date.now()')`, no con el `Date` de Node.
 - **Si el cambio es pequeño:** solo lo anterior más una prueba concreta de lo tocado.
 - **No hacer capturas de pantalla** salvo que el cambio sea visual o lo pida el usuario. Las imágenes pesan mucho.
 - **No volcar listas enteras del vocabulario** para analizarlas: usa scripts de Node que impriman solo el resumen.

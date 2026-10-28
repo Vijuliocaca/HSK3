@@ -25,6 +25,9 @@ function cargarApp(opts = {}) {
   };
   sb.window = sb.self = sb;
   const ctx = vm.createContext(sb), html = fs.readFileSync(path.join(RAIZ, 'index.html'), 'utf8');
+  // RELOJ=2026-10-26T23:30 adelanta o atrasa el reloj de la app a esa hora local (el tiempo sigue corriendo); lo usa run.js con TZ=Europe/Madrid
+  if (process.env.RELOJ) vm.runInContext(`{ const D = Date, d0 = new D(${JSON.stringify(process.env.RELOJ)}) - D.now();
+    Date = class extends D { constructor(...a) { super(...(a.length ? a : [D.now() + d0])); } static now() { return D.now() + d0; } }; }`, ctx);
   [...html.matchAll(/<script src="([^"]+)"/g)].forEach(m => vm.runInContext(fs.readFileSync(path.join(RAIZ, m[1]), 'utf8'), ctx, { filename: m[1] }));
   vm.runInContext(html.match(/<script>([\s\S]*?)<\/script>/g).pop().slice(8, -9), ctx, { filename: 'index.html (script principal)' });
   // atras(): lo que hace la flecha atrás de Android; devuelve false si la app no tiene a dónde volver (es decir, se saldría de la app)

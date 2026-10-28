@@ -205,7 +205,7 @@ t('olvido: repasar de más refuerza menos que repasar cuando ya se olvida', () =
 t('olvido: fallar baja la estabilidad a un tercio (sin reiniciar), la deja para mañana y cuenta el fallo', () => {
   const a = olvido(); a.ev('S.w[W[0].id] = { b: 5, s: 60, o: 8, f: 0, l: Date.now() - 60 * DIA, d: Date.now(), t: day(new Date(Date.now() - 60 * 864e5)) }');
   a.ev('grade(W[0].id, false)'); const r = JSON.parse(a.ev('JSON.stringify(S.w[W[0].id])'));
-  assert.strictEqual(r.s, 18, 'de 60 días debe pasar a 18 (un tercio)'); assert.strictEqual(r.f, 1); assert(r.d - Date.now() > 0.9 * 864e5 && r.d - Date.now() <= 864e5 + 1000, 'debe volver a verse mañana');
+  assert.strictEqual(r.s, 18, 'de 60 días debe pasar a 18 (un tercio)'); assert.strictEqual(r.f, 1); const ya = a.ev('Date.now()'); assert(r.d - ya > 0.9 * 864e5 && r.d - ya <= 864e5 + 1000, 'debe volver a verse mañana');
   a.ev('grade(W[0].id, false)'); assert(Math.abs(a.ev('S.w[W[0].id].s') - 5.4) < 1e-9, 'otro fallo: 5,4'); a.ev('grade(W[0].id, false)'); a.ev('grade(W[0].id, false)'); assert.strictEqual(a.ev('S.w[W[0].id].s'), 1, 'nunca baja de 1 día');
   assert(!a.ev('due().some(w => w.id == W[0].id)'), 'lo fallado hoy no vuelve hasta mañana');
 });
@@ -218,7 +218,7 @@ t('olvido: la retención es 100 % al repasar, 90 % a los s días y decrece; los 
 t('olvido: con el examen cerca ninguna palabra espera más de ~1/4 del tiempo que falta (sin examen no hay tope)', () => {
   const a = olvido(); a.ev('S.w[W[0].id] = { b: 5, s: 60, o: 8, f: 0, l: Date.now(), d: Date.now() + 60 * DIA, t: day(new Date()) }');
   assert.strictEqual(a.ev('tope()'), Infinity); assert.strictEqual(a.ev('venceEn(S.w[W[0].id])'), a.ev('S.w[W[0].id].d'));
-  const en = n => { a.ev(`S.exam = { d: day(new Date(Date.now() + ${n} * 864e5)) }`); return a.ev('tope()'); };
+  const en = n => { a.ev(`S.exam = { d: (d => (d.setDate(d.getDate() + ${n}), day(d)))(new Date()) }`); return a.ev('tope()'); };
   assert.strictEqual(en(8), 2); assert.strictEqual(en(100), 25); assert.strictEqual(en(2), 1); assert.strictEqual(en(1), 1);
   a.ev(`S.exam = { d: day(new Date(Date.now() + 8 * 864e5)) }`); assert(a.ev('venceEn(S.w[W[0].id])') <= a.ev('Date.now()') + 2 * 864e5 + 5, 'el repaso debe adelantarse al tope');
   a.ev('S.exam = { d: day(new Date(Date.now() - 3 * 864e5)) }'); assert.strictEqual(a.ev('tope()'), Infinity, 'con el examen pasado no hay tope');

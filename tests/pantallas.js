@@ -295,7 +295,7 @@ t('aviso de copia: sale sin exportar, se calla al exportar o con «Más tarde»'
   assert(a.ev('avisoCopia(40)').includes('copia de seguridad'), 'no avisa'); assert.strictEqual(a.ev('avisoCopia(10)'), '');
   a.ev('S.expZ = day(new Date(Date.now() + 864e5))'); assert.strictEqual(a.ev('avisoCopia(40)'), '');
   a.ev('S.expZ = ""; S.exp = day(new Date())'); assert.strictEqual(a.ev('avisoCopia(40)'), '');
-  a.ev('S.exp = day(new Date(Date.now() - 40 * 864e5))'); assert(/Hace 40 días/.test(a.ev('avisoCopia(40)')), 'no cuenta los días');
+  a.ev('S.exp = (d => (d.setDate(d.getDate() - 40), day(d)))(new Date())'); // días de calendario: 40×24 h falla cerca del cambio de hora assert(/Hace 40 días/.test(a.ev('avisoCopia(40)')), 'no cuenta los días');
 });
 t('guardado: grade se aplaza y save() lo escribe de golpe', () => {
   const a = cargarApp(); a.ev(PREPARAR); a.ev('grade(W[0].id, true)');

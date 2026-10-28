@@ -12,7 +12,8 @@ const MIME = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; cha
   const b = await lanzar();
   if (!b) { console.log('actualizar: no encuentro Edge ni Chrome (variable BROWSER). Prueba omitida.'); process.exit(0); }
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'hsk-web-')); fs.readdirSync(RAIZ).filter(f => /\.(js|json|html|png)$/.test(f)).forEach(f => fs.copyFileSync(path.join(RAIZ, f), path.join(dir, f))); fs.cpSync(path.join(RAIZ, 'trazos'), path.join(dir, 'trazos'), { recursive: true });
-  let reg = []; const srv = http.createServer((q, r) => {
+  let reg = [], colgado = false; const srv = http.createServer((q, r) => {
+    if (colgado) return; // wifi sin datos: la petición nunca contesta
     const f = path.join(dir, q.url == '/' ? 'index.html' : decodeURIComponent(q.url.split('?')[0]));
     if (!f.startsWith(dir) || !fs.existsSync(f)) { r.statusCode = 404; return r.end(); }
     const cuerpo = fs.readFileSync(f), et = '"' + crypto.createHash('md5').update(cuerpo).digest('hex') + '"', st = q.headers['if-none-match'] == et ? 304 : 200;
@@ -38,8 +39,11 @@ const MIME = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; cha
     await ev("document.querySelector('#upd button').click()");
     ok(await espera("typeof APP_V == 'string' && APP_V == 'hsk3-v9999' && document.readyState == 'complete'", 12000), 'tras «Actualizar» la app debe ser la versión nueva');
     await esp(4500); ok(await ev("document.querySelector('#upd').hidden"), 'ya en la versión nueva no debe salir el aviso');
+    // wifi sin datos: la app abre al instante con lo guardado, sin esperar a la red
+    colgado = true; await ev('window.__vieja = 1'); const t0 = Date.now(); await cmd('Page.reload', {});
+    ok(await espera("!window.__vieja && typeof APP_V == 'string' && APP_V == 'hsk3-v9999' && document.readyState == 'complete'", 2500) && Date.now() - t0 < 2500, 'con wifi sin datos la app debe abrir al instante (' + (Date.now() - t0) + ' ms)');
   } catch (e) { problemas++; console.log('  ✗ error en la prueba:', e.message); }
-  srv.close(); await b.cerrar(); try { fs.rmSync(dir, { recursive: true, force: true }); } catch { }
+  srv.closeAllConnections(); srv.close(); await b.cerrar(); try { fs.rmSync(dir, { recursive: true, force: true }); } catch { }
   console.log(problemas ? `actualizar: ${problemas} problemas` : 'actualizar: OK');
   process.exit(problemas ? 1 : 0);
 })();

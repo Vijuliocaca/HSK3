@@ -213,7 +213,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <main id="app"></main>
 <div id="sr" class="sr" aria-live="polite"></div>
 <nav id="nav" hidden></nav>
-<div id="upd" hidden><span>Hay una versión nueva</span><button onclick="location.reload()">Actualizar</button></div>
+<div id="upd" hidden><span>Hay una versión nueva</span><button onclick="actualizar()">Actualizar</button></div>
 <script src="iconos.js"></script>
 <script src="palabras.js"></script>
 <script src="ajustes.js"></script>
@@ -315,7 +315,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
 const vSW = t => (/const V = '([^']+)'/.exec(t) || [])[1]; // la versión que declara un sw.js
-const APP_V = 'hsk3-v223'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v224'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -1726,9 +1726,9 @@ const palabraEn = (ini, c) => { let k = 0; ini.forEach((p, n) => { if (p <= c) k
 // voz de una persona: su tono y velocidad y, si el dispositivo tiene varias voces chinas, la que le toca (n; las parejas de conversación van con n de distinta paridad)
 // voces chinas del dispositivo, las más naturales primero (Natural/Neural de Edge, Google, voces de Apple); el cantonés (zh-HK, yue) solo si no hay otra
 const calidadVoz = v => (/natural|neural|online/i.test(v.name) ? 4 : 0) + (/google/i.test(v.name) ? 3 : 0) + (/xiao|yun|ting-?ting|mei-?jia|lili|lilian|yu-?shu/i.test(v.name) ? 2 : 0) + (/^(zh[-_]CN|cmn)/i.test(v.lang) ? 1 : 0);
-const vocesZh = () => {
+const vocesZh = () => { // sin conexión, solo voces del dispositivo: las de red («Online», Google en PC) se callan
   try {
-    const vs = speechSynthesis.getVoices().filter(v => /^(zh|cmn)/i.test(v.lang)), man = vs.filter(v => !/HK|yue/i.test(v.lang + v.name)), l = (man.length ? man : vs).sort((a, b) => calidadVoz(b) - calidadVoz(a) || (a.name < b.name ? -1 : 1));
+    const vs = speechSynthesis.getVoices().filter(v => /^(zh|cmn)/i.test(v.lang) && (navigator.onLine || v.localService !== false)), man = vs.filter(v => !/HK|yue/i.test(v.lang + v.name)), l = (man.length ? man : vs).sort((a, b) => calidadVoz(b) - calidadVoz(a) || (a.name < b.name ? -1 : 1));
     const buenas = l.filter(v => calidadVoz(v) >= 3); return buenas.length > 1 ? buenas : l;
   } catch { return []; }
 };
@@ -2145,6 +2145,8 @@ function exam(lv) {
 }
 
 home();
+// la app abre desde la caché: para ver la versión nueva se borra la copia vieja y se recarga desde la red (el aviso solo sale con conexión)
+const actualizar = () => (self.caches ? caches.keys().then(ks => Promise.all(ks.filter(k => /^hsk3-v/.test(k)).map(k => caches.delete(k)))) : Promise.resolve()).catch(() => {}).then(() => location.reload());
 if ('serviceWorker' in navigator) {
   const tenia = !!navigator.serviceWorker.controller; // en la primera instalación no avisamos
   // Aviso de versión nueva: se compara la V de sw.js (pedido siempre a la red) con la de este código. Así avisa en cuanto GitHub publica, sin esperar a que el service worker

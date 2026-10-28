@@ -290,6 +290,11 @@ t('Hoy: muestra el plan y sube los pasos hechos; Progreso muestra reconocer/prod
   assert(/Plan de hoy/.test(a.html()) && /✓ Aprender 5/.test(a.html()) && /✓ Leer una lectura/.test(a.html()), 'plan mal');
   a.ev('stats()'); assert(/Producir/.test(a.html()), 'sin reconocer/producir');
 });
+t('voz: sin conexión no elige voces de red (se callarían)', () => {
+  const a = cargarApp(); a.ev(`speechSynthesis.getVoices = () => [{ name: 'Microsoft Xiaoxiao Online (Natural)', lang: 'zh-CN', localService: false }, { name: 'Microsoft Huihui', lang: 'zh-CN', localService: true }]`);
+  a.ev('navigator.onLine = true'); assert.strictEqual(a.ev('vocesZh()[0].name'), 'Microsoft Xiaoxiao Online (Natural)');
+  a.ev('navigator.onLine = false'); assert.strictEqual(a.ev('vocesZh().map(v => v.name).join()'), 'Microsoft Huihui');
+});
 t('aviso de copia: sale sin exportar, se calla al exportar o con «Más tarde»', () => {
   const a = cargarApp(); a.ev(PREPARAR); a.ev('W.slice(0, 40).forEach(w => S.known[w.id] = 1)');
   assert(a.ev('avisoCopia(40)').includes('copia de seguridad'), 'no avisa'); assert.strictEqual(a.ev('avisoCopia(10)'), '');

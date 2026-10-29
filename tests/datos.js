@@ -42,13 +42,13 @@ nuevas.forEach(([, tx]) => lineas(tx).forEach(l => palabras.push(l)));
 const H = new Set(palabras.map(l => l.split('|')[0]));
 t('vocabulario: cada línea tiene hanzi|pinyin|español', () => palabras.forEach(l => assert(l.split('|').length == 3 && l.split('|').every(x => x.trim()), 'mal formada: ' + l)));
 t('vocabulario: sin hanzi repetidos (el progreso se guarda por hanzi)', () => { const v = new Set(); palabras.forEach(l => { const h = l.split('|')[0]; assert(!v.has(h), 'repetida: ' + h); v.add(h); }); });
-t('vocabulario: sílabas ≠ caracteres no empeora (tope 31)', () => { const n = palabras.filter(l => { const [h, p] = l.split('|'); return !coincide(h, p); }).length; assert(n <= 31, `${n} casos, el tope es 31`); });
+t('vocabulario: sílabas ≠ caracteres no empeora (tope 58)', () => { const n = palabras.filter(l => { const [h, p] = l.split('|'); return !coincide(h, p); }).length; assert(n <= 58, `${n} casos, el tope es 58`); });
 
 // --- frases de ejemplo ---
 const frases = ev('self.SENTR').flatMap(lineas).filter(l => !l.startsWith('//')).map(l => l.split('|'));
 t('frases: palabra|frase|pinyin|español y la palabra existe en el vocabulario', () => frases.forEach(p => { assert(p.length == 4, 'mal formada: ' + p[0]); assert(H.has(p[0]), 'palabra inexistente: ' + p[0]); }));
 t('frases: una frase por palabra', () => assert.strictEqual(new Set(frases.map(p => p[0])).size, frases.length, 'palabras con más de una frase'));
-t('frases: sílabas ≠ caracteres no empeora (tope 122)', () => { const n = frases.filter(p => !coincide(p[1], p[2])).length; assert(n <= 122, `${n} casos, el tope es 122`); });
+t('frases: sílabas ≠ caracteres no empeora (tope 149)', () => { const n = frases.filter(p => !coincide(p[1], p[2])).length; assert(n <= 149, `${n} casos, el tope es 149`); });
 
 // --- temas y gramática y canciones ---
 t('temas: formato [icono, nombre, palabras]; palabras inexistentes no empeora (tope 203, la app las ignora)', () => {

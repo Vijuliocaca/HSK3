@@ -217,6 +217,28 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script src="iconos.js"></script>
 <script src="palabras.js"></script>
 <script src="ajustes.js"></script>
+<script src="nuevo4f.js"></script>
+<script src="nuevo4g.js"></script>
+<script src="nuevo5g.js"></script>
+<script src="nuevo5h.js"></script>
+<script src="nuevo6f.js"></script>
+<script src="nuevo6g.js"></script>
+<script src="nuevo6h.js"></script>
+<script src="nuevo7g.js"></script>
+<script src="nuevo7h.js"></script>
+<script src="nuevo7i.js"></script>
+<script src="nuevo7j.js"></script>
+<script src="nuevo7k.js"></script>
+<script src="nuevo7l.js"></script>
+<script src="nuevo7m.js"></script>
+<script src="nuevo7n.js"></script>
+<script src="nuevo7o.js"></script>
+<script src="nuevo7p.js"></script>
+<script src="nuevo7q.js"></script>
+<script src="nuevo7r.js"></script>
+<script src="nuevo7s.js"></script>
+<script src="nuevo7t.js"></script>
+<script src="niveles.js"></script>
 <script src="nuevo1.js"></script>
 <script src="nuevo2.js"></script>
 <script src="nuevo2b.js"></script>
@@ -315,7 +337,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
 const vSW = t => (/const V = '([^']+)'/.exec(t) || [])[1]; // la versión que declara un sw.js
-const APP_V = 'hsk3-v226'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v227'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -386,11 +408,12 @@ const say = t => { try { speechSynthesis.cancel(); if (AUD) AUD.pause(); const f
 const sinAudio = t => { try { const u = new SpeechSynthesisUtterance(t); u.lang = 'zh-CN'; u.rate = S.set.rate; const v = vocesZh()[0]; if (v) u.voice = v; speechSynthesis.speak(u); } catch {} };
 
 // --- datos: s='a' lista HSK 2.0, s='b' palabras añadidas del HSK 3.0 nuevo; pk = lección (ver abajo) ---
-const W = [], cnt = {};
+const W = [], cnt = {}, NIV = {}; // NIV: nivel HSK 3.0 oficial por hanzi (niveles.js); lo que no esté conserva el de su archivo
+Object.entries(self.NIV || {}).forEach(([lv, t]) => t.split(' ').forEach(h => NIV[h] = +lv));
 function add(s, lv, l) {
   if (!l.trim() || l[0] == '#') return;
   const [h, p, e] = l.split('|'), k = s + lv; cnt[k] = cnt[k] || 0;
-  W.push({ id: W.length, h, p, e: FIX[h] || e, l: lv, s, pk0: k + '-' + (cnt[k]++ / 15 | 0) }); // pk0 = lección antigua (solo para migrar el progreso)
+  W.push({ id: W.length, h, p, e: FIX[h] || e, l: NIV[h] || lv, s, pk0: k + '-' + (cnt[k]++ / 15 | 0) }); // pk0 = lección antigua (solo para migrar el progreso)
 }
 let lv0 = 0;
 RAW.split('\n').forEach(l => { if (l[0] == '#') lv0 = +l.slice(1); else add('a', lv0, l); });

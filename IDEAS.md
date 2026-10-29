@@ -69,3 +69,8 @@ Lista de mejoras que se han hablado y todavía no están hechas. Recomendación:
 - **Carga:** 90 scripts (1,7 MB sin comprimir); juntarlos exigiría un paso de compilación que el proyecto no tiene.
 - **Niveles 7 y 8:** el reparto es alfabético, no por dificultad; renombrarlos o repartirlos por frecuencia si se consigue una lista fiable.
 - **Lecturas (sw v225-v226):** 40 lecturas nuevas (`lecturas9f.js`/`9h.js` HSK 4-5, `lecturas9g.js`/`9i.js` HSK 6-8) escritas con palabras que no salían en ninguna; cobertura: HSK 4 37 %, 5 11 %, 6 26 %, 7 23 %, 8 19 %. Faltan ~4900 palabras de HSK 4-8: seguir por tandas de 20 eligiendo por tema (script de recuento por tema y nivel). En HSK 1-2 se cambiaron las palabras a 2+ niveles por encima cuando había sustituto; se dejaron a propósito 只 (clasificador), 啊, las del tema de la lectura (足球, 彩虹, 可乐), las ya glosadas (教, 一边) y 摔 (nivel 8 por error de la lista).
+
+## Niveles HSK 3.0 oficiales (sw v227)
+- **Decisión:** los niveles siguen el HSK 3.0 (1-6 oficiales; 7-9 repartido en tercios por frecuencia). Vocabulario completo del 1 al 9 (faltan 3 palabras de 4-5 y ~60 del 2.0 clásico que el 3.0 ya no recoge). Nivel de cada palabra en `niveles.js`, generado con `node tools/niveles.js ruta/complete.min.json` (repositorio drkameleon/complete-hsk-vocabulary).
+- Palabras nuevas: `nuevo4f-g.js`, `nuevo5g-h.js`, `nuevo6f-h.js`, `nuevo7g-t.js` (cada uno con sus frases al final). Trazos de los 258 caracteres nuevos añadidos a `trazos/`.
+- Pendiente: lecturas y diálogos con las palabras nuevas (HSK 4-9) y repartir mejor los contenidos de los niveles 7-9.

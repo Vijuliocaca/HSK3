@@ -9,7 +9,7 @@ laura|你说得对。别被一面之词牵着走。|Nǐ shuō de duì. Bié bèi
 ¿Qué propone Samu?|Esperar los resultados de la investigación|Boicotear la empresa|Pedir cuentas a la prensa`],
 
 [7, '🏠 Comprar una vivienda', `carlos|这套房子的地段很好，离地铁站只有五分钟。|Zhè tào fángzi de dìduàn hěn hǎo, lí dìtiězhàn zhǐyǒu wǔ fēnzhōng.|Esta vivienda está muy bien ubicada, a solo cinco minutos del metro.
-chana|价格也不便宜。我们需要向银行申请抵押贷款。|Jiàgé yě bù piányi. Wǒmen xūyào xiàng yínháng shēnqǐng dǐyā dàikuǎn.|El precio no es barato. Tendremos que pedir una hipoteca al banco.
+chana|价格也很贵。我们需要向银行申请抵押贷款。|Jiàgé yě hěn guì. Wǒmen xūyào xiàng yínháng shēnqǐng dǐyā dàikuǎn.|El precio también es alto. Tendremos que pedir una hipoteca al banco.
 carlos|别忘了先看清楚产权，确保没有问题。|Bié wàng le xiān kàn qīngchu chǎnquán, quèbǎo méiyǒu wèntí.|No olvides revisar bien la propiedad y asegurarte de que no hay problemas.
 chana|好的，我会请律师帮忙检查合同。|Hǎo de, wǒ huì qǐng lǜshī bāngmáng jiǎnchá hétong.|Vale, pediré a un abogado que revise el contrato.`, `¿Qué ventaja tiene la vivienda?|Está cerca del metro|Tiene jardín|Es muy barata
 ¿Qué necesitan pedir al banco?|Una hipoteca|Una tarjeta nueva|Un seguro

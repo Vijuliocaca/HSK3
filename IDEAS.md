@@ -59,7 +59,7 @@ Lista de mejoras que se han hablado y todavía no están hechas. Recomendación:
 - **Gramática de HSK 6-8:** 38 puntos (`gramatica4.js`).
 - **Lecturas nuevas:** 3 más en cada nivel de HSK 3 a 8 (`lecturas9a-b.js`).
 - **Tema de alto contraste oscuro**, sin emojis en `fiestas.js`/`cultura.js`.
-- **Carga:** el service worker espera a la red como máximo 4 s y si no, sirve la copia guardada.
+- **Carga (sw v224):** el service worker sirve primero la caché (abre al instante, también con wifi sin datos); la caché se renueva entera con cada versión y «Actualizar» la borra y recarga. Sin conexión, la voz usa solo voces del dispositivo.
 
 ## Pendiente
 - **Canciones con melodía (idea 14):** faltan las partituras de 茉莉花 y 送别.
@@ -68,4 +68,4 @@ Lista de mejoras que se han hablado y todavía no están hechas. Recomendación:
 - **Erhua (儿):** 31 palabras y 122 frases con sílabas ≠ caracteres (casos conocidos, topes en `tests/datos.js`).
 - **Carga:** 90 scripts (1,7 MB sin comprimir); juntarlos exigiría un paso de compilación que el proyecto no tiene.
 - **Niveles 7 y 8:** el reparto es alfabético, no por dificultad; renombrarlos o repartirlos por frecuencia si se consigue una lista fiable.
-- **Lecturas:** solo el 1-6 % de las palabras de HSK 4-8 aparecen en alguna lectura; las lecturas de HSK 1 usan unas 7 palabras de nivel superior.
+- **Lecturas (sw v225):** 20 lecturas nuevas (`lecturas9f.js` HSK 4-5, `lecturas9g.js` HSK 6-8) escritas con palabras que no salían en ninguna; cobertura: HSK 4 27 %, 5 7 %, 6 17 %, 7 16 %, 8 12 %. Faltan ~5400 palabras de HSK 4-8: seguir por tandas de 20 eligiendo por tema (script de recuento por tema y nivel). En HSK 1-2 se cambiaron las palabras a 2+ niveles por encima cuando había sustituto; se dejaron a propósito 只 (clasificador), 啊, las del tema de la lectura (足球, 彩虹, 可乐), las ya glosadas (教, 一边) y 摔 (nivel 8 por error de la lista).

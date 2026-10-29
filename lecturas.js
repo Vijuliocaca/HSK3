@@ -10,7 +10,7 @@
 //   personaje: id de personajes.js (o «id+id» para una conversación entre dos; la primera persona habla en las frases sin «2»); quién cuenta la lectura (se elige según de qué habla)
 (self.LECTS = self.LECTS || []).push(
 [1, '🐱 Mi gato', `我/有/一/只/小/猫。|Wǒ yǒu yì zhī xiǎo māo.|Tengo un gatito.
-它/很/小，/也/很/可爱。|Tā hěn xiǎo, yě hěn kě'ài.|Es muy pequeño y muy mono.
+它/很/小，/也/很/漂亮。|Tā hěn xiǎo, yě hěn piàoliang.|Es muy pequeño y muy bonito.
 它/喜欢/吃/鱼。|Tā xǐhuan chī yú.|Le gusta comer pescado.
 晚上，/它/在/我/的/床/上/睡觉。|Wǎnshang, tā zài wǒ de chuáng shang shuìjiào.|Por la noche duerme en mi cama.
 我/爱/我/的/小/猫。|Wǒ ài wǒ de xiǎo māo.|Quiero a mi gatito.`, `o|¿Qué actitud muestra el narrador hacia su gato?|Cariño: lo describe con ternura y lo quiere mucho|Preocupación: teme que se pierda o enferme|Orgullo: presume de tener un gato muy poco común|Cansancio: cuidarlo le da demasiado trabajo
@@ -47,7 +47,7 @@ f|1`, `十八|dieciocho
 小明|Xiao Ming (nombre)
 中国人|chino (persona)`, 'payolink'],
 
-[1, '👨‍👩‍👧 Mi familia', `我/家/有/四/口/人：/爸爸、/妈妈、/哥哥/和/我。|Wǒ jiā yǒu sì kǒu rén: bàba, māma, gēge hé wǒ.|En mi casa somos cuatro: papá, mamá, mi hermano mayor y yo.
+[1, '👨‍👩‍👧 Mi familia', `我/家/有/四/个/人：/爸爸、/妈妈、/哥哥/和/我。|Wǒ jiā yǒu sì ge rén: bàba, māma, gēge hé wǒ.|En mi casa somos cuatro: papá, mamá, mi hermano mayor y yo.
 爸爸/是/医生，/他/在/医院/工作。|Bàba shì yīshēng, tā zài yīyuàn gōngzuò.|Mi padre es médico y trabaja en un hospital.
 妈妈/是/老师，/她/很/忙。|Māma shì lǎoshī, tā hěn máng.|Mi madre es profesora y está muy ocupada.
 哥哥/今年/十八/岁，/他/是/大学生。|Gēge jīnnián shíbā suì, tā shì dàxuéshēng.|Mi hermano tiene dieciocho años y es universitario.
@@ -77,11 +77,11 @@ f|1`, ``, 'samu'],
 
 [1, '🍉 Me encanta la sandía', `夏天/很/热。|Xiàtiān hěn rè.|El verano es muy caluroso.
 我/最/喜欢/吃/西瓜。|Wǒ zuì xǐhuan chī xīguā.|Lo que más me gusta comer es la sandía.
-西瓜/又/大/又/甜。|Xīguā yòu dà yòu tián.|La sandía es grande y dulce.
+西瓜/很/大，/很/好吃。|Xīguā hěn dà, hěn hǎochī.|La sandía es grande y está muy rica.
 我/和/朋友/一起/吃/西瓜。|Wǒ hé péngyou yìqǐ chī xīguā.|Como sandía con mis amigos.
 一/个/西瓜/五/块/钱。|Yí ge xīguā wǔ kuài qián.|Una sandía cuesta cinco yuanes.
 我/每天/都/想/吃。|Wǒ měitiān dōu xiǎng chī.|Todos los días tengo ganas de comerla.`, `o|¿Qué relación ve Samu entre el calor y la sandía?|Le apetece sobre todo cuando hace calor|Solo se vende en la época de calor|El calor le quita las ganas de comer|La come para refrescarse con amigos
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Samu prefiere comer la sandía él solo|Samu comparte la sandía con amigos|A Samu le parece dulce y grande|Samu querría comer sandía a diario
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Samu prefiere comer la sandía él solo|Samu comparte la sandía con amigos|A Samu le parece grande y rica|Samu querría comer sandía a diario
 z|2
 f|4`, ``, 'samu'],
 
@@ -125,7 +125,7 @@ f|5`, ``, 'payolink'],
 
 [2, '🥛 Sin leche, por favor', `我/和/朋友/去/咖啡店。|Wǒ hé péngyou qù kāfēidiàn.|Voy con un amigo a una cafetería.
 我/想/喝/一/杯/咖啡，/可是/我/不/能/喝/牛奶。|Wǒ xiǎng hē yì bēi kāfēi, kěshì wǒ bù néng hē niúnǎi.|Quiero tomar un café, pero no puedo beber leche.
-喝/了/牛奶，/我/的/肚子/会/不/舒服。|Hē le niúnǎi, wǒ de dùzi huì bù shūfu.|Si bebo leche, me sienta mal el estómago.
+喝/了/牛奶，/我/会/不/舒服。|Hē le niúnǎi, wǒ huì bù shūfu.|Si bebo leche, me siento mal.
 所以/我/对/服务员/说，/请/不要/放/牛奶。|Suǒyǐ wǒ duì fúwùyuán shuō, qǐng búyào fàng niúnǎi.|Así que le digo al camarero que, por favor, no ponga leche.
 服务员/笑/着/说，/没/问题，/你/可以/喝/黑/咖啡。|Fúwùyuán xiào zhe shuō, méi wèntí, nǐ kěyǐ hē hēi kāfēi.|El camarero sonríe y dice: no hay problema, puedes tomar café solo.
 我/的/朋友/喝/了/奶茶，/我/喝/的/是/黑/咖啡。|Wǒ de péngyou hē le nǎichá, wǒ hē de shì hēi kāfēi.|Mi amigo toma té con leche y yo, café solo.`, `o|¿Cómo resuelve Payolink su problema con la leche en la cafetería?|Lo explica con naturalidad y pide algo que le conviene|Renuncia a pedir nada para no complicarle la vida al camarero|Pide lo mismo que su amigo y aguanta las molestias|Se queja al camarero y se marcha de la cafetería
@@ -451,11 +451,11 @@ f|6`, `这么|tan; así`, 'samu+binhao'],
 [1, '🐱 El gato Xiaobai', `你/有/猫/吗？|Nǐ yǒu māo ma?|¿Tienes un gato?
 有，/我/有/一/只/小/猫。|Yǒu, wǒ yǒu yì zhī xiǎo māo.|Sí, tengo un gatito.|2
 它/叫/什么/名字？|Tā jiào shénme míngzi?|¿Cómo se llama?
-它/叫/小白。/它/很/可爱。|Tā jiào Xiǎobái. Tā hěn kě'ài.|Se llama Xiaobai. Es muy mono.|2
+它/叫/小白。/它/很/漂亮。|Tā jiào Xiǎobái. Tā hěn piàoliang.|Se llama Xiaobai. Es muy bonito.|2
 它/多/大/了？|Tā duō dà le?|¿Cuántos años tiene?
 它/两/岁/了。|Tā liǎng suì le.|Tiene dos años.|2
 我/可以/看看/它/吗？|Wǒ kěyǐ kànkan tā ma?|¿Puedo verlo?
-当然/可以！/来/我/家/吧。|Dāngrán kěyǐ! Lái wǒ jiā ba.|¡Claro que sí! Ven a mi casa.|2`, `o|¿Qué desea YuYue al final de la conversación?|Conocer en persona al gato de su amiga|Adoptar un gato como el de su amiga|Llevarle un regalo al gato|Averiguar qué come el gato
+可以！/来/我/家/吧。|Kěyǐ! Lái wǒ jiā ba.|¡Claro! Ven a mi casa.|2`, `o|¿Qué desea YuYue al final de la conversación?|Conocer en persona al gato de su amiga|Adoptar un gato como el de su amiga|Llevarle un regalo al gato|Averiguar qué come el gato
 x|¿Cuál de estas afirmaciones NO se puede deducir de la conversación?|Xiaobai es ya un gato muy viejo|Payolink tiene un gato pequeño|El gato se llama Xiaobai|Payolink invita a YuYue a su casa
 z|7
 f|2`, `小白|Xiaobai (nombre del gato)
@@ -463,9 +463,9 @@ f|2`, `小白|Xiaobai (nombre del gato)
 
 [1, '🍵 Té en vez de leche', `你/喝/什么？|Nǐ hē shénme?|¿Qué bebes?
 我/喝/茶。/我/不/能/喝/牛奶。|Wǒ hē chá. Wǒ bù néng hē niúnǎi.|Yo bebo té. No puedo beber leche.|2
-为什么？|Wèishénme?|¿Por qué?
-我/喝/牛奶/以后/不/舒服。|Wǒ hē niúnǎi yǐhòu bù shūfu.|Después de beber leche me siento mal.|2
-那/你/可以/喝/水/或者/茶。|Nà nǐ kěyǐ hē shuǐ huòzhě chá.|Entonces puedes beber agua o té.
+怎么/了？|Zěnme le?|¿Qué te pasa?
+牛奶/对/我/不/好。|Niúnǎi duì wǒ bù hǎo.|La leche me sienta mal.|2
+那/你/可以/喝/水/和/茶。|Nà nǐ kěyǐ hē shuǐ hé chá.|Entonces puedes beber agua y té.
 对，/我/喜欢/热/茶。|Duì, wǒ xǐhuan rè chá.|Sí, me gusta el té caliente.|2
 我/也/喝/茶。/我们/一起/喝/吧！|Wǒ yě hē chá. Wǒmen yìqǐ hē ba!|Yo también bebo té. ¡Bebamos juntos!
 好，/谢谢/你！|Hǎo, xièxie nǐ!|Vale, ¡gracias!|2`, `o|¿Qué le ocurre a Payolink cuando bebe leche?|Se siente mal después de tomarla|Le entra mucho sueño enseguida|Se le quita por completo el apetito|Le sube un poco la temperatura
@@ -628,7 +628,7 @@ f|7`, `灰色|gris
 我/和/朋友/开/车/去/山/里。|Wǒ hé péngyou kāi chē qù shān lǐ.|Voy en coche con mis amigos a la sierra.
 今天/的/山/很/高，/也/很/难/爬。|Jīntiān de shān hěn gāo, yě hěn nán pá.|La montaña de hoy es alta y difícil de subir.
 我们/慢慢/地/往/上/爬。|Wǒmen mànmàn de wǎng shàng pá.|Subimos despacio, paso a paso.
-到/了/上面，/我们/看到/很/美/的/风景。|Dào le shàngmiàn, wǒmen kàndào hěn měi de fēngjǐng.|Al llegar arriba vemos un paisaje precioso.
+到/了/上面，/我们/看到/很/远/的/地方。|Dào le shàngmiàn, wǒmen kàndào hěn yuǎn de dìfang.|Al llegar arriba vemos muy lejos.
 我/是/医生，/我/知道/运动/对/身体/好。|Wǒ shì yīshēng, wǒ zhīdào yùndòng duì shēntǐ hǎo.|Soy médico y sé que el deporte es bueno para el cuerpo.`, `o|¿Qué muestra Téo en este texto sobre la escalada?|Que combina su afición con el cuidado de la salud|Que solo la practica para competir en torneos|Que le da bastante miedo y la practica por obligación|Que la practica porque no tiene otro plan
 x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Téo escala cada día antes de ir al hospital|Se levanta muy temprano los sábados|Suben despacio y con mucho cuidado hasta la cima|Desde arriba hay muy buenas vistas
 z|3
@@ -707,8 +707,8 @@ f|6`, `差不多|casi; más o menos`, 'laura+anto'],
 喜欢！/我/踢/足球。/你/呢？|Xǐhuan! Wǒ tī zúqiú. Nǐ ne?|¡Sí! Juego al fútbol. ¿Y tú?|2
 我/去/健身房。/我/跑步/和/游泳。|Wǒ qù jiànshēnfáng. Wǒ pǎobù hé yóuyǒng.|Yo voy al gimnasio. Corro y nado.
 我/跑/得/很/快，/可是/我/不/会/游泳。|Wǒ pǎo de hěn kuài, kěshì wǒ bú huì yóuyǒng.|Corro muy rápido, pero no sé nadar.|2
-没/关系，/我/可以/教/你。|Méi guānxi, wǒ kěyǐ jiāo nǐ.|No pasa nada, yo puedo enseñarte.
-谢谢！/你/想/来/我们/的/比赛/吗？|Xièxie! Nǐ xiǎng lái wǒmen de bǐsài ma?|¡Gracias! ¿Quieres venir a nuestro partido?|2
+没关系，/我/可以/教/你。|Méiguānxi, wǒ kěyǐ jiāo nǐ.|No pasa nada, yo puedo enseñarte.
+谢谢！/你/想/来/看/我们/踢/球/吗？|Xièxie! Nǐ xiǎng lái kàn wǒmen tī qiú ma?|¡Gracias! ¿Quieres venir a vernos jugar?|2
 好/啊，/几/点？|Hǎo a, jǐ diǎn?|Vale, ¿a qué hora?
 星期六/下午/三/点。/我们/在/球场/见！|Xīngqīliù xiàwǔ sān diǎn. Wǒmen zài qiúchǎng jiàn!|El sábado a las tres de la tarde. ¡Nos vemos en el campo!|2`, `o|¿En qué quedan al final?|Ella irá a su partido el sábado por la tarde|Él irá a su gimnasio el domingo por la mañana|Los dos nadarán juntos el viernes|Los dos correrán juntos por el parque
 x|¿Cuál de estas afirmaciones NO se puede deducir de la conversación?|Chiki juega también al rugby|Lucía va al gimnasio|Chiki corre muy rápido|Lucía puede enseñarle a nadar
@@ -719,7 +719,7 @@ f|3`, `教|enseñar
 [2, '🩹 Un golpe en el partido', `你/好，/我/的/腿/很/疼。|Nǐ hǎo, wǒ de tuǐ hěn téng.|Hola, me duele mucho la pierna.
 你/怎么/了？/是/打/球/的/时候/吗？|Nǐ zěnme le? Shì dǎ qiú de shíhou ma?|¿Qué te ha pasado? ¿Fue jugando?|2
 对，/我/打/橄榄球，/摔/了/一/下。|Duì, wǒ dǎ gǎnlǎnqiú, shuāi le yí xià.|Sí, jugando al rugby me caí.
-让/我/看看。/还好，/不/太/严重。|Ràng wǒ kànkan. Háihǎo, bú tài yánzhòng.|Déjame ver. Por suerte, no es grave.|2
+让/我/看看。/还好，/没/什么/问题。|Ràng wǒ kànkan. Háihǎo, méi shénme wèntí.|Déjame ver. Por suerte, no es nada.|2
 我/可以/打/球/吗？|Wǒ kěyǐ dǎ qiú ma?|¿Puedo jugar?
 这/个/星期/不/要/打，/多/休息。|Zhè gè xīngqī bú yào dǎ, duō xiūxi.|Esta semana no, descansa mucho.|2
 好，/我/等/一/个/星期。/谢谢/你！|Hǎo, wǒ děng yí gè xīngqī. Xièxie nǐ!|Vale, esperaré una semana. ¡Gracias!
@@ -736,11 +736,11 @@ f|7`, `腿|pierna
 会！/我/最/喜欢/下棋。|Huì! Wǒ zuì xǐhuan xiàqí.|¡Sí! Es lo que más me gusta.|2
 我/不/太/会，/可是/我/想/学。/你/可以/教/我/吗？|Wǒ bú tài huì, kěshì wǒ xiǎng xué. Nǐ kěyǐ jiāo wǒ ma?|No se me da bien, pero quiero aprender. ¿Me puedes enseñar?
 可以！/星期六/来/我/家/吧。|Kěyǐ! Xīngqīliù lái wǒ jiā ba.|¡Claro! Ven a mi casa el sábado.|2
-好！/我/带/一/个/大/西瓜/去。|Hǎo! Wǒ dài yí gè dà xīguā qù.|¡Vale! Llevo una sandía grande.
+好！/我/买/一/个/大/西瓜。|Hǎo! Wǒ mǎi yí gè dà xīguā.|¡Vale! Compro una sandía grande.
 太/好/了！/我们/一边/吃，/一边/下棋。|Tài hǎo le! Wǒmen yìbiān chī, yìbiān xiàqí.|¡Genial! Comamos y juguemos a la vez.|2
 那/第一/盘/谁/先/走？|Nà dìyī pán shéi xiān zǒu?|Entonces, ¿quién empieza la primera partida?
 你/先/走，/我/慢慢/教/你。|Nǐ xiān zǒu, wǒ mànmàn jiāo nǐ.|Empiezas tú; yo te enseño despacio.|2`, `o|¿Qué acuerdan para el sábado?|Jugar al ajedrez en casa de Carlos comiendo sandía|Ir a ver un torneo de ajedrez en la ciudad|Cocinar juntos una cena en casa de Samu|Salir a pasear por la montaña con sandía
-x|¿Cuál de estas afirmaciones NO se puede deducir de la conversación?|Samu es un campeón de ajedrez|Carlos sabe jugar muy bien al ajedrez desde pequeño|Samu llevará una sandía|Samu quiere aprender a jugar
+x|¿Cuál de estas afirmaciones NO se puede deducir de la conversación?|Samu es un campeón de ajedrez|Carlos sabe jugar muy bien al ajedrez desde pequeño|Samu comprará una sandía|Samu quiere aprender a jugar
 z|2
 f|6`, `一边|a la vez; mientras`, 'samu+carlos'],
 
@@ -749,7 +749,7 @@ f|6`, `一边|a la vez; mientras`, 'samu+carlos'],
 可是/我/想/每天/吃，/太/好/吃/了！|Kěshì wǒ xiǎng měitiān chī, tài hǎo chī le!|¡Pero quiero comerlo a diario, está buenísimo!
 每天/吃/炸鸡/对/身体/不/好。|Měitiān chī zhájī duì shēntǐ bù hǎo.|Comer pollo frito a diario no es sano.|2
 那/我/应该/吃/什么？|Nà wǒ yīnggāi chī shénme?|Entonces, ¿qué debería comer?
-多/吃/蔬菜/和/水果，/少/吃/油/的。|Duō chī shūcài hé shuǐguǒ, shǎo chī yóu de.|Come más verdura y fruta, y menos fritos.|2
+多/吃/菜/和/水果，/少/吃/油/的。|Duō chī cài hé shuǐguǒ, shǎo chī yóu de.|Come más verdura y fruta, y menos fritos.|2
 好，/我/试试。/星期六/还/可以/吃/肯德基/吗？|Hǎo, wǒ shìshi. Xīngqīliù hái kěyǐ chī Kěndéjī ma?|Vale, lo intentaré. ¿Los sábados aún puedo comer KFC?
 可以！/不过/要/多/运动。|Kěyǐ! Búguò yào duō yùndòng.|¡Sí! Pero haz más deporte.|2`, `o|¿Qué consejo da Téo a YuYue?|Comer más verdura y fruta, y menos fritos|Dejar de ir al KFC para siempre|Comer pollo frito cada día para ganar fuerza|Beber más agua después de comer
 x|¿Cuál de estas afirmaciones NO se puede deducir de la conversación?|Le han prohibido a YuYue ir al KFC|Una vez por semana no es un problema|Conviene comer más verdura y fruta|Es bueno hacer más deporte

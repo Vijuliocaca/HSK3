@@ -36,7 +36,7 @@ function copiaConRecorrido() {
     document.title = JSON.stringify(RES); parent.postMessage(JSON.stringify(RES), '*');
   </` + `script>`;
   const p = path.join(dir, 'index.html');
-  fs.writeFileSync(p, fs.readFileSync(p, 'utf8').replace('</body>', () => recorrido + '</body>'));
+  fs.writeFileSync(p, fs.readFileSync(p, 'utf8').replace(/<meta http-equiv="Content-Security-Policy"[^>]*>/, '').replace('</body>', () => recorrido + '</body>'));
   return dir;
 }
 

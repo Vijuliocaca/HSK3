@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob: data:; frame-src https://www.youtube-nocookie.com; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="theme-color" content="#b3282d">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon-192.png">
@@ -337,7 +338,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
 const vSW = t => (/const V = '([^']+)'/.exec(t) || [])[1]; // la versión que declara un sw.js
-const APP_V = 'hsk3-v227'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v228'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -471,6 +472,9 @@ function toneVars(p) { // variantes con otros tonos, para distinguirlos
 
 // --- progreso (localStorage; si falla, la app sigue sin guardar) ---
 let S = {}; try { S = JSON.parse(localStorage.hsk3) || {}; } catch {}
+// una copia de seguridad manipulada no puede meter HTML: los textos de S.yo y S.mod pierden < > " ' ` & y la barra invertida
+const limpia = v => typeof v == 'string' ? v.replace(/[<>"'`&\\]/g, '') : v && typeof v == 'object' ? Object.fromEntries(Object.entries(v).map(([k, x]) => [limpia(k), limpia(x)])) : v;
+if (S.yo) S.yo = limpia(S.yo); if (S.mod) S.mod = limpia(S.mod);
 S.w = S.w || {}; S.known = S.known || {}; S.gram = S.gram || {}; S.gramR = S.gramR || {}; S.listas = S.listas || {}; S.song = S.song || {}; S.lv = S.lv || [1, 2, 3];
 S.lv = Array.from({ length: Math.max(...S.lv, 1) }, (_, i) => i + 1); // los HSK son acumulativos: elegir uno incluye los anteriores
 S.streak = S.streak || 0; S.last = S.last || '';
@@ -891,7 +895,7 @@ async function importar(f) {
 }
 
 // --- listas propias: S.listas[nombre] = [hanzi]; por hanzi, así no dependen de la posición de la palabra ---
-const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+const esc = s => s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const LN = () => Object.keys(S.listas), LW = n => (S.listas[n] || []).map(h => byH.get(h)).filter(Boolean);
 function listas() {
   app(`<div class=top><button class=back onclick="home()">←</button><b>Mis listas</b></div>
@@ -1804,7 +1808,7 @@ function personajes() {
   const n = id => LECT.filter(d => d.p.split('+').includes(id)).length;
   app(`<div class=top><button class=back onclick="home()">←</button><b>Personajes</b></div>
     <p class=mut>Ellos te cuentan las lecturas y las conversaciones. Toca uno para verlo y modificarlo.</p>
-    <button class=mode onclick="crear()" style="margin-bottom:.8rem"><span class=avatar style="width:3.4rem;height:3.4rem;cursor:default;flex:none" aria-hidden=true>${avatarSVG(S.yo || ED_DEF)}</span><span><b>${S.yo ? 'Tu personaje: ' + S.yo.n : 'Crea tu personaje'}</b><small>Elige cara, pelo, ropa y extras</small></span></button>
+    <button class=mode onclick="crear()" style="margin-bottom:.8rem"><span class=avatar style="width:3.4rem;height:3.4rem;cursor:default;flex:none" aria-hidden=true>${avatarSVG(S.yo || ED_DEF)}</span><span><b>${S.yo ? 'Tu personaje: ' + esc(S.yo.n) : 'Crea tu personaje'}</b><small>Elige cara, pelo, ropa y extras</small></span></button>
     <div class=grid>${Object.entries(PERS).map(([id, p]) => `<button class=mode onclick="personaje('${id}')" style="flex-direction:column;text-align:center;align-items:center;gap:.4rem"><span class=avatar style="width:5.5rem;height:5.5rem;cursor:default" aria-hidden=true>${avatarSVG(p)}</span><span><b>${p.n}</b><small>${n(id)} ${n(id) == 1 ? 'lectura' : 'lecturas'}</small></span></button>`).join('')}</div>`, 'home');
 }
 // ficha de un personaje: descripción, lecturas en las que aparece y modificarlo (los cambios se guardan en S.mod)

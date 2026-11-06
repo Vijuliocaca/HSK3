@@ -32,6 +32,12 @@ PWA para estudiar chino (HSK 1-8) en español. JavaScript puro, sin dependencias
 - **Normal:** lo anterior más `node tests/desbordes.js` y la revisión de las pantallas afectadas.
 - **Exhaustivo:** recorrido completo en Edge y desbordes a 320-412 px; solo cuando el usuario pida revisar bugs.
 
+## Subagentes (`.claude/agents/`)
+Se usan solo cuando el usuario los pide o el trabajo es un lote grande.
+- **`tester`** (haiku): ejecuta `tests/run.js` y las pruebas que correspondan a los archivos cambiados; avisa si `sw.js`/`APP_V` no subieron. Informa una línea por prueba (OK/FALLO/saltada). *Úsalo* antes de un commit o tras tocar código/datos; con «revisión completa» añade `run.js --navegador` y `TODAS=1 desbordes.js`.
+- **`vocabulario`** (sonnet): añade y corrige palabras, pinyin, traducciones y frases por lotes; regenera `niveles.js` y `trazos/`. No toca `sw.js`/`APP_V` ni hace commit (eso es del agente principal). *Úsalo* para lotes grandes: completar palabras que faltan de un nivel HSK 3.0, revisar tonos o duplicados, añadir frases de ejemplo.
+- **`pedagogo`** (sonnet; opus si se pide revisar la naturalidad del chino): audita lo pedagógico de un nivel o área y propone hasta 10 mejoras con evidencia; solo lectura. *Úsalo* para decidir qué mejorar: huecos entre niveles, calidad de lecturas y preguntas, repaso espaciado. Las ideas aceptadas pasan a `IDEAS.md`.
+
 ## Reglas para gastar menos
 1. **Cambios pequeños con `Edit`;** no reescribir archivos enteros para tocar pocas líneas.
 2. **Limitar la salida de los comandos** (`head`, `tail`, `grep`). Los análisis de datos con un script que imprima solo el resumen.

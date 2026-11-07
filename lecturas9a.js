@@ -1,22 +1,12 @@
 // Más lecturas de HSK 3-5 (formato y reglas en la cabecera de lecturas.js)
 (self.LECTS = self.LECTS || []).push(
-[3, '🥛 Mi gato y la leche', `我/的/猫/很/喜欢/喝/牛奶。|Wǒ de māo hěn xǐhuan hē niúnǎi.|A mi gato le encanta beber leche.
-可是/我/不/能/喝/牛奶，/喝/了/会/不/舒服。|Kěshì wǒ bù néng hē niúnǎi, hē le huì bù shūfu.|Pero yo no puedo beber leche: si la bebo, me siento mal.
-所以/我/给/它/买/了/猫奶。|Suǒyǐ wǒ gěi tā mǎi le māonǎi.|Así que le compré leche para gatos.
-它/每天/早上/都/要/喝/一/杯。|Tā měitiān zǎoshang dōu yào hē yì bēi.|Cada mañana quiere beber una taza.
-我/喝/水/或者/茶。|Wǒ hē shuǐ huòzhě chá.|Yo bebo agua o té.
-我们/都/很/开心。|Wǒmen dōu hěn kāixīn.|Los dos estamos contentos.`, `o|¿Por qué el narrador no bebe leche?|Porque le sienta mal|Porque no le gusta el sabor|Porque no tiene dinero|Porque su gato se la bebe toda
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El gato nunca quiere beber leche|Al narrador le sienta mal la leche|El gato toma una taza por la mañana|El narrador bebe agua o té
-z|4
-f|5`, `猫奶|leche para gatos`, 'payolink'],
-
 [3, '🍉 Una sandía muy grande', `昨天，/我/在/超市/买/了/一/个/西瓜。|Zuótiān, wǒ zài chāoshì mǎi le yí ge xīguā.|Ayer compré una sandía en el supermercado.
 它/很/大，/也/很/重。|Tā hěn dà, yě hěn zhòng.|Era muy grande y también pesada.
 我/一/个/人/拿/不/动，/就/打/电话/叫/朋友/来/帮忙。|Wǒ yí ge rén ná bu dòng, jiù dǎ diànhuà jiào péngyou lái bāngmáng.|No podía llevarla solo, así que llamé a un amigo para que me ayudara.
 朋友/很快/就/到/了。|Péngyou hěnkuài jiù dào le.|Mi amigo llegó enseguida.
 我们/一起/把/西瓜/切/开，/吃/得/很/高兴。|Wǒmen yìqǐ bǎ xīguā qiē kāi, chī de hěn gāoxìng.|Cortamos la sandía juntos y comimos muy contentos.
 夏天/吃/西瓜/最/舒服。|Xiàtiān chī xīguā zuì shūfu.|En verano comer sandía es lo más agradable.`, `o|¿Qué hizo el narrador cuando no pudo con la sandía?|Llamó a un amigo para que lo ayudara|La dejó en el supermercado|La cortó dentro de la tienda|Pidió que se la llevaran a casa
-x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|El narrador llevó la sandía solo hasta su casa|La sandía era grande y pesada|El amigo llegó pronto|Entre los dos comieron la sandía, según se cuenta en el texto
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|El narrador fue en coche al supermercado|La sandía pesaba demasiado para uno solo|El amigo acudió poco después de la llamada|Al final se comieron la sandía entre los dos
 z|5
 f|4`, `很快|muy pronto`, 'samu'],
 
@@ -26,7 +16,7 @@ f|4`, `很快|muy pronto`, 'samu'],
 上/个/星期，/我/踢进/了/一/个/球。|Shàng ge xīngqī, wǒ tījìn le yí ge qiú.|La semana pasada metí un gol.
 大家/都/很/高兴，/一起/喊/我/的/名字。|Dàjiā dōu hěn gāoxìng, yìqǐ hǎn wǒ de míngzi.|Todos se alegraron y gritaron mi nombre.
 我/觉得/个子/小/也/没/关系。|Wǒ juéde gèzi xiǎo yě méi guānxi.|Creo que ser bajito no importa.`, `o|¿Qué piensa el narrador de su estatura?|Que no es un problema para jugar|Que es su mayor defecto|Que le impide jugar|Que quiere crecer cuanto antes
-x|¿Cuál de estas ideas NO encaja con el texto?|Gana todos los partidos gracias a su altura|Corre muy rápido, según sus amigos|Juega al fútbol cada fin de semana, según se cuenta en el texto|La semana pasada marcó un gol
+x|¿Cuál de estas ideas NO encaja con el texto?|Juega de portero en el equipo de la escuela|Sus amigos valoran lo rápido que corre|Juega al fútbol todos los fines de semana|Su gol hizo que todos corearan su nombre
 z|3
 f|6`, `踢进|meter (un gol)`, 'chiki'],
 
@@ -113,10 +103,10 @@ f|5`, `篮球|baloncesto
 [3, '💃 Bailar los sábados', `我/很/喜欢/跳舞。|Wǒ hěn xǐhuan tiàowǔ.|Me gusta mucho bailar.
 每/个/星期六，/我/和/男朋友/一起/去/跳舞。|Měi gè xīngqīliù, wǒ hé nánpéngyou yìqǐ qù tiàowǔ.|Cada sábado voy a bailar con mi novio.
 他/踢/足球/踢/得/很/好，/可是/跳舞/跳/得/不/好。|Tā tī zúqiú tī de hěn hǎo, kěshì tiàowǔ tiào de bù hǎo.|Él juega muy bien al fútbol, pero baila mal.
-回/家/以后，/我/的/猫/总是/在/门口/等/我。|Huí jiā yǐhòu, wǒ de māo zǒngshì zài ménkǒu děng wǒ.|Al volver a casa, mi gata siempre me espera en la puerta.
+可是/他/每/次/都/跳/得/很/开心。|Kěshì tā měi cì dōu tiào de hěn kāixīn.|Pero siempre baila muy contento.
 我/妈妈/是/医生，/她/说/跳舞/对/身体/很/好。|Wǒ māma shì yīshēng, tā shuō tiàowǔ duì shēntǐ hěn hǎo.|Mi madre es médica y dice que bailar es muy bueno para el cuerpo.
 所以/我/要/一直/跳/下去。|Suǒyǐ wǒ yào yìzhí tiào xiàqu.|Así que seguiré bailando.`, `o|¿Qué siente la narradora por el baile?|Disfruta bailando y quiere seguir practicando|Baila solo porque su madre se lo exige|Lo dejó hace poco por falta de tiempo|Prefiere el fútbol, aunque baila por compañía
-x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|Su novio baila mejor que ella|Su novio es mejor jugando al fútbol que bailando|Su gata la espera cuando vuelve a casa|Su madre cree que bailar es bueno para la salud
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|Conoció a su novio en una clase de baile|Su novio juega mejor al fútbol que baila|Su novio se divierte aunque baile mal|Su madre cree que bailar es bueno para la salud
 z|5
 f|6`, `下去|seguir (hacia adelante)`, 'chana'],
 
@@ -124,9 +114,9 @@ f|6`, `下去|seguir (hacia adelante)`, 'chana'],
 我/喜欢/小孩，/可是/小孩/有时候/怕/我。|Wǒ xǐhuan xiǎohái, kěshì xiǎohái yǒushíhou pà wǒ.|Me gustan los niños, pero a veces ellos me tienen miedo.
 下班/以后，/我/常常/玩/游戏。|Xiàbān yǐhòu, wǒ chángcháng wán yóuxì.|Después del trabajo suelo jugar a videojuegos.
 我/也/抽烟，/可是/我/对/小孩/说/不要/抽烟。|Wǒ yě chōuyān, kěshì wǒ duì xiǎohái shuō búyào chōuyān.|También fumo, pero a los niños les digo que no fumen.
-牙/不/好，/就/要/多/刷牙。|Yá bù hǎo, jiù yào duō shuāyá.|Si los dientes están mal, hay que cepillarse más.
-所以/我/想/一直/做/牙医。|Suǒyǐ wǒ xiǎng yìzhí zuò yáyī.|Así que quiero seguir siendo dentista.`, `o|¿Cómo se siente el narrador con su vida?|Contento con su trabajo y sus aficiones, aunque no sea perfecto|Harto de su trabajo y decidido a buscar otro empleo|Triste porque los niños siempre se alejan de él|Arrepentido de haber elegido una profesión tan larga
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Después del trabajo detesta jugar a videojuegos|Algunos niños le tienen un poco de miedo|Él mismo fuma, pero aconseja a los niños que no lo hagan|Le gusta su trabajo y quiere seguir con él
+我/告诉/小孩/每天/要/刷/两/次/牙。|Wǒ gàosu xiǎohái měitiān yào shuā liǎng cì yá.|Les digo a los niños que se cepillen los dientes dos veces al día.
+看到/小孩/的/牙/越来越/好，/我/很/开心。|Kàndào xiǎohái de yá yuèláiyuè hǎo, wǒ hěn kāixīn.|Me alegra ver que los dientes de los niños están cada vez mejor.`, `o|¿Cómo se siente el narrador con su vida?|Contento con su trabajo y sus aficiones, aunque no sea perfecto|Harto de su trabajo y decidido a buscar otro empleo|Triste porque los niños siempre se alejan de él|Arrepentido de haber elegido una profesión tan larga
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Trabaja en un hospital grande de la ciudad|Algunos niños le tienen un poco de miedo|Él mismo fuma, pero aconseja a los niños que no lo hagan|Le gusta su trabajo y quiere seguir con él
 z|2
 f|3`, `牙|diente
 牙医|dentista
@@ -140,7 +130,7 @@ f|3`, `牙|diente
 第二/天，/我/很/累，/可是/还是/要/工作。|Dì'èr tiān, wǒ hěn lèi, kěshì háishi yào gōngzuò.|Al día siguiente estoy cansado, pero tengo que trabajar.
 所以/我/决定/早/一点/睡觉。|Suǒyǐ wǒ juédìng zǎo yìdiǎn shuìjiào.|Así que he decidido acostarme más temprano.
 好/牙医/也/要/好好/休息。|Hǎo yáyī yě yào hǎohāo xiūxi.|Un buen dentista también tiene que descansar bien.`, `o|¿Qué decide hacer Kevin?|Dormir más temprano para descansar|Dejar los videojuegos para siempre|Pedir unos días libres en la clínica|Jugar solo los fines de semana
-x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Kevin odia su trabajo de dentista|Kevin tiene un ordenador en casa|A veces Kevin se acuesta tarde|Kevin va a trabajar aunque esté cansado
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Kevin juega por internet con otros amigos|Kevin tiene un ordenador en casa|A veces Kevin se acuesta tarde|Kevin va a trabajar aunque esté cansado
 z|2
 f|5`, ``, 'kevin'],
 
@@ -150,19 +140,19 @@ f|5`, ``, 'kevin'],
 他/笑/了，/张开/了/嘴。|Tā xiào le, zhāngkāi le zuǐ.|Se ríe y abre la boca.
 我/很/快/就/检查/好/了。|Wǒ hěn kuài jiù jiǎnchá hǎo le.|Enseguida termino de revisarle.
 我/喜欢/小孩，/他们/也/喜欢/我。|Wǒ xǐhuan xiǎohái, tāmen yě xǐhuan wǒ.|Me gustan los niños y yo también les gusto a ellos.`, `o|¿Cómo consigue Kevin que el niño abra la boca?|Enseñándole su consola|Prometiéndole un regalo|Contándole un cuento|Explicándole que no duele
-x|¿Cuál de estas ideas NO encaja con el texto?|El niño llegó muy tranquilo|Al principio el niño tenía miedo|Kevin le enseña algo divertido|Al final el niño se ríe
+x|¿Cuál de estas ideas NO encaja con el texto?|Era su primera vez en el dentista|Al principio el niño tenía miedo|Kevin le enseña algo divertido|Al final el niño se ríe
 z|3
 f|5`, `男孩|niño; chico
 游戏机|consola de videojuegos
 张开|abrir (la boca)`, 'kevin'],
 
-[3, '🍦 El helado de Jersio', `我/是/以色列/人，/也/喜欢/打/篮球。|Wǒ shì Yǐsèliè rén, yě xǐhuan dǎ lánqiú.|Soy israelí y también me gusta jugar al baloncesto.
-我/有/糖尿病，/我/常常/告诉/朋友。|Wǒ yǒu tángniàobìng, wǒ chángcháng gàosu péngyou.|Tengo diabetes y se lo digo a menudo a mis amigos.
+[3, '🍦 El helado de Jersio', `我/是/以色列/人，/很/喜欢/打/篮球。|Wǒ shì Yǐsèliè rén, hěn xǐhuan dǎ lánqiú.|Soy israelí y me encanta jugar al baloncesto.
+我/有/糖尿病，/朋友/们/都/知道。|Wǒ yǒu tángniàobìng, péngyou men dōu zhīdào.|Tengo diabetes y mis amigos lo saben.
 可是/每天/晚上，/我/都/去/麦当劳。|Kěshì měitiān wǎnshang, wǒ dōu qù Màidāngláo.|Pero cada noche voy al McDonald's.
 我/不/吃/汉堡，/只/吃/一/个/冰淇淋。|Wǒ bù chī hànbǎo, zhǐ chī yí ge bīngqílín.|No como hamburguesa, solo un helado.
 朋友/说/这/对/身体/不/好。|Péngyou shuō zhè duì shēntǐ bù hǎo.|Mis amigos dicen que eso no es bueno para la salud.
 我/笑/了，/明天/我/还/去。|Wǒ xiào le, míngtiān wǒ hái qù.|Me río: mañana volveré.`, `o|¿Qué cena Jersio cada noche en el McDonald's?|Un helado, sin hamburguesa|Una hamburguesa con patatas|Una ensalada y un refresco|Un menú completo de pollo
-x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Jersio prefiere la hamburguesa al helado|Jersio es de Israel y juega al baloncesto|Jersio tiene diabetes y se lo cuenta a sus amigos|Sus amigos creen que cenar así no es sano
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Jersio va al McDonald's con sus amigos|Jersio es de Israel y juega al baloncesto|Jersio tiene diabetes y se lo cuenta a sus amigos|Sus amigos creen que cenar así no es sano
 z|5
 f|3`, `糖尿病|diabetes
 冰淇淋|helado
@@ -189,7 +179,7 @@ f|3`, ``, 'chana'],
 真/的/吗？/那/我/去/看看。|Zhēn de ma? Nà wǒ qù kànkan.|¿De verdad? Entonces iré a verlo.|2
 太/好/了！/跳舞/以后/我们/一起/吃/饭。|Tài hǎo le! Tiàowǔ yǐhòu wǒmen yìqǐ chī fàn.|¡Genial! Después de bailar comemos juntas.
 好，/不/见/不/散！|Hǎo, bú jiàn bú sàn!|¡Vale, no faltes!|2`, `o|¿En qué acuerdan quedar?|Lucía va a verla bailar y luego comen|Chana se irá al gimnasio con Lucía|Lucía bailará toda la noche junto a Chana|Cancelan el plan por falta de tiempo
-x|¿Cuál de estas afirmaciones NO se puede deducir de la conversación?|Lucía lleva años bailando con Chana|Lucía quiere ir al gimnasio el sábado|Chana bailará el sábado por la noche|Lucía piensa que no sabe bailar
+x|¿Cuál de estas afirmaciones NO se puede deducir de la conversación?|Chana da clases de baile los sábados|Lucía quiere ir al gimnasio el sábado|Chana bailará el sábado por la noche|Lucía piensa que no sabe bailar
 z|4
 f|5`, `周六|sábado
 听话|obedecer
@@ -210,7 +200,7 @@ f|5`, ``, 'kevin+yuyue'],
 [3, '🎧 Música con auriculares', `我/走路/的/时候/常常/听/音乐。|Wǒ zǒulù de shíhou chángcháng tīng yīnyuè.|Cuando camino suelo escuchar música.
 我/有/一/副/大/耳机。|Wǒ yǒu yí fù dà ěrjī.|Tengo unos auriculares grandes.
 戴/上/耳机，/我/听/不/到/别人/说话。|Dài shang ěrjī, wǒ tīng bú dào biérén shuōhuà.|Con los auriculares puestos no oigo hablar a los demás.
-有/一/次，/朋友/叫/我，/我/没/听见。|Yǒu yí cì, péngyou jiào wǒ, wǒ méi tīngjiàn.|Una vez, un amigo me llamó y no lo oí.
+有/一/次/过/马路，/朋友/在/后面/叫/我，/我/没/听见。|Yǒu yí cì guò mǎlù, péngyou zài hòumiàn jiào wǒ, wǒ méi tīngjiàn.|Una vez, cruzando la calle, un amigo me llamó desde atrás y no lo oí.
 他/有/一/点/生气。|Tā yǒu yì diǎn shēngqì.|Se enfadó un poco.
 从/那/以后，/过/马路/的/时候/我/不/戴/耳机。|Cóng nà yǐhòu, guò mǎlù de shíhou wǒ bú dài ěrjī.|Desde entonces, al cruzar la calle no me pongo los auriculares.`, `o|¿Qué lección saca Samu?|No llevar auriculares al cruzar la calle|Dejar de escuchar música para siempre|Pedir a sus amigos que le llamen más fuerte|Comprar unos auriculares más pequeños
 x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Un coche casi atropella a Samu|Samu suele escuchar música al andar|Su amigo se molestó un poco|Samu tiene unos auriculares grandes
@@ -223,7 +213,7 @@ f|2`, ``, 'samu'],
 朋友/马上/给/我/一/瓶/果汁。|Péngyou mǎshàng gěi wǒ yì píng guǒzhī.|Mis amigos enseguida me dan una botella de zumo.
 喝/了/以后，/我/又/有/力气/了。|Hē le yǐhòu, wǒ yòu yǒu lìqi le.|Después de beberlo vuelvo a tener fuerzas.
 我们/赢/了，/大家/都/很/开心。|Wǒmen yíng le, dàjiā dōu hěn kāixīn.|Ganamos y todos estamos muy contentos.`, `o|¿Qué hacen sus amigos cuando él se siente cansado?|Le dan un zumo enseguida|Le piden que deje de jugar|Llaman a una ambulancia|Le dicen que beba agua
-x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Perdió el partido por estar cansado|Juega con sus amigos por la tarde|Se hace un control antes de jugar|El zumo le devuelve las fuerzas
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Siempre lleva su propio zumo encima|Juega con sus amigos por la tarde|Se hace un control antes de jugar|El zumo le devuelve las fuerzas
 z|3
 f|4`, `果汁|zumo
 力气|fuerza
@@ -238,7 +228,7 @@ f|4`, `果汁|zumo
 朋友/都/知道，/因为/我/常常/说。|Péngyou dōu zhīdào, yīnwèi wǒ chángcháng shuō.|Mis amigos lo saben porque lo digo a menudo.
 他们/笑/我/说/得/太/多。|Tāmen xiào wǒ shuō de tài duō.|Se ríen de que lo digo demasiado.
 可是/我/觉得，/大家/知道/更/安全。|Kěshì wǒ juéde, dàjiā zhīdào gèng ānquán.|Pero creo que es más seguro que todos lo sepan.`, `o|¿Por qué se lo cuenta a todo el mundo?|Cree que es más seguro que lo sepan|Quiere que le regalen dulces|Le da vergüenza no decirlo|Se lo exige su médico
-x|¿Cuál de estas ideas NO encaja con el texto?|Se mide el azúcar con una máquina enorme en el hospital|Se mide el azúcar antes de cenar|Con el azúcar alto evita los dulces|Sus amigos se ríen un poco de él
+x|¿Cuál de estas ideas NO encaja con el texto?|Se pone insulina después de cada cena|Se mide el azúcar antes de cenar|Con el azúcar alto evita los dulces|Sus amigos se ríen un poco de él
 z|3
 f|1`, `血糖|azúcar en sangre
 测|medir
@@ -248,10 +238,10 @@ f|1`, `血糖|azúcar en sangre
 [3, '👩‍⚕️ Mi madre es médica', `我/妈妈/是/医生，/她/每天/都/很/忙。|Wǒ māma shì yīshēng, tā měitiān dōu hěn máng.|Mi madre es médica y está ocupada cada día.
 她/常常/说，/要/多/吃/菜，/多/睡觉。|Tā chángcháng shuō, yào duō chī cài, duō shuìjiào.|Siempre dice que hay que comer más verdura y dormir más.
 我/跳舞/以后/很/累，/她/就/给/我/做/饭。|Wǒ tiàowǔ yǐhòu hěn lèi, tā jiù gěi wǒ zuò fàn.|Cuando termino de bailar, cansada, me prepara la comida.
-我/的/猫/也/喜欢/她。|Wǒ de māo yě xǐhuan tā.|Mi gata también la quiere.
+她/说/跳舞/也/是/很/好/的/运动。|Tā shuō tiàowǔ yě shì hěn hǎo de yùndòng.|Dice que bailar también es un buen ejercicio.
 有时候，/我/想/当/医生，/可是/我/更/爱/跳舞。|Yǒushíhou, wǒ xiǎng dāng yīshēng, kěshì wǒ gèng ài tiàowǔ.|A veces quiero ser médica, pero me gusta más bailar.
 妈妈/说/只要/我/开心，/她/就/开心。|Māma shuō zhǐyào wǒ kāixīn, tā jiù kāixīn.|Mamá dice que mientras yo sea feliz, ella lo es.`, `o|¿Qué prefiere hacer la narradora?|Bailar, aunque a veces lo duda|Ser médica como su madre, sin dudarlo|Cuidar de su gata todo el día|Cocinar para su madre
-x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Su madre trabaja poco y casi nunca está ocupada|Su madre le aconseja comer más verdura|Su madre le prepara la comida|Su gata también quiere a su madre
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Su madre quiere que ella estudie Medicina|Su madre le aconseja comer más verdura|Su madre le prepara la comida al volver|Su madre ve el baile como buen ejercicio
 z|2
 f|6`, `只要|con tal de que`, 'chana'],
 
@@ -261,7 +251,7 @@ f|6`, `只要|con tal de que`, 'chana'],
 他/个子/不/高，/所以/我/买/了/小/号。|Tā gèzi bù gāo, suǒyǐ wǒ mǎi le xiǎo hào.|Como no es alto, compré la talla pequeña.
 晚上，/我/还/要/给/他/跳/一/个/舞。|Wǎnshang, wǒ hái yào gěi tā tiào yí ge wǔ.|Por la noche también le bailaré algo.
 我/想/他/会/很/开心。|Wǒ xiǎng tā huì hěn kāixīn.|Creo que se pondrá muy contento.`, `o|¿Qué le regala la narradora a su novio?|Una camiseta de fútbol y un baile|Un balón y una cena|Un libro sobre baile|Una entrada para un partido
-x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|Le compró una camiseta de talla grande|Mañana es el cumpleaños de su novio|A su novio le gusta el fútbol|Piensa bailar para él por la noche
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|Su novio eligió la camiseta en la tienda|Mañana es el cumpleaños de su novio|A su novio le gusta el fútbol|Piensa bailar para él por la noche
 z|5
 f|3`, `球衣|camiseta de fútbol
 号|talla
@@ -273,7 +263,7 @@ f|3`, `球衣|camiseta de fútbol
 现在/我/每天/少/抽/一/支。|Xiànzài wǒ měitiān shǎo chōu yì zhī.|Ahora cada día fumo un cigarrillo menos.
 玩/游戏/的/时候，/我/也/不/抽。|Wán yóuxì de shíhou, wǒ yě bù chōu.|Cuando juego a videojuegos, tampoco fumo.
 我/要/做/一/个/好/牙医。|Wǒ yào zuò yí ge hǎo yáyī.|Quiero ser un buen dentista.`, `o|¿Qué hace Kevin después de lo que dijo el niño?|Fuma un cigarrillo menos cada día|Deja de fumar de golpe|Cambia de trabajo|Le pide perdón al niño
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Dejó los videojuegos para fumar menos|Un niño le dijo que sus dientes estaban amarillos|Pensó mucho en ese comentario|Quiere ser un buen dentista
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Su familia le pide que deje de fumar|Un niño le dijo que sus dientes estaban amarillos|Pensó mucho en ese comentario|Quiere ser un buen dentista
 z|5
 f|4`, `黄|amarillo
 支|(cigarrillo, bolígrafo)
@@ -282,10 +272,10 @@ f|4`, `黄|amarillo
 [3, '🍭 Pegatinas para los niños', `在/我/的/诊所，/有/很/多/小孩。|Zài wǒ de zhěnsuǒ, yǒu hěn duō xiǎohái.|En mi clínica hay muchos niños.
 他们/好/怕/疼，/所以/我/先/和/他们/玩。|Tāmen hǎo pà téng, suǒyǐ wǒ xiān hé tāmen wán.|Tienen mucho miedo al dolor, así que primero juego con ellos.
 我/有/很/多/贴纸，/他们/都/想/要。|Wǒ yǒu hěn duō tiēzhǐ, tāmen dōu xiǎng yào.|Tengo muchas pegatinas y todos quieren una.
-检查/完/以后，/每/个/孩子/都/有/一/张。|Jiǎnchá wán yǐhòu, měi ge háizi dōu yǒu yì zhāng.|Al terminar la revisión, cada niño recibe una.
+检查/完/以后，/每/个/孩子/都/能/拿/到/一/张。|Jiǎnchá wán yǐhòu, měi ge háizi dōu néng ná dào yì zhāng.|Al terminar la revisión, cada niño se lleva una.
 他们/笑/着/走/出/去。|Tāmen xiào zhe zǒu chū qù.|Salen riendo.
-我/觉得/这/是/我/最/好/的/工作。|Wǒ juéde zhè shì wǒ zuì hǎo de gōngzuò.|Creo que este es mi mejor trabajo.`, `o|¿Cómo consigue Kevin que los niños pierdan el miedo?|Jugando con ellos y dándoles pegatinas|Poniéndoles dibujos animados|Diciéndoles que no dolerá nada|Dejándoles jugar con su consola
-x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Los niños se van llorando de la clínica|Antes de revisarlos, Kevin juega con ellos|Todos los niños quieren pegatinas|Cada niño se lleva una pegatina
+我/觉得/这/是/我/工作/中/最/开心/的/时候。|Wǒ juéde zhè shì wǒ gōngzuò zhōng zuì kāixīn de shíhou.|Creo que es el momento más feliz de mi trabajo.`, `o|¿Cómo consigue Kevin que los niños pierdan el miedo?|Jugando con ellos y dándoles pegatinas|Poniéndoles dibujos animados|Diciéndoles que no dolerá nada|Dejándoles jugar con su consola
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Kevin compra las pegatinas con su dinero|Antes de revisarlos, Kevin juega con ellos|Todos los niños quieren pegatinas|Cada niño se lleva una pegatina
 z|3
 f|5`, `诊所|clínica
 疼|doler; dolor

@@ -168,8 +168,8 @@ f|1`, `同事|compañero de trabajo
 那里/有/红/的、/白/的、/黄/的，/特别/漂亮。|Nàlǐ yǒu hóng de, bái de, huáng de, tèbié piàoliang.|Había flores rojas, blancas y amarillas, muy bonitas.
 很多/人/在/花/前/拍照，/我们/也/拍/了/很多/照片。|Hěnduō rén zài huā qián pāizhào, wǒmen yě pāi le hěnduō zhàopiàn.|Mucha gente se fotografiaba ante las flores; nosotros sacamos muchas fotos.
 回家/的/路上，/天/突然/下/起/雨/来/了。|Huíjiā de lùshang, tiān tūrán xià qǐ yǔ lái le.|De camino a casa empezó a llover de repente.
-可是/我们/一点/也/不/难过。|Kěshì wǒmen yìdiǎn yě bù nánguò.|Pero no estábamos nada tristes.`, `o|Tras empezar a llover, ¿qué se deduce de «no estábamos nada tristes»?|Que disfrutaron tanto que la lluvia no les importó|Que ya llevaban paraguas y no se mojaron en absoluto|Que habían previsto con antelación que iba a llover|Que se olvidaron de las flores por la lluvia
-x|¿Cuál de estas ideas NO encaja con el texto?|Fueron a ver las flores sin compañía de nadie|Disfrutaron del paseo a pesar del final inesperado|El plan lo compartieron con un grupo de amigos|Guardaron recuerdos del día con muchas fotografías
+可是/我们/还是/很/开心。|Kěshì wǒmen háishi hěn kāixīn.|Pero aun así estábamos muy contentos.`, `o|Tras empezar a llover, ¿qué se deduce de «aun así estábamos muy contentos»?|Que disfrutaron tanto que la lluvia no les importó|Que ya llevaban paraguas y no se mojaron en absoluto|Que habían previsto con antelación que iba a llover|Que se olvidaron de las flores por la lluvia
+x|¿Cuál de estas ideas NO encaja con el texto?|Era la primera vez que visitaban aquel parque juntos|Disfrutaron del paseo a pesar del final inesperado|El plan lo compartieron con un grupo de amigos|Guardaron recuerdos del día con muchas fotografías
 z|5
 f|6`, ``, 'yuyue'],
 
@@ -178,8 +178,8 @@ f|6`, ``, 'yuyue'],
 它们/正在/吃/竹子，/样子/非常/可爱。|Tāmen zhèngzài chī zhúzi, yàngzi fēicháng kě'ài.|Estaban comiendo bambú y se veían adorables.
 然后/我们/又/去/看/了/老虎/和/猴子。|Ránhòu wǒmen yòu qù kàn le lǎohǔ hé hóuzi.|Después vimos los tigres y los monos.
 猴子/特别/聪明，/还/会/跟/人/玩。|Hóuzi tèbié cōngmíng, hái huì gēn rén wán.|Los monos son muy listos y hasta juegan con la gente.
-中午/我们/在/动物园/里/吃/了/午饭，/下午/才/回/家。|Zhōngwǔ wǒmen zài dòngwùyuán lǐ chī le wǔfàn, xiàwǔ cái huí jiā.|Comimos en el zoo y volvimos a casa por la tarde.`, `o|¿Cómo fue, en conjunto, la visita al zoo?|Una excursión familiar completa, de mañana a tarde|Una visita rápida de apenas una hora por la mañana|Una excursión organizada por la escuela|Un paseo nocturno para ver animales con linterna
-x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Los pandas estuvieron durmiendo todo el rato|La familia comió dentro del zoo antes de volver|Los pandas parecían tranquilos y muy simpáticos|Vieron animales de varias clases durante la visita
+中午/我们/在/动物园/里/吃/了/午饭，/下午/才/回/家。|Zhōngwǔ wǒmen zài dòngwùyuán lǐ chī le wǔfàn, xiàwǔ cái huí jiā.|A mediodía comimos en el zoo y no volvimos a casa hasta la tarde.`, `o|¿Cómo fue, en conjunto, la visita al zoo?|Una excursión familiar completa, de mañana a tarde|Una visita rápida de apenas una hora por la mañana|Una excursión organizada por la escuela|Un paseo nocturno para ver animales con linterna
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|La familia pudo dar de comer a los monos del zoo|La familia comió dentro del zoo antes de volver|Los pandas parecían tranquilos y muy simpáticos|Vieron animales de varias clases durante la visita
 z|1
 f|2`, `大熊猫|panda gigante
 竹子|bambú
@@ -192,7 +192,7 @@ f|2`, `大熊猫|panda gigante
 现在/我/可以/和/中国/朋友/聊天/了。|Xiànzài wǒ kěyǐ hé Zhōngguó péngyou liáotiān le.|Ahora ya puedo charlar con amigos chinos.
 老师/说/我/进步/很/快，/我/听/了/非常/高兴。|Lǎoshī shuō wǒ jìnbù hěn kuài, wǒ tīng le fēicháng gāoxìng.|El profesor dice que progreso rápido y eso me alegra mucho.
 我/会/继续/努力，/明年/参加/考试。|Wǒ huì jìxù nǔlì, míngnián cānjiā kǎoshì.|Seguiré esforzándome y el año que viene haré el examen.`, `o|¿Qué evolución cuenta el narrador?|De sentirse perdido con los tonos a charlar con chinos|De hablar muy bien a olvidarse de casi todo lo aprendido|De estudiar solo en casa a abandonar el curso por completo|De escribir muy bien a hablar con mucha dificultad
-x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|El narrador piensa dejar de estudiar chino|El narrador se ayuda con música y cine|Su profesor está contento con su avance|El narrador quiere certificar su nivel
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|El narrador ya ha viajado alguna vez a China|El narrador se ayuda con música y cine|Su profesor está contento con su avance|El narrador quiere certificar su nivel
 z|2
 f|1`, `声调|tonos
 进步|progresar
@@ -203,7 +203,7 @@ f|1`, `声调|tonos
 奶奶/住/在/一/个/小/城市，/那里/很/安静。|Nǎinai zhù zài yí ge xiǎo chéngshì, nàlǐ hěn ānjìng.|Mi abuela vive en una ciudad pequeña y muy tranquila.
 每天/下午，/她/都/会/给/我/泡/一/杯/热/茶。|Měitiān xiàwǔ, tā dōu huì gěi wǒ pào yì bēi rè chá.|Cada tarde me prepara una taza de té caliente.
 我们/一边/喝茶，/一边/聊天。|Wǒmen yìbiān hēchá, yìbiān liáotiān.|Charlamos mientras tomamos el té.
-她/给/我/讲/小时候/的/故事，/我/总是/听/得/很/认真。|Tā gěi wǒ jiǎng xiǎoshíhou de gùshi, wǒ zǒngshì tīng de hěn rènzhēn.|Me cuenta historias de cuando era pequeña y la escucho con atención.
+她/给/我/讲/她/小时候/的/故事，/我/总是/听/得/很/认真。|Tā gěi wǒ jiǎng tā xiǎoshíhou de gùshi, wǒ zǒngshì tīng de hěn rènzhēn.|Me cuenta historias de cuando ella era pequeña y siempre la escucho con atención.
 我/希望/奶奶/身体/健康，/天天/开心。|Wǒ xīwàng nǎinai shēntǐ jiànkāng, tiāntiān kāixīn.|Deseo que mi abuela tenga salud y esté feliz cada día.`, `o|¿Qué papel tiene el té en las visitas a la abuela?|Es el momento de charlar y de pasar tiempo juntos|Es una medicina tradicional que ella le da cada tarde|Es una costumbre antigua que él no soporta nada|Es lo único que toman juntos durante toda la visita
 x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|La abuela vive junto al mar|La abuela vive tranquila en una ciudad pequeña|Los dos conversan y ella cuenta historias|El narrador desea que su abuela esté sana
 z|2
@@ -214,8 +214,8 @@ f|4`, `泡|preparar (té) con agua caliente`, 'yuyue'],
 昨天/我/带/猫/去/看/兽医。|Zuótiān wǒ dài māo qù kàn shòuyī.|Ayer llevé a mi gato al veterinario.
 兽医/说，/很多/猫/喝/了/牛奶/也/会/不/舒服。|Shòuyī shuō, hěnduō māo hē le niúnǎi yě huì bù shūfu.|El veterinario dijo que a muchos gatos también les sienta mal la leche.
 兽医/让/我/的/猫/多/喝/水。|Shòuyī ràng wǒ de māo duō hē shuǐ.|El veterinario recomendó que mi gato beba más agua.
-现在/我们/都/不/喝/牛奶，/我们/都/喝/水。|Xiànzài wǒmen dōu bù hē niúnǎi, wǒmen dōu hē shuǐ.|Ahora ninguno de los dos bebe leche: los dos bebemos agua.`, `o|¿Qué deciden hacer Payolink y su gato al final?|Dejar la leche y beber agua|Pasarse a la leche sin lactosa|Beber menos agua que antes|Ir al veterinario todos los meses
-x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|El gato nunca ha probado la leche|La leche también puede sentar mal a los gatos|Payolink tiene molestias cuando toma leche|El veterinario aconseja darle agua al gato
+现在/我们/都/不/喝/牛奶/了，/只/喝/水。|Xiànzài wǒmen dōu bù hē niúnǎi le, zhǐ hē shuǐ.|Ahora ninguno de los dos bebe ya leche: solo bebemos agua.`, `o|¿Qué deciden hacer Payolink y su gato al final?|Dejar la leche y beber agua|Pasarse a la leche sin lactosa|Beber menos agua que antes|Ir al veterinario todos los meses
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|El veterinario recetó unas pastillas al gato|La leche también puede sentar mal a los gatos|Payolink tiene molestias cuando toma leche|El veterinario aconseja darle agua al gato
 z|6
 f|1`, `疼|doler
 兽医|veterinario; veterinaria`, 'payolink'],

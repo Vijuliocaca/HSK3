@@ -11,7 +11,7 @@
 因为/这/件/事，/我/耽误/了/一/个/小时，/也/缺席/了/会议。|Yīnwèi zhè jiàn shì, wǒ dānwu le yí ge xiǎoshí, yě quēxí le huìyì.|Por este incidente perdí una hora y falté a la reunión.
 同事/很/体贴，/让/我/先/回/家/歇/两/天。|Tóngshì hěn tǐtiē, ràng wǒ xiān huí jiā xiē liǎng tiān.|Mis compañeros, muy considerados, me dijeron que me fuera a casa a descansar un par de días.
 这/次/我/学/到/了：/骑/车/不/能/马虎，/拐弯/时/一定/要/当心。|Zhè cì wǒ xué dào le: qí chē bù néng mǎhu, guǎiwān shí yídìng yào dāngxīn.|Esta vez aprendí que en bici no se puede ir con descuido y que al girar hay que tener cuidado.`, `o|¿Por qué se cayó el narrador?|Porque giró de golpe para no chocar con un niño|Porque la carretera estaba mojada por la lluvia|Porque otra bici se le echó encima por detrás|Porque se le rompió el freno en plena bajada
-x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|El narrador tuvo que ir al hospital en ambulancia|La madre del niño se sintió culpable de lo que había pasado|El narrador no llegó a tiempo a la reunión|El casco evitó que se hiciera más daño
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|La bici quedó dañada y hubo que llevarla al taller|Gracias al casco la caída no tuvo peores consecuencias|La madre del niño la atendió con mucha amabilidad|Los compañeros de trabajo la trataron con consideración
 z|8
 f|4`, `头盔|casco`, 'samu'],
 
@@ -28,7 +28,7 @@ f|4`, `头盔|casco`, 'samu'],
 最后/一/天/天/晴/了，/海边/美/得/仿佛/一/幅/画。|Zuìhòu yì tiān tiān qíng le, hǎibiān měi de fǎngfú yì fú huà.|El último día salió el sol y la playa estaba tan bonita que parecía un cuadro.
 总之，/旅行/未必/完美，/重要/的/是/和/谁/一起/去。|Zǒngzhī, lǚxíng wèibì wánměi, zhòngyào de shì hé shéi yìqǐ qù.|En resumen, un viaje no tiene por qué ser perfecto: lo importante es con quién vas.
 回来/以后，/我/常常/怀念/那/几/天/的/日子。|Huílái yǐhòu, wǒ chángcháng huáiniàn nà jǐ tiān de rìzi.|Desde que volvimos, echo mucho de menos aquellos días.`, `o|¿Cómo reaccionó la narradora cuando el avión se retrasó?|Lo aceptó con calma y buscó algo que hacer|Se enfadó mucho y reclamó una compensación a la compañía|Decidió cancelar el viaje y volver a casa|Llamó al hotel para cambiar la reserva
-x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|La habitación del hotel era mejor que en las fotos|No hizo buen tiempo durante todos los días del viaje|A la amiga no le estaba gustando el viaje|En el restaurante las atendieron muy bien
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|La amiga pidió cambiar de hotel por la habitación|El retraso del avión no sorprendió a la narradora|El tiempo mejoró hacia el final de las vacaciones|La narradora supo animar a su amiga pese a la lluvia
 z|10
 f|3`, `海边|playa; orilla del mar`, 'lucia'],
 
@@ -44,7 +44,7 @@ f|3`, `海边|playa; orilla del mar`, 'lucia'],
 他/很/虚心，/慢慢/学会/了/做/饭，/现在/已经/很/熟练/了。|Tā hěn xūxīn, mànmàn xuéhuì le zuò fàn, xiànzài yǐjīng hěn shúliàn le.|Fue muy humilde, aprendió poco a poco a cocinar y ahora ya se le da muy bien.
 他/还/特别/善于/讲/笑话，/总是/把/我/逗/笑。|Tā hái tèbié shànyú jiǎng xiàohua, zǒngshì bǎ wǒ dòu xiào.|Además es buenísimo contando chistes y siempre me hace reír.
 现在/我们/成/了/好/朋友，/我/反而/舍不得/搬/走/了。|Xiànzài wǒmen chéng le hǎo péngyou, wǒ fǎn'ér shěbude bān zǒu le.|Ahora somos buenos amigos y, al contrario que antes, me daría pena mudarme.`, `o|¿Qué cambió la relación entre los dos compañeros?|Una conversación sincera sobre lo que les molestaba|Que el narrador se mudara a otra habitación|Que los padres de Xiao Zhang vinieran a visitarlo un fin de semana|Que contrataran a alguien para limpiar el piso
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Xiao Zhang le pagó al narrador una taza nueva|Al principio Xiao Zhang era muy desordenado y no limpiaba nunca|Ahora Xiao Zhang sabe cocinar|Xiao Zhang tiene sentido del humor
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Xiao Zhang ya había compartido piso con otras personas|Al principio el desorden de Xiao Zhang molestaba mucho|Una charla sincera cambió la convivencia entre ellos|Xiao Zhang mejoró su manera de cocinar con el tiempo
 z|7
 f|2`, ``, 'carlos'],
 
@@ -60,7 +60,7 @@ f|2`, ``, 'carlos'],
 那/天/晚上/大家/跳舞/跳/得/很/疯狂，/气氛/棒/极/了。|Nà tiān wǎnshang dàjiā tiàowǔ tiào de hěn fēngkuáng, qìfēn bàng jí le.|Aquella noche todos bailamos como locos y el ambiente fue genial.
 他/说/这/是/他/过/得/最/浪漫/的/生日，/我/心里/很/得意。|Tā shuō zhè shì tā guò de zuì làngmàn de shēngrì, wǒ xīnli hěn déyì.|Dijo que era el cumpleaños más romántico que había tenido, y yo me sentí muy orgullosa.
 原来，/只要/尽力，/普通/的/人/也/能/做/出/了不起/的/事。|Yuánlái, zhǐyào jìnlì, pǔtōng de rén yě néng zuò chū liǎobuqǐ de shì.|Resulta que, si te esfuerzas, cualquiera puede hacer algo extraordinario.`, `o|¿Cómo consiguió la narradora que su novio no sospechara nada?|Le hizo creer que ese día tenía que trabajar hasta tarde|Le dijo que la fiesta era en realidad para una amiga suya del trabajo|Se fue de viaje unos días antes del cumpleaños|Le pidió a un amigo que lo entretuviera fuera de casa
-x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|El novio adivinó lo de la fiesta antes de tiempo|Los amigos ayudaron a esconder los regalos en casa de la narradora|El novio se emocionó al ver la sorpresa|En la fiesta hubo música y baile
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Tuvo que pedir permiso en el trabajo para organizarla|Pidió ideas a los amigos para organizar la fiesta|Tuvo que disimular ante su novio durante esos días|El homenajeado quedó muy emocionado con la sorpresa
 z|10
 f|3`, ``, 'chana'],
 
@@ -76,7 +76,7 @@ f|3`, ``, 'chana'],
 一/家/大/超市/主动/来/洽谈，/很/快/就/签署/了/合同。|Yì jiā dà chāoshì zhǔdòng lái qiàtán, hěn kuài jiù qiānshǔ le hétong.|Un gran supermercado vino por iniciativa propia a negociar y enseguida firmamos el contrato.
 到/了/年底，/公司/不但/偿还/了/贷款，/还/开始/盈利/了。|Dào le niándǐ, gōngsī búdàn chánghuán le dàikuǎn, hái kāishǐ yínglì le.|A final de año, la empresa no solo devolvió el préstamo, sino que empezó a tener beneficios.
 老板/说，/公司/的/效益/好/了，/大家/的/工资/也/有/保障/了。|Lǎobǎn shuō, gōngsī de xiàoyì hǎo le, dàjiā de gōngzī yě yǒu bǎozhàng le.|El jefe dijo que, ahora que la empresa rinde bien, los sueldos de todos están garantizados.`, `o|¿Qué ayudó a la empresa a salir de la crisis?|Un envase nuevo que atrajo a clientes jóvenes|Bajar a la mitad el precio de todos los tés que vendían|Abrir varias tiendas en otras ciudades|Cambiar el té verde por otro más barato
-x|¿Cuál de estas ideas NO encaja con el texto?|La empresa despidió a la mitad de sus empleados|La empresa pidió dinero prestado a un banco para seguir adelante|El producto nuevo se vendía por internet|Un supermercado quiso trabajar con ellos
+x|¿Cuál de estas ideas NO encaja con el texto?|La empresa tuvo que despedir a parte de la plantilla|El cambio de envase atrajo a un público más joven|Los pedidos por internet superaron las previsiones|La empresa remontó y logró devolver lo que debía
 z|8
 f|9`, `茶叶|hojas de té
 订单|pedido`, 'binhao'],
@@ -94,7 +94,7 @@ f|9`, `茶叶|hojas de té
 我/衷心/祝福/他们/永远/幸福。|Wǒ zhōngxīn zhùfú tāmen yǒngyuǎn xìngfú.|Les deseé de todo corazón que fueran felices para siempre.
 新娘/的/奶奶/很/慷慨，/给/每/位/客人/都/送/了/礼物。|Xīnniáng de nǎinai hěn kāngkǎi, gěi měi wèi kèrén dōu sòng le lǐwù.|La abuela de la novia, muy generosa, hizo un regalo a cada invitado.
 小/王/笑/着/说/我/过奖/了，/还/紧紧/地/拥抱/了/我。|Xiǎo Wáng xiào zhe shuō wǒ guòjiǎng le, hái jǐnjǐn de yōngbào le wǒ.|Xiao Wang dijo sonriendo que exageraba con los elogios y me dio un fuerte abrazo.`, `o|¿Por qué estaba en un apuro el novio antes de la boda?|Las dos familias no se ponían de acuerdo sobre la boda|No tenía dinero suficiente para pagar el banquete|Su prometida quería aplazar la boda por lo menos un año más|No encontraba a nadie que quisiera ser su padrino
-x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|El narrador y el novio se conocieron en la universidad|El novio confía mucho en el narrador desde que eran niños|Al narrador le costó dar el discurso|Los invitados animaron al narrador
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Xiao Wang y su novia llevaban muy poco tiempo juntos|Xiao Wang confiaba mucho en su amigo desde hace años|Las dos familias discreparon sobre cómo organizar la boda|Al narrador le fallaron los nervios durante su discurso
 z|8
 f|11`, `伴郎|padrino de boda
 未婚妻|prometida
@@ -113,7 +113,7 @@ f|11`, `伴郎|padrino de boda
 下午/还/有/一/场/演奏，/一/位/老人/用/古琴/弹/了/一/首/抒情/的/曲子。|Xiàwǔ hái yǒu yì chǎng yǎnzòu, yí wèi lǎorén yòng gǔqín tán le yì shǒu shūqíng de qǔzi.|Por la tarde hubo además un concierto: un anciano tocó con el guqin una melodía muy sentida.
 旋律/很/慢，/我/朋友/的/目光/一直/没有/离开/他/的/手。|Xuánlǜ hěn màn, wǒ péngyou de mùguāng yìzhí méiyǒu líkāi tā de shǒu.|La melodía era lenta y mi amiga no apartó la mirada de sus manos.
 出来/以后，/她/说/这/次/参观/打开/了/她/的/视野。|Chūlái yǐhòu, tā shuō zhè cì cānguān dǎkāi le tā de shìyě.|Al salir, dijo que la visita le había abierto horizontes.`, `o|¿Qué le pareció a la amiga la caligrafía antigua?|Que sus trazos tenían tanto movimiento que parecían bailar|Que era demasiado difícil de entender para un extranjero|Que se parecía mucho a la que había visto en su país|Que las letras estaban muy estropeadas por el paso de los siglos
-x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|La amiga compró una caligrafía en la tienda del museo|En la exposición había un ambiente muy silencioso y tranquilo|Algunos visitantes opinaron sobre la escultura|La amiga quedó encantada con la visita
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|La amiga compró una de las obras antes de salir|En la sala reinaba un silencio casi absoluto|Una de las piezas exhibidas era muy antigua|La música en vivo cerró la jornada por la tarde
 z|11
 f|7`, `唐代|dinastía Tang
 古琴|guqin (cítara china)
@@ -134,7 +134,7 @@ f|7`, `唐代|dinastía Tang
 他/犹豫/了/很/久，/终于/坦白/了/真相。|Tā yóuyù le hěn jiǔ, zhōngyú tǎnbái le zhēnxiàng.|Dudó un buen rato y por fin confesó la verdad.
 原来/他/半夜/饿/了，/本来/只/想/吃/一/口，/结果/全/吃/完/了。|Yuánlái tā bànyè è le, běnlái zhǐ xiǎng chī yì kǒu, jiéguǒ quán chī wán le.|Resulta que le entró hambre a medianoche: solo quería probar un bocado y acabó comiéndosela entera.
 妈妈/向/我/道歉，/大家/都/笑/了。|Māma xiàng wǒ dàoqiàn, dàjiā dōu xiào le.|Mi madre me pidió disculpas y todos nos reímos.`, `o|¿Cómo descubrió el narrador quién se había comido la tarta?|Siguiendo un rastro de nata hasta el cuarto de su hermano|Viendo las imágenes de una cámara de la cocina|Encontrando el plato vacío debajo de la cama de su hermano|Porque su hermano se lo contó a su madre por la mañana
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El hermano pequeño también tiene diabetes|Al principio, la madre sospechó del narrador|El hermano mintió cuando le preguntaron|La madre reconoció que se había equivocado
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El hermano pequeño ya había hecho algo parecido antes|La madre sospechó primero del narrador injustamente|Los restos de nata orientaron la búsqueda del narrador|El hermano negó al principio haber tocado la tarta
 z|13
 f|4`, `奶油|nata`, 'jersio']
 );

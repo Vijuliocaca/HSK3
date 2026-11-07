@@ -226,7 +226,7 @@ f|1`, `疼|doler
 到/了/以后，/我/先/去/看/了/兵马俑。|Dào le yǐhòu, wǒ xiān qù kàn le Bīngmǎyǒng.|Al llegar fui primero a ver los guerreros de terracota.
 那些/士兵/的/数量/让/我/非常/吃惊。|Nàxiē shìbīng de shùliàng ràng wǒ fēicháng chījīng.|La cantidad de soldados me dejó muy asombrado.
 这/次/旅行/让/我/明白，/一/个/人/出门/也/可以/很/有趣。|Zhè cì lǚxíng ràng wǒ míngbai, yí ge rén chūmén yě kěyǐ hěn yǒuqù.|Este viaje me hizo ver que viajar solo también puede ser muy divertido.`, `o|¿Qué conclusión saca el narrador de su viaje?|Que viajar solo también puede ser muy divertido|Que es mucho mejor viajar con otras personas|Que el tren es un transporte demasiado incómodo|Que Xi'an es una ciudad demasiado cara para visitar
-x|¿Cuál de estas ideas NO encaja con el texto?|Hizo el viaje con un grupo de amigos|Hizo el viaje en vacaciones|Recibió consejos de una persona mayor|Le impresionó lo que vio en Xi'an
+x|¿Cuál de estas ideas NO encaja con el texto?|El anciano le acompañó en la visita a la ciudad|El viaje en tren duró varias horas seguidas|Fue de viaje a Xi'an durante las vacaciones|Los guerreros de terracota le dejaron asombrado
 z|2
 f|5`, `兵马俑|guerreros de terracota
 士兵|soldado
@@ -239,7 +239,7 @@ f|5`, `兵马俑|guerreros de terracota
 睡/前/不要/玩/手机，/因为/屏幕/的/光/会/影响/睡眠。|Shuì qián búyào wán shǒujī, yīnwèi píngmù de guāng huì yǐngxiǎng shuìmián.|No uses el móvil antes de dormir, porque la luz de la pantalla afecta al sueño.
 另外，/房间/要/安静、/黑暗，/温度/也/不/能/太/高。|Lìngwài, fángjiān yào ānjìng, hēi'àn, wēndù yě bù néng tài gāo.|Además, la habitación debe ser tranquila y oscura, y no demasiado cálida.
 养成/好/习惯，/你/的/身体/会/感谢/你。|Yǎngchéng hǎo xíguàn, nǐ de shēntǐ huì gǎnxiè nǐ.|Crea buenos hábitos y tu cuerpo te lo agradecerá.`, `o|¿Cuál es la idea principal del texto?|Dormir bien es importante y requiere buenos hábitos|Hay que dormir lo menos posible para rendir mejor en todo|Solo los niños pequeños necesitan dormir bastante|El móvil ayuda a conciliar mejor el sueño por las noches
-x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Usar el móvil en la cama es bueno para relajarse|Dormir poco dificulta concentrarse|Conviene una habitación tranquila y oscura|Los hábitos de sueño influyen en el cuerpo
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Una siesta larga cada tarde mejora la concentración|La luz de la pantalla puede alterar el sueño|Dormir poco cansa y complica concentrarse al día siguiente|Un dormitorio muy cálido no ayuda a dormir bien
 z|1
 f|6`, `集中|concentrar
 精神|ánimo; atención
@@ -254,7 +254,7 @@ f|6`, `集中|concentrar
 价格/常常/比/商店/便宜，/还/可以/退货。|Jiàgé chángcháng bǐ shāngdiàn piányi, hái kěyǐ tuìhuò.|El precio suele ser más barato que en la tienda y además se puede devolver.
 不过/有时候/东西/和/照片/不/一样，/所以/要/看/评价。|Búguò yǒushíhou dōngxi hé zhàopiàn bù yíyàng, suǒyǐ yào kàn píngjià.|Pero a veces el producto no se parece a la foto, así que conviene leer las valoraciones.
 我/觉得/网上/购物/很/方便，/但是/也/要/小心。|Wǒ juéde wǎngshàng gòuwù hěn fāngbiàn, dànshì yě yào xiǎoxīn.|Creo que comprar online es muy cómodo, pero hay que tener cuidado.`, `o|¿Cuál es la postura del autor sobre comprar por internet?|Equilibrada: es cómodo y útil, pero con precauciones|A favor sin ningún reparo ni precaución alguna|Totalmente en contra, porque casi siempre sale mal|Indiferente: le da igual comprar de un modo u otro
-x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|Comprar por internet es siempre más caro que en tienda|Se puede devolver un producto que no convence al comprador|Las valoraciones ayudan a decidir qué conviene comprar|El producto llega hasta la puerta de casa del cliente
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|El repartidor cobra un suplemento por llevar el paquete|A veces la foto no coincide con el producto real|Comprar online ahorra el desplazamiento a la tienda|Los precios en línea suelen ser algo más bajos
 z|2
 f|4`, `快递|mensajería; paquete urgente
 退货|devolver un producto
@@ -267,7 +267,7 @@ f|4`, `快递|mensajería; paquete urgente
 老师/对/我/说，/只要/坚持，/一定/会/进步。|Lǎoshī duì wǒ shuō, zhǐyào jiānchí, yídìng huì jìnbù.|El profesor me dijo que con constancia seguro mejoraría.
 后来/我/真/的/越/拉/越/好，/还/参加/了/学校/的/比赛。|Hòulái wǒ zhēn de yuè lā yuè hǎo, hái cānjiā le xuéxiào de bǐsài.|Más tarde fui mejorando y hasta participé en un concurso de la escuela.
 现在/我/特别/感谢/爸爸/当年/的/决定。|Xiànzài wǒ tèbié gǎnxiè bàba dāngnián de juédìng.|Ahora agradezco mucho la decisión que tomó mi padre entonces.`, `o|¿Qué cambió la opinión del narrador sobre el violín?|Comprobar que mejoraba gracias a la constancia|Dejar de practicar durante mucho tiempo|Que su padre dejó por fin de obligarle a tocar|Que su profesor le subió de nivel enseguida
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Al narrador siempre le gustó practicar|Hoy el narrador agradece la decisión de su padre|En algún momento estuvo a punto de abandonar|Sus resultados mejoraron con el paso del tiempo
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Su padre también había tocado el violín de joven|Al principio practicar le resultaba pesado|Participó en un concurso de su escuela|El profesor confiaba en que mejoraría con constancia
 z|4
 f|1`, `小提琴|violín
 拉|tocar (violín); tirar
@@ -281,7 +281,7 @@ f|1`, `小提琴|violín
 还有，/西瓜/底下/最好/有/一/块/黄色。|Háiyǒu, xīguā dǐxia zuìhǎo yǒu yí kuài huángsè.|Además, es mejor que por debajo tenga una zona amarilla.
 不过/这些/办法/不/一定/都/对。|Búguò zhèxiē bànfǎ bù yídìng dōu duì.|Pero estos métodos no siempre son correctos.
 就算/挑/错/了，/和/朋友/一起/吃/也/很/开心。|Jiùsuàn tiāo cuò le, hé péngyou yìqǐ chī yě hěn kāixīn.|Aunque me equivoque, comerla con amigos es divertido.`, `o|¿Qué se deduce de «Pero estos métodos no siempre son correctos»?|Que aun siguiéndolos puede salir mala|Que los métodos no sirven para nada|Que solo valen para sandías pequeñas|Que conviene preguntar al vendedor
-x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Una sandía madura suena siempre aguda|Hay que fijarse en varios detalles a la vez|El narrador disfruta aunque se equivoque|Algunos consejos son de oídas, no seguros
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Una sandía con zona amarilla abajo está menos madura|Dar golpecitos sirve para intentar saber si está madura|El color y la forma de la piel cuentan al elegirla|Los métodos del narrador pueden fallar de vez en cuando
 z|6
 f|5`, `挑|elegir; escoger
 皮|piel; cáscara
@@ -297,7 +297,7 @@ f|5`, `挑|elegir; escoger
 下午，/客户/提出/了/一/个/新/要求，/我们/只好/重新/做/方案。|Xiàwǔ, kèhù tíchū le yí ge xīn yāoqiú, wǒmen zhǐhǎo chóngxīn zuò fāng'àn.|Por la tarde un cliente pidió algo nuevo y tuvimos que rehacer la propuesta.
 虽然/很/累，/但是/看到/客户/满意/的/笑容，/我/觉得/一切/都/值得。|Suīrán hěn lèi, dànshì kàndào kèhù mǎnyì de xiàoróng, wǒ juéde yíqiè dōu zhídé.|Aunque estaba cansado, al ver la sonrisa satisfecha del cliente sentí que todo había valido la pena.
 这/就是/我/喜欢/我/的/工作/的/原因。|Zhè jiùshì wǒ xǐhuan wǒ de gōngzuò de yuányīn.|Esa es la razón por la que me gusta mi trabajo.`, `o|¿Qué sentimiento domina al final del día de BinHao?|Satisfacción, pese al cansancio|Frustración por el cliente|Alivio porque por fin termina|Aburrimiento por la rutina
-x|¿Cuál de estas ideas NO encaja con el texto?|El cliente se enfadó con la propuesta final|La jornada fue intensa y sin descansos largos|El cliente quedó contento al final del día|El trabajo previsto cambió a mitad de la jornada
+x|¿Cuál de estas ideas NO encaja con el texto?|Pasó casi toda la jornada fuera de la oficina|Comió algo rápido mientras seguía trabajando|Tuvo que rehacer una propuesta por un pedido nuevo|Ver contento al cliente compensó el cansancio
 z|3
 f|6`, `会议|reunión
 会上|en la reunión
@@ -321,7 +321,7 @@ f|6`, `会议|reunión
 月饼/有/甜/的，/也/有/咸/的，/馅/有/很/多/种。|Yuèbǐng yǒu tián de, yě yǒu xián de, xiàn yǒu hěn duō zhǒng.|Hay pasteles de luna dulces y salados, con muchos tipos de relleno.
 关于/这个/节日，/还有/嫦娥/奔月/的/传说。|Guānyú zhège jiérì, háiyǒu Cháng'é bēnyuè de chuánshuō.|Sobre esta fiesta existe la leyenda de Chang'e, que voló a la luna.
 无论/身在/何处，/人们/都/会/抬头/看/月亮，/想念/家人。|Wúlùn shēnzài héchù, rénmen dōu huì táitóu kàn yuèliang, xiǎngniàn jiārén.|Estén donde estén, la gente mira la luna y piensa en su familia.`, `o|¿Qué idea une la luna redonda, los pasteles y mirar la luna?|La reunión de la familia|La riqueza que traerá el año|La buena cosecha de la temporada|El comienzo del invierno
-x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Es una fiesta que solo se celebra en las ciudades|Es una fiesta que gira en torno a la reunión de la familia|Mirar la luna une a quienes están lejos de los suyos|Tiene una leyenda muy conocida que la acompaña
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Se celebra con fuegos artificiales al caer la noche|Cae a mitad del octavo mes del calendario lunar|Es costumbre comer pasteles de luna con la familia|La luna redonda simboliza estar todos juntos
 z|1
 f|5`, `中秋节|Festival del Medio Otoño
 农历|calendario lunar
@@ -342,7 +342,7 @@ f|5`, `中秋节|Festival del Medio Otoño
 今天，/中国/有/绿茶、/红茶、/乌龙茶/等等/许多/种类。|Jīntiān, Zhōngguó yǒu lǜchá, hóngchá, wūlóngchá děngděng xǔduō zhǒnglèi.|Hoy hay té verde, rojo, oolong y muchos otros tipos.
 不同/的/茶/要/用/不同/温度/的/水/来/泡。|Bùtóng de chá yào yòng bùtóng wēndù de shuǐ lái pào.|Cada té requiere agua a una temperatura distinta.
 对/很/多/中国人/来/说，/喝茶/不/只是/习惯，/更/是/一/种/生活/态度。|Duì hěn duō Zhōngguórén lái shuō, hēchá bù zhǐshì xíguàn, gèng shì yì zhǒng shēnghuó tàidù.|Para muchos chinos beber té es más que un hábito: es una actitud ante la vida.`, `o|¿Qué quiere decir «es más que un hábito: es una actitud ante la vida»?|Que el té forma parte del modo de vivir de muchos chinos|Que el té solo se bebe en ceremonias especiales y bodas|Que beber té es una obligación para todos los chinos|Que el té sustituye a las comidas principales del día
-x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|Todos los tés se preparan exactamente igual|El té tiene un origen muy antiguo en el territorio de China|Existen muchos tipos de té diferentes entre sí|Con el paso del tiempo el té cambió de uso
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|Shennong fue el primero en servir té a un emperador|Hoy se toman variedades como el té verde y el rojo|Según la leyenda, el descubrimiento fue casual|Cada variedad pide una temperatura de agua distinta
 z|1
 f|4`, `故乡|tierra natal
 神农|Shennong (figura legendaria)
@@ -366,7 +366,7 @@ f|4`, `故乡|tierra natal
 乘客/可以/在/车上/吃饭、/看书，/或者/用/手机/办公。|Chéngkè kěyǐ zài chēshang chīfàn, kànshū, huòzhě yòng shǒujī bàngōng.|Los pasajeros pueden comer, leer o trabajar con el móvil.
 因此，/越来越/多/的/人/选择/高铁/出行。|Yīncǐ, yuèláiyuè duō de rén xuǎnzé gāotiě chūxíng.|Por eso cada vez más gente elige el tren para viajar.
 有/人/认为，/高铁/不仅/改变/了/交通，/也/改变/了/人们/的/生活/方式。|Yǒu rén rènwéi, gāotiě bùjǐn gǎibiàn le jiāotōng, yě gǎibiàn le rénmen de shēnghuó fāngshì.|Hay quien piensa que ha cambiado no solo el transporte, sino también el modo de vida.`, `o|¿Por qué cada vez más gente elige el tren?|Por varias ventajas prácticas frente al avión|Porque es más barato que el autobús|Porque ya no quedan vuelos disponibles|Porque la ley lo exige en trayectos largos
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El tren solo sirve para trayectos muy cortos|El clima afecta bastante menos al tren que al avión|Dentro del tren se puede trabajar con el móvil|Las estaciones suelen estar bien situadas en las ciudades
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Los billetes de tren cuestan menos que los de avión|El trayecto Pekín-Shanghái dura algo más de cuatro horas|Los pasajeros pueden leer o comer durante el viaje|Cada vez más viajeros prefieren el tren al avión
 z|4
 f|5`, `高铁|tren de alta velocidad
 相比|en comparación con
@@ -384,7 +384,7 @@ f|5`, `高铁|tren de alta velocidad
 不过，/农村/的/教育/和/医疗/条件/还/需要/改善。|Búguò, nóngcūn de jiàoyù hé yīliáo tiáojiàn hái xūyào gǎishàn.|Pero la educación y la sanidad rurales aún deben mejorar.
 有些/人/先/在/城市/工作/几/年，/再/回/老家/创业。|Yǒuxiē rén xiān zài chéngshì gōngzuò jǐ nián, zài huí lǎojiā chuàngyè.|Algunos trabajan unos años en la ciudad y luego vuelven a su pueblo a emprender.
 选择/哪里，/其实/取决于/每/个/人/的/追求。|Xuǎnzé nǎlǐ, qíshí qǔjuéyú měi ge rén de zhuīqiú.|Elegir dónde vivir depende en realidad de lo que busca cada uno.`, `o|¿Cuál es la conclusión del texto?|Que lo mejor depende de lo que busque cada persona|Que es siempre mejor vivir en una gran ciudad|Que el campo es siempre mejor para todo el mundo|Que casi nadie vuelve después a su pueblo de origen
-x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|En el campo hay más oportunidades de trabajo|En la ciudad se gana más, pero hay más presión|El campo es más tranquilo y fresco|Algunos regresan al pueblo con un proyecto propio
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Quien vuelve al pueblo suele ganar más que en la ciudad|La vida en la ciudad ofrece más oportunidades laborales|En el campo los servicios de salud necesitan mejorar|La mejor opción depende de las prioridades de cada uno
 z|4
 f|1`, `收入|ingresos
 房价|precio de la vivienda
@@ -406,7 +406,7 @@ f|1`, `收入|ingresos
 比如，/早上/你/可以/吃到/粥/和/油条。|Bǐrú, zǎoshang nǐ kěyǐ chīdào zhōu hé yóutiáo.|Por ejemplo, por la mañana se pueden tomar gachas de arroz y yóutiáo.
 对/我/这样/的/年轻人/来/说，/肯德基/不/只是/快餐，/也是/和/朋友/见面/的/地方。|Duì wǒ zhèyàng de niánqīngrén lái shuō, Kěndéjī bù zhǐshì kuàicān, yěshì hé péngyou jiànmiàn de dìfang.|Para jóvenes como yo, KFC no es solo comida rápida: también es un lugar para quedar con amigos.
 当然，/炸鸡/吃/多/了/对/身体/不/好，/所以/我/会/注意/不要/吃/得/太/多。|Dāngrán, zhájī chī duō le duì shēntǐ bù hǎo, suǒyǐ wǒ huì zhùyì búyào chī de tài duō.|Claro, comer demasiado pollo frito no es sano, así que procuro no pasarme.`, `o|¿Qué muestra el texto sobre cómo se adaptó KFC en China?|Que añadió platos locales, como las gachas, a su menú|Que dejó de vender pollo frito para vender comida local|Que se convirtió en una cadena de comida china tradicional|Que solo abre sus tiendas para servir desayunos
-x|¿Cuál de estas ideas NO encaja con el texto?|KFC llegó a China hace muy pocos años|KFC abrió su primera tienda china en Pekín|Hoy el menú incluye platos de sabor local|Para YuYue también es un sitio de encuentro
+x|¿Cuál de estas ideas NO encaja con el texto?|A YuYue le gusta más el pollo frito que las gachas|El pollo frito era una novedad para muchos chinos en 1987|Se ofrecen desayunos de estilo chino en la cadena|Comer pollo frito en exceso preocupa a YuYue
 z|1
 f|2`, `一九|uno nueve (cifras del año)
 八七|ocho siete (cifras del año)

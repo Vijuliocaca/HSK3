@@ -7,7 +7,7 @@
 晚上/十/点，/蛋糕/终于/做/好/了。|Wǎnshang shí diǎn, dàngāo zhōngyú zuò hǎo le.|A las diez de la noche, la tarta por fin estaba lista.
 妈妈/看到/蛋糕/以后，/高兴/得/哭/了。|Māma kàndào dàngāo yǐhòu, gāoxìng de kū le.|Al ver la tarta, mamá lloró de alegría.
 她/说，/这/是/她/吃/过/的/最/好/的/蛋糕。|Tā shuō, zhè shì tā chī guo de zuì hǎo de dàngāo.|Dijo que era la mejor tarta que había probado.`, `o|¿Cómo reaccionó la madre al ver la tarta?|Lloró de alegría|Se enfadó por el desorden|No quiso probarla|Le pidió otra distinta
-x|¿Cuál de estas ideas NO encaja con el texto?|El narrador es pastelero profesional|La primera tarta salió quemada y dura|Buscó la receta en internet|Terminó la tarta por la noche
+x|¿Cuál de estas ideas NO encaja con el texto?|Su madre sospechaba ya la sorpresa desde la víspera|Su primer intento salió mal y hubo que repetir|El resultado final emocionó mucho a su madre|Antes de esto no tenía práctica haciendo tartas
 z|7
 f|4`, `菜谱|receta`, 'laura'],
 
@@ -19,7 +19,7 @@ f|4`, `菜谱|receta`, 'laura'],
 她/组织/了/读书会，/还/请/孩子/们/给/老人/读/故事。|Tā zǔzhī le dúshūhuì, hái qǐng háizi men gěi lǎorén dú gùshi.|Organizó un club de lectura y pidió a los niños que leyeran cuentos a los mayores.
 渐渐/地，/来/的/人/多/了，/图书馆/保住/了。|Jiànjiàn de, lái de rén duō le, túshūguǎn bǎozhù le.|Poco a poco vino más gente y la biblioteca se salvó.
 它/证明，/一/个/地方/的/价值/不/只/是/钱。|Tā zhèngmíng, yí ge dìfang de jiàzhí bù zhǐ shì qián.|Demuestra que el valor de un lugar no es solo dinero.`, `o|¿Cómo se salvó la biblioteca?|Con actividades que atrajeron de nuevo al público|Gracias a una donación millonaria|Porque el gobierno cambió de idea sin más|Con un cambio de nombre y de horario
-x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Los ancianos protestaron ante el ayuntamiento|Se planeó convertirla en supermercado|Los niños leyeron cuentos a los mayores|Cada vez menos gente tomaba libros prestados
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|El club de lectura se financió con donativos vecinales|Cada vez se prestaban menos libros en ella|Los mayores acudían a diario a leer y charlar|La idea de la bibliotecaria atrajo a más vecinos
 z|8
 f|1`, `管理员|bibliotecario
 读书会|club de lectura

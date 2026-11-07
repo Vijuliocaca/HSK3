@@ -11,7 +11,7 @@
 他/还/教/我/用/热水/辅助/治疗，/调节/饮食。|Tā hái jiāo wǒ yòng rèshuǐ fǔzhù zhìliáo, tiáojié yǐnshí.|También me enseñó a ayudar al tratamiento con agua caliente y a ajustar la dieta.
 我/无奈/地/说，/唯一/的/爱好/就是/吃/辣/的。|Wǒ wúnài de shuō, wéiyī de àihào jiùshì chī là de.|Le dije resignado que mi única afición es comer picante.
 医生/笑/着/说：/那/你/只好/忍/一/个/月/了。|Yīshēng xiào zhe shuō: nà nǐ zhǐhǎo rěn yí ge yuè le.|El médico sonrió y dijo: entonces tendrás que aguantarte un mes.`, `o|¿Qué consejo le dio el médico, además de la medicina?|Comer con horarios regulares y dormir lo suficiente|Hacer deporte con intensidad todas las tardes|No comer nada sólido durante una semana entera|Evitar el café y tomar solo té verde por la mañana
-x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Tuvo que ingresar|El dolor empezó durante la noche|La madre acompañó al narrador al hospital|La medicina ayuda a proteger el estómago
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Su madre tuvo que pedir permiso en el trabajo ese día|El dolor se debía a algo que había comido mal|El médico insistió en cuidar el sueño y las comidas|Al narrador le cuesta renunciar a la comida picante
 z|4
 f|8`, `胃病|enfermedad del estómago
 复发|volver a aparecer (una enfermedad)
@@ -29,7 +29,7 @@ f|8`, `胃病|enfermedad del estómago
 我们/坐/在/树/下，/欣赏/着/远处/的/山/和/云。|Wǒmen zuò zài shù xià, xīnshǎng zhe yuǎnchù de shān hé yún.|Nos sentamos bajo un árbol a contemplar las montañas y las nubes a lo lejos.
 天/黑/以前，/妈妈/把/没/吃/完/的/桃/和/香肠/打包/带/回家。|Tiān hēi yǐqián, māma bǎ méi chī wán de táo hé xiāngcháng dǎbāo dài huíjiā.|Antes de anochecer, mi madre empaquetó los melocotones y las salchichas que sobraron y los llevó a casa.
 回/去/的/路上，/大家/都/说/下/个/周末/还/要/来。|Huí qù de lùshang, dàjiā dōu shuō xià ge zhōumò hái yào lái.|De vuelta, todos dijeron que el próximo fin de semana querían volver.`, `o|¿Qué hizo el narrador con el melocotón que cogió?|Se lo comió allí mismo|Se lo guardó para dárselo a su madre|Lo vendió a la entrada del lugar|Lo echó al estanque para dárselo a los peces
-x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|Los hijos pescaron muchos peces|Había un estanque en la granja|Las patatas tenían pieles de varios colores|La familia llevó a casa la comida sobrante
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|La familia se alojó en una cabaña de la granja|El narrador disfrutó mucho del melocotón recién cogido|La hermana recogió patatas de varios colores|A la familia le gustó tanto que pensó volver
 z|2
 f|5`, `农场|granja
 桃树|melocotonero
@@ -51,7 +51,7 @@ f|5`, `农场|granja
 这/次/他/挣钱/不/多，/但/客人/都/很/满意。|Zhè cì tā zhèngqián bù duō, dàn kèrén dōu hěn mǎnyì.|Esta vez ganó poco dinero, pero los clientes quedaron muy satisfechos.
 他/的/客人/从/普通/游客/到/大/公司，/层次/越来越/高。|Tā de kèrén cóng pǔtōng yóukè dào dà gōngsī, céngcì yuèláiyuè gāo.|Sus clientes, desde turistas normales hasta grandes empresas, son cada vez de mayor nivel.
 他/说/自己/这/一辈子/最/不/后悔/的/事/就是/创业。|Tā shuō zìjǐ zhè yíbèizi zuì bú hòuhuǐ de shì jiùshì chuàngyè.|Dice que lo que menos lamenta en toda su vida es haber montado su empresa.`, `o|¿Cómo se cerró el trato con la empresa que pidió precios?|Respondiendo pronto y firmando un acuerdo tras dos reuniones|Bajando el precio a la mitad en la segunda reunión|Enviando un regalo a la empresa por mensajería|Visitando a su director cada día durante un mes
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Empezó la empresa con muchos empleados|Su empresa organiza viajes|Respondió al correo el mismo día de leerlo|Con el tiempo sus clientes fueron de mayor nivel
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El tío contrató más empleados al cabo de un año|El tío dejó su empleo para dedicarse al turismo|Al principio el tío hacía varios trabajos a la vez|El primer contrato dejó poco beneficio pero buena fama
 z|8
 f|3`, `客服|atención al cliente
 前途|futuro
@@ -71,7 +71,7 @@ f|3`, `客服|atención al cliente
 妈妈/不/想/干预/我/的/生活，/但/她/担心/我/上网/太/久。|Māma bù xiǎng gānyù wǒ de shēnghuó, dàn tā dānxīn wǒ shàngwǎng tài jiǔ.|Mi madre no quiere meterse en mi vida, pero le preocupa que pase demasiado tiempo en internet.
 我/觉得/这/只/是/她/的/主观/想法，/没有/事实。|Wǒ juéde zhè zhǐ shì tā de zhǔguān xiǎngfǎ, méiyǒu shìshí.|Yo pienso que es solo una idea suya, sin ningún hecho detrás.
 她/的/动机/是/关心/我，/所以/我/还是/听/了。|Tā de dòngjī shì guānxīn wǒ, suǒyǐ wǒ háishi tīng le.|Su motivo es preocuparse por mí, así que al final le hice caso.`, `o|¿Por qué la narradora puso un bloqueo en su móvil?|Para proteger su información personal|Porque el fabricante del teléfono se lo exigió|Porque su madre se lo pidió hace tiempo|Porque tuvo problemas con una cuenta bloqueada
-x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Sin actualizar, la aplicación sigue igual|Publicar fotos de otras personas sin permiso va contra las normas|A la narradora le molestan algunos mensajes mientras estudia|La madre se preocupa por el tiempo que pasa en internet
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|La madre del narrador usa también esa aplicación|Publicar fotos ajenas sin permiso va contra las normas|El narrador bloquea el móvil para proteger sus datos|A la madre le inquieta lo mucho que usa internet
 z|7
 f|8`, `软件|aplicación
 页面|página
@@ -92,7 +92,7 @@ f|8`, `软件|aplicación
 期末/考试/我/的/成绩/超越/了/很多/同学。|Qīmò kǎoshì wǒ de chéngjì chāoyuè le hěnduō tóngxué.|En los exámenes finales mi nota superó la de muchos compañeros.
 教授/第一/次/对/我/笑/了，/我/很/尊敬/他。|Jiàoshòu dìyī cì duì wǒ xiào le, wǒ hěn zūnjìng tā.|El profesor me sonrió por primera vez y yo lo respeto mucho.
 我/要/珍惜/在/大学/的/每/一/天，/时间/过/得/太/快/了。|Wǒ yào zhēnxī zài dàxué de měi yì tiān, shíjiān guò de tài kuài le.|Quiero aprovechar cada día en la universidad, porque el tiempo pasa demasiado rápido.`, `o|¿Cómo cambió el narrador después de la primera nota baja?|Empezó a estudiar por iniciativa propia cada día|Dejó la asignatura y se pasó a otra más fácil|Pidió ayuda a sus profesores todas las semanas|Estudió solo la víspera de cada examen
-x|¿Cuál de estas ideas NO encaja con el texto?|El profesor bromeaba mucho en clase|En el instituto los profesores vigilaban mucho a los alumnos|Al principio de curso el narrador se sintió desanimado|En la universidad hay que organizarse uno mismo
+x|¿Cuál de estas ideas NO encaja con el texto?|Su compañero de cuarto sacó mejores notas que él|En la universidad hay que organizarse uno mismo|La primera nota decepcionó bastante al narrador|Al final del curso el narrador obtuvo buenos resultados
 z|4
 f|9`, `期末|final de curso
 灰心|desanimarse
@@ -111,7 +111,7 @@ f|9`, `期末|final de curso
 我们/修/了/新/的/房子，/也/修/了/一/条/路。|Wǒmen xiū le xīn de fángzi, yě xiū le yì tiáo lù.|Construimos casas nuevas y también arreglamos una carretera.
 虽然/灾害/给/村子/很/大/的/打击，/但/大家/一起/努力，/成效/很/明显。|Suīrán zāihài gěi cūnzi hěn dà de dǎjī, dàn dàjiā yìqǐ nǔlì, chéngxiào hěn míngxiǎn.|Aunque el desastre fue un duro golpe, entre todos nos esforzamos y los resultados se notaron mucho.
 现在/村里/又/有/了/笑声，/我/也/更/懂得/了/帮助/别人/的/意义。|Xiànzài cūnli yòu yǒu le xiàoshēng, wǒ yě gèng dǒngde le bāngzhù biéren de yìyì.|Ahora el pueblo vuelve a tener risas y yo entiendo mejor el sentido de ayudar a los demás.`, `o|¿Por qué algunos vecinos tuvieron un conflicto con el personal?|No querían marcharse de su casa|Querían cobrar más dinero que los demás|No se fiaban de los médicos del pueblo|Pedían comida para sus animales del campo
-x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Los voluntarios cobraban un sueldo del gobierno|El narrador ayudó a atender a heridos y ancianos|El gobierno entregó una compensación a los vecinos|Los vecinos huyeron para ponerse a salvo
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Los voluntarios cobraron un sueldo por su colaboración|El gobierno trasladó a los vecinos a un lugar seguro|Algunos vecinos se resistieron al principio a irse|Después se reconstruyeron casas y se reparó un camino
 z|6
 f|4`, `暴雨|lluvia torrencial
 遭受|sufrir
@@ -133,7 +133,7 @@ f|4`, `暴雨|lluvia torrencial
 最后/几/分钟，/我们/终于/追/平/了。|Zuìhòu jǐ fēnzhōng, wǒmen zhōngyú zhuī píng le.|En los últimos minutos por fin igualamos.
 比赛/结束/后，/对手/和/我们/握手，/大家/都/很/有/风度。|Bǐsài jiéshù hòu, duìshǒu hé wǒmen wòshǒu, dàjiā dōu hěn yǒu fēngdù.|Al acabar, los rivales nos dieron la mano y todos se comportaron con mucha elegancia.
 闭幕/典礼/上，/我们/拿到/了/第二/名，/虽然/不/是/冠军，/但/很/光荣。|Bìmù diǎnlǐ shang, wǒmen nádào le dì'èr míng, suīrán bú shì guànjūn, dàn hěn guāngróng.|En la ceremonia de clausura quedamos segundos; no fuimos campeones, pero es un honor.`, `o|¿Qué pensaba el entrenador sobre la competición?|Que no era solo cuestión de técnica|Que la técnica era lo único importante de verdad|Que ganar valía más que cualquier otra cosa|Que cada jugador debía jugar por su cuenta
-x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|El equipo quedó primero|El colegio fue el organizador de los juegos|El narrador fue elegido capitán del equipo|El equipo del narrador consiguió igualar al final
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|El narrador marcó la canasta decisiva al final|El equipo de la clase quedó segundo en el torneo|El narrador intentó calmarse y centrarse en jugar|Los rivales mostraron buenos modales al terminar
 z|5
 f|10`, `开幕式|ceremonia de inauguración
 隆重|solemne
@@ -154,7 +154,7 @@ f|10`, `开幕式|ceremonia de inauguración
 老师/说，/戏剧/能/让/人/理解/不同/的/生活。|Lǎoshī shuō, xìjù néng ràng rén lǐjiě bùtóng de shēnghuó.|La profesora dijo que el teatro nos ayuda a entender vidas distintas.
 我/想/一直/演/下去，/哪怕/只是/业余/的。|Wǒ xiǎng yìzhí yǎn xiàqu, nǎpà zhǐshì yèyú de.|Quiero seguir actuando, aunque sea como aficionado.
 回家/的/路上，/我们/乘/地铁/还/在/讨论/剧情。|Huíjiā de lùshang, wǒmen chéng dìtiě hái zài tǎolùn jùqíng.|De vuelta a casa, en el metro seguíamos comentando la trama.`, `o|¿Cómo se sintió el narrador al subir al escenario?|Dejó de sentir miedo y se metió en el papel|Se olvidó del texto y tuvo que improvisar|Se puso tan nervioso que no pudo seguir|Tuvo ganas de salir corriendo de allí
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El narrador hacía de criado|El director enseñaba cómo actuar poniéndose delante|Hubo aplausos durante mucho rato al terminar|El rey del guion acaba perdiendo la razón
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El narrador había actuado ya en otras obras del colegio|El director le enseñó a hablar alto y gesticular más|Los asistentes llenaron la sala el día del estreno|El atrezo se terminó a última hora la víspera
 z|2
 f|10`, `戏剧社|club de teatro
 剧本|guion
@@ -177,7 +177,7 @@ f|10`, `戏剧社|club de teatro
 回来/以后，/他们/写/了/一/本/书，/书/在/全国/发行。|Huílai yǐhòu, tāmen xiě le yì běn shū, shū zài quánguó fāxíng.|Tras regresar escribieron un libro que se publicó en todo el país.
 看/完/以后，/我/决定/少/用/塑料，/保护/北极。|Kàn wán yǐhòu, wǒ juédìng shǎo yòng sùliào, bǎohù běijí.|Después de verlo decidí usar menos plástico para proteger el Polo Norte.
 我/希望/将来/也/能/亲眼/去/看/一/看。|Wǒ xīwàng jiānglái yě néng qīnyǎn qù kàn yí kàn.|Espero poder ir algún día a verlo con mis propios ojos.`, `o|¿Para qué lanzaron los científicos un satélite pequeño?|Para vigilar el clima|Para fotografiar a los animales polares|Para llevar comida al campamento|Para avisar de las tormentas a los barcos
-x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Los científicos llegaron al Ártico en barco|Estudiaron cómo cambia el hielo|Publicaron un libro cuando volvieron|El narrador quiere visitar el Ártico algún día
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Algunos científicos enfermaron durante la investigación|Estudiar el hielo ayuda a entender el cambio climático|Desde el espacio se enviaban datos sobre el clima|El documental animó al narrador a reducir su plástico
 z|6
 f|9`, `纪录片|documental
 雪地车|vehículo para la nieve

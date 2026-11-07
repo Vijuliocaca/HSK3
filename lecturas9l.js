@@ -11,7 +11,7 @@
 没想到/北京/的/冬天/这么/冷，/我/穿/得/太/少/了。|Méixiǎngdào Běijīng de dōngtiān zhème lěng, wǒ chuān de tài shǎo le.|No imaginaba que el invierno de Pekín fuera tan frío, y me había abrigado poco.
 导游/笑/着/说，/下/次/来/要/多/带/几/件/衣服。|Dǎoyóu xiào zhe shuō, xià cì lái yào duō dài jǐ jiàn yīfu.|El guía dijo sonriendo que la próxima vez trajera más ropa.
 虽然/很/累，/但是/这/次/旅行/让/我/很/开心。|Suīrán hěn lèi, dànshì zhè cì lǚxíng ràng wǒ hěn kāixīn.|Aunque estaba cansado, este viaje me hizo muy feliz.`, `o|¿Por qué le aconseja el guía llevar más ropa la próxima vez?|Porque el invierno allí es más frío de lo que el narrador esperaba|Porque el hotel no tenía calefacción en las habitaciones|Porque el viaje de vuelta dura casi un día entero|Porque el narrador perdió su abrigo en el aeropuerto
-x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|El narrador viajó solo, sin ningún acompañante|El tráfico dificultó llegar a tiempo a cenar|Al aterrizar el tiempo era frío y con nieve|El narrador volvió contento del viaje
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Su amigo se puso enfermo por culpa del frío|A su llegada la ciudad estaba bajo la nieve|El guía los recibió en la salida del aeropuerto|En la calle antigua hizo compras y sacó fotos
 z|7
 f|1`, `起飞|despegar
 几乎|casi
@@ -48,7 +48,7 @@ f|1`, `起飞|despegar
 售货员/把/东西/放/进/塑料袋，/我们/就/回家/了。|Shòuhuòyuán bǎ dōngxi fàng jìn sùliàodài, wǒmen jiù huíjiā le.|La dependienta metió las cosas en una bolsa de plástico y nos fuimos a casa.
 回家/路上/我们/还/路过/一/个/加油站。|Huíjiā lùshang wǒmen hái lùguò yí ge jiāyóuzhàn.|De camino a casa pasamos también por una gasolinera.
 哥哥/的/电动车/坏/了，/他/说/下个月/再/去/修理。|Gēge de diàndòngchē huài le, tā shuō xiàgeyuè zài qù xiūlǐ.|La moto eléctrica de mi hermano se estropeó y dijo que la arreglaría el mes que viene.`, `o|¿Por qué compró el narrador un cepillo?|Porque sus zapatos viejos estaban muy sucios|Porque su madre se lo pidió para limpiar la casa|Porque estaba en oferta y era muy barato|Porque el dependiente se lo recomendó
-x|¿Cuál de estas ideas NO encaja con el texto?|El narrador compró los zapatos de marca que quería|La madre buscaba también cosas de uso diario|El narrador se puso nervioso por una contraseña|Compraron bebida para calmar la sed
+x|¿Cuál de estas ideas NO encaja con el texto?|La narradora acabó comprándose los zapatos de marca|Había descuentos en el centro comercial ese fin de semana|La madre fue a comprar cosas básicas para la casa|Pagaron con tarjeta en la caja de la tienda
 z|6
 f|2`, `店员|dependiente`, 'payolink'],
 
@@ -63,7 +63,7 @@ f|2`, `店员|dependiente`, 'payolink'],
 老师/表扬/我/的/日记/写/得/很/优秀，/还/问/我/是否/愿意/翻译/一/篇/短/文章。|Lǎoshī biǎoyáng wǒ de rìjì xiě de hěn yōuxiù, hái wèn wǒ shìfǒu yuànyì fānyì yì piān duǎn wénzhāng.|El profesor elogió lo bien que escribía mi diario y me preguntó si quería traducir un texto corto.
 我/认真/考虑/了/很/久，/最后/答应/了。|Wǒ rènzhēn kǎolǜ le hěn jiǔ, zuìhòu dāying le.|Lo pensé con calma durante mucho rato y al final acepté.
 以后/我/想/做/学术/研究，/因为/做/学问/要/有/耐心。|Yǐhòu wǒ xiǎng zuò xuéshù yánjiū, yīnwèi zuò xuéwen yào yǒu nàixīn.|En el futuro quiero hacer investigación, porque estudiar a fondo requiere paciencia.`, `o|¿Qué le propuso el profesor al narrador al final?|Traducir un texto breve del chino|Dar una clase a sus compañeros|Participar en un concurso de caligrafía|Escribir un libro sobre gramática
-x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|El narrador cree que el chino se aprende sin esfuerzo|Para el narrador es importante el orden de las palabras|El narrador usa el chino en su diario|El narrador tuvo que pensar antes de aceptar
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Ya ha publicado algún artículo sobre gramática china|En chino el orden de las palabras es fundamental|Anota el vocabulario en columnas en el cuaderno|Practica la escritura en chino cuando termina el día
 z|11
 f|8`, `专业|especialidad
 耐心|paciencia`, 'anto'],
@@ -79,7 +79,7 @@ f|8`, `专业|especialidad
 天气/冷/了，/我/要/穿/厚/一点，/不然/又/会/感冒。|Tiānqì lěng le, wǒ yào chuān hòu yìdiǎn, bùrán yòu huì gǎnmào.|Con el frío debo abrigarme más; si no, me resfriaré otra vez.
 等/到/夏天/就/可以/换/薄/衣服/了。|Děng dào xiàtiān jiù kěyǐ huàn báo yīfu le.|Cuando llegue el verano podré cambiar a ropa fina.
 三/天/以后/我/好/多/了，/又/有/了/力气。|Sān tiān yǐhòu wǒ hǎo duō le, yòu yǒu le lìqi.|Tres días después estaba mucho mejor y tenía otra vez fuerzas.`, `o|¿Por qué dice el narrador que debe abrigarse más?|Para no volver a coger un resfriado|Porque el médico le prohibió salir de casa|Porque quiere adelgazar rápidamente|Porque en verano hace mucho calor
-x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|A el narrador le encantan las inyecciones|Su madre sospechó que tenía un resfriado|Tuvo que reposar en la cama|Al cabo de unos días se encontró mejor
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|El médico le dijo que no saliera de casa en un mes|Aunque tenía miedo, aceptó la inyección sin protestar|Su madre pensó que el malestar era un resfriado|El medicamento recetado tenía un sabor poco agradable
 z|2
 f|4`, `力气|fuerza`, 'teo'],
 
@@ -94,7 +94,7 @@ f|4`, `力气|fuerza`, 'teo'],
 我/有/一/顶/新/帽子，/浇/花/时/总/戴/着。|Wǒ yǒu yì dǐng xīn màozi, jiāo huā shí zǒng dài zhe.|Tengo un sombrero nuevo y siempre lo llevo puesto al regar las flores.
 附近/有/一/个/大型/公园，/周末/我们/常/去。|Fùjìn yǒu yí ge dàxíng gōngyuán, zhōumò wǒmen cháng qù.|Cerca hay un parque grande al que solemos ir los fines de semana.
 在/花园/里/工作/虽然/累，/但是/我/的/心情/很/好。|Zài huāyuán lǐ gōngzuò suīrán lèi, dànshì wǒ de xīnqíng hěn hǎo.|Trabajar en el jardín cansa, pero me pone de buen humor.`, `o|¿Cómo se siente el narrador al trabajar en el jardín?|Cansado pero de buen humor|Aburrido y con ganas de terminar|Preocupado por la lluvia|Enfadado con su abuelo
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Allí casi nunca llueve y el aire es muy seco|Las flores del jardín tienen muchos colores|Algo separa las flores de la parte de las verduras|Una flor del jardín tiene un olor poco común
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El abuelo cultiva sus flores dentro de un invernadero|A la sombra de los árboles se está bien en verano|Las lluvias de primavera son habituales en la zona|Trabajar en el jardín deja buen ánimo al narrador
 z|6
 f|4`, `矮|bajo
 乘凉|tomar el fresco`, 'lucia'],
@@ -110,7 +110,7 @@ f|4`, `矮|bajo
 这/促进/了/同事/之间/的/合作。|Zhè cùjìn le tóngshì zhījiān de hézuò.|Eso favoreció la colaboración entre los compañeros.
 她/工作/一直/很/出色，/去年/还/得到/了/表扬。|Tā gōngzuò yìzhí hěn chūsè, qùnián hái dédào le biǎoyáng.|Siempre trabaja de maravilla y el año pasado la felicitaron.
 我/真/为/她/骄傲。|Wǒ zhēn wèi tā jiāo'ào.|Estoy muy orgulloso de ella.`, `o|¿Qué piensa la hermana sobre los errores en el trabajo?|Quien se equivoca debe hacerse cargo de las consecuencias|Es mejor ocultarlos para evitar problemas|Siempre es culpa de los clientes que no preguntan|Los errores pequeños no tienen importancia
-x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|La hermana del narrador trabaja como periodista|Un periodista le hizo una entrevista|Su despacho tomó medidas contra los errores|El narrador está orgulloso de su hermana
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|La hermana dejó el bufete para trabajar por su cuenta|El periodista se interesó por su trabajo con clientes|Ella aclara las dudas de sus clientes con paciencia|El narrador siente orgullo por la labor de su hermana
 z|5
 f|1`, `规定|norma
 责任|responsabilidad
@@ -128,7 +128,7 @@ f|1`, `规定|norma
 个别/同事/会/迟到，/不过/多数/人/都/很/准时。|Gèbié tóngshì huì chídào, búguò duōshù rén dōu hěn zhǔnshí.|Algún compañero llega tarde, pero la mayoría es puntual.
 我/想法/很/单纯，/只/想/把/工作/做/好。|Wǒ xiǎngfǎ hěn dānchún, zhǐ xiǎng bǎ gōngzuò zuò hǎo.|Mi idea es sencilla: solo quiero hacer bien mi trabajo.
 我/相信/只要/努力，/一定/会/有/好/结果。|Wǒ xiāngxìn zhǐyào nǔlì, yídìng huì yǒu hǎo jiéguǒ.|Creo que, si me esfuerzo, habrá buenos resultados.`, `o|¿Qué valora más el jefe de esta empresa?|Trabajar bien en el tiempo previsto|Quedarse hasta muy tarde cada día|Tener un cargo importante|Llevar siempre traje y corbata
-x|¿Cuál de estas ideas NO encaja con el texto?|En la empresa se castiga a quien pide ayuda|Se recompensa a los empleados que rinden bien|El narrador sustituyó a un compañero en una reunión|Casi todos los empleados llegan a su hora
+x|¿Cuál de estas ideas NO encaja con el texto?|Al narrador le subieron el sueldo nada más entrar|La empresa premia con dinero a quienes rinden bien|El jefe prefiere eficacia a quedarse hasta tarde|Entre compañeros reina un ambiente de ayuda mutua
 z|5
 f|3`, `会议|reunión`, 'carlos'],
 
@@ -143,7 +143,7 @@ f|3`, `会议|reunión`, 'carlos'],
 我/和/朋友/俩/喊/了/一/下午，/嗓子/都/疼/了。|Wǒ hé péngyou liǎ hǎn le yí xiàwǔ, sǎngzi dōu téng le.|Mi amigo y yo gritamos toda la tarde y nos dolía la garganta.
 手机/快/没/电/了，/还好/带/着/充电器。|Shǒujī kuài méi diàn le, háihǎo dài zhe chōngdiànqì.|Al móvil le quedaba poca batería, pero por suerte llevaba el cargador.
 我们/在/操场/上/度过/了/快乐/的/一/天。|Wǒmen zài cāochǎng shàng dùguò le kuàilè de yì tiān.|Pasamos un día feliz en el campo de deportes.`, `o|¿Qué sensación les deja la competición a los amigos?|Es emocionante y a la vez amistosa|Les resulta aburrida y demasiado larga|Les da miedo por la violencia|Les parece solo cosa de profesionales
-x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|El móvil del narrador se quedó sin cargador y sin batería|Los jugadores acaban el partido siendo amigos|Mucha gente de la escuela fue a ver el partido|Al narrador le dolió la garganta de tanto gritar
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|El narrador prefiere el baloncesto antes que el fútbol|A un chaval le entusiasma sobre todo el fútbol|Tras el partido los rivales se saludan con deportividad|Resulta imposible saber de antemano quién ganará
 z|8
 f|2`, `握手|dar la mano
 嗓子|garganta
@@ -160,7 +160,7 @@ f|2`, `握手|dar la mano
 邮局/的/叔叔/总是/热情/地/提供/帮助。|Yóujú de shūshu zǒngshì rèqíng de tígōng bāngzhù.|El señor de correos siempre ofrecía su ayuda con amabilidad.
 现在/变化/真/快，/我/要/向/孙子/多/学习。|Xiànzài biànhuà zhēn kuài, wǒ yào xiàng sūnzi duō xuéxí.|Ahora todo cambia muy rápido y debo aprender mucho de mi nieto.
 有/孙子/陪/着/我，/每天/都/很/幸福。|Yǒu sūnzi péi zhe wǒ, měitiān dōu hěn xìngfú.|Con mi nieto a mi lado soy feliz cada día.`, `o|¿Qué ha cambiado en la vida de la abuela con el tiempo?|Ahora se comunica fácil y barato con su hijo|Ya no le gusta hablar con su familia|Ahora vive en otra ciudad con su hijo|Ya no recibe cartas de ningún tipo
-x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|La abuela maneja el móvil mejor que su nieto|El nieto ayuda a la abuela con el teléfono|Su hijo vive lejos de ella|Antes se mandaba el correo en la oficina de correos
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|Su hijo la visita casi todos los fines de semana|El nieto pasa mucho tiempo en casa de la abuela|Ahora comunicarse a distancia sale mucho más barato|La abuela recuerda cuando se comunicaban por carta
 z|1
 f|11`, `幸福|feliz`, 'laura'],
 );

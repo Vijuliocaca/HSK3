@@ -36,7 +36,7 @@ f|6`, `踢进|meter (un gol)`, 'chiki'],
 中午，/我/吃/了/自己/做/的/三明治。|Zhōngwǔ, wǒ chī le zìjǐ zuò de sānmíngzhì.|Al mediodía comí un bocadillo que me había preparado.
 下午/天气/变/了，/我/只好/提前/下山。|Xiàwǔ tiānqì biàn le, wǒ zhǐhǎo tíqián xiàshān.|Por la tarde cambió el tiempo y tuve que bajar antes.
 虽然/时间/很/短，/但是/我/非常/放松。|Suīrán shíjiān hěn duǎn, dànshì wǒ fēicháng fàngsōng.|Aunque fue poco tiempo, me sentí muy relajado.`, `o|¿Cómo valora el narrador su salida?|Corta, pero muy relajante|Muy larga y agotadora|Decepcionante por el mal tiempo|Peligrosa por la altura
-x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Pasó la noche entera en la montaña|Llevó un libro para leer|El aire de allí es fresco|El tiempo cambió por la tarde, según se cuenta en el texto
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Subió a la montaña en compañía de unos familiares|Este fin de semana eligió la montaña antes que la ciudad|Se quedó sentado a la sombra de un árbol grande|El cambio de tiempo le hizo volver antes de lo previsto
 z|3
 f|5`, `山上|en la montaña
 而是|sino que
@@ -50,7 +50,7 @@ f|5`, `山上|en la montaña
 下午，/一/个/孩子/发烧/了，/妈妈/很/着急。|Xiàwǔ, yí ge háizi fāshāo le, māma hěn zháojí.|Por la tarde un niño tuvo fiebre y su madre estaba muy preocupada.
 我/告诉/她/不要/担心，/多/喝水/就/会/好。|Wǒ gàosu tā búyào dānxīn, duō hēshuǐ jiù huì hǎo.|Le dije que no se preocupara: bebiendo mucha agua se pondría bien.
 晚上/回/家，/我/累/得/只/想/睡觉。|Wǎnshang huí jiā, wǒ lèi de zhǐ xiǎng shuìjiào.|Por la noche, en casa, estaba tan cansado que solo quería dormir.`, `o|¿Cómo acaba el día del médico?|Muy cansado, con ganas de dormir|Preocupado por el anciano|Contento porque no hubo pacientes|Con fiebre y sin poder descansar
-x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|El anciano tenía un problema grave de corazón|Un niño tuvo fiebre por la tarde, según se cuenta en el texto|El médico trabajó muchas horas|La madre estaba preocupada
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|El niño tuvo que quedarse ingresado en el hospital|El corazón del anciano no tenía nada grave|Al niño se le recomendó beber mucha agua|Al volver a casa el médico estaba agotado
 z|1
 f|6`, `胸口|pecho
 心脏|corazón
@@ -64,7 +64,7 @@ f|6`, `胸口|pecho
 平时/我们/都/很/忙，/很/少/聊天。|Píngshí wǒmen dōu hěn máng, hěn shǎo liáotiān.|Normalmente estamos muy ocupados y charlamos poco.
 那/天/晚上，/大家/聊/了/工作，/也/聊/了/生活。|Nà tiān wǎnshang, dàjiā liáo le gōngzuò, yě liáo le shēnghuó.|Aquella noche hablamos de trabajo y también de la vida.
 我/发现，/同事/也/可以/成为/好/朋友。|Wǒ fāxiàn, tóngshì yě kěyǐ chéngwéi hǎo péngyou.|Descubrí que los compañeros también pueden ser buenos amigos.`, `o|¿Qué descubre el narrador en la cena?|Que los compañeros pueden ser buenos amigos|Que el restaurante era caro|Que su trabajo es demasiado difícil|Que el jefe cocina muy bien
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Cada uno pagó su parte de la cuenta|La cena fue en un restaurante nuevo|Pidieron muchos platos|Hablaron de trabajo y de vida
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|La cena se alargó hasta pasada la medianoche|El pago de la cena corrió a cargo del jefe|Charlaron esa noche más de lo que suelen hacerlo|La cena sirvió para acercar a los compañeros
 z|5
 f|2`, `星期五|viernes
 请客|invitar (a pagar)
@@ -77,7 +77,7 @@ f|2`, `星期五|viernes
 现在，/做/决定/以前/我/会/先/听/大家/的/意见。|Xiànzài, zuò juédìng yǐqián wǒ huì xiān tīng dàjiā de yìjiàn.|Ahora, antes de decidir, escucho primero la opinión de todos.
 这样/做/虽然/慢/一点，/但是/结果/更/让/人/满意。|Zhèyàng zuò suīrán màn yìdiǎn, dànshì jiéguǒ gèng ràng rén mǎnyì.|Así se tarda un poco más, pero el resultado deja más satisfecha a la gente.
 好/的/决定，/需要/耐心/和/倾听。|Hǎo de juédìng, xūyào nàixīn hé qīngtīng.|Las buenas decisiones requieren paciencia y saber escuchar.`, `o|¿Qué ha aprendido la narradora?|Que escuchar a los demás mejora las decisiones|Que decidir rápido es siempre mejor|Que sus ideas son las más acertadas|Que la política no exige paciencia
-x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Siempre ha tomado las decisiones sin consultar a nadie|Al principio creía que sus ideas eran las mejores|Hoy escucha las opiniones antes de decidir|Escuchar hace el proceso algo más lento
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Su nuevo método le permite decidir con mayor rapidez|Antes pensaba que sus ideas eran superiores|Ahora consulta a la gente antes de decidir|Cada persona enfoca un problema de otra forma
 z|4
 f|6`, `倾听|escuchar con atención
 工作者|trabajador/a`, 'laura'],
@@ -88,7 +88,7 @@ f|6`, `倾听|escuchar con atención
 如果/动作/不/标准，/很/容易/受伤。|Rúguǒ dòngzuò bù biāozhǔn, hěn róngyì shòushāng.|Si el movimiento no es correcto, es fácil lesionarse.
 所以/我/总是/先/看/镜子，/再/开始/练习。|Suǒyǐ wǒ zǒngshì xiān kàn jìngzi, zài kāishǐ liànxí.|Por eso siempre me miro antes al espejo y luego empiezo.
 健康/不/是/一/天/练/出来/的。|Jiànkāng bú shì yì tiān liàn chūlái de.|La salud no se consigue en un solo día.`, `o|¿Qué consejo da el entrenador?|Cuidar la técnica antes que el peso|Levantar siempre más peso|Entrenar sin descansar|Evitar mirarse al espejo
-x|¿Cuál de estas ideas NO encaja con el texto?|Entrena todos los días sin descanso|Hace calentamiento antes de entrenar|Se mira al espejo antes de empezar|Una mala técnica favorece las lesiones
+x|¿Cuál de estas ideas NO encaja con el texto?|Lleva ya varios años entrenando con ese entrenador|El entrenador insiste en cuidar la forma del movimiento|Va al gimnasio varios días en una misma semana|Cada sesión empieza con unos minutos de calentamiento
 z|3
 f|1`, `热身|calentar
 力量|fuerza
@@ -101,7 +101,7 @@ f|1`, `热身|calentar
 从/那/以后，/我/学会/了/传球，/也/学会/了/相信/队友。|Cóng nà yǐhòu, wǒ xuéhuì le chuánqiú, yě xuéhuì le xiāngxìn duìyǒu.|Desde entonces aprendí a pasar el balón y a confiar en mis compañeros.
 我们/的/成绩/越来越/好，/大家/都/很/自豪。|Wǒmen de chéngjì yuèláiyuè hǎo, dàjiā dōu hěn zìháo.|Nuestros resultados mejoran y todos estamos orgullosos.
 一/个/人/可以/走/得/快，/一/群/人/可以/走/得/远。|Yí ge rén kěyǐ zǒu de kuài, yì qún rén kěyǐ zǒu de yuǎn.|Una persona puede ir rápido; un grupo puede llegar lejos.`, `o|¿Qué lección aprendió el narrador?|Que en equipo se llega más lejos|Que entrenar solo es mejor|Que el entrenador siempre se equivoca|Que el baloncesto es un deporte individual
-x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Siempre prefirió jugar solo, incluso en el equipo|De niño quería ser una estrella del baloncesto, según se cuenta en el texto|Aprendió a confiar en sus compañeros|Los resultados del equipo mejoraron
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Su equipo ya ha ganado algún campeonato de la escuela|De niño entrenaba los lanzamientos él solo|Descubrió que el baloncesto se juega entre varios|Ahora valora más pasar el balón que lucirse
 z|4
 f|5`, `篮球|baloncesto
 投篮|tirar a canasta

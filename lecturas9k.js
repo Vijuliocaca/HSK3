@@ -11,7 +11,7 @@
 有/个/同学/没/写/作业，/想/抄/我/的。|Yǒu ge tóngxué méi xiě zuòyè, xiǎng chāo wǒ de.|Un compañero no hizo los deberes y quería copiar los míos.
 我/没/同意，/因为/抄/作业/对/他/没有/帮助。|Wǒ méi tóngyì, yīnwèi chāo zuòyè duì tā méiyǒu bāngzhù.|No acepté, porque copiar los deberes no le sirve de ayuda.
 他/明白/以后，/决定/自己/认真/做。|Tā míngbai yǐhòu, juédìng zìjǐ rènzhēn zuò.|Cuando lo entendió, decidió hacerlos él mismo con seriedad.`, `o|¿Por qué el narrador no dejó copiar a su compañero?|Porque copiar no le serviría para aprender|Porque él mismo aún no había terminado los deberes|Porque el profesor había prohibido compartir los deberes|Porque su compañero ya había copiado otras veces
-x|¿Cuál de estas ideas NO encaja con el texto?|El narrador ya terminó la carrera y trabaja en una empresa|El narrador se apuntó a un curso para mejorar al hablar|La universidad organiza una jornada deportiva|Para conseguir créditos hay que aprobar los exámenes
+x|¿Cuál de estas ideas NO encaja con el texto?|Al narrador le dieron una beca por su buen expediente|La profesora pide practicar chino a diario en voz alta|El narrador se negó a prestar los deberes a su compañero|Hay una competición deportiva en la semana siguiente
 z|9
 f|2`, ``, 'laura'],
 
@@ -25,7 +25,7 @@ f|2`, ``, 'laura'],
 幸好/家里/有/暖气，/所以/不/冷。|Xìnghǎo jiālǐ yǒu nuǎnqì, suǒyǐ bù lěng.|Por suerte en casa hay calefacción y por eso no hace frío.
 一般来说，/北方/的/冬季/比/南方/长。|Yìbānláishuō, běifāng de dōngjì bǐ nánfāng cháng.|Por lo general, el invierno del norte es más largo que el del sur.
 我/最/喜欢/春季，/因为/一切/都/有/新/的/开始。|Wǒ zuì xǐhuan chūnjì, yīnwèi yíqiè dōu yǒu xīn de kāishǐ.|Mi estación favorita es la primavera, porque todo tiene un nuevo comienzo.`, `o|¿Por qué prefiere el narrador la primavera?|Porque siente que todo empieza de nuevo|Porque en esa estación no hay bichos|Porque es cuando más flores vende su familia|Porque en primavera hace más calor que en verano
-x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|En invierno la calefacción de su casa no funciona|En el norte hay cuatro estaciones al año|En verano entran bichos en la habitación por la noche|En otoño los pinos de la montaña siguen verdes
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|En verano duerme con aire acondicionado puesto|La primavera es la estación preferida del narrador|El invierno del norte dura más que el del sur|Por la noche entran insectos a la habitación en verano
 z|9
 f|7`, ``, 'lucia'],
 
@@ -39,7 +39,7 @@ f|7`, ``, 'lucia'],
 酒店/没有/电梯，/我/拿/着/行李/上楼，/轮子/还/坏/了。|Jiǔdiàn méiyǒu diàntī, wǒ ná zhe xíngli shànglóu, lúnzi hái huài le.|El hotel no tenía ascensor, subí con el equipaje y encima se rompió una rueda.
 第二/天/我们/决定/下楼/步行/去/海边。|Dì-èr tiān wǒmen juédìng xiàlóu bùxíng qù hǎibiān.|Al día siguiente decidimos bajar y ir andando a la playa.
 回去/的/时候/我们/改/坐/巴士，/因为/大家/都/累/了。|Huíqù de shíhou wǒmen gǎi zuò bāshì, yīnwèi dàjiā dōu lèi le.|A la vuelta cambiamos al autobús urbano, porque todos estábamos cansados.`, `o|¿Por qué el narrador y su familia volvieron en autobús?|Porque estaban todos cansados de caminar|Porque el hotel quedaba muy lejos de la playa|Porque el conductor los invitó a subir|Porque querían ahorrar dinero en el viaje
-x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|El hotel tenía un ascensor muy rápido|El autobús salió más tarde de lo previsto|El conductor evitó a una persona mayor en la calle|Al narrador se le rompió una rueda del equipaje
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|Llegaron al hotel cuando ya había anochecido por completo|El autobús salió más tarde de la hora prevista|Al narrador le entró el sueño durante el trayecto|El conductor tuvo cuidado al ver a una persona mayor
 z|7
 f|2`, ``, 'carlos'],
 [4, '🛍️ Un día de compras', `周末/我/和/妈妈/去/百货/商店/买/东西。|Zhōumò wǒ hé māma qù bǎihuò shāngdiàn mǎi dōngxi.|El fin de semana fui con mi madre a unos grandes almacenes a comprar.
@@ -53,7 +53,7 @@ f|2`, ``, 'carlos'],
 他/得到/一/个/红包，/里面/有/一/百/美金。|Tā dédào yí ge hóngbāo, lǐmiàn yǒu yì bǎi měijīn.|Recibió un sobre rojo con cien dólares dentro.
 我/没有/这么/好/的/运气，/不过/拍/了/一/张/相片。|Wǒ méiyǒu zhème hǎo de yùnqì, búguò pāi le yì zhāng xiàngpiàn.|Yo no tuve tanta suerte, pero hice una foto.
 回家/路上/我/还/买/了/一/个/瓜。|Huíjiā lùshang wǒ hái mǎi le yí ge guā.|De camino a casa todavía compré un melón.`, `o|¿Por qué la madre le dio yogur en lugar de refresco?|Porque pensaba que el refresco es malo para la salud|Porque el refresco estaba demasiado caro|Porque en el menú no había refrescos|Porque al niño no le gustaba el sabor dulce
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El narrador ganó un premio en la tienda|Fueron de compras un fin de semana|Algunos productos eran caros y no los compró|Comieron en la tienda un menú con bebida
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|La madre aprovechó para comprarse ropa a ella misma|Había rebajas y la entrada estaba llena de gente|La madre prefirió que bebiera yogur en vez de refresco|Algunos artículos no se compraron por su precio alto
 z|9
 f|6`, ``, 'chana'],
 
@@ -68,7 +68,7 @@ f|6`, ``, 'chana'],
 社区/里/有/不/少/穷人，/大家/总是/互相/照顾。|Shèqū lǐ yǒu bù shǎo qióngrén, dàjiā zǒngshì hùxiāng zhàogù.|En el barrio hay bastante gente pobre y todos se cuidan unos a otros.
 朋友/想/让/我/搬家，/但/我/的/决定/不/会/动摇。|Péngyou xiǎng ràng wǒ bānjiā, dàn wǒ de juédìng bú huì dòngyáo.|Un amigo quiere que me mude, pero mi decisión no flaqueará.
 我/真的/离不开/这里/的/邻居。|Wǒ zhēnde líbukāi zhèlǐ de línjū.|De verdad no puedo vivir sin los vecinos de aquí.`, `o|¿Por qué el niño lloró de alegría?|Porque recibió un regalo con el que había soñado|Porque su madre le preparó una fiesta sorpresa|Porque el vecino le prometió ir a su casa|Porque ganó un premio en el colegio
-x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|El narrador está pensando en mudarse al centro|Los vecinos se saludan y se ayudan entre sí|Una mujer del barrio visita a los ancianos|El narrador vive en una urbanización antigua
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Los vecinos hicieron una fiesta por el cumpleaños del niño|Los vecinos del barrio se ayudan entre sí con frecuencia|El narrador está decidido a seguir viviendo en el barrio|Los ancianos del barrio reciben visitas de una vecina
 z|8
 f|11`, ``, 'kevin'],
 
@@ -83,7 +83,7 @@ f|11`, ``, 'kevin'],
 市场/上/的/大米/种类/多样，/别的/大米/很/难/打败/它。|Shìchǎng shang de dàmǐ zhǒnglèi duōyàng, biéde dàmǐ hěn nán dǎbài tā.|En el mercado hay muchos tipos de arroz, pero a los demás les cuesta superarlo.
 粮食/是/宝贵/的/东西，/我们/不/应该/浪费。|Liángshi shì bǎoguì de dōngxi, wǒmen bù yīnggāi làngfèi.|Los cereales son algo valioso y no debemos desperdiciarlos.
 我/用/手机/看/新闻/时，/电/不/够/了，/只好/去/充电。|Wǒ yòng shǒujī kàn xīnwén shí, diàn bú gòu le, zhǐhǎo qù chōngdiàn.|Mientras leía la noticia en el móvil se me acabó la batería y tuve que ir a cargarlo.`, `o|¿Por qué podría bajar el precio del arroz nuevo?|Porque se cultivará en grandes extensiones|Porque tiene menos nutrientes que el normal|Porque la empresa vende solo en una ciudad|Porque los expertos lo clasifican como el peor
-x|¿Cuál de estas ideas NO encaja con el texto?|Este arroz es difícil de guardar mucho tiempo|Es un arroz adecuado para el sur|Una empresa ya ha empezado a producirlo|El país lo ha incluido en un plan importante
+x|¿Cuál de estas ideas NO encaja con el texto?|Se prevé cultivarlo también en el norte del país|El arroz es apto para zonas del sur del país|Su producción masiva podría abaratar su precio|Una empresa ya lo comercializa en varias ciudades
 z|3
 f|2`, ``, 'teo'],
 [4, '🩺 El chequeo médico', `月底/公司/让/大家/去/体检。|Yuèdǐ gōngsī ràng dàjiā qù tǐjiǎn.|A final de mes la empresa nos mandó a todos a hacernos un chequeo.
@@ -97,7 +97,7 @@ f|2`, ``, 'teo'],
 医生/说/我/身体/很/好，/没错，/就是/有/点/胖。|Yīshēng shuō wǒ shēntǐ hěn hǎo, méicuò, jiùshì yǒu diǎn pàng.|El médico dijo que estoy bien de salud, tal cual, solo un poco gordo.
 体检/完/我/去/吃/饭，/鱼/的/味道/很/鲜。|Tǐjiǎn wán wǒ qù chī fàn, yú de wèidào hěn xiān.|Al terminar el chequeo fui a comer y el pescado estaba muy fresco y sabroso.
 我/决定/以后/每/天/运动，/身体/才/是/最/宝贵/的。|Wǒ juédìng yǐhòu měi tiān yùndòng, shēntǐ cái shì zuì bǎoguì de.|Decidí hacer deporte cada día, porque la salud es lo más valioso.`, `o|¿Por qué el narrador le dijo a su compañero que no pasaba nada?|Porque lo vio muy nervioso por el chequeo|Porque el compañero había perdido el abrigo|Porque el médico había encontrado un problema|Porque la cola avanzaba muy despacio
-x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|El narrador fuma de vez en cuando|El médico le pidió al narrador que no hablara|El narrador está sano, aunque un poco gordo|El chequeo lo organizó la empresa
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|El médico le mandó hacer dieta y repetir las pruebas|La empresa organizó el chequeo para toda la plantilla|El resultado fue bueno salvo por un poco de sobrepeso|A raíz de la revisión el narrador quiere cuidarse más
 z|6
 f|3`, ``, 'jersio'],
 
@@ -111,7 +111,7 @@ f|3`, ``, 'jersio'],
 包/粽子/时，/手/要/不/停/地/转动，/才/能/包/紧。|Bāo zòngzi shí, shǒu yào bù tíng de zhuàndòng, cái néng bāo jǐn.|Al envolver los zongzi hay que girar las manos sin parar para apretarlos bien.
 现在/很/多/外国/人/也/喜欢/这/个/节日。|Xiànzài hěn duō wàiguó rén yě xǐhuan zhè ge jiérì.|Ahora a muchos extranjeros también les gusta esta fiesta.
 我/觉得/风俗/是/文化/里/最/有/意思/的/部分。|Wǒ juéde fēngsú shì wénhuà lǐ zuì yǒu yìsi de bùfen.|Creo que las costumbres son la parte más interesante de la cultura.`, `o|¿Por qué se admira sobre todo a Qu Yuan?|Por su amor a la patria y su espíritu|Por haber ganado una carrera de barcos|Por inventar un plato típico del sur|Por haber viajado a muchos países
-x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|Los zongzi se comen igual en todo el país|La fiesta recuerda a un poeta antiguo|Durante la fiesta se celebran carreras de barcos|La gente valora el espíritu del poeta
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|Las carreras de barcos dragón solo se hacen en el sur|Los poemas de Qu Yuan son muy admirados todavía|Los zongzi tienen sabores distintos según la región|La fiesta atrae hoy también a visitantes de otros países
 z|4
 f|3`, `屈原|Qu Yuan, poeta del antiguo Chu`, 'yuyue'],
 
@@ -126,7 +126,7 @@ f|3`, `屈原|Qu Yuan, poeta del antiguo Chu`, 'yuyue'],
 他/还/给/我/一/个/网址，/上面/有/他/拍/的/照片。|Tā hái gěi wǒ yí ge wǎngzhǐ, shàngmian yǒu tā pāi de zhàopiàn.|También me dio una dirección web con las fotos que hizo.
 他/对/工作/要求/很/严，/所以/总是/很/忙。|Tā duì gōngzuò yāoqiú hěn yán, suǒyǐ zǒngshì hěn máng.|Es muy exigente con su trabajo, por eso siempre está ocupado.
 我/长大/以后/也/想/当/外交官。|Wǒ zhǎngdà yǐhòu yě xiǎng dāng wàijiāoguān.|Cuando sea mayor yo también quiero ser diplomático.`, `o|¿Qué actitud tiene el narrador hacia su tío?|Lo admira y quiere seguir su profesión|Le tiene envidia por su casa grande|Piensa que trabaja demasiado y no le gusta|Quiere vivir en el mismo país que él
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|La casa del tío era pequeña y el clima allí era seco|El tío envía dinero a su familia|El tío habla bien el idioma local|Una noche la luz de la casa dejó de funcionar
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El tío se casó con una mujer del país donde trabajó|El tío pasó una década trabajando fuera de su país|Le regaló al narrador algo comprado en el extranjero|El narrador admira a su tío y quiere imitarlo
 z|8
 f|3`, ``, 'binhao'],
 // FIN

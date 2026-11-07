@@ -12,7 +12,7 @@
 婚礼/上，/大哥/成/了/她/的/丈夫。|Hūnlǐ shàng, dàgē chéng le tā de zhàngfu.|En la ceremonia, mi hermano se convirtió en su marido.
 大家/说/了/很/多/祝/他们/幸福/的/话。|Dàjiā shuō le hěn duō zhù tāmen xìngfú de huà.|Todos dijeron muchas palabras deseándoles felicidad.
 我/希望/这/对/夫妻/永远/幸福。|Wǒ xīwàng zhè duì fūqī yǒngyuǎn xìngfú.|Espero que este matrimonio sea feliz para siempre.`, `o|¿Qué celebraba la familia ese día?|El casamiento del hermano mayor|La mudanza del hermano mayor|El regreso del hermano mayor de otro país|El cumpleaños del hermano mayor
-x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Los tíos llegaron en coche desde otra ciudad|El bebé de la hermana es todavía muy pequeño|Mi padre conoce a los tíos desde hace años|El cuñado se encargó de hacer fotografías
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|La ceremonia tuvo lugar en un jardín al aire libre|Los tíos viajaron en avión para asistir al evento|La hermana asistió con un hijo todavía muy pequeño|Todos los invitados fueron vestidos con ropa nueva
 z|10
 f|8`, `九十|noventa
 四十|cuarenta
@@ -30,7 +30,7 @@ f|8`, `九十|noventa
 演出/结束/后，/我/转身/看见/一/个/朋友。|Yǎnchū jiéshù hòu, wǒ zhuǎnshēn kànjiàn yí ge péngyou.|Al acabar el espectáculo, me di la vuelta y vi a un amigo.
 我们/一起/走/在/干净/的/地面/上，/回/到/大楼。|Wǒmen yìqǐ zǒu zài gānjìng de dìmiàn shàng, huí dào dàlóu.|Fuimos juntos por el suelo limpio de vuelta al edificio.
 这/是/很/开心/的/一/天。|Zhè shì hěn kāixīn de yì tiān.|Fue un día muy feliz.`, `o|¿Para qué viajó el narrador a Shanghái?|Para ver actuar a una persona famosa|Para visitar a un amigo de la infancia|Para buscar trabajo en un edificio alto|Para estudiar en una universidad de la ciudad
-x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|Llegó tarde y se perdió el principio del espectáculo|Su alojamiento estaba en un edificio alto|Había mucho tráfico cuando salió a la calle|Al terminar se encontró con un conocido
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|Compró las entradas del concierto con mucha antelación|Es la primera vez que visita esa zona de China|El cantante recibió aplausos del público de pie|El alojamiento está en un piso alto del edificio
 z|8
 f|2`, ``, 'chiki'],
 
@@ -45,7 +45,7 @@ f|2`, ``, 'chiki'],
 弟弟/想/要/一/把/尺，/我/也/给/他/买/了。|Dìdi xiǎng yào yì bǎ chǐ, wǒ yě gěi tā mǎi le.|Mi hermano pequeño quería una regla y también se la compré.
 我/把/钱/放/进/口袋，/手里/拿/着/大/包/小/包。|Wǒ bǎ qián fàng jìn kǒudài, shǒulǐ ná zhe dà bāo xiǎo bāo.|Me guardé el dinero en el bolsillo y llevaba bolsas grandes y pequeñas en las manos.
 回/家/时/我/很/累，/但是/很/开心。|Huí jiā shí wǒ hěn lèi, dànshì hěn kāixīn.|Al volver a casa estaba cansado, pero muy contento.`, `o|¿Con qué intención compró el narrador el disco y el plato?|Para regalar algo a un amigo|Para decorar su propia habitación|Para devolver un favor a su vecino|Para venderlos más caros después
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El paraguas que compró era de color rojo|Pensaba que podía llover ese día|También compró algo para su hermano pequeño|Volvió a casa cansado pero feliz
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El disco que compró era para su hermano pequeño|Para el cumpleaños de su amigo eligió algo de música|Metió el plato en una caja y la ató con hilo fino|Quiso llevar a casa algo también para su hermano
 z|8
 f|3`, ``, 'payolink'],
 [4, '🩺 Una consulta sobre el peso', `今天/来/了/一/位/病人，/他/说/自己/是/个/胖子。|Jīntiān lái le yí wèi bìngrén, tā shuō zìjǐ shì ge pàngzi.|Hoy vino un paciente que dice que es un gordito.
@@ -59,7 +59,7 @@ f|3`, ``, 'payolink'],
 针对/他/的/情况，/我/写/了/一/个/计划。|Zhēnduì tā de qíngkuàng, wǒ xiě le yí ge jìhuà.|Según su caso, le escribí un plan.
 下雨/天/路/很/湿，/他/可以/在/家/运动。|Xiàyǔ tiān lù hěn shī, tā kěyǐ zài jiā yùndòng.|Los días de lluvia el suelo está mojado, así que puede hacer ejercicio en casa.
 他/拿/起/一/个/很/沉/的/包，/笑/着/走/了。|Tā ná qǐ yí ge hěn chén de bāo, xiào zhe zǒu le.|Cogió una bolsa muy pesada y se fue sonriendo.`, `o|¿Qué le propuso el médico al paciente?|Caminar mucho y hacer ejercicio en casa|Tomar una pastilla para adelgazar rápido|Ingresar unos días en el hospital|Cambiar de trabajo para tener menos estrés
-x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|El médico le recetó un medicamento para dejar de fumar|El paciente come bastante cantidad en cada comida|El paciente tiene un hábito que perjudica su salud|El plan se hizo pensando en el caso concreto del paciente
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|El paciente ya había probado antes otras dietas sin éxito|Para su estatura, el paciente tiene un peso excesivo|La dieta del paciente tiene exceso de grasa y azúcar|El médico le recomendó caminar bastante cada jornada
 z|9
 f|3`, ``, 'teo'],
 
@@ -74,7 +74,7 @@ f|3`, ``, 'teo'],
 我/投/进/了/最后/一/个/球，/我们/赢/了。|Wǒ tóu jìn le zuìhòu yí ge qiú, wǒmen yíng le.|Metí el último tiro y ganamos.
 我们/获/奖/了，/每/人/得到/一/块/金/牌。|Wǒmen huò jiǎng le, měi rén dédào yí kuài jīn pái.|Ganamos un premio y cada uno recibió una medalla de oro.
 我们/一起/登/上/台，/这/一/伙/人/真/不错。|Wǒmen yìqǐ dēng shàng tái, zhè yì huǒ rén zhēn búcuò.|Subimos juntos al podio; este grupo es genial.`, `o|¿Cómo acabó el partido para el equipo del narrador?|Ganaron tras un final muy igualado|Perdieron por muy pocos puntos|Se suspendió por culpa del mal tiempo|Empataron y no hubo premio
-x|¿Cuál de estas ideas NO encaja con el texto?|El narrador era el capitán del equipo|Uno de los rivales tuvo muy buena puntería|El narrador cometió un error por los nervios|Había diez jugadores en la lista del equipo
+x|¿Cuál de estas ideas NO encaja con el texto?|El entrenador cambió a tres jugadores en el descanso|El equipo estuvo por detrás al principio del partido|El empate final se rompió con el tiro del narrador|El capitán es una persona resistente y valiente
 z|6
 f|8`, ``, 'guidozcos'],
 
@@ -90,7 +90,7 @@ f|8`, ``, 'guidozcos'],
 看来，/他/比/我/想/的/更/大方。|Kànlái, tā bǐ wǒ xiǎng de gèng dàfang.|Al parecer, era más generoso de lo que yo pensaba.
 的确，/经验/是/一/种/财富。|Díquè, jīngyàn shì yì zhǒng cáifù.|Desde luego, la experiencia es una riqueza.
 最后/我/作出/了/决定：/明年/还/来。|Zuìhòu wǒ zuòchū le juédìng: míngnián hái lái.|Al final tomé una decisión: volver el año que viene.`, `o|¿Cómo era la actitud del jefe ante los errores del narrador?|Comprensiva, no se enfadó|Muy dura, lo castigó sin sueldo|Indiferente, ni se enteró del correo|Exigente, lo despidió ese mismo día
-x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|El narrador trabajó en la empresa durante todo el año|Su tarea incluía responder correos de los compañeros|Aprendió algo de informática por su cuenta|Quiere volver a la empresa más adelante
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|La empresa le ofreció un puesto fijo al terminar|El narrador ayudaba con documentos y redacción|El jefe se tomó con calma el error del correo|El narrador quiere repetir la experiencia el próximo año
 z|7
 f|5`, ``, 'anto'],
 [4, '🎬 Una película triste', `昨天/我/和/朋友/去/看/了/一/部/电影。|Zuótiān wǒ hé péngyou qù kàn le yí bù diànyǐng.|Ayer fui con un amigo a ver una película.
@@ -104,7 +104,7 @@ f|5`, ``, 'anto'],
 电影/结束/后，/我/和/朋友/都/没/说话。|Diànyǐng jiéshù hòu, wǒ hé péngyou dōu méi shuōhuà.|Al acabar la película, mi amigo y yo no dijimos nada.
 这/个/月/末，/我/想/带/妈妈/再/看/一/次。|Zhè ge yuè mò, wǒ xiǎng dài māma zài kàn yí cì.|A finales de este mes quiero llevar a mi madre a verla otra vez.
 回家/后，/我/在/网上/填/了/一/张/表，/给/电影/打/分。|Huíjiā hòu, wǒ zài wǎngshàng tián le yì zhāng biǎo, gěi diànyǐng dǎ fēn.|Al volver a casa rellené un formulario en internet y puntué la película.`, `o|¿Qué pensaba el narrador de este tipo de películas antes de ir?|Que no le interesaban demasiado|Que eran las mejores de todas|Que las veía todas las semanas|Que solo servían para llorar
-x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|Los protagonistas acabaron separados para siempre|El chico tuvo que marcharse de su tierra|La película es muy popular entre mucha gente|El narrador se emocionó viendo la película
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|La película acaba con un final feliz para la pareja|El protagonista tiene que irse lejos de su gente|La historia emocionó al narrador hasta las lágrimas|El narrador valoró la película en internet después
 z|7
 f|4`, ``, 'chana'],
 
@@ -120,7 +120,7 @@ f|4`, ``, 'chana'],
 有/人/来/修，/一/个/小时/就/好/了，/他/还/说/要/多/开/窗户。|Yǒu rén lái xiū, yí ge xiǎoshí jiù hǎo le, tā hái shuō yào duō kāi chuānghu.|Vino alguien a repararlo, en una hora estaba listo, y además dijo que hay que abrir más las ventanas.
 这/句/话/引/起/了/我/的/注意。|Zhè jù huà yǐn qǐ le wǒ de zhùyì.|Esa frase me llamó la atención.
 东西/用/完/要/归/位，/家/才/干净。|Dōngxi yòng wán yào guī wèi, jiā cái gānjìng.|Hay que devolver las cosas a su sitio después de usarlas; así la casa está limpia.`, `o|¿Qué hizo la familia el fin de semana?|Limpiar y ordenar la casa|Pintar las paredes del salón|Mudarse a otro barrio|Preparar una fiesta para los vecinos
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Los vecinos se quejaron del ruido|El aire acondicionado se estropeó|Hay unas veinte viviendas en el edificio|Un técnico arregló el aparato en una hora
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Limpiaron la casa porque esperaban visitas esa tarde|Cada miembro de la familia se ocupó de una tarea|Un técnico arregló el aire acondicionado en poco tiempo|Las viviendas del edificio están muy pegadas entre sí
 z|7
 f|9`, ``, 'lucia'],
 
@@ -135,7 +135,7 @@ f|9`, ``, 'lucia'],
 他们/给/我们/热/茶，/我/心里/才/安/下来。|Tāmen gěi wǒmen rè chá, wǒ xīnlǐ cái ān xiàlái.|Nos dieron té caliente y solo entonces me quedé tranquilo.
 雨/停/后，/我们/往/回/走，/路上/风景/真/美。|Yǔ tíng hòu, wǒmen wǎng huí zǒu, lùshang fēngjǐng zhēn měi.|Cuando paró la lluvia volvimos y el paisaje del camino era precioso.
 这/次/爬山/很/有/意思。|Zhè cì páshān hěn yǒu yìsi.|Esta excursión fue muy interesante.`, `o|¿Qué les pasó a los excursionistas a mitad del camino?|La lluvia los mojó por completo|Se perdieron en el bosque|Uno de ellos se hizo daño en el pie|Se quedaron sin comida
-x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Durmieron en casa del anciano|Un anciano les indicó dónde refugiarse|En la casa les ofrecieron algo caliente|Volvieron andando cuando paró de llover
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Los excursionistas pasaron la noche en aquella casa|La lluvia les sorprendió cuando iban a mitad del camino|Un anciano les dijo dónde podían descansar y refugiarse|El té caliente les sentó bien tras la lluvia
 z|8
 f|6`, ``, 'teo'],
 );

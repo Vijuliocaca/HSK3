@@ -12,7 +12,7 @@
 我/负责/把/各/项/数字/整理/好，/交/给/顾问。|Wǒ fùzé bǎ gè xiàng shùzì zhěnglǐ hǎo, jiāo gěi gùwèn.|Yo me encargo de ordenar todas las cifras y dárselas al asesor.
 那/天/晚上/我/加班/到/十/点，/累/但/很/高兴。|Nà tiān wǎnshang wǒ jiābān dào shí diǎn, lèi dàn hěn gāoxìng.|Aquella noche hice horas extra hasta las diez, cansado pero contento.
 我/相信，/新/集团/一定/会/越来越/好。|Wǒ xiāngxìn, xīn jítuán yídìng huì yuèláiyuè hǎo.|Creo que el nuevo grupo irá cada vez mejor.`, `o|¿Qué va a pasar con la empresa este año?|Se unirá a otra empresa|Se mudará a otra ciudad|Cerrará por falta de dinero|Contratará a muchos trabajadores nuevos
-x|¿Cuál de estas ideas NO encaja con el texto?|La empresa despedirá a la mitad de sus empleados|Un asesor ayuda a preparar el plan del año|Las dos empresas tienen marcas diferentes|Los jefes aprobaron la unión de las empresas
+x|¿Cuál de estas ideas NO encaja con el texto?|La plantilla recibirá una paga extra tras la fusión|Algunos empleados temen perder trabajo tras la fusión|Hay dudas sobre qué marca usará el nuevo grupo|El asesor confía en el futuro si todos colaboran
 z|9
 f|12`, `万|diez mil
 合同|contrato`, 'carlos'],
@@ -29,7 +29,7 @@ f|12`, `万|diez mil
 我们/买/了/热/茶，/坐/在/河边/聊/了/很/久。|Wǒmen mǎi le rè chá, zuò zài hébiān liáo le hěn jiǔ.|Compramos té caliente y charlamos un buen rato junto al río.
 下午/起/风/了，/云/也/多/了/起来。|Xiàwǔ qǐ fēng le, yún yě duō le qǐlái.|Por la tarde se levantó viento y también aparecieron más nubes.
 虽然/天气/变/了，/我们/还是/觉得/这/一/天/很/美。|Suīrán tiānqì biàn le, wǒmen háishi juéde zhè yì tiān hěn měi.|Aunque el tiempo cambió, nos pareció un día muy bonito.`, `o|¿Cómo estaba el tiempo por la mañana?|Despejado y claro|Nublado y con niebla|Lluvioso y frío|Con mucho viento fuerte
-x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Los amigos viajaron en tren hasta el pueblo|En el pueblo hay un muelle antiguo|El anciano suele pescar en ese lugar|Por la tarde el tiempo empezó a cambiar
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Pasaron la noche en una posada cerca del río|El parte del tiempo prometía un día sin lluvia|Un viejo pescador estaba limpiando su barca|Al caer la tarde el tiempo empeoró un poco
 z|4
 f|11`, `河水|agua del río
 小镇|pueblo
@@ -48,7 +48,7 @@ f|11`, `河水|agua del río
 现在/难得/有/这样/的/好/电影。|Xiànzài nándé yǒu zhèyàng de hǎo diànyǐng.|Hoy en día es raro encontrar una película tan buena.
 看/完/以后，/我/给/妈妈/打/了/电话。|Kàn wán yǐhòu, wǒ gěi māma dǎ le diànhuà.|Al terminar de verla, llamé a mi madre.
 我/希望/有/一/天/也/能/写/出/这样/的/剧本。|Wǒ xīwàng yǒu yì tiān yě néng xiě chū zhèyàng de jùběn.|Espero algún día poder escribir un guion así.`, `o|¿Por qué el narrador pensó en su abuela?|Porque el rostro de la anciana de la película se la recordó|Porque su abuela trabajó como actriz|Porque la película habla de un viaje con ella|Porque su abuela le contó la trama antes
-x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|La película tiene mucha música de fondo|El narrador admira a un escritor|La película trata de cosas sencillas de la vida|El narrador quiere escribir guiones algún día
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|Los actores de la película son todos aficionados|Además de guiones, el escritor admirado escribe prosa|La abuela del filme recordó a la del narrador|La película carece de banda sonora de fondo
 z|3
 f|10`, '', 'laura'],
 
@@ -65,7 +65,7 @@ f|10`, '', 'laura'],
 一/周/后，/医生/解除/了/他/的/住院/限制。|Yì zhōu hòu, yīshēng jiěchú le tā de zhùyuàn xiànzhì.|Una semana después, el médico levantó su restricción de ingreso.
 全家/人/都/感谢/医生/的/关怀。|Quánjiā rén dōu gǎnxiè yīshēng de guānhuái.|Toda la familia agradeció el cuidado del médico.
 我/想，/生命/最/重要，/所以/不/要/轻易/放弃。|Wǒ xiǎng, shēngmìng zuì zhòngyào, suǒyǐ bú yào qīngyì fàngqì.|Pienso que la vida es lo más importante y que no hay que rendirse a la ligera.`, `o|¿Qué actitud mostró el médico ante la situación?|No perdió la esperanza|Pensó que ya no había remedio|Dejó la decisión a la familia|Se enfadó con los vecinos
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El anciano pudo volver a casa en cuanto despertó|La ambulancia llegó porque alguien la llamó|El médico explicó con calma las razones del tratamiento|La familia estaba muy preocupada al llegar
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El anciano tuvo que ser operado de urgencia al llegar|La ambulancia llegó con medicinas y personal médico|La familia llegó muy angustiada ante la situación|El médico razonó con calma el tratamiento al paciente
 z|7
 f|5`, `心跳|latido
 住院|ingresar en el hospital
@@ -84,7 +84,7 @@ f|5`, `心跳|latido
 老师/说/我们/是/学习/模范，/这/是/努力/的/回报。|Lǎoshī shuō wǒmen shì xuéxí mófàn, zhè shì nǔlì de huíbào.|El profesor dijo que somos un modelo de estudio, la recompensa a nuestro esfuerzo.
 回顾/这/次/比赛，/我/最/难忘/的/是/同学/们/的/每/个/举动。|Huígù zhè cì bǐsài, wǒ zuì nánwàng de shì tóngxué men de měi ge jǔdòng.|Al recordar el concurso, lo que más me marcó fue cada gesto de mis compañeros.
 大家/互相/帮助/的/样子，/比/名次/更/让/我/高兴。|Dàjiā hùxiāng bāngzhù de yàngzi, bǐ míngcì gèng ràng wǒ gāoxìng.|Ver cómo todos se ayudaban me alegró más que la clasificación.`, `o|¿Qué valoraba más el profesor del concurso?|El proceso, más que ganar|Que ganáramos el primer puesto|Que no hubiera público|Que todos sacaran la misma nota
-x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|El grupo del narrador quedó en primer lugar|El tema de la prueba trataba del agua|El narrador explicó el método a los demás|Los alumnos se ayudaron entre sí
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|El grupo ensayó la presentación durante varios días|El profesor valoraba más el proceso que el resultado|El grupo eligió la idea más simple entre varias|Al narrador le alegró más el compañerismo que el puesto
 z|7
 f|2`, `名次|puesto
 发抖|temblar`, 'teo'],
@@ -101,7 +101,7 @@ f|2`, `名次|puesto
 社区/里/的/商品/要/流通/得/快，/居民/才/方便。|Shèqū lǐ de shāngpǐn yào liútōng de kuài, jūmín cái fāngbiàn.|Los productos del barrio deben circular rápido para comodidad de los vecinos.
 一/年/后，/第/一/部分/房子/建/好/了。|Yì nián hòu, dì yī bùfen fángzi jiàn hǎo le.|Un año después, la primera parte de las casas estaba terminada.
 搬/进来/的/居民/都/说/这里/的/环境/很/好。|Bān jìnlái de jūmín dōu shuō zhèlǐ de huánjìng hěn hǎo.|Los vecinos que se mudaron dijeron que el entorno es muy bueno.`, `o|¿Por qué querían algunos descartar la biblioteca?|Les preocupaba su coste|Nadie la quería usar|El terreno era demasiado pequeño|Los expertos dijeron que era fea
-x|¿Cuál de estas ideas NO encaja con el texto?|El barrio quedó terminado en pocas semanas|Hubo opiniones distintas en la reunión|Se pidió la opinión de expertos|Se fijó una meta común para el barrio
+x|¿Cuál de estas ideas NO encaja con el texto?|Se prevé también construir un hospital en el barrio|La reunión se alargó porque había posturas distintas|El plan busca la comodidad de quienes vivan allí|Los primeros edificios estaban listos al cabo de un año
 z|5
 f|3`, `土地|terreno
 成本|coste
@@ -119,7 +119,7 @@ f|3`, `土地|terreno
 回顾/这/些/年，/我/几乎/没有/一/次/是/准时/到/的。|Huígù zhè xiē nián, wǒ jīhū méiyǒu yí cì shì zhǔnshí dào de.|Al repasar estos años, casi nunca he llegado puntual.
 这/次/也/不/例外，/我/迟到/了/半/个/小时。|Zhè cì yě bú lìwài, wǒ chídào le bàn ge xiǎoshí.|Esta vez tampoco fue una excepción: llegué media hora tarde.
 到/了/公司，/我/向/经理/交代/了/原因，/他/笑/着/说/没/关系。|Dào le gōngsī, wǒ xiàng jīnglǐ jiāodài le yuányīn, tā xiào zhe shuō méi guānxi.|En la empresa le expliqué el motivo al director y me dijo sonriendo que no importaba.`, `o|¿Por qué fue tan lento el tráfico?|Porque hubo accidentes seguidos delante|Porque estaban arreglando la carretera|Porque había una fiesta en la ciudad|Porque se había estropeado un semáforo
-x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|El director se enfadó mucho con el narrador|El narrador viajaba con niños|Los pequeños recogieron una botella del suelo|El narrador llegó tarde al trabajo
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|El narrador llevaba pocos años con carné de conducir|Dos accidentes seguidos agravaron el tráfico delante|Los niños pidieron salir del coche en pleno atasco|Al jefe le dio igual que llegara media hora tarde
 z|10
 f|1`, `卡车|camión
 后座|asiento trasero
@@ -137,7 +137,7 @@ f|1`, `卡车|camión
 我/发现，/内在/的/热情/比/外面/的/广告/更/重要。|Wǒ fāxiàn, nèizài de rèqíng bǐ wàimiàn de guǎnggào gèng zhòngyào.|He descubierto que el entusiasmo interior importa más que la publicidad exterior.
 当然，/有时候/也/会/有/摩擦，/比如/同事/之间/的/意见/不/同。|Dāngrán, yǒushíhou yě huì yǒu mócā, bǐrú tóngshì zhījiān de yìjiàn bù tóng.|Claro, a veces hay roces, por ejemplo por opiniones distintas entre compañeros.
 可是/我们/都/知道，/只有/一起/努力，/才能/把/事业/做/大。|Kěshì wǒmen dōu zhīdào, zhǐyǒu yìqǐ nǔlì, cáinéng bǎ shìyè zuò dà.|Pero todos sabemos que solo esforzándonos juntos podremos hacer crecer el negocio.`, `o|¿Qué ventaja da internet a esta empresa?|Los clientes compran sin salir de casa|Ya no necesita vender ningún producto|Puede cobrar precios mucho más altos|Los clientes dejan de llamar por teléfono
-x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|La empresa lleva más de veinte años funcionando|El jefe se informa de lo que pasa en el mundo|Los precios de la tienda no resultan caros|A veces los compañeros no opinan igual
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|La empresa nació con dinero de grandes inversores|Internet ayuda a las tiendas pequeñas a competir|El jefe aconseja no dudar ante una buena oportunidad|A veces los compañeros no coinciden en sus ideas
 z|9
 f|6`, `几十|decenas
 事业|negocio, carrera`, 'binhao'],
@@ -154,7 +154,7 @@ f|6`, `几十|decenas
 我/在/一/旁/看/着，/心里/有/一/点/害怕，/也/很/佩服。|Wǒ zài yì páng kàn zhe, xīnli yǒu yì diǎn hàipà, yě hěn pèifú.|Yo miraba a un lado, algo asustado y también admirado.
 晚上/回/到/宿舍，/我/累/得/连/饭/都/不/想/吃。|Wǎnshang huí dào sùshè, wǒ lèi de lián fàn dōu bù xiǎng chī.|De noche, al volver a la residencia, estaba tan cansado que ni quería cenar.
 可是/我/知道，/这/就/是/我/想/做/的/工作。|Kěshì wǒ zhīdào, zhè jiù shì wǒ xiǎng zuò de gōngzuò.|Pero sé que este es el trabajo que quiero hacer.`, `o|¿Qué le dijo la enfermera jefa al narrador?|Que los pacientes necesitan también atención y cariño|Que debía cobrar más a los pacientes|Que no hablara con los enfermos mayores|Que se fuera a casa a las seis de la tarde
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El narrador quiere cambiar de profesión|El narrador habló con un anciano solitario|Un niño tuvo fiebre por la tarde|El médico mantuvo la calma
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|La enfermera jefa había sido profesora del narrador|El primer día de prácticas empezó muy temprano|Charlar con un anciano solitario le hizo sonreír|El médico mantuvo la calma ante la fiebre del niño
 z|8
 f|7`, `露出|mostrar
 科室|servicio del hospital

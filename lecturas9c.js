@@ -8,7 +8,7 @@
 可是/我/没有/放弃，/每天/练习/半/个/小时。|Kěshì wǒ méiyǒu fàngqì, měitiān liànxí bàn ge xiǎoshí.|Pero no me rendí: practicaba media hora cada día.
 两/个/星期/以后，/我/终于/骑/得/很/稳/了。|Liǎng ge xīngqī yǐhòu, wǒ zhōngyú qí de hěn wěn le.|Dos semanas después, por fin montaba con estabilidad.
 现在/我/每天/骑/车/上班，/觉得/特别/自由。|Xiànzài wǒ měitiān qí chē shàngbān, juéde tèbié zìyóu.|Ahora voy en bici al trabajo cada día y me siento libre.`, `o|¿Cómo consiguió el narrador aprender?|Practicando cada día aunque se cayó|Apuntándose a una academia un año|Pidiendo una moto a un compañero|Esperando a que mejorara el tiempo
-x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Su amigo le regaló una bicicleta nueva|Antes de aprender iba al trabajo en metro|Se cayó varias veces al practicar|A las dos semanas ya montaba con estabilidad
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Sus compañeros se rieron de él al verlo caer|Sus colegas llevan tiempo yendo a trabajar en bici|Un amigo le ayudó sujetando la bici al principio|Practicó a diario durante un par de semanas
 z|7
 f|3`, `扶|sujetar
 稳|estable`, 'anto'],
@@ -21,7 +21,7 @@ f|3`, `扶|sujetar
 因为/大家/都/知道，/好/东西/值得/等。|Yīnwèi dàjiā dōu zhīdào, hǎo dōngxi zhíde děng.|Porque todos saben que lo bueno merece la espera.
 昨天/老板/说，/下/个/月/他/要/回/老家。|Zuótiān lǎobǎn shuō, xià ge yuè tā yào huí lǎojiā.|Ayer el dueño dijo que el mes que viene vuelve a su pueblo.
 我/有点/难过，/今天/多/吃/了/一/碗。|Wǒ yǒudiǎn nánguò, jīntiān duō chī le yì wǎn.|Estoy un poco triste y hoy me comí un cuenco más.`, `o|¿Por qué la gente espera sin enfadarse?|Porque cree que lo bueno merece la espera|Porque no hay otro local en la zona|Porque la cola avanza muy deprisa|Porque el dueño invita a una bebida
-x|¿Cuál de estas ideas NO encaja con el texto?|El dueño abrirá otro local en el centro|A mediodía suele haber mucha cola|El dueño piensa volver a su pueblo|El narrador comió más de lo habitual ese día
+x|¿Cuál de estas ideas NO encaja con el texto?|Sus fideos cuestan más que en otros restaurantes del barrio|Los clientes aceptan esperar por la calidad de los fideos|El dueño es una persona mayor originaria de Pekín|Al narrador le entristece que el dueño se marche
 z|5
 f|4`, `面馆|restaurante de fideos
 老家|pueblo natal
@@ -35,7 +35,7 @@ f|4`, `面馆|restaurante de fideos
 有/一/次，/我/迷路/了，/只好/问/路人。|Yǒu yí cì, wǒ mílù le, zhǐhǎo wèn lùrén.|Una vez me perdí y no me quedó más remedio que preguntar a un transeúnte.
 一/个/星期/以后，/我/觉得/轻松/多/了。|Yí ge xīngqī yǐhòu, wǒ juéde qīngsōng duō le.|Una semana después me sentía mucho más tranquilo.
 现在/我/每天/只/用/一/个/小时/手机。|Xiànzài wǒ měitiān zhǐ yòng yí ge xiǎoshí shǒujī.|Ahora uso el móvil solo una hora al día.`, `o|¿Qué cambió en la vida del narrador?|Dormía antes y descansaba mejor|Ganaba dinero con su tiempo libre|Dejó de hablar con sus amigos|Empezó a trabajar más horas
-x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Volvió a usar el móvil todo el día|Al principio le costaba no coger el teléfono|Empezó a leer y a pasear|Sus amigos se preocuparon por no localizarlo
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Echó de menos las redes sociales toda la semana|Al principio sentía ganas de mirar el teléfono|Dejar el móvil mejoró su descanso nocturno|Hoy limita el móvil a una hora cada día
 z|7
 f|2`, `路人|transeúnte`, 'yuyue'],
 
@@ -46,7 +46,7 @@ f|2`, `路人|transeúnte`, 'yuyue'],
 有/一/天，/邻居/主动/请/我/去/他/家/吃饭。|Yǒu yì tiān, línjū zhǔdòng qǐng wǒ qù tā jiā chīfàn.|Un día, un vecino me invitó por iniciativa propia a comer a su casa.
 我们/聊/了/很/久，/我/慢慢/不/再/觉得/孤单。|Wǒmen liáo le hěn jiǔ, wǒ mànmàn bú zài juéde gūdān.|Charlamos mucho rato y poco a poco dejé de sentirme solo.
 现在，/这里/已经/成/了/我/的/第/二/故乡。|Xiànzài, zhèlǐ yǐjīng chéng le wǒ de dì èr gùxiāng.|Ahora este lugar ya es mi segunda tierra.`, `o|¿Qué hizo que el narrador se sintiera menos solo?|La invitación de un vecino a comer|Un ascenso en la empresa|Aprender el dialecto en un curso|Volver a su ciudad natal
-x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|La empresa le ofreció una casa gratis|Al principio se equivocaba de sentido en el metro|Le costaba entender a los habitantes|Con el tiempo se siente como en casa
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|Eligió Shanghái por su clima y su gastronomía|La empresa le trasladó a una ciudad desconocida|Le costó orientarse con el metro de Shanghái|La invitación de un vecino le ayudó a integrarse
 z|5
 f|3`, `故乡|tierra natal
 孤单|solo
@@ -60,7 +60,7 @@ f|3`, `故乡|tierra natal
 那/天/我/第/一/次/主动/拿/起/琴。|Nà tiān wǒ dì yī cì zhǔdòng ná qǐ qín.|Aquel día cogí el violín por primera vez por voluntad propia.
 他/听/着，/眼睛/里/都/是/泪水，/却/一直/在/笑。|Tā tīng zhe, yǎnjing lǐ dōu shì lèishuǐ, què yìzhí zài xiào.|Mientras escuchaba tenía los ojos llenos de lágrimas, pero no dejaba de sonreír.
 现在/每/次/拉/琴，/我/都/觉得/他/就/在/旁边。|Xiànzài měi cì lā qín, wǒ dōu juéde tā jiù zài pángbiān.|Ahora, cada vez que toco, siento que está a mi lado.`, `o|¿Qué sentía el abuelo mientras escuchaba?|Emoción y alegría a la vez|Enfado por los fallos|Aburrimiento total|Preocupación por el dinero
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El abuelo obligaba al niño a ensayar cada día|De niño el narrador no quería practicar|El abuelo dejó de poder tocar tras enfermar|Al tocar, el narrador siente cerca a su abuelo
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El abuelo había tocado en una orquesta profesional|El instrumento tiene huellas del paso del tiempo|El abuelo prefería tocar antes que reñir al niño|Tocó por decisión propia tras la enfermedad del abuelo
 z|5
 f|3`, `小提琴|violín
 划痕|arañazo
@@ -76,7 +76,7 @@ f|3`, `小提琴|violín
 一/个/月/后，/终于/开/出/了/第/一/朵/花。|Yí ge yuè hòu, zhōngyú kāi chū le dì yī duǒ huā.|Un mes después, por fin salió la primera flor.
 我/高兴/得/拍/了/很/多/照片，/发/给/了/妈妈。|Wǒ gāoxìng de pāi le hěn duō zhàopiàn, fā gěi le māma.|Me alegré tanto que hice muchas fotos y se las mandé a mi madre.
 耐心/比/技术/更/重要，/这/是/它/教会/我/的。|Nàixīn bǐ jìshù gèng zhòngyào, zhè shì tā jiāohuì wǒ de.|La paciencia importa más que la técnica; eso me enseñó.`, `o|¿Por qué se morían las plantas al principio?|Les faltaban luz y agua suficientes|Las regaba demasiado a menudo|El balcón era muy frío|Eran de mala calidad
-x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Cultivó las flores en un terreno amplio|Cambió de sitio las macetas|Mandó fotos a su madre|Aprendió que la paciencia es importante
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Un vecino le explicó cómo cuidar mejor las plantas|Muchas flores murieron al principio por falta de cuidados|Regaba las macetas con regularidad cada pocos días|La primera flor le produjo una gran alegría
 z|7
 f|3`, `盆|maceta (clasif.)
 袋|saco; bolsa

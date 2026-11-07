@@ -11,7 +11,7 @@
 客户/说/对不起，/因为/路上/堵车。|Kèhù shuō duìbuqǐ, yīnwèi lùshang dǔchē.|El cliente dijo que lo sentía porque había atasco.
 我/没/生气，/只是/提醒/他/下/次/早/一点。|Wǒ méi shēngqì, zhǐshì tíxǐng tā xià cì zǎo yìdiǎn.|No me enfadé; solo le recordé que la próxima vez llegara un poco antes.
 一/个/月/过/去/了，/我/终于/习惯/了/新/工作。|Yí ge yuè guò qù le, wǒ zhōngyú xíguàn le xīn gōngzuò.|Pasó un mes y por fin me acostumbré al nuevo trabajo.`, `o|¿Qué cambió en el trabajo de la narradora?|La empresa le dio otro puesto con más responsabilidad|Le subieron el sueldo sin cambiarle las tareas|Se fue a otra ciudad para abrir una oficina|Pasó a trabajar con menos horas
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Que ella ya llevaba años como directora|Que tiene que estudiar mucho para el puesto|Que en la empresa hay reglas que limitan el poder|Que tuvo que esperar para ver a un cliente
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|La narradora cobrará bastante más desde su ascenso|El ascenso le supone dirigir varios departamentos|La narradora estudia mucho para llenar sus lagunas|Ante el retraso del cliente, reaccionó con calma
 z|9
 f|8`, `局长|director
 职员|empleado
@@ -36,7 +36,7 @@ f|8`, `局长|director
 在/一/楼/的/小/厅/里/有/一/个/信箱，/大家/可以/写/意见。|Zài yī lóu de xiǎo tīng lǐ yǒu yí ge xìnxiāng, dàjiā kěyǐ xiě yìjiàn.|En el vestíbulo de la planta baja hay un buzón donde todos pueden dejar sus opiniones.
 物业费/可以/当面/交，/也/可以/汇款。|Wùyèfèi kěyǐ dāngmiàn jiāo, yě kěyǐ huìkuǎn.|Los gastos de comunidad se pueden pagar en persona o por transferencia.
 大家/都/觉得，/住/在/这里/越来越/舒服/了。|Dàjiā dōu juéde, zhù zài zhèlǐ yuèláiyuè shūfu le.|Todos piensan que vivir aquí es cada vez más agradable.`, `o|¿Qué va a pasar en la urbanización el mes que viene?|Se derribará un garaje viejo para hacer un jardín pequeño|Se abrirá un aparcamiento nuevo en la entrada|Se cerrará el edificio para pintar las paredes|Se cambiará el buzón de todos los vecinos
-x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Que dejar la moto en el pasillo está permitido un rato|Que un vecino recibió una sanción la semana pasada|Que un amigo de la narradora acaba de sacarse el carné|Que los bomberos revisaron el pasillo
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|La comunidad aprobó las obras por votación unánime|Pronto habrá obras para convertir un garaje en jardín|Aparcar motos en el pasillo puede acarrear sanciones|Los vecinos pueden dar su opinión en un buzón
 z|5
 f|3`, `车库|garaje
 楼道|pasillo del edificio
@@ -62,7 +62,7 @@ f|3`, `车库|garaje
 科学家/把/星光/分离/成/不同/的/颜色，/研究/星星/的/特性。|Kēxuéjiā bǎ xīngguāng fēnlí chéng bùtóng de yánsè, yánjiū xīngxing de tèxìng.|Los científicos separan la luz de las estrellas en colores distintos para estudiar sus propiedades.
 这/些/研究/已经/证实：/星星/和/地球/的/物质/很/相似。|Zhè xiē yánjiū yǐjīng zhèngshí: xīngxing hé dìqiú de wùzhì hěn xiāngsì.|Estos estudios han confirmado que las estrellas y la Tierra tienen una materia muy parecida.
 回/家/的/路/上，/我/觉得/宇宙/真/神奇。|Huí jiā de lù shàng, wǒ juéde yǔzhòu zhēn shénqí.|De vuelta a casa pensé que el universo es asombroso.`, `o|¿Qué explicó el profesor sobre los osos?|Que viven en el Ártico y no en la Antártida|Que viven en las dos zonas polares por igual|Que ya no quedan osos en ningún polo|Que solo se ven desde la montaña
-x|¿Cuál de estas ideas NO encaja con el texto?|Que las noches en la Luna son calurosas|Que de noche en la montaña hacía frío|Que sin luces de ciudad se ven mejor las estrellas|Que se usó un telescopio para mirar la Luna
+x|¿Cuál de estas ideas NO encaja con el texto?|El telescopio permitió ver también varios planetas|En la montaña de noche baja mucho la temperatura|Sin luz urbana las estrellas se ven con mucha nitidez|En la Luna las diferencias de temperatura son enormes
 z|6
 f|1`, `出汗|sudar
 望远镜|telescopio
@@ -91,7 +91,7 @@ f|1`, `出汗|sudar
 河水/上涨/了/三/天，/到/第/四/天/才/开始/下降。|Héshuǐ shàngzhǎng le sān tiān, dào dì sì tiān cái kāishǐ xiàjiàng.|El río subió durante tres días y recién al cuarto empezó a bajar.
 大家/一起/清理/街道，/想/尽快/恢复/生活。|Dàjiā yìqǐ qīnglǐ jiēdào, xiǎng jǐnkuài huīfù shēnghuó.|Todos limpiamos juntos la calle para recuperar cuanto antes la vida normal.
 看/到/邻居/互相/帮助，/我/心/里/的/担心/减轻/了/不少。|Kàn dào línjū hùxiāng bāngzhù, wǒ xīn lǐ de dānxīn jiǎnqīng le bùshǎo.|Ver cómo los vecinos se ayudaban me quitó bastante preocupación.`, `o|¿Qué les ocurrió a las verduras de los campos?|Muchas se pudrieron por tanta agua|Se secaron por la falta de lluvia|Las recogieron antes de tiempo|La corriente se las llevó
-x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Que en casa no pudieron cocinar nada|Que la lluvia fue más fuerte de lo normal para el narrador|Que el agua sucia llegó hasta el río|Que los vecinos se ayudaron entre ellos
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Las autoridades evacuaron la aldea durante la tormenta|Parte de la cosecha se estropeó por el exceso de agua|La falta de electricidad obligó a cocinar con gas|La solidaridad de los vecinos tranquilizó al narrador
 z|9
 f|3`, `坏掉|estropearse`, 'anto'],
 
@@ -107,7 +107,7 @@ f|3`, `坏掉|estropearse`, 'anto'],
 我/赶紧/上网/查询，/原来/需要/更新。|Wǒ gǎnjǐn shàngwǎng cháxún, yuánlái xūyào gēngxīn.|Busqué rápido en internet y resulta que había que actualizar.
 更新/以后，/问题/就/解决/了。|Gēngxīn yǐhòu, wèntí jiù jiějué le.|Tras actualizar, el problema se resolvió.
 我/还/把/旅行/照片/印刷/成/一/本/小/册子，/送/给/朋友。|Wǒ hái bǎ lǚxíng zhàopiàn yìnshuā chéng yì běn xiǎo cèzi, sòng gěi péngyou.|También imprimí mis fotos de viaje en un librito para regalárselo a un amigo.`, `o|¿Por qué se paró el ordenador de repente?|Porque un programa tenía un fallo y necesitaba actualizarse|Porque se quedó sin batería en mitad de una videollamada|Porque el nuevo puerto no era compatible con nada|Porque el dependiente se olvidó de instalar el sistema
-x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|Que tuvo que llevarlo a reparar a la tienda|Que el ordenador nuevo arranca deprisa|Que el narrador contó su compra en una red social|Que puede grabar vídeos con buena calidad
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|El dependiente regaló un ratón con el ordenador nuevo|El ordenador viejo funcionaba demasiado despacio|El nuevo equipo arranca más rápido que el anterior|Una actualización resolvió el fallo del programa
 z|7
 f|11`, `接口|puerto
 壁纸|fondo de pantalla
@@ -125,7 +125,7 @@ f|11`, `接口|puerto
 最后/他/得到/了/最佳/演员/的/称号。|Zuìhòu tā dédào le zuìjiā yǎnyuán de chēnghào.|Al final recibió el título de mejor actor.
 他/还/把/奖金/献/给/了/生病/的/孩子/们。|Tā hái bǎ jiǎngjīn xiàn gěi le shēngbìng de háizi men.|Además dedicó el premio en dinero a los niños enfermos.
 走/出/电影院，/我/的/心情/特别/好。|Zǒu chū diànyǐngyuàn, wǒ de xīnqíng tèbié hǎo.|Al salir del cine, estaba de muy buen humor.`, `o|¿Qué quiere decir el director con la película?|Que el trabajo y la vida no tienen por qué estar enfrentados|Que los jóvenes de hoy trabajan demasiado poco|Que la vida del campo es mejor que la de la ciudad|Que hay que tener miedo de los fantasmas
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Que el protagonista se quedó el premio para sí|Que la película hizo reír a todo el público|Que el protagonista tiene miedo de noche|Que en la película se ven montañas y mar
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|La comedia ganó un premio al mejor guion del año|La película muestra la vida de los jóvenes actuales|Una escena sobre miedo a fantasmas provocó risas|El actor principal habla poco y aun así hace reír
 z|5
 f|12`, '', 'carlos'],
 
@@ -141,7 +141,7 @@ f|12`, '', 'carlos'],
 太/大/的/压力/会/损害/健康，/心态/也/很/重要。|Tài dà de yālì huì sǔnhài jiànkāng, xīntài yě hěn zhòngyào.|Demasiada presión daña la salud y la actitud también importa mucho.
 我/检查/了/他/受伤/的/部位，/让/护士/预备/一/张/床，/他/终于/点头/了。|Wǒ jiǎnchá le tā shòushāng de bùwèi, ràng hùshi yùbèi yì zhāng chuáng, tā zhōngyú diǎntóu le.|Revisé la zona lesionada, pedí a la enfermera que preparara una cama y por fin asintió.
 看/着/他/慢慢/笑/起来，/我/觉得/这/份/工作/很/值得。|Kàn zhe tā mànmàn xiào qǐlái, wǒ juéde zhè fèn gōngzuò hěn zhídé.|Al verlo sonreír poco a poco, pensé que este trabajo merece la pena.`, `o|¿Por qué el médico propuso que el anciano se quedara ingresado?|Por seguridad, para observarlo durante un día|Porque tenía una fiebre muy alta desde hacía una semana|Porque su familia se lo había pedido por teléfono|Porque no había nadie más en casa que lo cuidara
-x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Que el anciano llegó a la consulta en ambulancia|Que el anciano había dormido mal varios días|Que el anciano se preocupaba por el dinero|Que el médico lo animó con sus palabras
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|El médico le mandó dejar de fumar de inmediato|El paciente llegó con mal aspecto y sin apetito|El anciano se preocupó por el coste del ingreso|El médico propuso dejarlo en observación un día
 z|9
 f|1`, `值班|estar de guardia
 体温|temperatura corporal
@@ -171,7 +171,7 @@ f|1`, `值班|estar de guardia
 结果/没/中，/可是/她/笑/着/说：/今天/的/开心/比/奖/更/重要。|Jiéguǒ méi zhòng, kěshì tā xiào zhe shuō: jīntiān de kāixīn bǐ jiǎng gèng zhòngyào.|No ganó, pero dijo sonriendo que la alegría de hoy valía más que el premio.
 朋友/的/一/句/话/很/有力：/有/朋友/在，/每/天/都/是/节日。|Péngyou de yí jù huà hěn yǒulì: yǒu péngyou zài, měi tiān dōu shì jiérì.|Una frase de mi amiga fue contundente: con amigos cerca, cada día es una fiesta.
 这/句/话/令/我/很/感动。|Zhè jù huà lìng wǒ hěn gǎndòng.|Esa frase me emocionó mucho.`, `o|¿Qué hizo la amiga después de la cena?|Sacó un billete de lotería para probar suerte|Abrió los regalos delante de todos|Pidió otra botella de vino para brindar|Se fue pronto porque estaba cansada
-x|¿Cuál de estas ideas NO encaja con el texto?|Que a su amiga le tocó un premio pequeño|Que el dueño del restaurante regaló vino|Que la narradora bebe poco alcohol|Que el novio de la amiga iba bien vestido
+x|¿Cuál de estas ideas NO encaja con el texto?|El novio de la amiga preparó el pastel de cumpleaños|El dueño del restaurante tuvo un detalle con ellos|La narradora bebió poco por no tolerar el alcohol|La amiga se tomó con humor su derrota en la lotería
 z|8
 f|4`, `礼拜天|domingo
 系|llevar puesto (corbata)
@@ -192,7 +192,7 @@ f|4`, `礼拜天|domingo
 期末，/我们/要/交/一/篇/报告。|Qīmò, wǒmen yào jiāo yì piān bàogào.|A final de curso tenemos que entregar un trabajo.
 我/打算/用/调查/的/数据/写/一/份/认真/的/报告。|Wǒ dǎsuàn yòng diàochá de shùjù xiě yí fèn rènzhēn de bàogào.|Pienso escribir un informe serio con los datos de la encuesta.
 我/相信，/只要/努力，/就/会/有/好/成绩。|Wǒ xiāngxìn, zhǐyào nǔlì, jiù huì yǒu hǎo chéngjì.|Creo que con esfuerzo sacaré buenas notas.`, `o|¿De qué trata la asignatura optativa?|De las costumbres de diferentes grupos de personas|De la historia de las universidades antiguas|De cómo aprender idiomas más deprisa|De los deportes populares en cada región
-x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Que al final del curso hay un examen oral|Que hay que leer un libro cada semana|Que van a un centro de prácticas|Que el profesor no quiere competir entre alumnos
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|La asignatura se imparte en un aula de la biblioteca|El curso pide una lectura cada semana a los alumnos|La materia trata de costumbres de distintos pueblos|Al final del curso hay que presentar un trabajo
 z|6
 f|10`, `实习|prácticas
 竞争|competir

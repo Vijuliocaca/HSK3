@@ -12,7 +12,7 @@
 我/说/自己/很/认真，/也/会/努力/维持/和/客人/的/好/关系。|Wǒ shuō zìjǐ hěn rènzhēn, yě huì nǔlì wéichí hé kèrén de hǎo guānxi.|Dije que soy muy serio y que me esforzaré por mantener buena relación con los clientes.
 经理/笑/了/笑，/让/我/下/个/月/开始/上班。|Jīnglǐ xiào le xiào, ràng wǒ xià ge yuè kāishǐ shàngbān.|El director sonrió y me dijo que empezara a trabajar el mes que viene.
 我/高兴/得/一/晚上/都/没/睡着。|Wǒ gāoxìng de yì wǎnshang dōu méi shuìzháo.|Estaba tan contento que no dormí en toda la noche.`, `o|¿Cómo terminó la entrevista para el narrador?|Consiguió el puesto y empezará a trabajar el mes siguiente|Le dijeron que le avisarían por teléfono la semana próxima|Tendrá que hacer otra entrevista con la secretaria|Lo rechazaron porque sabe poco de otros países
-x|¿Cuál de estas ideas NO encaja con el texto?|El narrador ya trabajaba antes en esa empresa|En el puesto habrá que ocuparse de la página web|El narrador reconoce que sabe poco de divisas|La empresa revisa sus resultados cada trimestre
+x|¿Cuál de estas ideas NO encaja con el texto?|El puesto exige viajar al extranjero con frecuencia|El trabajo incluye atender las quejas de clientes|Se espera que el empleado cuide el suministro de tiendas|El candidato reconoció que sabe poco de divisas
 z|2
 f|6`, ``, 'lucia'],
 
@@ -28,7 +28,7 @@ f|6`, ``, 'lucia'],
 可是/工厂/的/机器/需要/燃料，/最近/价格/上升/了。|Kěshì gōngchǎng de jīqì xūyào ránliào, zuìjìn jiàgé shàngshēng le.|Pero las máquinas necesitan combustible y últimamente su precio ha subido.
 因为/城市/越来越/大，/工厂/要/转移/到/城市/外面。|Yīnwèi chéngshì yuèláiyuè dà, gōngchǎng yào zhuǎnyí dào chéngshì wàimiàn.|Como la ciudad crece, la fábrica tiene que trasladarse a las afueras.
 爸爸/说，/这/个/工程/虽然/大，/但/今年/成绩/有/显著/提高。|Bàba shuō, zhè ge gōngchéng suīrán dà, dàn jīnnián chéngjì yǒu xiǎnzhù tígāo.|Mi padre dice que, aunque el proyecto es grande, este año los resultados han mejorado notablemente.`, `o|¿Por qué tendrá que mudarse la fábrica?|Porque la ciudad se hace cada vez más grande|Porque el combustible resulta demasiado caro|Porque los obreros quieren vivir en el campo|Porque ya no consigue comprar materia prima
-x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Los juguetes se prueban solo después de venderse|Se mide lo que contiene el plástico antes de producir|Un juguete muy pequeño podría resultar peligroso|La empresa espera que el negocio mejore
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|La fábrica exporta la mayor parte de lo que fabrica|El juguete nuevo ayuda a que los niños aprendan letras|El combustible más caro afecta a los costes|La ciudad al crecer obliga a trasladar la fábrica
 z|4
 f|3`, ``, 'guidozcos'],
 
@@ -44,7 +44,7 @@ f|3`, ``, 'guidozcos'],
 有/时候/我/的/腿/很/硬，/无法/拉开，/但是/我/不/放弃。|Yǒu shíhou wǒ de tuǐ hěn yìng, wúfǎ lākāi, dànshì wǒ bú fàngqì.|A veces tenía las piernas rígidas y no podía abrirlas, pero no me rendía.
 长大/成人/以后，/我/没有/成为/运动员。|Zhǎngdà chéngrén yǐhòu, wǒ méiyǒu chéngwéi yùndòngyuán.|Cuando me hice adulto no llegué a ser deportista.
 可是/童年/的/梦想/一直/让/我/努力。|Kěshì tóngnián de mèngxiǎng yìzhí ràng wǒ nǔlì.|Pero el sueño de la infancia siempre me ha hecho esforzarme.`, `o|¿Qué sentido tiene el último párrafo sobre el sueño de infancia?|Aunque no se cumplió, le sigue dando fuerzas|Se arrepiente de haberlo intentado de pequeño|Piensa volver a entrenar cuando sea mayor|Cree que los sueños infantiles no sirven
-x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|El narrador llegó a ser gimnasta profesional|Su abuela no mentía a los demás|Practicaba en el gimnasio de un pueblo|Los cuentos de la abuela le dieron ilusiones
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|La abuela tenía una tienda de comestibles en el pueblo|De niño pasó muchos años en casa de su abuela|Los cuentos nocturnos alimentaban su imaginación|Su sueño de infancia le animó a esforzarse siempre
 z|8
 f|9`, ``, 'anto'],
 
@@ -60,7 +60,7 @@ f|9`, ``, 'anto'],
 到/高潮/的/时候，/新郎/和/新娘/互相/拥抱。|Dào gāocháo de shíhou, xīnláng hé xīnniáng hùxiāng yōngbào.|En el momento culminante, los novios se abrazaron.
 我/吃/了/太/多/甜/点心，/有点/恶心。|Wǒ chī le tài duō tián diǎnxin, yǒudiǎn ěxin.|Comí demasiados dulces y me dio un poco de náusea.
 最后/一切/都/很/圆满，/人家/都/说/这/是/最/美/的/婚礼。|Zuìhòu yíqiè dōu hěn yuánmǎn, rénjia dōu shuō zhè shì zuì měi de hūnlǐ.|Al final todo salió redondo y la gente decía que era la boda más bonita.`, `o|¿Cómo valora el narrador el final de la celebración?|Todo salió bien y la gente quedó muy contenta|Hubo problemas con la comida y con los invitados|Fue una fiesta sencilla que pasó sin pena ni gloria|Los novios discutieron justo antes de acabar
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|La boda se celebró en la fecha prevista|La novia trabaja como médica|Un jefe ayudó a pagar el festejo|Los novios se abrazaron en mitad de la fiesta
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|La pareja pasará la luna de miel en el extranjero|La ceremonia resultó muy emotiva para los asistentes|El narrador compró el regalo tras recorrer varias tiendas|Los invitados fueron en autobús al lugar del evento
 z|4
 f|3`, ``, 'laura'],
 
@@ -76,7 +76,7 @@ f|3`, ``, 'laura'],
 他/对/这/座/山/有/深厚/的/感情。|Tā duì zhè zuò shān yǒu shēnhòu de gǎnqíng.|Siente un afecto profundo por esta montaña.
 这/样/的/生活/会/延续/很/久。|Zhè yàng de shēnghuó huì yánxù hěn jiǔ.|Esta vida continuará mucho tiempo.
 我/希望/爷爷/越来越/健康。|Wǒ xīwàng yéye yuèláiyuè jiànkāng.|Deseo que mi abuelo esté cada vez más sano.`, `o|¿Por qué piensa el narrador que la vida del abuelo allí seguirá?|Porque él está a gusto y se siente unido al lugar|Porque los médicos le han prohibido volver a casa|Porque su familia vive también en la misma montaña|Porque la casa del pueblo la vendieron hace años
-x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|El abuelo vive solo sin ningún vecino|La residencia queda al norte de una montaña|Cualquiera no puede entrar de noche|Las noches de otoño pueden ser frías
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|El abuelo echa de menos su antigua casa de la ciudad|El abuelo se fue a la montaña para recuperarse|En esa zona viven muchas personas mayores y hay calma|La familia celebró allí el Festival del Medio Otoño
 z|8
 f|9`, ``, 'yuyue'],
 
@@ -92,7 +92,7 @@ f|9`, ``, 'yuyue'],
 他/还/写/过/一/本/关于/法律/的/著作。|Tā hái xiě guo yì běn guānyú fǎlǜ de zhùzuò.|También ha escrito una obra sobre derecho.
 他/的/朋友/是/医生，/研究/人/的/器官。|Tā de péngyou shì yīshēng, yánjiū rén de qìguān.|Su amigo es médico y estudia los órganos del cuerpo.
 这些/事/促使/我/也/想/学习/法律。|Zhèxiē shì cùshǐ wǒ yě xiǎng xuéxí fǎlǜ.|Todo esto me ha impulsado a querer estudiar derecho.`, `o|¿Qué debe hacer un juez para decidir bien, según el texto?|Basarse en pruebas y no solo en lo que diga una persona|Seguir siempre lo que prefieran los hijos de la familia|Decidir rápido para no perder el plazo de la ley|Preguntar su opinión a médicos y a amigos
-x|¿Cuál de estas ideas NO encaja con el texto?|El narrador ya trabaja como juez|Su tío ha publicado un libro de derecho|Hubo una pelea familiar por una herencia|La ley indica cuánto tiempo hay para repartir
+x|¿Cuál de estas ideas NO encaja con el texto?|El tío trabajó antes como abogado en una gran empresa|El tío basa su trabajo en la justicia y la honradez|Un juez debe apoyarse en pruebas para decidir|El ejemplo del tío animó al narrador a estudiar derecho
 z|10
 f|2`, ``, 'carlos'],
 
@@ -108,7 +108,7 @@ f|2`, ``, 'carlos'],
 我/买/了/一/卷/旧/地图。|Wǒ mǎi le yì juǎn jiù dìtú.|Compré un rollo con un mapa antiguo.
 回/家/以后，/我/写/了/一/篇/很/长/的/报告。|Huí jiā yǐhòu, wǒ xiě le yì piān hěn cháng de bàogào.|Al volver a casa escribí un informe muy largo.
 这/次/旅行/让/我/爱/上/了/历史。|Zhè cì lǚxíng ràng wǒ ài shang le lìshǐ.|Este viaje me hizo enamorarme de la historia.`, `o|¿Qué le enseñó el profesor al narrador sobre un buen gobernante?|Que se gana al pueblo con sus buenas cualidades|Que debe vencer siempre a todos sus rivales|Que tiene que ser el más listo de su reino|Que necesita muros muy altos para defenderse
-x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|El narrador viajó solo, sin su profesor|Cruzaron un río en barco|Los muros antiguos aún se conservan|El viaje despertó el interés del narrador por la historia
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|El profesor conocía la zona porque había nacido allí|El viaje tenía un propósito de investigación histórica|Un rey antiguo fue valiente al ampliar su territorio|Aún se conservan los muros firmes de aquellos tiempos
 z|12
 f|6`, ``, 'samu'],
 
@@ -124,7 +124,7 @@ f|6`, ``, 'samu'],
 学校/还/办/了/抽奖/活动，/我/也/参加/了。|Xuéxiào hái bàn le chōujiǎng huódòng, wǒ yě cānjiā le.|El colegio hizo además un sorteo y yo también participé.
 我/运气/不/好，/什么/也/没/抽/到。|Wǒ yùnqi bù hǎo, shénme yě méi chōu dào.|Tuve mala suerte y no me tocó nada.
 不过/我/有/了/奖学金，/已经/很/满意。|Búguò wǒ yǒu le jiǎngxuéjīn, yǐjīng hěn mǎnyì.|Pero tengo la beca y ya estoy muy contento.`, `o|¿Por qué se esforzó el narrador en esta ocasión?|Porque sus notas habían bajado y quería mejorar|Porque su profesora le prometió un premio|Porque un compañero le pidió ayuda con el texto|Porque necesitaba dinero para viajar al extranjero
-x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|El narrador ganó también el premio del sorteo|Participó sustituyendo a un compañero|Tuvo que acortar el tema de su texto|La beca cubre los libros de un semestre
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|El narrador usará la beca para viajar en vacaciones|Antes de la beca el narrador había bajado sus notas|La profesora le pidió resumir un texto demasiado largo|El premio del concurso fue motivo de gran alegría
 z|8
 f|4`, ``, 'jersio'],
 
@@ -138,7 +138,7 @@ f|4`, ``, 'jersio'],
 朋友/借/给/我/他/的/旧/手机。|Péngyou jiè gěi wǒ tā de jiù shǒujī.|Un amigo me prestó su móvil viejo.
 我/终于/可以/登录/了。|Wǒ zhōngyú kěyǐ dēnglù le.|Por fin pude entrar.
 以后/我/一定/会/把/号码/写/在/本子/上。|Yǐhòu wǒ yídìng huì bǎ hàomǎ xiě zài běnzi shàng.|En adelante apuntaré el número en una libreta.`, `o|¿Cómo logró el narrador entrar al final?|Usando el móvil viejo que le dejó un amigo|Llamando por teléfono al profesor del colegio|Comprando un móvil nuevo en una tienda cercana|Pidiendo a un compañero que lo hiciera por él
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El profesor le contestó con otro mensaje de voz|El móvil nuevo duró muy poco|El narrador olvidó cierto número|Al final prometió apuntarlo en una libreta
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El profesor le explicó cómo recuperar su contraseña|El narrador no recordaba el número para entrar|El móvil nuevo dejó de funcionar a los dos días|Un amigo le dejó un móvil viejo para salir del apuro
 z|5
 f|9`, ``, 'teo'],
 );

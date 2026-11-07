@@ -11,7 +11,7 @@
 一/个/星期/后，/他们/录取/了/我。|Yí ge xīngqī hòu, tāmen lùqǔ le wǒ.|Una semana después, me aceptaron.
 我/对/自己/的/前途/很/期待。|Wǒ duì zìjǐ de qiántú hěn qīdài.|Tengo muchas esperanzas en mi futuro.
 我/的/身份/也/变/了：/我/不/再/是/学生/了。|Wǒ de shēnfèn yě biàn le: wǒ bú zài shì xuésheng le.|Mi condición también ha cambiado: ya no soy estudiante.`, `o|¿Qué pasó después de que el narrador enviara su currículum?|Una empresa lo llamó para hacerle una entrevista|Todas las empresas le contestaron que no|Decidió seguir estudiando en la universidad|Abrió su propia empresa con unos amigos
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El narrador ya llevaba años trabajando en otra empresa|La empresa ofrece formación a la gente que entra|Al final el narrador consiguió el puesto|El narrador mira su futuro con optimismo
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|La empresa le ofreció un sueldo mejor del esperado|El narrador buscaba trabajo tras acabar la carrera|Mostró disposición para seguir aprendiendo en el puesto|La empresa ofrece formación a su personal nuevo
 z|9
 f|4`, ``, 'anto'],
 
@@ -27,7 +27,7 @@ f|4`, ``, 'anto'],
 老板/说/他/要/先/确认/价钱，/再/开/发票。|Lǎobǎn shuō tā yào xiān quèrèn jiàqián, zài kāi fāpiào.|El dueño dijo que primero confirmaría el precio y luego haría la factura.
 他/还/说，/买/错/了/客人/有/权利/换/别的，/所以/不/用/担心。|Tā hái shuō, mǎi cuò le kèrén yǒu quánlì huàn biéde, suǒyǐ bú yòng dānxīn.|Añadió que si te equivocas, el cliente tiene derecho a cambiar, así que no hay que preocuparse.
 我/高兴/地/带/着/一/大/包/收获/走/出/了/店。|Wǒ gāoxìng de dài zhe yí dà bāo shōuhuò zǒu chū le diàn.|Salí de la tienda contento, con una gran bolsa de compras.`, `o|¿Por qué dejó el narrador de comprar el gato de oro?|Le pareció demasiado caro para lo que quería gastar|Pensó que el gato era demasiado pequeño|El dueño no quiso enseñárselo|Ya tenía uno igual en casa
-x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|El narrador pagó con el dinero de un banco chino|El dueño tuvo problemas de dinero hace tiempo|El narrador cambió libros viejos por un disco|En la tienda venden cosas de otros países
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|El narrador acabó pagando con tarjeta en la tienda|La tienda mezcla artesanía local con productos importados|El dueño aseguró que se pueden cambiar los productos|Al narrador le resultó demasiado caro el gatito de oro
 z|5
 f|2`, ``, 'lucia'],
 
@@ -42,7 +42,7 @@ f|2`, ``, 'lucia'],
 他/很/担心/要/做/手术，/我/说/不/用。|Tā hěn dānxīn yào zuò shǒushù, wǒ shuō bú yòng.|Le preocupaba tener que operarse, y yo le dije que no hacía falta.
 下午，/他/的/几/个/朋友/来/看望/他。|Xiàwǔ, tā de jǐ ge péngyou lái kànwàng tā.|Por la tarde, unos amigos suyos vinieron a visitarlo.
 医生/最/高兴/的/事，/就是/看到/病人/好/起来。|Yīshēng zuì gāoxìng de shì, jiùshì kàndào bìngrén hǎo qǐlái.|Lo que más alegra a un médico es ver mejorar a los pacientes.`, `o|¿Cómo se hizo daño el joven?|Al mover con fuerza un mueble pesado|Jugando al baloncesto con amigos|Al caerse de la bicicleta|Haciendo ejercicio en el gimnasio
-x|¿Cuál de estas ideas NO encaja con el texto?|Al joven lo operaron esa misma semana|Una enfermera ayudó con mucha amabilidad|El médico le recomendó beber agua caliente|Sus amigos fueron a verlo por la tarde
+x|¿Cuál de estas ideas NO encaja con el texto?|El médico le pidió una radiografía de la pierna|El joven llegó con dolor de pierna y algo de fiebre|El doctor le aconsejó beber agua caliente en abundancia|Los amigos del joven fueron a verlo por la tarde
 z|10
 f|2`, ``, 'teo'],
 
@@ -58,7 +58,7 @@ f|2`, ``, 'teo'],
 休息/时，/我们/玩/了/一/局/游戏。|Xiūxi shí, wǒmen wán le yì jú yóuxì.|En el descanso jugamos una partida.
 最后/我/来/概括/结论。|Zuìhòu wǒ lái gàikuò jiélùn.|Al final yo resumo la conclusión.
 我们/觉得，/这/件/事/非/做/好/不可。|Wǒmen juéde, zhè jiàn shì fēi zuò hǎo bùkě.|Pensábamos que esto había que hacerlo bien sí o sí.`, `o|¿Qué parte del trabajo hacía el narrador?|Ordenar la estructura del texto y resumir la conclusión|Buscar libros en la biblioteca para todos|Corregir la ortografía de la versión final|Entregar el trabajo al profesor en persona
-x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|El grupo solo se reunía una vez al mes|Hubo reuniones no planeadas por un cambio del profesor|Xiao Wang comparaba métodos antes de decidir|El grupo tenía unas normas para llevarse bien
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Los cuatro estudiantes viven en la misma residencia|El grupo tiene una hora fija de reunión cada tarde|Los requisitos del profesor cambiaron sin avisar|Escuchar a los demás es importante para el grupo
 z|7
 f|3`, `不可|ineludible`, 'guidozcos'],
 
@@ -73,7 +73,7 @@ f|3`, `不可|ineludible`, 'guidozcos'],
 到/站/以后，/我/换/坐/汽车，/司机/先/去/加/汽油。|Dào zhàn yǐhòu, wǒ huàn zuò qìchē, sījī xiān qù jiā qìyóu.|Al llegar a la estación cambié a un autobús y el conductor fue primero a echar gasolina.
 其余/的/人/也/陆续/下/了/车。|Qíyú de rén yě lùxù xià le chē.|El resto de la gente también fue bajando del autobús.
 这/一/路/上/我/拍/了/很多/照片，/想/发/给/家人/看。|Zhè yí lù shàng wǒ pāi le hěnduō zhàopiàn, xiǎng fā gěi jiārén kàn.|Durante el viaje saqué muchas fotos y quiero enviárselas a mi familia.`, `o|¿Qué hizo el anciano durante el viaje?|Contarle al narrador muchas historias|Enseñarle fotos antiguas de su ciudad|Dormir casi todo el trayecto|Pedirle ayuda con su equipaje
-x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|El narrador viajaba con toda su familia|Dentro del tren había espacio de sobra|El narrador cambió de transporte al llegar|Por la ventana se veían campos y montañas
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|El tren llegó a su destino con bastante retraso|El anciano le contó historias durante el trayecto|Por la ventanilla se veían campos y montañas|El narrador piensa compartir sus fotos con la familia
 z|7
 f|1`, ``, 'chiki'],
 
@@ -89,7 +89,7 @@ f|1`, ``, 'chiki'],
 第二/天，/新闻/说，/城市/的/一些/设施/坏/了。|Dì-èr tiān, xīnwén shuō, chéngshì de yìxiē shèshī huài le.|Al día siguiente, las noticias dijeron que algunas instalaciones de la ciudad se habían estropeado.
 有/人/说，/这样/的/天气/有/增加/的/趋势。|Yǒu rén shuō, zhèyàng de tiānqì yǒu zēngjiā de qūshì.|Algunos dicen que este tipo de tiempo tiende a aumentar.
 我/觉得，/自然/让/我们/重新/认识/了/很多/事物。|Wǒ juéde, zìrán ràng wǒmen chóngxīn rènshi le hěnduō shìwù.|Creo que la naturaleza nos ha hecho conocer de nuevo muchas cosas.`, `o|¿Qué pasó con el árbol alcanzado por el rayo?|Empezó a arder, aunque la lluvia ayudó|Se cayó por culpa del viento|Se quedó sin hojas de repente|Quedó cubierto de hielo
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|La tormenta duró varios días seguidos|Antes de la tormenta había hecho mucho calor|Después hubo daños en algunas instalaciones|La lluvia a la narradora le pareció agradable
+x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|La tormenta dejó a todo el barrio sin electricidad|Aquel verano hizo un calor especialmente fuerte|El rayo alcanzó un árbol pero la lluvia apagó el fuego|El narrador disfrutó del sonido de la lluvia
 z|7
 f|2`, ``, 'chana'],
 
@@ -104,7 +104,7 @@ f|2`, ``, 'chana'],
 年轻/时/我们/都/爱/交际，/常常/去/酒吧。|Niánqīng shí wǒmen dōu ài jiāojì, chángcháng qù jiǔbā.|De jóvenes nos gustaba mucho socializar y a menudo íbamos a bares.
 那/是/我们/的/青春，/现在/的/生活/是/另/一/种/类型。|Nà shì wǒmen de qīngchūn, xiànzài de shēnghuó shì lìng yì zhǒng lèixíng.|Aquello fue nuestra juventud; la vida de ahora es de otro tipo.
 虽然/很/忙，/但/我们/的/关系/一直/很/良好。|Suīrán hěn máng, dàn wǒmen de guānxi yìzhí hěn liánghǎo.|Aunque estamos muy ocupados, nuestra relación siempre ha sido buena.`, `o|¿Qué cambió en el narrador con los años?|Empezó a repartirse las tareas de casa con su mujer|Dejó de salir con sus amigos del trabajo|Se mudó a otra ciudad con su familia|Empezó a trabajar menos horas por su salud
-x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|La mujer del narrador se quejaba mucho de él|Una vecina le aconsejó aprender a cocinar|De jóvenes salían bastante por la noche|El narrador y su mujer se llevan bien
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|La pareja tiene hijos que ayudan en las tareas|Antes el narrador no valoraba las tareas del hogar|Una vecina animó al narrador a aprender a cocinar|Con los años la pareja ha mantenido buena relación
 z|8
 f|6`, ``, 'carlos'],
 
@@ -119,7 +119,7 @@ f|6`, ``, 'carlos'],
 假如/我/想/扩大/这/家/店，/就/要/借/更/多/钱。|Jiǎrú wǒ xiǎng kuòdà zhè jiā diàn, jiù yào jiè gèng duō qián.|Si quiero ampliar la tienda, tendré que pedir más dinero prestado.
 朋友/说/或许/可以/再/想/想。|Péngyou shuō huòxǔ kěyǐ zài xiǎng xiǎng.|Un amigo dijo que quizá convenga pensarlo un poco más.
 我/听/了/他/的/话，/慢慢/发展，/现在/生意/越来越/好。|Wǒ tīng le tā de huà, mànmàn fāzhǎn, xiànzài shēngyi yuèláiyuè hǎo.|Le hice caso, fui creciendo poco a poco y ahora el negocio va cada vez mejor.`, `o|¿Qué decidió el narrador sobre ampliar la tienda?|Esperar y crecer poco a poco|Abrir otro local al mes siguiente|Vender la tienda a su amigo|Cambiar el café por otro producto
-x|¿Cuál de estas ideas NO encaja con el texto?|El narrador tiene más de veinte empleados|El banco le prestó dinero para el negocio|El local actual le resulta pequeño|Al principio la familia le ayudó con el dinero
+x|¿Cuál de estas ideas NO encaja con el texto?|Los empleados cobran por encima del sueldo habitual|Al empezar, el capital venía de la propia familia|Un local pequeño limita el crecimiento del negocio|Hacer caso a un consejo ayudó a que el negocio mejorase
 z|9
 f|5`, ``, 'jersio'],
 );

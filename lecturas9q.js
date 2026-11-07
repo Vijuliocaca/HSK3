@@ -12,7 +12,7 @@
 消费者/要求/越来越/高，/质量/必需/高于/以前，/价格/却/要/低于/别人。|Xiāofèizhě yāoqiú yuèláiyuè gāo, zhìliàng bìxū gāoyú yǐqián, jiàgé què yào dīyú biérén.|Los consumidores exigen cada vez más: la calidad debe superar a la de antes y el precio ser menor que el de otros.
 机器人/有利于/降低/成本，/国民/也/能/买到/便宜/的/东西。|Jīqìrén yǒulìyú jiàngdī chéngběn, guómín yě néng mǎidào piányi de dōngxi.|Los robots ayudan a bajar los costes y la gente también puede comprar cosas baratas.
 由此/可见，/新/技术/可以/转化/为/好/生活。|Yóucǐ kějiàn, xīn jìshù kěyǐ zhuǎnhuà wéi hǎo shēnghuó.|De aquí se ve que la técnica nueva puede convertirse en una vida mejor.`, `o|¿Qué pasó con el trabajo de los obreros cuando llegaron los robots?|Cambió y tuvieron que aprender técnicas nuevas|Se quedaron sin empleo y se fueron a otra ciudad|Pasaron a ganar el doble trabajando mucho menos|Dejaron de venir a la fábrica sin avisar a nadie
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|La fábrica despidió a todos los obreros que tenía|La fábrica produce más que antes de los robots|El jefe compró otra empresa y obtuvo técnica nueva|Algunos empleados ahora cuidan de los robots
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|La fábrica despidió a todos los obreros que tenía|La fábrica produce más que antes de los robots|El jefe compró otra empresa y obtuvo técnica nueva|Algunos empleados ahora cuidan de los robots
 z|10
 f|13`, `买到|conseguir, comprar
 研究所|instituto de investigación
@@ -47,7 +47,7 @@ f|3`, `乡|aldea, pueblo del campo
 有/了/这/次/会谈，/双方/得以/互相/了解。|Yǒu le zhè cì huìtán, shuāngfāng déyǐ hùxiāng liǎojiě.|Gracias a esta reunión, ambas partes pudieron conocerse.
 我们/在/合同/上/签字，/成/了/伙伴。|Wǒmen zài hétong shang qiānzì, chéng le huǒbàn.|Firmamos el contrato y nos hicimos socios.
 会谈/结束，/我/终于/闲/下来，/也/不/怨/那/道/菜。|Huìtán jiéshù, wǒ zhōngyú xián xiàlái, yě bú yuàn nà dào cài.|Terminada la reunión por fin pude descansar, y ya no culpaba a aquel plato.`, `o|¿Cómo acabó la negociación sobre el precio?|Los dos cedieron un poco y fijaron un precio medio|La empresa extranjera aceptó pagar el precio pedido|Se rompieron las conversaciones por la discusión|Decidieron volver a hablar al mes siguiente
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El director extranjero se enfadó mucho por la comida picante|La reunión se hizo en un restaurante|El narrador no conocía los gustos de su invitado|Las dos partes firmaron un contrato al final
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|El director extranjero se enfadó mucho por la comida picante|La reunión se hizo en un restaurante|El narrador no conocía los gustos de su invitado|Las dos partes firmaron un contrato al final
 z|7
 f|4`, `签约|firmar un contrato`, 'carlos'],
 [5, '☁️ Cuidado con el gas y el carbón', `我/是/医生，/今天/给/大家/讲/怎么/预防/中毒。|Wǒ shì yīshēng, jīntiān gěi dàjiā jiǎng zěnme yùfáng zhòngdú.|Soy médico y hoy os explico cómo evitar las intoxicaciones.
@@ -63,7 +63,7 @@ f|4`, `签约|firmar un contrato`, 'carlos'],
 医生/会/加以/治疗，/让/病人/呼吸/新鲜/空气。|Yīshēng huì jiāyǐ zhìliáo, ràng bìngrén hūxī xīnxiān kōngqì.|El médico lo tratará y dejará que el enfermo respire aire fresco.
 我/把/预防/分成/三/步，/以/检查/为主。|Wǒ bǎ yùfáng fēnchéng sān bù, yǐ jiǎnchá wéizhǔ.|Divido la prevención en tres pasos, centrados en revisar.
 希望/大家/都/平安，/再也/不/要/有/人/中毒。|Xīwàng dàjiā dōu píng'ān, zàiyě bú yào yǒu rén zhòngdú.|Ojalá todos estéis bien y nadie vuelva a intoxicarse.`, `o|¿Por qué es difícil notar el gas del carbón mal quemado?|Porque no tiene olor|Porque aparece solo en verano|Porque se oye al salir de la estufa|Porque es de color muy claro
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Conviene cerrar las ventanas cuando se quema carbón|Un síntoma temprano puede ser el dolor de cabeza|Hay que llevar al enfermo al hospital cuanto antes|Las fugas de gas también son peligrosas
+x|¿Cuál de estas ideas NO encaja con el texto?|Conviene cerrar las ventanas cuando se quema carbón|Un síntoma temprano puede ser el dolor de cabeza|Hay que llevar al enfermo al hospital cuanto antes|Las fugas de gas también son peligrosas
 z|11
 f|12`, `窗|ventana
 预防|prevenir
@@ -82,7 +82,7 @@ f|12`, `窗|ventana
 包括/我/在内，/一共/有/五/个/人/参加/了/这个/项目。|Bāokuò wǒ zàinèi, yígòng yǒu wǔ ge rén cānjiā le zhège xiàngmù.|Contándome a mí, cinco personas participamos en este proyecto.
 我/也/去/过/刚/发生/过/一/场/大/灾/的/地方/拍摄。|Wǒ yě qù guo gāng fāshēng guo yì chǎng dà zāi de dìfang pāishè.|También fui a filmar a un lugar donde acababa de ocurrir un gran desastre.
 摄影师/要/用/眼睛/和/心/看/世界。|Shèyǐngshī yào yòng yǎnjing hé xīn kàn shìjiè.|Un fotógrafo tiene que mirar el mundo con los ojos y con el corazón.`, `o|¿Qué hizo el narrador con el poema que escribió?|Lo puso en su blog|Lo vendió a un periódico|Se lo regaló al campesino|Lo leyó en la radio
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El narrador prefiere no hacer fotos de personas|El narrador escribe en internet|Una editorial se interesó por su trabajo|Conoció a un campesino con historias interesantes
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|El narrador prefiere no hacer fotos de personas|El narrador escribe en internet|Una editorial se interesó por su trabajo|Conoció a un campesino con historias interesantes
 z|4
 f|6`, `博客|blog
 泥|barro
@@ -102,7 +102,7 @@ f|6`, `博客|blog
 下午/天/热/起来，/动物/们/处在/树荫/下/休息。|Xiàwǔ tiān rè qǐlái, dòngwù men chǔzài shùyīn xià xiūxi.|Por la tarde hizo calor y los animales descansaban a la sombra de los árboles.
 孩子/在/车/上/睡着/了，/手里/还/抱/着/玩具/大象。|Háizi zài chē shang shuìzháo le, shǒulǐ hái bào zhe wánjù dàxiàng.|El niño se durmió en el coche abrazando un elefante de juguete.
 他/说/下/次/还/要/来/看/大象。|Tā shuō xià cì hái yào lái kàn dàxiàng.|Dijo que la próxima vez quería volver a ver al elefante.`, `o|¿Cómo reaccionó el niño ante el mono?|Se asustó y se escondió detrás de su padre|Quiso darle de comer galletas crujientes|Se puso a imitar sus saltos en el árbol|Le pidió al abuelo que lo espantara
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El niño lloró durante toda la comida|El narrador visitó el zoo en fin de semana|Había un anciano tocando en la calle|El niño volvió a casa cansado y dormido
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|El niño lloró durante toda la comida|El narrador visitó el zoo en fin de semana|Había un anciano tocando en la calle|El niño volvió a casa cansado y dormido
 z|9
 f|13`, `身后|detrás de uno
 老爷爷|abuelo, anciano

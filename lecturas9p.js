@@ -11,7 +11,7 @@
 我/暂停/了/手机/上/的/工作，/安心/地/享受/假期。|Wǒ zàntíng le shǒujī shang de gōngzuò, ānxīn de xiǎngshòu jiàqī.|Dejé en pausa el trabajo del móvil y disfruté de las vacaciones con tranquilidad.
 离开/那/天，/负责人/把/我们/送/至/门口。|Líkāi nà tiān, fùzérén bǎ wǒmen sòng zhì ménkǒu.|El día que nos fuimos, el responsable nos acompañó hasta la puerta.
 他/笑/着/说/欢迎/我们/再次/来。|Tā xiào zhe shuō huānyíng wǒmen zàicì lái.|Dijo sonriendo que nos esperaba otra vez.`, `o|¿Qué decidió la familia después de ver el precio de la habitación?|Quedarse dos días más en el hotel|Cambiar de hotel al día siguiente|Pedir un descuento al responsable|Volver a casa antes de lo previsto
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El hotel estaba lejos del mar|Al llegar solo había un empleado en el vestíbulo|El masajista le dio un consejo sobre el móvil|La habitación daba al mar
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|El hotel estaba lejos del mar|Al llegar solo había un empleado en el vestíbulo|El masajista le dio un consejo sobre el móvil|La habitación daba al mar
 z|6
 f|12`, `师傅|maestro; masajista
 肩膀|hombro`, 'lucia'],
@@ -27,7 +27,7 @@ f|12`, `师傅|maestro; masajista
 他/微笑/着/说/愿/大家/天天/开心，/好运/常/在。|Tā wēixiào zhe shuō yuàn dàjiā tiāntiān kāixīn, hǎoyùn cháng zài.|Sonriendo dijo que deseaba que todos fueran felices y tuvieran buena suerte siempre.
 他/的/歌/传/到/了/全世界，/很多/国家/的/人/都/爱/听。|Tā de gē chuán dào le quánshìjiè, hěnduō guójiā de rén dōu ài tīng.|Sus canciones han llegado a todo el mundo y gente de muchos países las escucha con cariño.
 我/把/专辑/放/在/书架/上，/用来/纪念/这/一/天。|Wǒ bǎ zhuānjí fàng zài shūjià shang, yònglái jìniàn zhè yì tiān.|Puse el álbum en la estantería para recordar ese día.`, `o|¿Cómo reaccionó el narrador al escuchar el álbum?|Le gustó más de lo que esperaba|Le decepcionó porque esperaba algo distinto|Pensó que era igual que el álbum anterior|No pudo escucharlo entero por falta de tiempo
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El cantante cantó solo en su país natal|El cantante firmó discos tras el concierto|Hay más de una edición del álbum|El narrador fue a un concierto del cantante
+x|¿Cuál de estas ideas NO encaja con el texto?|El cantante cantó solo en su país natal|El cantante firmó discos tras el concierto|Hay más de una edición del álbum|El narrador fue a un concierto del cantante
 z|6
 f|9`, `耳机|auriculares
 封面|portada
@@ -45,7 +45,7 @@ f|9`, `耳机|auriculares
 在/月光/之下，/大家/的/脸/都/红/红/的。|Zài yuèguāng zhīxià, dàjiā de liǎn dōu hóng hóng de.|Bajo la luz de la luna, todos teníamos las caras rojas.
 我/觉得/乡村/的/春节/比/城市/热闹/得/多。|Wǒ juéde xiāngcūn de Chūnjié bǐ chéngshì rènao de duō.|Me pareció que el Año Nuevo en el campo es mucho más animado que en la ciudad.
 在/家人/之中，/我/觉得/最/温暖。|Zài jiārén zhīzhōng, wǒ juéde zuì wēnnuǎn.|Entre mi familia, me sentí muy a gusto.`, `o|¿Qué diferencia notó el narrador entre el pueblo y la ciudad?|En el campo la fiesta le pareció más animada|En la ciudad había más fuegos artificiales|En el pueblo no había nada que hacer de noche|En la ciudad la familia se reúne más tiempo
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|La abuela es del año de la rata|Vinieron muchos parientes desde lejos|Los hombres de la familia jugaban al ajedrez|La familia vio fuegos artificiales por la noche
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|La abuela es del año de la rata|Vinieron muchos parientes desde lejos|Los hombres de la familia jugaban al ajedrez|La familia vio fuegos artificiales por la noche
 z|4
 f|2`, `生肖|animal del zodíaco
 远方|lugar lejano
@@ -66,7 +66,7 @@ f|2`, `生肖|animal del zodíaco
 我/决定/报警，/警察/说/已经/有/很多/人/打/过/电话。|Wǒ juédìng bàojǐng, jǐngchá shuō yǐjīng yǒu hěnduō rén dǎ guo diànhuà.|Decidí avisar a la policía, que me dijo que ya habían llamado muchas personas.
 警察/说/遇到/这/种/事/不要/怕，/要/及时/寻求/帮助。|Jǐngchá shuō yùdào zhè zhǒng shì búyào pà, yào jíshí xúnqiú bāngzhù.|La policía dijo que ante algo así no hay que tener miedo y hay que pedir ayuda a tiempo.
 此刻/我/才/明白，/不要/相信/陌生人/的/承诺。|Cǐkè wǒ cái míngbai, búyào xiāngxìn mòshēngrén de chéngnuò.|En ese momento entendí que no hay que creer las promesas de desconocidos.`, `o|¿Por qué el narrador no aceptó pagar?|Buscó información y sospechó que era un engaño|Porque no tenía dinero en ese momento|Porque su familia se lo prohibió|Porque el número le resultaba conocido
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El estafador acabó cobrando una pequeña cantidad|El narrador llamó a la policía|El estafador habló con voz suave y mucha prisa|Antes de decidir, el narrador consultó internet
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|El estafador acabó cobrando una pequeña cantidad|El narrador llamó a la policía|El estafador habló con voz suave y mucha prisa|Antes de decidir, el narrador consultó internet
 z|4
 f|7`, `陌生人|desconocido
 挂断|colgar
@@ -110,7 +110,7 @@ f|9`, `资料|datos; información
 我/一/脚/射/进/球门，/大家/高兴/地/跳/了/起来。|Wǒ yì jiǎo shè jìn qiúmén, dàjiā gāoxìng de tiào le qǐlai.|Metí el balón de un puntapié y todos saltaron de alegría.
 这/场/比赛/是/学校/的/大事，/我/立/下/了/目标。|Zhè chǎng bǐsài shì xuéxiào de dàshì, wǒ lì xià le mùbiāo.|Este partido era un gran acontecimiento para el colegio y me marqué un objetivo.
 最后/的/项目/是/拔/河，/输/也好，/赢/也好，/大家/都/很/开心。|Zuìhòu de xiàngmù shì bá hé, shū yěhǎo, yíng yěhǎo, dàjiā dōu hěn kāixīn.|La última prueba fue el tira y afloja; ganáramos o perdiéramos, todos estábamos contentos.`, `o|¿Qué actitud tuvieron los jugadores ante la lluvia?|No les importó y salieron a jugar|Pidieron aplazar el partido a otro día|Se quedaron resguardados un buen rato|Protestaron ante el árbitro
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El equipo del narrador perdió el partido|El árbitro castigó una falta del rival|El narrador marcó un gol|Había mucho público en el campo
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|El equipo del narrador perdió el partido|El árbitro castigó una falta del rival|El narrador marcó un gol|Había mucho público en el campo
 z|5
 f|2`, `运动会|torneo deportivo
 器材|material deportivo
@@ -134,7 +134,7 @@ f|2`, `运动会|torneo deportivo
 电影/结束/时/我们/都/没/说/话。|Diànyǐng jiéshù shí wǒmen dōu méi shuō huà.|Cuando terminó la película ninguna de las dos habló.
 走/出/电影院，/朋友/说：/完了，/明天/我/的/眼睛/会/很/肿。|Zǒu chū diànyǐngyuàn, péngyou shuō: wánle, míngtiān wǒ de yǎnjing huì hěn zhǒng.|Al salir del cine mi amiga dijo: «¡Ay, mañana tendré los ojos hinchadísimos!».
 我/笑/着/说/悲剧/也/有/好处，/至少/让/我们/更/珍惜/身边/的/人。|Wǒ xiào zhe shuō bēijù yě yǒu hǎochu, zhìshǎo ràng wǒmen gèng zhēnxī shēnbiān de rén.|Dije sonriendo que las tragedias también tienen su lado bueno: al menos nos hacen valorar más a quienes tenemos cerca.`, `o|¿Qué lado bueno vio la narradora en una película triste?|Que nos hace valorar más a la gente cercana|Que nos ayuda a olvidar los problemas|Que nos enseña a llorar menos|Que nos da ganas de viajar
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|La protagonista se recuperó gracias a su familia|La música hizo la historia más triste|El protagonista perdió la memoria|El director logró que el público se pusiera nervioso
+x|¿Cuál de estas ideas NO encaja con el texto?|La protagonista se recuperó gracias a su familia|La música hizo la historia más triste|El protagonista perdió la memoria|El director logró que el público se pusiera nervioso
 z|6
 f|3`, `男主角|protagonista masculino
 女主角|protagonista femenina
@@ -156,7 +156,7 @@ f|3`, `男主角|protagonista masculino
 婚宴/上/有/很多/好吃/的，/我/品/尝/了/每/一/道/菜。|Hūnyàn shang yǒu hěnduō hǎochī de, wǒ pǐn cháng le měi yí dào cài.|En el banquete había mucha comida rica y probé todos los platos.
 有/人/喝/醉/了，/开始/唱歌，/大家/都/笑/了。|Yǒu rén hē zuì le, kāishǐ chànggē, dàjiā dōu xiào le.|Alguien se emborrachó y empezó a cantar, y todos nos reímos.
 回家/后/我/看/着/镜子/里/的/自己，/觉得/很/满意。|Huíjiā hòu wǒ kàn zhe jìngzi li de zìjǐ, juéde hěn mǎnyì.|De vuelta a casa me miré en el espejo y me sentí muy satisfecha.`, `o|¿Cómo se sintió la narradora con su nuevo aspecto?|Contenta con el resultado|Insegura porque el pelo era demasiado corto|Cansada de tanto probarse ropa|Preocupada por lo caro que salió todo
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|La narradora llevó un vestido comprado por su prima|La prima tiene muchos amigos|Hubo un invitado que bebió de más|La narradora llevó un sobre rojo a la boda
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|La narradora llevó un vestido comprado por su prima|La prima tiene muchos amigos|Hubo un invitado que bebió de más|La narradora llevó un sobre rojo a la boda
 z|5
 f|9`, `理发店|peluquería
 短发|pelo corto

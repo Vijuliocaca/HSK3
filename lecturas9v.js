@@ -11,7 +11,7 @@
 工厂/有/了/主管，/大家/都/注重/质量。|Gōngchǎng yǒu le zhǔguǎn, dàjiā dōu zhùzhòng zhìliàng.|La fábrica tuvo un responsable y todos cuidaban la calidad.
 公司/的/资产/一/年/比/一/年/多，/可是/小/李/还是/很/节省。|Gōngsī de zīchǎn yì nián bǐ yì nián duō, kěshì Xiǎo Lǐ háishi hěn jiéshěng.|Los bienes de la empresa crecían cada año, pero Xiao Li seguía ahorrando.
 他/说，/一/个/好/想法/加上/耐心，/才/能/变成/真正/的/事业。|Tā shuō, yí ge hǎo xiǎngfǎ jiāshàng nàixīn, cái néng biànchéng zhēnzhèng de shìyè.|Dijo que una buena idea más paciencia es lo que se convierte en un verdadero negocio.`, `o|¿Por qué pidió Xiao Li una patente?|Para evitar que otros copiaran su invento|Para poder venderlo más caro en el extranjero|Porque su abogado se lo recomendó|Para conseguir un trabajo en una gran empresa
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Xiao Li vendió la patente a la gran empresa enseguida|Xiao Li al principio no tenía dinero para producir|Alguien se ofreció a financiar la fábrica|Xiao Li contrató a dos personas para ayudarle
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Xiao Li vendió la patente a la gran empresa enseguida|Xiao Li al principio no tenía dinero para producir|Alguien se ofreció a financiar la fábrica|Xiao Li contrató a dos personas para ayudarle
 z|8
 f|10`, `水杯|vaso
 律师|abogado
@@ -31,7 +31,7 @@ f|10`, `水杯|vaso
 一/棵/大/树/阻碍/了/交通，/大家/一起/把/它/搬/走。|Yì kē dà shù zǔ'ài le jiāotōng, dàjiā yìqǐ bǎ tā bān zǒu.|Un gran árbol obstruía el tráfico y todos lo apartaron juntos.
 慢慢/地，/城市/恢复/了/正常/运行，/商店/也/重新/开门/了。|Mànmàn de, chéngshì huīfù le zhèngcháng yùnxíng, shāngdiàn yě chóngxīn kāimén le.|Poco a poco la ciudad recuperó su funcionamiento normal y las tiendas reabrieron.
 这/次/经历/让/我/明白，/平时/要/做/好/准备。|Zhè cì jīnglì ràng wǒ míngbai, píngshí yào zuò hǎo zhǔnbèi.|Esta experiencia me enseñó que hay que estar preparado de antemano.`, `o|¿Qué efecto tuvo el temporal sobre la comunicación de la ciudad?|Se cortaron la luz y la red, y quedaron aislados|Hubo más llamadas de ayuda que nunca|La radio no dejó de dar noticias|Se instaló una antena nueva en cada barrio
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Los vecinos tuvieron que abandonar la ciudad durante meses|Hubo un aviso antes de que llegara el tifón|Los vecinos compartieron lo que tenían|Reabrieron los comercios con el tiempo
+x|¿Cuál de estas ideas NO encaja con el texto?|Los vecinos tuvieron que abandonar la ciudad durante meses|Hubo un aviso antes de que llegara el tifón|Los vecinos compartieron lo que tenían|Reabrieron los comercios con el tiempo
 z|9
 f|7`, `大风|viento fuerte
 大雨|lluvia fuerte
@@ -54,7 +54,7 @@ f|7`, `大风|viento fuerte
 老板/赠送/了/我/一/张/便条，/上面/写/着/新年/的/祝福。|Lǎobǎn zèngsòng le wǒ yì zhāng biàntiáo, shàngmiàn xiě zhe xīnnián de zhùfú.|El vendedor me regaló una notita con buenos deseos para el nuevo año.
 回/酒店/的/路/上，/地铁/很/便利，/几/分钟/就/到。|Huí jiǔdiàn de lù shang, dìtiě hěn biànlì, jǐ fēnzhōng jiù dào.|De vuelta al hotel el metro era cómodo y tardaba pocos minutos.
 这/是/我/度过/的/最/难忘/的/一/个/元旦。|Zhè shì wǒ dùguò de zuì nánwàng de yí ge Yuándàn.|Fue el Año Nuevo más inolvidable de mi vida.`, `o|¿Cómo era la ropa de la prima en este viaje?|Más informal que la que usa en el trabajo|Más elegante que la que lleva en la oficina|Igual de gruesa que la de la autora|Ropa tradicional china de colores vivos
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El guía las acompañó también a la feria|Hacía frío durante el viaje|Visitaron un jardín antiguo y la Gran Muralla|El metro las llevó de vuelta al hotel
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|El guía las acompañó también a la feria|Hacía frío durante el viaje|Visitaron un jardín antiguo y la Gran Muralla|El metro las llevó de vuelta al hotel
 z|9
 f|1`, `亭子|pabellón
 长城|Gran Muralla
@@ -80,7 +80,7 @@ f|1`, `亭子|pabellón
 她/说，/学习/是/终身/的/事，/毕业/只是/一/个/开始。|Tā shuō, xuéxí shì zhōngshēn de shì, bìyè zhǐshì yí ge kāishǐ.|Dice que estudiar es cosa de toda la vida y que graduarse es solo un comienzo.
 爸爸/妈妈/为/她/感到/骄傲，/还/寄/来/了/生活费。|Bàba māma wèi tā gǎndào jiāo'ào, hái jì lái le shēnghuófèi.|Mis padres se sienten orgullosos de ella y le enviaron dinero para sus gastos.
 我/也/想/向/妹妹/学习，/努力/拿到/自己/的/学位。|Wǒ yě xiǎng xiàng mèimei xuéxí, nǔlì nádào zìjǐ de xuéwèi.|Yo también quiero aprender de mi hermana y esforzarme por conseguir mi título.`, `o|¿Qué descubrió la hermana sobre sus compañeros?|Que su nivel era casi igual al de los demás|Que todos tenían más medios que ella|Que ella era la más joven de la clase|Que la mayoría quería dejar los estudios
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|La hermana ya ha terminado el doctorado|La hermana quiere ser profesora algún día|La universidad evalúa a sus alumnos con frecuencia|La familia apoya a la hermana
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|La hermana ya ha terminado el doctorado|La hermana quiere ser profesora algún día|La universidad evalúa a sus alumnos con frecuencia|La familia apoya a la hermana
 z|9
 f|2`, `硕士|máster
 研究生|estudiante de posgrado
@@ -135,7 +135,7 @@ f|2`, `定理|teorema
 有/人/指责/将军/太/残酷，/也/有/人/称赞/他。|Yǒu rén zhǐzé jiāngjūn tài cánkù, yě yǒu rén chēngzàn tā.|Algunos criticaban al general por cruel y otros lo elogiaban.
 讲解员/提醒/我们，/评价/历史/要/依据/事实，/不/能/只/看/一/面。|Jiǎngjiěyuán tíxǐng wǒmen, píngjià lìshǐ yào yījù shìshí, bù néng zhǐ kàn yí miàn.|La guía nos recordó que hay que juzgar la historia según los hechos, no solo desde un lado.
 回家/的/路/上，/儿子/说/他/想/主导/一/个/历史/小组。|Huíjiā de lù shang, érzi shuō tā xiǎng zhǔdǎo yí ge lìshǐ xiǎozǔ.|De camino a casa, mi hijo dijo que quería dirigir un grupo de historia.`, `o|¿Qué consejo dio la guía sobre cómo juzgar la historia?|Basarse en hechos y no mirar un solo lado|Fiarse siempre de lo que opine la mayoría|Aprender las fechas de memoria|Evitar hablar de las guerras con niños
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El general perdió la guerra y fue castigado|La exposición trataba de guerras antiguas|Un niño hizo una pregunta sobre el gobierno|Las opiniones sobre el general eran distintas
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|El general perdió la guerra y fue castigado|La exposición trataba de guerras antiguas|Un niño hizo una pregunta sobre el gobierno|Las opiniones sobre el general eran distintas
 z|8
 f|7`, `将军|general
 士兵|soldado
@@ -164,7 +164,7 @@ f|7`, `将军|general
 为了/照顾/我，/她/终止/了/去/外地/的/旅行/计划。|Wèile zhàogù wǒ, tā zhōngzhǐ le qù wàidì de lǚxíng jìhuà.|Para cuidarme canceló su plan de viajar a otra ciudad.
 岁月/过/得/真/快，/现在/她/已经/八十/岁/了。|Suìyuè guò de zhēn kuài, xiànzài tā yǐjīng bāshí suì le.|Los años pasan muy deprisa y ahora ya tiene ochenta.
 我/想/报答/她，/陪/她/走/到/人生/的/终点。|Wǒ xiǎng bàodá tā, péi tā zǒu dào rénshēng de zhōngdiǎn.|Quiero devolverle lo que hizo, acompañándola hasta el final de su vida.`, `o|¿Cómo cambió con los años la opinión del narrador sobre su abuela?|Entendió que su severidad era por su bien|Se dio cuenta de que ella prefería a su hermano|Pensó que era demasiado blanda con él|Dejó de verla porque se mudó lejos
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|La abuela le gritaba cuando él escondía caramelos|La abuela cuidaba mucho de sus manos|La abuela le curó una herida de la rodilla|La abuela renunció a un viaje por él
+x|¿Cuál de estas ideas NO encaja con el texto?|La abuela le gritaba cuando él escondía caramelos|La abuela cuidaba mucho de sus manos|La abuela le curó una herida de la rodilla|La abuela renunció a un viaje por él
 z|5
 f|1`, `护手霜|crema de manos
 膝盖|rodilla
@@ -188,7 +188,7 @@ f|1`, `护手霜|crema de manos
 我/负责/扮演/主播，/向/大家/介绍/每/颗/珍珠。|Wǒ fùzé bànyǎn zhǔbō, xiàng dàjiā jièshào měi kē zhēnzhū.|Yo hago de presentadora y enseño cada perla.
 她/记/下/订单/的/数目，/以便/准时/发货。|Tā jì xià dìngdān de shùmù, yǐbiàn zhǔnshí fāhuò.|Ella anota la cantidad de los pedidos para enviarlos a tiempo.
 生意/慢慢/好/起来，/姑姑/高兴/地/说，/大海/给/了/我们/礼物。|Shēngyi mànmàn hǎo qǐlái, gūgu gāoxìng de shuō, dàhǎi gěi le wǒmen lǐwù.|El negocio fue mejorando y mi tía dijo contenta que el mar nos hacía un regalo.`, `o|¿Por qué subió los precios la tía?|Porque todo costaba más, incluso cultivar las perlas|Porque quería ganar dinero para viajar|Porque las perlas se habían vuelto muy raras|Porque había abierto una segunda tienda
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Los clientes dejaron de comprar por completo|Las perlas rosas se valoran más que las blancas|Se hacen ventas por internet|La tienda está cerca de la costa
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Los clientes dejaron de comprar por completo|Las perlas rosas se valoran más que las blancas|Se hacen ventas por internet|La tienda está cerca de la costa
 z|7
 f|8`, `姑姑|tía paterna
 珍珠|perla
@@ -216,7 +216,7 @@ f|8`, `姑姑|tía paterna
 参观/结束/时，/他们/送/给/我/一/个/小/模型。|Cānguān jiéshù shí, tāmen sòng gěi wǒ yí ge xiǎo móxíng.|Al terminar la visita me regalaron una pequeña maqueta.
 回家/后，/我/把/它/放/在/书桌/上。|Huíjiā hòu, wǒ bǎ tā fàng zài shūzhuō shang.|Al llegar a casa la puse sobre el escritorio.
 每次/看/到/它，/我/都/想/起/那/次/难忘/的/参观。|Měicì kàn dào tā, wǒ dōu xiǎng qǐ nà cì nánwàng de cānguān.|Cada vez que la veo recuerdo aquella visita inolvidable.`, `o|¿Qué limitación tiene ahora el robot que vio el narrador?|Solo realiza movimientos sencillos|Solo funciona con un cable conectado|No puede moverse de la mesa|Se rompe al tocarlo
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El robot ya entiende cualquier conversación|El robot es pequeño|Pronto lo van a mejorar|Le dieron un recuerdo al narrador
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|El robot ya entiende cualquier conversación|El robot es pequeño|Pronto lo van a mejorar|Le dieron un recuerdo al narrador
 z|9
 f|1`, `机器人|robot
 实验室|laboratorio

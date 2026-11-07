@@ -19,7 +19,7 @@ f|4`, `山里|en la montaña
 我/的/字/还/不/够/好。|Wǒ de zì hái bú gòu hǎo.|Mi letra todavía no es lo bastante buena.
 写/完/以后，/我们/把/对联/贴/在/大门/两/边。|Xiě wán yǐhòu, wǒmen bǎ duìlián tiē zài dàmén liǎng biān.|Al terminar, pegamos los pareados a ambos lados de la puerta.
 红红/的/对联/让/整个/家/都/有/了/喜庆/的/气氛。|Hónghóng de duìlián ràng zhěnggè jiā dōu yǒu le xǐqìng de qìfēn.|Los pareados rojos llenan toda la casa de ambiente festivo.`, `o|¿Qué muestra el texto sobre la tradición de los pareados?|Que unen creatividad, familia y ambiente festivo|Que solo los artistas profesionales pueden hacerlos|Que se escriben en cualquier época del año|Que son un adorno sin ningún significado
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Los pareados se cuelgan en el techo de la casa|Deben tener simetría y el mismo número de caracteres|Padre e hija preparan juntos los pareados|La narradora cree que debe mejorar su letra
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Los pareados se cuelgan en el techo de la casa|Deben tener simetría y el mismo número de caracteres|Padre e hija preparan juntos los pareados|La narradora cree que debe mejorar su letra
 z|1
 f|4`, `红红|rojo intenso
 字数|número de caracteres`, 'yuyue'],
@@ -30,7 +30,7 @@ f|4`, `红红|rojo intenso
 慢慢/地，/我/的/成绩/超出/了/自己/的/预期。|Mànmàn de, wǒ de chéngjì chāochū le zìjǐ de yùqī.|Poco a poco mis resultados superaron mis expectativas.
 比赛/的/最后/一/圈，/我/开始/冲刺，/拿到/了/第三/名。|Bǐsài de zuìhòu yì quān, wǒ kāishǐ chōngcì, nádào le dìsān míng.|En la última vuelta de la carrera esprinté y quedé tercera.
 现在/我/明白，/成功/靠/的/是/每天/一点点/的/努力。|Xiànzài wǒ míngbai, chénggōng kào de shì měitiān yìdiǎndiǎn de nǔlì.|Ahora entiendo que el éxito se basa en un esfuerzo diario, poquito a poco.`, `o|¿Qué lección saca la narradora de su experiencia?|Que el éxito nace de un esfuerzo constante y paciente|Que conviene empezar con entrenamientos muy intensos|Que el talento natural es lo único que cuenta|Que las competiciones no sirven para progresar
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Era muy resistente desde el primer día de entrenamiento|Lleva varios años entrenando con constancia|El entrenador le aconsejó tener paciencia|Terminó una carrera en tercer lugar
+x|¿Cuál de estas ideas NO encaja con el texto?|Era muy resistente desde el primer día de entrenamiento|Lleva varios años entrenando con constancia|El entrenador le aconsejó tener paciencia|Terminó una carrera en tercer lugar
 z|4
 f|3`, `第三|tercero`, 'lucia'],
 
@@ -40,7 +40,7 @@ f|3`, `第三|tercero`, 'lucia'],
 有/时候，/为了/大局，/需要/放弃/一/个/棋子。|Yǒu shíhou, wèile dàjú, xūyào fàngqì yí ge qízǐ.|A veces, por el conjunto, hay que sacrificar una pieza.
 这/需要/胆识，/也/需要/不断/打磨/自己/的/判断。|Zhè xūyào dǎnshí, yě xūyào búduàn dǎmó zìjǐ de pànduàn.|Eso requiere valor y pulir sin cesar el propio criterio.
 生活/也/一样，/不/能/只/看/眼前。|Shēnghuó yě yíyàng, bù néng zhǐ kàn yǎnqián.|La vida es igual: no se puede mirar solo lo inmediato.`, `o|¿Con qué compara el narrador la vida?|Con el ajedrez: hay que ver el conjunto y no solo lo inmediato|Con el fútbol: hay que correr más que el rival|Con el estudio: hay que memorizar sin parar|Con el trabajo: hay que ganar más dinero
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Los expertos nunca sacrifican ninguna pieza|Los principiantes miran solo la jugada inmediata|Jugar bien exige visión de conjunto|A veces conviene ceder algo por un objetivo mayor
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Los expertos nunca sacrifican ninguna pieza|Los principiantes miran solo la jugada inmediata|Jugar bien exige visión de conjunto|A veces conviene ceder algo por un objetivo mayor
 z|3
 f|6`, `大局观|visión de conjunto
 新手|principiante
@@ -53,7 +53,7 @@ f|6`, `大局观|visión de conjunto
 我/戴/着/耳机/听/音乐，/才/能/安静/下来。|Wǒ dài zhe ěrjī tīng yīnyuè, cái néng ānjìng xiàlái.|Me pongo los auriculares y escucho música para poder calmarme.
 傍晚，/我/常常/去/河边/散步，/看/晚霞。|Bàngwǎn, wǒ chángcháng qù hébiān sànbù, kàn wǎnxiá.|Al atardecer suelo pasear junto al río y mirar el arrebol.
 这样/的/夏天，/热/是/热/了/一点，/但是/我/很/满足。|Zhèyàng de xiàtiān, rè shì rè le yìdiǎn, dànshì wǒ hěn mǎnzú.|Un verano así es algo caluroso, pero estoy muy satisfecho.`, `o|¿Cuál es la actitud final del narrador ante el verano?|De satisfacción, pese a los inconvenientes|De rechazo total al calor|De miedo a salir de casa|De envidia hacia otras estaciones
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Pasa los atardeces encerrado en casa sin salir|Le gusta mucho la sandía bien fría|Los mosquitos y el calor dificultan el sueño|Escucha música para relajarse
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|Pasa los atardeces encerrado en casa sin salir|Le gusta mucho la sandía bien fría|Los mosquitos y el calor dificultan el sueño|Escucha música para relajarse
 z|2
 f|5`, `冰|helado; hielo
 耳机|auriculares

@@ -17,7 +17,7 @@ f|6`, `治愈|curar; sanar`, 'teo'],
 当然，/只有/政府/努力/还/不/够，/每/个/人/都/要/从/小事/做起。|Dāngrán, zhǐyǒu zhèngfǔ nǔlì hái bú gòu, měi ge rén dōu yào cóng xiǎoshì zuòqǐ.|Claro, no basta con el esfuerzo del gobierno: cada persona debe empezar por lo pequeño.
 比如/刷牙/的/时候/关/上/水龙头，/就/能/省/很/多/水。|Bǐrú shuāyá de shíhou guān shang shuǐlóngtóu, jiù néng shěng hěn duō shuǐ.|Por ejemplo, cerrar el grifo al cepillarse los dientes ahorra mucha agua.
 水/对/我们/非常/重要。|Shuǐ duì wǒmen fēicháng zhòngyào.|El agua es muy importante para nosotros.`, `o|¿Qué idea defiende la narradora en el texto?|Que ahorrar agua depende tanto del gobierno como de cada persona|Que el agua nunca llegará a escasear en la ciudad|Que solo el alcalde puede resolver el problema del agua|Que ahorrar agua no cambia nada en la práctica
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|En la ciudad llueve tanto todo el año que el agua sobra|Muchos delegados apoyaron la propuesta en la votación|El alcalde se comprometió a reducir el consumo de agua|Cerrar el grifo al cepillarse los dientes ahorra agua
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|En la ciudad llueve tanto todo el año que el agua sobra|Muchos delegados apoyaron la propuesta en la votación|El alcalde se comprometió a reducir el consumo de agua|Cerrar el grifo al cepillarse los dientes ahorra agua
 z|4
 f|7`, `用水|consumo de agua
 大会|asamblea; congreso
@@ -33,7 +33,7 @@ f|7`, `用水|consumo de agua
 不过，/我/一向/喜欢/自己/的/工作，/从来/没有/想/过/放弃。|Búguò, wǒ yíxiàng xǐhuan zìjǐ de gōngzuò, cónglái méiyǒu xiǎng guo fàngqì.|Aun así, siempre me ha gustado mi trabajo y nunca pensé en dejarlo.
 今年，/公司/又/有/了/新/的/客户，/情况/慢慢/好/起来/了。|Jīnnián, gōngsī yòu yǒu le xīn de kèhù, qíngkuàng mànmàn hǎo qǐlái le.|Este año la empresa tiene nuevos clientes y la situación va mejorando.
 我/相信/困难/一定/会/过去。|Wǒ xiāngxìn kùnnan yídìng huì guòqù.|Creo que las dificultades pasarán.`, `o|¿Cómo vive el narrador la situación de su empresa?|Con esfuerzo y esperanza, aunque el trabajo es más duro|Con enfado, y ha decidido dejar la empresa|Con indiferencia, porque su trabajo no ha cambiado|Con alegría, porque ahora cobra mucho más
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Al narrador lo despidieron de la empresa|Su empresa tuvo problemas de negocio el año pasado|Hoy la empresa cuenta con clientes nuevos|Los compañeros temían quedarse sin trabajo
+x|¿Cuál de estas ideas NO encaja con el texto?|Al narrador lo despidieron de la empresa|Su empresa tuvo problemas de negocio el año pasado|Hoy la empresa cuenta con clientes nuevos|Los compañeros temían quedarse sin trabajo
 z|3
 f|6`, `裁|despedir; recortar
 变得|volverse; hacerse`, 'binhao'],
@@ -44,7 +44,7 @@ f|6`, `裁|despedir; recortar
 但是/队长/很/沉着，/他/让/我们/别/冲动。|Dànshì duìzhǎng hěn chénzhuó, tā ràng wǒmen bié chōngdòng.|Pero el capitán mantuvo la serenidad y nos pidió no dejarnos llevar por los nervios.
 最后，/我们/以/二/比/一/赢/了/比赛。|Zuìhòu, wǒmen yǐ èr bǐ yī yíng le bǐsài.|Al final ganamos el partido 2-1.
 我/明白/了，/比赛/中/最/重要/的/是/保持/冷静。|Wǒ míngbai le, bǐsài zhōng zuì zhòngyào de shì bǎochí lěngjìng.|Entendí que lo más importante en un partido es mantener la calma.`, `o|¿Qué aprendió el narrador del partido?|Que mantener la calma es lo más importante|Que los árbitros siempre se equivocan|Que solo importa marcar muchos goles|Que es mejor no jugar partidos difíciles
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El equipo perdió el partido por un error del árbitro|El árbitro no vio una falta del equipo rival|El capitán pidió a sus compañeros que se calmaran|El partido terminó con una victoria del equipo
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|El equipo perdió el partido por un error del árbitro|El árbitro no vio una falta del equipo rival|El capitán pidió a sus compañeros que se calmaran|El partido terminó con una victoria del equipo
 z|1
 f|5`, `犯规|cometer una falta
 冲动|dejarse llevar por el impulso`, 'chiki'],
@@ -55,7 +55,7 @@ f|5`, `犯规|cometer una falta
 每当/遇到/不/认识/的/字，/我/就/查/辞典。|Měidāng yùdào bú rènshi de zì, wǒ jiù chá cídiǎn.|Cada vez que encuentro un carácter que no conozco, consulto el diccionario.
 慢慢/地，/我/发现/那些/古诗/里/有/很/深/的/感情。|Mànmàn de, wǒ fāxiàn nàxiē gǔshī lǐ yǒu hěn shēn de gǎnqíng.|Poco a poco descubrí que esos poemas tienen sentimientos muy profundos.
 原来，/小时候/背/过/的/东西，/长大/以后/才/真正/懂/了。|Yuánlái, xiǎoshíhou bèi guo de dōngxi, zhǎngdà yǐhòu cái zhēnzhèng dǒng le.|Resulta que lo memorizado de niño solo se entiende de verdad al crecer.`, `o|¿Qué descubre el narrador con el paso del tiempo?|Que lo memorizado de niño se comprende mejor de mayor|Que los poemas antiguos son demasiado difíciles de entender|Que la montaña es demasiado silenciosa para estudiar|Que el diccionario es innecesario para leer poesía
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|De niño le encantaba memorizar poemas en clase|Hoy vive en un lugar de montaña sin televisión|Consulta el diccionario cuando no conoce un carácter|Con el tiempo encontró emoción en los poemas antiguos
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|De niño le encantaba memorizar poemas en clase|Hoy vive en un lugar de montaña sin televisión|Consulta el diccionario cuando no conoce un carácter|Con el tiempo encontró emoción en los poemas antiguos
 z|5
 f|2`, `古诗|poema antiguo
 每当|cada vez que

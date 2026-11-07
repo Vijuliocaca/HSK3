@@ -16,7 +16,7 @@ f|5`, `猫奶|leche para gatos`, 'payolink'],
 朋友/很快/就/到/了。|Péngyou hěnkuài jiù dào le.|Mi amigo llegó enseguida.
 我们/一起/把/西瓜/切/开，/吃/得/很/高兴。|Wǒmen yìqǐ bǎ xīguā qiē kāi, chī de hěn gāoxìng.|Cortamos la sandía juntos y comimos muy contentos.
 夏天/吃/西瓜/最/舒服。|Xiàtiān chī xīguā zuì shūfu.|En verano comer sandía es lo más agradable.`, `o|¿Qué hizo el narrador cuando no pudo con la sandía?|Llamó a un amigo para que lo ayudara|La dejó en el supermercado|La cortó dentro de la tienda|Pidió que se la llevaran a casa
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El narrador llevó la sandía solo hasta su casa|La sandía era grande y pesada|El amigo llegó pronto|Entre los dos comieron la sandía, según se cuenta en el texto
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|El narrador llevó la sandía solo hasta su casa|La sandía era grande y pesada|El amigo llegó pronto|Entre los dos comieron la sandía, según se cuenta en el texto
 z|5
 f|4`, `很快|muy pronto`, 'samu'],
 
@@ -26,7 +26,7 @@ f|4`, `很快|muy pronto`, 'samu'],
 上/个/星期，/我/踢进/了/一/个/球。|Shàng ge xīngqī, wǒ tījìn le yí ge qiú.|La semana pasada metí un gol.
 大家/都/很/高兴，/一起/喊/我/的/名字。|Dàjiā dōu hěn gāoxìng, yìqǐ hǎn wǒ de míngzi.|Todos se alegraron y gritaron mi nombre.
 我/觉得/个子/小/也/没/关系。|Wǒ juéde gèzi xiǎo yě méi guānxi.|Creo que ser bajito no importa.`, `o|¿Qué piensa el narrador de su estatura?|Que no es un problema para jugar|Que es su mayor defecto|Que le impide jugar|Que quiere crecer cuanto antes
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Gana todos los partidos gracias a su altura|Corre muy rápido, según sus amigos|Juega al fútbol cada fin de semana, según se cuenta en el texto|La semana pasada marcó un gol
+x|¿Cuál de estas ideas NO encaja con el texto?|Gana todos los partidos gracias a su altura|Corre muy rápido, según sus amigos|Juega al fútbol cada fin de semana, según se cuenta en el texto|La semana pasada marcó un gol
 z|3
 f|6`, `踢进|meter (un gol)`, 'chiki'],
 
@@ -36,7 +36,7 @@ f|6`, `踢进|meter (un gol)`, 'chiki'],
 中午，/我/吃/了/自己/做/的/三明治。|Zhōngwǔ, wǒ chī le zìjǐ zuò de sānmíngzhì.|Al mediodía comí un bocadillo que me había preparado.
 下午/天气/变/了，/我/只好/提前/下山。|Xiàwǔ tiānqì biàn le, wǒ zhǐhǎo tíqián xiàshān.|Por la tarde cambió el tiempo y tuve que bajar antes.
 虽然/时间/很/短，/但是/我/非常/放松。|Suīrán shíjiān hěn duǎn, dànshì wǒ fēicháng fàngsōng.|Aunque fue poco tiempo, me sentí muy relajado.`, `o|¿Cómo valora el narrador su salida?|Corta, pero muy relajante|Muy larga y agotadora|Decepcionante por el mal tiempo|Peligrosa por la altura
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Pasó la noche entera en la montaña|Llevó un libro para leer|El aire de allí es fresco|El tiempo cambió por la tarde, según se cuenta en el texto
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Pasó la noche entera en la montaña|Llevó un libro para leer|El aire de allí es fresco|El tiempo cambió por la tarde, según se cuenta en el texto
 z|3
 f|5`, `山上|en la montaña
 而是|sino que
@@ -50,7 +50,7 @@ f|5`, `山上|en la montaña
 下午，/一/个/孩子/发烧/了，/妈妈/很/着急。|Xiàwǔ, yí ge háizi fāshāo le, māma hěn zháojí.|Por la tarde un niño tuvo fiebre y su madre estaba muy preocupada.
 我/告诉/她/不要/担心，/多/喝水/就/会/好。|Wǒ gàosu tā búyào dānxīn, duō hēshuǐ jiù huì hǎo.|Le dije que no se preocupara: bebiendo mucha agua se pondría bien.
 晚上/回/家，/我/累/得/只/想/睡觉。|Wǎnshang huí jiā, wǒ lèi de zhǐ xiǎng shuìjiào.|Por la noche, en casa, estaba tan cansado que solo quería dormir.`, `o|¿Cómo acaba el día del médico?|Muy cansado, con ganas de dormir|Preocupado por el anciano|Contento porque no hubo pacientes|Con fiebre y sin poder descansar
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El anciano tenía un problema grave de corazón|Un niño tuvo fiebre por la tarde, según se cuenta en el texto|El médico trabajó muchas horas|La madre estaba preocupada
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|El anciano tenía un problema grave de corazón|Un niño tuvo fiebre por la tarde, según se cuenta en el texto|El médico trabajó muchas horas|La madre estaba preocupada
 z|1
 f|6`, `胸口|pecho
 心脏|corazón
@@ -77,7 +77,7 @@ f|2`, `星期五|viernes
 现在，/做/决定/以前/我/会/先/听/大家/的/意见。|Xiànzài, zuò juédìng yǐqián wǒ huì xiān tīng dàjiā de yìjiàn.|Ahora, antes de decidir, escucho primero la opinión de todos.
 这样/做/虽然/慢/一点，/但是/结果/更/让/人/满意。|Zhèyàng zuò suīrán màn yìdiǎn, dànshì jiéguǒ gèng ràng rén mǎnyì.|Así se tarda un poco más, pero el resultado deja más satisfecha a la gente.
 好/的/决定，/需要/耐心/和/倾听。|Hǎo de juédìng, xūyào nàixīn hé qīngtīng.|Las buenas decisiones requieren paciencia y saber escuchar.`, `o|¿Qué ha aprendido la narradora?|Que escuchar a los demás mejora las decisiones|Que decidir rápido es siempre mejor|Que sus ideas son las más acertadas|Que la política no exige paciencia
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Siempre ha tomado las decisiones sin consultar a nadie|Al principio creía que sus ideas eran las mejores|Hoy escucha las opiniones antes de decidir|Escuchar hace el proceso algo más lento
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Siempre ha tomado las decisiones sin consultar a nadie|Al principio creía que sus ideas eran las mejores|Hoy escucha las opiniones antes de decidir|Escuchar hace el proceso algo más lento
 z|4
 f|6`, `倾听|escuchar con atención
 工作者|trabajador/a`, 'laura'],
@@ -88,7 +88,7 @@ f|6`, `倾听|escuchar con atención
 如果/动作/不/标准，/很/容易/受伤。|Rúguǒ dòngzuò bù biāozhǔn, hěn róngyì shòushāng.|Si el movimiento no es correcto, es fácil lesionarse.
 所以/我/总是/先/看/镜子，/再/开始/练习。|Suǒyǐ wǒ zǒngshì xiān kàn jìngzi, zài kāishǐ liànxí.|Por eso siempre me miro antes al espejo y luego empiezo.
 健康/不/是/一/天/练/出来/的。|Jiànkāng bú shì yì tiān liàn chūlái de.|La salud no se consigue en un solo día.`, `o|¿Qué consejo da el entrenador?|Cuidar la técnica antes que el peso|Levantar siempre más peso|Entrenar sin descansar|Evitar mirarse al espejo
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Entrena todos los días sin descanso|Hace calentamiento antes de entrenar|Se mira al espejo antes de empezar|Una mala técnica favorece las lesiones
+x|¿Cuál de estas ideas NO encaja con el texto?|Entrena todos los días sin descanso|Hace calentamiento antes de entrenar|Se mira al espejo antes de empezar|Una mala técnica favorece las lesiones
 z|3
 f|1`, `热身|calentar
 力量|fuerza
@@ -101,7 +101,7 @@ f|1`, `热身|calentar
 从/那/以后，/我/学会/了/传球，/也/学会/了/相信/队友。|Cóng nà yǐhòu, wǒ xuéhuì le chuánqiú, yě xuéhuì le xiāngxìn duìyǒu.|Desde entonces aprendí a pasar el balón y a confiar en mis compañeros.
 我们/的/成绩/越来越/好，/大家/都/很/自豪。|Wǒmen de chéngjì yuèláiyuè hǎo, dàjiā dōu hěn zìháo.|Nuestros resultados mejoran y todos estamos orgullosos.
 一/个/人/可以/走/得/快，/一/群/人/可以/走/得/远。|Yí ge rén kěyǐ zǒu de kuài, yì qún rén kěyǐ zǒu de yuǎn.|Una persona puede ir rápido; un grupo puede llegar lejos.`, `o|¿Qué lección aprendió el narrador?|Que en equipo se llega más lejos|Que entrenar solo es mejor|Que el entrenador siempre se equivoca|Que el baloncesto es un deporte individual
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Siempre prefirió jugar solo, incluso en el equipo|De niño quería ser una estrella del baloncesto, según se cuenta en el texto|Aprendió a confiar en sus compañeros|Los resultados del equipo mejoraron
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Siempre prefirió jugar solo, incluso en el equipo|De niño quería ser una estrella del baloncesto, según se cuenta en el texto|Aprendió a confiar en sus compañeros|Los resultados del equipo mejoraron
 z|4
 f|5`, `篮球|baloncesto
 投篮|tirar a canasta
@@ -116,7 +116,7 @@ f|5`, `篮球|baloncesto
 回/家/以后，/我/的/猫/总是/在/门口/等/我。|Huí jiā yǐhòu, wǒ de māo zǒngshì zài ménkǒu děng wǒ.|Al volver a casa, mi gata siempre me espera en la puerta.
 我/妈妈/是/医生，/她/说/跳舞/对/身体/很/好。|Wǒ māma shì yīshēng, tā shuō tiàowǔ duì shēntǐ hěn hǎo.|Mi madre es médica y dice que bailar es muy bueno para el cuerpo.
 所以/我/要/一直/跳/下去。|Suǒyǐ wǒ yào yìzhí tiào xiàqu.|Así que seguiré bailando.`, `o|¿Qué siente la narradora por el baile?|Disfruta bailando y quiere seguir practicando|Baila solo porque su madre se lo exige|Lo dejó hace poco por falta de tiempo|Prefiere el fútbol, aunque baila por compañía
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Su novio baila mejor que ella|Su novio es mejor jugando al fútbol que bailando|Su gata la espera cuando vuelve a casa|Su madre cree que bailar es bueno para la salud
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|Su novio baila mejor que ella|Su novio es mejor jugando al fútbol que bailando|Su gata la espera cuando vuelve a casa|Su madre cree que bailar es bueno para la salud
 z|5
 f|6`, `下去|seguir (hacia adelante)`, 'chana'],
 
@@ -140,7 +140,7 @@ f|3`, `牙|diente
 第二/天，/我/很/累，/可是/还是/要/工作。|Dì'èr tiān, wǒ hěn lèi, kěshì háishi yào gōngzuò.|Al día siguiente estoy cansado, pero tengo que trabajar.
 所以/我/决定/早/一点/睡觉。|Suǒyǐ wǒ juédìng zǎo yìdiǎn shuìjiào.|Así que he decidido acostarme más temprano.
 好/牙医/也/要/好好/休息。|Hǎo yáyī yě yào hǎohāo xiūxi.|Un buen dentista también tiene que descansar bien.`, `o|¿Qué decide hacer Kevin?|Dormir más temprano para descansar|Dejar los videojuegos para siempre|Pedir unos días libres en la clínica|Jugar solo los fines de semana
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Kevin odia su trabajo de dentista|Kevin tiene un ordenador en casa|A veces Kevin se acuesta tarde|Kevin va a trabajar aunque esté cansado
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Kevin odia su trabajo de dentista|Kevin tiene un ordenador en casa|A veces Kevin se acuesta tarde|Kevin va a trabajar aunque esté cansado
 z|2
 f|5`, ``, 'kevin'],
 
@@ -150,7 +150,7 @@ f|5`, ``, 'kevin'],
 他/笑/了，/张开/了/嘴。|Tā xiào le, zhāngkāi le zuǐ.|Se ríe y abre la boca.
 我/很/快/就/检查/好/了。|Wǒ hěn kuài jiù jiǎnchá hǎo le.|Enseguida termino de revisarle.
 我/喜欢/小孩，/他们/也/喜欢/我。|Wǒ xǐhuan xiǎohái, tāmen yě xǐhuan wǒ.|Me gustan los niños y yo también les gusto a ellos.`, `o|¿Cómo consigue Kevin que el niño abra la boca?|Enseñándole su consola|Prometiéndole un regalo|Contándole un cuento|Explicándole que no duele
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El niño llegó muy tranquilo|Al principio el niño tenía miedo|Kevin le enseña algo divertido|Al final el niño se ríe
+x|¿Cuál de estas ideas NO encaja con el texto?|El niño llegó muy tranquilo|Al principio el niño tenía miedo|Kevin le enseña algo divertido|Al final el niño se ríe
 z|3
 f|5`, `男孩|niño; chico
 游戏机|consola de videojuegos
@@ -162,7 +162,7 @@ f|5`, `男孩|niño; chico
 我/不/吃/汉堡，/只/吃/一/个/冰淇淋。|Wǒ bù chī hànbǎo, zhǐ chī yí ge bīngqílín.|No como hamburguesa, solo un helado.
 朋友/说/这/对/身体/不/好。|Péngyou shuō zhè duì shēntǐ bù hǎo.|Mis amigos dicen que eso no es bueno para la salud.
 我/笑/了，/明天/我/还/去。|Wǒ xiào le, míngtiān wǒ hái qù.|Me río: mañana volveré.`, `o|¿Qué cena Jersio cada noche en el McDonald's?|Un helado, sin hamburguesa|Una hamburguesa con patatas|Una ensalada y un refresco|Un menú completo de pollo
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Jersio prefiere la hamburguesa al helado|Jersio es de Israel y juega al baloncesto|Jersio tiene diabetes y se lo cuenta a sus amigos|Sus amigos creen que cenar así no es sano
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Jersio prefiere la hamburguesa al helado|Jersio es de Israel y juega al baloncesto|Jersio tiene diabetes y se lo cuenta a sus amigos|Sus amigos creen que cenar así no es sano
 z|5
 f|3`, `糖尿病|diabetes
 冰淇淋|helado
@@ -177,7 +177,7 @@ f|3`, `糖尿病|diabetes
 男朋友/说，/猫/也/喜欢/音乐。|Nánpéngyou shuō, māo yě xǐhuan yīnyuè.|Mi novio dice que a la gata también le gusta la música.
 晚上，/它/睡/在/我/的/床/上。|Wǎnshang, tā shuì zài wǒ de chuáng shang.|Por la noche duerme en mi cama.
 我/爱/我/的/小/猫。|Wǒ ài wǒ de xiǎo māo.|Quiero a mi gatita.`, `o|¿Qué muestra la historia sobre la gata y su dueña?|Que se hacen mucha compañía|Que la gata odia que baile|Que la dueña casi nunca está|Que la gata duerme siempre fuera
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|La gata tiene el pelo negro|La gata duerme en la cama de su dueña|A la gata le gusta ver bailar|Su dueña la quiere mucho
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|La gata tiene el pelo negro|La gata duerme en la cama de su dueña|A la gata le gusta ver bailar|Su dueña la quiere mucho
 z|4
 f|3`, ``, 'chana'],
 
@@ -223,7 +223,7 @@ f|2`, ``, 'samu'],
 朋友/马上/给/我/一/瓶/果汁。|Péngyou mǎshàng gěi wǒ yì píng guǒzhī.|Mis amigos enseguida me dan una botella de zumo.
 喝/了/以后，/我/又/有/力气/了。|Hē le yǐhòu, wǒ yòu yǒu lìqi le.|Después de beberlo vuelvo a tener fuerzas.
 我们/赢/了，/大家/都/很/开心。|Wǒmen yíng le, dàjiā dōu hěn kāixīn.|Ganamos y todos estamos muy contentos.`, `o|¿Qué hacen sus amigos cuando él se siente cansado?|Le dan un zumo enseguida|Le piden que deje de jugar|Llaman a una ambulancia|Le dicen que beba agua
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Perdió el partido por estar cansado|Juega con sus amigos por la tarde|Se hace un control antes de jugar|El zumo le devuelve las fuerzas
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Perdió el partido por estar cansado|Juega con sus amigos por la tarde|Se hace un control antes de jugar|El zumo le devuelve las fuerzas
 z|3
 f|4`, `果汁|zumo
 力气|fuerza
@@ -238,7 +238,7 @@ f|4`, `果汁|zumo
 朋友/都/知道，/因为/我/常常/说。|Péngyou dōu zhīdào, yīnwèi wǒ chángcháng shuō.|Mis amigos lo saben porque lo digo a menudo.
 他们/笑/我/说/得/太/多。|Tāmen xiào wǒ shuō de tài duō.|Se ríen de que lo digo demasiado.
 可是/我/觉得，/大家/知道/更/安全。|Kěshì wǒ juéde, dàjiā zhīdào gèng ānquán.|Pero creo que es más seguro que todos lo sepan.`, `o|¿Por qué se lo cuenta a todo el mundo?|Cree que es más seguro que lo sepan|Quiere que le regalen dulces|Le da vergüenza no decirlo|Se lo exige su médico
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Se mide el azúcar con una máquina enorme en el hospital|Se mide el azúcar antes de cenar|Con el azúcar alto evita los dulces|Sus amigos se ríen un poco de él
+x|¿Cuál de estas ideas NO encaja con el texto?|Se mide el azúcar con una máquina enorme en el hospital|Se mide el azúcar antes de cenar|Con el azúcar alto evita los dulces|Sus amigos se ríen un poco de él
 z|3
 f|1`, `血糖|azúcar en sangre
 测|medir
@@ -251,7 +251,7 @@ f|1`, `血糖|azúcar en sangre
 我/的/猫/也/喜欢/她。|Wǒ de māo yě xǐhuan tā.|Mi gata también la quiere.
 有时候，/我/想/当/医生，/可是/我/更/爱/跳舞。|Yǒushíhou, wǒ xiǎng dāng yīshēng, kěshì wǒ gèng ài tiàowǔ.|A veces quiero ser médica, pero me gusta más bailar.
 妈妈/说/只要/我/开心，/她/就/开心。|Māma shuō zhǐyào wǒ kāixīn, tā jiù kāixīn.|Mamá dice que mientras yo sea feliz, ella lo es.`, `o|¿Qué prefiere hacer la narradora?|Bailar, aunque a veces lo duda|Ser médica como su madre, sin dudarlo|Cuidar de su gata todo el día|Cocinar para su madre
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Su madre trabaja poco y casi nunca está ocupada|Su madre le aconseja comer más verdura|Su madre le prepara la comida|Su gata también quiere a su madre
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Su madre trabaja poco y casi nunca está ocupada|Su madre le aconseja comer más verdura|Su madre le prepara la comida|Su gata también quiere a su madre
 z|2
 f|6`, `只要|con tal de que`, 'chana'],
 
@@ -261,7 +261,7 @@ f|6`, `只要|con tal de que`, 'chana'],
 他/个子/不/高，/所以/我/买/了/小/号。|Tā gèzi bù gāo, suǒyǐ wǒ mǎi le xiǎo hào.|Como no es alto, compré la talla pequeña.
 晚上，/我/还/要/给/他/跳/一/个/舞。|Wǎnshang, wǒ hái yào gěi tā tiào yí ge wǔ.|Por la noche también le bailaré algo.
 我/想/他/会/很/开心。|Wǒ xiǎng tā huì hěn kāixīn.|Creo que se pondrá muy contento.`, `o|¿Qué le regala la narradora a su novio?|Una camiseta de fútbol y un baile|Un balón y una cena|Un libro sobre baile|Una entrada para un partido
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Le compró una camiseta de talla grande|Mañana es el cumpleaños de su novio|A su novio le gusta el fútbol|Piensa bailar para él por la noche
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|Le compró una camiseta de talla grande|Mañana es el cumpleaños de su novio|A su novio le gusta el fútbol|Piensa bailar para él por la noche
 z|5
 f|3`, `球衣|camiseta de fútbol
 号|talla
@@ -285,7 +285,7 @@ f|4`, `黄|amarillo
 检查/完/以后，/每/个/孩子/都/有/一/张。|Jiǎnchá wán yǐhòu, měi ge háizi dōu yǒu yì zhāng.|Al terminar la revisión, cada niño recibe una.
 他们/笑/着/走/出/去。|Tāmen xiào zhe zǒu chū qù.|Salen riendo.
 我/觉得/这/是/我/最/好/的/工作。|Wǒ juéde zhè shì wǒ zuì hǎo de gōngzuò.|Creo que este es mi mejor trabajo.`, `o|¿Cómo consigue Kevin que los niños pierdan el miedo?|Jugando con ellos y dándoles pegatinas|Poniéndoles dibujos animados|Diciéndoles que no dolerá nada|Dejándoles jugar con su consola
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Los niños se van llorando de la clínica|Antes de revisarlos, Kevin juega con ellos|Todos los niños quieren pegatinas|Cada niño se lleva una pegatina
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Los niños se van llorando de la clínica|Antes de revisarlos, Kevin juega con ellos|Todos los niños quieren pegatinas|Cada niño se lleva una pegatina
 z|3
 f|5`, `诊所|clínica
 疼|doler; dolor

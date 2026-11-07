@@ -6,7 +6,7 @@
 窗外/传来/了/鞭炮/声。|Chuāngwài chuánlái le biānpào shēng.|Desde fuera de la ventana llegan los petardos.
 大家/一边/吃/一边/聊，/笑声/不断。|Dàjiā yìbiān chī yìbiān liáo, xiàoshēng búduàn.|Todos comen y charlan sin parar de reír.
 对/我/来/说，/团圆/就是/最/大/的/幸福。|Duì wǒ lái shuō, tuányuán jiùshì zuì dà de xìngfú.|Para mí, la reunión familiar es la mayor felicidad.`, `o|¿Qué es lo más importante para la narradora en esta fiesta?|Estar reunida con toda su familia|Comer muchos jiaozi con la abuela|Recibir el dinero de Año Nuevo|Ver los petardos desde la ventana
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|La familia cena en un restaurante de la ciudad|Hay jiaozi calientes sobre la mesa|La abuela reparte dinero a los niños, según se cuenta en el texto|Se oyen petardos fuera
+x|¿Cuál de estas ideas NO encaja con el texto?|La familia cena en un restaurante de la ciudad|Hay jiaozi calientes sobre la mesa|La abuela reparte dinero a los niños, según se cuenta en el texto|Se oyen petardos fuera
 z|2
 f|4`, `桌|mesa
 孩子们|niños
@@ -21,7 +21,7 @@ f|4`, `桌|mesa
 但是/我/没有/着急，/而是/耐心/地/等待/他/的/失误。|Dànshì wǒ méiyǒu zháojí, érshì nàixīn de děngdài tā de shīwù.|Pero no me impacienté, sino que esperé con paciencia su error.
 终于，/他/走/错/了/一/步，/我/抓住/机会/赢/了。|Zhōngyú, tā zǒu cuò le yí bù, wǒ zhuāzhù jīhuì yíng le.|Por fin se equivocó en una jugada y aproveché para ganar.
 比赛/以后，/他/笑/着/说，/我/的/沉着/让/他/佩服。|Bǐsài yǐhòu, tā xiào zhe shuō, wǒ de chénzhuó ràng tā pèifu.|Después de la partida me dijo, sonriendo, que mi serenidad lo impresionaba.`, `o|¿Qué cualidad destaca el rival del narrador?|Su serenidad y paciencia|Su rapidez al mover las piezas|Su fuerza física en el torneo|Su ambición por ganar siempre
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El narrador ganó porque su rival no cometió ningún error|El rival tenía mucha experiencia|La defensa del rival era muy sólida|El narrador esperó con paciencia
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|El narrador ganó porque su rival no cometió ningún error|El rival tenía mucha experiencia|La defensa del rival era muy sólida|El narrador esperó con paciencia
 z|5
 f|1`, `国际象棋|ajedrez
 而是|sino que
@@ -34,7 +34,7 @@ f|1`, `国际象棋|ajedrez
 我/没有/生气，/反而/觉得/它/很/可爱。|Wǒ méiyǒu shēngqì, fǎn'ér juéde tā hěn kě'ài.|No me enfadé; al contrario, me pareció adorable.
 同事/们/说，/有/了/它，/办公室/的/气氛/轻松/多/了。|Tóngshì men shuō, yǒu le tā, bàngōngshì de qìfēn qīngsōng duō le.|Los compañeros dicen que con él el ambiente de la oficina es más relajado.
 一/只/小/动物，/有时候/比/一/场/会议/更/管用。|Yì zhī xiǎo dòngwù, yǒushíhou bǐ yì chǎng huìyì gèng guǎnyòng.|Un animalito a veces resulta más útil que una reunión.`, `o|¿Qué aporta el gato a la oficina?|Un ambiente más relajado|Menos trabajo para todos|Más reuniones de equipo|Un problema de limpieza
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El gato rompió un ordenador y la narradora se enfadó mucho|El gato duerme sobre los documentos|Nadie se atreve a echarlo|Los compañeros notan un mejor ambiente
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|El gato rompió un ordenador y la narradora se enfadó mucho|El gato duerme sobre los documentos|Nadie se atreve a echarlo|Los compañeros notan un mejor ambiente
 z|6
 f|4`, `灰色|gris
 打翻|volcar
@@ -62,7 +62,7 @@ f|4`, `乳糖|lactosa
 音乐/让/我/忘记/了/疲劳，/也/让/时间/过/得/更/快。|Yīnyuè ràng wǒ wàngjì le píláo, yě ràng shíjiān guò de gèng kuài.|La música me hace olvidar el cansancio y que el tiempo pase más rápido.
 有/时候，/我/会/不由自主/地/跟着/节奏/点头。|Yǒu shíhou, wǒ huì bùyóuzìzhǔ de gēnzhe jiézòu diǎntóu.|A veces asiento sin querer al ritmo de la música.
 这/段/路，/是/我/一/天/中/最/安静/的/时光。|Zhè duàn lù, shì wǒ yì tiān zhōng zuì ānjìng de shíguāng.|Este trayecto es el rato más tranquilo de mi día.`, `o|¿Qué significa el trayecto en metro para el narrador?|Un rato de tranquilidad|Una pérdida de tiempo total|Una ocasión para conocer gente|Un momento para trabajar
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El vagón suele ir vacío y silencioso|Escucha música con auriculares|El viaje dura cuarenta minutos|La música le ayuda a olvidar el cansancio
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|El vagón suele ir vacío y silencioso|Escucha música con auriculares|El viaje dura cuarenta minutos|La música le ayuda a olvidar el cansancio
 z|3
 f|2`, `跟着|seguir
 四十|cuarenta
@@ -79,7 +79,7 @@ f|2`, `跟着|seguir
 我/每天/放/一/点/吃/的，/然后/远远/地/等/着。|Wǒ měitiān fàng yì diǎn chī de, ránhòu yuǎnyuǎn de děng zhe.|Cada día dejaba algo de comida y esperaba a lo lejos.
 一/个/星期/以后，/它/终于/走/到/了/我/的/脚边。|Yí ge xīngqī yǐhòu, tā zhōngyú zǒu dào le wǒ de jiǎobiān.|Una semana después, por fin llegó hasta mis pies.
 信任/是/需要/时间/的，/动物/和/人/都/一样。|Xìnrèn shì xūyào shíjiān de, dòngwù hé rén dōu yíyàng.|La confianza necesita tiempo, tanto en los animales como en las personas.`, `o|¿Cómo ganó el narrador la confianza del gato?|Con paciencia y dándole comida|Persiguiéndolo por el patio|Cogiéndolo en brazos enseguida|Llevándolo al veterinario
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El gato se acercó al narrador desde el primer día|El gato se escondía en un rincón|El narrador esperaba a distancia|La confianza tardó una semana
+x|¿Cuál de estas ideas NO encaja con el texto?|El gato se acercó al narrador desde el primer día|El gato se escondía en un rincón|El narrador esperaba a distancia|La confianza tardó una semana
 z|5
 f|2`, `远远|a lo lejos
 乡下|campo
@@ -95,7 +95,7 @@ f|2`, `远远|a lo lejos
 朋友/有时候/笑/我/太/谨慎，/可是/我/不/在乎。|Péngyou yǒushíhou xiào wǒ tài jǐnshèn, kěshì wǒ bú zàihu.|A veces mis amigos se ríen de que soy demasiado prudente, pero no me importa.
 山/永远/都/在，/而/人/只有/一/次/生命。|Shān yǒngyuǎn dōu zài, ér rén zhǐyǒu yí cì shēngmìng.|La montaña siempre estará ahí, pero las personas solo tenemos una vida.
 安全/永远/是/第一/位。|Ānquán yǒngyuǎn shì dìyī wèi.|La seguridad es siempre lo primero.`, `o|¿Cuál es la actitud del narrador ante la escalada?|Prudencia ante todo|Búsqueda constante de riesgo|Competir con sus amigos|Desprecio por el equipo
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Sube aunque el tiempo sea muy malo|Revisa el equipo antes de salir|Lleva diez años escalando|No ha sufrido accidentes
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Sube aunque el tiempo sea muy malo|Revisa el equipo antes de salir|Lleva diez años escalando|No ha sufrido accidentes
 z|4
 f|7`, `出过|haber tenido
 每次|cada vez
@@ -115,7 +115,7 @@ f|7`, `出过|haber tenido
 然后/我/诚恳/地/道歉，/并/承诺/尽快/解决。|Ránhòu wǒ chéngkěn de dàoqiàn, bìng chéngnuò jǐnkuài jiějué.|Después me disculpé con sinceridad y prometí resolverlo cuanto antes.
 三/天/之后，/问题/解决/了，/他/还/特意/打来/电话/表示/感谢。|Sān tiān zhīhòu, wèntí jiějué le, tā hái tèyì dǎlái diànhuà biǎoshì gǎnxiè.|Tres días después el problema estaba resuelto y él llamó para dar las gracias.
 我/明白，/真诚/比/任何/技巧/都/重要。|Wǒ míngbai, zhēnchéng bǐ rènhé jìqiǎo dōu zhòngyào.|Entendí que la sinceridad importa más que cualquier técnica.`, `o|¿Qué lección aprende el narrador?|Que la sinceridad vale más que la técnica|Que los clientes enfadados no tienen razón|Que hay que justificarse enseguida|Que es mejor colgar el teléfono
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El narrador discutió con el cliente hasta que colgó|El cliente estaba enfadado por un fallo del producto|El narrador escuchó hasta el final|El cliente dio las gracias después
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|El narrador discutió con el cliente hasta que colgó|El cliente estaba enfadado por un fallo del producto|El narrador escuchó hasta el final|El cliente dio las gracias después
 z|1
 f|6`, `之后|después
 打来|llamar (por teléfono)

@@ -11,7 +11,7 @@
 他/说/有/些/地方/只/需要/维修，/不/用/全/换，/这样/能/省/很多/钱。|Tā shuō yǒu xiē dìfang zhǐ xūyào wéixiū, bú yòng quán huàn, zhèyàng néng shěng hěnduō qián.|Dijo que algunos sitios solo necesitaban arreglo y no hacía falta cambiarlo todo, así se ahorra mucho dinero.
 装修/花/了/两/个/月，/房子/变得/又/干净/又/舒适。|Zhuāngxiū huā le liǎng ge yuè, fángzi biànde yòu gānjìng yòu shūshì.|La reforma duró dos meses y el piso quedó limpio y cómodo.
 现在/我/每天/下班/回家，/都/觉得/很/放松。|Xiànzài wǒ měitiān xiàbān huíjiā, dōu juéde hěn fàngsōng.|Ahora, cada día al volver del trabajo, me siento muy relajado.`, `o|¿Para qué quiere el narrador una puerta transparente en la habitación?|Para que de día entre más claridad en la casa|Para poder vigilar la entrada desde la cocina|Para que el salón parezca más grande|Para pagar menos de luz cada mes
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El obrero recomendó cambiar todo lo viejo de la casa|La obra duró unos dos meses|El agente inmobiliario ayudó a encontrar al obrero|A la entrada, el escalón preocupa por la visita de la abuela
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|El obrero recomendó cambiar todo lo viejo de la casa|La obra duró unos dos meses|El agente inmobiliario ayudó a encontrar al obrero|A la entrada, el escalón preocupa por la visita de la abuela
 z|10
 f|11`, ``, 'anto'],
 
@@ -26,7 +26,7 @@ f|11`, ``, 'anto'],
 里面/有/一/本/综合/中文/书/和/一/封/信。|Lǐmiàn yǒu yì běn zōnghé Zhōngwén shū hé yì fēng xìn.|Dentro había un libro de chino general y una carta.
 妈妈/说/未来/的/生活/会/更/方便，/要/多/学/新/东西。|Māma shuō wèilái de shēnghuó huì gèng fāngbiàn, yào duō xué xīn dōngxi.|Mi madre decía que la vida del futuro será más cómoda y que hay que aprender cosas nuevas.
 我/笑/了，/因为/她/自己/也/刚/开始/用/手机。|Wǒ xiào le, yīnwèi tā zìjǐ yě gāng kāishǐ yòng shǒujī.|Me reí, porque ella misma acababa de empezar a usar el móvil.`, `o|¿Qué opina la madre del narrador sobre el futuro?|Que la vida será más cómoda y conviene aprender cosas nuevas|Que la gente usará cada vez menos el móvil|Que las tiendas de electrónica cerrarán pronto|Que ya no hará falta estudiar chino
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El narrador compró el móvil por internet sin ir a ninguna tienda|La madre empezó a usar el móvil hace poco|El narrador estudia chino con el móvil|La vendedora le explicó las novedades del sistema
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|El narrador compró el móvil por internet sin ir a ninguna tienda|La madre empezó a usar el móvil hace poco|El narrador estudia chino con el móvil|La vendedora le explicó las novedades del sistema
 z|9
 f|4`, ``, 'teo'],
 
@@ -56,7 +56,7 @@ f|11`, ``, 'kevin'],
 老师/让/我们/每天/看/新闻，/以及/写/自己/的/看法。|Lǎoshī ràng wǒmen měitiān kàn xīnwén, yǐjí xiě zìjǐ de kànfǎ.|El profesor nos manda ver las noticias cada día y escribir nuestra opinión.
 我/觉得/大家/应该/阻止/不/好/的/事情/发生。|Wǒ juéde dàjiā yīnggāi zǔzhǐ bù hǎo de shìqing fāshēng.|Creo que todos deberíamos evitar que ocurran cosas malas.
 虽然/我/只是/学生，/但是/我/想/多/了解/世界。|Suīrán wǒ zhǐshì xuésheng, dànshì wǒ xiǎng duō liǎojiě shìjiè.|Aunque solo soy estudiante, quiero conocer más el mundo.`, `o|¿Qué defiende el primer ministro para resolver el problema?|Hablar con calma y seriedad|Pedir ayuda a otros países|Esperar a que pase el tiempo|Cambiar de presidente
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|La reunión terminó en un solo día con un acuerdo total|Entre los dos países hubo un conflicto en el pasado|Varias organizaciones internacionales ofrecen ayuda|El profesor pide a los alumnos que escriban su opinión
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|La reunión terminó en un solo día con un acuerdo total|Entre los dos países hubo un conflicto en el pasado|Varias organizaciones internacionales ofrecen ayuda|El profesor pide a los alumnos que escriban su opinión
 z|3
 f|4`, ``, 'samu'],
 
@@ -72,7 +72,7 @@ f|4`, ``, 'samu'],
 他/常/给/我们/寄/照片，/照片/上/有/无数/漂亮/的/花。|Tā cháng gěi wǒmen jì zhàopiàn, zhàopiàn shàng yǒu wúshù piàoliang de huā.|A menudo nos manda fotos en las que hay un sinfín de flores bonitas.
 他/的/家/门口/挂/着/一/个/红色/的/小/东西，/那/是/他/家/的/标志。|Tā de jiā ménkǒu guà zhe yí ge hóngsè de xiǎo dōngxi, nà shì tā jiā de biāozhì.|En la puerta de su casa cuelga un objeto rojo que es el símbolo de su hogar.
 我/问/他/红色/有/什么/含义，/他/说：/是/想家。|Wǒ wèn tā hóngsè yǒu shénme hányì, tā shuō: shì xiǎngjiā.|Le pregunté qué significaba el rojo y dijo que era añoranza de casa.`, `o|¿Por qué se fue el tío al extranjero?|Para encontrar una vida con más oportunidades|Para seguir a su familia que ya vivía allí|Para estudiar un idioma que le gustaba|Para escapar de un trabajo que no soportaba
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El tío vuelve a su pueblo a trabajar cada verano|Su pueblo tenía pocos colegios|El tío manda fotos a su familia|Viajó con un billete de avión barato
+x|¿Cuál de estas ideas NO encaja con el texto?|El tío vuelve a su pueblo a trabajar cada verano|Su pueblo tenía pocos colegios|El tío manda fotos a su familia|Viajó con un billete de avión barato
 z|8
 f|3`, ``, 'jersio'],
 
@@ -88,7 +88,7 @@ f|3`, ``, 'jersio'],
 我/的/爸爸/妈妈/是/一/对/很/忙/的/夫妇，/所以/我/常/带/弟弟。|Wǒ de bàba māma shì yí duì hěn máng de fūfù, suǒyǐ wǒ cháng dài dìdi.|Mis padres son un matrimonio muy ocupado, así que yo suelo cuidar de mi hermano.
 我们/兄弟/的/感情/很/好，/他/总是/跟/着/我。|Wǒmen xiōngdì de gǎnqíng hěn hǎo, tā zǒngshì gēn zhe wǒ.|Los dos hermanos nos llevamos muy bien y él siempre me sigue.
 奶奶/送/给/他/一/块/玉，/他/一直/带/在/身上。|Nǎinai sòng gěi tā yí kuài yù, tā yìzhí dài zài shēnshang.|La abuela le regaló un trozo de jade y él lo lleva siempre encima.`, `o|¿Cómo es el hermano pequeño del narrador?|Curioso e inquieto, pero cuida sus cosas|Tímido y callado, pero muy estudioso|Obediente y siempre quieto en clase|Miedoso con los animales y los evita
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El perro asustó al niño y lo hizo llorar|El hermano mayor cuida de él porque los padres trabajan mucho|La abuela le hizo un regalo|El niño pasó la tarde corriendo y jugando
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|El perro asustó al niño y lo hizo llorar|El hermano mayor cuida de él porque los padres trabajan mucho|La abuela le hizo un regalo|El niño pasó la tarde corriendo y jugando
 z|8
 f|2`, ``, 'chiki'],
 
@@ -104,7 +104,7 @@ f|2`, ``, 'chiki'],
 我/决定/逐步/改变/生活，/先/从/早/点/睡觉/开始。|Wǒ juédìng zhúbù gǎibiàn shēnghuó, xiān cóng zǎo diǎn shuìjiào kāishǐ.|Decidí cambiar mi vida poco a poco, empezando por acostarme más temprano.
 两/个/月/后，/我/逐渐/觉得/轻松/了。|Liǎng ge yuè hòu, wǒ zhújiàn juéde qīngsōng le.|Dos meses después, poco a poco me sentí más aliviado.
 现在/我/的/腰/不/疼/了，/睡/得/也/很/好。|Xiànzài wǒ de yāo bù téng le, shuì de yě hěn hǎo.|Ahora ya no me duele la espalda y también duermo bien.`, `o|¿Qué consejo le dio el médico al narrador?|Moverse a menudo, comer más despacio y descansar mejor|Dejar de trabajar y cambiar a un oficio físico|Tomar más café para tener energía durante el día|Hacerse pruebas médicas todos los meses
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El médico le recetó un mes de reposo absoluto en cama|El estrés también puede afectar a la salud del cuerpo|Comer demasiado deprisa afecta a la digestión|Hacer ejercicio puede acortar el tratamiento
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|El médico le recetó un mes de reposo absoluto en cama|El estrés también puede afectar a la salud del cuerpo|Comer demasiado deprisa afecta a la digestión|Hacer ejercicio puede acortar el tratamiento
 z|9
 f|11`, ``, 'laura'],
 
@@ -136,7 +136,7 @@ f|6`, ``, 'guidozcos'],
 他/说/做/衣服/和/画画/的/性质/差不多，/都/要/用/心。|Tā shuō zuò yīfu hé huàhuà de xìngzhì chàbuduō, dōu yào yòng xīn.|Dijo que hacer ropa se parece a pintar y en ambos casos hay que poner el corazón.
 他/不/想/要/很多/钱，/却/有/高尚/的/心，/常常/帮/穷/人/做/衣服。|Tā bù xiǎng yào hěnduō qián, què yǒu gāoshàng de xīn, chángcháng bāng qióng rén zuò yīfu.|No quiere ganar mucho dinero, pero tiene un corazón noble y a menudo hace ropa para los pobres.
 他/说/每/个/人/都/是/不/一样/的/个体，/要/寻找/适合/自己/的/样子。|Tā shuō měi ge rén dōu shì bù yíyàng de gètǐ, yào xúnzhǎo shìhé zìjǐ de yàngzi.|Dijo que cada persona es un individuo distinto y debe buscar el estilo que le va.`, `o|¿Qué mensaje transmite el diseñador sobre la ropa?|Que cada persona busque el estilo que le sienta bien|Que hay que seguir siempre las modas del momento|Que la ropa más cara es la que mejor queda|Que los pequeños detalles no merecen atención
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El diseñador cobra mucho dinero a sus clientes ricos|El narrador visitó una exposición de ropa|El diseñador cuida hasta lo más pequeño|Hay ropa con motivos tradicionales de China
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|El diseñador cobra mucho dinero a sus clientes ricos|El narrador visitó una exposición de ropa|El diseñador cuida hasta lo más pequeño|Hay ropa con motivos tradicionales de China
 z|10
 f|5`, ``, 'binhao'],
 );

@@ -12,7 +12,7 @@
 她/还/把/本地/的/风土人情/写/在/菜单/上，/很/受/游客/欢迎。|Tā hái bǎ běndì de fēngtǔrénqíng xiě zài càidān shang, hěn shòu yóukè huānyíng.|También escribió en la carta las costumbres de la zona, algo que gustó mucho a los turistas.
 没/想/到，/饭馆/又/热闹/起来/了，/简直/不可思议。|Méi xiǎng dào, fànguǎn yòu rènao qǐlái le, jiǎnzhí bùkěsīyì.|Sorprendentemente, el restaurante volvió a llenarse: es casi increíble.
 我/每/次/去/都/饿/得/狼吞虎咽，/老/陈/看/了/哈哈/大/笑。|Wǒ měi cì qù dōu è de lángtūnhǔyàn, Lǎo Chén kàn le hāhā dà xiào.|Cada vez que voy llego tan hambriento que devoro la comida, y el viejo Chen se ríe a carcajadas.`, `o|¿Qué hizo la nieta para salvar el restaurante?|Renovó el local y le dio un aire nostálgico|Empezó a vender comida a domicilio por internet|Convenció a su abuelo para que bajara los precios|Contrató a un cocinero famoso de la capital
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El viejo Chen vendió el restaurante a su nieta|El restaurante tuvo una mala época|A los turistas les gustó la carta nueva|El narrador suele comer mucho en el restaurante
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|El viejo Chen vendió el restaurante a su nieta|El restaurante tuvo una mala época|A los turistas les gustó la carta nueva|El narrador suele comer mucho en el restaurante
 z|9
 f|6`, `五十|cincuenta
 陈|Chen (apellido)
@@ -33,7 +33,7 @@ f|6`, `五十|cincuenta
 后来/几/天，/我/每天/陪/他/玩，/暗中/教/他/游泳。|Hòulái jǐ tiān, wǒ měitiān péi tā wán, ànzhōng jiāo tā yóuyǒng.|Los días siguientes jugué con él cada día y, a escondidas, le enseñé a nadar.
 一/周/后，/他/在/朋友/面前/游/了/一/圈，/脸/上/洋溢/着/笑容。|Yì zhōu hòu, tā zài péngyou miànqián yóu le yì quān, liǎn shang yángyì zhe xiàoróng.|Una semana después dio una vuelta nadando delante de sus amigos, con la cara radiante.
 姐姐/来/接/他/时，/他/恨不得/再/住/一/个/星期。|Jiějie lái jiē tā shí, tā hènbude zài zhù yí ge xīngqī.|Cuando mi hermana vino a recogerlo, él estaba deseando quedarse otra semana.`, `o|¿Por qué el niño se portaba así, según descubrió la narradora?|Porque pasaba mucho tiempo solo y quería atención|Porque sus amigos del colegio se reían de él|Porque estaba enfadado con su madre por el viaje|Porque tenía miedo de pasar una semana fuera de casa
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El niño ya sabía nadar antes de llegar|Al niño le gusta quedar bien con sus amigos|La narradora pasó tiempo jugando con el niño|Al final el niño no quería irse
+x|¿Cuál de estas ideas NO encaja con el texto?|El niño ya sabía nadar antes de llegar|Al niño le gusta quedar bien con sus amigos|La narradora pasó tiempo jugando con el niño|Al final el niño no quería irse
 z|9
 f|3`, ``, 'laura'],
 
@@ -50,7 +50,7 @@ f|3`, ``, 'laura'],
 有/的/老人/整天/看/手机，/反而/很/少/出门/散步。|Yǒu de lǎorén zhěngtiān kàn shǒujī, fǎn'ér hěn shǎo chūmén sànbù.|Algunos mayores se pasan el día mirando el móvil y, en cambio, apenas salen a pasear.
 所以/我们/又/在/应用/里/加/了/散步/比赛，/有助于/大家/锻炼/身体。|Suǒyǐ wǒmen yòu zài yìngyòng li jiā le sànbù bǐsài, yǒuzhùyú dàjiā duànliàn shēntǐ.|Por eso añadimos a la aplicación concursos de paseo, que ayudan a todos a hacer ejercicio.
 下/个/月，/我们/即将/主办/第一/届/社区/散步/节。|Xià ge yuè, wǒmen jíjiāng zhǔbàn dìyī jiè shèqū sànbù jié.|El mes que viene organizaremos la primera fiesta del paseo del barrio.`, `o|¿Qué problema tenían los mayores con las aplicaciones?|La letra era pequeña y se manejaban con dificultad|No tenían dinero para comprar un móvil nuevo|Sus hijos no les dejaban usar el móvil|No les interesaba nada de lo que pasaba en el barrio
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El ayuntamiento pagó todo el proyecto|La aplicación tuvo algunos fallos al principio|Ahora el barrio tiene más vida que antes|El narrador ve también lo negativo de la tecnología
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|El ayuntamiento pagó todo el proyecto|La aplicación tuvo algunos fallos al principio|Ahora el barrio tiene más vida que antes|El narrador ve también lo negativo de la tecnología
 z|8
 f|4`, `按钮|botón`, 'guidozcos'],
 
@@ -67,7 +67,7 @@ f|4`, `按钮|botón`, 'guidozcos'],
 后来/我/才/开始/害怕，/要是/我/放手/了，/说不定/就/回/不/来/了。|Hòulái wǒ cái kāishǐ hàipà, yàoshi wǒ fàngshǒu le, shuōbudìng jiù huí bù lái le.|Solo después empecé a tener miedo: si lo hubiera soltado, quizá no habría vuelto.
 作为/医生，/我/知道/这种/冒险/不/值得/提倡。|Zuòwéi yīshēng, wǒ zhīdào zhèzhǒng màoxiǎn bù zhídé tíchàng.|Como médico, sé que este tipo de riesgos no son nada recomendables.
 可是/看/到/小/女孩/的/笑容，/我/一点/也/不/懊悔。|Kěshì kàn dào xiǎo nǚhái de xiàoróng, wǒ yìdiǎn yě bù àohuǐ.|Pero al ver la sonrisa de la niña, no me arrepiento en absoluto.`, `o|¿Qué hicieron las personas que estaban en la orilla?|Les lanzaron una cuerda para sacarlos del agua|Llamaron a la policía y esperaron a que llegara|Se tiraron también al río para ayudar al narrador|Grabaron todo con el móvil sin hacer nada
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El perro saltó al río para jugar con otros perros|El narrador se tiró al río sin pensárselo mucho|El narrador pasó miedo después del rescate, al pensar en lo ocurrido|La niña quedó muy agradecida
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|El perro saltó al río para jugar con otros perros|El narrador se tiró al río sin pensárselo mucho|El narrador pasó miedo después del rescate, al pensar en lo ocurrido|La niña quedó muy agradecida
 z|10
 f|3`, `救命|¡socorro!; salvar la vida
 泥|barro
@@ -108,7 +108,7 @@ f|3`, `消防员|bombero
 刚/开始/很/纠结，/可是/朋友/们/一直/鞭策/我。|Gāng kāishǐ hěn jiūjié, kěshì péngyou men yìzhí biāncè wǒ.|Al principio me costó mucho, pero mis amigos no dejaron de animarme.
 慢慢/地，/我/学会/了/兼顾/学习/和/娱乐。|Mànmàn de, wǒ xuéhuì le jiāngù xuéxí hé yúlè.|Poco a poco aprendí a compaginar el estudio y el ocio.
 现在/我/还/喜欢/游戏，/但/我/明白/任何/事/都/有/利弊，/关键/是/控制。|Xiànzài wǒ hái xǐhuan yóuxì, dàn wǒ míngbai rènhé shì dōu yǒu lìbì, guānjiàn shì kòngzhì.|Todavía me gustan los videojuegos, pero entiendo que todo tiene pros y contras: la clave es controlarse.`, `o|¿Qué hizo cambiar al narrador?|Suspender varias asignaturas al final del semestre|Una enfermedad causada por pasar tantas noches sin dormir|Que sus padres le quitaran el ordenador|Que sus amigos dejaran de hablarle
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El narrador dejó los videojuegos para siempre|Sus padres esperaban mucho de él en los estudios|Sus amigos lo ayudaron a cambiar|Ahora juega con un límite de tiempo
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|El narrador dejó los videojuegos para siempre|Sus padres esperaban mucho de él en los estudios|Sus amigos lo ayudaron a cambiar|Ahora juega con un límite de tiempo
 z|7
 f|4`, `于|en; a (formal)
 定|fijar; establecer`, 'kevin'],
@@ -126,7 +126,7 @@ f|4`, `于|en; a (formal)
 我/马上/问/他，/能/不/能/当/他/的/学生。|Wǒ mǎshàng wèn tā, néng bù néng dāng tā de xuésheng.|Le pregunté enseguida si podía ser su alumna.
 他/愣/了/一下，/然后/笑/了，/给/了/我/一/把/小/刀。|Tā lèng le yíxià, ránhòu xiào le, gěi le wǒ yì bǎ xiǎo dāo.|Se quedó un momento atónito, luego sonrió y me dio una navajita.
 我/知道/这/条/路/很/长，/可是/好/的/作品/是/不朽/的。|Wǒ zhīdào zhè tiáo lù hěn cháng, kěshì hǎo de zuòpǐn shì bùxiǔ de.|Sé que el camino es largo, pero una buena obra es inmortal.`, `o|¿Qué preocupa al maestro tallista?|Que su oficio se pierda porque nadie quiere aprenderlo|Que ya no tiene fuerzas suficientes para seguir trabajando cada día|Que la gente no pague lo que valen sus obras|Que le obliguen a dejar su casa y su patio
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El maestro vende sus obras en tiendas de todo el país|El maestro trabaja muchas horas seguidas sin levantarse|Su taller no está muy ordenado|La narradora quiere aprender a tallar
+x|¿Cuál de estas ideas NO encaja con el texto?|El maestro vende sus obras en tiendas de todo el país|El maestro trabaja muchas horas seguidas sin levantarse|Su taller no está muy ordenado|La narradora quiere aprender a tallar
 z|8
 f|10`, `木雕|talla de madera
 屋|casa; habitación`, 'chana'],
@@ -144,7 +144,7 @@ f|10`, `木雕|talla de madera
 他/好/几/个/月/没/露面，/两/家/几乎/断绝/了/来往。|Tā hǎo jǐ ge yuè méi lòumiàn, liǎng jiā jīhū duànjué le láiwǎng.|Estuvo varios meses sin dejarse ver y las dos familias casi rompieron el trato.
 今年/春节，/我/父亲/主动/送/去/一些/饺子，/想/化解/矛盾。|Jīnnián Chūnjié, wǒ fùqin zhǔdòng sòng qù yìxiē jiǎozi, xiǎng huàjiě máodùn.|Este Año Nuevo chino, mi padre le llevó por iniciativa propia unos jiaozi para intentar arreglar las cosas.
 邻居/愣/了/很/久，/最后/红/着/脸/说/了/声/对不起。|Línjū lèng le hěn jiǔ, zuìhòu hóng zhe liǎn shuō le shēng duìbuqǐ.|El vecino se quedó atónito un buen rato y al final, colorado, le pidió perdón.`, `o|¿Cómo se demostró que el vecino no tenía razón?|Un experto comprobó que su documento era falso|Otro vecino declaró en el juicio contra él|Encontraron fotos antiguas del terreno sin muro|El vecino confesó la verdad delante del juez
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El vecino tuvo que pagar una multa enorme|Antes, las dos familias compartían el terreno|El padre intentó hacer las paces con el vecino|El vecino acabó disculpándose
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|El vecino tuvo que pagar una multa enorme|Antes, las dos familias compartían el terreno|El padre intentó hacer las paces con el vecino|El vecino acabó disculpándose
 z|9
 f|5`, `之间|entre
 解|desatar; resolver`, 'anto'],
@@ -161,7 +161,7 @@ f|5`, `之间|entre
 是/雪崩！/大家/都/束手无策，/我/大/喊/快/往/旁边/跑。|Shì xuěbēng! Dàjiā dōu shùshǒuwúcè, wǒ dà hǎn kuài wǎng pángbiān pǎo.|¡Era una avalancha! Nadie sabía qué hacer y grité que corriéramos hacia un lado.
 真/是/千钧一发，/雪/从/我们/后面/冲/过去，/路/消失/得/无影无踪。|Zhēn shì qiānjūnyífà, xuě cóng wǒmen hòumiàn chōng guòqù, lù xiāoshī de wúyǐngwúzōng.|Fue por los pelos: la nieve pasó por detrás de nosotros y el camino desapareció sin dejar rastro.
 回/到/村/里，/我们/风尘仆仆，/却/觉得/能/活/着/就/很/幸运。|Huí dào cūn li, wǒmen fēngchénpúpú, què juéde néng huó zhe jiù hěn xìngyùn.|Llegamos al pueblo agotados del camino, pero sintiéndonos afortunados de seguir vivos.`, `o|¿Qué buscaban los amigos al seguir el arroyo?|El lugar donde nacía el agua|Un sitio seguro para montar la tienda|Un camino más corto para bajar al pueblo|Animales salvajes para fotografiarlos
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Uno de los amigos quedó atrapado bajo la nieve|Cuanto más arriba, menos fértil era el suelo|Vieron algunos animales salvajes durante la noche|Al volver se sentían cansados pero con suerte
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|Uno de los amigos quedó atrapado bajo la nieve|Cuanto más arriba, menos fértil era el suelo|Vieron algunos animales salvajes durante la noche|Al volver se sentían cansados pero con suerte
 z|8
 f|2`, `处|lugar; sitio`, 'teo'],
 
@@ -198,7 +198,7 @@ f|10`, `短片|cortometraje
 她/很/耿直，/每/次/都/直接/拒绝/了。|Tā hěn gěngzhí, měi cì dōu zhíjiē jùjué le.|Ella, muy íntegra, lo rechazó siempre sin rodeos.
 今年/鱼塘/有/了/盈余，/舅舅/家/也/早/就/脱贫/了。|Jīnnián yútáng yǒu le yíngyú, jiùjiu jiā yě zǎo jiù tuōpín le.|Este año el estanque ha dado beneficios y la familia de mi tío salió de la pobreza hace tiempo.
 舅舅/常/说，/现在/的/日子/才/叫/小康。|Jiùjiu cháng shuō, xiànzài de rìzi cái jiào xiǎokāng.|Mi tío dice a menudo que esto sí que es vivir con desahogo.`, `o|¿Qué cambió el negocio del tío?|Su sobrina empezó a vender el pescado por internet|El gobierno le dio mucho dinero para ampliar el estanque|Abrió una tienda grande en el centro de la ciudad|Empezó a criar otro tipo de pez más caro
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|La prima vendió su nombre a un comerciante|Antes, el tío trabajaba mucho y ganaba poco|La prima sabía de peces desde pequeña|Ahora la familia vive mejor que antes
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|La prima vendió su nombre a un comerciante|Antes, el tío trabajaba mucho y ganaba poco|La prima sabía de peces desde pequeña|Ahora la familia vive mejor que antes
 z|8
 f|11`, `表妹|prima (más joven)`, 'yuyue'],
 
@@ -215,7 +215,7 @@ f|11`, `表妹|prima (más joven)`, 'yuyue'],
 投票/结果/出来/了，/主席/宣读/了/结果：/法案/通过。|Tóupiào jiéguǒ chūlái le, zhǔxí xuāndú le jiéguǒ: fǎ'àn tōngguò.|Salió el resultado de la votación y la presidenta lo leyó: el proyecto quedaba aprobado.
 那/位/挖苦/我/的/议员/后来/私下/吐露，/他/其实/也/养/猫。|Nà wèi wāku wǒ de yìyuán hòulái sīxià tǔlù, tā qíshí yě yǎng māo.|El concejal que se había burlado de mí confesó más tarde, en privado, que él también tiene gato.
 我/笑/着/说，/那/你/的/猫/一定/很/幸福。|Wǒ xiào zhe shuō, nà nǐ de māo yídìng hěn xìngfú.|Le dije sonriendo que su gato debía de ser muy feliz.`, `o|¿Qué argumento usó la narradora para defender el proyecto?|Datos que mostraban que no perjudicaba a los negocios honrados|Que la mayoría de los vecinos tenía gatos en casa|Que en otros países europeos ya existía desde hace años una ley igual|Que los comerciantes habían firmado a favor de la ley
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|La narradora perdió los nervios durante el debate|Algunos concejales se oponían al proyecto|La ley fue aprobada en la votación|Un concejal tiene más en común con ella de lo que parecía
+x|¿Cuál de estas ideas NO encaja con el texto?|La narradora perdió los nervios durante el debate|Algunos concejales se oponían al proyecto|La ley fue aprobada en la votación|Un concejal tiene más en común con ella de lo que parecía
 z|8
 f|3`, `议员|concejal; diputado
 伤害|hacer daño

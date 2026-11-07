@@ -7,7 +7,7 @@
 晚上/十/点，/蛋糕/终于/做/好/了。|Wǎnshang shí diǎn, dàngāo zhōngyú zuò hǎo le.|A las diez de la noche, la tarta por fin estaba lista.
 妈妈/看到/蛋糕/以后，/高兴/得/哭/了。|Māma kàndào dàngāo yǐhòu, gāoxìng de kū le.|Al ver la tarta, mamá lloró de alegría.
 她/说，/这/是/她/吃/过/的/最/好/的/蛋糕。|Tā shuō, zhè shì tā chī guo de zuì hǎo de dàngāo.|Dijo que era la mejor tarta que había probado.`, `o|¿Cómo reaccionó la madre al ver la tarta?|Lloró de alegría|Se enfadó por el desorden|No quiso probarla|Le pidió otra distinta
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El narrador es pastelero profesional|La primera tarta salió quemada y dura|Buscó la receta en internet|Terminó la tarta por la noche
+x|¿Cuál de estas ideas NO encaja con el texto?|El narrador es pastelero profesional|La primera tarta salió quemada y dura|Buscó la receta en internet|Terminó la tarta por la noche
 z|7
 f|4`, `菜谱|receta`, 'laura'],
 
@@ -19,7 +19,7 @@ f|4`, `菜谱|receta`, 'laura'],
 她/组织/了/读书会，/还/请/孩子/们/给/老人/读/故事。|Tā zǔzhī le dúshūhuì, hái qǐng háizi men gěi lǎorén dú gùshi.|Organizó un club de lectura y pidió a los niños que leyeran cuentos a los mayores.
 渐渐/地，/来/的/人/多/了，/图书馆/保住/了。|Jiànjiàn de, lái de rén duō le, túshūguǎn bǎozhù le.|Poco a poco vino más gente y la biblioteca se salvó.
 它/证明，/一/个/地方/的/价值/不/只/是/钱。|Tā zhèngmíng, yí ge dìfang de jiàzhí bù zhǐ shì qián.|Demuestra que el valor de un lugar no es solo dinero.`, `o|¿Cómo se salvó la biblioteca?|Con actividades que atrajeron de nuevo al público|Gracias a una donación millonaria|Porque el gobierno cambió de idea sin más|Con un cambio de nombre y de horario
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Los ancianos protestaron ante el ayuntamiento|Se planeó convertirla en supermercado|Los niños leyeron cuentos a los mayores|Cada vez menos gente tomaba libros prestados
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Los ancianos protestaron ante el ayuntamiento|Se planeó convertirla en supermercado|Los niños leyeron cuentos a los mayores|Cada vez menos gente tomaba libros prestados
 z|8
 f|1`, `管理员|bibliotecario
 读书会|club de lectura
@@ -37,7 +37,7 @@ f|1`, `管理员|bibliotecario
 原来，/温度/只/差/了/两/度，/结果/就/完全/不/同。|Yuánlái, wēndù zhǐ chà le liǎng dù, jiéguǒ jiù wánquán bù tóng.|Resulta que la temperatura solo variaba dos grados, pero el resultado era totalmente distinto.
 修改/以后，/试验/取得/了/突破。|Xiūgǎi yǐhòu, shìyàn qǔdé le tūpò.|Tras corregirlo, el ensayo logró un avance.
 对/他/来/说，/坚持/本身/就/是/一/种/胜利。|Duì tā lái shuō, jiānchí běnshēn jiù shì yì zhǒng shènglì.|Para él, perseverar ya era una victoria.`, `o|¿Cuál era la causa del problema?|Una pequeña diferencia de temperatura|Un error de cálculo del equipo|La falta de personal cualificado|Un fallo del material del laboratorio
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Todo el equipo se quedó hasta el final|La falta de fondos hizo que algunos se fueran|El profesor revisó todos los pasos|Los experimentos fallaron varias veces
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|Todo el equipo se quedó hasta el final|La falta de fondos hizo que algunos se fueran|El profesor revisó todos los pasos|Los experimentos fallaron varias veces
 z|6
 f|7`, `李|Li (apellido)
 团队|equipo
@@ -71,7 +71,7 @@ f|4`, `古村|pueblo antiguo
 公司/引进/软件/后，/她/没有/被/淘汰，/而是/学/会/了/分析/数据。|Gōngsī yǐnjìn ruǎnjiàn hòu, tā méiyǒu bèi táotài, érshì xué huì le fēnxī shùjù.|Cuando la empresa incorporó un programa, no quedó obsoleta: aprendió a analizar datos.
 现在/她/的/工作/比/以前/更/有/价值。|Xiànzài tā de gōngzuò bǐ yǐqián gèng yǒu jiàzhí.|Ahora su trabajo tiene más valor que antes.
 可见，/适应/变化/的/能力/比/任何/一/种/技术/都/重要。|Kějiàn, shìyìng biànhuà de nénglì bǐ rènhé yì zhǒng jìshù dōu zhòngyào.|Se ve que la capacidad de adaptarse al cambio importa más que cualquier tecnología.`, `o|¿Qué hizo la contable para conservar su puesto?|Aprendió a analizar datos|Cambió de empresa y de sector|Se jubiló antes de tiempo|Se negó a usar el programa
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|La empresa despidió a todos los contables|Con el coche aumentaron conductores y mecánicos|La contable tiene cincuenta años|Mucha gente teme quedarse sin empleo
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|La empresa despidió a todos los contables|Con el coche aumentaron conductores y mecánicos|La contable tiene cincuenta años|Mucha gente teme quedarse sin empleo
 z|4
 f|7`, `马车夫|cochero
 修理工|mecánico

@@ -11,7 +11,7 @@
 这/次/的/运动员/总数/比/去年/增多/了，/大于/三百/人。|Zhè cì de yùndòngyuán zǒngshù bǐ qùnián zēngduō le, dàyú sānbǎi rén.|El número total de deportistas aumentó respecto al año pasado y superó los trescientos.
 闭幕式/上，/每/个/人/都/得到/一/个/小/礼物。|Bìmùshì shang, měi ge rén dōu dédào yí ge xiǎo lǐwù.|En la ceremonia de clausura, cada persona recibió un pequeño regalo.
 回家/的/路上，/大家/都/说/明年/还/要/来。|Huíjiā de lùshang, dàjiā dōu shuō míngnián hái yào lái.|De camino a casa, todos dijeron que el año que viene volverían.`, `o|¿Qué hizo el joven nadador tímido?|Nadó cincuenta metros sin parar|Se negó a meterse en el agua al final|Cambió de equipo antes de competir|Dejó la piscina antes de que empezara todo
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El joven tímido ganó la prueba y quedó el primero de toda la competición|Antes de nadar, el joven estaba muy nervioso|El entrenador intentó animarlo|Al terminar, la gente aplaudió
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|El joven tímido ganó la prueba y quedó el primero de toda la competición|Antes de nadar, el joven estaba muy nervioso|El entrenador intentó animarlo|Al terminar, la gente aplaudió
 z|2
 f|6`, `大奖赛|gran premio (competición)
 团长|jefe de delegación
@@ -32,7 +32,7 @@ f|6`, `大奖赛|gran premio (competición)
 大家/一边/吃/一边/聊天，/都/觉得/很/开心。|Dàjiā yìbiān chī yìbiān liáotiān, dōu juéde hěn kāixīn.|Comimos charlando y todos estábamos contentos.
 饭/后，/我/把/没/吃/完/的/盒饭/带/回/家。|Fàn hòu, wǒ bǎ méi chī wán de héfàn dài huí jiā.|Después de cenar me llevé a casa el menú en caja que no terminé.
 我/下/次/还/想/来/这/家/餐厅。|Wǒ xià cì hái xiǎng lái zhè jiā cāntīng.|La próxima vez quiero volver a este restaurante.`, `o|¿Por qué el camarero parecía impaciente?|Porque tardaron mucho en elegir|Porque el local estaba lleno de gente a esa hora|Porque el tío pidió demasiadas bebidas seguidas|Porque la cocina cerraba pronto aquella noche
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|La abuela ayudó a pagar la cuenta porque el tío no llevaba dinero|El tío bebe licor con frecuencia|El padre disfruta del sushi|La narradora no come cosas crudas
+x|¿Cuál de estas ideas NO encaja con el texto?|La abuela ayudó a pagar la cuenta porque el tío no llevaba dinero|El tío bebe licor con frecuencia|El padre disfruta del sushi|La narradora no come cosas crudas
 z|8
 f|12`, `日本|Japón
 酒鬼|borrachín
@@ -55,7 +55,7 @@ f|12`, `日本|Japón
 我/一/进/门/就/把/皮鞋/放/进/柜子，/再/坐/到/书桌/前。|Wǒ yí jìn mén jiù bǎ píxié fàng jìn guìzi, zài zuò dào shūzhuō qián.|En cuanto entro por la puerta guardo los zapatos de cuero en el armario y me siento al escritorio.
 看/着/这些/旧/东西，/我/常常/回忆/小时候/的/事。|Kàn zhe zhèxiē jiù dōngxi, wǒ chángcháng huíyì xiǎoshíhou de shì.|Al mirar estas cosas viejas, a menudo recuerdo cosas de mi infancia.
 有/一/天/我/一定/会/写/一/篇/感想，/讲/讲/这/张/书桌/的/故事。|Yǒu yì tiān wǒ yídìng huì xiě yì piān gǎnxiǎng, jiǎng jiǎng zhè zhāng shūzhuō de gùshi.|Algún día escribiré mis reflexiones y contaré la historia de este escritorio.`, `o|¿Para qué usa el narrador las tijeras y la cinta adhesiva?|Para hacer pequeños regalos de papel|Para arreglar los libros rotos de la estantería|Para decorar las paredes de su cuarto|Para preparar los materiales de la clase
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El narrador compró el pincel él mismo en una tienda de su barrio|El abuelo regaló objetos de escritura al narrador|El escritorio es muy antiguo para el narrador|En la sala de lectura se guarda silencio
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|El narrador compró el pincel él mismo en una tienda de su barrio|El abuelo regaló objetos de escritura al narrador|El escritorio es muy antiguo para el narrador|En la sala de lectura se guarda silencio
 z|8
 f|9`, `书桌|escritorio
 书柜|estantería
@@ -81,7 +81,7 @@ f|9`, `书桌|escritorio
 医生/还/带/来/了/中药，/帮/大家/治疗/感冒。|Yīshēng hái dài lái le zhōngyào, bāng dàjiā zhìliáo gǎnmào.|Los médicos trajeron además medicina china para tratar los resfriados.
 现在/水/退/了，/桃树/也/没/死。|Xiànzài shuǐ tuì le, táoshù yě méi sǐ.|Ahora el agua ha bajado y los melocotoneros no murieron.
 今年/春天/桃花/又/开/了，/村子/又/热闹/起来。|Jīnnián chūntiān táohuā yòu kāi le, cūnzi yòu rènao qǐlái.|Esta primavera las flores han vuelto y el pueblo recupera la animación.`, `o|¿Qué hizo el gobierno tras la inundación?|Envió gente con comida y medicinas|Obligó a todos a abandonar el pueblo para siempre|Cerró el embalse y prohibió a los turistas venir a verlo|Construyó casas nuevas en las dos orillas del río
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Los melocotoneros murieron y nunca volvieron a dar flores en el pueblo|Muchos turistas van al valle en primavera|El río pasó de largo sin causar daños en el pueblo durante el verano|Las personas se fueron a vivir a una zona más alta
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|Los melocotoneros murieron y nunca volvieron a dar flores en el pueblo|Muchos turistas van al valle en primavera|El río pasó de largo sin causar daños en el pueblo durante el verano|Las personas se fueron a vivir a una zona más alta
 z|5
 f|11`, `山区|región montañosa
 地形|relieve del terreno
@@ -145,7 +145,7 @@ f|9`, `厂长|director de fábrica
 我/不/想/打扰/邻居，/只/发/了/一/条/短信。|Wǒ bù xiǎng dǎrǎo línjū, zhǐ fā le yì tiáo duǎnxìn.|No quería molestar a mi vecino y solo le mandé un mensaje.
 妈妈/怕/我/吃/不/好，/给/我/带/了/一/个/小/电饭锅。|Māma pà wǒ chī bù hǎo, gěi wǒ dài le yí ge xiǎo diànfànguō.|Mi madre temía que comiera mal y me puso una arrocera pequeña.
 我/笑/着/说，/酒店/里/没有/厨房，/这/个/锅/用/不/上。|Wǒ xiào zhe shuō, jiǔdiàn li méiyǒu chúfáng, zhè ge guō yòng bú shàng.|Le dije riendo que en el hotel no hay cocina y que esta olla no servirá.`, `o|¿Por qué tuvo que pasar el antivirus?|Porque había un virus en un archivo|Porque el ordenador estaba muy lento al abrirlo|Porque la otra parte se lo exigió por escrito|Porque el jefe perdió unos documentos importantes
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El narrador viajó en avión hasta Shanghái para reunirse|El viaje durará pocos días|La madre se preocupa por cómo come su hijo|Se puede pagar con un código QR
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|El narrador viajó en avión hasta Shanghái para reunirse|El viaje durará pocos días|La madre se preocupa por cómo come su hijo|Se puede pagar con un código QR
 z|8
 f|2`, `出差|viaje de trabajo
 传真|fax
@@ -178,7 +178,7 @@ f|2`, `出差|viaje de trabajo
 跟/书/比/起来，/相声/有/意思/多/了。|Gēn shū bǐ qǐlái, xiàngsheng yǒu yìsi duō le.|Comparado con los libros, el xiangsheng es mucho más divertido.
 现在/我/已经/能/听/懂/一/半/了。|Xiànzài wǒ yǐjīng néng tīng dǒng yí bàn le.|Ahora ya entiendo la mitad.
 我/打算/下/个/月/自己/上/台/表演/一/次。|Wǒ dǎsuàn xià ge yuè zìjǐ shàng tái biǎoyǎn yí cì.|Pienso subir yo mismo al escenario el mes que viene.`, `o|¿Por qué le recomendó la profesora escuchar xiangsheng?|Porque sirve para empezar y aprender expresiones auténticas|Porque es más fácil de entender que cualquier otro programa|Porque así podría preparar mejor su examen de leyes|Porque es el único espectáculo que se hace en Pekín
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Desde el primer día entendió casi todos los chistes sin ayuda|Los compañeros le explicaron algunos chistes|Prefiere el xiangsheng a los libros de derecho|Planea actuar él mismo algún día
+x|¿Cuál de estas ideas NO encaja con el texto?|Desde el primer día entendió casi todos los chistes sin ayuda|Los compañeros le explicaron algunos chistes|Prefiere el xiangsheng a los libros de derecho|Planea actuar él mismo algún día
 z|6
 f|10`, `华语|chino (lengua china)
 博士|doctor (grado)
@@ -206,7 +206,7 @@ f|10`, `华语|chino (lengua china)
 我/推/开/门，/只见/他/正在/院子/里/浇/花。|Wǒ tuī kāi mén, zhǐjiàn tā zhèngzài yuànzi li jiāo huā.|Empujé la puerta y vi que estaba regando las flores en el patio.
 他/笑/着/说/耳朵/不/好，/没/听/见。|Tā xiào zhe shuō ěrduo bù hǎo, méi tīng jiàn.|Dijo riendo que oía mal y no me había oído.
 那/天/我们/聊/了/一下午，/他/讲/起/了/很/多/往事。|Nà tiān wǒmen liáo le yíxiàwǔ, tā jiǎng qǐ le hěn duō wǎngshì.|Aquel día charlamos toda la tarde y me contó muchos recuerdos del pasado.`, `o|¿Qué hizo la narradora al recibir la carta?|Contestó enseguida y envió una foto|Fue a verlo ese mismo día sin avisar|Llamó a su padre para contarle la noticia|Guardó la carta y se olvidó de responder
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El abuelo vive ahora en la ciudad con su hijo menor|El abuelo trabajó en una universidad|El abuelo tiene problemas de oído|La narradora quiere a su abuelo
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|El abuelo vive ahora en la ciudad con su hijo menor|El abuelo trabajó en una universidad|El abuelo tiene problemas de oído|La narradora quiere a su abuelo
 z|3
 f|5`, `招生|admitir alumnos
 大纲|esquema, programa

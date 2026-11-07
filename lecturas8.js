@@ -16,7 +16,7 @@ f|3`, ``, 'laura'],
 我/开始/分批/买入，/不/再/把/钱/放/在/一/只/股票/上。|Wǒ kāishǐ fēnpī mǎirù, bú zài bǎ qián fàng zài yì zhī gǔpiào shang.|Empecé a comprar por lotes y a no poner todo el dinero en una sola acción.
 现在/我/更/看重/长期/的/收益。|Xiànzài wǒ gèng kànzhòng chángqī de shōuyì.|Ahora valoro más la rentabilidad a largo plazo.
 投资/就/像/种/树，/需要/耐心。|Tóuzī jiù xiàng zhòng shù, xūyào nàixīn.|Invertir es como plantar un árbol: requiere paciencia.`, `o|¿Qué cambia en la forma de invertir del narrador?|Pasa de buscar dinero rápido a pensar a largo plazo|Pasa de invertir poco a invertir todo en una sola acción|Deja de seguir el mercado por completo|Empieza a pedir préstamos para invertir más
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Con el tiempo decidió apostar todo a una sola acción|Al principio solo quería ganar dinero rápido|Ahora reparte sus compras por lotes|Compara la inversión con plantar un árbol
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Con el tiempo decidió apostar todo a una sola acción|Al principio solo quería ganar dinero rápido|Ahora reparte sus compras por lotes|Compara la inversión con plantar un árbol
 z|3
 f|6`, `快钱|dinero rápido
 看重|valorar
@@ -28,7 +28,7 @@ f|6`, `快钱|dinero rápido
 第一/球/进/了，/第二/球/也/进/了。|Dìyī qiú jìn le, dì'èr qiú yě jìn le.|El primer tiro entró y el segundo también.
 最后/几/秒，/我们/的/防线/守住/了/对方/的/反击。|Zuìhòu jǐ miǎo, wǒmen de fángxiàn shǒuzhù le duìfāng de fǎnjī.|En los últimos segundos nuestra defensa frenó el contraataque rival.
 我们/赢/了/比赛，/大家/抱/在/一起。|Wǒmen yíng le bǐsài, dàjiā bào zài yìqǐ.|Ganamos el partido y nos abrazamos todos.`, `o|¿Cómo terminó el partido para el equipo del narrador?|Con victoria tras acertar los tiros libres y defender bien|Con empate tras una prórroga|Con derrota por un error del árbitro|Con victoria gracias a un triple final
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El equipo perdió el partido por un solo punto|El árbitro pitó una falta al equipo rival|El narrador anotó los dos tiros libres|La defensa evitó el contraataque rival
+x|¿Cuál de estas ideas NO encaja con el texto?|El equipo perdió el partido por un solo punto|El árbitro pitó una falta al equipo rival|El narrador anotó los dos tiros libres|La defensa evitó el contraataque rival
 z|1
 f|4`, `哨子|silbato
 罚球线|línea de tiros libres
@@ -41,7 +41,7 @@ f|4`, `哨子|silbato
 古籍/的/纸张/已经/泛黄，/字迹/却/依旧/清楚。|Gǔjí de zhǐzhāng yǐjīng fànhuáng, zìjì què yījiù qīngchu.|El papel de los libros antiguos ya está amarillento, pero la letra sigue clara.
 读/着/这些/文字，/我/感到/和/古人/有/了/共鸣。|Dú zhe zhèxiē wénzì, wǒ gǎndào hé gǔrén yǒu le gòngmíng.|Al leer estos textos siento una conexión con los antiguos.
 这/是/一/种/安静/而/幸福/的/生活。|Zhè shì yì zhǒng ānjìng ér xìngfú de shēnghuó.|Esta es una vida tranquila y feliz.`, `o|¿Qué siente el narrador al leer los libros antiguos?|Una conexión con los antiguos y una vida serena|Aburrimiento por lo viejo de los textos|Impaciencia por volver a la ciudad|Miedo de dañar el papel
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Las hojas de los libros antiguos están intactas y blancas|Algunos libros tienen cientos de años|Lee poesía todos los días|La biblioteca está en un pueblo de montaña
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Las hojas de los libros antiguos están intactas y blancas|Algunos libros tienen cientos de años|Lee poesía todos los días|La biblioteca está en un pueblo de montaña
 z|4
 f|6`, `山村|pueblo de montaña
 诗集|libro de poemas
@@ -56,7 +56,7 @@ f|6`, `山村|pueblo de montaña
 医生/检查/以后/说，/它/只是/太/饿/了。|Yīshēng jiǎnchá yǐhòu shuō, tā zhǐshì tài è le.|Tras examinarlo, el médico dijo que solo tenía mucha hambre.
 现在/它/每天/都/趴/在/我/的/床上/睡觉。|Xiànzài tā měitiān dōu pā zài wǒ de chuángshang shuìjiào.|Ahora duerme cada día tumbado en mi cama.
 有/时候，/家/的/意思/就是/有/人/挂念/你。|Yǒu shíhou, jiā de yìsi jiùshì yǒu rén guàniàn nǐ.|A veces, «hogar» significa que alguien se preocupa por ti.`, `o|¿Qué significa «hogar» para el narrador al final?|Tener a alguien que se preocupe por ti|Tener una casa grande|Tener muchas mascotas|Vivir lejos del ruido
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El gatito estaba sano y bien alimentado cuando lo encontró|El gatito temblaba|El narrador lo envolvió con su abrigo|El médico dijo que solo tenía hambre
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|El gatito estaba sano y bien alimentado cuando lo encontró|El gatito temblaba|El narrador lo envolvió con su abrigo|El médico dijo que solo tenía hambre
 z|6
 f|4`, `外套|abrigo
 床上|en la cama`, 'payolink']

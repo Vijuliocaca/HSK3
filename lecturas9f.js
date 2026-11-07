@@ -11,7 +11,7 @@
 填空/题/我/全/做/对/了，/连/最后/一/道/也/来得及/检查。|Tiánkòng tí wǒ quán zuò duì le, lián zuìhòu yí dào yě láidejí jiǎnchá.|Acerté todos los ejercicios de rellenar huecos e incluso me dio tiempo a revisar el último.
 成绩/出来/以后，/我/居然/得/了/九十/分。|Chéngjì chūlái yǐhòu, wǒ jūrán dé le jiǔshí fēn.|Cuando salieron las notas, sorprendentemente había sacado un noventa.
 这/次/经历/给/了/我/一/个/教训：/只要/肯/努力，/迟早/会/进步。|Zhè cì jīnglì gěi le wǒ yí ge jiàoxùn: zhǐyào kěn nǔlì, chízǎo huì jìnbù.|Esta experiencia me dio una lección: si te esfuerzas, tarde o temprano mejoras.`, `o|¿Qué cambió en los hábitos del narrador después de hablar con el profesor?|Empezó a estudiar cada noche y a preguntar sus dudas|Dejó la química y se pasó a estudiar geografía|Empezó a ir a clases particulares los fines de semana|Decidió estudiar solo en la biblioteca del instituto
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El narrador copió las respuestas de un compañero|Antes, la química era su asignatura más floja|El profesor le recomendó repasar exámenes antiguos|En la prueba le sobró tiempo para revisar
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|El narrador copió las respuestas de un compañero|Antes, la química era su asignatura más floja|El profesor le recomendó repasar exámenes antiguos|En la prueba le sobró tiempo para revisar
 z|10
 f|3`, `九十|noventa`, 'anto'],
 
@@ -26,7 +26,7 @@ f|3`, `九十|noventa`, 'anto'],
 大家/喝/着/矿泉水，/吃/着/饼干/和/巧克力/聊天。|Dàjiā hē zhe kuàngquánshuǐ, chī zhe bǐnggān hé qiǎokèlì liáotiān.|Charlamos bebiendo agua mineral y comiendo galletas y chocolate.
 我/的/猫/悄悄/吃/了/一/块/海鲜，/大家/都/笑/了。|Wǒ de māo qiāoqiāo chī le yí kuài hǎixiān, dàjiā dōu xiào le.|Mi gato se comió a escondidas un trozo de marisco y todos se rieron.
 虽然/菜/不/多，/但是/这/顿/饭/比/大/宴会/还/愉快。|Suīrán cài bù duō, dànshì zhè dùn fàn bǐ dà yànhuì hái yúkuài.|Aunque no había muchos platos, esta comida fue más agradable que un gran banquete.`, `o|¿Por qué Xiao Wang no disfrutó tanto del tofu?|Prefiere los platos suaves y no está hecho al picante|Le sentaron mal los lácteos que alguien había puesto en la salsa|Ya había comido demasiados dulces antes de la cena|No le gusta el tofu y nunca lo ha probado
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El narrador compró toda la comida en un restaurante|Los invitados llevaron a la cena comida que habían preparado ellos|El narrador evita tomar leche|El gato también probó algo de la cena
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|El narrador compró toda la comida en un restaurante|Los invitados llevaron a la cena comida que habían preparado ellos|El narrador evita tomar leche|El gato también probó algo de la cena
 z|9
 f|1`, ``, 'payolink'],
 
@@ -58,7 +58,7 @@ f|8`, ``, 'chana'],
 讲座/结束/的/时候，/孩子/们/热烈/地/鼓掌。|Jiǎngzuò jiéshù de shíhou, háizi men rèliè de gǔzhǎng.|Al terminar la charla, los niños aplaudieron con entusiasmo.
 校长/表扬/我/讲/得/好，/我/却/谦虚/地/说/还/要/多/练习。|Xiàozhǎng biǎoyáng wǒ jiǎng de hǎo, wǒ què qiānxū de shuō hái yào duō liànxí.|La directora me felicitó por la charla, pero yo, con modestia, dije que aún debía practicar más.
 其实/我/心里/非常/激动：/原来/勇气/是/练/出来/的。|Qíshí wǒ xīnli fēicháng jīdòng: yuánlái yǒngqì shì liàn chūlái de.|En realidad, por dentro, la emoción me desbordaba: resulta que el valor se entrena.`, `o|¿Qué ayudó a perder los nervios durante la charla?|Que los niños participaran y se rieran con sus respuestas|Que la directora se sentara en primera fila a escuchar|Que llevara aprendido de memoria todo lo que iba a decir|Que la charla fuera muy corta y terminara pronto
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Los profesores le pidieron que repitiera la charla cada mes|Al principio no quería dar la charla|Antes de aceptar, le costó decidirse durante bastante tiempo|Los niños hicieron muchas preguntas
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Los profesores le pidieron que repitiera la charla cada mes|Al principio no quería dar la charla|Antes de aceptar, le costó decidirse durante bastante tiempo|Los niños hicieron muchas preguntas
 z|8
 f|2`, `牙医|dentista`, 'kevin'],
 
@@ -74,7 +74,7 @@ f|2`, `牙医|dentista`, 'kevin'],
 他/的/妻子/焦急/地/守/了/一/夜，/这/时/才/松/了/口/气。|Tā de qīzi jiāojí de shǒu le yí yè, zhè shí cái sōng le kǒu qì.|Su mujer, angustiada, se había pasado la noche a su lado y solo entonces respiró aliviada.
 我/虽然/疲惫/极/了，/心里/却/感到/很/欣慰。|Wǒ suīrán píbèi jí le, xīnli què gǎndào hěn xīnwèi.|Yo estaba agotado, pero me sentía muy reconfortado.
 我/嘱咐/他，/以后/吃/东西/前/要/先/看/日期。|Wǒ zhǔfù tā, yǐhòu chī dōngxi qián yào xiān kàn rìqī.|Le recomendé que, en adelante, mirara la fecha antes de comer algo.`, `o|¿Qué provocó la enfermedad del paciente?|Haber comido marisco que ya estaba caducado|Haber bebido demasiado alcohol en una fiesta|Un virus que se contagió de su mujer|Haber pasado demasiado frío durante la noche
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El paciente tuvo que pasar por el quirófano|Los análisis confirmaron la sospecha del médico|El paciente mejoró bastante después de la inyección|La mujer del paciente pasó la noche preocupada
+x|¿Cuál de estas ideas NO encaja con el texto?|El paciente tuvo que pasar por el quirófano|Los análisis confirmaron la sospecha del médico|El paciente mejoró bastante después de la inyección|La mujer del paciente pasó la noche preocupada
 z|6
 f|5`, `昨晚|anoche
 盒|caja
@@ -93,7 +93,7 @@ f|5`, `昨晚|anoche
 我/很/惋惜，/就/和/村/里/的/年轻/人/一起/种/树。|Wǒ hěn wǎnxī, jiù hé cūn li de niánqīng rén yìqǐ zhòng shù.|Me da mucha pena, así que planto árboles con los jóvenes del pueblo.
 我们/还/在/村/里/装/了/太阳能/灯。|Wǒmen hái zài cūn li zhuāng le tàiyángnéng dēng.|También hemos puesto farolas solares en el pueblo.
 我/向往/的/是，/家乡/的/山/和/水/永远/这么/美。|Wǒ xiàngwǎng de shì, jiāxiāng de shān hé shuǐ yǒngyuǎn zhème měi.|Lo que anhelo es que las montañas y los ríos de mi tierra sean siempre así de hermosos.`, `o|¿Por qué la montaña está cada vez más desolada?|Porque algunas personas han talado muchos árboles|Porque los jóvenes se han ido a vivir a la ciudad|Porque el arroyo se secó después de un verano seco|Porque los incendios han quemado gran parte del bosque
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|En el pueblo ya no queda nadie que cultive la tierra|Los campos del valle son buenos para cultivar|El narrador intenta proteger el entorno de su pueblo|Hoy hay menos peces que hace unos años
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|En el pueblo ya no queda nadie que cultive la tierra|Los campos del valle son buenos para cultivar|El narrador intenta proteger el entorno de su pueblo|Hoy hay menos peces que hace unos años
 z|7
 f|2`, `深处|lo más profundo
 两边|ambos lados`, 'anto'],
@@ -110,7 +110,7 @@ f|2`, `深处|lo más profundo
 最后/我们/去/看/了/太空/和/卫星/的/展览。|Zuìhòu wǒmen qù kàn le tàikōng hé wèixīng de zhǎnlǎn.|Al final fuimos a ver la exposición sobre el espacio y los satélites.
 他/说，/长大/以后/要/研究/宇宙。|Tā shuō, zhǎngdà yǐhòu yào yánjiū yǔzhòu.|Dijo que de mayor quiere investigar el universo.
 我/觉得/这/次/参观/对/他/的/启发/颇/大。|Wǒ juéde zhè cì cānguān duì tā de qǐfā pō dà.|Creo que esta visita lo ha inspirado bastante.`, `o|¿Qué hicieron los dos con el agua y la sal?|Disolvieron la sal y luego evaporaron el agua|Midieron cuánta sal cabía en un vaso de agua|Congelaron el agua para ver qué pasaba con la sal|Compararon el agua dulce con el agua del mar
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El hermano se aburrió y quiso irse pronto|En el museo se podían usar algunos aparatos|El hermano quedó sorprendido con las células|Al hermano le interesa el espacio
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|El hermano se aburrió y quiso irse pronto|En el museo se podían usar algunos aparatos|El hermano quedó sorprendido con las células|Al hermano le interesa el espacio
 z|8
 f|11`, `加热|calentar
 亲手|con sus propias manos

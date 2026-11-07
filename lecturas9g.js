@@ -13,7 +13,7 @@
 春节/回/家，/我/由衷/地/感谢/奶奶，/她/热泪盈眶。|Chūnjié huí jiā, wǒ yóuzhōng de gǎnxiè nǎinai, tā rèlèiyíngkuàng.|Al volver a casa por el Año Nuevo chino le di las gracias de corazón, y a la abuela se le llenaron los ojos de lágrimas.
 我/巴不得/学会/这/门/手艺，/把/它/继承/下去。|Wǒ bābude xuéhuì zhè mén shǒuyì, bǎ tā jìchéng xiàqù.|Estoy deseando aprender este oficio para mantenerlo vivo.
 奶奶/笑/着/说，/她/总算/放心/了。|Nǎinai xiào zhe shuō, tā zǒngsuàn fàngxīn le.|La abuela dijo sonriendo que por fin se quedaba tranquila.`, `o|¿Por qué cambió la opinión de la narradora sobre la bufanda?|Supo cuánto esfuerzo le había costado tejerla a su abuela|Descubrió que era una prenda carísima de una tienda de lujo|Una amiga le ofreció mucho dinero por ella en el trabajo|Se dio cuenta de que abrigaba más que ninguna otra
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|La abuela vende sus jerséis en el mercado del pueblo|La abuela tiene problemas de vista|A los compañeros de trabajo de la narradora les gustó mucho la bufanda|La narradora quiere aprender a tejer
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|La abuela vende sus jerséis en el mercado del pueblo|La abuela tiene problemas de vista|A los compañeros de trabajo de la narradora les gustó mucho la bufanda|La narradora quiere aprender a tejer
 z|7
 f|13`, `毛衣|jersey`, 'lucia'],
 
@@ -31,7 +31,7 @@ f|13`, `毛衣|jersey`, 'lucia'],
 我/的/猫/却/很/自在，/好像/什么/都/没/发生/过。|Wǒ de māo què hěn zìzai, hǎoxiàng shénme dōu méi fāshēng guo.|Mi gato, en cambio, estaba tan tranquilo, como si no hubiera pasado nada.
 第二/天，/报纸/说/我/见义勇为。|Dì'èr tiān, bàozhǐ shuō wǒ jiànyìyǒngwéi.|Al día siguiente, el periódico dijo que yo había actuado con valentía.
 其实/我/只是/做/了/一/件/微不足道/的/事。|Qíshí wǒ zhǐshì zuò le yí jiàn wēibùzúdào de shì.|En realidad, solo hice algo insignificante.`, `o|¿Qué hizo el narrador al encontrar a la anciana?|La ayudó a bajar sujetándola del brazo|Fue a buscar a su hija a otro piso del edificio|Llamó a los bomberos desde la escalera del edificio|La dejó en un piso sin humo y siguió bajando
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Varios vecinos acabaron en el hospital|El fuego empezó en uno de los pisos de abajo del edificio|La anciana no podía andar deprisa|El narrador salvó también a su gato
+x|¿Cuál de estas ideas NO encaja con el texto?|Varios vecinos acabaron en el hospital|El fuego empezó en uno de los pisos de abajo del edificio|La anciana no podía andar deprisa|El narrador salvó también a su gato
 z|11
 f|13`, `消防车|camión de bomberos
 阵|(clasif.) racha; rato`, 'chiki'],
@@ -49,7 +49,7 @@ f|13`, `消防车|camión de bomberos
 原来，/冷淡/的/外表/下/恰恰/是/一/颗/厚道/的/心。|Yuánlái, lěngdàn de wàibiǎo xià qiàqià shì yì kē hòudao de xīn.|Resulta que, bajo esa apariencia fría, había precisamente un corazón noble.
 他/的/心胸/让/我/很/敬佩。|Tā de xīnxiōng ràng wǒ hěn jìngpèi.|Su generosidad de espíritu me inspira mucho respeto.
 看/人/不/能/只/看/表面，/这/无疑/是/我/今年/学/到/的/最/重要/的/一/课。|Kàn rén bù néng zhǐ kàn biǎomiàn, zhè wúyí shì wǒ jīnnián xué dào de zuì zhòngyào de yí kè.|No hay que juzgar a la gente por las apariencias: sin duda es la lección más importante que he aprendido este año.`, `o|¿Cómo reaccionó el jefe ante el error del narrador?|Lo escuchó con calma y se encargó de arreglarlo|Lo regañó delante de todos en una reunión|Le quitó el proyecto y se lo dio a otro compañero|Le pidió que pagara de su bolsillo una parte de las pérdidas
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El jefe despidió a los compañeros que lo adulaban|No todos los compañeros tenían la misma opinión del jefe|El jefe no ha tenido una vida fácil|El narrador cambió su opinión sobre el jefe
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|El jefe despidió a los compañeros que lo adulaban|No todos los compañeros tenían la misma opinión del jefe|El jefe no ha tenido una vida fácil|El narrador cambió su opinión sobre el jefe
 z|11
 f|12`, `理|hacer caso`, 'binhao'],
 
@@ -64,7 +64,7 @@ f|12`, `理|hacer caso`, 'binhao'],
 一/位/成员/读/得/很/有/深度，/写/的/文章/在/比赛/中/脱颖而出。|Yí wèi chéngyuán dú de hěn yǒu shēndù, xiě de wénzhāng zài bǐsài zhōng tuōyǐng'érchū.|Una de las integrantes lee con mucha profundidad y su redacción destacó en un concurso.
 归根到底，/读书/提高/的/是/一/个/人/的/素养。|Guīgēndàodǐ, dúshū tígāo de shì yí ge rén de sùyǎng.|En última instancia, leer mejora la formación de una persona.
 虽然/要/读/的/书/还/很/多，/任重道远，/但/我/心甘情愿。|Suīrán yào dú de shū hái hěn duō, rènzhòngdàoyuǎn, dàn wǒ xīngānqíngyuàn.|Aunque me quedan muchísimos libros por leer y el camino es largo, lo hago con gusto.`, `o|¿Qué enseñanza comparten las dos historias que se mencionan?|Que las cosas buenas requieren tiempo y esfuerzo|Que hay que confiar siempre en lo que dicen las personas mayores|Que la suerte llega a quien sabe esperar|Que es mejor trabajar en grupo que solo
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El grupo de lectura dejó de reunirse por falta de interés|Las opiniones de los miembros del grupo a menudo no coinciden entre sí|El narrador ha leído novelas clásicas chinas|Una persona del grupo ganó reconocimiento escribiendo
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|El grupo de lectura dejó de reunirse por falta de interés|Las opiniones de los miembros del grupo a menudo no coinciden entre sí|El narrador ha leído novelas clásicas chinas|Una persona del grupo ganó reconocimiento escribiendo
 z|10
 f|2`, ``, 'anto'],
 
@@ -98,7 +98,7 @@ f|10`, `首|(clasif. de canciones y poemas)
 半/年/后，/网/上/的/买卖/越来越/好，/我们/总算/走/出/了/困境。|Bàn nián hòu, wǎng shang de mǎimai yuèláiyuè hǎo, wǒmen zǒngsuàn zǒu chū le kùnjìng.|Medio año después, las ventas por internet iban cada vez mejor y por fin salimos del apuro.
 年底，/父亲/还/给/帮忙/的/亲戚/分/了/红利。|Niándǐ, fùqin hái gěi bāngmáng de qīnqi fēn le hónglì.|A final de año, mi padre incluso repartió beneficios entre los parientes que ayudaron.
 他/说，/做/生意/好歹/要/讲/互利，/大家/好/才/是/真/好。|Tā shuō, zuò shēngyi hǎodǎi yào jiǎng hùlì, dàjiā hǎo cái shì zhēn hǎo.|Dice que, pase lo que pase, en los negocios tiene que haber beneficio mutuo: solo está bien si todos están bien.`, `o|¿Por qué empezó a ir mal la tienda de la familia?|Porque abrió cerca un supermercado mucho más grande|Porque subieron los precios de la fruta de la zona|Porque el abuelo enfermó y ya no podía atenderla todos los días|Porque cerraron la calle durante meses por obras
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Al final, la familia vendió la tienda a la multinacional|La familia recibió ayuda de otros parientes|Vender productos por internet ayudó a que mejoraran las cuentas de la tienda|El padre quiere mantener el negocio familiar
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Al final, la familia vendió la tienda a la multinacional|La familia recibió ayuda de otros parientes|Vender productos por internet ayudó a que mejoraran las cuentas de la tienda|El padre quiere mantener el negocio familiar
 z|6
 f|9`, ``, 'yuyue'],
 
@@ -114,7 +114,7 @@ f|9`, ``, 'yuyue'],
 雪/一/停，/我们/就/连夜/下/山，/没有/迷失/方向。|Xuě yì tíng, wǒmen jiù liányè xià shān, méiyǒu míshī fāngxiàng.|En cuanto paró de nevar bajamos esa misma noche, sin perder el rumbo.
 回/到/山/下/时，/天/已经/亮/了。|Huí dào shān xià shí, tiān yǐjīng liàng le.|Cuando llegamos abajo, ya había amanecido.
 这/次/经历/很/短暂，/却/让/我/明白/大/自然/的/力量。|Zhè cì jīnglì hěn duǎnzàn, què ràng wǒ míngbai dà zìrán de lìliang.|Fue una experiencia breve, pero me hizo entender la fuerza de la naturaleza.`, `o|¿Por qué tuvieron que bajar del glaciar?|Porque una nevada repentina puso en peligro al grupo|Porque se les acabó la comida que llevaban|Porque uno de ellos se rompió una pierna al resbalar|Porque se hizo de noche antes de llegar a la cima
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Un helicóptero fue a rescatarlos a la cueva|El tiempo en la montaña cambió muy rápido aquel día|Uno de los amigos lo pasó muy mal por el frío|El narrador pudo comunicarse con gente del valle
+x|¿Cuál de estas ideas NO encaja con el texto?|Un helicóptero fue a rescatarlos a la cueva|El tiempo en la montaña cambió muy rápido aquel día|Uno de los amigos lo pasó muy mal por el frío|El narrador pudo comunicarse con gente del valle
 z|12
 f|6`, `四周|alrededor`, 'teo'],
 
@@ -130,7 +130,7 @@ f|6`, `四周|alrededor`, 'teo'],
 他/不服，/还/在/网/上/杜撰/故事，/说/我/坑害/他。|Tā bùfú, hái zài wǎng shang dùzhuàn gùshi, shuō wǒ kēnghài tā.|No lo aceptó y hasta se inventó historias en internet diciendo que yo lo había perjudicado.
 我/没有/被/激怒，/只/重申/了/事实。|Wǒ méiyǒu bèi jīnù, zhǐ chóngshēn le shìshí.|No me dejé provocar: solo reiteré los hechos.
 我/的/底线/很/简单：/可以/竞争，/但/不/能/欺骗。|Wǒ de dǐxiàn hěn jiǎndān: kěyǐ jìngzhēng, dàn bù néng qīpiàn.|Mi límite es sencillo: se puede competir, pero no engañar.`, `o|¿Qué hizo el dueño de la fábrica después de ser castigado?|Contó mentiras en internet sobre el narrador|Pidió perdón públicamente a todos los clientes engañados|Cerró la fábrica y se fue a otra ciudad|Ofreció al narrador dinero para que callara
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El narrador ya había tenido problemas con esa fábrica|El narrador tuvo que insistir para que actuaran|La fábrica vendía la ropa más barata|El dueño de la fábrica intentó sobornar a los inspectores
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|El narrador ya había tenido problemas con esa fábrica|El narrador tuvo que insistir para que actuaran|La fábrica vendía la ropa más barata|El dueño de la fábrica intentó sobornar a los inspectores
 z|9
 f|11`, `收集|reunir; recoger`, 'samu'],
 
@@ -146,7 +146,7 @@ f|11`, `收集|reunir; recoger`, 'samu'],
 一/个/月/后/复查，/结果/果真/好/了/很多。|Yí ge yuè hòu fùchá, jiéguǒ guǒzhēn hǎo le hěnduō.|Al mes le hicieron otra revisión y, efectivamente, había mejorado mucho.
 医生/说，/这/种/病/很/难/根治，/要/注意/防止/复发。|Yīshēng shuō, zhè zhǒng bìng hěn nán gēnzhì, yào zhùyì fángzhǐ fùfā.|El médico dijo que es difícil curarla del todo y que hay que vigilar que no vuelva.
 现在/他/每天/早上/在/院子/里/晒太阳，/脸/上/又/有/了/笑容。|Xiànzài tā měitiān zǎoshang zài yuànzi li shàitàiyáng, liǎn shang yòu yǒu le xiàoróng.|Ahora toma el sol cada mañana en el patio y ha vuelto a sonreír.`, `o|¿Qué enfermedad tenía el abuelo?|Una anemia grave que lo dejaba muy débil|Un tumor maligno que ya estaba muy avanzado|Una depresión causada por pasar demasiado tiempo solo|Una infección por comer algo en mal estado
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El abuelo tuvo que operarse de urgencia|Durante un tiempo, el abuelo dormía mal|La familia temió que fuera algo peor|El abuelo ha mejorado, aunque debe cuidarse
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|El abuelo tuvo que operarse de urgencia|Durante un tiempo, el abuelo dormía mal|La familia temió que fuera algo peor|El abuelo ha mejorado, aunque debe cuidarse
 z|7
 f|3`, `八十|ochenta`, 'kevin'],
 
@@ -181,7 +181,7 @@ f|4`, `上海|Shanghái
 我/还/组织/了/一/次/篮球/评比，/孩子/们/欣喜/得/不得了。|Wǒ hái zǔzhī le yí cì lánqiú píngbǐ, háizi men xīnxǐ de bùdéliǎo.|También organicé un concurso de baloncesto y los niños estaban contentísimos.
 离开/那/天，/孩子/们/哭/着/挽留/我，/把/自己/的/习作/送/给/我。|Líkāi nà tiān, háizi men kū zhe wǎnliú wǒ, bǎ zìjǐ de xízuò sòng gěi wǒ.|El día que me fui, los niños lloraban intentando que me quedara y me regalaron sus redacciones.
 这/段/缘分/让/我/感触/很/深，/我/期盼/明年/再/回去。|Zhè duàn yuánfèn ràng wǒ gǎnchù hěn shēn, wǒ qīpàn míngnián zài huíqù.|Este encuentro me dejó una huella profunda y espero con ilusión volver el año que viene.`, `o|¿Qué consejo le dio la profesora veterana al narrador?|Que los niños aprenden mejor descubriendo las cosas por sí mismos|Que fuera muy estricto desde el primer día para que todos lo respetaran|Que dedicara más horas al inglés que a la educación física|Que no comiera con los niños para no perder autoridad
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El narrador se enfadó con los vecinos por la comida|En la escuela del pueblo no había suficientes profesores para todos los alumnos|El narrador tiene un problema de salud|Los niños le cogieron cariño al narrador
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|El narrador se enfadó con los vecinos por la comida|En la escuela del pueblo no había suficientes profesores para todos los alumnos|El narrador tiene un problema de salud|Los niños le cogieron cariño al narrador
 z|7
 f|4`, `糖尿病|diabetes`, 'jersio'],
 
@@ -198,7 +198,7 @@ f|4`, `糖尿病|diabetes`, 'jersio'],
 幸好/他/很/快/还/了/钱，/还/当面/表达/了/歉意。|Xìnghǎo tā hěn kuài huán le qián, hái dāngmiàn biǎodá le qiànyì.|Por suerte, pagó enseguida y además me pidió disculpas en persona.
 拿/到/钥匙/那/天，/我/的/猫/第一/个/冲/进/了/新/家。|Ná dào yàoshi nà tiān, wǒ de māo dìyī ge chōng jìn le xīn jiā.|El día que me dieron las llaves, mi gato fue el primero en entrar corriendo en la casa nueva.
 所有/的/疑虑/都/消失/了，/我/终于/释怀。|Suǒyǒu de yílǜ dōu xiāoshī le, wǒ zhōngyú shìhuái.|Todas las dudas desaparecieron y por fin me quedé tranquilo.`, `o|¿Por qué se retrasó la compra del piso?|Porque el vendedor tenía deudas pendientes con otras personas|Porque el banco perdió los documentos del narrador|Porque el narrador no tenía bastante dinero ahorrado|Porque el gato del narrador no estaba permitido en el edificio
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El vendedor se negó a bajar el precio hasta el final|El narrador leyó todo el contrato con mucha atención antes de firmarlo|El narrador necesitó un préstamo del banco|El vendedor reconoció su error ante el narrador
+x|¿Cuál de estas ideas NO encaja con el texto?|El vendedor se negó a bajar el precio hasta el final|El narrador leyó todo el contrato con mucha atención antes de firmarlo|El narrador necesitó un préstamo del banco|El vendedor reconoció su error ante el narrador
 z|5
 f|13`, `一下|un momento; un poco
 存款|ahorros

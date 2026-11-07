@@ -12,7 +12,7 @@
 师傅/说/要/等/三/天，/暂时/先/用/布/盖/住/洞。|Shīfu shuō yào děng sān tiān, zànshí xiān yòng bù gài zhù dòng.|El técnico dijo que habría que esperar tres días y que de momento tapara el agujero con una tela.
 房东/知道/以后，/马上/答应/修/房子。|Fángdōng zhīdào yǐhòu, mǎshàng dāying xiū fángzi.|Cuando el casero lo supo, aceptó enseguida arreglar la casa.
 现在/我/和/邻居/成/了/好/朋友，/也/越来越/熟悉/这里/了。|Xiànzài wǒ hé línjū chéng le hǎo péngyou, yě yuèláiyuè shúxī zhèlǐ le.|Ahora la vecina y yo somos buenas amigas y cada vez conozco mejor este lugar.`, `o|¿Qué problema tiene el piso nuevo?|Hay varias cosas rotas o mal arregladas|Es demasiado grande para una sola persona|Está muy lejos de la oficina y del metro|Los vecinos hacen mucho ruido por la noche
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|La narradora ya conocía muy bien el barrio|La vecina vive sola en el piso de al lado|El casero acabó aceptando arreglar la casa|La narradora entregó una fianza al casero
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|La narradora ya conocía muy bien el barrio|La vecina vive sola en el piso de al lado|El casero acabó aceptando arreglar la casa|La narradora entregó una fianza al casero
 z|1
 f|11`, '', 'lucia'],
 
@@ -44,7 +44,7 @@ f|2`, `乙|B (segunda parte de un contrato)`, 'laura'],
 比赛/里/我/赢/了/第一/场，/可是/最后/还是/输/了。|Bǐsài li wǒ yíng le dìyī chǎng, kěshì zuìhòu háishi shū le.|En el torneo gané el primer partido, pero al final perdí.
 对手/过来/和/我/握手，/我/向/他/祝贺。|Duìshǒu guòlái hé wǒ wòshǒu, wǒ xiàng tā zhùhè.|El rival vino a darme la mano y yo lo felicité.
 比赛/让/我们/有/了/友谊，/输/赢/不/重要。|Bǐsài ràng wǒmen yǒu le yǒuyì, shū yíng bú zhòngyào.|El deporte nos hizo ganar amistad: ganar o perder no importa.`, `o|¿Qué cambio nota el narrador tras un mes entrenando?|Se siente con más fuerza en el cuerpo|Ha perdido el miedo a hablar en público|Ya no necesita la ayuda del entrenador|Juega mejor que el campeón de la ciudad
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El narrador ganó el partido final|Un compañero madruga para entrenar|El narrador felicitó a su rival al terminar|Los padres del narrador aceptaron la invitación
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|El narrador ganó el partido final|Un compañero madruga para entrenar|El narrador felicitó a su rival al terminar|Los padres del narrador aceptaron la invitación
 z|5
 f|6`, '', 'kevin'],
 
@@ -60,7 +60,7 @@ f|6`, '', 'kevin'],
 一/个/星期/以后，/皮肤/慢慢/恢复/了。|Yí ge xīngqī yǐhòu, pífū mànmàn huīfù le.|Una semana después la piel se fue recuperando.
 现在/我/看到/西红柿，/还是/有点/害怕。|Xiànzài wǒ kàndào xīhóngshì, háishi yǒudiǎn hàipà.|Ahora, al ver un tomate, todavía me da un poco de miedo.
 朋友/说/这/是/个/教训，/以后/要/小心/吃/的/东西。|Péngyou shuō zhè shì ge jiàoxùn, yǐhòu yào xiǎoxīn chī de dōngxi.|Mi amigo dice que es una lección: en adelante hay que tener cuidado con lo que se come.`, `o|¿Qué diagnosticó el médico?|Una reacción alérgica a un alimento|Una infección vírica en la piel|Una quemadura leve por tomar el sol|Una picadura de un insecto en el brazo
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El narrador tuvo que quedarse ingresado en el hospital|Al principio pensó en una enfermedad vírica|El médico le pidió paciencia con el picor|Tras una semana la piel mejoró
+x|¿Cuál de estas ideas NO encaja con el texto?|El narrador tuvo que quedarse ingresado en el hospital|Al principio pensó en una enfermedad vírica|El médico le pidió paciencia con el picor|Tras una semana la piel mejoró
 z|7
 f|10`, `痒|picar; picor
 劝|aconsejar; persuadir`, 'teo'],
@@ -77,7 +77,7 @@ f|10`, `痒|picar; picor
 这/几/年/中国/经济/繁荣，/城市/变化/很/大。|Zhè jǐ nián Zhōngguó jīngjì fánróng, chéngshì biànhuà hěn dà.|En estos años la economía china ha prosperado y las ciudades han cambiado mucho.
 改革/让/很多/地方/发展/起来，/从而/缩小/了/和/大/城市/的/差距。|Gǎigé ràng hěnduō dìfang fāzhǎn qǐlái, cóngér suōxiǎo le hé dà chéngshì de chājù.|Las reformas hicieron crecer muchos lugares y así redujeron la distancia con las grandes ciudades.
 这/次/旅行/让/我/明白，/出门/前/要/准备/好/一切。|Zhè cì lǚxíng ràng wǒ míngbai, chūmén qián yào zhǔnbèi hǎo yíqiè.|Este viaje me enseñó que antes de salir hay que dejarlo todo preparado.`, `o|¿Por qué hacía falta una carta de invitación?|Sin ella no daban el visado|Hay que enseñarla en el aeropuerto|El hotel la exigía para reservar|Servía para pagar menos impuestos
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El narrador tuvo que pagar una multa por quedarse de más|El formulario del visado pide datos personales|Una aerolínea compensó a un compañero por su equipaje|Las ciudades chinas han cambiado mucho en pocos años
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|El narrador tuvo que pagar una multa por quedarse de más|El formulario del visado pide datos personales|Una aerolínea compensó a un compañero por su equipaje|Las ciudades chinas han cambiado mucho en pocos años
 z|10
 f|3`, `五百|quinientos`, 'carlos'],
 
@@ -93,7 +93,7 @@ f|3`, `五百|quinientos`, 'carlos'],
 一/个/男孩/不/听/话，/想/闯/进/危险/的/房子/找/小/狗。|Yí ge nánhái bù tīng huà, xiǎng chuǎng jìn wēixiǎn de fángzi zhǎo xiǎo gǒu.|Un niño desobedeció y quiso colarse en una casa peligrosa a buscar a su perro.
 一/位/军人/拉/住/了/他，/说/先/保证/自己/的/安全。|Yí wèi jūnrén lā zhù le tā, shuō xiān bǎozhèng zìjǐ de ānquán.|Un soldado lo sujetó y le dijo que primero cuidara su propia seguridad.
 第二/天/天/亮/了，/大家/哭/着/抱/在/一起，/我/永远/不/会/忘记。|Dì'èr tiān tiān liàng le, dàjiā kū zhe bào zài yìqǐ, wǒ yǒngyuǎn bú huì wàngjì.|Al amanecer del día siguiente todos lloraban abrazados y yo nunca lo olvidaré.`, `o|¿Por qué los vehículos no podían entrar en la zona?|Las piedras bloqueaban el camino|Se había agotado la gasolina|El puente se había hundido|El barro cubría toda la carretera
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Los soldados tardaron varios días en llegar al lugar|Los vecinos trabajaron juntos todo el día|Un niño quiso entrar en un edificio peligroso|Algunos edificios viejos se derrumbaron
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|Los soldados tardaron varios días en llegar al lugar|Los vecinos trabajaron juntos todo el día|Un niño quiso entrar en un edificio peligroso|Algunos edificios viejos se derrumbaron
 z|6
 f|3`, `晃|balancearse; temblar
 警报|alarma`, 'samu'],
@@ -129,7 +129,7 @@ f|11`, `毒|veneno
 我/抓/住/机会/按/下/快门，/照片/拍/得/特别/好。|Wǒ zhuā zhù jīhuì àn xià kuàimén, zhàopiàn pāi de tèbié hǎo.|Aproveché la ocasión para disparar la cámara y la foto salió buenísima.
 在/那/个/频道/播放/以后，/很多/人/想/买/那/条/牛仔裤。|Zài nà ge píndào bōfàng yǐhòu, hěnduō rén xiǎng mǎi nà tiáo niúzǎikù.|Después de emitirse en ese canal, mucha gente quiso comprar esos vaqueros.
 看来，/摄影/不/只/是/拍/照，/还/要/会/讲/故事。|Kànlái, shèyǐng bù zhǐ shì pāi zhào, hái yào huì jiǎng gùshi.|Se ve que la fotografía no es solo hacer fotos, también hay que saber contar historias.`, `o|¿Por qué corrió el caballo durante el rodaje?|Se asustó con la voz del director|Vio una serpiente en el camino|Oyó un disparo real cerca|Le tapó la cara la bufanda
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|La pistola usada tenía balas de verdad|El caballo imitaba algunos gestos de las personas|El anuncio despertó el interés de mucha gente|El actor logró mantenerse sobre el caballo
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|La pistola usada tenía balas de verdad|El caballo imitaba algunos gestos de las personas|El anuncio despertó el interés de mucha gente|El actor logró mantenerse sobre el caballo
 z|8
 f|4`, `牛仔|vaquero
 靴子|botas
@@ -150,7 +150,7 @@ f|4`, `牛仔|vaquero
 坐/在/车/里，/大家/吃/着/梨，/听/着/雨声/聊天。|Zuò zài chē li, dàjiā chī zhe lí, tīng zhe yǔshēng liáotiān.|Sentados en el coche, comimos peras y charlamos oyendo la lluvia.
 弟弟/说/这/是/最/难忘/的/野餐。|Dìdi shuō zhè shì zuì nánwàng de yěcān.|Mi hermano dijo que era el picnic más inolvidable.
 回家/以后，/妹妹/的/裙子/洗/干净/了，/她/也/不/再/生气/了。|Huíjiā yǐhòu, mèimei de qúnzi xǐ gānjìng le, tā yě bú zài shēngqì le.|Al volver a casa, la falda de mi hermana quedó limpia y ya no estaba enfadada.`, `o|¿Por qué no pudieron hacer la barbacoa?|Se habían olvidado las cerillas en casa|Empezó a llover antes de encender|El fuego estaba prohibido en el monte|Faltaba la carne que iban a asar
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Llevaron comida caliente preparada en casa|A la hermana se le manchó la falda de zumo|Se refugiaron en el coche cuando llovió|El hermano comió con las manos por falta de cubiertos
+x|¿Cuál de estas ideas NO encaja con el texto?|Llevaron comida caliente preparada en casa|A la hermana se le manchó la falda de zumo|Se refugiaron en el coche cuando llovió|El hermano comió con las manos por falta de cubiertos
 z|7
 f|11`, `野餐|picnic
 烤|asar

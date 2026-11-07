@@ -8,7 +8,7 @@
 云海/在/脚下/翻滚，/太阳/慢慢/升/起来。|Yúnhǎi zài jiǎoxià fāngǔn, tàiyáng mànmàn shēng qǐlái.|El mar de nubes ondulaba a nuestros pies y el sol subía poco a poco.
 那/一/刻，/所有/的/疲劳/都/消失/了。|Nà yí kè, suǒyǒu de píláo dōu xiāoshī le.|En ese instante, todo el cansancio desapareció.
 原来，/最/美/的/风景/往往/在/最/累/的/地方。|Yuánlái, zuì měi de fēngjǐng wǎngwǎng zài zuì lèi de dìfang.|Resulta que el paisaje más hermoso suele estar donde más cuesta llegar.`, `o|¿Por qué decidieron subir de madrugada?|Para ver amanecer desde la cima|Para evitar el calor del mediodía|Porque de día el sendero estaba cerrado|Para hacer una competición entre ellos
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Un compañero tuvo que bajar en helicóptero|El camino era empinado y resbaladizo|A un compañero le dio un calambre en la pierna|Se animaron unos a otros durante el descanso
+x|¿Cuál de estas ideas NO encaja con el texto?|Un compañero tuvo que bajar en helicóptero|El camino era empinado y resbaladizo|A un compañero le dio un calambre en la pierna|Se animaron unos a otros durante el descanso
 z|6
 f|5`, `日出|amanecer
 半夜|medianoche
@@ -30,7 +30,7 @@ f|5`, `日出|amanecer
 老板/马上/打/电话/要求/退款。|Lǎobǎn mǎshàng dǎ diànhuà yāoqiú tuìkuǎn.|El jefe llamó enseguida para exigir la devolución.
 对方/态度/很/好，/当天/就/把/钱/还/了。|Duìfāng tàidù hěn hǎo, dàngtiān jiù bǎ qián huán le.|La otra parte fue amable y devolvió el dinero ese mismo día.
 老板/说，/以后/每/笔/付款/都/要/仔细/检查。|Lǎobǎn shuō, yǐhòu měi bǐ fùkuǎn dōu yào zǐxì jiǎnchá.|El jefe dijo que a partir de ahora revisaría con cuidado cada pago.`, `o|¿Dónde estaba el error?|En un cobro duplicado de un proveedor|En un fallo de la contable|En un cambio de tarifas del banco|En una factura falsificada
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|La contable fue despedida por el error|El jefe sospechó primero de la contable|El proveedor devolvió el dinero ese mismo día|El jefe decidió revisar mejor los pagos
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|La contable fue despedida por el error|El jefe sospechó primero de la contable|El proveedor devolvió el dinero ese mismo día|El jefe decidió revisar mejor los pagos
 z|4
 f|5`, `供应商|proveedor
 批|lote
@@ -48,7 +48,7 @@ f|5`, `供应商|proveedor
 如今/会/这/门/手艺/的/人/已经/不/多/了。|Rújīn huì zhè mén shǒuyì de rén yǐjīng bù duō le.|Hoy ya quedan pocos que dominen este oficio.
 有/位/老/艺人/收/了/几/个/年轻/徒弟，/希望/技艺/能/传下去。|Yǒu wèi lǎo yìrén shōu le jǐ ge niánqīng túdì, xīwàng jìyì néng chuánxiàqù.|Un viejo artista tomó a varios jóvenes aprendices con la esperanza de transmitir su técnica.
 他/说，/只要/还有/观众，/这/门/艺术/就/不/会/消失。|Tā shuō, zhǐyào háiyǒu guānzhòng, zhè mén yìshù jiù bú huì xiāoshī.|Dice que mientras haya público, este arte no desaparecerá.`, `o|¿Qué desea el viejo artista?|Que su técnica pase a nuevas generaciones|Ganar dinero con los turistas|Cerrar su teatro y jubilarse|Cambiar las figuras por pantallas
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Hoy casi todos los jóvenes dominan este oficio|Las sombras se logran con luz y una tela|Antes la gente se reunía a verlo de noche|El maestro tiene algunos aprendices
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|Hoy casi todos los jóvenes dominan este oficio|Las sombras se logran con luz y una tela|Antes la gente se reunía a verlo de noche|El maestro tiene algunos aprendices
 z|3
 f|4`, `皮影戏|teatro de sombras
 古老|antiguo
@@ -88,7 +88,7 @@ f|4`, `珊瑚礁|arrecife de coral
 但/它/也/有/缺陷：/结果/常常/取决于/长辈/的/个人/判断。|Dàn tā yě yǒu quēxiàn: jiéguǒ chángcháng qǔjuéyú zhǎngbèi de gèrén pànduàn.|Pero tiene un defecto: el resultado suele depender del juicio personal del mayor.
 随着/社会/变化，/越来越/多/的/人/信任/法院。|Suízhe shèhuì biànhuà, yuèláiyuè duō de rén xìnrèn fǎyuàn.|Con los cambios sociales, cada vez más gente confía en los tribunales.
 学者/认为，/理想/的/做法/是/让/法律/与/传统/互相/补充。|Xuézhě rènwéi, lǐxiǎng de zuòfǎ shì ràng fǎlǜ yǔ chuántǒng hùxiāng bǔchōng.|Los estudiosos piensan que lo ideal es que ley y tradición se complementen.`, `o|¿Qué defienden los estudiosos?|Que la ley y la tradición se complementen|Que se elimine la tradición|Que los ancianos sustituyan a los jueces|Que cada aldea redacte sus leyes
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Los mayores resuelven siempre los conflictos sin error|Mediar con un anciano sale más barato|Cada vez más gente confía en los tribunales|El resultado depende a veces del criterio del mediador
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Los mayores resuelven siempre los conflictos sin error|Mediar con un anciano sale más barato|Cada vez más gente confía en los tribunales|El resultado depende a veces del criterio del mediador
 z|7
 f|6`, `村落|aldea
 纠纷|conflicto
@@ -105,7 +105,7 @@ f|6`, `村落|aldea
 在/这/样/的/氛围/里，/人/的/心情/会/自然/平静/下来。|Zài zhè yàng de fēnwéi lǐ, rén de xīnqíng huì zìrán píngjìng xiàlái.|En un ambiente así, el ánimo se calma de forma natural.
 许多/上班族/借此/摆脱/压力，/找回/内心/的/平衡。|Xǔduō shàngbānzú jiècǐ bǎituō yālì, zhǎohuí nèixīn de pínghéng.|Muchos oficinistas se libran así del estrés y recuperan su equilibrio interior.
 可见，/传统/礼仪/在/现代/生活/中/依然/有/其/价值。|Kějiàn, chuántǒng lǐyí zài xiàndài shēnghuó zhōng yīrán yǒu qí jiàzhí.|Se ve que la etiqueta tradicional sigue teniendo valor en la vida moderna.`, `o|¿Para qué usa mucha gente hoy la ceremonia del té?|Para aliviar el estrés y recuperar el equilibrio|Para cerrar negocios con extranjeros|Para competir con otros maestros|Para ahorrar tiempo en el desayuno
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El té se prepara con prisa y sin reglas|El invitado recibe la taza con ambas manos|El anfitrión lava las tazas antes de servir|El ambiente ayuda a calmar el ánimo
+x|¿Cuál de estas ideas NO encaja con el texto?|El té se prepara con prisa y sin reglas|El invitado recibe la taza con ambas manos|El anfitrión lava las tazas antes de servir|El ambiente ayuda a calmar el ánimo
 z|5
 f|4`, `茶道|ceremonia del té
 修养|cultura personal

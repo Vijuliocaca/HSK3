@@ -52,7 +52,7 @@ f|1`, `十八|dieciocho
 妈妈/是/老师，/她/很/忙。|Māma shì lǎoshī, tā hěn máng.|Mi madre es profesora y está muy ocupada.
 哥哥/今年/十八/岁，/他/是/大学生。|Gēge jīnnián shíbā suì, tā shì dàxuéshēng.|Mi hermano tiene dieciocho años y es universitario.
 我们/都/很/爱/这个/家。|Wǒmen dōu hěn ài zhège jiā.|Todos queremos mucho a esta familia.`, `o|¿Cómo se siente el narrador con su familia?|Unido a ella: la quiere mucho|Distante, por el trabajo de sus padres|Agobiado por tantas obligaciones|Preocupado por el futuro de su hermano
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El hermano mayor trabaja en el hospital de su padre|El padre atiende a pacientes en el hospital donde trabaja|La madre se dedica a dar clase a sus alumnos|El hermano mayor sigue estudiando en la universidad
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|El hermano mayor trabaja en el hospital de su padre|El padre atiende a pacientes en el hospital donde trabaja|La madre se dedica a dar clase a sus alumnos|El hermano mayor sigue estudiando en la universidad
 z|2
 f|3`, ``, 'samu'],
 
@@ -62,7 +62,7 @@ f|3`, ``, 'samu'],
 中午/我/在/学校/吃饭。|Zhōngwǔ wǒ zài xuéxiào chīfàn.|Al mediodía como en la escuela.
 下午/五/点/我/回/家。|Xiàwǔ wǔ diǎn wǒ huí jiā.|A las cinco de la tarde vuelvo a casa.
 晚上/十/点/我/睡觉。|Wǎnshang shí diǎn wǒ shuìjiào.|A las diez de la noche me acuesto.`, `o|Entre que sale hacia la escuela y que vuelve a casa, ¿cuánto tiempo pasa fuera?|Unas nueve horas|Unas siete horas|Unas ocho horas|Unas diez horas
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El narrador cena todos los días en la escuela|Su jornada tiene un horario muy regular y ordenado|Desayuna antes de ir a clase por la mañana|Pasa la hora de comer dentro de la escuela
+x|¿Cuál de estas ideas NO encaja con el texto?|El narrador cena todos los días en la escuela|Su jornada tiene un horario muy regular y ordenado|Desayuna antes de ir a clase por la mañana|Pasa la hora de comer dentro de la escuela
 z|4
 f|3`, ``, 'samu'],
 
@@ -71,7 +71,7 @@ f|3`, ``, 'samu'],
 苹果/五/块/钱/一/斤，/不/贵。|Píngguǒ wǔ kuài qián yì jīn, bú guì.|Las manzanas cuestan cinco yuanes el jin; no son caras.
 我/还/想/买/一/个/杯子。|Wǒ hái xiǎng mǎi yí ge bēizi.|También quiero comprar un vaso.
 妈妈/说/可以。|Māma shuō kěyǐ.|Mamá dice que sí.`, `o|¿Qué se deduce de que la madre responda que sí al vaso?|Que accede a comprárselo|Que el vaso estaba muy barato|Que el narrador ya tenía otro igual|Que prefiere comprarlo otro día
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Las manzanas estaban de oferta ese día|Al narrador le parece barato el precio de las manzanas|El narrador y su madre fueron juntos a comprar|Compraron comida y también bebida
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Las manzanas estaban de oferta ese día|Al narrador le parece barato el precio de las manzanas|El narrador y su madre fueron juntos a comprar|Compraron comida y también bebida
 z|3
 f|1`, ``, 'samu'],
 
@@ -81,7 +81,7 @@ f|1`, ``, 'samu'],
 我/和/朋友/一起/吃/西瓜。|Wǒ hé péngyou yìqǐ chī xīguā.|Como sandía con mis amigos.
 一/个/西瓜/五/块/钱。|Yí ge xīguā wǔ kuài qián.|Una sandía cuesta cinco yuanes.
 我/每天/都/想/吃。|Wǒ měitiān dōu xiǎng chī.|Todos los días tengo ganas de comerla.`, `o|¿Qué relación ve Samu entre el calor y la sandía?|Le apetece sobre todo cuando hace calor|Solo se vende en la época de calor|El calor le quita las ganas de comer|La come para refrescarse con amigos
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Samu prefiere comer la sandía él solo|Samu comparte la sandía con amigos|A Samu le parece grande y rica|Samu querría comer sandía a diario
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|Samu prefiere comer la sandía él solo|Samu comparte la sandía con amigos|A Samu le parece grande y rica|Samu querría comer sandía a diario
 z|2
 f|4`, ``, 'samu'],
 
@@ -100,7 +100,7 @@ f|2`, ``, 'yuyue'],
 下雨/的/时候，/我/坐/公共汽车。|Xiàyǔ de shíhou, wǒ zuò gōnggòngqìchē.|Cuando llueve, voy en autobús.
 今天/天气/很/好，/我/骑/得/很/快。|Jīntiān tiānqì hěn hǎo, wǒ qí de hěn kuài.|Hoy hace buen tiempo y pedaleo muy rápido.
 我/到/学校/的/时候，/老师/还/没/来。|Wǒ dào xuéxiào de shíhou, lǎoshī hái méi lái.|Cuando llego a la escuela, el profesor aún no ha llegado.`, `o|Si el profesor aún no ha llegado cuando llega el narrador, ¿qué se deduce?|Que ese día el narrador llegó pronto|Que el profesor suele llegar siempre tarde|Que ese día no había clase en la escuela|Que el narrador llegó tarde a clase
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El narrador va siempre a la escuela en autobús|Cuando llueve cambia de medio de transporte para ir|La escuela queda bastante cerca de la casa del narrador|En bicicleta el trayecto hasta la escuela resulta corto
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|El narrador va siempre a la escuela en autobús|Cuando llueve cambia de medio de transporte para ir|La escuela queda bastante cerca de la casa del narrador|En bicicleta el trayecto hasta la escuela resulta corto
 z|4
 f|3`, ``, 'binhao'],
 
@@ -110,7 +110,7 @@ f|3`, ``, 'binhao'],
 所以/我/买/了/漂亮/的/花，/还/买/了/好/茶。|Suǒyǐ wǒ mǎi le piàoliang de huā, hái mǎi le hǎo chá.|Así que compré flores bonitas y también buen té.
 妈妈/看到/礼物，/笑/了。|Māma kàndào lǐwù, xiào le.|Cuando mamá ve el regalo, sonríe.
 她/说/谢谢/你，/她/非常/喜欢。|Tā shuō xièxie nǐ, tā fēicháng xǐhuan.|Dice gracias; le gusta muchísimo.`, `o|¿Por qué pide consejo el narrador a un amigo?|Porque no sabía qué le gustaría a su madre|Porque no tenía dinero para comprar el regalo|Porque quería regalarle algo también a su amigo|Porque su madre se lo había pedido el día antes
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|La madre ya había pedido flores y té|El regalo se eligió con el consejo de un amigo|A la madre le gustó mucho el regalo|El narrador compró dos cosas distintas
+x|¿Cuál de estas ideas NO encaja con el texto?|La madre ya había pedido flores y té|El regalo se eligió con el consejo de un amigo|A la madre le gustó mucho el regalo|El narrador compró dos cosas distintas
 z|3
 f|1`, ``, 'samu'],
 
@@ -119,7 +119,7 @@ f|1`, ``, 'samu'],
 弟弟/想/喝/水，/我/就/去/买/了/两/瓶。|Dìdi xiǎng hē shuǐ, wǒ jiù qù mǎi le liǎng píng.|Mi hermano pequeño tenía sed y fui a comprar dos botellas.
 我们/玩/了/三/个/小时/才/回/家。|Wǒmen wán le sān ge xiǎoshí cái huí jiā.|Jugamos tres horas antes de volver a casa.
 真/是/快乐/的/一/天！|Zhēn shì kuàilè de yì tiān!|¡Qué día tan feliz!`, `o|¿Qué ambiente transmite el texto?|Un día tranquilo y agradable en familia|Una jornada agotadora y llena de prisas|Un día de tensión entre hermanos|Una excursión con muchos problemas
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Todas las personas del parque hacían lo mismo|En el parque había gente haciendo cosas distintas|Lo pasaron bien y jugaron durante un buen rato|El hermano pequeño necesitaba beber algo
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Todas las personas del parque hacían lo mismo|En el parque había gente haciendo cosas distintas|Lo pasaron bien y jugaron durante un buen rato|El hermano pequeño necesitaba beber algo
 z|3
 f|5`, ``, 'payolink'],
 
@@ -129,7 +129,7 @@ f|5`, ``, 'payolink'],
 所以/我/对/服务员/说，/请/不要/放/牛奶。|Suǒyǐ wǒ duì fúwùyuán shuō, qǐng búyào fàng niúnǎi.|Así que le digo al camarero que, por favor, no ponga leche.
 服务员/笑/着/说，/没/问题，/你/可以/喝/黑/咖啡。|Fúwùyuán xiào zhe shuō, méi wèntí, nǐ kěyǐ hē hēi kāfēi.|El camarero sonríe y dice: no hay problema, puedes tomar café solo.
 我/的/朋友/喝/了/奶茶，/我/喝/的/是/黑/咖啡。|Wǒ de péngyou hē le nǎichá, wǒ hē de shì hēi kāfēi.|Mi amigo toma té con leche y yo, café solo.`, `o|¿Cómo resuelve Payolink su problema con la leche en la cafetería?|Lo explica con naturalidad y pide algo que le conviene|Renuncia a pedir nada para no complicarle la vida al camarero|Pide lo mismo que su amigo y aguanta las molestias|Se queja al camarero y se marcha de la cafetería
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El camarero se niega a preparar café sin leche|Hay bebidas que Payolink sí puede tomar sin problema|Payolink y su amigo piden bebidas bastante distintas|Payolink sabe bien qué alimentos le sientan mal
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|El camarero se niega a preparar café sin leche|Hay bebidas que Payolink sí puede tomar sin problema|Payolink y su amigo piden bebidas bastante distintas|Payolink sabe bien qué alimentos le sientan mal
 z|2
 f|1`, `咖啡店|cafetería
 肚子|estómago
@@ -158,7 +158,7 @@ f|1`, `肯德基|KFC
 我/的/同事/都/很/好，/我们/常常/一起/吃/午饭。|Wǒ de tóngshì dōu hěn hǎo, wǒmen chángcháng yìqǐ chī wǔfàn.|Mis compañeros son muy buenos y solemos comer juntos.
 有/时候/工作/很/忙，/可是/我/不/觉得/累。|Yǒu shíhou gōngzuò hěn máng, kěshì wǒ bù juéde lèi.|A veces hay mucho trabajo, pero no me siento cansado.
 因为/我/喜欢/做/的/事，/所以/每天/都/很/快乐。|Yīnwèi wǒ xǐhuan zuò de shì, suǒyǐ měitiān dōu hěn kuàilè.|Como me gusta lo que hago, cada día soy feliz.`, `o|¿Qué relación ve BinHao entre su trabajo y su felicidad?|Es feliz porque hace algo que le gusta|Es feliz porque gana mucho dinero|Es feliz porque trabaja muy pocas horas|Es feliz porque no tiene jefe que le mande
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|BinHao cambiaría de trabajo si pudiera|BinHao se lleva bien con su equipo|A BinHao no le pesa el trabajo duro|BinHao empieza cada día con buen ánimo
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|BinHao cambiaría de trabajo si pudiera|BinHao se lleva bien con su equipo|A BinHao no le pesa el trabajo duro|BinHao empieza cada día con buen ánimo
 z|5
 f|1`, `同事|compañero de trabajo
 上班|ir a trabajar`, 'binhao'],
@@ -169,7 +169,7 @@ f|1`, `同事|compañero de trabajo
 很多/人/在/花/前/拍照，/我们/也/拍/了/很多/照片。|Hěnduō rén zài huā qián pāizhào, wǒmen yě pāi le hěnduō zhàopiàn.|Mucha gente se fotografiaba ante las flores; nosotros sacamos muchas fotos.
 回家/的/路上，/天/突然/下/起/雨/来/了。|Huíjiā de lùshang, tiān tūrán xià qǐ yǔ lái le.|De camino a casa empezó a llover de repente.
 可是/我们/一点/也/不/难过。|Kěshì wǒmen yìdiǎn yě bù nánguò.|Pero no estábamos nada tristes.`, `o|Tras empezar a llover, ¿qué se deduce de «no estábamos nada tristes»?|Que disfrutaron tanto que la lluvia no les importó|Que ya llevaban paraguas y no se mojaron en absoluto|Que habían previsto con antelación que iba a llover|Que se olvidaron de las flores por la lluvia
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Fueron a ver las flores sin compañía de nadie|Disfrutaron del paseo a pesar del final inesperado|El plan lo compartieron con un grupo de amigos|Guardaron recuerdos del día con muchas fotografías
+x|¿Cuál de estas ideas NO encaja con el texto?|Fueron a ver las flores sin compañía de nadie|Disfrutaron del paseo a pesar del final inesperado|El plan lo compartieron con un grupo de amigos|Guardaron recuerdos del día con muchas fotografías
 z|5
 f|6`, ``, 'yuyue'],
 
@@ -179,7 +179,7 @@ f|6`, ``, 'yuyue'],
 然后/我们/又/去/看/了/老虎/和/猴子。|Ránhòu wǒmen yòu qù kàn le lǎohǔ hé hóuzi.|Después vimos los tigres y los monos.
 猴子/特别/聪明，/还/会/跟/人/玩。|Hóuzi tèbié cōngmíng, hái huì gēn rén wán.|Los monos son muy listos y hasta juegan con la gente.
 中午/我们/在/动物园/里/吃/了/午饭，/下午/才/回/家。|Zhōngwǔ wǒmen zài dòngwùyuán lǐ chī le wǔfàn, xiàwǔ cái huí jiā.|Comimos en el zoo y volvimos a casa por la tarde.`, `o|¿Cómo fue, en conjunto, la visita al zoo?|Una excursión familiar completa, de mañana a tarde|Una visita rápida de apenas una hora por la mañana|Una excursión organizada por la escuela|Un paseo nocturno para ver animales con linterna
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Los pandas estuvieron durmiendo todo el rato|La familia comió dentro del zoo antes de volver|Los pandas parecían tranquilos y muy simpáticos|Vieron animales de varias clases durante la visita
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Los pandas estuvieron durmiendo todo el rato|La familia comió dentro del zoo antes de volver|Los pandas parecían tranquilos y muy simpáticos|Vieron animales de varias clases durante la visita
 z|1
 f|2`, `大熊猫|panda gigante
 竹子|bambú
@@ -192,7 +192,7 @@ f|2`, `大熊猫|panda gigante
 现在/我/可以/和/中国/朋友/聊天/了。|Xiànzài wǒ kěyǐ hé Zhōngguó péngyou liáotiān le.|Ahora ya puedo charlar con amigos chinos.
 老师/说/我/进步/很/快，/我/听/了/非常/高兴。|Lǎoshī shuō wǒ jìnbù hěn kuài, wǒ tīng le fēicháng gāoxìng.|El profesor dice que progreso rápido y eso me alegra mucho.
 我/会/继续/努力，/明年/参加/考试。|Wǒ huì jìxù nǔlì, míngnián cānjiā kǎoshì.|Seguiré esforzándome y el año que viene haré el examen.`, `o|¿Qué evolución cuenta el narrador?|De sentirse perdido con los tonos a charlar con chinos|De hablar muy bien a olvidarse de casi todo lo aprendido|De estudiar solo en casa a abandonar el curso por completo|De escribir muy bien a hablar con mucha dificultad
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El narrador piensa dejar de estudiar chino|El narrador se ayuda con música y cine|Su profesor está contento con su avance|El narrador quiere certificar su nivel
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|El narrador piensa dejar de estudiar chino|El narrador se ayuda con música y cine|Su profesor está contento con su avance|El narrador quiere certificar su nivel
 z|2
 f|1`, `声调|tonos
 进步|progresar
@@ -215,7 +215,7 @@ f|4`, `泡|preparar (té) con agua caliente`, 'yuyue'],
 兽医/说，/很多/猫/喝/了/牛奶/也/会/不/舒服。|Shòuyī shuō, hěnduō māo hē le niúnǎi yě huì bù shūfu.|El veterinario dijo que a muchos gatos también les sienta mal la leche.
 兽医/让/我/的/猫/多/喝/水。|Shòuyī ràng wǒ de māo duō hē shuǐ.|El veterinario recomendó que mi gato beba más agua.
 现在/我们/都/不/喝/牛奶，/我们/都/喝/水。|Xiànzài wǒmen dōu bù hē niúnǎi, wǒmen dōu hē shuǐ.|Ahora ninguno de los dos bebe leche: los dos bebemos agua.`, `o|¿Qué deciden hacer Payolink y su gato al final?|Dejar la leche y beber agua|Pasarse a la leche sin lactosa|Beber menos agua que antes|Ir al veterinario todos los meses
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El gato nunca ha probado la leche|La leche también puede sentar mal a los gatos|Payolink tiene molestias cuando toma leche|El veterinario aconseja darle agua al gato
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|El gato nunca ha probado la leche|La leche también puede sentar mal a los gatos|Payolink tiene molestias cuando toma leche|El veterinario aconseja darle agua al gato
 z|6
 f|1`, `疼|doler
 兽医|veterinario; veterinaria`, 'payolink'],
@@ -226,7 +226,7 @@ f|1`, `疼|doler
 到/了/以后，/我/先/去/看/了/兵马俑。|Dào le yǐhòu, wǒ xiān qù kàn le Bīngmǎyǒng.|Al llegar fui primero a ver los guerreros de terracota.
 那些/士兵/的/数量/让/我/非常/吃惊。|Nàxiē shìbīng de shùliàng ràng wǒ fēicháng chījīng.|La cantidad de soldados me dejó muy asombrado.
 这/次/旅行/让/我/明白，/一/个/人/出门/也/可以/很/有趣。|Zhè cì lǚxíng ràng wǒ míngbai, yí ge rén chūmén yě kěyǐ hěn yǒuqù.|Este viaje me hizo ver que viajar solo también puede ser muy divertido.`, `o|¿Qué conclusión saca el narrador de su viaje?|Que viajar solo también puede ser muy divertido|Que es mucho mejor viajar con otras personas|Que el tren es un transporte demasiado incómodo|Que Xi'an es una ciudad demasiado cara para visitar
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Hizo el viaje con un grupo de amigos|Hizo el viaje en vacaciones|Recibió consejos de una persona mayor|Le impresionó lo que vio en Xi'an
+x|¿Cuál de estas ideas NO encaja con el texto?|Hizo el viaje con un grupo de amigos|Hizo el viaje en vacaciones|Recibió consejos de una persona mayor|Le impresionó lo que vio en Xi'an
 z|2
 f|5`, `兵马俑|guerreros de terracota
 士兵|soldado
@@ -239,7 +239,7 @@ f|5`, `兵马俑|guerreros de terracota
 睡/前/不要/玩/手机，/因为/屏幕/的/光/会/影响/睡眠。|Shuì qián búyào wán shǒujī, yīnwèi píngmù de guāng huì yǐngxiǎng shuìmián.|No uses el móvil antes de dormir, porque la luz de la pantalla afecta al sueño.
 另外，/房间/要/安静、/黑暗，/温度/也/不/能/太/高。|Lìngwài, fángjiān yào ānjìng, hēi'àn, wēndù yě bù néng tài gāo.|Además, la habitación debe ser tranquila y oscura, y no demasiado cálida.
 养成/好/习惯，/你/的/身体/会/感谢/你。|Yǎngchéng hǎo xíguàn, nǐ de shēntǐ huì gǎnxiè nǐ.|Crea buenos hábitos y tu cuerpo te lo agradecerá.`, `o|¿Cuál es la idea principal del texto?|Dormir bien es importante y requiere buenos hábitos|Hay que dormir lo menos posible para rendir mejor en todo|Solo los niños pequeños necesitan dormir bastante|El móvil ayuda a conciliar mejor el sueño por las noches
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Usar el móvil en la cama es bueno para relajarse|Dormir poco dificulta concentrarse|Conviene una habitación tranquila y oscura|Los hábitos de sueño influyen en el cuerpo
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Usar el móvil en la cama es bueno para relajarse|Dormir poco dificulta concentrarse|Conviene una habitación tranquila y oscura|Los hábitos de sueño influyen en el cuerpo
 z|1
 f|6`, `集中|concentrar
 精神|ánimo; atención
@@ -254,7 +254,7 @@ f|6`, `集中|concentrar
 价格/常常/比/商店/便宜，/还/可以/退货。|Jiàgé chángcháng bǐ shāngdiàn piányi, hái kěyǐ tuìhuò.|El precio suele ser más barato que en la tienda y además se puede devolver.
 不过/有时候/东西/和/照片/不/一样，/所以/要/看/评价。|Búguò yǒushíhou dōngxi hé zhàopiàn bù yíyàng, suǒyǐ yào kàn píngjià.|Pero a veces el producto no se parece a la foto, así que conviene leer las valoraciones.
 我/觉得/网上/购物/很/方便，/但是/也/要/小心。|Wǒ juéde wǎngshàng gòuwù hěn fāngbiàn, dànshì yě yào xiǎoxīn.|Creo que comprar online es muy cómodo, pero hay que tener cuidado.`, `o|¿Cuál es la postura del autor sobre comprar por internet?|Equilibrada: es cómodo y útil, pero con precauciones|A favor sin ningún reparo ni precaución alguna|Totalmente en contra, porque casi siempre sale mal|Indiferente: le da igual comprar de un modo u otro
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Comprar por internet es siempre más caro que en tienda|Se puede devolver un producto que no convence al comprador|Las valoraciones ayudan a decidir qué conviene comprar|El producto llega hasta la puerta de casa del cliente
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|Comprar por internet es siempre más caro que en tienda|Se puede devolver un producto que no convence al comprador|Las valoraciones ayudan a decidir qué conviene comprar|El producto llega hasta la puerta de casa del cliente
 z|2
 f|4`, `快递|mensajería; paquete urgente
 退货|devolver un producto
@@ -281,7 +281,7 @@ f|1`, `小提琴|violín
 还有，/西瓜/底下/最好/有/一/块/黄色。|Háiyǒu, xīguā dǐxia zuìhǎo yǒu yí kuài huángsè.|Además, es mejor que por debajo tenga una zona amarilla.
 不过/这些/办法/不/一定/都/对。|Búguò zhèxiē bànfǎ bù yídìng dōu duì.|Pero estos métodos no siempre son correctos.
 就算/挑/错/了，/和/朋友/一起/吃/也/很/开心。|Jiùsuàn tiāo cuò le, hé péngyou yìqǐ chī yě hěn kāixīn.|Aunque me equivoque, comerla con amigos es divertido.`, `o|¿Qué se deduce de «Pero estos métodos no siempre son correctos»?|Que aun siguiéndolos puede salir mala|Que los métodos no sirven para nada|Que solo valen para sandías pequeñas|Que conviene preguntar al vendedor
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Una sandía madura suena siempre aguda|Hay que fijarse en varios detalles a la vez|El narrador disfruta aunque se equivoque|Algunos consejos son de oídas, no seguros
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Una sandía madura suena siempre aguda|Hay que fijarse en varios detalles a la vez|El narrador disfruta aunque se equivoque|Algunos consejos son de oídas, no seguros
 z|6
 f|5`, `挑|elegir; escoger
 皮|piel; cáscara
@@ -297,7 +297,7 @@ f|5`, `挑|elegir; escoger
 下午，/客户/提出/了/一/个/新/要求，/我们/只好/重新/做/方案。|Xiàwǔ, kèhù tíchū le yí ge xīn yāoqiú, wǒmen zhǐhǎo chóngxīn zuò fāng'àn.|Por la tarde un cliente pidió algo nuevo y tuvimos que rehacer la propuesta.
 虽然/很/累，/但是/看到/客户/满意/的/笑容，/我/觉得/一切/都/值得。|Suīrán hěn lèi, dànshì kàndào kèhù mǎnyì de xiàoróng, wǒ juéde yíqiè dōu zhídé.|Aunque estaba cansado, al ver la sonrisa satisfecha del cliente sentí que todo había valido la pena.
 这/就是/我/喜欢/我/的/工作/的/原因。|Zhè jiùshì wǒ xǐhuan wǒ de gōngzuò de yuányīn.|Esa es la razón por la que me gusta mi trabajo.`, `o|¿Qué sentimiento domina al final del día de BinHao?|Satisfacción, pese al cansancio|Frustración por el cliente|Alivio porque por fin termina|Aburrimiento por la rutina
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El cliente se enfadó con la propuesta final|La jornada fue intensa y sin descansos largos|El cliente quedó contento al final del día|El trabajo previsto cambió a mitad de la jornada
+x|¿Cuál de estas ideas NO encaja con el texto?|El cliente se enfadó con la propuesta final|La jornada fue intensa y sin descansos largos|El cliente quedó contento al final del día|El trabajo previsto cambió a mitad de la jornada
 z|3
 f|6`, `会议|reunión
 会上|en la reunión
@@ -321,7 +321,7 @@ f|6`, `会议|reunión
 月饼/有/甜/的，/也/有/咸/的，/馅/有/很/多/种。|Yuèbǐng yǒu tián de, yě yǒu xián de, xiàn yǒu hěn duō zhǒng.|Hay pasteles de luna dulces y salados, con muchos tipos de relleno.
 关于/这个/节日，/还有/嫦娥/奔月/的/传说。|Guānyú zhège jiérì, háiyǒu Cháng'é bēnyuè de chuánshuō.|Sobre esta fiesta existe la leyenda de Chang'e, que voló a la luna.
 无论/身在/何处，/人们/都/会/抬头/看/月亮，/想念/家人。|Wúlùn shēnzài héchù, rénmen dōu huì táitóu kàn yuèliang, xiǎngniàn jiārén.|Estén donde estén, la gente mira la luna y piensa en su familia.`, `o|¿Qué idea une la luna redonda, los pasteles y mirar la luna?|La reunión de la familia|La riqueza que traerá el año|La buena cosecha de la temporada|El comienzo del invierno
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Es una fiesta que solo se celebra en las ciudades|Es una fiesta que gira en torno a la reunión de la familia|Mirar la luna une a quienes están lejos de los suyos|Tiene una leyenda muy conocida que la acompaña
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Es una fiesta que solo se celebra en las ciudades|Es una fiesta que gira en torno a la reunión de la familia|Mirar la luna une a quienes están lejos de los suyos|Tiene una leyenda muy conocida que la acompaña
 z|1
 f|5`, `中秋节|Festival del Medio Otoño
 农历|calendario lunar
@@ -342,7 +342,7 @@ f|5`, `中秋节|Festival del Medio Otoño
 今天，/中国/有/绿茶、/红茶、/乌龙茶/等等/许多/种类。|Jīntiān, Zhōngguó yǒu lǜchá, hóngchá, wūlóngchá děngděng xǔduō zhǒnglèi.|Hoy hay té verde, rojo, oolong y muchos otros tipos.
 不同/的/茶/要/用/不同/温度/的/水/来/泡。|Bùtóng de chá yào yòng bùtóng wēndù de shuǐ lái pào.|Cada té requiere agua a una temperatura distinta.
 对/很/多/中国人/来/说，/喝茶/不/只是/习惯，/更/是/一/种/生活/态度。|Duì hěn duō Zhōngguórén lái shuō, hēchá bù zhǐshì xíguàn, gèng shì yì zhǒng shēnghuó tàidù.|Para muchos chinos beber té es más que un hábito: es una actitud ante la vida.`, `o|¿Qué quiere decir «es más que un hábito: es una actitud ante la vida»?|Que el té forma parte del modo de vivir de muchos chinos|Que el té solo se bebe en ceremonias especiales y bodas|Que beber té es una obligación para todos los chinos|Que el té sustituye a las comidas principales del día
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Todos los tés se preparan exactamente igual|El té tiene un origen muy antiguo en el territorio de China|Existen muchos tipos de té diferentes entre sí|Con el paso del tiempo el té cambió de uso
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|Todos los tés se preparan exactamente igual|El té tiene un origen muy antiguo en el territorio de China|Existen muchos tipos de té diferentes entre sí|Con el paso del tiempo el té cambió de uso
 z|1
 f|4`, `故乡|tierra natal
 神农|Shennong (figura legendaria)
@@ -384,7 +384,7 @@ f|5`, `高铁|tren de alta velocidad
 不过，/农村/的/教育/和/医疗/条件/还/需要/改善。|Búguò, nóngcūn de jiàoyù hé yīliáo tiáojiàn hái xūyào gǎishàn.|Pero la educación y la sanidad rurales aún deben mejorar.
 有些/人/先/在/城市/工作/几/年，/再/回/老家/创业。|Yǒuxiē rén xiān zài chéngshì gōngzuò jǐ nián, zài huí lǎojiā chuàngyè.|Algunos trabajan unos años en la ciudad y luego vuelven a su pueblo a emprender.
 选择/哪里，/其实/取决于/每/个/人/的/追求。|Xuǎnzé nǎlǐ, qíshí qǔjuéyú měi ge rén de zhuīqiú.|Elegir dónde vivir depende en realidad de lo que busca cada uno.`, `o|¿Cuál es la conclusión del texto?|Que lo mejor depende de lo que busque cada persona|Que es siempre mejor vivir en una gran ciudad|Que el campo es siempre mejor para todo el mundo|Que casi nadie vuelve después a su pueblo de origen
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|En el campo hay más oportunidades de trabajo|En la ciudad se gana más, pero hay más presión|El campo es más tranquilo y fresco|Algunos regresan al pueblo con un proyecto propio
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|En el campo hay más oportunidades de trabajo|En la ciudad se gana más, pero hay más presión|El campo es más tranquilo y fresco|Algunos regresan al pueblo con un proyecto propio
 z|4
 f|1`, `收入|ingresos
 房价|precio de la vivienda
@@ -406,7 +406,7 @@ f|1`, `收入|ingresos
 比如，/早上/你/可以/吃到/粥/和/油条。|Bǐrú, zǎoshang nǐ kěyǐ chīdào zhōu hé yóutiáo.|Por ejemplo, por la mañana se pueden tomar gachas de arroz y yóutiáo.
 对/我/这样/的/年轻人/来/说，/肯德基/不/只是/快餐，/也是/和/朋友/见面/的/地方。|Duì wǒ zhèyàng de niánqīngrén lái shuō, Kěndéjī bù zhǐshì kuàicān, yěshì hé péngyou jiànmiàn de dìfang.|Para jóvenes como yo, KFC no es solo comida rápida: también es un lugar para quedar con amigos.
 当然，/炸鸡/吃/多/了/对/身体/不/好，/所以/我/会/注意/不要/吃/得/太/多。|Dāngrán, zhájī chī duō le duì shēntǐ bù hǎo, suǒyǐ wǒ huì zhùyì búyào chī de tài duō.|Claro, comer demasiado pollo frito no es sano, así que procuro no pasarme.`, `o|¿Qué muestra el texto sobre cómo se adaptó KFC en China?|Que añadió platos locales, como las gachas, a su menú|Que dejó de vender pollo frito para vender comida local|Que se convirtió en una cadena de comida china tradicional|Que solo abre sus tiendas para servir desayunos
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|KFC llegó a China hace muy pocos años|KFC abrió su primera tienda china en Pekín|Hoy el menú incluye platos de sabor local|Para YuYue también es un sitio de encuentro
+x|¿Cuál de estas ideas NO encaja con el texto?|KFC llegó a China hace muy pocos años|KFC abrió su primera tienda china en Pekín|Hoy el menú incluye platos de sabor local|Para YuYue también es un sitio de encuentro
 z|1
 f|2`, `一九|uno nueve (cifras del año)
 八七|ocho siete (cifras del año)
@@ -478,7 +478,7 @@ f|7`, ``, 'binhao+payolink'],
 星期六/我/去/爬/山。|Xīngqīliù wǒ qù pá shān.|Los sábados voy a la montaña.
 我/最/喜欢/攀岩。|Wǒ zuì xǐhuan pānyán.|Lo que más me gusta es la escalada.
 医生/要/身体/好，/所以/我/多/运动。|Yīshēng yào shēntǐ hǎo, suǒyǐ wǒ duō yùndòng.|Un médico debe estar sano, por eso hago mucho deporte.`, `o|¿Por qué Téo hace tanto deporte?|Porque cree que un médico debe estar sano|Porque quiere cambiar de trabajo pronto|Porque tiene que ganar una competición|Porque su familia se lo exige
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Téo escala siempre acompañado de su familia|Téo trabaja como médico en un hospital|Téo hace deporte cuando sale del trabajo|Téo disfruta especialmente con la escalada
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Téo escala siempre acompañado de su familia|Téo trabaja como médico en un hospital|Téo hace deporte cuando sale del trabajo|Téo disfruta especialmente con la escalada
 z|3
 f|6`, `攀岩|escalada en roca`, 'teo'],
 
@@ -488,7 +488,7 @@ f|6`, `攀岩|escalada en roca`, 'teo'],
 星期天/我/和/朋友/一起/踢球。|Xīngqītiān wǒ hé péngyou yìqǐ tīqiú.|Los domingos juego al fútbol con mis amigos.
 下棋/要/慢，/踢球/要/快。|Xiàqí yào màn, tīqiú yào kuài.|Al ajedrez se juega despacio y al fútbol, rápido.
 我/觉得/这/两/样/都/很/有意思。|Wǒ juéde zhè liǎng yàng dōu hěn yǒuyìsi.|Creo que las dos cosas son muy divertidas.`, `o|¿Qué diferencia ve Carlos entre sus dos aficiones?|Una pide pensar con calma y la otra moverse deprisa|Una es mucho más cara que la otra|Una se juega solo y la otra en equipo|Una le resulta difícil y la otra fácil
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Carlos juega al fútbol cada día de la semana|A Carlos le gusta el ajedrez|Carlos juega al fútbol con sus amigos|Carlos disfruta con las dos aficiones
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|Carlos juega al fútbol cada día de la semana|A Carlos le gusta el ajedrez|Carlos juega al fútbol con sus amigos|Carlos disfruta con las dos aficiones
 z|2
 f|4`, `国际象棋|ajedrez
 下棋|jugar a un juego de tablero
@@ -511,7 +511,7 @@ f|3`, `政治家|político; política`, 'laura'],
 我/每/个/星期/去/三/次/健身房。|Wǒ měi gè xīngqī qù sān cì jiànshēnfáng.|Voy tres veces por semana al gimnasio.
 我/在/那里/跑步/和/游泳。|Wǒ zài nàlǐ pǎobù hé yóuyǒng.|Allí corro y nado.
 运动/以后，/我/觉得/很/舒服。|Yùndòng yǐhòu, wǒ juéde hěn shūfu.|Después de hacer deporte me siento muy bien.`, `o|¿Cómo se siente Lucía lejos de Asturias?|Añora su tierra, aunque vive en la ciudad|Está feliz de haberse ido para siempre|Está enfadada con la gente de su pueblo|Le da igual vivir en cualquier lugar
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Lucía va al gimnasio a diario|En su tierra hay montañas y mar|Lucía vive ahora en una ciudad|El deporte le sienta bien
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Lucía va al gimnasio a diario|En su tierra hay montañas y mar|Lucía vive ahora en una ciudad|El deporte le sienta bien
 z|4
 f|3`, `阿斯图里亚斯|Asturias
 西班牙|España
@@ -523,7 +523,7 @@ f|3`, `阿斯图里亚斯|Asturias
 踢/完/球，/我/回/家/看/我/的/猫。|Tī wán qiú, wǒ huí jiā kàn wǒ de māo.|Al acabar de jugar, vuelvo a casa a ver a mi gato.
 它/坐/在/门/口/等/我。|Tā zuò zài mén kǒu děng wǒ.|Se sienta en la puerta y me espera.
 我/的/猫/也/很/小，/我们/是/好/朋友。|Wǒ de māo yě hěn xiǎo, wǒmen shì hǎo péngyou.|Mi gato también es pequeño: somos buenos amigos.`, `o|¿Qué quiere decir Chiki con «no soy alto, pero juego muy bien»?|Que su estatura no le impide destacar|Que preferiría practicar otro deporte|Que quiere crecer para jugar mejor|Que nadie quiere jugar con él
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Chiki juega también al baloncesto|Chiki corre muy rápido|Chiki tiene un gato pequeño|Su gato lo espera en la puerta
+x|¿Cuál de estas ideas NO encaja con el texto?|Chiki juega también al baloncesto|Chiki corre muy rápido|Chiki tiene un gato pequeño|Su gato lo espera en la puerta
 z|4
 f|5`, `个子|estatura; talla
 知道|saber`, 'chiki'],
@@ -534,7 +534,7 @@ f|5`, `个子|estatura; talla
 橄榄球/比/篮球/更/累，/可是/很/好玩。|Gǎnlǎnqiú bǐ lánqiú gèng lèi, kěshì hěn hǎowán.|El rugby cansa más que el baloncesto, pero es muy divertido.
 比赛/以后，/我们/一起/吃/饭。|Bǐsài yǐhòu, wǒmen yìqǐ chī fàn.|Después del partido comemos juntos.
 我/想/一直/打/下去。|Wǒ xiǎng yìzhí dǎ xiàqù.|Quiero seguir jugando siempre.`, `o|¿Qué compara Guidozcos en el texto?|El cansancio y la diversión del rugby frente al baloncesto|Los precios de dos equipos deportivos|Las horas de entrenamiento de dos ligas|La altura de los jugadores de ambos deportes
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Guidozcos prefiere el rugby al baloncesto|Guidozcos es una persona alta|Guidozcos practica dos deportes|Después de los partidos comen en grupo
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Guidozcos prefiere el rugby al baloncesto|Guidozcos es una persona alta|Guidozcos practica dos deportes|Después de los partidos comen en grupo
 z|5
 f|4`, `橄榄球|rugby
 好玩|divertido
@@ -546,7 +546,7 @@ f|4`, `橄榄球|rugby
 山/上/很/安静，/我/可以/看/书。|Shān shang hěn ānjìng, wǒ kěyǐ kàn shū.|En la montaña hay mucha calma y puedo leer.
 去/学校/要/走/一/个/小时。|Qù xuéxiào yào zǒu yí gè xiǎoshí.|Para ir a la escuela hay que caminar una hora.
 虽然/很/远，/可是/我/喜欢/我/的/家。|Suīrán hěn yuǎn, kěshì wǒ xǐhuan wǒ de jiā.|Aunque está lejos, me gusta mi casa.`, `o|¿Por qué le gusta a Anto vivir en la montaña?|Porque allí tiene tranquilidad para estudiar|Porque queda cerca de su escuela|Porque tiene muchos vecinos con quienes charlar|Porque el trayecto de vuelta es muy corto
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Anto va a la escuela en autobús|Anto estudia muchas horas|En su casa hay mucha calma|Anto camina bastante para llegar a clase
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|Anto va a la escuela en autobús|Anto estudia muchas horas|En su casa hay mucha calma|Anto camina bastante para llegar a clase
 z|5
 f|4`, `听到|oír
 鸟|pájaro
@@ -646,7 +646,7 @@ f|5`, `起床|levantarse
 雨/声/很/好/听。|Yǔ shēng hěn hǎo tīng.|La lluvia suena muy bien.
 下午/雨/停/了，/天/上/有/一/个/彩虹。|Xiàwǔ yǔ tíng le, tiān shàng yǒu yí gè cǎihóng.|Por la tarde para de llover y aparece un arcoíris.
 我/想，/学习/以后/看/彩虹，/真/好！|Wǒ xiǎng, xuéxí yǐhòu kàn cǎihóng, zhēn hǎo!|Pienso: ¡ver un arcoíris después de estudiar es genial!`, `o|¿Cómo vive Anto el día de lluvia?|Disfruta de la calma y estudia en casa|Se enfada porque no puede salir a jugar|Se aburre y no logra concentrarse|Se preocupa por el camino de vuelta
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Anto sale a correr bajo la lluvia|Anto estudia dentro de casa durante la lluvia|Por la tarde deja de llover|Anto ve un arcoíris
+x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Anto sale a correr bajo la lluvia|Anto estudia dentro de casa durante la lluvia|Por la tarde deja de llover|Anto ve un arcoíris
 z|5
 f|3`, `雨声|sonido de la lluvia
 声|sonido
@@ -659,7 +659,7 @@ f|3`, `雨声|sonido de la lluvia
 我/不/怕，/因为/我/喜欢/运动。|Wǒ bú pà, yīnwèi wǒ xǐhuan yùndòng.|No tengo miedo, porque me gusta el deporte.
 现在/我/打/得/越来越/好。|Xiànzài wǒ dǎ de yuèláiyuè hǎo.|Ahora juego cada vez mejor.
 篮球/和/橄榄球/我/都/爱。|Lánqiú hé gǎnlǎnqiú wǒ dōu ài.|Quiero a los dos deportes, el baloncesto y el rugby.`, `o|¿Qué actitud muestra Guidozcos ante sus caídas?|No se desanima: sigue adelante y mejora|Se rinde y decide abandonar el deporte por completo|Culpa a sus compañeros de equipo|Decide jugar solo al baloncesto
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Guidozcos ganó su primer partido de rugby|En su primer partido se cayó varias veces|Con el tiempo juega mejor|Le gustan el baloncesto y el rugby
+x|¿Cuál de estas ideas NO encaja con el texto?|Guidozcos ganó su primer partido de rugby|En su primer partido se cayó varias veces|Con el tiempo juega mejor|Le gustan el baloncesto y el rugby
 z|3
 f|2`, `去年|el año pasado
 摔|caerse
@@ -674,7 +674,7 @@ f|2`, `去年|el año pasado
 可是/我/想/吃/你/做/的/饭。|Kěshì wǒ xiǎng chī nǐ zuò de fàn.|Pero echo de menos tu comida.
 夏天/我/会/回/家，/去/海/边/游泳。|Xiàtiān wǒ huì huí jiā, qù hǎi biān yóuyǒng.|En verano volveré a casa y nadaré en la playa.
 我/爱/你！|Wǒ ài nǐ!|¡Te quiero!`, `o|¿Qué quiere transmitir Lucía en su carta?|Que está bien, pero añora su casa y volverá|Que se ha enfadado y no volverá a casa|Que necesita dinero y pide ayuda|Que ha decidido cambiar de ciudad otra vez este año
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Lucía piensa quedarse en la ciudad para siempre|Lucía se cuida haciendo deporte|Lucía echa de menos la comida que prepara su madre|Lucía volverá a casa en verano
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Lucía piensa quedarse en la ciudad para siempre|Lucía se cuida haciendo deporte|Lucía echa de menos la comida que prepara su madre|Lucía volverá a casa en verano
 z|5
 f|3`, `担心|preocuparse
 海边|playa; costa`, 'lucia'],
@@ -685,7 +685,7 @@ f|3`, `担心|preocuparse
 第二/盘/我/想/得/很/慢，/赢/了！|Dì'èr pán wǒ xiǎng de hěn màn, yíng le!|En la segunda pensé muy despacio y gané.
 比赛/以后，/我/和/朋友/去/踢球。|Bǐsài yǐhòu, wǒ hé péngyou qù tīqiú.|Después del torneo fui a jugar al fútbol con mis amigos.
 下棋/累/脑子，/踢球/累/身体，/我/都/喜欢。|Xiàqí lèi nǎozi, tīqiú lèi shēntǐ, wǒ dōu xǐhuan.|El ajedrez cansa la mente y el fútbol el cuerpo; me gustan los dos.`, `o|¿Qué cambió entre la primera y la segunda partida?|Que Carlos pensó más despacio y consiguió ganar|Que Carlos cambió de rival y de tablero en la sala|Que Carlos llegó tarde y jugó más rápido|Que Carlos pidió ayuda a un amigo
-x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|Carlos ganó el torneo completo|Carlos perdió la primera partida|Carlos ganó la segunda partida|Carlos fue a jugar al fútbol después
+x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|Carlos ganó el torneo completo|Carlos perdió la primera partida|Carlos ganó la segunda partida|Carlos fue a jugar al fútbol después
 z|4
 f|6`, `参加|participar
 紧张|tensión; nervios

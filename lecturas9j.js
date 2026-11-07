@@ -23,7 +23,7 @@ f|8`, `九十|noventa
 我/住/在/一/座/高/大楼/里，/要/坐/电梯/上/去。|Wǒ zhù zài yí zuò gāo dàlóu lǐ, yào zuò diàntī shàng qù.|Me alojo en un edificio alto y hay que subir en ascensor.
 从/窗户/往/下/看，/街道/很/热闹。|Cóng chuānghu wǎng xià kàn, jiēdào hěn rènao.|Desde la ventana se ve que la calle está muy animada.
 城市/中间/有/一/条/大/江，/风景/很/美。|Chéngshì zhōngjiān yǒu yì tiáo dà jiāng, fēngjǐng hěn měi.|En medio de la ciudad hay un gran río y el paisaje es muy bonito.
-出门/的/时候，/路上/堵/车/堵/得/很/严重，/我/怕/迟到。|Chūmén de shíhou, lùshang dǔ chē dǔ de hěn lìhai, wǒ pà chídào.|Al salir, el atasco era enorme y temí llegar tarde.
+出门/的/时候，/路上/堵/车/堵/得/很/严重，/我/怕/迟到。|Chūmén de shíhou, lùshang dǔ chē dǔ de hěn yánzhòng, wǒ pà chídào.|Al salir, el atasco era enorme y temí llegar tarde.
 我/没/迟到，/准时/到/了。|Wǒ méi chídào, zhǔnshí dào le.|No llegué tarde: fui puntual.
 台上/的/歌手/唱/得/很/好，/大家/都/站/起来/拍/手。|Táishàng de gēshǒu chàng de hěn hǎo, dàjiā dōu zhàn qǐlái pāi shǒu.|El cantante del escenario lo hizo muy bien y todos se levantaron a aplaudir.
 我/觉得/自己/像/在/做梦。|Wǒ juéde zìjǐ xiàng zài zuòmèng.|Sentía que estaba como soñando.
@@ -41,7 +41,7 @@ f|2`, ``, 'chiki'],
 朋友/过/生日，/我/想/送/他/一/张/唱片。|Péngyou guò shēngrì, wǒ xiǎng sòng tā yì zhāng chàngpiàn.|Mi amigo cumple años y quiero regalarle un disco.
 唱片/里/的/声音/很/纯，/也/不/吵。|Chàngpiàn lǐ de shēngyīn hěn chún, yě bù chǎo.|El sonido del disco es muy puro y no es ruidoso.
 我/还/给/他/买/了/一/个/盘子，/放/在/纸/箱/里。|Wǒ hái gěi tā mǎi le yí ge pánzi, fàng zài zhǐ xiāng lǐ.|También le compré un plato y lo metí en una caja de cartón.
-粗/线/不/好看，/我/选/了/细/线/把/纸/箱/结/好。|Cū xiàn bù hǎokàn, wǒ xuǎn le xì xiàn bǎ zhǐ xiāng jié hǎo.|El hilo grueso no quedaba bonito, así que elegí el fino y até la caja de cartón.
+粗/线/不/好看，/我/选/了/细/线/把/纸/箱/捆/好。|Cū xiàn bù hǎokàn, wǒ xuǎn le xì xiàn bǎ zhǐ xiāng kǔn hǎo.|El hilo grueso no quedaba bonito, así que elegí el fino y até la caja de cartón.
 弟弟/想/要/一/把/尺，/我/也/给/他/买/了。|Dìdi xiǎng yào yì bǎ chǐ, wǒ yě gěi tā mǎi le.|Mi hermano pequeño quería una regla y también se la compré.
 我/把/钱/放/进/口袋，/手里/拿/着/大/包/小/包。|Wǒ bǎ qián fàng jìn kǒudài, shǒulǐ ná zhe dà bāo xiǎo bāo.|Me guardé el dinero en el bolsillo y llevaba bolsas grandes y pequeñas en las manos.
 回/家/时/我/很/累，/但是/很/开心。|Huí jiā shí wǒ hěn lèi, dànshì hěn kāixīn.|Al volver a casa estaba cansado, pero muy contento.`, `o|¿Con qué intención compró el narrador el disco y el plato?|Para regalar algo a un amigo|Para decorar su propia habitación|Para devolver un favor a su vecino|Para venderlos más caros después
@@ -131,8 +131,8 @@ f|9`, ``, 'lucia'],
 没/办/法，/我们/站/在/树/下/等/雨/停。|Méi bàn fǎ, wǒmen zhàn zài shù xià děng yǔ tíng.|No había remedio, así que esperamos bajo un árbol a que parara.
 这/时，/我们/遇/到/了/一/位/老人。|Zhè shí, wǒmen yù dào le yí wèi lǎorén.|En ese momento nos encontramos con un anciano.
 他/说/前面/有/一/座/房子，/可以/休息。|Tā shuō qiánmiàn yǒu yí zuò fángzi, kěyǐ xiūxi.|Nos dijo que más adelante había una casa donde podíamos descansar.
-到/了/房子，/我们/又/遇见/了/他/的/家人。|Dào le fángzi, wǒmen yòu yùjiàn le tā de jiārén.|Al llegar a la casa, conocimos a su familia.
-他们/给/我们/热/茶，/我/心里/才/安/下来。|Tāmen gěi wǒmen rè chá, wǒ xīnlǐ cái ān xiàlái.|Nos dieron té caliente y solo entonces me quedé tranquilo.
+到/了/房子，/我们/还/遇见/了/他/的/家人。|Dào le fángzi, wǒmen hái yùjiàn le tā de jiārén.|Al llegar a la casa, conocimos a su familia.
+他们/给/我们/热/茶，/我/心里/才/安定/下来。|Tāmen gěi wǒmen rè chá, wǒ xīnlǐ cái āndìng xiàlái.|Nos dieron té caliente y solo entonces me quedé tranquilo.
 雨/停/后，/我们/往/回/走，/路上/风景/真/美。|Yǔ tíng hòu, wǒmen wǎng huí zǒu, lùshang fēngjǐng zhēn měi.|Cuando paró la lluvia volvimos y el paisaje del camino era precioso.
 这/次/爬山/很/有/意思。|Zhè cì páshān hěn yǒu yìsi.|Esta excursión fue muy interesante.`, `o|¿Qué les pasó a los excursionistas a mitad del camino?|La lluvia los mojó por completo|Se perdieron en el bosque|Uno de ellos se hizo daño en el pie|Se quedaron sin comida
 x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|Los excursionistas pasaron la noche en aquella casa|La lluvia les sorprendió cuando iban a mitad del camino|Un anciano les dijo dónde podían descansar y refugiarse|El té caliente les sentó bien tras la lluvia

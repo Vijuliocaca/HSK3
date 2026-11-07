@@ -9,7 +9,7 @@
 工人/的/工作/有/了/变动，/要/学/新/技术。|Gōngrén de gōngzuò yǒu le biàndòng, yào xué xīn jìshù.|El trabajo de los obreros cambió y tienen que aprender técnicas nuevas.
 有/的/人/转换/了/工作，/去/管理/机器人。|Yǒu de rén zhuǎnhuàn le gōngzuò, qù guǎnlǐ jīqìrén.|Algunos cambiaron de puesto y ahora se ocupan de los robots.
 大家/把/它/视为/朋友，/也/有/人/把/它/看成/对手。|Dàjiā bǎ tā shìwéi péngyou, yě yǒu rén bǎ tā kànchéng duìshǒu.|Unos lo consideran un amigo y otros lo ven como un rival.
-消费者/要求/越来越/高，/质量/必需/高于/以前，/价格/却/要/低于/别人。|Xiāofèizhě yāoqiú yuèláiyuè gāo, zhìliàng bìxū gāoyú yǐqián, jiàgé què yào dīyú biérén.|Los consumidores exigen cada vez más: la calidad debe superar a la de antes y el precio ser menor que el de otros.
+消费者/要求/越来越/高，/质量/必须/高于/以前，/价格/却/要/低于/别人。|Xiāofèizhě yāoqiú yuèláiyuè gāo, zhìliàng bìxū gāoyú yǐqián, jiàgé què yào dīyú biérén.|Los consumidores exigen cada vez más: la calidad debe superar a la de antes y el precio ser menor que el de otros.
 机器人/有利于/降低/成本，/国民/也/能/买到/便宜/的/东西。|Jīqìrén yǒulìyú jiàngdī chéngběn, guómín yě néng mǎidào piányi de dōngxi.|Los robots ayudan a bajar los costes y la gente también puede comprar cosas baratas.
 由此/可见，/新/技术/可以/转化/为/好/生活。|Yóucǐ kějiàn, xīn jìshù kěyǐ zhuǎnhuà wéi hǎo shēnghuó.|De aquí se ve que la técnica nueva puede convertirse en una vida mejor.`, `o|¿Qué pasó con el trabajo de los obreros cuando llegaron los robots?|Cambió y tuvieron que aprender técnicas nuevas|Se quedaron sin empleo y se fueron a otra ciudad|Pasaron a ganar el doble trabajando mucho menos|Dejaron de venir a la fábrica sin avisar a nadie
 x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|La fábrica planea abrir otra sede en el extranjero|Los robots permiten producir más sin subir el coste|Algunos obreros pasaron a ocuparse de los robots|Los robots abaratan productos para los compradores
@@ -41,12 +41,12 @@ f|3`, `乡|aldea, pueblo del campo
 我/不/知道/他/爱/吃/什么，/只/能/猜测，/就/点/了/几/个/有名/的/菜。|Wǒ bù zhīdào tā ài chī shénme, zhǐ néng cāicè, jiù diǎn le jǐ ge yǒumíng de cài.|No sabía qué le gustaba y solo podía adivinar, así que pedí unos platos famosos.
 他/尝/了/一/口/就/摇头，/说/太/辣/了。|Tā cháng le yì kǒu jiù yáotóu, shuō tài là le.|Probó un bocado y negó con la cabeza: picaba demasiado.
 我/有点/担心，/怕/这/次/会谈/会/失败。|Wǒ yǒudiǎn dānxīn, pà zhè cì huìtán huì shībài.|Me preocupé un poco: temía que la reunión fracasara.
-可是/他/笑/了/笑，/说/没/关系，/他/从中/发现/了/新/的/味道。|Kěshì tā xiào le xiào, shuō méi guānxi, tā cóngzhōng fāxiàn le xīn de wèidào.|Pero se rio y dijo que no importaba: había descubierto un sabor nuevo.
+可是/他/笑/了/笑，/说/没/关系，/他/从中/尝/到/了/一/种/新/的/味道。|Kěshì tā xiào le xiào, shuō méi guānxi, tā cóngzhōng cháng dào le yì zhǒng xīn de wèidào.|Pero se rio y dijo que no importaba: había descubierto un sabor nuevo.
 谈/到/价格/时，/他/怕/赔，/我/也/怕/亏。|Tán dào jiàgé shí, tā pà péi, wǒ yě pà kuī.|Al hablar del precio, él temía perder dinero y yo también.
 最后/我们/各/让/一/步，/价格/定/在/中间。|Zuìhòu wǒmen gè ràng yí bù, jiàgé dìng zài zhōngjiān.|Al final cedimos los dos un paso y el precio quedó en el medio.
 有/了/这/次/会谈，/双方/得以/互相/了解。|Yǒu le zhè cì huìtán, shuāngfāng déyǐ hùxiāng liǎojiě.|Gracias a esta reunión, ambas partes pudieron conocerse.
 我们/在/合同/上/签字，/成/了/伙伴。|Wǒmen zài hétong shang qiānzì, chéng le huǒbàn.|Firmamos el contrato y nos hicimos socios.
-会谈/结束，/我/终于/闲/下来，/也/不/怨/那/道/菜。|Huìtán jiéshù, wǒ zhōngyú xián xiàlái, yě bú yuàn nà dào cài.|Terminada la reunión por fin pude descansar, y ya no culpaba a aquel plato.`, `o|¿Cómo acabó la negociación sobre el precio?|Los dos cedieron un poco y fijaron un precio medio|La empresa extranjera aceptó pagar el precio pedido|Se rompieron las conversaciones por la discusión|Decidieron volver a hablar al mes siguiente
+会谈/结束，/我/终于/闲/下来，/也/不/再/怪/那/道/菜/了。|Huìtán jiéshù, wǒ zhōngyú xián xiàlái, yě bú zài guài nà dào cài le.|Terminada la reunión por fin pude descansar, y ya no culpaba a aquel plato.`, `o|¿Cómo acabó la negociación sobre el precio?|Los dos cedieron un poco y fijaron un precio medio|La empresa extranjera aceptó pagar el precio pedido|Se rompieron las conversaciones por la discusión|Decidieron volver a hablar al mes siguiente
 x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|El director extranjero pagó la cuenta de la cena|Al invitado le resultó demasiado picante un plato|Las dos partes cedieron algo para fijar el precio|La reunión acabó bien y con un contrato firmado
 z|7
 f|4`, `签约|firmar un contrato`, 'carlos'],

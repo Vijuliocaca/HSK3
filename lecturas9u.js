@@ -6,7 +6,7 @@
 公司/还/有/一/笔/基金，/专门/用来/奖励/好/员工。|Gōngsī hái yǒu yì bǐ jījīn, zhuānmén yònglái jiǎnglì hǎo yuángōng.|La empresa también tiene un fondo dedicado a premiar a los buenos empleados.
 两/家/公司/的/商标/不/一样，/大家/不/知道/该/用/哪/个。|Liǎng jiā gōngsī de shāngbiāo bù yíyàng, dàjiā bù zhīdào gāi yòng nǎ ge.|Las marcas de las dos empresas son distintas y nadie sabe cuál usar.
 经理/说，/要/先/签订/合同，/再/谈/配套/的/服务。|Jīnglǐ shuō, yào xiān qiāndìng hétong, zài tán pèitào de fúwù.|El director dijo que primero hay que firmar el contrato y luego hablar de los servicios que lo acompañan.
-有/人/担心，/合并/以后/工作/会/不/会/少。|Yǒu rén dānxīn, hébìng yǐhòu gōngzuò huì bu huì shǎo.|Algunos temen que, tras la fusión, haya menos trabajo.
+有/人/担心，/合并/以后/会/不/会/有/人/丢/工作。|Yǒu rén dānxīn, hébìng yǐhòu huì bu huì yǒu rén diū gōngzuò.|Algunos temen que, tras la fusión, haya quien pierda su empleo.
 顾问/说，/前景/很/好，/前提/是/大家/一起/努力。|Gùwèn shuō, qiánjǐng hěn hǎo, qiántí shì dàjiā yìqǐ nǔlì.|El asesor dijo que el futuro es bueno, siempre que todos se esfuercen juntos.
 上级/也/同意/了，/只/要求/每/个/部门/按时/交/报告。|Shàngjí yě tóngyì le, zhǐ yāoqiú měi ge bùmén ànshí jiāo bàogào.|Los jefes también estuvieron de acuerdo y solo pidieron que cada departamento entregue su informe a tiempo.
 我/负责/把/各/项/数字/整理/好，/交/给/顾问。|Wǒ fùzé bǎ gè xiàng shùzì zhěnglǐ hǎo, jiāo gěi gùwèn.|Yo me encargo de ordenar todas las cifras y dárselas al asesor.
@@ -62,7 +62,7 @@ f|10`, '', 'laura'],
 过/了/几/个/小时，/他/的/身体/慢慢/有/了/能量。|Guò le jǐ ge xiǎoshí, tā de shēntǐ mànmàn yǒu le néngliàng.|Pasadas unas horas, su cuerpo fue recuperando fuerzas.
 醒/来/后，/他/渴望/回家，/可是/医生/警告/他/不/能/乱/动。|Xǐng lái hòu, tā kěwàng huíjiā, kěshì yīshēng jǐnggào tā bù néng luàn dòng.|Al despertar deseaba volver a casa, pero el médico le advirtió que no se moviera.
 医生/没有/强迫/他/吃/药，/而是/耐心/解释/原因。|Yīshēng méiyǒu qiǎngpò tā chī yào, érshì nàixīn jiěshì yuányīn.|El médico no lo obligó a tomar la medicina, sino que le explicó los motivos con paciencia.
-一/周/后，/医生/解除/了/他/的/住院/限制。|Yì zhōu hòu, yīshēng jiěchú le tā de zhùyuàn xiànzhì.|Una semana después, el médico levantó su restricción de ingreso.
+一/周/后，/医生/解除/了/对/他/的/限制，/让/他/出院/了。|Yì zhōu hòu, yīshēng jiěchú le duì tā de xiànzhì, ràng tā chūyuàn le.|Una semana después, el médico le levantó las restricciones y le dio el alta.
 全家/人/都/感谢/医生/的/关怀。|Quánjiā rén dōu gǎnxiè yīshēng de guānhuái.|Toda la familia agradeció el cuidado del médico.
 我/想，/生命/最/重要，/所以/不/要/轻易/放弃。|Wǒ xiǎng, shēngmìng zuì zhòngyào, suǒyǐ bú yào qīngyì fàngqì.|Pienso que la vida es lo más importante y que no hay que rendirse a la ligera.`, `o|¿Qué actitud mostró el médico ante la situación?|No perdió la esperanza|Pensó que ya no había remedio|Dejó la decisión a la familia|Se enfadó con los vecinos
 x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El anciano tuvo que ser operado de urgencia al llegar|La ambulancia llegó con medicinas y personal médico|La familia llegó muy angustiada ante la situación|El médico razonó con calma el tratamiento al paciente
@@ -111,7 +111,7 @@ f|3`, `土地|terreno
 我/的/车/被/夹/在/两/辆/大/卡车/中间，/一/动/也/不/能/动。|Wǒ de chē bèi jiā zài liǎng liàng dà kǎchē zhōngjiān, yí dòng yě bù néng dòng.|Mi coche quedó atrapado entre dos camiones grandes y no podía moverse.
 最近/事故/频繁，/所以/大家/都/开/得/很/慢。|Zuìjìn shìgù pínfán, suǒyǐ dàjiā dōu kāi de hěn màn.|Últimamente los accidentes son frecuentes y todos conducen muy despacio.
 前面/接连/出/了/两/起/小/事故，/路/更/堵/了。|Qiánmiàn jiēlián chū le liǎng qǐ xiǎo shìgù, lù gèng dǔ le.|Delante hubo dos pequeños accidentes seguidos y el tráfico se atascó aún más.
-我/本来/想/回避/这/条/路，/可是/没/别/的/路/可/走。|Wǒ běnlái xiǎng huíbì zhè tiáo lù, kěshì méi bié de lù kě zǒu.|Quería evitar esta carretera, pero no había otro camino.
+我/本来/想/绕/开/这/条/路，/可是/没/别/的/路/可/走。|Wǒ běnlái xiǎng rào kāi zhè tiáo lù, kěshì méi bié de lù kě zǒu.|Quería evitar esta carretera, pero no había otro camino.
 车/里/太/挤，/因为/我/带/了/很/多/东西，/还有/孩子。|Chē lǐ tài jǐ, yīnwèi wǒ dài le hěn duō dōngxi, háiyǒu háizi.|El coche iba muy apretado porque llevaba muchas cosas y a los niños.
 孩子/们/在/后座/吵/着/要/下车，/我/只/好/停/下来。|Háizi men zài hòuzuò chǎo zhe yào xiàchē, wǒ zhǐ hǎo tíng xiàlái.|Los niños pedían bajar a gritos en el asiento de atrás y tuve que parar.
 路边/有/一/个/空/瓶子，/孩子/把/它/拾/起来，/放/进/回收/箱。|Lùbiān yǒu yí ge kōng píngzi, háizi bǎ tā shí qǐlái, fàng jìn huíshōu xiāng.|Al lado de la carretera había una botella vacía y el niño la recogió y la echó al contenedor de reciclaje.
@@ -151,7 +151,7 @@ f|6`, `几十|decenas
 中午，/我/帮/医生/整理/病人/的/检验/结果。|Zhōngwǔ, wǒ bāng yīshēng zhěnglǐ bìngrén de jiǎnyàn jiéguǒ.|Al mediodía ayudé al médico a ordenar los resultados de los análisis de los pacientes.
 下午，/一/个/孩子/发烧/了，/妈妈/哭/着/跑/进来。|Xiàwǔ, yí ge háizi fāshāo le, māma kū zhe pǎo jìnlái.|Por la tarde un niño tuvo fiebre y su madre entró corriendo llorando.
 医生/很/冷静，/说/先/给/他/量/体温，/再/决定/怎么/办。|Yīshēng hěn lěngjìng, shuō xiān gěi tā liáng tǐwēn, zài juédìng zěnme bàn.|El médico, muy sereno, dijo que primero había que tomarle la temperatura y luego decidir.
-我/在/一/旁/看/着，/心里/有/一/点/害怕，/也/很/佩服。|Wǒ zài yì páng kàn zhe, xīnli yǒu yì diǎn hàipà, yě hěn pèifú.|Yo miraba a un lado, algo asustado y también admirado.
+我/在/一/旁/看/着，/心里/有/一/点/害怕，/也/很/佩服。|Wǒ zài yì páng kàn zhe, xīnli yǒu yì diǎn hàipà, yě hěn pèifú.|Yo lo observaba desde un lado, algo asustado y también admirado.
 晚上/回/到/宿舍，/我/累/得/连/饭/都/不/想/吃。|Wǎnshang huí dào sùshè, wǒ lèi de lián fàn dōu bù xiǎng chī.|De noche, al volver a la residencia, estaba tan cansado que ni quería cenar.
 可是/我/知道，/这/就/是/我/想/做/的/工作。|Kěshì wǒ zhīdào, zhè jiù shì wǒ xiǎng zuò de gōngzuò.|Pero sé que este es el trabajo que quiero hacer.`, `o|¿Qué le dijo la enfermera jefa al narrador?|Que los pacientes necesitan también atención y cariño|Que debía cobrar más a los pacientes|Que no hablara con los enfermos mayores|Que se fuera a casa a las seis de la tarde
 x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|La enfermera jefa había sido profesora del narrador|El primer día de prácticas empezó muy temprano|Charlar con un anciano solitario le hizo sonreír|El médico mantuvo la calma ante la fiebre del niño

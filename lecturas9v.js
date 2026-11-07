@@ -27,7 +27,7 @@ f|10`, `水杯|vaso
 这/场/灾难/持续/了/两/天，/最后/终于/停/了。|Zhè chǎng zāinàn chíxù le liǎng tiān, zuìhòu zhōngyú tíng le.|La catástrofe duró dos días y por fin terminó.
 看/到/倒/了/的/房子，/我/非常/震惊。|Kàn dào dǎo le de fángzi, wǒ fēicháng zhènjīng.|Al ver las casas derrumbadas me quedé muy impactada.
 政府/派/人/来/慰问/受灾/的/居民，/还/送/来/了/药/和/被子。|Zhèngfǔ pài rén lái wèiwèn shòuzāi de jūmín, hái sòng lái le yào hé bèizi.|El gobierno envió gente a visitar a los vecinos afectados y trajo medicinas y mantas.
-工人/们/为期/一/周/修复/了/电线，/道路/也/重新/开通/了。|Gōngrén men wéiqī yì zhōu xiūfù le diànxiàn, dàolù yě chóngxīn kāitōng le.|Los obreros repararon el cableado durante una semana y las carreteras volvieron a abrirse.
+工人/们/进行/了/为期/一/周/的/修复，/道路/也/重新/开通/了。|Gōngrén men jìnxíng le wéiqī yì zhōu de xiūfù, dàolù yě chóngxīn kāitōng le.|Los obreros hicieron una semana de reparaciones y las carreteras volvieron a abrirse.
 一/棵/大/树/阻碍/了/交通，/大家/一起/把/它/搬/走。|Yì kē dà shù zǔ'ài le jiāotōng, dàjiā yìqǐ bǎ tā bān zǒu.|Un gran árbol obstruía el tráfico y todos lo apartaron juntos.
 慢慢/地，/城市/恢复/了/正常/运行，/商店/也/重新/开门/了。|Mànmàn de, chéngshì huīfù le zhèngcháng yùnxíng, shāngdiàn yě chóngxīn kāimén le.|Poco a poco la ciudad recuperó su funcionamiento normal y las tiendas reabrieron.
 这/次/经历/让/我/明白，/平时/要/做/好/准备。|Zhè cì jīnglì ràng wǒ míngbai, píngshí yào zuò hǎo zhǔnbèi.|Esta experiencia me enseñó que hay que estar preparado de antemano.`, `o|¿Qué efecto tuvo el temporal sobre la comunicación de la ciudad?|Se cortaron la luz y la red, y quedaron aislados|Hubo más llamadas de ayuda que nunca|La radio no dejó de dar noticias|Se instaló una antena nueva en cada barrio
@@ -95,12 +95,12 @@ f|2`, `硕士|máster
 [5, '📐 Lo que enseño en clase', `我/是/数学/老师，/教/学生/的/不/只/是/公式。|Wǒ shì shùxué lǎoshī, jiāo xuésheng de bù zhǐ shì gōngshì.|Soy profesor de matemáticas y no enseño solo fórmulas.
 我/更/想/培养/他们/的/思维/能力。|Wǒ gèng xiǎng péiyǎng tāmen de sīwéi nénglì.|Lo que quiero es desarrollar su capacidad de pensar.
 一/个/定理/背后/的/原理/比/答案/重要/得/多。|Yí ge dìnglǐ bèihòu de yuánlǐ bǐ dá'àn zhòngyào de duō.|El principio que hay detrás de un teorema importa mucho más que la respuesta.
-有/的/学生/没有/信念，/一/遇到/难题/就/想/放弃。|Yǒu de xuésheng méiyǒu xìnniàn, yí yùdào nántí jiù xiǎng fàngqì.|Algunos alumnos no tienen confianza y, ante un problema difícil, quieren rendirse.
+有/的/学生/没有/信念，/一/遇到/难题/就/想/放弃。|Yǒu de xuésheng méiyǒu xìnniàn, yí yùdào nántí jiù xiǎng fàngqì.|Algunos alumnos no tienen convicción y, ante un problema difícil, quieren rendirse.
 我/告诉/他们，/坚强/的/意志/比/聪明/更/有用。|Wǒ gàosu tāmen, jiānqiáng de yìzhì bǐ cōngmíng gèng yǒuyòng.|Les digo que una voluntad firme sirve más que ser listo.
 数学家/说/过，/真理/不/怕/怀疑。|Shùxuéjiā shuō guo, zhēnlǐ bú pà huáiyí.|Un matemático dijo que la verdad no teme a la duda.
 小/明/的/解题/手法/很/特别，/总是/和/别人/不/一样。|Xiǎo Míng de jiětí shǒufǎ hěn tèbié, zǒngshì hé biérén bù yíyàng.|El modo en que Xiao Ming resuelve problemas es muy peculiar, siempre distinto al de los demás.
 他/的/眼光/独特，/常常/能/看/到/问题/的/另/一/面。|Tā de yǎnguāng dútè, chángcháng néng kàn dào wèntí de lìng yí miàn.|Tiene una mirada original y a menudo ve el otro lado del problema.
-有/一/次/考试/他/只/得/了/六十/分，/这/意味着/他/没有/及格。|Yǒu yí cì kǎoshì tā zhǐ dé le liùshí fēn, zhè yìwèizhe tā méiyǒu jígé.|Una vez sacó solo sesenta puntos en un examen, lo que significaba que no aprobó.
+有/一/次/考试/他/只/得/了/五十/分，/这/意味着/他/没有/及格。|Yǒu yí cì kǎoshì tā zhǐ dé le wǔshí fēn, zhè yìwèizhe tā méiyǒu jígé.|Una vez sacó solo cincuenta puntos en un examen, lo que significaba que no aprobó.
 他/没/生气，/而是/认真/检查，/很快/意识/到/自己/的/错误。|Tā méi shēngqì, érshì rènzhēn jiǎnchá, hěnkuài yìshi dào zìjǐ de cuòwù.|No se enfadó, sino que revisó con atención y pronto se dio cuenta de su error.
 老师/应该/保持/正义，/对/每/个/学生/都/公平。|Lǎoshī yīnggāi bǎochí zhèngyì, duì měi ge xuésheng dōu gōngpíng.|Un profesor debe ser justo y tratar a cada alumno con equidad.
 放学/后，/他/去/文艺/社团，/弹/吉他/的/水平/已经/是/一流。|Fàngxué hòu, tā qù wényì shètuán, tán jítā de shuǐpíng yǐjīng shì yīliú.|Después de clase va al club artístico y su nivel con la guitarra ya es de primera.`, `o|¿Qué quiere el profesor que desarrollen sus alumnos ante todo?|La capacidad de razonar por sí mismos|La memoria para repetir las fórmulas|La rapidez para terminar los exámenes|El gusto por copiar a los mejores
@@ -211,7 +211,7 @@ f|8`, `姑姑|tía paterna
 研究员/说，/它/的/主体/用/很/轻/的/材料/做成。|Yánjiūyuán shuō, tā de zhǔtǐ yòng hěn qīng de cáiliào zuòchéng.|El investigador dijo que su cuerpo principal está hecho de un material muy ligero.
 它/的/手臂/还/能/向/前/延伸/一/米。|Tā de shǒubì hái néng xiàng qián yánshēn yì mǐ.|Su brazo incluso puede extenderse un metro hacia delante.
 我/试图/和/它/说话，/它/却/只/会/点头。|Wǒ shìtú hé tā shuōhuà, tā què zhǐ huì diǎntóu.|Intenté hablar con él, pero solo sabía asentir.
-研究员/笑/着/说，/它/现在/只/能/输出/简单/的/动作。|Yánjiūyuán xiào zhe shuō, tā xiànzài zhǐ néng shūchū jiǎndān de dòngzuò.|El investigador dijo sonriendo que ahora solo puede producir movimientos sencillos.
+研究员/笑/着/说，/它/现在/只/能/做/简单/的/动作。|Yánjiūyuán xiào zhe shuō, tā xiànzài zhǐ néng zuò jiǎndān de dòngzuò.|El investigador dijo sonriendo que ahora solo puede producir movimientos sencillos.
 不过/下/个/月/就/会/升级，/到时候/它/会/听懂/更/多/话。|Búguò xià ge yuè jiù huì shēngjí, dàoshíhou tā huì tīngdǒng gèng duō huà.|Pero el mes que viene lo actualizarán y entenderá más palabras.
 参观/结束/时，/他们/送/给/我/一/个/小/模型。|Cānguān jiéshù shí, tāmen sòng gěi wǒ yí ge xiǎo móxíng.|Al terminar la visita me regalaron una pequeña maqueta.
 回家/后，/我/把/它/放/在/书桌/上。|Huíjiā hòu, wǒ bǎ tā fàng zài shūzhuō shang.|Al llegar a casa la puse sobre el escritorio.

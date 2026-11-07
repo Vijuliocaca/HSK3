@@ -56,7 +56,7 @@ f|3`, `车库|garaje
 老师/用/望远镜/让/我们/看/月球。|Lǎoshī yòng wàngyuǎnjìng ràng wǒmen kàn yuèqiú.|El profesor nos dejó ver la Luna con un telescopio.
 月球/上/有/许多/坑，/看/起来/很/有趣。|Yuèqiú shàng yǒu xǔduō kēng, kàn qǐlái hěn yǒuqù.|En la Luna hay muchos cráteres y parece muy curioso.
 他/说/月球/白天/很/热，/夜里/很/冷，/温度/变化/的/幅度/非常/大。|Tā shuō yuèqiú báitiān hěn rè, yèlǐ hěn lěng, wēndù biànhuà de fúdù fēicháng dà.|Dijo que en la Luna de día hace calor y de noche frío, con unos cambios de temperatura enormes.
-有/人/问：/南极/的/夜晚/也/这样/吗？|Yǒu rén wèn: Nánjí de yèwǎn yě zhèyàng ma?|Alguien preguntó si las noches en la Antártida son así también.
+有/人/问：/南极/也/有/熊/吗？|Yǒu rén wèn: Nánjí yě yǒu xióng ma?|Alguien preguntó si en la Antártida también hay osos.
 老师/笑/着/说：/北极/才/有/熊，/南极/只/有/企鹅。|Lǎoshī xiào zhe shuō: Běijí cái yǒu xióng, Nánjí zhǐ yǒu qǐ'é.|El profesor sonrió y dijo que los osos están en el Ártico y en la Antártida solo hay pingüinos.
 地球/上/的/热量/来/自/太阳。|Dìqiú shàng de rèliàng lái zì tàiyáng.|El calor de la Tierra viene del Sol.
 科学家/把/星光/分离/成/不同/的/颜色，/研究/星星/的/特性。|Kēxuéjiā bǎ xīngguāng fēnlí chéng bùtóng de yánsè, yánjiū xīngxing de tèxìng.|Los científicos separan la luz de las estrellas en colores distintos para estudiar sus propiedades.
@@ -181,18 +181,18 @@ f|4`, `礼拜天|domingo
 运气|suerte`, 'chana'],
 
 [5, '📚 Una asignatura optativa', `大学/里，/我/选修/了/一/门/新/课。|Dàxué lǐ, wǒ xuǎnxiū le yì mén xīn kè.|En la universidad elegí una asignatura optativa nueva.
-老师/说/这/门/课/的/要求/如下：/每/周/读/一/本/书。|Lǎoshī shuō zhè mén kè de yāoqiú rúxià: měi zhōu dú yì běn shū.|El profesor dijo que los requisitos son estos: leer un libro a la semana.
+老师/说/这/门/课/的/要求/是：/每/周/读/一/本/书。|Lǎoshī shuō zhè mén kè de yāoqiú shì: měi zhōu dú yì běn shū.|El profesor dijo que los requisitos son estos: leer un libro a la semana.
 这/门/课/研究/的/是/不同/群体/的/生活/习惯。|Zhè mén kè yánjiū de shì bùtóng qúntǐ de shēnghuó xíguàn.|La asignatura estudia las costumbres de distintos grupos de personas.
 到/目前/为止，/我们/已经/去/了/两/次/实习/基地。|Dào mùqián wéizhǐ, wǒmen yǐjīng qù le liǎng cì shíxí jīdì.|Hasta ahora hemos ido dos veces al centro de prácticas.
 在/基地，/我们/要/把/资料/分类，/再/做/记录。|Zài jīdì, wǒmen yào bǎ zīliào fēnlèi, zài zuò jìlù.|En el centro tenemos que clasificar los datos y luego tomar notas.
 有/的/同学/觉得/很/无聊，/但是/我/很/喜欢。|Yǒu de tóngxué juéde hěn wúliáo, dànshì wǒ hěn xǐhuan.|A algunos compañeros les parece aburrido, pero a mí me encanta.
-一/个/同学/总是/想/占有/最/好/的/位置，/大家/都/笑/他。|Yí ge tóngxué zǒngshì xiǎng zhànyǒu zuì hǎo de wèizhi, dàjiā dōu xiào tā.|Un compañero siempre quiere quedarse con el mejor sitio y todos se ríen de él.
+一/个/同学/总是/想/占/最/好/的/位置，/大家/都/笑/他。|Yí ge tóngxué zǒngshì xiǎng zhàn zuì hǎo de wèizhi, dàjiā dōu xiào tā.|Un compañero siempre quiere quedarse con el mejor sitio y todos se ríen de él.
 老师/用/有力/的/声音/说：/学习/不/是/竞争。|Lǎoshī yòng yǒulì de shēngyīn shuō: xuéxí bú shì jìngzhēng.|El profesor dijo con voz firme que estudiar no es competir.
 这/门/课/涉及/的/内容/很/广泛，/我们/应该/互相/帮助。|Zhè mén kè shèjí de nèiróng hěn guǎngfàn, wǒmen yīnggāi hùxiāng bāngzhù.|La asignatura abarca contenidos muy amplios, así que debemos ayudarnos.
 期末，/我们/要/交/一/篇/报告。|Qīmò, wǒmen yào jiāo yì piān bàogào.|A final de curso tenemos que entregar un trabajo.
 我/打算/用/调查/的/数据/写/一/份/认真/的/报告。|Wǒ dǎsuàn yòng diàochá de shùjù xiě yí fèn rènzhēn de bàogào.|Pienso escribir un informe serio con los datos de la encuesta.
 我/相信，/只要/努力，/就/会/有/好/成绩。|Wǒ xiāngxìn, zhǐyào nǔlì, jiù huì yǒu hǎo chéngjì.|Creo que con esfuerzo sacaré buenas notas.`, `o|¿De qué trata la asignatura optativa?|De las costumbres de diferentes grupos de personas|De la historia de las universidades antiguas|De cómo aprender idiomas más deprisa|De los deportes populares en cada región
-x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|La asignatura se imparte en un aula de la biblioteca|El curso pide una lectura cada semana a los alumnos|La materia trata de costumbres de distintos pueblos|Al final del curso hay que presentar un trabajo
+x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|La asignatura se imparte en un aula de la biblioteca|El curso pide una lectura cada semana a los alumnos|La materia trata de costumbres de distintos grupos|Al final del curso hay que presentar un trabajo
 z|6
 f|10`, `实习|prácticas
 竞争|competir

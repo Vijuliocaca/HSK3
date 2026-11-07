@@ -58,10 +58,10 @@ z|9
 f|6`, ``, 'chana'],
 
 [4, '🏘️ Mis vecinos', `我/住/在/一/个/老/小区，/邻居/都/很/热情。|Wǒ zhù zài yí ge lǎo xiǎoqū, línjū dōu hěn rèqíng.|Vivo en una urbanización antigua y los vecinos son muy cálidos.
-早上/闹钟/刚/响，/大爷/就/在/楼下/向/我/打/招呼。|Zǎoshang nàozhōng gāng xiǎng, dàyé jiù zài lóuxià xiàng wǒ dǎ zhāohu.|Por la mañana, apenas suena el despertador, el abuelo ya me saluda desde abajo.
+早上/闹钟/刚/响，/大爷/就/在/楼下/向/我/打/招呼。|Zǎoshang nàozhōng gāng xiǎng, dàyé jiù zài lóuxià xiàng wǒ dǎ zhāohu.|Por la mañana, apenas suena el despertador, un señor mayor ya me saluda desde abajo.
 他/叫/我/帅哥，/其实/我/长/得/很/一般。|Tā jiào wǒ shuàigē, qíshí wǒ zhǎng de hěn yìbān.|Me llama guapo, aunque en realidad soy del montón.
 楼下/的/大妈/每/天/早上/都/去/跳舞，/她/说/运动/不/能/停。|Lóuxià de dàmā měi tiān zǎoshang dōu qù tiàowǔ, tā shuō yùndòng bù néng tíng.|La señora del piso de abajo va a bailar cada mañana y dice que no hay que dejar el ejercicio.
-大姐/在/社区/工作，/常常/上门/看/老人。|Dàjiě zài shèqū gōngzuò, chángcháng shàngmén kàn lǎorén.|La hermana mayor trabaja en el barrio y visita a menudo a los ancianos en sus casas.
+有/位/大姐/在/社区/工作，/常常/上门/看/老人。|Yǒu wèi dàjiě zài shèqū gōngzuò, chángcháng shàngmén kàn lǎorén.|Una señora trabaja en el comité del barrio y visita a menudo a los ancianos en sus casas.
 有/一/位/男士/不/喜欢/说话，/可是/他/总是/帮/大家/拿/东西。|Yǒu yí wèi nánshì bù xǐhuan shuōhuà, kěshì tā zǒngshì bāng dàjiā ná dōngxi.|Hay un señor que habla poco, pero siempre ayuda a todos a llevar cosas.
 上/周/我/孩子/过/生日，/他/送/给/孩子/一/个/气球。|Shàng zhōu wǒ háizi guò shēngrì, tā sòng gěi háizi yí ge qìqiú.|La semana pasada mi hijo cumplió años y él le regaló un globo.
 孩子/高兴/得/流/泪，/因为/他/昨天/晚上/梦见/了/气球。|Háizi gāoxìng de liú lèi, yīnwèi tā zuótiān wǎnshang mèngjiàn le qìqiú.|El niño lloró de alegría, porque anoche había soñado con un globo.
@@ -116,7 +116,7 @@ z|4
 f|3`, `屈原|Qu Yuan, poeta del antiguo Chu`, 'yuyue'],
 
 [4, '🌍 Mi tío, el diplomático', `我/的/舅舅/是/一/名/外交官。|Wǒ de jiùjiu shì yì míng wàijiāoguān.|Mi tío materno es diplomático.
-他/在/国外/工作/了/十/年，/说/一/口/流利/的/口语。|Tā zài guówài gōngzuò le shí nián, shuō yì kǒu liúlì de kǒuyǔ.|Trabajó diez años en el extranjero y habla con fluidez.
+他/在/国外/工作/了/十/年，/口语/非常/流利。|Tā zài guówài gōngzuò le shí nián, kǒuyǔ fēicháng liúlì.|Trabajó diez años en el extranjero y habla con mucha fluidez.
 他/住/的/房子/有/一/百/平方/米。|Tā zhù de fángzi yǒu yì bǎi píngfāng mǐ.|La casa donde vive tiene cien metros cuadrados.
 去/他/家/的/路/有/很/多/弯。|Qù tā jiā de lù yǒu hěn duō wān.|El camino a su casa tiene muchas curvas.
 那里/天气/很/潮，/衣服/总是/不/容易/干。|Nàlǐ tiānqì hěn cháo, yīfu zǒngshì bù róngyì gān.|Allí el clima es muy húmedo y la ropa nunca se seca fácilmente.

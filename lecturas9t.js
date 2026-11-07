@@ -7,7 +7,7 @@
 他/说/一般/的/胃病/不/用/住院，/吃/药/就/能/消除/疼痛。|Tā shuō yìbān de wèibìng bú yòng zhùyuàn, chī yào jiù néng xiāochú téngtòng.|Dijo que un mal de estómago normal no necesita ingreso y que con medicina se quita el dolor.
 药/里/有/一/种/物质/能/保护/胃，/减轻/不/舒服。|Yào li yǒu yì zhǒng wùzhì néng bǎohù wèi, jiǎnqīng bù shūfu.|La medicina lleva una sustancia que protege el estómago y alivia el malestar.
 医生/提醒/我，/饮食/要/规律，/睡眠/要/充足。|Yīshēng tíxǐng wǒ, yǐnshí yào guīlǜ, shuìmián yào chōngzú.|El médico me recordó que la comida debe ser regular y el sueño suficiente.
-这/不/只/是/治疗，/更/重要/的/是/防治/复发。|Zhè bù zhǐ shì zhìliáo, gèng zhòngyào de shì fángzhì fùfā.|No es solo tratamiento: lo más importante es prevenir que vuelva.
+这/不/只/是/治疗，/更/重要/的/是/防止/复发。|Zhè bù zhǐ shì zhìliáo, gèng zhòngyào de shì fángzhǐ fùfā.|No es solo tratamiento: lo más importante es prevenir que vuelva.
 他/还/教/我/用/热水/辅助/治疗，/调节/饮食。|Tā hái jiāo wǒ yòng rèshuǐ fǔzhù zhìliáo, tiáojié yǐnshí.|También me enseñó a ayudar al tratamiento con agua caliente y a ajustar la dieta.
 我/无奈/地/说，/唯一/的/爱好/就是/吃/辣/的。|Wǒ wúnài de shuō, wéiyī de àihào jiùshì chī là de.|Le dije resignado que mi única afición es comer picante.
 医生/笑/着/说：/那/你/只好/忍/一/个/月/了。|Yīshēng xiào zhe shuō: nà nǐ zhǐhǎo rěn yí ge yuè le.|El médico sonrió y dijo: entonces tendrás que aguantarte un mes.`, `o|¿Qué consejo le dio el médico, además de la medicina?|Comer con horarios regulares y dormir lo suficiente|Hacer deporte con intensidad todas las tardes|No comer nada sólido durante una semana entera|Evitar el café y tomar solo té verde por la mañana
@@ -69,7 +69,7 @@ f|3`, `客服|atención al cliente
 公司/说/违反/规定/的/账号/会/被/封。|Gōngsī shuō wéifǎn guīdìng de zhànghào huì bèi fēng.|La empresa dice que las cuentas que incumplan las normas serán bloqueadas.
 有/时候/朋友/发来/的/消息/会/干扰/我/学习，/我/就/关/掉/通知。|Yǒu shíhou péngyou fālái de xiāoxi huì gānrǎo wǒ xuéxí, wǒ jiù guān diào tōngzhī.|A veces los mensajes de mis amigos me distraen al estudiar y entonces desactivo las notificaciones.
 妈妈/不/想/干预/我/的/生活，/但/她/担心/我/上网/太/久。|Māma bù xiǎng gānyù wǒ de shēnghuó, dàn tā dānxīn wǒ shàngwǎng tài jiǔ.|Mi madre no quiere meterse en mi vida, pero le preocupa que pase demasiado tiempo en internet.
-我/觉得/这/只/是/她/的/主观/想法，/没有/事实。|Wǒ juéde zhè zhǐ shì tā de zhǔguān xiǎngfǎ, méiyǒu shìshí.|Yo pienso que es solo una idea suya, sin ningún hecho detrás.
+我/觉得/这/只/是/她/的/主观/想法，/没有/事实/根据。|Wǒ juéde zhè zhǐ shì tā de zhǔguān xiǎngfǎ, méiyǒu shìshí gēnjù.|Yo pienso que es solo una idea suya, sin hechos que la respalden.
 她/的/动机/是/关心/我，/所以/我/还是/听/了。|Tā de dòngjī shì guānxīn wǒ, suǒyǐ wǒ háishi tīng le.|Su motivo es preocuparse por mí, así que al final le hice caso.`, `o|¿Por qué la narradora puso un bloqueo en su móvil?|Para proteger su información personal|Porque el fabricante del teléfono se lo exigió|Porque su madre se lo pidió hace tiempo|Porque tuvo problemas con una cuenta bloqueada
 x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|La madre del narrador usa también esa aplicación|Publicar fotos ajenas sin permiso va contra las normas|El narrador bloquea el móvil para proteger sus datos|A la madre le inquieta lo mucho que usa internet
 z|7
@@ -100,8 +100,8 @@ f|9`, `期末|final de curso
 室友|compañero de cuarto`, 'anto'],
 
 [5, '🌊 Después del desastre', `去年/夏天，/边境/附近/的/村子/遭受/了/严重/的/自然/灾害。|Qùnián xiàtiān, biānjìng fùjìn de cūnzi zāoshòu le yánzhòng de zìrán zāihài.|El verano pasado, un pueblo cercano a la frontera sufrió un grave desastre natural.
-暴雨/下/了/三/天，/山/上/的/石头/滚/下来，/地面/都/在/振动。|Bàoyǔ xià le sān tiān, shān shang de shítou gǔn xiàlai, dìmiàn dōu zài zhèndòng.|Llovió torrencialmente tres días, rodaron piedras desde la montaña y el suelo temblaba.
-村民/们/不顾/危险，/抱/着/孩子/往/外/逃。|Cūnmín men bùgù wēixiǎn, bào zhe háizi wǎng wài táo.|Los vecinos, sin pensar en el peligro, huían con los niños en brazos.
+暴雨/下/了/三/天，/山/上/的/石头/滚/下来，/地面/都/在/震动。|Bàoyǔ xià le sān tiān, shān shang de shítou gǔn xiàlai, dìmiàn dōu zài zhèndòng.|Llovió torrencialmente tres días, rodaron piedras desde la montaña y el suelo temblaba.
+村民/们/冒/着/大雨，/抱/着/孩子/往/外/逃。|Cūnmín men mào zhe dàyǔ, bào zhe háizi wǎng wài táo.|Los vecinos huían bajo la lluvia con los niños en brazos.
 政府/马上/动员/大家/去/安全/的/地带。|Zhèngfǔ mǎshàng dòngyuán dàjiā qù ānquán de dìdài.|El gobierno movilizó enseguida a todos hacia una zona segura.
 很多/年轻人/自愿/来/帮忙，/我/也/是/其中/一/个。|Hěnduō niánqīngrén zìyuàn lái bāngmáng, wǒ yě shì qízhōng yí ge.|Muchos jóvenes vinieron a ayudar voluntariamente y yo era uno de ellos.
 我们/给/受伤/的/人/包扎，/给/老人/送/饭。|Wǒmen gěi shòushāng de rén bāozā, gěi lǎorén sòng fàn.|Vendábamos a los heridos y llevábamos comida a los ancianos.
@@ -128,7 +128,7 @@ f|4`, `暴雨|lluvia torrencial
 教练/倡导/团结，/他/说/比赛/不/只是/比/技术。|Jiàoliàn chàngdǎo tuánjié, tā shuō bǐsài bù zhǐshì bǐ jìshù.|El entrenador defiende la unión y dice que competir no es solo cuestión de técnica.
 在/他/的/训练/中，/体力/和/配合/的/比重/一样/大。|Zài tā de xùnliàn zhōng, tǐlì hé pèihé de bǐzhòng yíyàng dà.|En sus entrenamientos, la fuerza física y la coordinación pesan lo mismo.
 一旦/比赛/开始，/我们/就/必须/服从/裁判/的/决定。|Yídàn bǐsài kāishǐ, wǒmen jiù bìxū fúcóng cáipàn de juédìng.|Una vez empieza el partido, tenemos que acatar las decisiones del árbitro.
-决赛/中/我们/被/对手/领先/了，/不免/有些/紧张。|Juésài zhōng wǒmen bèi duìshǒu lǐngxiān le, bùmiǎn yǒuxiē jǐnzhāng.|En la final el rival se puso por delante y nos pusimos algo nerviosos, como es normal.
+决赛/中/对手/领先/了，/我们/不免/有些/紧张。|Juésài zhōng duìshǒu lǐngxiān le, wǒmen bùmiǎn yǒuxiē jǐnzhāng.|En la final el rival se puso por delante y, como es normal, nos pusimos algo nerviosos.
 我/干脆/不/再/看/比分，/只/想/着/下/一/个/球。|Wǒ gāncuì bú zài kàn bǐfēn, zhǐ xiǎng zhe xià yí ge qiú.|Decidí no mirar más el marcador y pensar solo en la siguiente jugada.
 最后/几/分钟，/我们/终于/追/平/了。|Zuìhòu jǐ fēnzhōng, wǒmen zhōngyú zhuī píng le.|En los últimos minutos por fin igualamos.
 比赛/结束/后，/对手/和/我们/握手，/大家/都/很/有/风度。|Bǐsài jiéshù hòu, duìshǒu hé wǒmen wòshǒu, dàjiā dōu hěn yǒu fēngdù.|Al acabar, los rivales nos dieron la mano y todos se comportaron con mucha elegancia.
@@ -146,14 +146,14 @@ f|10`, `开幕式|ceremonia de inauguración
 我/一/开始/不/会/演，/导演/就/站/到/我/跟前/示范。|Wǒ yì kāishǐ bú huì yǎn, dǎoyǎn jiù zhàn dào wǒ gēnqián shìfàn.|Al principio no sabía actuar y el director se ponía delante de mí para enseñarme.
 他/要求/我/的/声音/要/大，/动作/要/夸张。|Tā yāoqiú wǒ de shēngyīn yào dà, dòngzuò yào kuāzhāng.|Me pedía que hablara alto y exagerara los gestos.
 排练/的/时候，/朋友/总/爱/插/话，/惹/得/大家/都/笑。|Páiliàn de shíhou, péngyou zǒng ài chā huà, rě de dàjiā dōu xiào.|En los ensayos, mi amigo siempre se metía en la conversación y hacía reír a todos.
-演出/前/一/天，/道具/还/没/做/完，/大家/熬夜/做/道具。|Yǎnchū qián yì tiān, dàojù hái méi zuò wán, dàjiā áoyè zuò dàojù.|La víspera de la función aún no habían acabado el atrezo y todos se desvelaron haciéndolo.
+演出/前/一/天，/道具/还/没/做/完，/大家/熬夜/做。|Yǎnchū qián yì tiān, dàojù hái méi zuò wán, dàjiā áoyè zuò.|La víspera de la función aún no habían acabado el atrezo y todos se desvelaron haciéndolo.
 演出/那/天，/台/下/坐满/了/观众，/我/紧张/得/手/都/在/抖。|Yǎnchū nà tiān, tái xià zuòmǎn le guānzhòng, wǒ jǐnzhāng de shǒu dōu zài dǒu.|El día de la función el público llenaba la sala y yo estaba tan nervioso que me temblaban las manos.
 可是/一/上台，/我/就/忘/了/害怕，/真的/觉得/自己/是/国王。|Kěshì yí shàngtái, wǒ jiù wàng le hàipà, zhēnde juéde zìjǐ shì guówáng.|Pero al subir al escenario olvidé el miedo y de verdad sentí que era el rey.
 演/到/疯/了/的/那/一/段，/台/下/一/片/安静。|Yǎn dào fēng le de nà yí duàn, tái xià yí piàn ānjìng.|Cuando llegué a la escena de la locura, el público se quedó en silencio.
 谢幕/的/时候，/掌声/响/了/很/久。|Xièmù de shíhou, zhǎngshēng xiǎng le hěn jiǔ.|A la hora de saludar, los aplausos duraron mucho.
 老师/说，/戏剧/能/让/人/理解/不同/的/生活。|Lǎoshī shuō, xìjù néng ràng rén lǐjiě bùtóng de shēnghuó.|La profesora dijo que el teatro nos ayuda a entender vidas distintas.
 我/想/一直/演/下去，/哪怕/只是/业余/的。|Wǒ xiǎng yìzhí yǎn xiàqu, nǎpà zhǐshì yèyú de.|Quiero seguir actuando, aunque sea como aficionado.
-回家/的/路上，/我们/乘/地铁/还/在/讨论/剧情。|Huíjiā de lùshang, wǒmen chéng dìtiě hái zài tǎolùn jùqíng.|De vuelta a casa, en el metro seguíamos comentando la trama.`, `o|¿Cómo se sintió el narrador al subir al escenario?|Dejó de sentir miedo y se metió en el papel|Se olvidó del texto y tuvo que improvisar|Se puso tan nervioso que no pudo seguir|Tuvo ganas de salir corriendo de allí
+回家/的/路上，/我们/在/地铁/上/还/在/讨论/剧情。|Huíjiā de lùshang, wǒmen zài dìtiě shang hái zài tǎolùn jùqíng.|De vuelta a casa, en el metro seguíamos comentando la trama.`, `o|¿Cómo se sintió el narrador al subir al escenario?|Dejó de sentir miedo y se metió en el papel|Se olvidó del texto y tuvo que improvisar|Se puso tan nervioso que no pudo seguir|Tuvo ganas de salir corriendo de allí
 x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El narrador había actuado ya en otras obras del colegio|El director le enseñó a hablar alto y gesticular más|Los asistentes llenaron la sala el día del estreno|El atrezo se terminó a última hora la víspera
 z|2
 f|10`, `戏剧社|club de teatro
@@ -172,7 +172,7 @@ f|10`, `戏剧社|club de teatro
 冰/融化/后，/海水/会/上升。|Bīng rónghuà hòu, hǎishuǐ huì shàngshēng.|Cuando el hielo se derrite, el nivel del mar sube.
 为了/监测/气候，/他们/还/发射/了/一/颗/小/卫星。|Wèile jiāncè qìhòu, tāmen hái fāshè le yì kē xiǎo wèixīng.|Para vigilar el clima, también lanzaron un pequeño satélite.
 卫星/在/天上/把/数据/传/回来，/科学家/一/边/看/一/边/记录。|Wèixīng zài tiānshang bǎ shùjù chuán huílai, kēxuéjiā yì biān kàn yì biān jìlù.|El satélite enviaba datos desde el cielo y los científicos los miraban y los anotaban.
-他们/把/冰/样/拿/去/分解/成/很/小/的/部分，/分析/里面/的/成分。|Tāmen bǎ bīng yàng ná qù fēnjiě chéng hěn xiǎo de bùfen, fēnxī lǐmiàn de chéngfèn.|Dividieron las muestras de hielo en partes muy pequeñas para analizar su composición.
+他们/把/冰/样/拿/去/分/成/很/小/的/几/份，/分析/里面/的/成分。|Tāmen bǎ bīng yàng ná qù fēn chéng hěn xiǎo de jǐ fèn, fēnxī lǐmiàn de chéngfèn.|Dividieron las muestras de hielo en partes muy pequeñas para analizar su composición.
 研究/用/了/一/年，/他们/才/平安/返回。|Yánjiū yòng le yì nián, tāmen cái píng'ān fǎnhuí.|La investigación duró un año y solo entonces volvieron sanos y salvos.
 回来/以后，/他们/写/了/一/本/书，/书/在/全国/发行。|Huílai yǐhòu, tāmen xiě le yì běn shū, shū zài quánguó fāxíng.|Tras regresar escribieron un libro que se publicó en todo el país.
 看/完/以后，/我/决定/少/用/塑料，/保护/北极。|Kàn wán yǐhòu, wǒ juédìng shǎo yòng sùliào, bǎohù běijí.|Después de verlo decidí usar menos plástico para proteger el Polo Norte.

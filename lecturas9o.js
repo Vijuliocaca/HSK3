@@ -20,14 +20,14 @@ f|6`, ``, 'lucia'],
 工厂/每/天/都/要/买/很/多/原料。|Gōngchǎng měi tiān dōu yào mǎi hěn duō yuánliào.|La fábrica compra cada día muchas materias primas.
 去年/他们/研制/了/一/种/新/型号。|Qùnián tāmen yánzhì le yì zhǒng xīn xínghào.|El año pasado desarrollaron un modelo nuevo.
 这/种/玩具/的/用途/很/特别，/可以/教/小/孩子/认/字。|Zhè zhǒng wánjù de yòngtú hěn tèbié, kěyǐ jiāo xiǎo háizi rèn zì.|Este juguete sirve para algo especial: enseñar letras a los niños.
-生产/以前，/要/检测/塑料/里/化学/东西/的/含量。|Shēngchǎn yǐqián, yào jiǎncè sùliào lǐ huàxué dōngxi de hánliàng.|Antes de fabricar hay que medir la cantidad de sustancias químicas en el plástico.
+生产/以前，/要/检测/塑料/里/化学/物质/的/含量。|Shēngchǎn yǐqián, yào jiǎncè sùliào lǐ huàxué wùzhì de hánliàng.|Antes de fabricar hay que medir la cantidad de sustancias químicas en el plástico.
 玩具/的/尺寸/也/不/能/太/小，/否则/孩子/可能/放/进/嘴/里。|Wánjù de chǐcùn yě bù néng tài xiǎo, fǒuzé háizi kěnéng fàng jìn zuǐ lǐ.|El tamaño tampoco puede ser demasiado pequeño, o el niño podría metérselo en la boca.
 然后/还/要/测试/它/能/用/多/久。|Ránhòu hái yào cèshì tā néng yòng duō jiǔ.|Después hay que probar cuánto tiempo aguanta.
 工人/做/事/很/细致，/每/一/个/都/要/检查。|Gōngrén zuò shì hěn xìzhì, měi yí ge dōu yào jiǎnchá.|Los obreros trabajan con esmero y revisan cada uno.
 公司/预测，/明年/的/生意/会/更/好。|Gōngsī yùcè, míngnián de shēngyi huì gèng hǎo.|La empresa prevé que el año que viene el negocio irá mejor.
 可是/工厂/的/机器/需要/燃料，/最近/价格/上升/了。|Kěshì gōngchǎng de jīqì xūyào ránliào, zuìjìn jiàgé shàngshēng le.|Pero las máquinas necesitan combustible y últimamente su precio ha subido.
 因为/城市/越来越/大，/工厂/要/转移/到/城市/外面。|Yīnwèi chéngshì yuèláiyuè dà, gōngchǎng yào zhuǎnyí dào chéngshì wàimiàn.|Como la ciudad crece, la fábrica tiene que trasladarse a las afueras.
-爸爸/说，/这/个/工程/虽然/大，/但/今年/成绩/有/显著/提高。|Bàba shuō, zhè ge gōngchéng suīrán dà, dàn jīnnián chéngjì yǒu xiǎnzhù tígāo.|Mi padre dice que, aunque el proyecto es grande, este año los resultados han mejorado notablemente.`, `o|¿Por qué tendrá que mudarse la fábrica?|Porque la ciudad se hace cada vez más grande|Porque el combustible resulta demasiado caro|Porque los obreros quieren vivir en el campo|Porque ya no consigue comprar materia prima
+爸爸/说，/搬/工厂/是/个/大/工程，/不过/今年/成绩/有/显著/提高。|Bàba shuō, bān gōngchǎng shì ge dà gōngchéng, búguò jīnnián chéngjì yǒu xiǎnzhù tígāo.|Mi padre dice que trasladar la fábrica es un gran proyecto, pero que este año los resultados han mejorado notablemente.`, `o|¿Por qué tendrá que mudarse la fábrica?|Porque la ciudad se hace cada vez más grande|Porque el combustible resulta demasiado caro|Porque los obreros quieren vivir en el campo|Porque ya no consigue comprar materia prima
 x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|La fábrica exporta la mayor parte de lo que fabrica|El juguete nuevo ayuda a que los niños aprendan letras|El combustible más caro afecta a los costes|La ciudad al crecer obliga a trasladar la fábrica
 z|4
 f|3`, ``, 'guidozcos'],

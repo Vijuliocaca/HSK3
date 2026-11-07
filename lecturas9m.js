@@ -4,7 +4,7 @@
 我/先/写/了/一/份/简历，/然后/发/给/几/家/企业。|Wǒ xiān xiě le yí fèn jiǎnlì, ránhòu fā gěi jǐ jiā qǐyè.|Primero escribí un currículum y luego lo envié a varias empresas.
 这/个/行业/的/年轻/人/很/多，/所以/我/很/迫切/地/想/找到/机会。|Zhè ge hángyè de niánqīng rén hěn duō, suǒyǐ wǒ hěn pòqiè de xiǎng zhǎodào jīhuì.|En este sector hay mucha gente joven, así que deseaba con urgencia encontrar una oportunidad.
 终于，/一/家/公司/通知/我/去/面试。|Zhōngyú, yì jiā gōngsī tōngzhī wǒ qù miànshì.|Por fin, una empresa me avisó para ir a una entrevista.
-面试/官/问/我：/你/具备/什么/能力？”|Miànshì guān wèn wǒ: "Nǐ jùbèi shénme nénglì?"|El entrevistador me preguntó: «¿Qué capacidades tienes?»
+面试/官/问/我：/你/具备/什么/能力？|Miànshì guān wèn wǒ: "Nǐ jùbèi shénme nénglì?"|El entrevistador me preguntó: «¿Qué capacidades tienes?»
 我/说/我/很/能干，/而且/愿意/学习。|Wǒ shuō wǒ hěn nénggàn, érqiě yuànyì xuéxí.|Dije que soy muy capaz y que además estoy dispuesto a aprender.
 他/告诉/我，/公司/会/给/新/同事/做/培训，/也/会/培养/他们。|Tā gàosu wǒ, gōngsī huì gěi xīn tóngshì zuò péixùn, yě huì péiyǎng tāmen.|Me dijo que la empresa da formación a los compañeros nuevos y también los prepara.
 他/还/说，/这/个/阶段/最/重要/的/是/发挥/自己/的/优点。|Tā hái shuō, zhè ge jiēduàn zuì zhòngyào de shì fāhuī zìjǐ de yōudiǎn.|Añadió que en esta etapa lo más importante es sacar partido a tus puntos fuertes.
@@ -16,13 +16,13 @@ z|9
 f|4`, ``, 'anto'],
 
 [4, '🛍️ Una tienda de regalos', `我/在/北京/的/一/家/商店/买/礼物。|Wǒ zài Běijīng de yì jiā shāngdiàn mǎi lǐwù.|Estoy comprando regalos en una tienda de Pekín.
-老板/笑/着/说：/欢迎/光临！”|Lǎobǎn xiào zhe shuō: "Huānyíng guānglín!"|El dueño dijo sonriendo: «¡Bienvenido!»
+老板/笑/着/说：/欢迎/光临！|Lǎobǎn xiào zhe shuō: "Huānyíng guānglín!"|El dueño dijo sonriendo: «¡Bienvenido!»
 店/里/有/很多/手工/做/的/小/东西，/还有/进口/的/巧克力。|Diàn lǐ yǒu hěnduō shǒugōng zuò de xiǎo dōngxi, háiyǒu jìnkǒu de qiǎokèlì.|En la tienda hay muchas cositas hechas a mano y también chocolate importado.
 一/个/黄金/做/的/小/猫/很/漂亮，/可是/太/贵/了。|Yí ge huángjīn zuò de xiǎo māo hěn piàoliang, kěshì tài guì le.|Un gatito de oro era muy bonito, pero demasiado caro.
 我/先/看/了/看/今天/的/汇率，/想/知道/换/多少/钱。|Wǒ xiān kàn le kàn jīntiān de huìlǜ, xiǎng zhīdào huàn duōshao qián.|Primero miré el tipo de cambio de hoy para saber cuánto dinero me darían.
 老板/说/他/的/店/几乎/破产，/现在/生意/才/好/起来。|Lǎobǎn shuō tā de diàn jīhū pòchǎn, xiànzài shēngyi cái hǎo qǐlái.|El dueño dijo que su tienda casi quiebra y que el negocio solo ahora ha mejorado.
 他/说/很多/商务/客人/都/来/这里/买/礼物。|Tā shuō hěnduō shāngwù kèrén dōu lái zhèlǐ mǎi lǐwù.|Dijo que muchos clientes de negocios vienen aquí a comprar regalos.
-为了/节省/钱，/我/把/旧/书/和/老板/交换/了/一/张/光盘。|Wèile jiéshěng qián, wǒ bǎ jiù shū hé lǎobǎn jiāohuàn le yì zhāng guāngpán.|Para ahorrar, cambié unos libros viejos con el dueño por un disco.
+为了/节省/钱，/我/用/旧/书/和/老板/交换/了/一/张/光盘。|Wèile jiéshěng qián, wǒ yòng jiù shū hé lǎobǎn jiāohuàn le yì zhāng guāngpán.|Para ahorrar, cambié unos libros viejos con el dueño por un disco.
 付/钱/的/时候，/我/要/了/发票。|Fù qián de shíhou, wǒ yào le fāpiào.|A la hora de pagar, pedí la factura.
 老板/说/他/要/先/确认/价钱，/再/开/发票。|Lǎobǎn shuō tā yào xiān quèrèn jiàqián, zài kāi fāpiào.|El dueño dijo que primero confirmaría el precio y luego haría la factura.
 他/还/说，/买/错/了/客人/有/权利/换/别的，/所以/不/用/担心。|Tā hái shuō, mǎi cuò le kèrén yǒu quánlì huàn biéde, suǒyǐ bú yòng dānxīn.|Añadió que si te equivocas, el cliente tiene derecho a cambiar, así que no hay que preocuparse.
@@ -100,7 +100,7 @@ f|2`, ``, 'chana'],
 邻居/一/位/女士/看见/了，/笑/着/说/男人/也/该/学/做/饭。|Línjū yí wèi nǚshì kànjiàn le, xiào zhe shuō nánrén yě gāi xué zuò fàn.|Una vecina lo vio y dijo sonriendo que los hombres también deben aprender a cocinar.
 我/以前/有点/看不起/做/家务/的/男人。|Wǒ yǐqián yǒudiǎn kànbuqǐ zuò jiāwù de nánrén.|Antes despreciaba un poco a los hombres que hacían las tareas del hogar.
 现在/我/知道/这/不/能/怪/她，/是/我/太/懒/了。|Xiànzài wǒ zhīdào zhè bù néng guài tā, shì wǒ tài lǎn le.|Ahora sé que no es culpa de ella, sino que yo era muy perezoso.
-她/笑/着/说：/亲爱/的，/哪怕/只/做/一点/也/好。”|Tā xiào zhe shuō: "Qīn'ài de, nǎpà zhǐ zuò yìdiǎn yě hǎo."|Ella dijo sonriendo: «Cariño, aunque solo hagas un poco, está bien.»
+她/笑/着/说：/亲爱/的，/哪怕/只/做/一点/也/好。|Tā xiào zhe shuō: "Qīn'ài de, nǎpà zhǐ zuò yìdiǎn yě hǎo."|Ella dijo sonriendo: «Cariño, aunque solo hagas un poco, está bien.»
 年轻/时/我们/都/爱/交际，/常常/去/酒吧。|Niánqīng shí wǒmen dōu ài jiāojì, chángcháng qù jiǔbā.|De jóvenes nos gustaba mucho socializar y a menudo íbamos a bares.
 那/是/我们/的/青春，/现在/的/生活/是/另/一/种/类型。|Nà shì wǒmen de qīngchūn, xiànzài de shēnghuó shì lìng yì zhǒng lèixíng.|Aquello fue nuestra juventud; la vida de ahora es de otro tipo.
 虽然/很/忙，/但/我们/的/关系/一直/很/良好。|Suīrán hěn máng, dàn wǒmen de guānxi yìzhí hěn liánghǎo.|Aunque estamos muy ocupados, nuestra relación siempre ha sido buena.`, `o|¿Qué cambió en el narrador con los años?|Empezó a repartirse las tareas de casa con su mujer|Dejó de salir con sus amigos del trabajo|Se mudó a otra ciudad con su familia|Empezó a trabajar menos horas por su salud
@@ -112,7 +112,7 @@ f|6`, ``, 'carlos'],
 刚/开始/时，/钱/的/来源/只有/家人/的/帮助。|Gāng kāishǐ shí, qián de láiyuán zhǐyǒu jiārén de bāngzhù.|Al principio, el dinero solo venía de la ayuda de mi familia.
 后来/我/向/银行/借/了/钱，/每/个/月/要/付/利息。|Hòulái wǒ xiàng yínháng jiè le qián, měi ge yuè yào fù lìxī.|Más tarde pedí dinero al banco y cada mes tengo que pagar intereses.
 公司/内部/有/五/个/人，/大家/的/关系/很/密切。|Gōngsī nèibù yǒu wǔ ge rén, dàjiā de guānxi hěn mìqiè.|En la empresa somos cinco personas y todos nos llevamos muy bien.
-我们/每/天/都/极其/忙。|Wǒmen měi tiān dōu jíqí máng.|Cada día estamos sumamente ocupados.
+我们/每/天/都/极其/忙碌。|Wǒmen měi tiān dōu jíqí mánglù.|Cada día estamos sumamente ocupados.
 有/一/次，/客人/突然/来/了，/我/急忙/去/准备/咖啡。|Yǒu yí cì, kèrén tūrán lái le, wǒ jímáng qù zhǔnbèi kāfēi.|Una vez llegaron clientes de repente y fui corriendo a preparar el café.
 我/在/菜单/上/划/出/最/受/欢迎/的/几/种。|Wǒ zài càidān shàng huà chū zuì shòu huānyíng de jǐ zhǒng.|En el menú marqué los que más gustan.
 我们/面临/一/个/问题：/地方/太/小。|Wǒmen miànlín yí ge wèntí: dìfang tài xiǎo.|Tenemos un problema: el local es demasiado pequeño.

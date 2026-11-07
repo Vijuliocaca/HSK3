@@ -5,7 +5,7 @@
 他/先/看/了/看/房子/的/构造，/说/房间/太/小。|Tā xiān kàn le kàn fángzi de gòuzào, shuō fángjiān tài xiǎo.|Primero miró la estructura del piso y dijo que una habitación era demasiado pequeña.
 他/还/说/窗户/太/小，/只/有/几/百/毫米，/屋子/不/太/亮。|Tā hái shuō chuānghu tài xiǎo, zhǐ yǒu jǐ bǎi háomǐ, wūzi bú tài liàng.|Dijo también que la ventana era muy pequeña, de pocos cientos de milímetros, y la casa no tenía mucha luz.
 我们/一起/布置/房间，/先/决定/了/沙发/的/位置。|Wǒmen yìqǐ bùzhì fángjiān, xiān juédìng le shāfā de wèizhi.|Entre los dos decoramos la habitación y primero decidimos dónde iría el sofá.
-屋子/的/门/想/做/成/透明/的，/这样/白天/很/亮。|Wūzi de mén xiǎng zuò chéng tòumíng de, zhèyàng báitiān hěn liàng.|Queremos que la puerta de la habitación sea transparente, así de día hay mucha luz.
+我们/想/把/屋子/的/门/做/成/透明/的，/这样/白天/很/亮。|Wǒmen xiǎng bǎ wūzi de mén zuò chéng tòumíng de, zhèyàng báitiān hěn liàng.|Queremos que la puerta de la habitación sea transparente, así de día hay mucha luz.
 门口/有/很/高/的/台阶，/奶奶/来/的/时候/会/不/方便。|Ménkǒu yǒu hěn gāo de táijiē, nǎinai lái de shíhou huì bù fāngbiàn.|En la entrada hay un escalón muy alto y cuando venga la abuela le resultará incómodo.
 工人/检查/电源/的/时候，/发现/有/一/个/地方/坏/了。|Gōngrén jiǎnchá diànyuán de shíhou, fāxiàn yǒu yí ge dìfang huài le.|Mientras el obrero revisaba la toma de corriente, descubrió que un sitio estaba estropeado.
 他/说/有/些/地方/只/需要/维修，/不/用/全/换，/这样/能/省/很多/钱。|Tā shuō yǒu xiē dìfang zhǐ xūyào wéixiū, bú yòng quán huàn, zhèyàng néng shěng hěnduō qián.|Dijo que algunos sitios solo necesitaban arreglo y no hacía falta cambiarlo todo, así se ahorra mucho dinero.
@@ -46,7 +46,7 @@ z|9
 f|11`, ``, 'kevin'],
 
 [4, '🏛️ Las noticias de hoy', `昨天/的/新闻/说，/两/个/国家/的/总统/要/见面。|Zuótiān de xīnwén shuō, liǎng ge guójiā de zǒngtǒng yào jiànmiàn.|Las noticias de ayer decían que los presidentes de dos países se van a reunir.
-他们/想/召开/一/次/大/会议，/谈谈/现在/的/形势。|Tāmen xiǎng zhàokāi yí cì dà huìyì, tántan xiànzài de xíngshì.|Quieren celebrar una gran reunión para hablar de la situación actual.
+他们/想/召开/一/次/大会，/谈谈/现在/的/形势。|Tāmen xiǎng zhàokāi yí cì dàhuì, tántan xiànzài de xíngshì.|Quieren celebrar una gran reunión para hablar de la situación actual.
 以前/这/两/个/国家/发生/过/战争，/很多/人/受伤。|Yǐqián zhè liǎng ge guójiā fāshēng guo zhànzhēng, hěnduō rén shòushāng.|Antes hubo una guerra entre estos dos países y mucha gente salió herida.
 现在/大家/都/希望/国家/之间/成为/朋友。|Xiànzài dàjiā dōu xīwàng guójiā zhījiān chéngwéi péngyou.|Ahora todos desean que los países sean amigos.
 总理/说，/国家/的/方针/是/坐/下来/认真/谈。|Zǒnglǐ shuō, guójiā de fāngzhēn shì zuò xiàlai rènzhēn tán.|El primer ministro dijo que la línea del país es sentarse a conversar en serio.
@@ -98,7 +98,7 @@ f|2`, ``, 'chiki'],
 最近/工作/很/忙，/我/的/心理/负担/很/重，/晚上/睡/不/着。|Zuìjìn gōngzuò hěn máng, wǒ de xīnlǐ fùdān hěn zhòng, wǎnshang shuì bù zháo.|Últimamente tengo mucho trabajo, la carga psicológica es grande y de noche no puedo dormir.
 医生/说/压力/太/沉重，/身体/也/会/承受/不/了。|Yīshēng shuō yālì tài chénzhòng, shēntǐ yě huì chéngshòu bù liǎo.|El médico dijo que si la presión es demasiado pesada, el cuerpo tampoco la aguanta.
 他/还/说/我/消化/不/好，/是/因为/吃/饭/太/快。|Tā hái shuō wǒ xiāohuà bù hǎo, shì yīnwèi chī fàn tài kuài.|Dijo además que digiero mal porque como demasiado deprisa.
-吃/饭/要/慢慢/的，/身体/才/能/吸收/饭/里/的/营养。|Chī fàn yào mànmàn de, shēntǐ cái néng xīshōu fàn lǐ de yíngyǎng.|Hay que comer despacio para que el cuerpo absorba los nutrientes de la comida.
+吃/饭/要/慢/一点，/身体/才/能/吸收/饭/里/的/营养。|Chī fàn yào màn yìdiǎn, shēntǐ cái néng xīshōu fàn lǐ de yíngyǎng.|Hay que comer despacio para que el cuerpo absorba los nutrientes de la comida.
 如果/我/每天/做/运动，/治疗/的/时间/可以/缩短/一些。|Rúguǒ wǒ měitiān zuò yùndòng, zhìliáo de shíjiān kěyǐ suōduǎn yìxiē.|Si hago ejercicio cada día, el tratamiento puede acortarse un poco.
 要是/不/注意，/时间/可能/会/延长/到/半/年。|Yàoshi bú zhùyì, shíjiān kěnéng huì yáncháng dào bàn nián.|Si no hago caso, podría alargarse hasta medio año.
 我/决定/逐步/改变/生活，/先/从/早/点/睡觉/开始。|Wǒ juédìng zhúbù gǎibiàn shēnghuó, xiān cóng zǎo diǎn shuìjiào kāishǐ.|Decidí cambiar mi vida poco a poco, empezando por acostarme más temprano.
@@ -116,7 +116,7 @@ f|11`, ``, 'laura'],
 有/个/客人/很/难/对付，/总是/不/满意。|Yǒu ge kèrén hěn nán duìfu, zǒngshì bù mǎnyì.|Hay un cliente difícil de tratar que nunca está satisfecho.
 他/是/一/位/典型/的/客人：/想/要/最/好，/又/想/便宜。|Tā shì yí wèi diǎnxíng de kèrén: xiǎng yào zuì hǎo, yòu xiǎng piányi.|Es un cliente típico, que quiere lo mejor y también barato.
 我/把/这/件/事/转告/了/经理，/他/说/他/自己/去/谈。|Wǒ bǎ zhè jiàn shì zhuǎngào le jīnglǐ, tā shuō tā zìjǐ qù tán.|Le trasladé el asunto al gerente y dijo que hablaría él mismo.
-我/的/心/容易/分散，/所以/开会/时/不/带/手机。|Wǒ de xīn róngyì fēnsàn, suǒyǐ kāihuì shí bú dài shǒujī.|Me distraigo con facilidad, así que no llevo el móvil a las reuniones.
+我/很/容易/分散/注意，/所以/开会/时/不/带/手机。|Wǒ hěn róngyì fēnsàn zhùyì, suǒyǐ kāihuì shí bú dài shǒujī.|Me distraigo con facilidad, así que no llevo el móvil a las reuniones.
 万一/出/问题，/谁/来/担保/呢？|Wànyī chū wèntí, shéi lái dānbǎo ne?|Si hay algún problema, ¿quién responde?
 我们/公司/的/足球/队/上/次/败/了，/但是/大家/都/笑/着/说/下次/再/来。|Wǒmen gōngsī de zúqiú duì shàng cì bài le, dànshì dàjiā dōu xiào zhe shuō xiàcì zài lái.|El equipo de fútbol de la empresa perdió la última vez, pero todos dijeron riendo que la próxima será otra.
 我/觉得/每天/都/是/一/次/挑战，/可是/我/很/喜欢。|Wǒ juéde měitiān dōu shì yí cì tiǎozhàn, kěshì wǒ hěn xǐhuan.|Cada día me parece un reto, pero me gusta mucho.`, `o|¿Qué le dice el gerente al narrador sobre los errores?|Que siendo joven puede fallar si aprende de ello|Que debe esconderlos para que no se sepan|Que será despedido si los vuelve a cometer|Que tiene que corregirlos ese mismo día
@@ -130,11 +130,11 @@ f|6`, ``, 'guidozcos'],
 朋友/问/我/怎么/形容/这些/衣服，/我/想/了/半天。|Péngyou wèn wǒ zěnme xíngróng zhèxiē yīfu, wǒ xiǎng le bàntiān.|Mi amigo me preguntó cómo describiría esa ropa y estuve pensando un buen rato.
 最后/我/说：/这些/衣服/要/你/自己/想象。|Zuìhòu wǒ shuō: zhèxiē yīfu yào nǐ zìjǐ xiǎngxiàng.|Al final dije que esa ropa hay que imaginarla uno mismo.
 设计/的/人/很/注意/细节，/连/最/小/的/地方/都/认真/做。|Shèjì de rén hěn zhùyì xìjié, lián zuì xiǎo de dìfang dōu rènzhēn zuò.|Quien la diseñó cuida los detalles, incluso lo más pequeño lo hace con esmero.
-他/还/运用/了/传统/的/中国/花，/让/衣服/更/特别。|Tā hái yùnyòng le chuántǒng de Zhōngguó huā, ràng yīfu gèng tèbié.|Además empleó flores tradicionales chinas para hacer la ropa más especial.
+他/还/运用/了/中国/传统/的/花纹，/让/衣服/更/特别。|Tā hái yùnyòng le Zhōngguó chuántǒng de huāwén, ràng yīfu gèng tèbié.|Además empleó motivos florales tradicionales chinos para hacer la ropa más especial.
 展览/的/说明/里/写/着：/衣服/包含/着/历史/和/文化。|Zhǎnlǎn de shuōmíng lǐ xiě zhe: yīfu bāohán zhe lìshǐ hé wénhuà.|En la explicación de la exposición ponía que la ropa encierra historia y cultura.
 一/位/老/先生/向/我们/问候，/原来/他/就是/设计/的/人。|Yí wèi lǎo xiānsheng xiàng wǒmen wènhòu, yuánlái tā jiùshì shèjì de rén.|Un señor mayor nos saludó y resultó ser el diseñador.
 他/说/做/衣服/和/画画/的/性质/差不多，/都/要/用/心。|Tā shuō zuò yīfu hé huàhuà de xìngzhì chàbuduō, dōu yào yòng xīn.|Dijo que hacer ropa se parece a pintar y en ambos casos hay que poner el corazón.
-他/不/想/要/很多/钱，/却/有/高尚/的/心，/常常/帮/穷/人/做/衣服。|Tā bù xiǎng yào hěnduō qián, què yǒu gāoshàng de xīn, chángcháng bāng qióng rén zuò yīfu.|No quiere ganar mucho dinero, pero tiene un corazón noble y a menudo hace ropa para los pobres.
+他/不/在乎/钱，/有/一/颗/高尚/的/心，/常常/帮/穷/人/做/衣服。|Tā bú zàihu qián, yǒu yì kē gāoshàng de xīn, chángcháng bāng qióng rén zuò yīfu.|No le importa el dinero, tiene un corazón noble y a menudo hace ropa para los pobres.
 他/说/每/个/人/都/是/不/一样/的/个体，/要/寻找/适合/自己/的/样子。|Tā shuō měi ge rén dōu shì bù yíyàng de gètǐ, yào xúnzhǎo shìhé zìjǐ de yàngzi.|Dijo que cada persona es un individuo distinto y debe buscar el estilo que le va.`, `o|¿Qué mensaje transmite el diseñador sobre la ropa?|Que cada persona busque el estilo que le sienta bien|Que hay que seguir siempre las modas del momento|Que la ropa más cara es la que mejor queda|Que los pequeños detalles no merecen atención
 x|¿Qué afirmación NO se desprende de lo que cuenta el texto?|El diseñador vende su ropa a precios muy elevados|En la exposición cada prenda tenía su personalidad|El diseñador cuida mucho los detalles al crear|Hay motivos de la tradición china en las prendas
 z|10

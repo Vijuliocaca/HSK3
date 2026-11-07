@@ -49,10 +49,10 @@ z|5
 f|6`, '', 'kevin'],
 
 [5, '🤧 Una alergia inesperada', `上/个/星期，/我/的/皮肤/突然/发/红，/又/痒/又/疼。|Shàng ge xīngqī, wǒ de pífū tūrán fā hóng, yòu yǎng yòu téng.|La semana pasada se me puso la piel roja, con picor y dolor.
-我/以为/是/得/了/病毒，/赶紧/去/了/医院。|Wǒ yǐwéi shì dé le bìngdú, gǎnjǐn qù le yīyuàn.|Pensé que tenía algún virus y fui enseguida al hospital.
+我/以为/是/感染/了/病毒，/赶紧/去/了/医院。|Wǒ yǐwéi shì gǎnrǎn le bìngdú, gǎnjǐn qù le yīyuàn.|Pensé que tenía algún virus y fui enseguida al hospital.
 医生/看/了/看，/说/不/是/病毒，/是/过敏。|Yīshēng kàn le kàn, shuō bú shì bìngdú, shì guòmǐn.|El médico echó un vistazo y dijo que no era un virus, sino una alergia.
 他/问/我/最近/吃/了/什么，/我/想/了/半天。|Tā wèn wǒ zuìjìn chī le shénme, wǒ xiǎng le bàntiān.|Me preguntó qué había comido últimamente y estuve pensando un buen rato.
-昨天/中午/我/吃/了/很多/西红柿，/尤其/是/生/的。|Zuótiān zhōngwǔ wǒ chī le hěnduō xīhóngshì, yóuqí shì shēng de.|Ayer al mediodía comí muchos tomates, sobre todo crudos.
+前/一/天/中午/我/吃/了/很多/西红柿，/尤其/是/生/的。|Qián yì tiān zhōngwǔ wǒ chī le hěnduō xīhóngshì, yóuqí shì shēng de.|El día anterior, al mediodía, había comido muchos tomates, sobre todo crudos.
 医生/很/肯定，/我/对/西红柿/过敏。|Yīshēng hěn kěndìng, wǒ duì xīhóngshì guòmǐn.|El médico estaba seguro de que soy alérgico al tomate.
 他/开/了/药，/说/再/痒/也/要/忍受/几/天。|Tā kāi le yào, shuō zài yǎng yě yào rěnshòu jǐ tiān.|Me recetó una medicina y dijo que, por mucho que picara, tenía que aguantar unos días.
 除了/西红柿，/别的/蔬菜/都/可以/吃。|Chúle xīhóngshì, biéde shūcài dōu kěyǐ chī.|Salvo el tomate, las demás verduras puedo comerlas.
@@ -70,7 +70,7 @@ f|10`, `痒|picar; picor
 表格/上/要/写/姓名、/年龄/和/工作/单位。|Biǎogé shang yào xiě xìngmíng, niánlíng hé gōngzuò dānwèi.|En el formulario hay que poner el nombre, la edad y el lugar de trabajo.
 除非/有/对方/公司/的/邀请，/否则/不/会/给/签证。|Chúfēi yǒu duìfāng gōngsī de yāoqǐng, fǒuzé bú huì gěi qiānzhèng.|A menos que haya una invitación de la otra empresa, no dan el visado.
 我/凭/这/封/信/和/护照，/终于/办/好/了。|Wǒ píng zhè fēng xìn hé hùzhào, zhōngyú bàn hǎo le.|Con esa carta y el pasaporte conseguí por fin el visado.
-去年/他/忘/了/时间，/多/住/了/几/天，/结果/被/罚款/了。|Qùnián tā wàng le shíjiān, duō zhù le jǐ tiān, jiéguǒ bèi fákuǎn le.|El año pasado un compañero perdió la cuenta de los días, se quedó de más y lo multaron.
+去年/一/个/同事/忘/了/时间，/多/住/了/几/天，/结果/被/罚款/了。|Qùnián yí ge tóngshì wàng le shíjiān, duō zhù le jǐ tiān, jiéguǒ bèi fákuǎn le.|El año pasado un compañero perdió la cuenta de los días, se quedó de más y lo multaron.
 航空/公司/弄/丢/了/他/的/行李，/赔偿/了/他/五百/块。|Hángkōng gōngsī nòng diū le tā de xíngli, péicháng le tā wǔbǎi kuài.|La aerolínea le perdió el equipaje y le indemnizó con quinientos yuanes.
 他/还/说/公司/欠/他/一/笔/钱，/一直/没/还。|Tā hái shuō gōngsī qiàn tā yì bǐ qián, yìzhí méi huán.|También dijo que la empresa le debía una suma que nunca pagó.
 到/了/中国，/我/跟随/同事/参观/了/几/家/工厂。|Dào le Zhōngguó, wǒ gēnsuí tóngshì cānguān le jǐ jiā gōngchǎng.|Al llegar a China visité varias fábricas siguiendo a mis compañeros.

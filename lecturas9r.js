@@ -70,7 +70,7 @@ f|9`, `书桌|escritorio
 感想|impresiones, reflexión
 文具|material de escritura`, 'teo'],
 [5, '🌸 Los melocotoneros del valle', `我/的/老家/在/一/个/山区，/地形/很/复杂。|Wǒ de lǎojiā zài yí ge shānqū, dìxíng hěn fùzá.|Mi pueblo está en una región de montaña con un terreno muy complicado.
-一/条/河/由/南北/方向/穿过/村子。|Yì tiáo hé yóu nánběi fāngxiàng chuānguò cūnzi.|Un río atraviesa el pueblo de norte a sur.
+一/条/河/由/北/向/南/穿过/村子。|Yì tiáo hé yóu běi xiàng nán chuānguò cūnzi.|Un río atraviesa el pueblo de norte a sur.
 河/的/宽度/大约/二十/米。|Hé de kuāndù dàyuē èrshí mǐ.|El río tiene unos veinte metros de ancho.
 春天，/两岸/的/桃树/开/满/了/桃花。|Chūntiān, liǎng'àn de táoshù kāi mǎn le táohuā.|En primavera, los melocotoneros de las dos orillas se llenan de flores.
 游客/从/城市/和/郊区/来/看/花。|Yóukè cóng chéngshì hé jiāoqū lái kàn huā.|Los turistas vienen de la ciudad y de las afueras a ver las flores.
@@ -138,7 +138,7 @@ f|9`, `厂长|director de fábrica
 我/打开/电脑，/发现/文件/里/有/病毒。|Wǒ dǎkāi diànnǎo, fāxiàn wénjiàn li yǒu bìngdú.|Abrí el ordenador y descubrí que había un virus en el archivo.
 我/赶紧/杀毒，/还好/没/丢/资料。|Wǒ gǎnjǐn shādú, háihǎo méi diū zīliào.|Pasé enseguida el antivirus y por suerte no perdí documentos.
 电子版/的/协议书/才/是/最后/的/正版。|Diànzǐbǎn de xiéyìshū cái shì zuìhòu de zhèngbǎn.|La versión electrónica del acuerdo es la versión definitiva y legítima.
-对方/是/外国/人，/国籍/不/同，/他/说/中文/很/流利。|Duìfāng shì wàiguó rén, guójí bù tóng, tā shuō Zhōngwén hěn liúlì.|La otra parte es extranjera, de otra nacionalidad, pero habla chino con fluidez.
+对方/是/外国/人，/国籍/不/同，/但/他/说/中文/很/流利。|Duìfāng shì wàiguó rén, guójí bù tóng, dàn tā shuō Zhōngwén hěn liúlì.|La otra parte es extranjera, de otra nacionalidad, pero habla chino con fluidez.
 他/给/我/发/来/二维码，/说/扫/一/下/就/能/付款。|Tā gěi wǒ fā lái èrwéimǎ, shuō sǎo yí xià jiù néng fùkuǎn.|Me envió un código QR y dijo que bastaba escanearlo para pagar.
 我/估计/这/次/要/去/三/天，/都/是/工作日。|Wǒ gūjì zhè cì yào qù sān tiān, dōu shì gōngzuòrì.|Calculo que iré tres días, todos laborables.
 我/先/乘车/到/车站，/再/乘坐/高铁/去/上海。|Wǒ xiān chéngchē dào chēzhàn, zài chéngzuò gāotiě qù Shànghǎi.|Primero tomo un coche hasta la estación y luego el tren de alta velocidad a Shanghái.

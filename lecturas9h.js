@@ -39,7 +39,7 @@ f|3`, `海边|playa; orilla del mar`, 'lucia'],
 有/一/次/他/把/我/的/杯子/打/碎/了，/还/假装/不/知道。|Yǒu yí cì tā bǎ wǒ de bēizi dǎ suì le, hái jiǎzhuāng bù zhīdào.|Una vez me rompió una taza y encima hizo como si no supiera nada.
 我/很/生气，/觉得/他/又/自私/又/没/礼貌。|Wǒ hěn shēngqì, juéde tā yòu zìsī yòu méi lǐmào.|Me enfadé mucho; me parecía egoísta y maleducado.
 我们/坦率/地/谈/了/一/次，/他/诚实/地/承认/了/错误。|Wǒmen tǎnshuài de tán le yí cì, tā chéngshí de chéngrèn le cuòwù.|Hablamos con franqueza y él admitió sinceramente sus errores.
-原来/他/的/脾气/很/好，/只是/从来/没/一/个/人/住/过。|Yuánlái tā de píqi hěn hǎo, zhǐshì cónglái méi yí ge rén zhù guo.|Resulta que tenía buen carácter; simplemente nunca había vivido fuera de casa.
+原来/他/的/脾气/很/好，/只是/从来/没/离开/过/家。|Yuánlái tā de píqi hěn hǎo, zhǐshì cónglái méi líkāi guo jiā.|Resulta que tenía buen carácter; simplemente nunca había vivido fuera de casa.
 我们/决定/轮流/打扫/房间，/每/周/换/一/次。|Wǒmen juédìng lúnliú dǎsǎo fángjiān, měi zhōu huàn yí cì.|Decidimos limpiar por turnos y cambiar cada semana.
 他/很/虚心，/慢慢/学会/了/做/饭，/现在/已经/很/熟练/了。|Tā hěn xūxīn, mànmàn xuéhuì le zuò fàn, xiànzài yǐjīng hěn shúliàn le.|Fue muy humilde, aprendió poco a poco a cocinar y ahora ya se le da muy bien.
 他/还/特别/善于/讲/笑话，/总是/把/我/逗/笑。|Tā hái tèbié shànyú jiǎng xiàohua, zǒngshì bǎ wǒ dòu xiào.|Además es buenísimo contando chistes y siempre me hace reír.

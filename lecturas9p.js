@@ -42,7 +42,7 @@ f|9`, `耳机|auriculares
 我/和/弟弟/一起/拼/出/了/一/张/中国/地图。|Wǒ hé dìdi yìqǐ pīn chū le yì zhāng Zhōngguó dìtú.|Mi hermano y yo montamos juntos un mapa de China.
 晚上/我们/向前/走/了/一/段，/去/看/村口/的/烟花。|Wǎnshang wǒmen xiàngqián zǒu le yí duàn, qù kàn cūnkǒu de yānhuā.|Por la noche caminamos un trecho hacia delante para ver los fuegos artificiales de la entrada del pueblo.
 烟花/飞/到/空中，/像/开/了/很多/花。|Yānhuā fēi dào kōngzhōng, xiàng kāi le hěnduō huā.|Los fuegos subían al cielo como si se abrieran muchas flores.
-在/月光/之下，/大家/的/脸/都/红/红/的。|Zài yuèguāng zhīxià, dàjiā de liǎn dōu hóng hóng de.|Bajo la luz de la luna, todos teníamos las caras rojas.
+在/烟花/之下，/大家/的/脸/都/红/红/的。|Zài yānhuā zhīxià, dàjiā de liǎn dōu hóng hóng de.|Bajo los fuegos artificiales, todos teníamos las caras rojas.
 我/觉得/乡村/的/春节/比/城市/热闹/得/多。|Wǒ juéde xiāngcūn de Chūnjié bǐ chéngshì rènao de duō.|Me pareció que el Año Nuevo en el campo es mucho más animado que en la ciudad.
 在/家人/之中，/我/觉得/最/温暖。|Zài jiārén zhīzhōng, wǒ juéde zuì wēnnuǎn.|Entre mi familia, me sentí muy a gusto.`, `o|¿Qué diferencia notó el narrador entre el pueblo y la ciudad?|En el campo la fiesta le pareció más animada|En la ciudad había más fuegos artificiales|En el pueblo no había nada que hacer de noche|En la ciudad la familia se reúne más tiempo
 x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|La abuela preparó una gran cena para toda la familia|La familia se reunió en el patio con gran alegría|Los fuegos artificiales dejaron buen recuerdo al narrador|En la reunión participaron familiares de distintas edades
@@ -128,8 +128,8 @@ f|2`, `运动会|torneo deportivo
 他/醒/来/后，/大脑/一/片/空白，/什么/都/不/记得。|Tā xǐng lái hòu, dànǎo yí piàn kòngbái, shénme dōu bú jìde.|Al despertar tenía la mente en blanco y no recordaba nada.
 导演/用/很/慢/的/镜头，/使得/观众/非常/紧张。|Dǎoyǎn yòng hěn màn de jìngtóu, shǐde guānzhòng fēicháng jǐnzhāng.|El director usó planos muy lentos, lo que puso muy nerviosos a los espectadores.
 女主角/一度/想/放弃，/幸好/被/朋友/劝/了。|Nǚzhǔjué yídù xiǎng fàngqì, xìnghǎo bèi péngyou quàn le.|La protagonista estuvo a punto de rendirse, pero por suerte una amiga la animó.
-可/她/看出/了/朋友/的/关心，/慢慢/站/了/起来。|Kě tā kànchū le péngyou de guānxīn, mànmàn zhàn le qǐlai.|Pero ella notó el cariño de su amiga y poco a poco se levantó.
-电影/里/的/音乐/很/动人，/显/得/故事/更/悲伤。|Diànyǐng li de yīnyuè hěn dòngrén, xiǎn de gùshi gèng bēishāng.|La música de la película era conmovedora y hacía la historia aún más triste.
+她/看出/了/朋友/的/关心，/慢慢/站/了/起来。|Tā kànchū le péngyou de guānxīn, mànmàn zhàn le qǐlai.|Ella notó el cariño de su amiga y poco a poco se levantó.
+电影/里/的/音乐/很/动人，/让/故事/显得/更/悲伤。|Diànyǐng li de yīnyuè hěn dòngrén, ràng gùshi xiǎnde gèng bēishāng.|La música de la película era conmovedora y hacía la historia aún más triste.
 我/朋友/哭/得/眼睛/都/红/了，/不停/地/擦/眼泪。|Wǒ péngyou kū de yǎnjing dōu hóng le, bùtíng de cā yǎnlèi.|A mi amiga se le pusieron los ojos rojos de llorar y no paraba de secarse las lágrimas.
 电影/结束/时/我们/都/没/说/话。|Diànyǐng jiéshù shí wǒmen dōu méi shuō huà.|Cuando terminó la película ninguna de las dos habló.
 走/出/电影院，/朋友/说：/完了，/明天/我/的/眼睛/会/很/肿。|Zǒu chū diànyǐngyuàn, péngyou shuō: wánle, míngtiān wǒ de yǎnjing huì hěn zhǒng.|Al salir del cine mi amiga dijo: «¡Ay, mañana tendré los ojos hinchadísimos!».
@@ -145,7 +145,7 @@ f|3`, `男主角|protagonista masculino
 眼泪|lágrima
 肿|hinchado`, 'laura'],
 [5, '💇 Un cambio de imagen para la boda', `下/个/月/表妹/结婚，/我/想/换/个/新/形象。|Xià ge yuè biǎomèi jiéhūn, wǒ xiǎng huàn ge xīn xíngxiàng.|El mes que viene se casa mi prima y quiero cambiar de imagen.
-我/先/去/理发店，/让/师傅/把/头发/剪/短/一/寸。|Wǒ xiān qù lǐfàdiàn, ràng shīfu bǎ tóufa jiǎn duǎn yí cùn.|Primero fui a la peluquería y le pedí al peluquero que me cortara el pelo un centímetro más.
+我/先/去/理发店，/让/师傅/把/头发/剪/短/一/寸。|Wǒ xiān qù lǐfàdiàn, ràng shīfu bǎ tóufa jiǎn duǎn yí cùn.|Primero fui a la peluquería y le pedí al peluquero que me cortara el pelo unos tres centímetros.
 师傅/看/了/看/我/的/脸，/说/短发/更/适合/我。|Shīfu kàn le kàn wǒ de liǎn, shuō duǎnfà gèng shìhé wǒ.|El peluquero me miró la cara y dijo que el pelo corto me favorecía más.
 剪/完/后/我/觉得/轻松/多/了。|Jiǎn wán hòu wǒ juéde qīngsōng duō le.|Al terminar me sentí mucho más ligera.
 然后/我/去/商店/挑/衣服，/想/好好/打扮/一下。|Ránhòu wǒ qù shāngdiàn tiāo yīfu, xiǎng hǎohāo dǎban yíxià.|Después fui a la tienda a elegir ropa para arreglarme bien.

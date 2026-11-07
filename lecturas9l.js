@@ -62,7 +62,7 @@ f|2`, `店员|dependiente`, 'payolink'],
 晚上/我/用/中文/写/日记。|Wǎnshang wǒ yòng Zhōngwén xiě rìjì.|Por la noche escribo mi diario en chino.
 老师/表扬/我/的/日记/写/得/很/优秀，/还/问/我/是否/愿意/翻译/一/篇/短/文章。|Lǎoshī biǎoyáng wǒ de rìjì xiě de hěn yōuxiù, hái wèn wǒ shìfǒu yuànyì fānyì yì piān duǎn wénzhāng.|El profesor elogió lo bien que escribía mi diario y me preguntó si quería traducir un texto corto.
 我/认真/考虑/了/很/久，/最后/答应/了。|Wǒ rènzhēn kǎolǜ le hěn jiǔ, zuìhòu dāying le.|Lo pensé con calma durante mucho rato y al final acepté.
-以后/我/想/做/学术/研究，/因为/做/学问/要/有/耐心。|Yǐhòu wǒ xiǎng zuò xuéshù yánjiū, yīnwèi zuò xuéwen yào yǒu nàixīn.|En el futuro quiero hacer investigación, porque estudiar a fondo requiere paciencia.`, `o|¿Qué le propuso el profesor al narrador al final?|Traducir un texto breve del chino|Dar una clase a sus compañeros|Participar en un concurso de caligrafía|Escribir un libro sobre gramática
+以后/我/想/做/学术/研究，/我/知道/做/学问/要/有/耐心。|Yǐhòu wǒ xiǎng zuò xuéshù yánjiū, wǒ zhīdào zuò xuéwen yào yǒu nàixīn.|En el futuro quiero dedicarme a la investigación, y sé que eso requiere paciencia.`, `o|¿Qué le propuso el profesor al narrador al final?|Traducir un texto breve del chino|Dar una clase a sus compañeros|Participar en un concurso de caligrafía|Escribir un libro sobre gramática
 x|¿Cuál de estas frases NO se apoya en lo que dice el texto?|Ya ha publicado algún artículo sobre gramática china|En chino el orden de las palabras es fundamental|Anota el vocabulario en columnas en el cuaderno|Practica la escritura en chino cuando termina el día
 z|11
 f|8`, `专业|especialidad
@@ -126,7 +126,7 @@ f|1`, `规定|norma
 有/位/同事/生病/了，/我/代替/他/参加/会议。|Yǒu wèi tóngshì shēngbìng le, wǒ dàitì tā cānjiā huìyì.|Un compañero enfermó y yo fui a la reunión en su lugar.
 在/我们/公司，/地位/高/低/不/重要，/大家/都/互相/帮助。|Zài wǒmen gōngsī, dìwèi gāo dī bú zhòngyào, dàjiā dōu hùxiāng bāngzhù.|En nuestra empresa el rango no importa y todos nos ayudamos.
 个别/同事/会/迟到，/不过/多数/人/都/很/准时。|Gèbié tóngshì huì chídào, búguò duōshù rén dōu hěn zhǔnshí.|Algún compañero llega tarde, pero la mayoría es puntual.
-我/想法/很/单纯，/只/想/把/工作/做/好。|Wǒ xiǎngfǎ hěn dānchún, zhǐ xiǎng bǎ gōngzuò zuò hǎo.|Mi idea es sencilla: solo quiero hacer bien mi trabajo.
+我/的/想法/很/简单，/只/想/把/工作/做/好。|Wǒ de xiǎngfǎ hěn jiǎndān, zhǐ xiǎng bǎ gōngzuò zuò hǎo.|Mi idea es sencilla: solo quiero hacer bien mi trabajo.
 我/相信/只要/努力，/一定/会/有/好/结果。|Wǒ xiāngxìn zhǐyào nǔlì, yídìng huì yǒu hǎo jiéguǒ.|Creo que, si me esfuerzo, habrá buenos resultados.`, `o|¿Qué valora más el jefe de esta empresa?|Trabajar bien en el tiempo previsto|Quedarse hasta muy tarde cada día|Tener un cargo importante|Llevar siempre traje y corbata
 x|¿Cuál de estas ideas NO encaja con el texto?|Al narrador le subieron el sueldo nada más entrar|La empresa premia con dinero a quienes rinden bien|El jefe prefiere eficacia a quedarse hasta tarde|Entre compañeros reina un ambiente de ayuda mutua
 z|5
@@ -149,7 +149,7 @@ f|2`, `握手|dar la mano
 嗓子|garganta
 兴奋|emocionado`, 'chiki'],
 
-[4, '👵 Mi abuela y el móvil', `我/是/一/位/奶奶，/有/一/个/五/岁/的/孙子。|Wǒ shì yí wèi nǎinai, yǒu yí ge wǔ suì de sūnzi.|Soy una abuela y tengo un nieto de cinco años.
+[4, '👵 Mi abuela y el móvil', `我/已经/当/奶奶/了，/有/一/个/五/岁/的/孙子。|Wǒ yǐjīng dāng nǎinai le, yǒu yí ge wǔ suì de sūnzi.|Ya soy abuela y tengo un nieto de cinco años.
 他/是/我/的/宝贝，/每天/都/要/来/我/家/玩。|Tā shì wǒ de bǎobèi, měitiān dōu yào lái wǒ jiā wán.|Es mi tesoro y viene a jugar a mi casa todos los días.
 他/最/爱/看/动画片，/一/看/就/是/一/个/小时。|Tā zuì ài kàn dònghuàpiàn, yí kàn jiù shì yí ge xiǎoshí.|Lo que más le gusta son los dibujos animados y, si empieza, ve una hora.
 有/一/部/动画片/讲/公元/前/的/故事，/他/问/我/那/是/多久/以前。|Yǒu yí bù dònghuàpiàn jiǎng gōngyuán qián de gùshi, tā wèn wǒ nà shì duōjiǔ yǐqián.|Una serie contaba historias de antes de nuestra era y me preguntó cuánto hace de eso.

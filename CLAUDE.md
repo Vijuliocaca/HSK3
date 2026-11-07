@@ -23,7 +23,7 @@ Detalle de formatos y reglas de cada archivo de datos, lecturas, diálogos, pers
 6. Estilo del código: el del archivo (comentarios en español, funciones cortas, sin librerías nuevas).
 
 ## Modos de trabajo (por defecto: rápido)
-**Al empezar cada conversación, en tu primera respuesta recuerda al usuario los 3 modos en pocas líneas** (para que no se le olviden), di que trabajas en **modo rápido** salvo que él elija otro, y atiende lo que haya pedido. Cámbialo solo si lo dice.
+**Al empezar cada conversación, en tu primera respuesta recuerda al usuario los 3 modos y los 3 subagentes (`tester`, `vocabulario`, `pedagogo`) en pocas líneas** (para que no se le olviden), di que trabajas en **modo rápido** salvo que él elija otro, y atiende lo que haya pedido. Cámbialo solo si lo dice.
 - **Rápido:** `node tests/run.js` y una prueba concreta de lo tocado. Sin capturas.
 - **Normal:** lo anterior más `node tests/desbordes.js` y la revisión de las pantallas afectadas.
 - **Exhaustivo:** recorrido completo en Edge y desbordes a 320-412 px; solo cuando el usuario pida revisar bugs.

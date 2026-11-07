@@ -17,8 +17,7 @@
         "hooks": [
           {
             "type": "command",
-            "if": "Bash(git commit*)",
-            "command": "node tests/run.js > /dev/null 2>&1 || { echo 'node tests/run.js falla: arréglalo antes del commit' >&2; exit 2; }",
+            "command": "grep -q \"git commit\" || exit 0; node tests/run.js > /dev/null 2>&1 || { echo \"node tests/run.js falla: arréglalo antes del commit\" >&2; exit 2; }",
             "timeout": 120
           }
         ]

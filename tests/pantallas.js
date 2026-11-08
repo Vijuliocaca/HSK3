@@ -269,10 +269,11 @@ t('preguntas de lectura: elige, la que no se deduce, frase en chino y ordenar se
   a.ev('lectQ(0, 3)'); const f3 = JSON.parse(a.ev(`JSON.stringify(LECT[0].ls[${P(3).k}])`)); assert(q().includes('Ordena la frase') && q().includes(f3.e), 'la pregunta de ordenar debe dar el significado en español');
 });
 t('preguntas de frase en chino: 4 frases distintas de la lectura y la correcta no destaca por su longitud (ni la más larga ni la más corta)', () => {
-  const a = cargarApp(), n = a.ev('LECT.length');
+  const a = cargarApp(), n = a.ev('LECT.length'), mal = [];
   for (let i = 0; i < n; i++) { const r = JSON.parse(a.ev(`(() => { const d = LECT[${i}], q = d.qs.find(q => q.t == 'z'), o = opcionesZ(d, q.k); return JSON.stringify({ t: d.t, n: o.length, dist: new Set(o.map(s => s.z.join(''))).size, esta: o[0] === d.ls[q.k], L: o.map(s => [...s.z.join('')].length) }); })()`));
-    assert(r.n == 4 && r.dist == 4 && r.esta, r.t + ': las opciones no son 4 frases distintas con la correcta incluida');
-    const [c, ...otras] = r.L; assert(!(c > Math.max(...otras)) && !(c < Math.min(...otras)), `${r.t}: la frase correcta destaca por su longitud (${c} frente a ${otras.join('/')})`); }
+    if (!(r.n == 4 && r.dist == 4 && r.esta)) { mal.push(r.t + ': las opciones no son 4 frases distintas con la correcta incluida'); continue; }
+    const [c, ...otras] = r.L; if (c > Math.max(...otras) || c < Math.min(...otras)) mal.push(`${r.t}: la frase correcta destaca por su longitud (${c} frente a ${otras.join('/')})`); }
+  assert(mal.length == 0, mal.length + ' lecturas (arréglalas con «node tools/arreglar-z.js --aplicar»): ' + mal.slice(0, 6).join(' | '));
 });
 t('lecturas: los resultados de la versión anterior se reinician una sola vez', () => {
   const a = cargarApp({ storage: { hsk3: JSON.stringify({ v: 2, known: {}, w: {}, lv: [1], lect: { '🐱 Mi gato': 3 } }) } });

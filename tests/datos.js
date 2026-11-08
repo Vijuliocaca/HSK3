@@ -75,12 +75,15 @@ t('diálogos: dos personajes que existen alternan (id de personajes.js), 4 campo
     lineas(qs).forEach(q => { const f = q.split('|'); assert(f.length >= 3 && new Set(f.slice(1)).size == f.length - 1, `${ti}: pregunta ${f[0]}`); }); });
   for (let lv = 1; lv <= 8; lv++) assert(porNivel[lv] >= 4, 'cada nivel necesita al menos 4 diálogos: HSK ' + lv);
 });
-t('lecturas: palabras y pinyin alineados, todas con significado (vocabulario o glosario)', () => {
-  const L = ev('self.LECTS'), glosario = new Set(L.flatMap(x => lineas(x[4]).map(l => l.split('|')[0])));
-  L.forEach(([, ti, ls, qs]) => { lineas(ls).forEach(l => { const p = l.split('|'); assert(p.length == 3 || (p.length == 4 && p[3] == '2'), ti + ': la 4.ª columna, si existe, debe ser «2»');
-    const z = p[0].split('/'), py = p[1].split(' '); assert(z.length == py.length, `${ti}: ${p[1]}`);
-    z.forEach((w, k) => { assert(/^[^，。！？、：；“”]+[，。！？、：；“”]*$/.test(w), `${ti}: «${w}» debe tener palabra y la puntuación solo al final (la pantalla la separa para no iluminarla)`); const h =[...w].filter(c => /[㐀-鿿]/.test(c)).join(''); assert(h.length == sil(py[k]), `${ti}: ${w} ${py[k]}`); assert(!h || H.has(h) || glosario.has(h), `${ti}: «${h}» sin significado`); }); });
-  });
+t('lecturas: palabras y pinyin alineados, todas con significado (vocabulario o glosario)', () => { // lista todos los problemas de una vez (no solo el primero)
+  const L = ev('self.LECTS'), glosario = new Set(L.flatMap(x => lineas(x[4]).map(l => l.split('|')[0]))), mal = [];
+  L.forEach(([, ti, ls]) => lineas(ls).forEach(l => { const p = l.split('|');
+    if (!(p.length == 3 || (p.length == 4 && p[3] == '2'))) return mal.push(ti + ': la 4.ª columna, si existe, debe ser «2»');
+    const z = p[0].split('/'), py = p[1].split(' '); if (z.length != py.length) return mal.push(`${ti}: ${p[1]}`);
+    z.forEach((w, k) => { if (!/^[^，。！？、：；“”]+[，。！？、：；“”]*$/.test(w)) return mal.push(`${ti}: «${w}» debe tener palabra y la puntuación solo al final (la pantalla la separa para no iluminarla)`);
+      const h = [...w].filter(c => /[㐀-鿿]/.test(c)).join(''); if (h.length != sil(py[k])) mal.push(`${ti}: ${w} ${py[k]}`);
+      if (h && !H.has(h) && !glosario.has(h)) mal.push(`${ti}: «${h}» sin significado`); }); }));
+  assert(mal.length == 0, mal.length + ' problemas: ' + [...new Set(mal)].slice(0, 12).join(' | '));
 });
 t('personajes: dibujo y datos completos; cada lectura tiene un personaje que existe y todos cuentan alguna', () => {
   const P = ev('self.PERSONAJES'), ids = Object.keys(P), L = ev('self.LECTS');

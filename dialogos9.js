@@ -5,24 +5,24 @@ kevin|你是不是每天晚上都吃冰淇淋？|Nǐ shì bu shì měitiān wǎn
 jersio|对，可是我只吃一个，因为我有糖尿病。|Duì, kěshì wǒ zhǐ chī yí ge, yīnwèi wǒ yǒu tángniàobìng.|Sí, pero solo me como uno, porque tengo diabetes.
 kevin|那你要多刷牙，晚上也要刷。|Nà nǐ yào duō shuāyá, wǎnshang yě yào shuā.|Entonces cepíllate más, también por la noche.
 jersio|好的。你也少抽烟吧！|Hǎo de. Nǐ yě shǎo chōuyān ba!|Vale. ¡Tú también fuma menos!
-kevin|哈哈，你说得对。|Hāhā, nǐ shuō de duì.|Jaja, tienes razón.`, `¿Qué le duele a Jersio?|Una muela|La cabeza|El estómago
-¿Qué le aconseja Kevin?|Cepillarse más los dientes|Dejar el helado|Comer más fruta`],
+kevin|哈哈，你说得对。|Hāhā, nǐ shuō de duì.|Jaja, tienes razón.`, `¿Qué cree Kevin que causa el dolor?|El helado de cada noche|Fumar mucho cada día|Un golpe en la boca|La diabetes de Jersio
+¿Por qué se ríe Kevin al final?|Jersio le devuelve el consejo|Jersio promete dejar de comer helado|Kevin ha contado un chiste|Jersio ya no tiene dolor`],
 
 [3, '💃 Chana y Chiki', `chana|今天晚上你有空吗？|Jīntiān wǎnshang nǐ yǒu kòng ma?|¿Tienes tiempo esta noche?
-chiki|有，可是我下午要踢足球。|Yǒu, kěshì wǒ xiàwǔ yào tī zúqiú.|Sí, pero por la tarde tengo que jugar al fútbol.
+chiki|有，不过我下午要踢足球，晚上可以。|Yǒu, búguò wǒ xiàwǔ yào tī zúqiú, wǎnshang kěyǐ.|Sí, pero por la tarde tengo que jugar al fútbol; por la noche puedo.
 chana|踢完球，我们一起去跳舞吧。|Tī wán qiú, wǒmen yìqǐ qù tiàowǔ ba.|Cuando acabes, vamos a bailar juntos.
 chiki|好啊，可是我跳得不好。|Hǎo a, kěshì wǒ tiào de bù hǎo.|Vale, pero yo bailo mal.
 chana|没关系，我教你。|Méi guānxi, wǒ jiāo nǐ.|No importa, yo te enseño.
-chiki|谢谢，你最好！|Xièxie, nǐ zuì hǎo!|Gracias, ¡eres la mejor!`, `¿Qué hace Chiki por la tarde?|Jugar al fútbol|Bailar|Trabajar
-¿Quién enseñará a bailar?|Chana|Chiki|Un profesor`],
+chiki|谢谢，你最好！|Xièxie, nǐ zuì hǎo!|Gracias, ¡eres la mejor!`, `¿Cuándo pueden ir a bailar?|Por la noche, tras el fútbol|Por la tarde, antes del fútbol|Mañana por la noche, sin falta|Mañana por la mañana
+¿Cómo convence Chana a Chiki?|Se ofrece a enseñarle a bailar|Le promete ir al fútbol con él|Le invita a cenar después|Le dice que bailar es fácil`],
 
 [3, '🍦 En el McDonald\'s', `jersio|你好，我要一个冰淇淋。|Nǐ hǎo, wǒ yào yí ge bīngqílín.|Hola, quiero un helado.
 chana|只要冰淇淋？你不吃汉堡吗？|Zhǐ yào bīngqílín? Nǐ bù chī hànbǎo ma?|¿Solo un helado? ¿No comes hamburguesa?
 jersio|不吃，我有糖尿病，这是我的晚饭。|Bù chī, wǒ yǒu tángniàobìng, zhè shì wǒ de wǎnfàn.|No, tengo diabetes y esta es mi cena de siempre.
 chana|你每天都吃这个吗？|Nǐ měitiān dōu chī zhège ma?|¿Todos los días comes esto?
 jersio|对，我每天都来，他们都认识我了。|Duì, wǒ měitiān dōu lái, tāmen dōu rènshi wǒ le.|Sí, vengo cada día y ya todos me conocen.
-chana|哈哈，那我明天和你一起来！|Hāhā, nà wǒ míngtiān hé nǐ yìqǐ lái!|Jaja, ¡entonces mañana vengo contigo!`, `¿Qué pide Jersio?|Un helado|Una hamburguesa|Un refresco
-¿Con qué frecuencia va?|Todos los días|Una vez por semana|Solo los fines de semana`]
+chana|哈哈，那我明天和你一起来！|Hāhā, nà wǒ míngtiān hé nǐ yìqǐ lái!|Jaja, ¡entonces mañana vengo contigo!`, `¿Por qué Jersio solo pide un helado?|Porque es su cena de cada día|Porque no tiene más dinero|Porque ya ha cenado en casa con su familia|Porque odia las hamburguesas
+¿Por qué lo conocen todos en el local?|Porque va todos los días|Porque trabajó allí antes|Porque es amigo del dueño|Porque es famoso en el barrio`]
 );
 
 // Palabras de los diálogos que no están en el vocabulario (hanzi|significado); se unen al glosario de las lecturas

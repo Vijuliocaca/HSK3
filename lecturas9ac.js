@@ -4,11 +4,11 @@
 奶奶/年纪/很/大，/可是/身体/很/好。|Nǎinai niánjì hěn dà, kěshì shēntǐ hěn hǎo.|Mi abuela es mayor, pero está muy sana.
 她/在/门/上/贴/了/一/个/红色/的/福/字。|Tā zài mén shang tiē le yí ge hóngsè de fú zì.|Pegó en la puerta un cartel rojo con el carácter de la fortuna.
 在/厨房/里，/她/正在/用/白菜/和/肉/做/饺子。|Zài chúfáng lǐ, tā zhèngzài yòng báicài hé ròu zuò jiǎozi.|En la cocina estaba haciendo empanadillas con col china y carne.
-我/想/帮忙，/可是/不/会/包，/只好/在/旁边/看。|Wǒ xiǎng bāngmáng, kěshì bú huì bāo, zhǐhǎo zài pángbiān kàn.|Quise ayudar, pero no sabía envolverlas y tuve que mirar a un lado.
+我/想/帮忙，/可是/不/会/包，/只好/在/旁边/看。|Wǒ xiǎng bāngmáng, kěshì bú huì bāo, zhǐhǎo zài pángbiān kàn.|Quise ayudar, pero no sabía envolverlas, así que me limité a mirar a su lado.
 奶奶/笑/着/说，/当初/她/也/不/会，/是/她/妈妈/教/的。|Nǎinai xiào zhe shuō, dāngchū tā yě bú huì, shì tā māma jiāo de.|Mi abuela dijo sonriendo que al principio ella tampoco sabía y que su madre se lo enseñó.
 她/一边/教，/我/一边/学，/终于/包/好/了/一/个。|Tā yìbiān jiāo, wǒ yìbiān xué, zhōngyú bāo hǎo le yí ge.|Mientras ella enseñaba y yo aprendía, por fin envolví uno.
 虽然/不/好看，/可是/大家/都/说/好吃。|Suīrán bù hǎokàn, kěshì dàjiā dōu shuō hǎochī.|Aunque no era bonito, todos dijeron que estaba rico.
-天/黑/了，/我/和/奶奶/分别，/心里/很/暖和。|Tiān hēi le, wǒ hé nǎinai fēnbié, xīnlǐ hěn nuǎnhuo.|Anocheció y me despedí de mi abuela con el corazón muy calentito.`, `o|¿Por qué la abuela cuenta que ella tampoco sabía al principio?|Para animar al nieto mostrándole que todos aprenden|Para presumir de que siempre cocinó mejor que su madre|Para pedirle que la próxima vez cocine él solo|Para explicar por qué las empanadillas salieron feas
+天/黑/了，/我/和/奶奶/分别，/心里/很/温暖。|Tiān hēi le, wǒ hé nǎinai fēnbié, xīnlǐ hěn wēnnuǎn.|Anocheció y me despedí de mi abuela con el corazón calentito.`, `o|¿Por qué la abuela cuenta que ella tampoco sabía al principio?|Para animar al nieto mostrándole que todos aprenden|Para presumir de que siempre cocinó mejor que su madre|Para pedirle que la próxima vez cocine él solo|Para explicar por qué las empanadillas salieron feas
 x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|La abuela lleva muchos años viviendo sola en esa casa|La abuela decoró su puerta por la fiesta de año nuevo|El nieto no sabía envolver empanadillas al llegar|Las empanadillas del nieto no tenían muy buen aspecto
 z|2
 f|8`, `拜年|felicitar el año nuevo
@@ -18,7 +18,7 @@ f|8`, `拜年|felicitar el año nuevo
 
 [3, '🗡️ Una visita al museo de historia', `周末，/我/和/同学/去/了/历史/博物馆。|Zhōumò, wǒ hé tóngxué qù le lìshǐ bówùguǎn.|El fin de semana fui con un compañero al museo de historia.
 一/进/大厅，/就/看到/很多/古代/的/武器。|Yí jìn dàtīng, jiù kàndào hěnduō gǔdài de wǔqì.|Nada más entrar en el vestíbulo vimos muchas armas antiguas.
-讲解员/说，/这些/武器/都/是/几/个/世纪/以前/造/的。|Jiǎngjiěyuán shuō, zhèxiē wǔqì dōu shì jǐ ge shìjì yǐqián zào de.|La guía dijo que todas esas armas se fabricaron hace varios siglos.
+讲解员/说，/这些/武器/都/是/几/个/世纪/以前/造/的。|Jiǎngjiěyuán shuō, zhèxiē wǔqì dōu shì jǐ ge shìjì yǐqián zào de.|El guía dijo que todas esas armas se fabricaron hace varios siglos.
 最/长/的/那/把/刀/被/称为/大刀。|Zuì cháng de nà bǎ dāo bèi chēngwéi dàdāo.|El sable más largo se llama dadao.
 我/想到/它们/曾经/改变/过/很多/人/的/命运。|Wǒ xiǎngdào tāmen céngjīng gǎibiàn guo hěnduō rén de mìngyùn.|Pensé que habían cambiado el destino de mucha gente.
 他/说，/战争/并/不/是/必然/的，/人们/可以/选择/和平。|Tā shuō, zhànzhēng bìng bú shì bìrán de, rénmen kěyǐ xuǎnzé hépíng.|Dijo que la guerra no es inevitable y que la gente puede elegir la paz.
@@ -80,10 +80,10 @@ f|9`, `演唱会|concierto
 他/先/让/我们/压/腿，/我/疼/得/叫/了/起来。|Tā xiān ràng wǒmen yā tuǐ, wǒ téng de jiào le qǐlái.|Primero nos hizo estirar las piernas y me dolió tanto que grité.
 他/说，/学/功夫/要/认真/对待/每/个/动作。|Tā shuō, xué gōngfu yào rènzhēn duìdài měi ge dòngzuò.|Dijo que para aprender kung-fu hay que tomarse en serio cada movimiento.
 他/指/着/墙/上/的/图，/给/我们/讲/了/一/个/动作。|Tā zhǐ zhe qiáng shang de tú, gěi wǒmen jiǎng le yí ge dòngzuò.|Señalando un dibujo de la pared, nos explicó un movimiento.
-我/本来/最/喜欢/跳高，/可是/现在/更/爱/功夫。|Wǒ běnlái zuì xǐhuan tiàogāo, kěshì xiànzài gèng ài gōngfu.|Antes me gustaba más el salto de altura, pero ahora quiero más el kung-fu.
+我/本来/最/喜欢/跳高，/可是/现在/更/爱/功夫。|Wǒ běnlái zuì xǐhuan tiàogāo, kěshì xiànzài gèng ài gōngfu.|Antes lo que más me gustaba era el salto de altura, pero ahora prefiero el kung-fu.
 下课/时，/我/发现/自己/的/裤子/破/了。|Xiàkè shí, wǒ fāxiàn zìjǐ de kùzi pò le.|Al acabar la clase vi que se me había roto el pantalón.
 回家/后，/妈妈/帮/我/把/裤子/补/好/了。|Huíjiā hòu, māma bāng wǒ bǎ kùzi bǔ hǎo le.|Al llegar a casa, mi madre me lo remendó.
-我/累/极/了，/可是/很/开心。|Wǒ lèi jí le, kěshì hěn kāixīn.|Estaba agotado, pero muy contento.`, `o|¿Cómo acabó el narrador su primera clase?|Cansado, pero contento|Desanimado y con ganas de dejarlo|Enfadado con el profesor|Aburrido por lo fácil que era
+我/累/极/了，/可是/很/开心。|Wǒ lèi jí le, kěshì hěn kāixīn.|Estaba agotado, pero muy contento.`, `o|¿Qué actitud tiene el narrador hacia el kung-fu tras la clase?|Le entusiasma más que el deporte que practicaba antes|Le parece demasiado doloroso para seguir con él|Prefiere volver cuanto antes al salto de altura|Solo le interesa porque el profesor es muy rápido
 x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|El profesor regañó al narrador por gritar en clase|El narrador antes prefería otro deporte|Algún ejercicio le resultó doloroso al narrador|La madre del narrador le arregló la ropa
 z|7
 f|1`, `压|presionar; estirar
@@ -93,10 +93,10 @@ f|1`, `压|presionar; estirar
 
 [3, '🛢️ Mi trabajo sobre la energía', `老师/让/我们/做/一/个/关于/能源/的/专题。|Lǎoshī ràng wǒmen zuò yí ge guānyú néngyuán de zhuāntí.|El profesor nos mandó hacer un trabajo especial sobre la energía.
 我/选/了/石油，/因为/它/和/我们/的/生活/关系/很/大。|Wǒ xuǎn le shíyóu, yīnwèi tā hé wǒmen de shēnghuó guānxi hěn dà.|Elegí el petróleo porque tiene mucha relación con nuestra vida.
-我/查/了/很多/资料，/发现/全球/用/石油/的/程度/很/高。|Wǒ chá le hěnduō zīliào, fāxiàn quánqiú yòng shíyóu de chéngdù hěn gāo.|Consulté mucha información y descubrí que el uso mundial de petróleo es muy alto.
+我/查/了/很多/资料，/发现/全球/用/的/石油/非常/多。|Wǒ chá le hěnduō zīliào, fāxiàn quánqiú yòng de shíyóu fēicháng duō.|Consulté mucha información y descubrí que en el mundo se usa muchísimo petróleo.
 首先，/它/让/我们/的/生活/更/方便。|Shǒuxiān, tā ràng wǒmen de shēnghuó gèng fāngbiàn.|En primer lugar, hace nuestra vida más cómoda.
 其次，/它/会/污染/环境，/而且/总/有/一/天/会/用/完。|Qícì, tā huì wūrǎn huánjìng, érqiě zǒng yǒu yì tiān huì yòng wán.|En segundo lugar, contamina el ambiente y algún día se acabará.
-另一方面，/很多/国家/已经/开始/采取/新/办法。|Lìngyìfāngmiàn, hěnduō guójiā yǐjīng kāishǐ cǎiqǔ xīn bànfǎ.|Por otro lado, muchos países ya empezaron a adoptar nuevas medidas.
+所以，/很多/国家/已经/开始/采取/新/办法。|Suǒyǐ, hěnduō guójiā yǐjīng kāishǐ cǎiqǔ xīn bànfǎ.|Por eso muchos países ya han empezado a adoptar nuevas medidas.
 我/在/报告/里/写，/要/进一步/加强/环保。|Wǒ zài bàogào lǐ xiě, yào jìnyíbù jiāqiáng huánbǎo.|En mi informe escribí que hay que reforzar aún más la protección ambiental.
 老师/说/我/的/想法/绝对/有/价值。|Lǎoshī shuō wǒ de xiǎngfǎ juéduì yǒu jiàzhí.|El profesor dijo que mi idea tiene sin duda valor.
 最后/我/得到/了/一/个/很/好/的/分数。|Zuìhòu wǒ dédào le yí ge hěn hǎo de fēnshù.|Al final saqué una nota muy buena.`, `o|¿Qué conclusión defiende el narrador en su informe?|Que hay que proteger más el medio ambiente|Que conviene usar más petróleo mientras dure|Que los países deberían prohibir los coches|Que la energía solar ya resuelve todo
@@ -112,27 +112,27 @@ f|7`, `能源|energía
 那里/有/很多/高楼，/街/上/的/人/也/特别/多。|Nàlǐ yǒu hěnduō gāolóu, jiē shang de rén yě tèbié duō.|Allí había muchos rascacielos y también muchísima gente por la calle.
 然后/我/坐/高铁/去/了/中部/的/武汉。|Ránhòu wǒ zuò gāotiě qù le zhōngbù de Wǔhàn.|Luego fui en tren de alta velocidad a Wuhan, en el centro.
 在/武汉，/我/认识/了/一/位/从/美国/回来/的/华人。|Zài Wǔhàn, wǒ rènshi le yí wèi cóng Měiguó huílai de huárén.|En Wuhan conocí a un chino de ultramar que había vuelto de EE. UU.
-他/告诉/我，/武汉/有/很多/江/和/湖，/所以/被/称为/江城。|Tā gàosu wǒ, Wǔhàn yǒu hěnduō jiāng hé hú, suǒyǐ bèi chēngwéi Jiāngchéng.|Me contó que Wuhan tiene muchos ríos y lagos y por eso la llaman la Ciudad del Río.
-我们/一起/吃/了/热干面，/还/聊/了/很/久。|Wǒmen yìqǐ chī le règānmiàn, hái liáo le hěn jiǔ.|Comimos juntos fideos secos picantes y charlamos mucho rato.
+他/告诉/我，/武汉/有/长江，/还/有/很多/湖，/所以/被/称为/江城。|Tā gàosu wǒ, Wǔhàn yǒu Chángjiāng, hái yǒu hěnduō hú, suǒyǐ bèi chēngwéi Jiāngchéng.|Me contó que por Wuhan pasa el Yangtsé y que tiene muchos lagos, y por eso la llaman la Ciudad del Río.
+我们/一起/吃/了/热干面，/还/聊/了/很/久。|Wǒmen yìqǐ chī le règānmiàn, hái liáo le hěn jiǔ.|Comimos juntos reganmian, fideos con salsa de sésamo, y charlamos mucho rato.
 分别/时，/他/说/下次/带/我/去/他/的/老家。|Fēnbié shí, tā shuō xiàcì dài wǒ qù tā de lǎojiā.|Al despedirnos, dijo que la próxima vez me llevaría a su pueblo natal.
-我/真/希望/很快/能/再/去/中国。|Wǒ zhēn xīwàng hěnkuài néng zài qù Zhōngguó.|Espero poder volver pronto a China.`, `o|¿Por qué el narrador quiere volver a China?|Porque disfrutó del viaje y de la gente que conoció|Porque no pudo ver casi nada en este primer viaje|Porque su amigo le ofreció trabajo en esa ciudad|Porque echa de menos la comida china de su país
-x|¿Cuál de estas ideas NO encaja con el texto?|El narrador viajó a China acompañado de un grupo de amigos|El narrador visitó primero el este y después el centro|Shanghái le pareció una ciudad muy concurrida|Su nuevo amigo le explicó el apodo de Wuhan
+我/真/希望/很快/能/再/去/中国。|Wǒ zhēn xīwàng hěnkuài néng zài qù Zhōngguó.|Espero poder volver pronto a China.`, `o|¿Por qué la narradora quiere volver a China?|Porque disfrutó del viaje y de la gente que conoció|Porque no pudo ver casi nada en este primer viaje|Porque su amigo le ofreció trabajo en esa ciudad|Porque echa de menos la comida china de su país
+x|¿Cuál de estas ideas NO encaja con el texto?|La narradora viajó a China acompañada de un grupo de amigos|La narradora visitó primero el este y después el centro|Shanghái le pareció una ciudad muy concurrida|Su nuevo amigo le explicó el apodo de Wuhan
 z|4
 f|9`, `高楼|rascacielos
 武汉|Wuhan
-热干面|fideos secos de Wuhan
+热干面|fideos con salsa de sésamo de Wuhan
 江城|Ciudad del Río
 美国|Estados Unidos
 江|río
 湖|lago`, 'lucia'],
 
-[3, '🔧 La máquina que no arrancaba', `周五/我/去/学校/的/实验/室/参观。|Zhōuwǔ wǒ qù xuéxiào de shíyàn shì cānguān.|El viernes visité el laboratorio de la escuela.
+[3, '🔧 La máquina que no arrancaba', `这/周/我/常/去/学校/的/实验/室/帮忙。|Zhè zhōu wǒ cháng qù xuéxiào de shíyàn shì bāngmáng.|Esta semana he ido a menudo a ayudar en el laboratorio de la escuela.
 室/内/有/很多/机器，/都/是/学生/自己/造/的。|Shì nèi yǒu hěnduō jīqì, dōu shì xuésheng zìjǐ zào de.|Dentro había muchas máquinas, todas construidas por los propios alumnos.
 老师/说，/理论/再/好，/也/要/自己/动手/做。|Lǎoshī shuō, lǐlùn zài hǎo, yě yào zìjǐ dòngshǒu zuò.|El profesor dijo que por buena que sea la teoría, hay que hacerlo uno mismo.
 他们/想/改造/一/台/旧/机器，/让/它/变得/更/强大。|Tāmen xiǎng gǎizào yì tái jiù jīqì, ràng tā biànde gèng qiángdà.|Querían transformar una máquina vieja para hacerla más potente.
 可是/机器/根本/发动/不/起来。|Kěshì jīqì gēnběn fādòng bù qǐlái.|Pero la máquina no arrancaba en absoluto.
 大家/看/了/相关/的/书，/还/联合/别/的/小组/一起/想/办法。|Dàjiā kàn le xiāngguān de shū, hái liánhé bié de xiǎozǔ yìqǐ xiǎng bànfǎ.|Todos leyeron libros relacionados y se unieron a otros grupos para buscar una solución.
-最后，/一/个/学生/解开/了/问题：/原来/两/个/零件/没有/合/上。|Zuìhòu, yí ge xuésheng jiěkāi le wèntí: yuánlái liǎng ge língjiàn méiyǒu hé shàng.|Al final un alumno resolvió el problema: dos piezas no encajaban.
+最后，/一/个/学生/找到/了/问题：/原来/两/个/零件/没有/装/好。|Zuìhòu, yí ge xuésheng zhǎodào le wèntí: yuánlái liǎng ge língjiàn méiyǒu zhuāng hǎo.|Al final un alumno encontró el fallo: dos piezas no estaban bien colocadas.
 他/把/零件/装/好，/机器/终于/动/起来/了。|Tā bǎ língjiàn zhuāng hǎo, jīqì zhōngyú dòng qǐlái le.|Colocó bien las piezas y la máquina por fin se puso en marcha.
 大家/都/高兴/地/鼓掌。|Dàjiā dōu gāoxìng de gǔzhǎng.|Todos aplaudieron contentos.`, `o|¿Por qué se puso en marcha por fin la máquina?|Porque un alumno vio que dos piezas no encajaban bien|Porque el profesor cambió el motor por uno nuevo|Porque otro grupo les prestó una máquina igual|Porque los alumnos esperaron a que se enfriara
 x|¿Cuál de estas afirmaciones NO se puede deducir del texto?|La máquina arreglada se usó después en un concurso escolar|Varios grupos de la escuela colaboraron en el problema|La máquina tardó en funcionar y costó resolverla|Los alumnos de la escuela construyen sus propias máquinas

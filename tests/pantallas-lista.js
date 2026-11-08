@@ -12,7 +12,7 @@ const PANTALLAS = [
   ['examen (menú)', 'examMenu()'], ['lecciones', 'lessons()'], ['vocabulario', "list('all')"], ['estudiadas', "list('done')"],
   ['temas', 'temas()'], ['un tema', 'tema(0)'], ['gramática', 'gramatica()'], ['punto de gramática', 'gram(0)'],
   ['canciones', 'canciones()'], ['top 10 canciones', 'top10()'], ['top 10 películas', "cultura('pelis')"], ['top 10 series', "cultura('series')"], ['top 10 platos', "cultura('platos')"],
-  ['lecturas', 'lecturas()'], ['una lectura (1.ª frase)', 'lectura(0)'], ['una lectura (frase intermedia)', 'lectura(0, 2)'], ['una lectura (última frase)', 'lectura(0, LECT[0].ls.length - 1)'],
+  ['lecturas', 'lecturas()'], ['leer frases (HSK 6)', 'leerFrases(6)'], ['leer frases (HSK 9, 2.ª vez)', 'leerFrases(9); leerFrases(9)'], ['una lectura (1.ª frase)', 'lectura(0)'], ['una lectura (frase intermedia)', 'lectura(0, 2)'], ['una lectura (última frase)', 'lectura(0, LECT[0].ls.length - 1)'],
   ['una lectura de HSK 5', 'lectura(LECT.findLastIndex(d => !d.dl))'], ['lectura de HSK 5 (última frase)', 'lectura(LECT.findLastIndex(d => !d.dl), LECT[LECT.findLastIndex(d => !d.dl)].ls.length - 1)'],
   ['pregunta de lectura: elige', 'lectQ(0, 0)'], ['pregunta de lectura: la que no se deduce', 'lectQ(0, 1)'], ['pregunta de lectura: frase en chino', 'lectQ(0, 2)'], ['pregunta de lectura: ordenar la frase', 'lectQ(0, 3)'],
   ['pregunta larga de HSK 5: elige', 'lectQ(LECT.findLastIndex(d => !d.dl), 0)'], ['pregunta larga de HSK 5: frase en chino', 'lectQ(LECT.findLastIndex(d => !d.dl), 2)'], ['pregunta larga de HSK 5: ordenar la frase', 'lectQ(LECT.findLastIndex(d => !d.dl), 3)'],

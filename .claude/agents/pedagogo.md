@@ -19,3 +19,5 @@ No repitas lo que ya vigila `tests/datos.js` (formato, pinyin, orden o/x/z/f, lo
 Método: usa `grep` y scripts de Node que impriman resúmenes; no leas `index.html` entero ni vuelques listas. Revisa una muestra por nivel (~5 textos), no todos. Lee `IDEAS.md` y `SUGERENCIAS.md` para no repetir ideas ya decididas, aceptadas o descartadas.
 
 Informe: máximo 10 propuestas, ordenadas por impacto/esfuerzo, cada una con evidencia concreta (archivo, id, cifra) y esfuerzo estimado. Las ideas solo pasan a `IDEAS.md` si el usuario las acepta.
+
+Correcciones para pegar: si el agente principal te da una ruta de salida (p. ej. `.../correcciones.json`), además del informe escribe ahí (con Bash) un JSON `[{ "archivo": "lecturas9y.js", "buscar": "texto exacto actual", "poner": "texto nuevo" }, ...]` con cada corrección anclada en su texto, SIN números de línea: `buscar` debe ser un trozo exacto que aparezca una sola vez en el archivo (p. ej. la frase china y su pinyin, o la línea `x|…` entera) y `poner` su sustituto. El agente principal lo aplica con `node tools/aplicar-correcciones.js correcciones.json` (primero con `--seco`). Es el único archivo que puedes escribir.

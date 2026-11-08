@@ -108,7 +108,7 @@ x|Una de estas afirmaciones NO se puede sacar del texto: ¿cuál?|Tuvo que pedir
 z|9
 f|11`, ``, 'laura'],
 
-[4, '💼 Mi primer trabajo', `我/在/一/家/规模/不/大/的/公司/找到/了/第一/份/工作。|Wǒ zài yì jiā guīmó bú dà de gōngsī zhǎodào le dì-yī fèn gōngzuò.|Encontré mi primer trabajo en una empresa pequeña.
+[4, '💼 Mi trabajo en una empresa pequeña', `我/在/一/家/规模/不/大/的/公司/找到/了/第一/份/工作。|Wǒ zài yì jiā guīmó bú dà de gōngsī zhǎodào le dì-yī fèn gōngzuò.|Encontré mi primer trabajo en una empresa pequeña.
 我/的/工作/是/替/老板/去/银行/办事。|Wǒ de gōngzuò shì tì lǎobǎn qù yínháng bànshì.|Mi trabajo es hacer gestiones en el banco por el jefe.
 公司/的/文件/要/保密，/不/能/随便/给/别人/看。|Gōngsī de wénjiàn yào bǎomì, bù néng suíbiàn gěi biéren kàn.|Los documentos de la empresa son confidenciales y no se pueden enseñar a cualquiera.
 每/个/星期/五，/我/要/向/经理/汇报/一/周/的/工作。|Měi ge xīngqī wǔ, wǒ yào xiàng jīnglǐ huìbào yì zhōu de gōngzuò.|Cada viernes tengo que informar al gerente del trabajo de la semana.

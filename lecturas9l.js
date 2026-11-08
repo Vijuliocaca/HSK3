@@ -117,7 +117,7 @@ f|1`, `规定|norma
 法律|ley
 骄傲|orgulloso`, 'laura'],
 
-[4, '💼 Mi primer trabajo', `毕业/后，/我/想/独立/生活，/不/再/靠/父母。|Bìyè hòu, wǒ xiǎng dúlì shēnghuó, bú zài kào fùmǔ.|Al terminar la carrera quise vivir de forma independiente y no depender de mis padres.
+[4, '💼 Vivir de forma independiente', `毕业/后，/我/想/独立/生活，/不/再/靠/父母。|Bìyè hòu, wǒ xiǎng dúlì shēnghuó, bú zài kào fùmǔ.|Al terminar la carrera quise vivir de forma independiente y no depender de mis padres.
 我/去/了/一/家/公司，/那里/的/待遇/不错。|Wǒ qù le yì jiā gōngsī, nàli de dàiyù búcuò.|Fui a una empresa donde las condiciones eran buenas.
 不管/工作/多/忙，/大家/都/要/按时/下班。|Bùguǎn gōngzuò duō máng, dàjiā dōu yào ànshí xiàbān.|Por mucho trabajo que haya, todos deben salir a su hora.
 老板/说，/提高/效率/比/加班/更/重要。|Lǎobǎn shuō, tígāo xiàolǜ bǐ jiābān gèng zhòngyào.|El jefe dice que mejorar la eficiencia es más importante que hacer horas extra.

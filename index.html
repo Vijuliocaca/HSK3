@@ -312,7 +312,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script src="lecturas9b.js"></script>
 <script src="lecturas9c.js"></script>
 <script src="lecturas9d.js"></script>
-<script src="lecturas9e.js"></script><script src="lecturas9f.js"></script><script src="lecturas9g.js"></script><script src="lecturas9h.js"></script><script src="lecturas9i.js"></script><script src="lecturas9j.js"></script><script src="lecturas9k.js"></script><script src="lecturas9l.js"></script><script src="lecturas9m.js"></script><script src="lecturas9n.js"></script><script src="lecturas9o.js"></script><script src="lecturas9p.js"></script><script src="lecturas9q.js"></script><script src="lecturas9r.js"></script><script src="lecturas9s.js"></script><script src="lecturas9t.js"></script><script src="lecturas9u.js"></script><script src="lecturas9v.js"></script><script src="lecturas9w.js"></script><script src="lecturas9x.js"></script><script src="lecturas9y.js"></script><script src="lecturas9z.js"></script><script src="lecturas9aa.js"></script><script src="lecturas9ab.js"></script><script src="lecturas9ac.js"></script>
+<script src="lecturas9e.js"></script><script src="lecturas9f.js"></script><script src="lecturas9g.js"></script><script src="lecturas9h.js"></script><script src="lecturas9i.js"></script><script src="lecturas9j.js"></script><script src="lecturas9k.js"></script><script src="lecturas9l.js"></script><script src="lecturas9m.js"></script><script src="lecturas9n.js"></script><script src="lecturas9o.js"></script><script src="lecturas9p.js"></script><script src="lecturas9q.js"></script><script src="lecturas9r.js"></script><script src="lecturas9s.js"></script><script src="lecturas9t.js"></script><script src="lecturas9u.js"></script><script src="lecturas9v.js"></script><script src="lecturas9w.js"></script><script src="lecturas9x.js"></script><script src="lecturas9y.js"></script><script src="lecturas9z.js"></script><script src="lecturas9aa.js"></script><script src="lecturas9ab.js"></script><script src="lecturas9ac.js"></script><script src="lecturas9ad.js"></script>
 <script src="audioindice.js"></script>
 <script src="lecturas9a.js"></script>
 <script src="gramatica4.js"></script>
@@ -338,7 +338,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
 const vSW = t => (/const V = '([^']+)'/.exec(t) || [])[1]; // la versión que declara un sw.js
-const APP_V = 'hsk3-v238'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v239'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -1735,7 +1735,7 @@ function lecturas(dl) {
   app(`<div class=top><button class=back onclick="home()">←</button><b>${dl ? 'Diálogos' : 'Lecturas'}</b></div>
     <p class=mut>${dl ? 'Cada diálogo lo mantienen dos personajes, frase a frase.' : 'Cada lectura te la cuenta un personaje, frase a frase.'} Elige qué ayudas ver mientras lees (valen para todas):</p>
     <div class="row ayudas" role=group aria-label="Ayudas de lectura">${ayuda('lpy', 'Con pinyin')}${ayuda('les', 'En español')}</div>`
-    + LEVELS.filter(lv => LECT.some(d => d.lv == lv && !!d.dl == !!dl)).map(lv => `<h2>HSK ${lv}</h2><div class=list>${LECT.map((d, i) => d.lv == lv && !!d.dl == !!dl ? `<button class=mode onclick="lectura(${i})"><span class=e>${d.t.split(' ')[0]}</span><span><b>${d.t.slice(d.t.indexOf(' ') + 1)}</b><small>${d.ls.length} frases${personas(d).length ? ' · ' + personas(d).map(p => p.n).join(' y ') : ''}${hecho(d)}</small></span></button>` : '').join('')}</div>`).join(''), 'home');
+    + LEVELS.filter(lv => LECT.some(d => d.lv == lv && !!d.dl == !!dl)).map(lv => `<h2>HSK ${lv}</h2><div class=list>${!dl && lv >= 6 ? `<button class=mode onclick="leerFrases(${lv})"><span class=e>📖</span><span><b>Leer frases</b><small>6 frases de ejemplo del nivel con preguntas · cada vez, las siguientes</small></span></button>` : ''}${LECT.map((d, i) => d.lv == lv && !!d.dl == !!dl && !d.fr ? `<button class=mode onclick="lectura(${i})"><span class=e>${d.t.split(' ')[0]}</span><span><b>${d.t.slice(d.t.indexOf(' ') + 1)}</b><small>${d.ls.length} frases${personas(d).length ? ' · ' + personas(d).map(p => p.n).join(' y ') : ''}${hecho(d)}</small></span></button>` : '').join('')}</div>`).join(''), 'home');
 }
 function sayLect(i) {
   try { speechSynthesis.cancel(); LECT[i].ls.forEach(l => { const u = new SpeechSynthesisUtterance(l.z.join('')); u.lang = 'zh-CN'; u.rate = S.set.rate; speechSynthesis.speak(u); }); } catch {}
@@ -1982,8 +1982,29 @@ function lectura(i, j = 0) {
 function lecturaAuto(nuevas) { // nuevas: palabras recién aprendidas; si se pasan, se vuelve a elegir (entre lecturas y diálogos)
   const h = day(new Date()), a = !nuevas && S.lectA?.d == h ? LECT.findIndex(d => d.t == S.lectA.t) : -1; if (a >= 0) return a;
   const dh = new Set(due().map(w => w.h));
-  const pts = LECT.map((d, i) => { const ts = d.ls.flatMap(l => l.z.map(t => t.replace(LPUNT, ''))).filter(t => byH.has(t)); if (!ts.length) return null; const sab = ts.filter(t => S.known[byH.get(t).id]).length / ts.length; return [sab >= .8 ? 1 : sab, nuevas ? ts.filter(t => nuevas.has(t)).length : 0, S.lect?.[d.t] == null ? 1 : 0, ts.filter(t => dh.has(t)).length, i]; }).filter(Boolean).sort((x, y) => y[0] - x[0] || y[1] - x[1] || y[2] - x[2] || y[3] - x[3]);
+  const pts = LECT.map((d, i) => { if (d.fr) return null; const ts = d.ls.flatMap(l => l.z.map(t => t.replace(LPUNT, ''))).filter(t => byH.has(t)); if (!ts.length) return null; const sab = ts.filter(t => S.known[byH.get(t).id]).length / ts.length; return [sab >= .8 ? 1 : sab, nuevas ? ts.filter(t => nuevas.has(t)).length : 0, S.lect?.[d.t] == null ? 1 : 0, ts.filter(t => dh.has(t)).length, i]; }).filter(Boolean).sort((x, y) => y[0] - x[0] || y[1] - x[1] || y[2] - x[2] || y[3] - x[3]);
   const i = pts[0][4]; S.lectA = { d: h, t: LECT[i].t }; save(); return i;
+}
+// «Leer frases» (HSK 6-9, donde hay pocas lecturas): lectura automática con las 6 siguientes frases de ejemplo del nivel y preguntas «z» y «f».
+// La frase se corta en palabras con las sílabas de cada palabra del pinyin. La última lectura generada va al final de LECT (marca fr) y se sustituye por la siguiente.
+const ZHPUNT = /[，。！？、：；“”]/;
+function frasePalabras(zh, py) { // null si el pinyin no cuadra con los caracteres
+  const cs = [...zh.replace(/[“”"]/g, '')], z = []; let c = 0;
+  for (const t of py.split(' ')) { const n = (t.match(SYL) || []).length; if (!n) return null; let s = '';
+    for (let k = 0; k < n; k++) { if (c >= cs.length || !/[㐀-鿿]/.test(cs[c])) return null; s += cs[c++]; }
+    while (c < cs.length && ZHPUNT.test(cs[c])) s += cs[c++]; z.push(s); }
+  return c == cs.length && z.length ? z : null;
+}
+function leerFrases(lv) {
+  S.fr = S.fr || {}; const n0 = S.fr[lv] || 0;
+  const ok = W.filter(w => w.l == lv && SENT[w.h]).map(w => { const [zh, py, es] = SENT[w.h], z = frasePalabras(zh, py); return z && { z, p: py.split(' '), e: es, q: 0 }; }).filter(Boolean);
+  if (ok.length < 6) return lecturas();
+  const g = n0 % Math.floor(ok.length / 6), ls = ok.slice(g * 6, g * 6 + 6); S.fr[lv] = n0 + 1; save();
+  const L = s => [...s.z.join('')].length, orden = ls.map((s, k) => k).sort((a, b) => L(ls[a]) - L(ls[b])), kz = [orden[2], orden[3]]; // «z» con frases de en medio (siempre hay una más larga y otra más corta)
+  const kf = ls.map((s, k) => k).filter(k => ls[k].z.length >= 4 && ls[k].z.length <= 9 && !kz.includes(k));
+  const qs = [{ t: 'z', k: kz[0] }, ...(kf[0] != null ? [{ t: 'f', k: kf[0] }] : []), { t: 'z', k: kz[1] }, ...(kf[1] != null ? [{ t: 'f', k: kf[1] }] : [])];
+  if (LECT.length && LECT[LECT.length - 1].fr) LECT.pop();
+  LECT.push({ lv, t: `📖 HSK ${lv} · frases ${g + 1}`, fr: 1, p: '', ls, qs }); lectura(LECT.length - 1);
 }
 const lecturaDeHoy = () => { const i = lecturaAuto(); return `<button class=main onclick="lectura(${i})">Lectura de hoy: ${LECT[i].t}</button>`; };
 // preguntas de comprensión (4 por lectura): o = elige · x = elige la que NO se deduce del texto · z = elige la frase en chino que significa… · f = ordena la frase.

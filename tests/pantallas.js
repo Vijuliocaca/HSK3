@@ -196,6 +196,16 @@ t('olvido: la estabilidad crece al acertar a tiempo y la caja se deriva de ella'
   assert(seq[6] > 30 && seq[6] <= 365, 'tras 7 aciertos a tiempo debe pasar de 30 días: ' + seq.join(' '));
   assert.strictEqual(a.ev('S.w[W[0].id].b'), a.ev(`cajaDe(${seq[6]})`), 'la caja debe derivarse de la estabilidad');
 });
+t('olvido: acertar tras mucho tiempo sin verla da al menos la mitad de ese tiempo de estabilidad (y «difícil» no usa ese suelo)', () => {
+  const a = olvido(); a.ev('S.w[W[0].id] = { s: 3, b: 2, d: Date.now(), l: Date.now(), o: 1, f: 0 }'); envejecer(a, 60); a.ev('grade(W[0].id, true)');
+  const s = a.ev('S.w[W[0].id].s'); assert(s >= 30 && s <= 365, 'tras 60 días sin verla y acertar, la estabilidad debe ser ≥ 30: ' + s);
+  const d = olvido(); d.ev('S.w[W[0].id] = { s: 3, b: 2, d: Date.now(), l: Date.now(), o: 1, f: 0 }'); envejecer(d, 60); d.ev("grade(W[0].id, true, 'dificil')"); assert(d.ev('S.w[W[0].id].s') < 30, '«difícil» no debe usar el suelo: ' + d.ev('S.w[W[0].id].s'));
+});
+t('trazos: «Dibujar» enseña el contorno con las palabras nuevas y lo quita desde la caja 2', () => {
+  const a = olvido(); assert.strictEqual(a.ev('contorno(W[0])'), true, 'sin registro debe verse el contorno');
+  a.ev('S.w[W[0].id] = { s: 1, b: 1, d: 0, l: Date.now() }'); assert.strictEqual(a.ev('contorno(W[0])'), true, 'caja 1: aún se ve el contorno');
+  a.ev('S.w[W[0].id].b = 2'); assert.strictEqual(a.ev('contorno(W[0])'), false, 'caja 2: se escribe de memoria');
+});
 t('olvido: repasar de más refuerza menos que repasar cuando ya se olvida', () => {
   const crece = dias => { const a = olvido(); a.ev('grade(W[0].id, true)'); envejecer(a, 1); a.ev('grade(W[0].id, true)'); const s0 = a.ev('S.w[W[0].id].s'); envejecer(a, dias); a.ev('grade(W[0].id, true)'); return a.ev('S.w[W[0].id].s') / s0; };
   const pronto = crece(0.1), aTiempo = crece(2.2), tarde = crece(6);

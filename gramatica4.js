@@ -1,27 +1,8 @@
 // Gramática HSK 6-8 (mismo formato que gramatica1.js)
 (self.GRAM = self.GRAM || []).push(
-[6, "Es cierto que… pero…: 固然", "A 固然 B，但是 / 可是 / 不过 C", "固然 reconoce un hecho («es verdad que») para introducir un contraste con 但是, 可是 o 不过.", [
-  ["努力|[固然]|重要，|但是|方法|也|很|重要。", "Nǔlì gùrán zhòngyào, dànshì fāngfǎ yě hěn zhòngyào.", "Esforzarse es importante, sí, pero el método también lo es.", "虽然 因为 如果"],
-  ["价格|[固然]|便宜，|可是|质量|不|太|好。", "Jiàgé gùrán piányi, kěshì zhìliàng bú tài hǎo.", "El precio es barato, sí, pero la calidad no es muy buena.", "虽然 因为 如果"],
-  ["他|[固然]|有|才华，|不过|太|骄傲|了。", "Tā gùrán yǒu cáihuá, búguò tài jiāo'ào le.", "Es cierto que tiene talento, pero es demasiado orgulloso.", "既然 即使 因为"]]],
-[6, "En vez de… mejor…: 与其…不如…", "与其 A，不如 B", "Compara dos opciones y prefiere la segunda: «en lugar de A, mejor B».", [
-  ["[与其]|在家|发呆，|不如|出去|走走。", "Yǔqí zàijiā fādāi, bùrú chūqù zǒuzou.", "En vez de quedarte en casa sin hacer nada, mejor sal a pasear.", "虽然 如果 因为"],
-  ["与其|抱怨，|[不如]|行动。", "Yǔqí bàoyuàn, bùrú xíngdòng.", "En vez de quejarte, mejor actúa.", "所以 但是 而且"],
-  ["与其|买|新|的，|[不如]|修|一下|旧|的。", "Yǔqí mǎi xīn de, bùrú xiū yíxià jiù de.", "En vez de comprar uno nuevo, mejor arregla el viejo.", "不但 除非 只要"]]],
-[6, "Preferir… antes que…: 宁可…也不…", "宁可 A，也不 B", "Elige un mal menor para evitar algo peor: «preferiría A antes que B».", [
-  ["我|[宁可]|走路，|也|不|想|挤|地铁。", "Wǒ nìngkě zǒulù, yě bù xiǎng jǐ dìtiě.", "Prefiero ir andando antes que apretujarme en el metro.", "虽然 如果 因为"],
-  ["他|宁可|少|赚|钱，|[也]|不|骗|人。", "Tā nìngkě shǎo zhuàn qián, yě bú piàn rén.", "Prefiere ganar menos antes que engañar a nadie.", "但 还 就"],
-  ["我|[宁可]|晚点|交，|也|不|愿意|抄|别人|的。", "Wǒ nìngkě wǎndiǎn jiāo, yě bú yuànyì chāo biérén de.", "Prefiero entregarlo tarde antes que copiar el de otro.", "尽管 既然 因为"]]],
 [6, "Pase lo que pase: 无论如何", "无论如何，… / … 无论如何 都…", "Expresa «de todos modos» o «cueste lo que cueste»; no depende de ninguna condición.", [
   ["无论|[如何]，|我|都|会|支持|你。", "Wúlùn rúhé, wǒ dōu huì zhīchí nǐ.", "Pase lo que pase, te apoyaré.", "为何 如果 因为"],
   ["这|件|事|[无论]|如何|都|要|完成。", "Zhè jiàn shì wúlùn rúhé dōu yào wánchéng.", "Este asunto hay que terminarlo cueste lo que cueste.", "只要 如果 因为"]]],
-[6, "Tomar A como B: 以…为…", "以 A 为 B", "以 A 为 B significa «tomar A como B» (centro, base, ejemplo, medio de vida…).", [
-  ["我们|[以]|客户|为|中心。", "Wǒmen yǐ kèhù wéi zhōngxīn.", "Tomamos al cliente como centro.", "把 被 对"],
-  ["他|以|教书|[为]|生。", "Tā yǐ jiāoshū wéi shēng.", "Se gana la vida dando clases.", "是 当 成"],
-  ["我|以|这|次|比赛|为|目标。", "Wǒ yǐ zhè cì bǐsài wéi mùbiāo.", "Me marco esta competición como objetivo."]]],
-[6, "Todo el que…: 凡是…都…", "凡是 A 的 N，都 B", "凡是 introduce a todo lo que cumple una condición; casi siempre se cierra con 都.", [
-  ["[凡是]|参加|活动|的|人，|都|有|礼物。", "Fánshì cānjiā huódòng de rén, dōu yǒu lǐwù.", "Todo el que participe en la actividad tiene un regalo.", "虽然 如果 只要"],
-  ["凡是|他|答应|的|事，|[都]|会|做到。", "Fánshì tā dāying de shì, dōu huì zuòdào.", "Todo lo que él promete lo cumple.", "就 也 还"]]],
 [6, "Si (formal): 假如 y 倘若", "假如 / 倘若 A，（就）B", "假如 y 倘若 son versiones más formales de 如果. Suelen ir seguidas de 就 o 那么.", [
   ["[假如]|明天|下雨，|我们|就|改|时间。", "Jiǎrú míngtiān xià yǔ, wǒmen jiù gǎi shíjiān.", "Si mañana llueve, cambiamos la hora.", "虽然 因为 即使"],
   ["[倘若]|你|不|同意，|我们|就|重新|讨论。", "Tǎngruò nǐ bù tóngyì, wǒmen jiù chóngxīn tǎolùn.", "Si no estás de acuerdo, lo discutimos de nuevo.", "虽然 因为 即使"]]],
@@ -34,16 +15,6 @@
 [6, "¿Para qué…?: 何必", "何必 + verbo + 呢？", "何必 es una pregunta retórica: «¿hace falta…?», «¿para qué molestarse?».", [
   ["这么|小|的|事，|[何必]|生气|呢？", "Zhème xiǎo de shì, hébì shēngqì ne?", "Por algo tan pequeño, ¿para qué enfadarse?", "为何 怎么 难道"],
   ["你|[何必]|自己|去|呢？", "Nǐ hébì zìjǐ qù ne?", "¿Para qué vas tú mismo?", "难道 到底 反正"]]],
-[6, "Una vez que…: 一旦…就…", "一旦 A，就 B", "一旦 señala que, en cuanto ocurre A, B pasa enseguida (a menudo con matiz de riesgo).", [
-  ["[一旦]|养成|习惯，|就|很|难|改。", "Yídàn yǎngchéng xíguàn, jiù hěn nán gǎi.", "Una vez que se forma el hábito, es difícil cambiarlo.", "虽然 因为 如果"],
-  ["你|[一旦]|迟到，|就|会|被|扣|钱。", "Nǐ yídàn chídào, jiù huì bèi kòu qián.", "Si llegas tarde, te descuentan dinero.", "虽然 即使 除非"]]],
-[6, "Simplemente: 简直", "简直 + adjetivo / verbo", "简直 exagera para enfatizar: «sencillamente», «es casi como si…».", [
-  ["这里|的|风景|[简直]|美|极|了。", "Zhèlǐ de fēngjǐng jiǎnzhí měi jí le.", "El paisaje de aquí es simplemente precioso.", "还 才 就"],
-  ["他|[简直]|不|敢|相信|自己|的|眼睛。", "Tā jiǎnzhí bù gǎn xiāngxìn zìjǐ de yǎnjing.", "Casi no se atrevía a creer lo que veían sus ojos.", "毕竟 未必 反而"]]],
-[6, "Justo / por desgracia: 偏偏", "A，偏偏 B", "偏偏 expresa que algo sale justo al contrario de lo deseado, o que alguien se empeña en lo contrario.", [
-  ["我|刚|出门，|天|[偏偏]|下起|了|雨。", "Wǒ gāng chūmén, tiān piānpiān xià qǐ le yǔ.", "Justo al salir, se puso a llover.", "于是 所以 然后"],
-  ["大家|都|同意，|他|[偏偏]|反对。", "Dàjiā dōu tóngyì, tā piānpiān fǎnduì.", "Todos están de acuerdo y él, justo, se opone.", "刚好 果然 毕竟"]]],
-
 [7, "Dado que…: 鉴于", "鉴于 A，B", "鉴于 es formal: «dado que», «en vista de»; introduce la razón de una decisión.", [
   ["[鉴于]|目前|的|情况，|我们|决定|推迟|会议。", "Jiànyú mùqián de qíngkuàng, wǒmen juédìng tuīchí huìyì.", "Dada la situación actual, decidimos aplazar la reunión.", "虽然 如果 即使"],
   ["[鉴于]|他|的|表现，|公司|给|了|他|奖励。", "Jiànyú tā de biǎoxiàn, gōngsī gěi le tā jiǎnglì.", "Dado su rendimiento, la empresa le dio un premio.", "至于 以免 无非"]]],
@@ -68,14 +39,9 @@
 [7, "En cuanto a…: 就…而言", "就 A 而言，B", "就…而言 limita el punto de vista: «en lo que respecta a», «desde el punto de vista de».", [
   ["[就]|质量|而言，|这|款|产品|很|不错。", "Jiù zhìliàng ér yán, zhè kuǎn chǎnpǐn hěn búcuò.", "En cuanto a la calidad, este producto está muy bien.", "把 被 对"],
   ["[就]|我|个人|而|言，|我|更|喜欢|安静。", "Jiù wǒ gèrén ér yán, wǒ gèng xǐhuan ānjìng.", "Personalmente, prefiero la tranquilidad.", "关于 由于 随着"]]],
-[7, "Más que A, B: 与其说…不如说…", "与其说 A，不如说 B", "Corrige una descripción: «más que decir A, habría que decir B».", [
-  ["他|与其说|是|老师，|[不如说]|是|朋友。", "Tā yǔqí shuō shì lǎoshī, bùrú shuō shì péngyou.", "Más que un profesor, es un amigo.", "虽然 因为 如果"],
-  ["这|与其说|是|比赛，|[不如说]|是|一|次|交流。", "Zhè yǔqí shuō shì bǐsài, bùrú shuō shì yí cì jiāoliú.", "Más que una competición, es un intercambio.", "不如 而是 不但"]]],
 [7, "Entre ellos: 其中", "A，其中 B", "其中 señala una parte dentro del conjunto que se acaba de nombrar.", [
   ["我们|班|有|三十|个|人，|[其中]|十|个|是|留学生。", "Wǒmen bān yǒu sānshí ge rén, qízhōng shí ge shì liúxuéshēng.", "En nuestra clase somos treinta, de los cuales diez son estudiantes extranjeros.", "其他 其次 其实"],
   ["这里|有|很多|景点，|[其中]|最|有名|的|是|长城。", "Zhèlǐ yǒu hěn duō jǐngdiǎn, qízhōng zuì yǒumíng de shì Chángchéng.", "Aquí hay muchos lugares de interés; el más famoso es la Gran Muralla.", "其实 其次 其他"]]],
-[7, "Es inevitable que: 不免", "A，不免 B", "不免 indica una reacción natural ante lo que se ha dicho: «inevitablemente».", [
-  ["听到|这个|消息，|他|[不免]|有些|担心。", "Tīngdào zhège xiāoxi, tā bùmiǎn yǒuxiē dānxīn.", "Al oír la noticia, no pudo evitar preocuparse un poco.", "不禁 难免 反而"]]],
 [7, "Sin embargo (formal): 然而", "A，然而 B", "然而 es la versión formal de 但是 o 可是: introduce un contraste fuerte.", [
   ["他|很|努力，|[然而]|结果|并|不|理想。", "Tā hěn nǔlì, rán'ér jiéguǒ bìng bù lǐxiǎng.", "Se esforzó mucho; sin embargo, el resultado no fue ideal.", "于是 因此 所以"],
   ["计划|很|完美，|[然而]|执行|起来|很|难。", "Jìhuà hěn wánměi, rán'ér zhíxíng qǐlái hěn nán.", "El plan es perfecto; sin embargo, resulta difícil ejecutarlo.", "因此 何况 以便"]]],

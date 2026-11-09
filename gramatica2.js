@@ -108,11 +108,13 @@
 [4, "Antes que: 宁可…也…", "宁可 A，也不 B", "«Preferir A antes que B»: se elige lo menos malo.", [
   ["我|[宁可]|走路，|也|不|坐|那|辆|车。", "Wǒ nìngkě zǒulù, yě bú zuò nà liàng chē.", "Prefiero ir a pie antes que subir a ese coche.", "只要 既然 因为"],
   ["他|宁可|饿|着，|[也]|不|吃|这个。", "Tā nìngkě è zhe, yě bù chī zhège.", "Prefiere pasar hambre antes que comer esto.", "很 的 吗"],
-  ["我|宁可|晚|睡，|[也]|要|做|完|作业。", "Wǒ nìngkě wǎn shuì, yě yào zuò wán zuòyè.", "Prefiero acostarme tarde, pero acabaré los deberes.", "很 的 吗"]]],
+  ["我|宁可|晚|睡，|[也]|要|做|完|作业。", "Wǒ nìngkě wǎn shuì, yě yào zuò wán zuòyè.", "Prefiero acostarme tarde, pero acabaré los deberes.", "很 的 吗"],
+  ["他|[宁可]|自己|吃亏，|也|不|让|朋友|为难。", "Tā nìngkě zìjǐ chīkuī, yě bú ràng péngyou wéinán.", "Prefiere salir perdiendo él antes que poner en apuros a un amigo.", "只要 既然 因为"]]],
 [4, "En vez de: 与其…不如…", "与其 A，不如 B", "«En lugar de A, mejor B»: se recomienda B.", [
   ["[与其]|坐|车，|不如|走路。", "Yǔqí zuò chē, bùrú zǒulù.", "En vez de ir en coche, mejor ir a pie.", "即使 既然 只要"],
   ["与其|等，|[不如]|自己|去。", "Yǔqí děng, bùrú zìjǐ qù.", "En vez de esperar, mejor ir yo mismo.", "不管 不但 因此"],
-  ["与其|在|家|看|电视，|[不如]|出去|玩。", "Yǔqí zài jiā kàn diànshì, bùrú chūqù wán.", "En vez de ver la tele en casa, mejor salir a jugar.", "不管 不但 因此"]]],
+  ["与其|在|家|看|电视，|[不如]|出去|玩。", "Yǔqí zài jiā kàn diànshì, bùrú chūqù wán.", "En vez de ver la tele en casa, mejor salir a jugar.", "不管 不但 因此"],
+  ["[与其]|花|钱|买|新的，|不如|把|旧的|修|一下。", "Yǔqí huā qián mǎi xīn de, bùrú bǎ jiù de xiū yíxià.", "En vez de gastar en uno nuevo, mejor arreglar el viejo.", "虽然 不但 因为"]]],
 [4, "Contraste inesperado: 却", "A，却 B", "却 va delante del verbo y marca un contraste inesperado con lo anterior.", [
   ["房间|不|大，|[却]|很|干净。", "Fángjiān bú dà, què hěn gānjìng.", "La habitación no es grande, pero está muy limpia.", "所以 因为 如果"],
   ["他|很|聪明，|学习|[却]|不|努力。", "Tā hěn cōngming, xuéxí què bù nǔlì.", "Es listo, pero no se esfuerza.", "所以 因为 如果"],

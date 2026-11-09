@@ -18,14 +18,16 @@
 [5, "Es cierto que…: 固然…但是…", "A 固然 B，但是 C", "Concede un punto: «es cierto que A, pero…».", [
   ["价格|[固然]|重要，|但是|质量|更|重要。", "Jiàgé gùrán zhòngyào, dànshì zhìliàng gèng zhòngyào.", "El precio es importante, pero la calidad lo es más.", "如果 因为 所以"],
   ["他|固然|很|聪明，|[可是]|不|够|努力。", "Tā gùrán hěn cōngming, kěshì bú gòu nǔlì.", "Es listo, desde luego, pero no se esfuerza lo bastante.", "所以 因为 如果"],
-  ["这个|办法|固然|好，|但|也|有|缺点。", "Zhège bànfǎ gùrán hǎo, dàn yě yǒu quēdiǎn.", "Es cierto que este método es bueno, pero también tiene defectos."]]],
+  ["这个|办法|固然|好，|但|也|有|缺点。", "Zhège bànfǎ gùrán hǎo, dàn yě yǒu quēdiǎn.", "Es cierto que este método es bueno, pero también tiene defectos."],
+  ["努力|[固然]|重要，|但是|方法|也|很|重要。", "Nǔlì gùrán zhòngyào, dànshì fāngfǎ yě hěn zhòngyào.", "Esforzarse es importante, sí, pero el método también lo es.", "既然 因为 如果"]]],
 [5, "O bien… o bien…: 要么…要么…", "要么 A，要么 B", "Presenta dos opciones excluyentes: «o bien A, o bien B».", [
   ["[要么]|你|来，|要么|我|去。", "Yàome nǐ lái, yàome wǒ qù.", "O vienes tú o voy yo.", "不但 虽然 因为"],
   ["周末|我|要么|在|家|休息，|[要么]|去|公园。", "Zhōumò wǒ yàome zài jiā xiūxi, yàome qù gōngyuán.", "Los fines de semana o descanso en casa o voy al parque.", "不但 虽然 因为"]]],
 [5, "Más que… es…: 与其说…不如说…", "与其说 A，不如说 B", "Corrige una descripción: «más que A, es B».", [
   ["[与其说]|他|聪明，|不如|说|他|努力。", "Yǔqí shuō tā cōngming, bùrú shuō tā nǔlì.", "Más que listo, diría que es trabajador.", "不但说 即使说 既然说"],
   ["这|与其说|是|工作，|[不如说]|是|爱好。", "Zhè yǔqí shuō shì gōngzuò, bùrú shuō shì àihào.", "Esto es más una afición que un trabajo.", "不但说 即使说 既然说"],
-  ["他|与其说|是|生气，|不如说|是|难过。", "Tā yǔqí shuō shì shēngqì, bùrú shuō shì nánguò.", "Más que enfadado, está triste."]]],
+  ["他|与其说|是|生气，|不如说|是|难过。", "Tā yǔqí shuō shì shēngqì, bùrú shuō shì nánguò.", "Más que enfadado, está triste."],
+  ["他|与其说|是|老师，|[不如说]|是|朋友。", "Tā yǔqí shuō shì lǎoshī, bùrú shuō shì péngyou.", "Más que un profesor, es un amigo.", "不但说 即使说 既然说"]]],
 [5, "En opinión de: 在…看来", "在 + persona + 看来，…", "Expresa una opinión: «en opinión de, a mi parecer».", [
   ["[在]|我|看来，|这个|办法|不错。", "Zài wǒ kànlái, zhège bànfǎ búcuò.", "En mi opinión, este método está bien.", "给 从 把"],
   ["在|老师|看来，|他|是|个|好|学生。", "Zài lǎoshī kànlái, tā shì ge hǎo xuésheng.", "Para el profesor, él es un buen estudiante."],
@@ -33,11 +35,13 @@
 [5, "Una vez que: 一旦…就…", "一旦 A，就 B", "«Una vez que A, entonces B»: A es una condición cuyo efecto es difícil de revertir.", [
   ["[一旦]|决定|了，|就|不|要|后悔。", "Yídàn juédìng le, jiù bú yào hòuhuǐ.", "Una vez decidido, no te arrepientas.", "即使 虽然 无论"],
   ["一旦|发现|问题，|我们|[就]|要|马上|解决。", "Yídàn fāxiàn wèntí, wǒmen jiù yào mǎshàng jiějué.", "Si surge un problema, hay que resolverlo enseguida.", "很 的 吗"],
-  ["一旦|错过，|就|再|也|没有|机会|了。", "Yídàn cuòguò, jiù zài yě méiyǒu jīhuì le.", "Una vez que lo pierdas, no habrá otra oportunidad."]]],
+  ["一旦|错过，|就|再|也|没有|机会|了。", "Yídàn cuòguò, jiù zài yě méiyǒu jīhuì le.", "Una vez que lo pierdas, no habrá otra oportunidad."],
+  ["[一旦]|养成|习惯，|就|很|难|改。", "Yídàn yǎngchéng xíguàn, jiù hěn nán gǎi.", "Una vez que se forma el hábito, es difícil cambiarlo.", "虽然 尽管 不管"]]],
 [5, "Tomar como: 以…为…", "以 A 为 B", "Toma A como B: «tener A como…» (base, objetivo, centro).", [
   ["他|[以]|教书|为|生。", "Tā yǐ jiāoshū wéi shēng.", "Se gana la vida enseñando.", "把 被 对"],
   ["我们|要|以|健康|[为]|重。", "Wǒmen yào yǐ jiànkāng wéi zhòng.", "Debemos dar prioridad a la salud.", "是 有 在"],
-  ["这个|公司|以|质量|[为]|先。", "Zhège gōngsī yǐ zhìliàng wéi xiān.", "Esta empresa pone la calidad primero.", "是 有 在"]]],
+  ["这个|公司|以|质量|[为]|先。", "Zhège gōngsī yǐ zhìliàng wéi xiān.", "Esta empresa pone la calidad primero.", "是 有 在"],
+  ["我们|[以]|客户|为|中心。", "Wǒmen yǐ kèhù wéi zhōngxīn.", "Tomamos al cliente como centro.", "把 被 对"]]],
 [5, "Causa formal: 由于 / 因此", "由于 A，因此 B", "Más formal que 因为…所以. 由于 introduce la causa y 因此 la consecuencia.", [
   ["[由于]|天气|不|好，|航班|取消|了。", "Yóuyú tiānqì bù hǎo, hángbān qǔxiāo le.", "Debido al mal tiempo, el vuelo se canceló.", "虽然 以便 以免"],
   ["他|很|努力，|[因此]|取得|了|好|成绩。", "Tā hěn nǔlì, yīncǐ qǔdé le hǎo chéngjì.", "Se esforzó mucho y por eso obtuvo buenas notas.", "虽然 如果 即使"],
@@ -51,7 +55,9 @@
   ["这|件|事|我|已经|决定|了，|至于|价格，|以后|再|谈。", "Zhè jiàn shì wǒ yǐjīng juédìng le, zhìyú jiàgé, yǐhòu zài tán.", "Este asunto ya está decidido; en cuanto al precio, lo hablaremos luego."]]],
 [5, "Todo lo que: 凡是…都…", "凡是 + A，都 + B", "«Todo lo que / todos los que A, B».", [
   ["[凡是]|来|过|的|人，|都|喜欢|这里。", "Fánshì lái guo de rén, dōu xǐhuan zhèlǐ.", "Todos los que han venido aquí lo aman.", "虽然 即使 因为"],
-  ["凡是|有|问题|的|同学，|[都]|可以|问|老师。", "Fánshì yǒu wèntí de tóngxué, dōu kěyǐ wèn lǎoshī.", "Todo alumno con dudas puede preguntar al profesor.", "很 的 吗"]]],
+  ["凡是|有|问题|的|同学，|[都]|可以|问|老师。", "Fánshì yǒu wèntí de tóngxué, dōu kěyǐ wèn lǎoshī.", "Todo alumno con dudas puede preguntar al profesor.", "很 的 吗"],
+  ["[凡是]|参加|活动|的|人，|都|有|礼物。", "Fánshì cānjiā huódòng de rén, dōu yǒu lǐwù.", "Todo el que participe en la actividad recibe un regalo.", "虽然 如果 因为"],
+  ["凡是|他|答应|的|事，|[都]|会|做到。", "Fánshì tā dāying de shì, dōu huì zuòdào.", "Todo lo que él promete lo cumple.", "就 也 还"]]],
 [5, "Al fin y al cabo: 毕竟", "毕竟 + razón de fondo", "Recuerda una razón de fondo que justifica algo: «después de todo».", [
   ["他|[毕竟]|还|是|个|孩子。", "Tā bìjìng hái shì ge háizi.", "Al fin y al cabo es solo un niño.", "一起 一共 一边"],
   ["你|毕竟|是|他的|朋友，|应该|帮|他。", "Nǐ bìjìng shì tā de péngyou, yīnggāi bāng tā.", "Después de todo eres su amigo, deberías ayudarle."]]],
@@ -61,7 +67,9 @@
   ["吃|了|药，|病|反而|重|了。", "Chī le yào, bìng fǎn'ér zhòng le.", "Tomó la medicina y empeoró en lugar de mejorar."]]],
 [5, "Justo en contra: 偏偏", "偏偏 + hecho", "Expresa que algo ocurre justo en contra de lo que se deseaba o esperaba.", [
   ["我|想|出门，|[偏偏]|下起|雨|来|了。", "Wǒ xiǎng chūmén, piānpiān xià qǐ yǔ lái le.", "Quería salir y justo se puso a llover.", "一直 一共 一起"],
-  ["大家|都|来|了，|他|偏偏|没|来。", "Dàjiā dōu lái le, tā piānpiān méi lái.", "Todos vinieron, pero él justo no."]]],
+  ["大家|都|来|了，|他|偏偏|没|来。", "Dàjiā dōu lái le, tā piānpiān méi lái.", "Todos vinieron, pero él justo no."],
+  ["我|急着|用|手机，|它|[偏偏]|没|电|了。", "Wǒ jízhe yòng shǒujī, tā piānpiān méi diàn le.", "Justo cuando necesito el móvil, se queda sin batería.", "一共 一起 以免"],
+  ["大家|都|同意，|他|[偏偏]|反对。", "Dàjiā dōu tóngyì, tā piānpiān fǎnduì.", "Todos están de acuerdo y él, justo, se opone.", "所以 一起 以免"]]],
 [5, "No necesariamente: 未必", "未必 + afirmación", "«No necesariamente»: niega suavemente una generalización.", [
   ["贵|的|[未必]|好。", "Guì de wèibì hǎo.", "Lo caro no es necesariamente bueno.", "一直 一共 一起"],
   ["聪明|的|人|未必|成功。", "Cōngming de rén wèibì chénggōng.", "Una persona lista no necesariamente triunfa."]]],
@@ -74,7 +82,8 @@
 [5, "Matices: 简直, 恐怕 y 可见", "简直 = realmente · 恐怕 = me temo · 可见 = se ve que", "简直 enfatiza con exageración. 恐怕 expresa una suposición negativa. 可见 saca una conclusión de lo anterior.", [
   ["这里|[简直]|太|美|了！", "Zhèlǐ jiǎnzhí tài měi le!", "¡Esto es sencillamente precioso!", "一共 一起 一边"],
   ["天|黑|了，|[恐怕]|要|下雨|了。", "Tiān hēi le, kǒngpà yào xià yǔ le.", "Se hace de noche, me temo que va a llover.", "一共 一起 一边"],
-  ["他|一直|在|笑，|[可见]|很|满意。", "Tā yìzhí zài xiào, kějiàn hěn mǎnyì.", "No para de sonreír, se ve que está muy satisfecho.", "一共 一起 一边"]]],
+  ["他|一直|在|笑，|[可见]|很|满意。", "Tā yìzhí zài xiào, kějiàn hěn mǎnyì.", "No para de sonreír, se ve que está muy satisfecho.", "一共 一起 一边"],
+  ["这里|的|风景|[简直]|美|极|了。", "Zhèlǐ de fēngjǐng jiǎnzhí měi jí le.", "El paisaje de aquí es simplemente precioso.", "还 才 就"]]],
 [5, "Concesión: 倒是", "A 倒是 B，不过…", "倒是 concede algo con un matiz de contraste: «eso sí…, pero…».", [
   ["价格|[倒是]|不|贵，|就是|太|远|了。", "Jiàgé dàoshì bú guì, jiùshì tài yuǎn le.", "El precio sí que no es caro; lo que pasa es que está muy lejos.", "一共 一起 一边"],
   ["这个|办法|倒是|不错，|不过|有点|麻烦。", "Zhège bànfǎ dàoshì búcuò, búguò yǒudiǎn máfan.", "Este método está bien, eso sí, es algo molesto."]]]

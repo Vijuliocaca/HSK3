@@ -208,6 +208,16 @@ t('repaso: la tanda se limita a 40 palabras, empezando por las más olvidadas, y
   assert(t.every((r, k) => !k || r >= t[k - 1]), 'la tanda debe ir de la retención más baja a la más alta');
   assert(a.ev('seguirRepaso()').includes(`(${n} más)`), 'el botón debe decir cuántas quedan');
 });
+t('repaso: la vuelta rápida de las falladas cuenta para la meta pero no cambia el calendario', () => {
+  const a = olvido(); a.ev('S.w[W[0].id] = { s: 1, b: 1, d: Date.now() + DIA, l: Date.now(), o: 1, f: 1 }');
+  const antes = a.ev('JSON.stringify(S.w[W[0].id])'), n0 = a.ev('(S.hist[day(new Date())] || { n: 0 }).n');
+  a.ev("puntuar('falladas', W[0], true)"); a.ev("puntuar('falladas', W[0], false)");
+  assert.strictEqual(a.ev('JSON.stringify(S.w[W[0].id])'), antes, 'la vuelta de falladas no debe cambiar el registro de la palabra');
+  assert.strictEqual(a.ev('S.hist[day(new Date())].n'), n0 + 2, 'las dos respuestas deben contar para la meta');
+  a.ev("puntuar('mix', W[0], true)"); assert.notStrictEqual(a.ev('JSON.stringify(S.w[W[0].id])'), antes, 'el repaso normal sí debe cambiar el registro');
+  assert(a.ev('falladasBtn([W[0], W[1]])').includes('2 falladas'), 'el botón debe decir cuántas son'); assert.strictEqual(a.ev('FALL.length'), 2);
+  a.ev("session('falladas', [W[0], W[1]])"); assert(a.html().length > 50, 'la vuelta de falladas debe abrirse');
+});
 t('trazos: «Dibujar» enseña el contorno con las palabras nuevas y lo quita desde la caja 2', () => {
   const a = olvido(); assert.strictEqual(a.ev('contorno(W[0])'), true, 'sin registro debe verse el contorno');
   a.ev('S.w[W[0].id] = { s: 1, b: 1, d: 0, l: Date.now() }'); assert.strictEqual(a.ev('contorno(W[0])'), true, 'caja 1: aún se ve el contorno');

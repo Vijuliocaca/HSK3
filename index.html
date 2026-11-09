@@ -338,7 +338,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
 const vSW = t => (/const V = '([^']+)'/.exec(t) || [])[1]; // la versión que declara un sw.js
-const APP_V = 'hsk3-v247'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v248'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -957,12 +957,12 @@ function fiestaFechas(y) {
   return out;
 }
 let FCACHE = { d: '', v: [] };
-function fiestaProx() { // próximos 12 meses, con los días que faltan; el cálculo lunar (~40 ms) se guarda por día para no repetirlo en cada arranque
+function fiestaProx() { // próximos 12 meses, con los días que faltan; el cálculo lunar (~40 ms) se guarda por año
   const t = day(new Date()); if (FCACHE.d == t) return FCACHE.v;
   const hoy = new Date(); hoy.setHours(0, 0, 0, 0); const y = hoy.getFullYear(), dias = o => ({ ...o, n: Math.round((o.d - hoy) / 864e5) });
-  try { const c = JSON.parse(localStorage.hsk3f); if (c.d == t && c.k == FIESTAS.length) return (FCACHE = { d: t, v: c.v.map(([i, s]) => dias({ f: FIESTAS[i], d: new Date(s + 'T00:00') })) }).v; } catch {}
-  const v = [...fiestaFechas(y), ...fiestaFechas(y + 1)].filter(o => o.d >= hoy && o.d <= hoy.getTime() + 366 * 864e5).sort((a, b) => a.d - b.d);
-  try { localStorage.hsk3f = JSON.stringify({ d: t, k: FIESTAS.length, v: v.map(o => [FIESTAS.indexOf(o.f), o.d.toLocaleDateString('sv')]) }); } catch {}
+  let c; try { c = JSON.parse(localStorage.hsk3f); } catch {} // el cálculo lunar (2 años) se guarda por año, no por día: solo se repite al cambiar de año
+  if (!(c && c.y == y && c.k == FIESTAS.length)) { c = { y, k: FIESTAS.length, v: [...fiestaFechas(y), ...fiestaFechas(y + 1)].map(o => [FIESTAS.indexOf(o.f), o.d.toLocaleDateString('sv')]) }; try { localStorage.hsk3f = JSON.stringify(c); } catch {} }
+  const v = c.v.map(([i, s]) => ({ f: FIESTAS[i], d: new Date(s + 'T00:00') })).filter(o => o.d >= hoy && o.d <= hoy.getTime() + 366 * 864e5).sort((a, b) => a.d - b.d);
   return (FCACHE = { d: t, v: v.map(dias) }).v;
 }
 const nDias = n => n == 1 ? '1 día' : n + ' días';

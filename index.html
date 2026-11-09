@@ -338,7 +338,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
 const vSW = t => (/const V = '([^']+)'/.exec(t) || [])[1]; // la versión que declara un sw.js
-const APP_V = 'hsk3-v244'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v245'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -1461,25 +1461,50 @@ function session(mode, fixed) {
   step();
 }
 
-// entrenamiento de tonos: no usa el progreso, vale con cualquier palabra de una sílaba
+// entrenamiento de tonos (no usa el progreso): 1 = una sílaba · 2 = dos sílabas con tono neutro · 3 = cambios de tono (不, 一, 3.º + 3.º)
 const MA = [['妈', 'mā', 'madre'], ['麻', 'má', 'cáñamo'], ['马', 'mǎ', 'caballo'], ['骂', 'mà', 'regañar']];
+const TNIV = [[1, 'Una sílaba', 'Qué tono oyes en una sílaba suelta'], [2, 'Dos sílabas', 'Qué pareja de tonos oyes, con el tono neutro (爸爸 bà ba)'], [3, 'Cambios de tono', 'Cómo suenan de verdad 不, 一 y dos 3.º tonos seguidos (你好 → ní hǎo)']];
 function tonos() {
   app(`<div class=top><button class=back onclick="home()">←</button><b>Entrenar tonos</b></div>
     <p class=mut>Una misma sílaba cambia de significado según el tono. Toca para oír cada una:</p>
     <div class=grid>${MA.map(([z, p, e]) => `<button class=mode onclick="say('${z}')"><span class=e>🔊</span><span><b style="font-size:1.4rem">${pc(p)}</b><small>${z} · ${e}</small></span></button>`).join('')}</div>
-    <button class=main onclick="tonosQ()">Empezar (10 rondas)</button>`, 'home');
+    <p class=mut style="margin-top:1rem">Elige un nivel (10 rondas, con las palabras de los niveles HSK que tienes marcados):</p>
+    <div class=list>${TNIV.map(([n, t, d]) => `<button class=mode onclick="tonosQ(${n})"><span class=e>${n}</span><span><b>${t}</b><small>${d}</small></span></button>`).join('')}</div>`, 'home');
 }
-function tonosQ() {
-  const P = W.filter(w => !w.h.includes(' ') && w.p.split(' ').length == 1 && [...w.h].length == 1 && toneOf(w.p) < 5), items = sample(P, 10); let i = 0, ok = 0; const bad = [];
+// palabras del nivel de tonos n: { h, e, p: pinyin correcto tal como suena, nota } (las sílabas del pinyin van separadas por espacios)
+const sinMarca = x => x.normalize('NFD').replace(/[̀-ͯ]/g, '').normalize('NFC');
+const silTono = (py, k, t) => py.split(' ').map((x, j) => j == k ? setTone(x, t) : x).join(' ');
+function tonosPool(n) {
+  const base = W.filter(sel), todo = base.length >= 40 ? base : W, sy = w => w.p.split(' '), una = x => (x.match(SYL) || []).length == 1;
+  if (n == 1) return todo.filter(w => [...w.h].length == 1 && sy(w).length == 1 && una(w.p) && toneOf(w.p) < 5).map(w => ({ h: w.h, e: w.e, p: w.p }));
+  if (n == 2) return todo.filter(w => [...w.h].length == 2 && sy(w).length == 2 && sy(w).every(una) && !(toneOf(sy(w)[0]) == 3 && toneOf(sy(w)[1]) == 3)).map(w => ({ h: w.h, e: w.e, p: w.p }));
+  const r = [];
+  todo.forEach(w => { const x = sy(w), c = [...w.h];
+    if (c.length < 2 || x.length != c.length || !x.every(una)) return;
+    if (c[0] == '不' && sinMarca(x[0]) == 'bu' && toneOf(x[0]) >= 2 && toneOf(x[1]) < 5) r.push({ h: w.h, e: w.e, p: w.p, nota: 'Delante de un 4.º tono, 不 se dice bú; delante de cualquier otro, bù.' });
+    else if (c[0] == '一' && sinMarca(x[0]) == 'yi' && toneOf(x[0]) >= 2 && toneOf(x[1]) < 5) r.push({ h: w.h, e: w.e, p: w.p, nota: 'Delante de un 4.º tono, 一 se dice yí; delante de 1.º, 2.º o 3.º, yì (yī solo suelto o contando).' });
+    else if (x.length == 2 && toneOf(x[0]) == 3 && toneOf(x[1]) == 3) r.push({ h: w.h, e: w.e, p: silTono(w.p, 0, 2), nota: 'Dos 3.º tonos seguidos: el primero suena como 2.º tono (se escribe nǐ hǎo, suena ní hǎo).' }); });
+  return r;
+}
+function tonosItem(it, n) { // 4 opciones (la correcta y 3 con otro tono en una sílaba) mezcladas
+  const x = it.p.split(' '), k = n == 3 ? 0 : Math.random() * x.length | 0, t = toneOf(x[k]);
+  const tonos = shuffle([1, 2, 3, 4, ...(n == 2 && k > 0 ? [5] : [])].filter(v => v != t)).slice(0, 3);
+  return { op: shuffle([it.p, ...tonos.map(v => silTono(it.p, k, v))]), ok: it.p };
+}
+function tonosQ(n = 1) {
+  const P = tonosPool(n);
+  const items = sample(P, 10); if (items.length < 4) return empty('Aún no hay palabras para este nivel', 'Marca más niveles HSK en Ajustes o prueba otro nivel.');
+  let i = 0, ok = 0; const bad = [];
   const step = () => {
-    if (i >= items.length) return summary(ok, items.length, bad, tonosQ);
-    const w = items[i], t = toneOf(w.p);
+    if (i >= items.length) return summary(ok, items.length, bad, () => tonosQ(n));
+    const it = items[i], q = tonosItem(it, n);
     app(`<div class=play><div class=top><button class=back onclick="tonos()">✕</button><div class=bar><i style="width:${i / items.length * 100}%"></i></div></div><div id=q></div><div id=fb></div></div>`);
-    const el = $('#q'); el.innerHTML = `<div class=prompt><button class=main style="width:auto;margin:0 auto" onclick="say('${w.h}')">🔊 Escuchar</button><small>¿Qué tono oyes?</small></div>`;
-    setTimeout(() => say(w.h), 300);
-    opts(el, w, [1, 2, 3, 4].map(k => k == t ? w : { p: setTone(w.p, k) }), o => pc(o.p), good => {
-      good ? ok++ : bad.push(w);
-      $('#fb').innerHTML = `<div class="fb ${good ? 'g' : 'b'}"><b style="font-size:1.4rem">${w.h}</b> ${pc(w.p)} — ${w.e} <button class=back onclick="say('${w.h}')">🔊</button></div><button class=main id=nx>Siguiente</button>`;
+    const el = $('#q'); el.innerHTML = `<div class=prompt>${n == 3 ? `<span class=hz2 style="font-size:2.4rem">${it.h}</span>` : ''}<button class=main style="width:auto;margin:.4rem auto 0" onclick="say('${it.h}')">🔊 Escuchar</button><small>${n == 1 ? '¿Qué tono oyes?' : n == 2 ? '¿Qué tonos oyes?' : '¿Cómo se pronuncia de verdad?'}</small></div>`;
+    setTimeout(() => say(it.h), 300);
+    const right = { p: q.ok };
+    opts(el, right, q.op.map(p => p == q.ok ? right : { p }), o => pc(o.p), good => {
+      good ? ok++ : bad.push({ h: it.h, p: it.p, e: it.e });
+      $('#fb').innerHTML = `<div class="fb ${good ? 'g' : 'b'}"><b style="font-size:1.4rem">${it.h}</b> ${pc(it.p)} — ${it.e} <button class=back onclick="say('${it.h}')">🔊</button>${it.nota ? `<div class=mut style="margin-top:.3rem">${it.nota}</div>` : ''}</div><button class=main id=nx>Siguiente</button>`;
       $('#nx').onclick = () => { i++; step(); };
     });
   };

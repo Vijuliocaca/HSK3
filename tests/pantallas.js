@@ -218,6 +218,14 @@ t('repaso: la vuelta rápida de las falladas cuenta para la meta pero no cambia 
   assert(a.ev('falladasBtn([W[0], W[1]])').includes('2 falladas'), 'el botón debe decir cuántas son'); assert.strictEqual(a.ev('FALL.length'), 2);
   a.ev("session('falladas', [W[0], W[1]])"); assert(a.html().length > 50, 'la vuelta de falladas debe abrirse');
 });
+t('tonos: tres niveles con 4 opciones distintas que incluyen la correcta; el tono neutro, el sandhi de 不/一 y 3.º + 3.º salen bien', () => {
+  const a = cargarApp(), res = JSON.parse(a.ev(`JSON.stringify([1, 2, 3].map(n => { const P = tonosPool(n); let mal = 0, ok4 = 0; P.slice(0, 400).forEach(it => { const q = tonosItem(it, n); if (q.op.length == 4 && new Set(q.op).size == 4 && q.op.includes(q.ok) && q.ok == it.p) ok4++; else mal++; });
+    return { n, pool: P.length, mal, neutro: P.filter(it => it.p.split(' ').some(s => toneOf(s) == 5)).length, bu: P.filter(it => it.h[0] == '不').length, yi: P.filter(it => it.h[0] == '一').length, tres: P.filter(it => it.nota && it.nota.startsWith('Dos 3')).length, malTres: P.filter(it => it.nota && it.nota.startsWith('Dos 3') && toneOf(it.p.split(' ')[0]) != 2).length, malBu: P.filter(it => it.h[0] == '不' && it.p.split(' ').length > 1 && (toneOf(it.p.split(' ')[0]) == 2) != (toneOf(it.p.split(' ')[1]) == 4)).length }; }))`));
+  res.forEach(r => { assert(r.pool >= 10, 'nivel ' + r.n + ': pocas palabras (' + r.pool + ')'); assert.strictEqual(r.mal, 0, 'nivel ' + r.n + ': opciones mal formadas'); });
+  assert(res[1].neutro > 20, 'el nivel 2 debe incluir palabras con tono neutro: ' + res[1].neutro);
+  assert(res[2].bu > 3 && res[2].yi > 3 && res[2].tres > 20, 'el nivel 3 debe tener 不, 一 y 3.º+3.º: ' + JSON.stringify(res[2]));
+  assert.strictEqual(res[2].malTres, 0, 'en 3.º+3.º la correcta debe empezar en 2.º tono'); assert.strictEqual(res[2].malBu, 0, '不 debe ser bú solo delante de 4.º tono');
+});
 t('trazos: «Dibujar» enseña el contorno con las palabras nuevas y lo quita desde la caja 2', () => {
   const a = olvido(); assert.strictEqual(a.ev('contorno(W[0])'), true, 'sin registro debe verse el contorno');
   a.ev('S.w[W[0].id] = { s: 1, b: 1, d: 0, l: Date.now() }'); assert.strictEqual(a.ev('contorno(W[0])'), true, 'caja 1: aún se ve el contorno');

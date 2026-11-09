@@ -17,7 +17,7 @@ const PANTALLAS = [
   ['pregunta de lectura: elige', 'lectQ(0, 0)'], ['pregunta de lectura: la que no se deduce', 'lectQ(0, 1)'], ['pregunta de lectura: frase en chino', 'lectQ(0, 2)'], ['pregunta de lectura: ordenar la frase', 'lectQ(0, 3)'],
   ['pregunta larga de HSK 5: elige', 'lectQ(LECT.findLastIndex(d => !d.dl), 0)'], ['pregunta larga de HSK 5: frase en chino', 'lectQ(LECT.findLastIndex(d => !d.dl), 2)'], ['pregunta larga de HSK 5: ordenar la frase', 'lectQ(LECT.findLastIndex(d => !d.dl), 3)'],
   ['diálogos', 'dialogos()'], ['un diálogo', 'lectura(LECT.findIndex(d => d.dl))'], ['fiestas', 'fiestas()'], ['personajes', 'personajes()'], ['crear personaje', 'crear()'], ['un personaje', "personaje('payolink')"], ['retocar personaje', "crear('payolink')"], ['mis listas', 'listas()'], ['una lista', 'lista(0)'],
-  ['ficha de palabra', 'detail(0)'], ['entrenar tonos', 'tonos()'], ['cuestionario de diálogo', 'lectQ(LECT.findIndex(d => d.dl))'], ['cuestionario de lectura', 'lectQ(0)'],
+  ['ficha de palabra', 'detail(0)'], ['entrenar tonos', 'tonos()'], ['tonos: una sílaba', 'tonosQ(1)'], ['tonos: dos sílabas', 'tonosQ(2)'], ['tonos: cambios de tono', 'tonosQ(3)'], ['cuestionario de diálogo', 'lectQ(LECT.findIndex(d => d.dl))'], ['cuestionario de lectura', 'lectQ(0)'],
   ['repaso de gramática', 'gramRev()'], ['práctica de gramática', 'gramEx(0)'],
   ['juego: elegir traducción', "session('choice')"], ['juego: tarjetas', "session('cards')"], ['juego: escuchar', "session('listen')"],
   ['juego: escribir pinyin', "session('write')"], ['juego: elegir hanzi', "session('hanzi')"], ['juego: elegir pinyin', "session('pinyin')"],

@@ -226,6 +226,17 @@ t('tonos: tres niveles con 4 opciones distintas que incluyen la correcta; el ton
   assert(res[2].bu > 3 && res[2].yi > 3 && res[2].tres > 20, 'el nivel 3 debe tener 不, 一 y 3.º+3.º: ' + JSON.stringify(res[2]));
   assert.strictEqual(res[2].malTres, 0, 'en 3.º+3.º la correcta debe empezar en 2.º tono'); assert.strictEqual(res[2].malBu, 0, '不 debe ser bú solo delante de 4.º tono');
 });
+t('gramática: el repaso usa la curva del olvido (crece al acertar, baja al fallar, tope del examen) y sale su retención en «Hoy»', () => {
+  const a = cargarApp(), t = a.ev('GR[0].t'), R = () => JSON.parse(a.ev(`JSON.stringify(S.gramR[GR[0].t])`));
+  a.ev('S.gram[GR[0].t] = 80'); a.ev('gramGrade(GR[0], true)'); assert.strictEqual(R().s, 1, 'la 1.ª vez se vuelve a ver mañana'); assert(R().d > a.ev('Date.now()'), 'el vencimiento debe ser futuro');
+  const s = []; for (let k = 0; k < 5; k++) { a.ev('(() => { const r = S.gramR[GR[0].t]; r.l -= r.s * DIA; r.d -= r.s * DIA; })()'); a.ev('gramGrade(GR[0], true)'); s.push(R().s); }
+  s.forEach((v, k) => assert(v > (k ? s[k - 1] : 1) * 1.4, 'la estabilidad debe crecer al acertar: ' + s.join(' '))); assert(s[4] > 20, 'tras 6 aciertos a tiempo debe superar los 20 días: ' + s.join(' '));
+  const antes = R().s; a.ev('gramGrade(GR[0], false)'); assert(R().s <= Math.max(1, antes * .31) + 1e-9 && R().f == 1, 'un fallo baja la estabilidad a un tercio (mín. 1 día)');
+  a.ev("S.gramR[GR[1].t] = { b: 3, d: Date.now() - 1 }; S.gram[GR[1].t] = 70"); assert(a.ev('gramDue().some(g => g.t == GR[1].t)'), 'un registro antiguo { b, d } vencido debe salir en el repaso');
+  a.ev("S.gramR[GR[2].t] = { s: 30, l: Date.now() - 2 * DIA, d: Date.now() + 28 * DIA, b: 5 }; S.gram[GR[2].t] = 90"); assert(!a.ev('gramDue().some(g => g.t == GR[2].t)'), 'sin examen, un punto con estabilidad de 30 días no vence');
+  a.ev('S.exam = { d: day(new Date(Date.now() + 4 * DIA)) }'); assert(a.ev('gramDue().some(g => g.t == GR[2].t)'), 'con el examen a 4 días, el tope (1 día) debe hacer vencer el punto');
+  a.ev('today()'); assert(/Retención media de los puntos repasados: <b>\d+ %<\/b>/.test(a.html()), 'falta la retención media de la gramática en «Hoy»');
+});
 t('trazos: «Dibujar» enseña el contorno con las palabras nuevas y lo quita desde la caja 2', () => {
   const a = olvido(); assert.strictEqual(a.ev('contorno(W[0])'), true, 'sin registro debe verse el contorno');
   a.ev('S.w[W[0].id] = { s: 1, b: 1, d: 0, l: Date.now() }'); assert.strictEqual(a.ev('contorno(W[0])'), true, 'caja 1: aún se ve el contorno');

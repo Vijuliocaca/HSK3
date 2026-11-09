@@ -338,7 +338,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
 const vSW = t => (/const V = '([^']+)'/.exec(t) || [])[1]; // la versión que declara un sw.js
-const APP_V = 'hsk3-v245'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v246'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -516,8 +516,8 @@ const tope = () => { const n = examDays(); return n != null && n > 0 ? Math.max(
 const venceEn = r => Math.min(r.d, ultimo(r) + tope() * DIA);
 const contorno = w => !((S.w[w.id] || {}).b >= 2); // «Dibujar»: con la palabra ya algo sabida (caja ≥ 2) no se enseña el contorno del carácter: se escribe de memoria, no se calca
 const PROD = new Set(['write', 'hanzi', 'order', 'draw', 'cloze']); // modos que piden producir (escribir o elegir la forma); el resto, reconocer
-function grade(id, ok, niv, prod) { // niv (solo en las tarjetas): 'dificil' crece menos, 'facil' crece más; sin niv, como siempre. prod (true/false, solo en las sesiones): cuenta aparte producir (po/pf) y reconocer (co/cf)
-  const t = day(new Date()), ahora = Date.now(), r = S.w[id] || { b: 0, d: 0 }, vista = !!S.w[id], s0 = vista ? estab(r) : 0, R = vista ? retencion(r, ahora) : 1;
+function repasarReg(r, vista, ok, niv, ahora) { // curva del olvido, común a palabras y puntos de gramática: actualiza la estabilidad s, los aciertos o / fallos f, el vencimiento d, la caja b y el último repaso l del registro r
+  const s0 = vista ? estab(r) : 0, R = vista ? retencion(r, ahora) : 1;
   if (ok) {
     const g = 1.4 + 1.2 * ((r.o || 0) + 1) / ((r.o || 0) + (r.f || 0) + 2), k = Math.min(1.5, Math.max(.3, (1 - R) / .1)); // crecimiento base según lo bien que la sabes; repasar cuando R ya baja refuerza más
     const m = niv == 'dificil' ? .5 : niv == 'facil' ? 1.6 : 1;
@@ -525,7 +525,11 @@ function grade(id, ok, niv, prod) { // niv (solo en las tarjetas): 'dificil' cre
     if (s0 && niv != 'dificil') r.s = Math.min(365, Math.max(r.s, .5 * (ahora - ultimo(r)) / DIA)); // acertar tras mucho tiempo sin verla: se recordó pasados t días, así que la estabilidad es al menos t/2 (no solo s·crecimiento)
     r.o = (r.o || 0) + 1; r.d = ahora + r.s * DIA;
   } else { r.s = Math.max(1, s0 * .3); r.f = (r.f || 0) + 1; r.d = ahora + DIA; }
-  r.b = cajaDe(r.s); r.l = ahora; r.t = t;
+  r.b = cajaDe(r.s); r.l = ahora;
+}
+function grade(id, ok, niv, prod) { // niv (solo en las tarjetas): 'dificil' crece menos, 'facil' crece más; sin niv, como siempre. prod (true/false, solo en las sesiones): cuenta aparte producir (po/pf) y reconocer (co/cf)
+  const t = day(new Date()), ahora = Date.now(), r = S.w[id] || { b: 0, d: 0 };
+  repasarReg(r, !!S.w[id], ok, niv, ahora); r.t = t;
   if (prod != null) { const k = (prod ? 'p' : 'c') + (ok ? 'o' : 'f'); r[k] = (r[k] || 0) + 1; }
   S.w[id] = r;
   tick(ok); pronto();
@@ -710,7 +714,7 @@ function today() {
     ${pf.length >= 3 ? `<button class=chip onclick="session('write', prodFlojas())">Practicar a escribir: ${pf.length} palabras que reconoces pero te cuestan producir</button>` : ''}
     <button class=chip style="margin-top:.5rem" onclick="session('prueba')">Probar todos los ejercicios del repaso</button>
     ${nEx != null && nEx > 0 ? `<p class=mut>Examen en <b>${nEx} ${nEx == 1 ? 'día' : 'días'}</b>: cada palabra se repasa al menos cada <b>${Math.min(tope(), 365)} ${tope() == 1 ? 'día' : 'días'}</b> para llegar con ella fresca.</p>` : ''}
-    ${Object.keys(S.gram).length ? `<h2>Gramática</h2>${gramDue().length ? `<button class=main style="margin-top:0" onclick="gramRev()">Repasar gramática (${gramDue().length} ${gramDue().length == 1 ? 'punto' : 'puntos'})</button>` : '<p class=mut>✓ Gramática al día.</p>'}` : ''}
+    ${Object.keys(S.gram).length ? `<h2>Gramática</h2>${gramDue().length ? `<button class=main style="margin-top:0" onclick="gramRev()">Repasar gramática (${gramDue().length} ${gramDue().length == 1 ? 'punto' : 'puntos'})</button>` : '<p class=mut>✓ Gramática al día.</p>'}${gramRet() == null ? '' : `<p class=mut>Retención media de los puntos repasados: <b>${Math.round(gramRet() * 100)} %</b></p>`}` : ''}
     <h2>Próximos 7 días</h2>
     <svg viewBox="0 0 280 80" class=chart>${fc.map((n, i) => `<rect x=${i * 40 + 6} y=${60 - n / mx * 46} width=28 height=${n / mx * 46} rx=2 style="fill:var(--gold)"/><text x=${i * 40 + 20} y=${56 - n / mx * 46} text-anchor=middle>${n || ''}</text><text x=${i * 40 + 20} y=74 text-anchor=middle>${i ? DN[new Date(Date.now() + (i + 1) * 864e5).getDay()] : 'mañana'}</text>`).join('')}</svg>
     ${rs.length ? `<h2>Curva del olvido</h2>${curvaOlvido(rs, horiz, nEx)}<p class=mut>Retención media prevista si dejaras de repasar${nEx != null && nEx > 0 && nEx <= horiz ? ' (la línea roja marca el examen)' : ''}. Cada repaso a tiempo la sube y la alarga: así se fija lo aprendido.</p>` : ''}`, 'today');
@@ -1009,9 +1013,10 @@ const gramQs = (g, gi) => g.xs.flatMap(x => {
   if (key) out.push({ t: 'c', x, key });
   return out.map(q => ({ ...q, g, gi }));
 });
-// repaso espaciado de gramática: S.gramR[título] = { b: caja, d: próximo repaso }; lo ya practicado sin calendario vence ya
-const gramDue = () => GR.filter(g => S.gram[g.t] != null && (S.gramR[g.t]?.d || 0) <= eod());
-const gramGrade = (g, ok) => { const r = S.gramR[g.t] = S.gramR[g.t] || { b: 0 }; r.b = ok ? Math.min(5, r.b + 1) : 0; r.d = ok ? Date.now() + DAYS[r.b] * 864e5 : eod() + 1; };
+// repaso espaciado de gramática: S.gramR[título] = registro de la curva del olvido (s, l, d, b, o, f), igual que las palabras (los antiguos, solo { b, d }, valen); lo ya practicado sin calendario vence ya
+const gramDue = () => GR.filter(g => S.gram[g.t] != null && (S.gramR[g.t] ? venceEn(S.gramR[g.t]) : 0) <= eod());
+const gramRet = () => { const rs = GR.map(g => S.gramR[g.t]).filter(Boolean); return rs.length ? rs.reduce((t, r) => t + retencion(r), 0) / rs.length : null; }; // retención media de los puntos con calendario
+const gramGrade = (g, ok) => { const vista = !!S.gramR[g.t], r = S.gramR[g.t] = S.gramR[g.t] || { b: 0, d: 0 }; repasarReg(r, vista, ok, null, Date.now()); }; // acertar la hace crecer; fallar la baja a un tercio y vuelve mañana
 function gramRun(qs, back, end) { // end(aciertos, total, {título: {ok, n}}) guarda y muestra el resultado
   let n = 0, ok = 0; const res = {};
   const step = () => {

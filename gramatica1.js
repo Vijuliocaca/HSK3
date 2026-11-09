@@ -18,9 +18,9 @@
   ["我|喝|茶，|你|[呢]？", "Wǒ hē chá, nǐ ne?", "Yo bebo té, ¿y tú?", "吗 了 得"],
   ["我的|书|[呢]？", "Wǒ de shū ne?", "¿Y mi libro? (¿dónde está?)", "得 很 和"]]],
 [1, "Posesión con 的", "Poseedor + 的 + cosa", "的 une al poseedor con lo poseído, como «de» o «mi, tu, su». Con familiares y amigos cercanos se puede omitir: 我妈妈.", [
-  ["这|是|我[的]|手机。", "Zhè shì wǒ de shǒujī.", "Este es mi móvil.", "了 吗 得"],
-  ["那|是|他[的]|狗。", "Nà shì tā de gǒu.", "Ese es su perro.", "了 吗 得"],
-  ["她|是|我[的]|朋友。", "Tā shì wǒ de péngyou.", "Ella es mi amiga.", "了 吗 得"]]],
+  ["这|是|我[的]|手机。", "Zhè shì wǒ de shǒujī.", "Este es mi móvil.", "得 地 了"],
+  ["那|是|他[的]|狗。", "Nà shì tā de gǒu.", "Ese es su perro.", "得 地 了"],
+  ["她|是|我[的]|朋友。", "Tā shì wǒ de péngyou.", "Ella es mi amiga.", "得 地 了"]]],
 [1, "Tener: 有 y 没有", "有 / 没有 + objeto", "有 significa «tener» y también «haber». Su negación es 没有 (nunca 不有).", [
   ["我|[有]|一个|哥哥。", "Wǒ yǒu yí ge gēge.", "Tengo un hermano mayor.", "很 去 在"],
   ["我|[没有]|钱。", "Wǒ méiyǒu qián.", "No tengo dinero.", "是 在 去"],

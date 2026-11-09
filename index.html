@@ -338,7 +338,7 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
 const vSW = t => (/const V = '([^']+)'/.exec(t) || [])[1]; // la versión que declara un sw.js
-const APP_V = 'hsk3-v241'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v242'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -1435,13 +1435,16 @@ const mixMode = w => { // sin tarjetas: elige entre ejercicios que se puedan hac
 // items: palabras fijas (practica tras una lección); sin items, elige las que toca repasar; 'mix' = repaso de hoy
 // prueba de todos los ejercicios del repaso (un solo ejemplo de cada uno, sin tocar el progreso)
 const PRUEBA = [['choice', 'Elegir traducción'], ['pair', 'Unir pares'], ['cloze', 'Completar la frase'], ['sentence', 'Frase con traducción'], ['order', 'Ordenar la frase'], ['listen', 'Escuchar'], ['write', 'Escribir pinyin'], ['lect', 'Palabra en una lectura']];
+const TANDA = 40; // máx. de palabras por tanda de repaso: con muchas pendientes (p. ej. examen cerca) se hacen por tandas, empezando por las más olvidadas
+const tandaMix = () => due().sort((a, b) => (retencion(S.w[a.id]) ?? 0) - (retencion(S.w[b.id]) ?? 0)).slice(0, TANDA);
+const seguirRepaso = () => `<button class=main onclick="session('mix')">Seguir con el repaso (${due().length} más)</button>`;
 function session(mode, fixed) {
   const mix = mode == 'mix' || mode == 'hard' || mode == 'risk', prueba = mode == 'prueba';
-  const items = prueba ? PRUEBA.map(([m]) => { const c = (seen().length >= 8 ? seen() : W).filter(w => !FILT[m] || FILT[m](w)); return c[Math.floor(Math.random() * c.length)]; }) : fixed ? shuffle(fixed).slice(0, 10) : mode == 'risk' ? flojas().slice(0, 20) : mode == 'hard' ? shuffle(hardList().sort((a, b) => (S.w[b.id]?.f || 0) - (S.w[a.id]?.f || 0)).slice(0, 15)) : mix ? due().sort((a, b) => (retencion(S.w[a.id]) ?? 0) - (retencion(S.w[b.id]) ?? 0)) : pick(10, FILT[mode]);
+  const items = prueba ? PRUEBA.map(([m]) => { const c = (seen().length >= 8 ? seen() : W).filter(w => !FILT[m] || FILT[m](w)); return c[Math.floor(Math.random() * c.length)]; }) : fixed ? shuffle(fixed).slice(0, 10) : mode == 'risk' ? flojas().slice(0, 20) : mode == 'hard' ? shuffle(hardList().sort((a, b) => (S.w[b.id]?.f || 0) - (S.w[a.id]?.f || 0)).slice(0, 15)) : mix ? tandaMix() : pick(10, FILT[mode]);
   if (!items.length) return pool().length ? empty('Aún no hay palabras para este modo', 'Estudia más lecciones o prueba otro modo.') : empty();
   let i = 0, ok = 0; const bad = [];
   const step = () => {
-    if (i >= items.length) return summary(ok, items.length, bad, () => mode == 'mix' ? today() : session(mode, fixed), mode == 'mix' ? (PLAN ? '<button class=main onclick="planLeccion()">Siguiente: aprender palabras nuevas →</button>' : lecturaDeHoy()) : '');
+    if (i >= items.length) return summary(ok, items.length, bad, () => mode == 'mix' ? today() : session(mode, fixed), mode == 'mix' ? (due().length ? seguirRepaso() : PLAN ? '<button class=main onclick="planLeccion()">Siguiente: aprender palabras nuevas →</button>' : lecturaDeHoy()) : '');
     const w = items[i], aviso = prueba ? `<div class=mut style="text-align:center">Prueba ${i + 1}/${items.length}: ${PRUEBA[i][1]}</div>` : '';
     app(`<div class="play${pyOff(w)}"><div class=top><button class=back onclick="home()">✕</button><div class=bar><i style="width:${i / items.length * 100}%"></i></div>${pyBtn(w)}</div>${aviso}<div id=q></div><div id=fb></div></div>`);
     const m = prueba ? PRUEBA[i][0] : mix ? mixMode(w) : mode;

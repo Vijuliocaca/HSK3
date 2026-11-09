@@ -201,6 +201,13 @@ t('olvido: acertar tras mucho tiempo sin verla da al menos la mitad de ese tiemp
   const s = a.ev('S.w[W[0].id].s'); assert(s >= 30 && s <= 365, 'tras 60 días sin verla y acertar, la estabilidad debe ser ≥ 30: ' + s);
   const d = olvido(); d.ev('S.w[W[0].id] = { s: 3, b: 2, d: Date.now(), l: Date.now(), o: 1, f: 0 }'); envejecer(d, 60); d.ev("grade(W[0].id, true, 'dificil')"); assert(d.ev('S.w[W[0].id].s') < 30, '«difícil» no debe usar el suelo: ' + d.ev('S.w[W[0].id].s'));
 });
+t('repaso: la tanda se limita a 40 palabras, empezando por las más olvidadas, y al acabar ofrece seguir con las pendientes', () => {
+  const a = olvido(); a.ev('W.slice(0, 100).forEach((w, i) => { S.known[w.id] = 1; S.w[w.id] = { s: 1 + i * .1, b: 1, d: Date.now() - DIA, l: Date.now() - (3 + i % 7) * DIA, o: 1, f: 0 }; })');
+  const n = a.ev('due().length'), t = JSON.parse(a.ev('JSON.stringify(tandaMix().map(w => retencion(S.w[w.id])))'));
+  assert(n >= 90, 'faltan palabras pendientes para la prueba: ' + n); assert.strictEqual(t.length, 40, 'la tanda debe ser de 40 palabras, no de ' + t.length);
+  assert(t.every((r, k) => !k || r >= t[k - 1]), 'la tanda debe ir de la retención más baja a la más alta');
+  assert(a.ev('seguirRepaso()').includes(`(${n} más)`), 'el botón debe decir cuántas quedan');
+});
 t('trazos: «Dibujar» enseña el contorno con las palabras nuevas y lo quita desde la caja 2', () => {
   const a = olvido(); assert.strictEqual(a.ev('contorno(W[0])'), true, 'sin registro debe verse el contorno');
   a.ev('S.w[W[0].id] = { s: 1, b: 1, d: 0, l: Date.now() }'); assert.strictEqual(a.ev('contorno(W[0])'), true, 'caja 1: aún se ve el contorno');

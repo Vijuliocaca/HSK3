@@ -1,9 +1,9 @@
 // Gramática: puntos añadidos tras la auditoría (duración, frecuencia, relativo con 的, verbos separables, existencia, comparación negativa, dos verbos seguidos). Mismo formato que gramatica1.js
 (self.GRAM = self.GRAM || []).push(
 [2, "Dos verbos seguidos: medio o finalidad", "Sujeto + (去 / 来 / 坐…) + lugar o medio + verbo", "Cuando haces algo para otra cosa, o por un medio, los verbos van uno tras otro, en el orden en que ocurren y sin conectores: 去商店买东西 (voy a la tienda a comprar). El medio también va delante: 坐地铁去学校. Error típico: poner el lugar o el medio al final, como en español (我买东西在商店; 我去学校坐地铁 significa «voy a la escuela a coger el metro»).", [
-  ["我|[去]|商店|买|东西。", "Wǒ qù shāngdiàn mǎi dōngxi.", "Voy a la tienda a comprar cosas.", "的 很 和"],
-  ["周末|你|[来]|我|家|吃饭|吧。", "Zhōumò nǐ lái wǒ jiā chīfàn ba.", "El fin de semana ven a mi casa a comer.", "的 很 和"],
-  ["我|[坐]|地铁|去|学校。", "Wǒ zuò dìtiě qù xuéxiào.", "Voy a la escuela en metro.", "的 很 和"]]],
+  ["我|[去]|商店|买|东西。", "Wǒ qù shāngdiàn mǎi dōngxi.", "Voy a la tienda a comprar cosas.", "把 对 比"],
+  ["周末|你|[来]|我|家|吃饭|吧。", "Zhōumò nǐ lái wǒ jiā chīfàn ba.", "El fin de semana ven a mi casa a comer.", "把 给 对"],
+  ["我|[坐]|地铁|去|学校。", "Wǒ zuò dìtiě qù xuéxiào.", "Voy a la escuela en metro.", "把 给 对"]]],
 [3, "Cuánto tiempo dura una acción", "V + 了 + duración (+ objeto) · V + objeto + V + 了 + duración", "La duración se pone después del verbo: 学了两年中文. Si hay objeto, la duración va entre el verbo y el objeto (学了两年中文) o se repite el verbo (学中文学了两年); si el objeto es una persona, va antes: 等了他一个小时. Con otro 了 al final la acción sigue: 我学了两年中文了 («llevo dos años estudiando chino»). Error típico: poner la duración antes del verbo (我两年学中文) o tras el objeto (我学中文两年).", [
   ["我|学[了]|两|年|中文。", "Wǒ xué le liǎng nián Zhōngwén.", "He estudiado chino dos años.", "着 得 在"],
   ["他|等[了]|一个|小时。", "Tā děng le yí ge xiǎoshí.", "Él esperó una hora.", "着 得 在"],

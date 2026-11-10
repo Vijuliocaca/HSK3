@@ -224,7 +224,7 @@ const T0 = typeof performance != 'undefined' ? Math.round(performance.now()) : 0
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
 const vSW = t => (/const V = '([^']+)'/.exec(t) || [])[1]; // la versión que declara un sw.js
-const APP_V = 'hsk3-v253'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v254'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -434,7 +434,11 @@ function tick(ok) { // cuenta una respuesta para la meta, la racha, los XP y las
 // --- «jugo»: vibración, sonido y confeti al responder (se apaga en Ajustes → Sonido y vibración)
 let AC; const pip = (f, d = .09, t = 0) => { try { AC = AC || new (window.AudioContext || window.webkitAudioContext)(); const o = AC.createOscillator(), g = AC.createGain(), t0 = AC.currentTime + t; o.frequency.value = f; g.gain.setValueAtTime(.05, t0); g.gain.exponentialRampToValueAtTime(.0001, t0 + d); o.connect(g); g.connect(AC.destination); o.start(t0); o.stop(t0 + d); } catch {} };
 let MUDO = false; // true mientras se puntúa una tanda de golpe (Emparejar), para que no suenen 5 avisos seguidos
-const fx = ok => { if (S.set.fx === false || MUDO) return; try { navigator.vibrate?.(ok ? 30 : [70, 50, 70]); } catch {} if (ok) { pip(660, .08); pip(880, .1, .08); } else pip(190, .2); };
+const fx = ok => { if (S.set.fx === false || MUDO) return; try { navigator.vibrate?.(ok ? 60 : [120, 60, 120]); } catch {} if (ok) { pip(660, .08); pip(880, .1, .08); } else pip(190, .2); };
+function probarFx() { // botón de Ajustes: vibra 0,4 s, suena y enseña qué devuelve el navegador (para saber por qué no se nota)
+  let v; try { v = navigator.vibrate ? navigator.vibrate(400) : 'no existe en este navegador'; } catch (e) { v = 'error: ' + e.message; } pip(660, .15);
+  $('#fxmsg').textContent = `vibrate: ${v} · audio: ${AC ? AC.state : 'sin contexto'} · sonido y vibración: ${S.set.fx === false ? 'apagados' : 'activados'}`;
+}
 const confeti = () => { if (S.set.fx === false) return; const c = document.createElement('div'); c.className = 'conf'; c.setAttribute('aria-hidden', 'true'); c.innerHTML = Array.from({ length: 26 }, (_, i) => `<i style="left:${Math.random() * 100}%;background:${['var(--pri)', 'var(--gold)', 'var(--ok)', 'var(--no)'][i % 4]};animation-delay:${Math.random() * .4}s"></i>`).join(''); document.body.appendChild(c); setTimeout(() => c.remove?.(), 2400); };
 const avisar = t => { $('#sr').textContent = t; const e = document.createElement('div'); e.className = 'toast'; e.textContent = t; document.body.appendChild(e); setTimeout(() => e.remove?.(), 3200); };
 // --- XP, misiones diarias y comodín de racha: 10 XP por acierto y 3 por fallo (se guardan por día en S.hist[día].x); las 3 misiones de hoy salen de lo ya contado
@@ -753,7 +757,7 @@ function settings() {
     <h2>Velocidad de la voz</h2><div class="row seg">${o('rate', .6, 'Lenta')}${o('rate', .8, 'Normal')}${o('rate', 1, 'Rápida')}</div><button class="chip seg1" onclick="say('你好，欢迎学习汉语')">🔊 Probar la voz</button>
     <h2>Tamaño de letra</h2><div class="row seg">${o('size', 90, 'Pequeño')}${o('size', 100, 'Normal')}${o('size', 115, 'Grande')}${o('size', 130, 'Enorme')}</div>
     <h2>Tema</h2><div class="row seg">${o('theme', 'auto', 'Automático')}${o('theme', 'light', 'Claro')}${o('theme', 'dark', 'Oscuro')}${o('theme', 'hc', 'Alto contraste')}${o('theme', 'hcd', 'Alto contraste oscuro')}</div>
-    <h2>Sonido y vibración</h2><div class="row seg">${o('fx', true, 'Sí')}${o('fx', false, 'No')}</div><p class=mut>Un tono y una vibración corta al acertar o fallar, y confeti al terminar.</p>${INST ? '<button class=chip onclick="instalar()">Instalar la app</button>' : ''}
+    <h2>Sonido y vibración</h2><div class="row seg">${o('fx', true, 'Sí')}${o('fx', false, 'No')}</div><p class=mut>Un tono y una vibración corta al acertar o fallar, y confeti al terminar.</p><button class=chip onclick="probarFx()">Probar vibración y sonido</button><p class=mut id=fxmsg aria-live=polite></p>${INST ? '<button class=chip onclick="instalar()">Instalar la app</button>' : ''}
     <h2>Colores de tono</h2><div class="row seg">${o('tones', true, 'Sí')}${o('tones', false, 'No')}</div>
     <p class=mut>Pinyin en colores: ${pc('mā má mǎ mà ma')} (1.º a 4.º tono y neutro).</p>
     <h2>Recordatorio diario</h2><p class=mut>Añade a tu calendario un aviso que se repite todos los días a la hora que elijas. Funciona en cualquier móvil, sin conexión y sin crear cuentas. Al descargar el archivo, ábrelo para añadirlo al calendario.</p>

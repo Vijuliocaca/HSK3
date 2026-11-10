@@ -1,6 +1,6 @@
 // Primero la caché: la app abre al instante también con wifi sin datos. La caché solo cambia entera, con cada versión nueva (install).
 // Al cambiar archivos sube la version V para que se renueve la cache.
-const V = 'hsk3-v253', CDN = 'hsk3-cdn', TZ = 'hsk3-trazos', AU = 'hsk3-audio', FILES = ['./', 'paquete.js', 'trazos/hanzi-writer.min.js', 'index.html', 'manifest.json', 'icon-192.png', 'icon-512.png'];
+const V = 'hsk3-v254', CDN = 'hsk3-cdn', TZ = 'hsk3-trazos', AU = 'hsk3-audio', FILES = ['./', 'paquete.js', 'trazos/hanzi-writer.min.js', 'index.html', 'manifest.json', 'icon-192.png', 'icon-512.png'];
 // cache: 'no-cache' revalida cada archivo con la red (sin copias viejas del navegador) pero, si no cambió, no vuelve a descargarlo: actualizar ya no baja los ~2 MB enteros
 self.addEventListener('install', e => e.waitUntil(caches.open(V).then(c => Promise.all(FILES.map(f => c.add(new Request(f, { cache: 'no-cache' }))))).then(() => self.skipWaiting())));
 self.addEventListener('activate', e => e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k != V && k != CDN && k != TZ && k != AU).map(k => caches.delete(k)))).then(() => self.clients.claim())));

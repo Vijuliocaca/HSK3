@@ -6,9 +6,9 @@
   ["他|[是]|我的|老师。", "Tā shì wǒ de lǎoshī.", "Él es mi profesor.", "在 和 很"],
   ["这|[是]|一|本|书。", "Zhè shì yì běn shū.", "Esto es un libro.", "在 和 很"]]],
 [1, "Negación con 不", "不 + verbo / adjetivo", "不 niega verbos y adjetivos en presente o futuro. Delante de una sílaba en 4.º tono se pronuncia bú: 不是 (bú shì).", [
-  ["我|[不]|喝|咖啡。", "Wǒ bù hē kāfēi.", "Yo no bebo café.", "很 的 吗"],
+  ["我|[不]|喝|咖啡。", "Wǒ bù hē kāfēi.", "Yo no bebo café.", "别 太 都"],
   ["他|[不]|是|中国人。", "Tā bú shì Zhōngguórén.", "Él no es chino.", "在 吗 和"],
-  ["今天|[不]|冷。", "Jīntiān bù lěng.", "Hoy no hace frío.", "在 吗 呢"]]],
+  ["今天|[不]|冷。", "Jīntiān bù lěng.", "Hoy no hace frío.", "很 才 别"]]],
 [1, "Preguntas de sí/no con 吗", "Frase afirmativa + 吗？", "Para convertir una afirmación en pregunta de sí o no, se añade 吗 al final. La respuesta repite el verbo: 是 / 不是, 有 / 没有.", [
   ["你|是|老师|[吗]？", "Nǐ shì lǎoshī ma?", "¿Eres profesor?", "很 在 和"],
   ["你|喝|茶|[吗]？", "Nǐ hē chá ma?", "¿Bebes té?", "很 在 和"],
@@ -42,33 +42,33 @@
   ["请|给|我|两[本]|书。", "Qǐng gěi wǒ liǎng běn shū.", "Dame dos libros, por favor.", "杯 件 只"],
   ["我|喝|一[杯]|茶。", "Wǒ hē yì bēi chá.", "Bebo una taza de té.", "本 件 只"]]],
 [1, "También y todos: 也 / 都", "Sujeto + 也 / 都 + verbo", "也 («también») y 都 («todos») van siempre delante del verbo, nunca al final. Si van juntos: 也都.", [
-  ["我|[也]|是|学生。", "Wǒ yě shì xuésheng.", "Yo también soy estudiante.", "很 在 的"],
-  ["我们|[都]|是|中国人。", "Wǒmen dōu shì Zhōngguórén.", "Todos nosotros somos chinos.", "很 在 的"],
-  ["他|[也]|不|喝|茶。", "Tā yě bù hē chá.", "Él tampoco bebe té.", "很 在 的"]]],
+  ["我|[也]|是|学生。", "Wǒ yě shì xuésheng.", "Yo también soy estudiante.", "都 还 又"],
+  ["我们|[都]|是|中国人。", "Wǒmen dōu shì Zhōngguórén.", "Todos nosotros somos chinos.", "也 又 和"],
+  ["他|[也]|不|喝|茶。", "Tā yě bù hē chá.", "Él tampoco bebe té.", "都 和 在"]]],
 [1, "Verbos modales: 想, 会, 能, 可以", "Sujeto + modal + verbo", "想 = querer, tener ganas. 会 = saber hacer (habilidad aprendida). 能 = poder (capacidad o circunstancias). 可以 = poder (permiso). Van antes del verbo principal.", [
   ["我|[想]|喝|水。", "Wǒ xiǎng hē shuǐ.", "Quiero beber agua.", "是 很 和"],
   ["你|[会]|说|汉语|吗？", "Nǐ huì shuō Hànyǔ ma?", "¿Sabes hablar chino?", "很 和 的"],
-  ["这里|[可以]|坐|吗？", "Zhèlǐ kěyǐ zuò ma?", "¿Se puede sentar aquí?", "很 和 的"]]],
+  ["这里|[可以]|坐|吗？", "Zhèlǐ kěyǐ zuò ma?", "¿Se puede sentar aquí?", "会 想 和"]]],
 [1, "Acción completada con 了", "Verbo + 了 + objeto", "了 detrás del verbo indica que la acción se ha completado: 我吃了饭. Al final de la frase indica un cambio o situación nueva: 下雨了.", [
-  ["我|吃[了]|饭。", "Wǒ chī le fàn.", "He comido.", "吗 呢 很"],
-  ["他|买[了]|一|本|书。", "Tā mǎi le yì běn shū.", "Él compró un libro.", "吗 呢 很"],
-  ["下雨|[了]。", "Xià yǔ le.", "Ha empezado a llover.", "很 的 在"]]],
+  ["我|吃[了]|饭。", "Wǒ chī le fàn.", "He comido.", "着 得 地"],
+  ["他|买[了]|一|本|书。", "Tā mǎi le yì běn shū.", "Él compró un libro.", "着 得 地"],
+  ["下雨|[了]。", "Xià yǔ le.", "Ha empezado a llover.", "着 得 吧"]]],
 [1, "Orden del tiempo", "Sujeto + palabra de tiempo + verbo", "Las palabras de tiempo (今天, 明天, 八点…) van antes del verbo, después del sujeto o al principio de la frase. Nunca al final.", [
   ["我|明天|去|北京。", "Wǒ míngtiān qù Běijīng.", "Mañana voy a Pekín."],
   ["我们|八点|吃饭。", "Wǒmen bā diǎn chīfàn.", "Comemos a las ocho."],
   ["他|今天|上午|工作。", "Tā jīntiān shàngwǔ gōngzuò.", "Hoy por la mañana él trabaja."]]],
 [1, "Peticiones educadas con 请", "请 + verbo", "请 al principio de la frase convierte una orden en una petición cortés: 请坐, 请喝茶. También 请问 para preguntar.", [
-  ["[请]|喝|茶。", "Qǐng hē chá.", "Tome té, por favor.", "很 吗 的"],
-  ["[请]|问，|你|叫|什么|名字？", "Qǐng wèn, nǐ jiào shénme míngzi?", "Perdone, ¿cómo se llama?", "很 吗 的"],
-  ["[请]|你|再|说|一遍。", "Qǐng nǐ zài shuō yí biàn.", "Repítelo una vez más, por favor.", "很 吗 的"]]],
+  ["[请]|喝|茶。", "Qǐng hē chá.", "Tome té, por favor.", "让 把 被"],
+  ["[请]|问，|你|叫|什么|名字？", "Qǐng wèn, nǐ jiào shénme míngzi?", "Perdone, ¿cómo se llama?", "让 对 给"],
+  ["[请]|你|再|说|一遍。", "Qǐng nǐ zài shuō yí biàn.", "Repítelo una vez más, por favor.", "把 给 对"]]],
 [1, "Demostrativos 这 y 那", "这 / 那 + (número) + clasificador + sustantivo", "这 = este, esto (cerca). 那 = ese, aquel (lejos). Con un sustantivo hace falta clasificador: 这个人, 那本书.", [
   ["[这]|是|什么？", "Zhè shì shénme?", "¿Qué es esto?", "谁 哪 几"],
   ["[那]|个|人|是|谁？", "Nà ge rén shì shéi?", "¿Quién es aquella persona?", "几 谁 您"],
-  ["我|喜欢|[这]|本|书。", "Wǒ xǐhuan zhè běn shū.", "Me gusta este libro.", "谁 很 吗"]]],
+  ["我|喜欢|[这]|本|书。", "Wǒ xǐhuan zhè běn shū.", "Me gusta este libro.", "的 个 在"]]],
 [1, "Unir con 和", "A + 和 + B", "和 une sustantivos o pronombres («A y B»). No se usa para unir frases completas.", [
-  ["我|[和]|你|都|是|学生。", "Wǒ hé nǐ dōu shì xuésheng.", "Tú y yo somos estudiantes.", "也 很 的"],
-  ["我|喜欢|苹果|[和]|香蕉。", "Wǒ xǐhuan píngguǒ hé xiāngjiāo.", "Me gustan las manzanas y los plátanos.", "也 很 吗"],
-  ["他|[和]|妈妈|在|家。", "Tā hé māma zài jiā.", "Él y su madre están en casa.", "也 很 吗"]]],
+  ["我|[和]|你|都|是|学生。", "Wǒ hé nǐ dōu shì xuésheng.", "Tú y yo somos estudiantes.", "对 给 比"],
+  ["我|喜欢|苹果|[和]|香蕉。", "Wǒ xǐhuan píngguǒ hé xiāngjiāo.", "Me gustan las manzanas y los plátanos.", "也 对 给"],
+  ["他|[和]|妈妈|在|家。", "Tā hé māma zài jiā.", "Él y su madre están en casa.", "也 对 给"]]],
 [1, "Cantidad y edad: 几 y 多少", "几 + clasificador · 多少 + sustantivo", "几 se usa para cantidades pequeñas (menos de 10) y lleva clasificador: 几个人. 多少 se usa para cantidades grandes o desconocidas: 多少钱. La edad de un niño: 几岁.", [
   ["你|家|有|[几]|口|人？", "Nǐ jiā yǒu jǐ kǒu rén?", "¿Cuántas personas hay en tu familia?", "什么 谁 怎么"],
   ["这个|[多少]|钱？", "Zhège duōshao qián?", "¿Cuánto cuesta esto?", "几 谁 什么"],
@@ -79,11 +79,11 @@
   ["我|七[点]|起床。", "Wǒ qī diǎn qǐchuáng.", "Me levanto a las siete.", "本 条 件"]]],
 
 [2, "Acción en curso: (正)在", "Sujeto + (正)在 + verbo (+ 呢)", "(正)在 delante del verbo indica que la acción está ocurriendo ahora. Se puede cerrar con 呢.", [
-  ["我|[正在]|吃饭。", "Wǒ zhèngzài chīfàn.", "Estoy comiendo ahora mismo.", "很 的 吗"],
-  ["他|[在]|看|电视。", "Tā zài kàn diànshì.", "Él está viendo la tele.", "很 的 吗"],
+  ["我|[正在]|吃饭。", "Wǒ zhèngzài chīfàn.", "Estoy comiendo ahora mismo.", "过 着 了"],
+  ["他|[在]|看|电视。", "Tā zài kàn diànshì.", "Él está viendo la tele.", "着 过 了"],
   ["妈妈|正在|做饭|[呢]。", "Māma zhèngzài zuòfàn ne.", "Mamá está cocinando.", "得 过 很"]]],
 [2, "Experiencia con 过", "Verbo + 过", "过 detrás del verbo indica que se ha tenido esa experiencia alguna vez. Negación: 没 + verbo + 过.", [
-  ["我|去[过]|中国。", "Wǒ qù guo Zhōngguó.", "He estado en China.", "着 吗 的"],
+  ["我|去[过]|中国。", "Wǒ qù guo Zhōngguó.", "He estado en China.", "着 在 得"],
   ["你|吃[过]|北京|烤鸭|吗？", "Nǐ chī guo Běijīng kǎoyā ma?", "¿Has comido pato laqueado de Pekín?", "呢 得 在"],
   ["我|没|学[过]|法语。", "Wǒ méi xué guo Fǎyǔ.", "Nunca he estudiado francés.", "着 得 吗"]]],
 [2, "Comparar con 比", "A + 比 + B + adjetivo", "Para decir que A es más… que B se usa 比. El adjetivo no lleva 很. Si se añade la diferencia, va detrás del adjetivo. Negativo: A 没有 B + adjetivo.", [
@@ -111,25 +111,25 @@
   ["她|一边|走|[一边]|唱歌。", "Tā yìbiān zǒu yìbiān chànggē.", "Ella canta mientras camina.", "一起 一共 一直"],
   ["我们|[一边]|聊天|一边|喝|茶。", "Wǒmen yìbiān liáotiān yìbiān hē chá.", "Charlamos mientras tomamos té.", "一起 一共 一直"]]],
 [2, "Primero… luego…: 先…再…", "先 + A，再 + B", "Ordena dos acciones en el tiempo: primero A y luego B.", [
-  ["我|[先]|吃饭，|再|去|学校。", "Wǒ xiān chīfàn, zài qù xuéxiào.", "Primero como y luego voy a la escuela.", "都 很 的"],
-  ["[先]|洗|手，|再|吃|饭。", "Xiān xǐ shǒu, zài chī fàn.", "Primero lávate las manos y luego come.", "都 很 的"],
-  ["你|先|做|作业，|[再]|玩。", "Nǐ xiān zuò zuòyè, zài wán.", "Primero haz los deberes y luego juega.", "很 的 吗"]]],
+  ["我|[先]|吃饭，|再|去|学校。", "Wǒ xiān chīfàn, zài qù xuéxiào.", "Primero como y luego voy a la escuela.", "才 又 都"],
+  ["[先]|洗|手，|再|吃|饭。", "Xiān xǐ shǒu, zài chī fàn.", "Primero lávate las manos y luego come.", "才 又 都"],
+  ["你|先|做|作业，|[再]|玩。", "Nǐ xiān zuò zuòyè, zài wán.", "Primero haz los deberes y luego juega.", "又 也 和"]]],
 [2, "Inminencia: 要…了", "(快 / 就)要 + verbo + 了", "Indica que algo va a ocurrir muy pronto. 快要 y 就要 refuerzan la idea de «dentro de poco».", [
-  ["[要]|下雨|了。", "Yào xià yǔ le.", "Va a llover.", "很 的 吗"],
-  ["火车|[就要]|开|了。", "Huǒchē jiùyào kāi le.", "El tren está a punto de salir.", "很 的 吗"],
-  ["我|[快要]|毕业|了。", "Wǒ kuàiyào bìyè le.", "Me gradúo muy pronto.", "很 的 吗"]]],
+  ["[要]|下雨|了。", "Yào xià yǔ le.", "Va a llover.", "才 又 把"],
+  ["火车|[就要]|开|了。", "Huǒchē jiùyào kāi le.", "El tren está a punto de salir.", "又 把 在"],
+  ["我|[快要]|毕业|了。", "Wǒ kuàiyào bìyè le.", "Me gradúo muy pronto.", "又 在 把"]]],
 [2, "Complemento de grado con 得", "Verbo + 得 + adjetivo", "Describe cómo se hace una acción: 说得很好. Si hay objeto, se repite el verbo: 他说汉语说得很好.", [
   ["他|说|[得]|很|好。", "Tā shuō de hěn hǎo.", "Él habla muy bien.", "了 过 着"],
   ["她|跑|[得]|很|快。", "Tā pǎo de hěn kuài.", "Ella corre muy rápido.", "了 过 着"],
   ["我|写|[得]|不|好。", "Wǒ xiě de bù hǎo.", "Escribo mal.", "了 过 着"]]],
 [2, "Poder: 会, 能 y 可以", "会 = saber · 能 = poder · 可以 = permiso", "会: habilidad aprendida (会游泳). 能: capacidad o circunstancias (今天能来). 可以: permiso o posibilidad (可以进来). 不能 se usa para prohibir.", [
-  ["我|[会]|游泳。", "Wǒ huì yóuyǒng.", "Sé nadar.", "很 的 吗"],
-  ["这里|不|[能]|抽烟。", "Zhèlǐ bù néng chōuyān.", "Aquí no se puede fumar.", "很 的 吗"],
-  ["明天|你|[可以]|来|吗？", "Míngtiān nǐ kěyǐ lái ma?", "¿Puedes venir mañana?", "很 的 在"]]],
+  ["我|[会]|游泳。", "Wǒ huì yóuyǒng.", "Sé nadar.", "了 过 也"],
+  ["这里|不|[能]|抽烟。", "Zhèlǐ bù néng chōuyān.", "Aquí no se puede fumar.", "了 过 也"],
+  ["明天|你|[可以]|来|吗？", "Míngtiān nǐ kěyǐ lái ma?", "¿Puedes venir mañana?", "了 过 也"]]],
 [2, "Demasiado: 太…了", "太 + adjetivo + 了", "Expresa exceso o admiración: 太贵了 (¡qué caro!), 太好了 (¡genial!).", [
-  ["今天|[太]|热|了。", "Jīntiān tài rè le.", "¡Hoy hace demasiado calor!", "在 的 吗"],
-  ["这个|[太]|贵|了。", "Zhège tài guì le.", "Esto es demasiado caro.", "在 的 吗"],
-  ["[太]|好|了！", "Tài hǎo le!", "¡Genial!", "在 的 吗"]]],
+  ["今天|[太]|热|了。", "Jīntiān tài rè le.", "¡Hoy hace demasiado calor!", "才 把 也"],
+  ["这个|[太]|贵|了。", "Zhège tài guì le.", "Esto es demasiado caro.", "也 把 才"],
+  ["[太]|好|了！", "Tài hǎo le!", "¡Genial!", "把 在 才"]]],
 [2, "Desde… hasta…: 从…到…", "从 + inicio + 到 + fin", "Indica el punto de partida y de llegada, en tiempo o en lugar.", [
   ["我|[从]|八点|到|十二点|工作。", "Wǒ cóng bā diǎn dào shí'èr diǎn gōngzuò.", "Trabajo de ocho a doce.", "给 和 对"],
   ["他|从|北京|[到]|上海|坐|火车。", "Tā cóng Běijīng dào Shànghǎi zuò huǒchē.", "Va de Pekín a Shanghái en tren.", "在 给 和"],
@@ -156,6 +156,6 @@
   ["我|想|看|[一下]。", "Wǒ xiǎng kàn yíxià.", "Quiero echar un vistazo.", "一起 一共 一直"]]],
 [2, "Repetir: 再, 又 y 还", "再 (futuro) · 又 (pasado) · 还 (además)", "再 repite una acción en el futuro (请再说一遍). 又 repite una acción ya ocurrida (他又来了). 还 significa «además» o «todavía».", [
   ["请|[再]|说|一遍。", "Qǐng zài shuō yí biàn.", "Dilo otra vez, por favor.", "又 了 的"],
-  ["他|[又]|迟到|了。", "Tā yòu chídào le.", "Otra vez ha llegado tarde.", "再 的 吗"],
-  ["我|[还]|想|吃。", "Wǒ hái xiǎng chī.", "Todavía quiero comer más.", "的 吗 了"]]]
+  ["他|[又]|迟到|了。", "Tā yòu chídào le.", "Otra vez ha llegado tarde.", "再 在 把"],
+  ["我|[还]|想|吃。", "Wǒ hái xiǎng chī.", "Todavía quiero comer más.", "了 过 的"]]]
 );

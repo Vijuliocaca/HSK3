@@ -34,7 +34,7 @@
   ["在|他|[看来]，|这|件|事|很|简单。", "Zài tā kànlái, zhè jiàn shì hěn jiǎndān.", "Según él, este asunto es sencillo.", "说话 看见 看着"]]],
 [5, "Una vez que: 一旦…就…", "一旦 A，就 B", "«Una vez que A, entonces B»: A es una condición cuyo efecto es difícil de revertir.", [
   ["[一旦]|决定|了，|就|不|要|后悔。", "Yídàn juédìng le, jiù bú yào hòuhuǐ.", "Una vez decidido, no te arrepientas.", "即使 虽然 无论"],
-  ["一旦|发现|问题，|我们|[就]|要|马上|解决。", "Yídàn fāxiàn wèntí, wǒmen jiù yào mǎshàng jiějué.", "Si surge un problema, hay que resolverlo enseguida.", "很 的 吗"],
+  ["一旦|发现|问题，|我们|[就]|要|马上|解决。", "Yídàn fāxiàn wèntí, wǒmen jiù yào mǎshàng jiějué.", "Si surge un problema, hay que resolverlo enseguida.", "又 也 才"],
   ["一旦|错过，|就|再|也|没有|机会|了。", "Yídàn cuòguò, jiù zài yě méiyǒu jīhuì le.", "Una vez que lo pierdas, no habrá otra oportunidad."],
   ["[一旦]|养成|习惯，|就|很|难|改。", "Yídàn yǎngchéng xíguàn, jiù hěn nán gǎi.", "Una vez que se forma el hábito, es difícil cambiarlo.", "虽然 尽管 不管"]]],
 [5, "Tomar como: 以…为…", "以 A 为 B", "Toma A como B: «tener A como…» (base, objetivo, centro).", [
@@ -55,7 +55,7 @@
   ["这|件|事|我|已经|决定|了，|至于|价格，|以后|再|谈。", "Zhè jiàn shì wǒ yǐjīng juédìng le, zhìyú jiàgé, yǐhòu zài tán.", "Este asunto ya está decidido; en cuanto al precio, lo hablaremos luego."]]],
 [5, "Todo lo que: 凡是…都…", "凡是 + A，都 + B", "«Todo lo que / todos los que A, B».", [
   ["[凡是]|来|过|的|人，|都|喜欢|这里。", "Fánshì lái guo de rén, dōu xǐhuan zhèlǐ.", "Todos los que han venido aquí lo aman.", "虽然 即使 因为"],
-  ["凡是|有|问题|的|同学，|[都]|可以|问|老师。", "Fánshì yǒu wèntí de tóngxué, dōu kěyǐ wèn lǎoshī.", "Todo alumno con dudas puede preguntar al profesor.", "很 的 吗"],
+  ["凡是|有|问题|的|同学，|[都]|可以|问|老师。", "Fánshì yǒu wèntí de tóngxué, dōu kěyǐ wèn lǎoshī.", "Todo alumno con dudas puede preguntar al profesor.", "和 得 把"],
   ["[凡是]|参加|活动|的|人，|都|有|礼物。", "Fánshì cānjiā huódòng de rén, dōu yǒu lǐwù.", "Todo el que participe en la actividad recibe un regalo.", "虽然 如果 因为"],
   ["凡是|他|答应|的|事，|[都]|会|做到。", "Fánshì tā dāying de shì, dōu huì zuòdào.", "Todo lo que él promete lo cumple.", "就 也 还"]]],
 [5, "Al fin y al cabo: 毕竟", "毕竟 + razón de fondo", "Recuerda una razón de fondo que justifica algo: «después de todo».", [
@@ -106,8 +106,8 @@
   ["你|喝|茶|[或者]|咖啡|都|可以。", "Nǐ hē chá huòzhě kāfēi dōu kěyǐ.", "Puedes tomar té o café, lo que quieras.", "还是 和 也"],
   ["周末|我|看书|[或者]|看|电影。", "Zhōumò wǒ kàn shū huòzhě kàn diànyǐng.", "El fin de semana leo o veo películas.", "还是 和 也"]]],
 [2, "Cambio de estado: 了 final", "Frase + 了", "Un 了 al final dice que algo es nuevo o ha cambiado: «ya…», «ahora…».", [
-  ["现在|九点|[了]。", "Xiànzài jiǔ diǎn le.", "Ya son las nueve.", "吗 呢 过"],
-  ["我|会|说|汉语|[了]。", "Wǒ huì shuō Hànyǔ le.", "Ya sé hablar chino.", "吗 呢 过"]]],
+  ["现在|九点|[了]。", "Xiànzài jiǔ diǎn le.", "Ya son las nueve.", "着 过 得"],
+  ["我|会|说|汉语|[了]。", "Wǒ huì shuō Hànyǔ le.", "Ya sé hablar chino.", "着 过 得"]]],
 [2, "Un poco (negativo): 有点", "有点 + adjetivo", "有点 + adjetivo dice «un poco…» con matiz de queja; 一点 va después del adjetivo (大一点).", [
   ["今天|[有点]|冷。", "Jīntiān yǒudiǎn lěng.", "Hoy hace un poco de frío.", "一点 一下 很多"],
   ["这个|菜|[有点]|咸。", "Zhège cài yǒudiǎn xián.", "Este plato está un poco salado.", "一点 一下 很多"]]],

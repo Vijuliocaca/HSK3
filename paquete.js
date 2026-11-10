@@ -22821,9 +22821,9 @@ self.TEMAS = [
   ["他|[是]|我的|老师。", "Tā shì wǒ de lǎoshī.", "Él es mi profesor.", "在 和 很"],
   ["这|[是]|一|本|书。", "Zhè shì yì běn shū.", "Esto es un libro.", "在 和 很"]]],
 [1, "Negación con 不", "不 + verbo / adjetivo", "不 niega verbos y adjetivos en presente o futuro. Delante de una sílaba en 4.º tono se pronuncia bú: 不是 (bú shì).", [
-  ["我|[不]|喝|咖啡。", "Wǒ bù hē kāfēi.", "Yo no bebo café.", "很 的 吗"],
+  ["我|[不]|喝|咖啡。", "Wǒ bù hē kāfēi.", "Yo no bebo café.", "别 太 都"],
   ["他|[不]|是|中国人。", "Tā bú shì Zhōngguórén.", "Él no es chino.", "在 吗 和"],
-  ["今天|[不]|冷。", "Jīntiān bù lěng.", "Hoy no hace frío.", "在 吗 呢"]]],
+  ["今天|[不]|冷。", "Jīntiān bù lěng.", "Hoy no hace frío.", "很 才 别"]]],
 [1, "Preguntas de sí/no con 吗", "Frase afirmativa + 吗？", "Para convertir una afirmación en pregunta de sí o no, se añade 吗 al final. La respuesta repite el verbo: 是 / 不是, 有 / 没有.", [
   ["你|是|老师|[吗]？", "Nǐ shì lǎoshī ma?", "¿Eres profesor?", "很 在 和"],
   ["你|喝|茶|[吗]？", "Nǐ hē chá ma?", "¿Bebes té?", "很 在 和"],
@@ -22857,33 +22857,33 @@ self.TEMAS = [
   ["请|给|我|两[本]|书。", "Qǐng gěi wǒ liǎng běn shū.", "Dame dos libros, por favor.", "杯 件 只"],
   ["我|喝|一[杯]|茶。", "Wǒ hē yì bēi chá.", "Bebo una taza de té.", "本 件 只"]]],
 [1, "También y todos: 也 / 都", "Sujeto + 也 / 都 + verbo", "也 («también») y 都 («todos») van siempre delante del verbo, nunca al final. Si van juntos: 也都.", [
-  ["我|[也]|是|学生。", "Wǒ yě shì xuésheng.", "Yo también soy estudiante.", "很 在 的"],
-  ["我们|[都]|是|中国人。", "Wǒmen dōu shì Zhōngguórén.", "Todos nosotros somos chinos.", "很 在 的"],
-  ["他|[也]|不|喝|茶。", "Tā yě bù hē chá.", "Él tampoco bebe té.", "很 在 的"]]],
+  ["我|[也]|是|学生。", "Wǒ yě shì xuésheng.", "Yo también soy estudiante.", "都 还 又"],
+  ["我们|[都]|是|中国人。", "Wǒmen dōu shì Zhōngguórén.", "Todos nosotros somos chinos.", "也 又 和"],
+  ["他|[也]|不|喝|茶。", "Tā yě bù hē chá.", "Él tampoco bebe té.", "都 和 在"]]],
 [1, "Verbos modales: 想, 会, 能, 可以", "Sujeto + modal + verbo", "想 = querer, tener ganas. 会 = saber hacer (habilidad aprendida). 能 = poder (capacidad o circunstancias). 可以 = poder (permiso). Van antes del verbo principal.", [
   ["我|[想]|喝|水。", "Wǒ xiǎng hē shuǐ.", "Quiero beber agua.", "是 很 和"],
   ["你|[会]|说|汉语|吗？", "Nǐ huì shuō Hànyǔ ma?", "¿Sabes hablar chino?", "很 和 的"],
-  ["这里|[可以]|坐|吗？", "Zhèlǐ kěyǐ zuò ma?", "¿Se puede sentar aquí?", "很 和 的"]]],
+  ["这里|[可以]|坐|吗？", "Zhèlǐ kěyǐ zuò ma?", "¿Se puede sentar aquí?", "会 想 和"]]],
 [1, "Acción completada con 了", "Verbo + 了 + objeto", "了 detrás del verbo indica que la acción se ha completado: 我吃了饭. Al final de la frase indica un cambio o situación nueva: 下雨了.", [
-  ["我|吃[了]|饭。", "Wǒ chī le fàn.", "He comido.", "吗 呢 很"],
-  ["他|买[了]|一|本|书。", "Tā mǎi le yì běn shū.", "Él compró un libro.", "吗 呢 很"],
-  ["下雨|[了]。", "Xià yǔ le.", "Ha empezado a llover.", "很 的 在"]]],
+  ["我|吃[了]|饭。", "Wǒ chī le fàn.", "He comido.", "着 得 地"],
+  ["他|买[了]|一|本|书。", "Tā mǎi le yì běn shū.", "Él compró un libro.", "着 得 地"],
+  ["下雨|[了]。", "Xià yǔ le.", "Ha empezado a llover.", "着 得 吧"]]],
 [1, "Orden del tiempo", "Sujeto + palabra de tiempo + verbo", "Las palabras de tiempo (今天, 明天, 八点…) van antes del verbo, después del sujeto o al principio de la frase. Nunca al final.", [
   ["我|明天|去|北京。", "Wǒ míngtiān qù Běijīng.", "Mañana voy a Pekín."],
   ["我们|八点|吃饭。", "Wǒmen bā diǎn chīfàn.", "Comemos a las ocho."],
   ["他|今天|上午|工作。", "Tā jīntiān shàngwǔ gōngzuò.", "Hoy por la mañana él trabaja."]]],
 [1, "Peticiones educadas con 请", "请 + verbo", "请 al principio de la frase convierte una orden en una petición cortés: 请坐, 请喝茶. También 请问 para preguntar.", [
-  ["[请]|喝|茶。", "Qǐng hē chá.", "Tome té, por favor.", "很 吗 的"],
-  ["[请]|问，|你|叫|什么|名字？", "Qǐng wèn, nǐ jiào shénme míngzi?", "Perdone, ¿cómo se llama?", "很 吗 的"],
-  ["[请]|你|再|说|一遍。", "Qǐng nǐ zài shuō yí biàn.", "Repítelo una vez más, por favor.", "很 吗 的"]]],
+  ["[请]|喝|茶。", "Qǐng hē chá.", "Tome té, por favor.", "让 把 被"],
+  ["[请]|问，|你|叫|什么|名字？", "Qǐng wèn, nǐ jiào shénme míngzi?", "Perdone, ¿cómo se llama?", "让 对 给"],
+  ["[请]|你|再|说|一遍。", "Qǐng nǐ zài shuō yí biàn.", "Repítelo una vez más, por favor.", "把 给 对"]]],
 [1, "Demostrativos 这 y 那", "这 / 那 + (número) + clasificador + sustantivo", "这 = este, esto (cerca). 那 = ese, aquel (lejos). Con un sustantivo hace falta clasificador: 这个人, 那本书.", [
   ["[这]|是|什么？", "Zhè shì shénme?", "¿Qué es esto?", "谁 哪 几"],
   ["[那]|个|人|是|谁？", "Nà ge rén shì shéi?", "¿Quién es aquella persona?", "几 谁 您"],
-  ["我|喜欢|[这]|本|书。", "Wǒ xǐhuan zhè běn shū.", "Me gusta este libro.", "谁 很 吗"]]],
+  ["我|喜欢|[这]|本|书。", "Wǒ xǐhuan zhè běn shū.", "Me gusta este libro.", "的 个 在"]]],
 [1, "Unir con 和", "A + 和 + B", "和 une sustantivos o pronombres («A y B»). No se usa para unir frases completas.", [
-  ["我|[和]|你|都|是|学生。", "Wǒ hé nǐ dōu shì xuésheng.", "Tú y yo somos estudiantes.", "也 很 的"],
-  ["我|喜欢|苹果|[和]|香蕉。", "Wǒ xǐhuan píngguǒ hé xiāngjiāo.", "Me gustan las manzanas y los plátanos.", "也 很 吗"],
-  ["他|[和]|妈妈|在|家。", "Tā hé māma zài jiā.", "Él y su madre están en casa.", "也 很 吗"]]],
+  ["我|[和]|你|都|是|学生。", "Wǒ hé nǐ dōu shì xuésheng.", "Tú y yo somos estudiantes.", "对 给 比"],
+  ["我|喜欢|苹果|[和]|香蕉。", "Wǒ xǐhuan píngguǒ hé xiāngjiāo.", "Me gustan las manzanas y los plátanos.", "也 对 给"],
+  ["他|[和]|妈妈|在|家。", "Tā hé māma zài jiā.", "Él y su madre están en casa.", "也 对 给"]]],
 [1, "Cantidad y edad: 几 y 多少", "几 + clasificador · 多少 + sustantivo", "几 se usa para cantidades pequeñas (menos de 10) y lleva clasificador: 几个人. 多少 se usa para cantidades grandes o desconocidas: 多少钱. La edad de un niño: 几岁.", [
   ["你|家|有|[几]|口|人？", "Nǐ jiā yǒu jǐ kǒu rén?", "¿Cuántas personas hay en tu familia?", "什么 谁 怎么"],
   ["这个|[多少]|钱？", "Zhège duōshao qián?", "¿Cuánto cuesta esto?", "几 谁 什么"],
@@ -22894,11 +22894,11 @@ self.TEMAS = [
   ["我|七[点]|起床。", "Wǒ qī diǎn qǐchuáng.", "Me levanto a las siete.", "本 条 件"]]],
 
 [2, "Acción en curso: (正)在", "Sujeto + (正)在 + verbo (+ 呢)", "(正)在 delante del verbo indica que la acción está ocurriendo ahora. Se puede cerrar con 呢.", [
-  ["我|[正在]|吃饭。", "Wǒ zhèngzài chīfàn.", "Estoy comiendo ahora mismo.", "很 的 吗"],
-  ["他|[在]|看|电视。", "Tā zài kàn diànshì.", "Él está viendo la tele.", "很 的 吗"],
+  ["我|[正在]|吃饭。", "Wǒ zhèngzài chīfàn.", "Estoy comiendo ahora mismo.", "过 着 了"],
+  ["他|[在]|看|电视。", "Tā zài kàn diànshì.", "Él está viendo la tele.", "着 过 了"],
   ["妈妈|正在|做饭|[呢]。", "Māma zhèngzài zuòfàn ne.", "Mamá está cocinando.", "得 过 很"]]],
 [2, "Experiencia con 过", "Verbo + 过", "过 detrás del verbo indica que se ha tenido esa experiencia alguna vez. Negación: 没 + verbo + 过.", [
-  ["我|去[过]|中国。", "Wǒ qù guo Zhōngguó.", "He estado en China.", "着 吗 的"],
+  ["我|去[过]|中国。", "Wǒ qù guo Zhōngguó.", "He estado en China.", "着 在 得"],
   ["你|吃[过]|北京|烤鸭|吗？", "Nǐ chī guo Běijīng kǎoyā ma?", "¿Has comido pato laqueado de Pekín?", "呢 得 在"],
   ["我|没|学[过]|法语。", "Wǒ méi xué guo Fǎyǔ.", "Nunca he estudiado francés.", "着 得 吗"]]],
 [2, "Comparar con 比", "A + 比 + B + adjetivo", "Para decir que A es más… que B se usa 比. El adjetivo no lleva 很. Si se añade la diferencia, va detrás del adjetivo. Negativo: A 没有 B + adjetivo.", [
@@ -22926,25 +22926,25 @@ self.TEMAS = [
   ["她|一边|走|[一边]|唱歌。", "Tā yìbiān zǒu yìbiān chànggē.", "Ella canta mientras camina.", "一起 一共 一直"],
   ["我们|[一边]|聊天|一边|喝|茶。", "Wǒmen yìbiān liáotiān yìbiān hē chá.", "Charlamos mientras tomamos té.", "一起 一共 一直"]]],
 [2, "Primero… luego…: 先…再…", "先 + A，再 + B", "Ordena dos acciones en el tiempo: primero A y luego B.", [
-  ["我|[先]|吃饭，|再|去|学校。", "Wǒ xiān chīfàn, zài qù xuéxiào.", "Primero como y luego voy a la escuela.", "都 很 的"],
-  ["[先]|洗|手，|再|吃|饭。", "Xiān xǐ shǒu, zài chī fàn.", "Primero lávate las manos y luego come.", "都 很 的"],
-  ["你|先|做|作业，|[再]|玩。", "Nǐ xiān zuò zuòyè, zài wán.", "Primero haz los deberes y luego juega.", "很 的 吗"]]],
+  ["我|[先]|吃饭，|再|去|学校。", "Wǒ xiān chīfàn, zài qù xuéxiào.", "Primero como y luego voy a la escuela.", "才 又 都"],
+  ["[先]|洗|手，|再|吃|饭。", "Xiān xǐ shǒu, zài chī fàn.", "Primero lávate las manos y luego come.", "才 又 都"],
+  ["你|先|做|作业，|[再]|玩。", "Nǐ xiān zuò zuòyè, zài wán.", "Primero haz los deberes y luego juega.", "又 也 和"]]],
 [2, "Inminencia: 要…了", "(快 / 就)要 + verbo + 了", "Indica que algo va a ocurrir muy pronto. 快要 y 就要 refuerzan la idea de «dentro de poco».", [
-  ["[要]|下雨|了。", "Yào xià yǔ le.", "Va a llover.", "很 的 吗"],
-  ["火车|[就要]|开|了。", "Huǒchē jiùyào kāi le.", "El tren está a punto de salir.", "很 的 吗"],
-  ["我|[快要]|毕业|了。", "Wǒ kuàiyào bìyè le.", "Me gradúo muy pronto.", "很 的 吗"]]],
+  ["[要]|下雨|了。", "Yào xià yǔ le.", "Va a llover.", "才 又 把"],
+  ["火车|[就要]|开|了。", "Huǒchē jiùyào kāi le.", "El tren está a punto de salir.", "又 把 在"],
+  ["我|[快要]|毕业|了。", "Wǒ kuàiyào bìyè le.", "Me gradúo muy pronto.", "又 在 把"]]],
 [2, "Complemento de grado con 得", "Verbo + 得 + adjetivo", "Describe cómo se hace una acción: 说得很好. Si hay objeto, se repite el verbo: 他说汉语说得很好.", [
   ["他|说|[得]|很|好。", "Tā shuō de hěn hǎo.", "Él habla muy bien.", "了 过 着"],
   ["她|跑|[得]|很|快。", "Tā pǎo de hěn kuài.", "Ella corre muy rápido.", "了 过 着"],
   ["我|写|[得]|不|好。", "Wǒ xiě de bù hǎo.", "Escribo mal.", "了 过 着"]]],
 [2, "Poder: 会, 能 y 可以", "会 = saber · 能 = poder · 可以 = permiso", "会: habilidad aprendida (会游泳). 能: capacidad o circunstancias (今天能来). 可以: permiso o posibilidad (可以进来). 不能 se usa para prohibir.", [
-  ["我|[会]|游泳。", "Wǒ huì yóuyǒng.", "Sé nadar.", "很 的 吗"],
-  ["这里|不|[能]|抽烟。", "Zhèlǐ bù néng chōuyān.", "Aquí no se puede fumar.", "很 的 吗"],
-  ["明天|你|[可以]|来|吗？", "Míngtiān nǐ kěyǐ lái ma?", "¿Puedes venir mañana?", "很 的 在"]]],
+  ["我|[会]|游泳。", "Wǒ huì yóuyǒng.", "Sé nadar.", "了 过 也"],
+  ["这里|不|[能]|抽烟。", "Zhèlǐ bù néng chōuyān.", "Aquí no se puede fumar.", "了 过 也"],
+  ["明天|你|[可以]|来|吗？", "Míngtiān nǐ kěyǐ lái ma?", "¿Puedes venir mañana?", "了 过 也"]]],
 [2, "Demasiado: 太…了", "太 + adjetivo + 了", "Expresa exceso o admiración: 太贵了 (¡qué caro!), 太好了 (¡genial!).", [
-  ["今天|[太]|热|了。", "Jīntiān tài rè le.", "¡Hoy hace demasiado calor!", "在 的 吗"],
-  ["这个|[太]|贵|了。", "Zhège tài guì le.", "Esto es demasiado caro.", "在 的 吗"],
-  ["[太]|好|了！", "Tài hǎo le!", "¡Genial!", "在 的 吗"]]],
+  ["今天|[太]|热|了。", "Jīntiān tài rè le.", "¡Hoy hace demasiado calor!", "才 把 也"],
+  ["这个|[太]|贵|了。", "Zhège tài guì le.", "Esto es demasiado caro.", "也 把 才"],
+  ["[太]|好|了！", "Tài hǎo le!", "¡Genial!", "把 在 才"]]],
 [2, "Desde… hasta…: 从…到…", "从 + inicio + 到 + fin", "Indica el punto de partida y de llegada, en tiempo o en lugar.", [
   ["我|[从]|八点|到|十二点|工作。", "Wǒ cóng bā diǎn dào shí'èr diǎn gōngzuò.", "Trabajo de ocho a doce.", "给 和 对"],
   ["他|从|北京|[到]|上海|坐|火车。", "Tā cóng Běijīng dào Shànghǎi zuò huǒchē.", "Va de Pekín a Shanghái en tren.", "在 给 和"],
@@ -22971,8 +22971,8 @@ self.TEMAS = [
   ["我|想|看|[一下]。", "Wǒ xiǎng kàn yíxià.", "Quiero echar un vistazo.", "一起 一共 一直"]]],
 [2, "Repetir: 再, 又 y 还", "再 (futuro) · 又 (pasado) · 还 (además)", "再 repite una acción en el futuro (请再说一遍). 又 repite una acción ya ocurrida (他又来了). 还 significa «además» o «todavía».", [
   ["请|[再]|说|一遍。", "Qǐng zài shuō yí biàn.", "Dilo otra vez, por favor.", "又 了 的"],
-  ["他|[又]|迟到|了。", "Tā yòu chídào le.", "Otra vez ha llegado tarde.", "再 的 吗"],
-  ["我|[还]|想|吃。", "Wǒ hái xiǎng chī.", "Todavía quiero comer más.", "的 吗 了"]]]
+  ["他|[又]|迟到|了。", "Tā yòu chídào le.", "Otra vez ha llegado tarde.", "再 在 把"],
+  ["我|[还]|想|吃。", "Wǒ hái xiǎng chī.", "Todavía quiero comer más.", "了 过 的"]]]
 );
 
 ;
@@ -22993,7 +22993,7 @@ self.TEMAS = [
   ["她|比|我|跑|得|[还]|快。", "Tā bǐ wǒ pǎo de hái kuài.", "Ella corre todavía más rápido que yo.", "很 太 非常"]]],
 [3, "Condición: 如果…就…", "如果 + condición，(sujeto) 就 + resultado", "Expresa «si… entonces…». 就 introduce el resultado y va antes del verbo.", [
   ["[如果]|明天|下雨，|我|就|不|去|了。", "Rúguǒ míngtiān xià yǔ, wǒ jiù bú qù le.", "Si mañana llueve, no iré.", "虽然 但是 所以"],
-  ["如果|你|有|时间，|[就]|来|吧。", "Rúguǒ nǐ yǒu shíjiān, jiù lái ba.", "Si tienes tiempo, ven.", "才 很 的"],
+  ["如果|你|有|时间，|[就]|来|吧。", "Rúguǒ nǐ yǒu shíjiān, jiù lái ba.", "Si tienes tiempo, ven.", "才 也 又"],
   ["你|[如果]|累|了，|就|休息|吧。", "Nǐ rúguǒ lèi le, jiù xiūxi ba.", "Si estás cansado, descansa.", "虽然 但是 所以"]]],
 [3, "Condición suficiente: 只要…就…", "只要 A，就 B", "«Con tal de que A, B»: A es la única condición necesaria.", [
   ["[只要]|努力，|就|能|成功。", "Zhǐyào nǔlì, jiù néng chénggōng.", "Con tal de esforzarte, triunfarás.", "虽然 因为 但是"],
@@ -23005,12 +23005,12 @@ self.TEMAS = [
   ["我|[不但]|会|说|汉语，|而且|会|写。", "Wǒ búdàn huì shuō Hànyǔ, érqiě huì xiě.", "No solo sé hablar chino, también sé escribir.", "虽然 因为 如果"]]],
 [3, "En cuanto… ya…: 一…就…", "一 + A + 就 + B", "Indica que B ocurre inmediatamente después de A: «en cuanto A, B».", [
   ["我|[一]|到|家|就|给|你|打|电话。", "Wǒ yí dào jiā jiù gěi nǐ dǎ diànhuà.", "En cuanto llegue a casa te llamo.", "也 很 都"],
-  ["他|一|看|[就]|懂|了。", "Tā yí kàn jiù dǒng le.", "Con solo mirar lo entendió.", "很 的 吗"],
-  ["天气|一|冷，|他|[就]|感冒。", "Tiānqì yì lěng, tā jiù gǎnmào.", "En cuanto hace frío, se resfría.", "很 吗 呢"]]],
+  ["他|一|看|[就]|懂|了。", "Tā yí kàn jiù dǒng le.", "Con solo mirar lo entendió.", "才 也 又"],
+  ["天气|一|冷，|他|[就]|感冒。", "Tiānqì yì lěng, tā jiù gǎnmào.", "En cuanto hace frío, se resfría.", "又 也 才"]]],
 [3, "Cada vez más: 越来越", "越来越 + adjetivo / verbo", "Indica un cambio progresivo: «cada vez más…».", [
-  ["天气|[越来越]|热|了。", "Tiānqì yuèláiyuè rè le.", "Cada vez hace más calor.", "的 吗 把"],
-  ["他的|汉语|[越来越]|好。", "Tā de Hànyǔ yuèláiyuè hǎo.", "Su chino es cada vez mejor.", "的 吗 把"],
-  ["我|[越来越]|喜欢|这个|城市。", "Wǒ yuèláiyuè xǐhuan zhège chéngshì.", "Cada vez me gusta más esta ciudad.", "的 吗 把"]]],
+  ["天气|[越来越]|热|了。", "Tiānqì yuèláiyuè rè le.", "Cada vez hace más calor.", "越 才 把"],
+  ["他的|汉语|[越来越]|好。", "Tā de Hànyǔ yuèláiyuè hǎo.", "Su chino es cada vez mejor.", "越 才 把"],
+  ["我|[越来越]|喜欢|这个|城市。", "Wǒ yuèláiyuè xǐhuan zhège chéngshì.", "Cada vez me gusta más esta ciudad.", "越 才 把"]]],
 [3, "Cuanto más… más…: 越…越…", "越 + A + 越 + B", "Dos cambios que crecen a la vez: «cuanto más A, más B».", [
   ["雨|[越]|下|越|大。", "Yǔ yuè xià yuè dà.", "Cuanto más llueve, más fuerte es.", "很 太 更"],
   ["他|越|说|[越]|快。", "Tā yuè shuō yuè kuài.", "Cuanto más habla, más rápido va.", "很 太 更"],
@@ -23037,10 +23037,10 @@ self.TEMAS = [
   ["我|[连]|他的|名字|也|不|知道。", "Wǒ lián tā de míngzi yě bù zhīdào.", "Ni siquiera sé su nombre.", "和 对 被"]]],
 [3, "Excepto: 除了…(以外)", "除了 A (以外)，还 / 也 / 都 B", "除了…还… = además de A, también B. 除了…都… = excepto A, todos.", [
   ["[除了]|英语，|我|还|会|说|汉语。", "Chúle Yīngyǔ, wǒ hái huì shuō Hànyǔ.", "Además de inglés, sé hablar chino.", "因为 虽然 如果"],
-  ["除了|他，|大家|[都]|来|了。", "Chúle tā, dàjiā dōu lái le.", "Excepto él, todos vinieron.", "才 很 的"],
+  ["除了|他，|大家|[都]|来|了。", "Chúle tā, dàjiā dōu lái le.", "Excepto él, todos vinieron.", "在 才 又"],
   ["除了|苹果|[以外]，|我|还|喜欢|香蕉。", "Chúle píngguǒ yǐwài, wǒ hái xǐhuan xiāngjiāo.", "Además de manzanas, me gustan los plátanos.", "以后 以前 以为"]]],
 [3, "Acabar de: 刚 y 刚才", "刚 + verbo · 刚才 + frase", "刚 va directamente delante del verbo («acabar de»). 刚才 es una palabra de tiempo («hace un momento») y puede ir al inicio.", [
-  ["我|[刚]|到|家。", "Wǒ gāng dào jiā.", "Acabo de llegar a casa.", "很 的 吗"],
+  ["我|[刚]|到|家。", "Wǒ gāng dào jiā.", "Acabo de llegar a casa.", "了 过 也"],
   ["刚才|谁|给|你|打|电话？", "Gāngcái shéi gěi nǐ dǎ diànhuà?", "¿Quién te llamó hace un momento?"],
   ["他|刚才|还|在|这里。", "Tā gāngcái hái zài zhèlǐ.", "Hace un momento todavía estaba aquí."]]],
 [3, "Ya: 已经…了", "已经 + verbo + 了", "Indica que algo ya ha pasado o ya es así.", [
@@ -23048,9 +23048,9 @@ self.TEMAS = [
   ["他|[已经]|走|了。", "Tā yǐjīng zǒu le.", "Él ya se fue.", "正在 还 太"],
   ["现在|[已经]|十|点|了。", "Xiànzài yǐjīng shí diǎn le.", "Ya son las diez.", "正在 还 太"]]],
 [3, "Tarde o pronto: 才 y 就", "才 = tarde / poco · 就 = pronto / fácil", "Delante del verbo, 才 indica que algo ocurre más tarde de lo esperado; 就, que ocurre antes o enseguida.", [
-  ["他|八点|[才]|起床。", "Tā bā diǎn cái qǐchuáng.", "No se levanta hasta las ocho.", "很 的 吗"],
-  ["我|七点|[就]|到|了。", "Wǒ qī diǎn jiù dào le.", "Llegué ya a las siete.", "才 很 吗"],
-  ["你|怎么|[才]|来？", "Nǐ zěnme cái lái?", "¿Cómo es que vienes tan tarde?", "很 吗 的"]]],
+  ["他|八点|[才]|起床。", "Tā bā diǎn cái qǐchuáng.", "No se levanta hasta las ocho.", "就 都 又"],
+  ["我|七点|[就]|到|了。", "Wǒ qī diǎn jiù dào le.", "Llegué ya a las siete.", "才 都 又"],
+  ["你|怎么|[才]|来？", "Nǐ zěnme cái lái?", "¿Cómo es que vienes tan tarde?", "把 在 得"]]],
 [3, "Finalidad: 为了", "为了 + objetivo，(sujeto) + acción", "Introduce el propósito de una acción: «para…».", [
   ["[为了]|学|好|汉语，|我|每天|练习。", "Wèile xué hǎo Hànyǔ, wǒ měitiān liànxí.", "Para aprender bien chino, practico cada día.", "虽然 但是 所以"],
   ["[为了]|健康，|他|每天|跑步。", "Wèile jiànkāng, tā měitiān pǎobù.", "Por su salud, corre cada día.", "虽然 但是 所以"],
@@ -23061,7 +23061,7 @@ self.TEMAS = [
   ["孩子们|又|唱|又|跳。", "Háizimen yòu chàng yòu tiào.", "Los niños cantan y bailan a la vez."]]],
 [3, "Los tres «de»: 的, 得 y 地", "的 (posesivo) · 得 (grado) · 地 (modo)", "的 va entre poseedor y cosa. 得 va tras el verbo y antes del adjetivo de grado. 地 va tras un adjetivo o adverbio y antes del verbo: 高兴地说.", [
   ["她|唱|[得]|很|好。", "Tā chàng de hěn hǎo.", "Ella canta muy bien.", "地 着 了"],
-  ["他|高兴|[地]|笑|了。", "Tā gāoxìng de xiào le.", "Se rió alegremente.", "吗 过 很"],
+  ["他|高兴|[地]|笑|了。", "Tā gāoxìng de xiào le.", "Se rió alegremente.", "过 了 在"],
   ["这|是|我|[的]|书。", "Zhè shì wǒ de shū.", "Este es mi libro.", "得 地 着"]]],
 [3, "Se dice que: 听说 y 看起来", "听说 + frase · 看起来 + frase", "听说 introduce información de segunda mano («dicen que…»). 看起来 expresa una impresión («parece que…»).", [
   ["[听说]|他|病|了。", "Tīngshuō tā bìng le.", "Dicen que está enfermo.", "说话 谢谢 欢迎"],
@@ -23070,24 +23070,24 @@ self.TEMAS = [
 
 [4, "Aunque: 即使…也…", "即使 A，也 B", "«Aunque / incluso si A, B igualmente». A es hipotético o extremo.", [
   ["[即使]|下雨，|我|也|要|去。", "Jíshǐ xià yǔ, wǒ yě yào qù.", "Aunque llueva, iré.", "所以 因此 然后"],
-  ["即使|很|累，|他|[也]|坚持|工作。", "Jíshǐ hěn lèi, tā yě jiānchí gōngzuò.", "Aunque esté cansado, sigue trabajando.", "很 的 吗"],
-  ["即使|你|不|说，|我|[也]|知道。", "Jíshǐ nǐ bù shuō, wǒ yě zhīdào.", "Aunque no lo digas, lo sé.", "很 的 吗"]]],
+  ["即使|很|累，|他|[也]|坚持|工作。", "Jíshǐ hěn lèi, tā yě jiānchí gōngzuò.", "Aunque esté cansado, sigue trabajando.", "却 才 把"],
+  ["即使|你|不|说，|我|[也]|知道。", "Jíshǐ nǐ bù shuō, wǒ yě zhīdào.", "Aunque no lo digas, lo sé.", "却 又 把"]]],
 [4, "Ya que: 既然…就…", "既然 A，就 B", "«Ya que A, entonces B»: A es un hecho ya conocido.", [
   ["[既然]|你|不|想|去，|就|别|去|了。", "Jìrán nǐ bù xiǎng qù, jiù bié qù le.", "Ya que no quieres ir, no vayas.", "即使 虽然 无论"],
   ["既然|来|了，|[就]|坐|一下|吧。", "Jìrán lái le, jiù zuò yíxià ba.", "Ya que has venido, siéntate un rato.", "才 却 很"],
   ["既然|你|同意，|我们|[就]|开始|吧。", "Jìrán nǐ tóngyì, wǒmen jiù kāishǐ ba.", "Ya que estás de acuerdo, empecemos.", "才 却 很"]]],
 [4, "No importa: 不管…都…", "不管 + condición abierta，都 + resultado", "«No importa lo que / cómo… siempre…». Suele llevar 什么, 怎么, 多…", [
   ["[不管]|天气|怎么样，|我们|都|去。", "Bùguǎn tiānqì zěnmeyàng, wǒmen dōu qù.", "Haga el tiempo que haga, vamos.", "因为 虽然 所以"],
-  ["不管|多|忙，|他|[都]|来。", "Bùguǎn duō máng, tā dōu lái.", "Por muy ocupado que esté, viene.", "却 很 的"],
-  ["不管|你|说|什么，|我|[都]|相信。", "Bùguǎn nǐ shuō shénme, wǒ dōu xiāngxìn.", "Digas lo que digas, te creo.", "却 很 的"]]],
+  ["不管|多|忙，|他|[都]|来。", "Bùguǎn duō máng, tā dōu lái.", "Por muy ocupado que esté, viene.", "却 才 把"],
+  ["不管|你|说|什么，|我|[都]|相信。", "Bùguǎn nǐ shuō shénme, wǒ dōu xiāngxìn.", "Digas lo que digas, te creo.", "却 又 把"]]],
 [4, "Solo si: 只有…才…", "只有 A，才 B", "«Solo si A, B»: A es la única condición. A diferencia de 只要…就, aquí A es indispensable.", [
   ["[只有]|努力，|才|能|成功。", "Zhǐyǒu nǔlì, cái néng chénggōng.", "Solo esforzándote puedes triunfar.", "虽然 即使 既然"],
-  ["只有|你|来，|我|[才]|放心。", "Zhǐyǒu nǐ lái, wǒ cái fàngxīn.", "Solo si vienes tú me quedo tranquilo.", "的 吗 得"],
-  ["只有|多|听|多|说，|[才]|能|学好|汉语。", "Zhǐyǒu duō tīng duō shuō, cái néng xuéhǎo Hànyǔ.", "Solo escuchando y hablando mucho se aprende chino.", "的 吗 得"]]],
+  ["只有|你|来，|我|[才]|放心。", "Zhǐyǒu nǐ lái, wǒ cái fàngxīn.", "Solo si vienes tú me quedo tranquilo.", "就 也 都"],
+  ["只有|多|听|多|说，|[才]|能|学好|汉语。", "Zhǐyǒu duō tīng duō shuō, cái néng xuéhǎo Hànyǔ.", "Solo escuchando y hablando mucho se aprende chino.", "就 也 却"]]],
 [4, "Antes que: 宁可…也…", "宁可 A，也不 B", "«Preferir A antes que B»: se elige lo menos malo.", [
   ["我|[宁可]|走路，|也|不|坐|那|辆|车。", "Wǒ nìngkě zǒulù, yě bú zuò nà liàng chē.", "Prefiero ir a pie antes que subir a ese coche.", "只要 既然 因为"],
-  ["他|宁可|饿|着，|[也]|不|吃|这个。", "Tā nìngkě è zhe, yě bù chī zhège.", "Prefiere pasar hambre antes que comer esto.", "很 的 吗"],
-  ["我|宁可|晚|睡，|[也]|要|做|完|作业。", "Wǒ nìngkě wǎn shuì, yě yào zuò wán zuòyè.", "Prefiero acostarme tarde, pero acabaré los deberes.", "很 的 吗"],
+  ["他|宁可|饿|着，|[也]|不|吃|这个。", "Tā nìngkě è zhe, yě bù chī zhège.", "Prefiere pasar hambre antes que comer esto.", "却 才 把"],
+  ["我|宁可|晚|睡，|[也]|要|做|完|作业。", "Wǒ nìngkě wǎn shuì, yě yào zuò wán zuòyè.", "Prefiero acostarme tarde, pero acabaré los deberes.", "却 又 把"],
   ["他|[宁可]|自己|吃亏，|也|不|让|朋友|为难。", "Tā nìngkě zìjǐ chīkuī, yě bú ràng péngyou wéinán.", "Prefiere salir perdiendo él antes que poner en apuros a un amigo.", "只要 既然 因为"]]],
 [4, "En vez de: 与其…不如…", "与其 A，不如 B", "«En lugar de A, mejor B»: se recomienda B.", [
   ["[与其]|坐|车，|不如|走路。", "Yǔqí zuò chē, bùrú zǒulù.", "En vez de ir en coche, mejor ir a pie.", "即使 既然 只要"],
@@ -23139,17 +23139,17 @@ self.TEMAS = [
   ["难道|他|没|来|[吗]？", "Nándào tā méi lái ma?", "¿Acaso no vino?", "得 很 在"],
   ["难道|这|就|是|你的|答案|吗？", "Nándào zhè jiù shì nǐ de dá'àn ma?", "¿Acaso esta es tu respuesta?"]]],
 [4, "Insistir en la pregunta: 到底 / 究竟", "到底 + pregunta", "到底 y 究竟 intensifican una pregunta: «¿en realidad…?».", [
-  ["你|[到底]|想|去|哪里？", "Nǐ dàodǐ xiǎng qù nǎlǐ?", "¿Dónde quieres ir en realidad?", "的 吗 呢"],
-  ["他|[究竟]|是|谁？", "Tā jiūjìng shì shéi?", "¿Quién es él en realidad?", "很 的 吗"],
+  ["你|[到底]|想|去|哪里？", "Nǐ dàodǐ xiǎng qù nǎlǐ?", "¿Dónde quieres ir en realidad?", "倒 把 毕竟"],
+  ["他|[究竟]|是|谁？", "Tā jiūjìng shì shéi?", "¿Quién es él en realidad?", "毕竟 倒 把"],
   ["这|到底|是|怎么|回|事？", "Zhè dàodǐ shì zěnme huí shì?", "¿Qué está pasando en realidad?"]]],
 [4, "Empezar y seguir: 起来 / 下去", "verbo + 起来 / 下去", "起来 indica el inicio de una acción o una impresión («ponerse a…»). 下去 indica que continúa («seguir…»).", [
   ["她|突然|笑|[起来]|了。", "Tā tūrán xiào qǐlái le.", "De repente se echó a reír.", "下去 进去 回去"],
   ["这个|问题|我们|要|讨论|[下去]。", "Zhège wèntí wǒmen yào tǎolùn xiàqù.", "Tenemos que seguir discutiendo este problema.", "进去 回去 出去"],
   ["天|慢慢|黑|[起来]|了。", "Tiān mànmàn hēi qǐlái le.", "Poco a poco se hizo de noche.", "进去 回去 出去"]]],
 [4, "Secuencia: 先…然后…", "先 A，然后 B", "Secuencia de pasos: primero A y después B (más formal que 再).", [
-  ["我|[先]|复习，|然后|做|练习。", "Wǒ xiān fùxí, ránhòu zuò liànxí.", "Primero repaso y luego hago ejercicios.", "很 的 吗"],
-  ["他|先|吃|了|饭，|[然后]|去|上班。", "Tā xiān chī le fàn, ránhòu qù shàngbān.", "Primero comió y luego fue a trabajar.", "很 的 吗"],
-  ["你|先|想|一|想，|[然后]|告诉|我。", "Nǐ xiān xiǎng yi xiǎng, ránhòu gàosu wǒ.", "Piénsalo primero y luego dímelo.", "很 的 吗"]]],
+  ["我|[先]|复习，|然后|做|练习。", "Wǒ xiān fùxí, ránhòu zuò liànxí.", "Primero repaso y luego hago ejercicios.", "才 又 把"],
+  ["他|先|吃|了|饭，|[然后]|去|上班。", "Tā xiān chī le fàn, ránhòu qù shàngbān.", "Primero comió y luego fue a trabajar.", "如果 因为 虽然"],
+  ["你|先|想|一|想，|[然后]|告诉|我。", "Nǐ xiān xiǎng yi xiǎng, ránhòu gàosu wǒ.", "Piénsalo primero y luego dímelo.", "如果 因为 虽然"]]],
 [4, "Adverbios de opinión: 其实, 果然, 当然", "其实 · 果然 · 当然", "其实 = en realidad (corrige una impresión). 果然 = tal como se esperaba. 当然 = por supuesto.", [
   ["[其实]|我|也|不|知道。", "Qíshí wǒ yě bù zhīdào.", "En realidad yo tampoco lo sé.", "已经 一直 正在"],
   ["天气|预报|说|会|下雨，|[果然]|下|了。", "Tiānqì yùbào shuō huì xià yǔ, guǒrán xià le.", "El pronóstico dijo que llovería, y efectivamente llovió.", "一直 正在 曾经"],
@@ -23198,7 +23198,7 @@ self.TEMAS = [
   ["在|他|[看来]，|这|件|事|很|简单。", "Zài tā kànlái, zhè jiàn shì hěn jiǎndān.", "Según él, este asunto es sencillo.", "说话 看见 看着"]]],
 [5, "Una vez que: 一旦…就…", "一旦 A，就 B", "«Una vez que A, entonces B»: A es una condición cuyo efecto es difícil de revertir.", [
   ["[一旦]|决定|了，|就|不|要|后悔。", "Yídàn juédìng le, jiù bú yào hòuhuǐ.", "Una vez decidido, no te arrepientas.", "即使 虽然 无论"],
-  ["一旦|发现|问题，|我们|[就]|要|马上|解决。", "Yídàn fāxiàn wèntí, wǒmen jiù yào mǎshàng jiějué.", "Si surge un problema, hay que resolverlo enseguida.", "很 的 吗"],
+  ["一旦|发现|问题，|我们|[就]|要|马上|解决。", "Yídàn fāxiàn wèntí, wǒmen jiù yào mǎshàng jiějué.", "Si surge un problema, hay que resolverlo enseguida.", "又 也 才"],
   ["一旦|错过，|就|再|也|没有|机会|了。", "Yídàn cuòguò, jiù zài yě méiyǒu jīhuì le.", "Una vez que lo pierdas, no habrá otra oportunidad."],
   ["[一旦]|养成|习惯，|就|很|难|改。", "Yídàn yǎngchéng xíguàn, jiù hěn nán gǎi.", "Una vez que se forma el hábito, es difícil cambiarlo.", "虽然 尽管 不管"]]],
 [5, "Tomar como: 以…为…", "以 A 为 B", "Toma A como B: «tener A como…» (base, objetivo, centro).", [
@@ -23219,7 +23219,7 @@ self.TEMAS = [
   ["这|件|事|我|已经|决定|了，|至于|价格，|以后|再|谈。", "Zhè jiàn shì wǒ yǐjīng juédìng le, zhìyú jiàgé, yǐhòu zài tán.", "Este asunto ya está decidido; en cuanto al precio, lo hablaremos luego."]]],
 [5, "Todo lo que: 凡是…都…", "凡是 + A，都 + B", "«Todo lo que / todos los que A, B».", [
   ["[凡是]|来|过|的|人，|都|喜欢|这里。", "Fánshì lái guo de rén, dōu xǐhuan zhèlǐ.", "Todos los que han venido aquí lo aman.", "虽然 即使 因为"],
-  ["凡是|有|问题|的|同学，|[都]|可以|问|老师。", "Fánshì yǒu wèntí de tóngxué, dōu kěyǐ wèn lǎoshī.", "Todo alumno con dudas puede preguntar al profesor.", "很 的 吗"],
+  ["凡是|有|问题|的|同学，|[都]|可以|问|老师。", "Fánshì yǒu wèntí de tóngxué, dōu kěyǐ wèn lǎoshī.", "Todo alumno con dudas puede preguntar al profesor.", "和 得 把"],
   ["[凡是]|参加|活动|的|人，|都|有|礼物。", "Fánshì cānjiā huódòng de rén, dōu yǒu lǐwù.", "Todo el que participe en la actividad recibe un regalo.", "虽然 如果 因为"],
   ["凡是|他|答应|的|事，|[都]|会|做到。", "Fánshì tā dāying de shì, dōu huì zuòdào.", "Todo lo que él promete lo cumple.", "就 也 还"]]],
 [5, "Al fin y al cabo: 毕竟", "毕竟 + razón de fondo", "Recuerda una razón de fondo que justifica algo: «después de todo».", [
@@ -23270,8 +23270,8 @@ self.TEMAS = [
   ["你|喝|茶|[或者]|咖啡|都|可以。", "Nǐ hē chá huòzhě kāfēi dōu kěyǐ.", "Puedes tomar té o café, lo que quieras.", "还是 和 也"],
   ["周末|我|看书|[或者]|看|电影。", "Zhōumò wǒ kàn shū huòzhě kàn diànyǐng.", "El fin de semana leo o veo películas.", "还是 和 也"]]],
 [2, "Cambio de estado: 了 final", "Frase + 了", "Un 了 al final dice que algo es nuevo o ha cambiado: «ya…», «ahora…».", [
-  ["现在|九点|[了]。", "Xiànzài jiǔ diǎn le.", "Ya son las nueve.", "吗 呢 过"],
-  ["我|会|说|汉语|[了]。", "Wǒ huì shuō Hànyǔ le.", "Ya sé hablar chino.", "吗 呢 过"]]],
+  ["现在|九点|[了]。", "Xiànzài jiǔ diǎn le.", "Ya son las nueve.", "着 过 得"],
+  ["我|会|说|汉语|[了]。", "Wǒ huì shuō Hànyǔ le.", "Ya sé hablar chino.", "着 过 得"]]],
 [2, "Un poco (negativo): 有点", "有点 + adjetivo", "有点 + adjetivo dice «un poco…» con matiz de queja; 一点 va después del adjetivo (大一点).", [
   ["今天|[有点]|冷。", "Jīntiān yǒudiǎn lěng.", "Hoy hace un poco de frío.", "一点 一下 很多"],
   ["这个|菜|[有点]|咸。", "Zhège cài yǒudiǎn xián.", "Este plato está un poco salado.", "一点 一下 很多"]]],
@@ -29996,9 +29996,9 @@ f|5`, `诊所|clínica
 // Gramática: puntos añadidos tras la auditoría (duración, frecuencia, relativo con 的, verbos separables, existencia, comparación negativa, dos verbos seguidos). Mismo formato que gramatica1.js
 (self.GRAM = self.GRAM || []).push(
 [2, "Dos verbos seguidos: medio o finalidad", "Sujeto + (去 / 来 / 坐…) + lugar o medio + verbo", "Cuando haces algo para otra cosa, o por un medio, los verbos van uno tras otro, en el orden en que ocurren y sin conectores: 去商店买东西 (voy a la tienda a comprar). El medio también va delante: 坐地铁去学校. Error típico: poner el lugar o el medio al final, como en español (我买东西在商店; 我去学校坐地铁 significa «voy a la escuela a coger el metro»).", [
-  ["我|[去]|商店|买|东西。", "Wǒ qù shāngdiàn mǎi dōngxi.", "Voy a la tienda a comprar cosas.", "的 很 和"],
-  ["周末|你|[来]|我|家|吃饭|吧。", "Zhōumò nǐ lái wǒ jiā chīfàn ba.", "El fin de semana ven a mi casa a comer.", "的 很 和"],
-  ["我|[坐]|地铁|去|学校。", "Wǒ zuò dìtiě qù xuéxiào.", "Voy a la escuela en metro.", "的 很 和"]]],
+  ["我|[去]|商店|买|东西。", "Wǒ qù shāngdiàn mǎi dōngxi.", "Voy a la tienda a comprar cosas.", "把 对 比"],
+  ["周末|你|[来]|我|家|吃饭|吧。", "Zhōumò nǐ lái wǒ jiā chīfàn ba.", "El fin de semana ven a mi casa a comer.", "把 给 对"],
+  ["我|[坐]|地铁|去|学校。", "Wǒ zuò dìtiě qù xuéxiào.", "Voy a la escuela en metro.", "把 给 对"]]],
 [3, "Cuánto tiempo dura una acción", "V + 了 + duración (+ objeto) · V + objeto + V + 了 + duración", "La duración se pone después del verbo: 学了两年中文. Si hay objeto, la duración va entre el verbo y el objeto (学了两年中文) o se repite el verbo (学中文学了两年); si el objeto es una persona, va antes: 等了他一个小时. Con otro 了 al final la acción sigue: 我学了两年中文了 («llevo dos años estudiando chino»). Error típico: poner la duración antes del verbo (我两年学中文) o tras el objeto (我学中文两年).", [
   ["我|学[了]|两|年|中文。", "Wǒ xué le liǎng nián Zhōngwén.", "He estudiado chino dos años.", "着 得 在"],
   ["他|等[了]|一个|小时。", "Tā děng le yí ge xiǎoshí.", "Él esperó una hora.", "着 得 在"],

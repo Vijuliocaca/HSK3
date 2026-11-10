@@ -335,10 +335,11 @@ a.chip{text-decoration:none;color:inherit;display:inline-block}
 <script src="cultura.js"></script>
 <script src="personajes.js"></script>
 <script>
+const T0 = typeof performance != 'undefined' ? Math.round(performance.now()) : 0; // ms desde que se pidió la página hasta empezar este script (= descarga y ejecución de todos los .js anteriores)
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
 const vSW = t => (/const V = '([^']+)'/.exec(t) || [])[1]; // la versión que declara un sw.js
-const APP_V = 'hsk3-v248'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v250'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -846,7 +847,7 @@ function settings() {
     <input type=file id=imp accept=".json,application/json" hidden onchange="importar(this.files[0])"><div id=impmsg aria-live=polite></div>
     <h2>Sugerencias</h2><p class=mut>¿Un error, una palabra que falta o una idea? Anótalo y envíamelo.</p>
     <button class=chip onclick="sugerencias()">💡 Sugerir o ver mis sugerencias${(S.sug || []).length ? ' (' + S.sug.length + ')' : ''}</button>
-    <p class=mut style="margin-top:1.5rem">Los niveles HSK de la app son orientativos: reparten el vocabulario a su manera y no coinciden palabra por palabra con las listas oficiales de cada nivel del examen.</p><p class=mut style="margin-top:1.5rem">Versión de la app: ${APP_V}</p>`);
+    <p class=mut style="margin-top:1.5rem">Los niveles HSK de la app son orientativos: reparten el vocabulario a su manera y no coinciden palabra por palabra con las listas oficiales de cada nivel del examen.</p><p class=mut style="margin-top:1.5rem">Versión de la app: ${APP_V}</p><p class=mut style="font-size:.8rem">Arranque: scripts ${T0} ms, app lista ${T1} ms${(() => { const f = typeof performance != "undefined" && performance.getEntriesByName("first-contentful-paint")[0]; return f ? ", primer dibujo " + Math.round(f.startTime) + " ms" : ""; })()}, ${navigator.serviceWorker?.controller ? "desde caché" : "desde la red"}</p>`);
 }
 // sugerencias: se guardan en el móvil (S.sug, entran en la copia de seguridad) y se envían con el menú de compartir
 const SUG_QUE = ['Un dato está mal (traducción, pinyin, hanzi o frase)', 'El audio o la voz fallan', 'La app falla (error, pantalla en blanco, se cierra)', 'Se ve mal (texto cortado, colores, tamaños)', 'Un botón o gesto no responde (o atrás va mal)', 'El progreso o el repaso no cuadran (racha, aciertos, fechas)', 'He perdido datos o la copia de seguridad falla', 'Va lenta o no funciona sin conexión', 'Falta contenido (palabras, lecturas, temas…)', 'Es una idea o mejora', 'Otro'];
@@ -1179,7 +1180,7 @@ const card = w => `<div class=study><div class=hz>${w.h}</div><div class=py>${pc
   <button class=ico onclick="say(W[${w.id}].h)">🔊</button><button class=ico id=st onclick="star(${w.id})">${S.star[w.id] ? '★' : '☆'}</button><button class=ico onclick="strokes(${w.id})" aria-label="Ver trazos">${ico('brush')}</button>${exHtml(w)}</div>`;
 // relaciones en la ficha: familia (palabras que comparten un carácter, calculada), antónimos y sinónimos (relaciones.js)
 const BYC = new Map(), RELA = new Map();
-W.forEach(w => new Set(w.h).forEach(c => BYC.set(c, [...(BYC.get(c) || []), w])));
+W.forEach(w => new Set(w.h).forEach(c => { const a = BYC.get(c); a ? a.push(w) : BYC.set(c, [w]); }));
 (self.RELS || []).forEach(t => t.split('\n').forEach(l => {
   const [k, a, b] = l.split('|'); if (!byH.has(a) || !byH.has(b)) return;
   [[a, b], [b, a]].forEach(([x, y]) => { const m = RELA.get(x) || { A: [], S: [] }; m[k].push(byH.get(y)); RELA.set(x, m); });
@@ -2243,6 +2244,7 @@ if ('serviceWorker' in navigator) {
     const mira = () => { r.update().catch(() => {}); hayNueva(); }; document.addEventListener('visibilitychange', () => document.hidden || mira()); setInterval(() => document.hidden || mira(), 5 * 60 * 1000); setTimeout(hayNueva, 3000); }).catch(() => {});
   navigator.serviceWorker.addEventListener('controllerchange', () => { if (tenia) hayNueva(); });
 }
+const T1 = typeof performance != 'undefined' ? Math.round(performance.now()) : 0; // ms hasta terminar de arrancar (se muestra al final de Ajustes)
 </script>
 </body>
 </html>

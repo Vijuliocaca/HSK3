@@ -224,7 +224,7 @@ const T0 = typeof performance != 'undefined' ? Math.round(performance.now()) : 0
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
 const vSW = t => (/const V = '([^']+)'/.exec(t) || [])[1]; // la versión que declara un sw.js
-const APP_V = 'hsk3-v252'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v253'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -433,7 +433,8 @@ function tick(ok) { // cuenta una respuesta para la meta, la racha, los XP y las
 }
 // --- «jugo»: vibración, sonido y confeti al responder (se apaga en Ajustes → Sonido y vibración)
 let AC; const pip = (f, d = .09, t = 0) => { try { AC = AC || new (window.AudioContext || window.webkitAudioContext)(); const o = AC.createOscillator(), g = AC.createGain(), t0 = AC.currentTime + t; o.frequency.value = f; g.gain.setValueAtTime(.05, t0); g.gain.exponentialRampToValueAtTime(.0001, t0 + d); o.connect(g); g.connect(AC.destination); o.start(t0); o.stop(t0 + d); } catch {} };
-const fx = ok => { if (S.set.fx === false) return; try { navigator.vibrate?.(ok ? 12 : [35, 40, 35]); } catch {} if (ok) { pip(660, .08); pip(880, .1, .08); } else pip(190, .2); };
+let MUDO = false; // true mientras se puntúa una tanda de golpe (Emparejar), para que no suenen 5 avisos seguidos
+const fx = ok => { if (S.set.fx === false || MUDO) return; try { navigator.vibrate?.(ok ? 30 : [70, 50, 70]); } catch {} if (ok) { pip(660, .08); pip(880, .1, .08); } else pip(190, .2); };
 const confeti = () => { if (S.set.fx === false) return; const c = document.createElement('div'); c.className = 'conf'; c.setAttribute('aria-hidden', 'true'); c.innerHTML = Array.from({ length: 26 }, (_, i) => `<i style="left:${Math.random() * 100}%;background:${['var(--pri)', 'var(--gold)', 'var(--ok)', 'var(--no)'][i % 4]};animation-delay:${Math.random() * .4}s"></i>`).join(''); document.body.appendChild(c); setTimeout(() => c.remove?.(), 2400); };
 const avisar = t => { $('#sr').textContent = t; const e = document.createElement('div'); e.className = 'toast'; e.textContent = t; document.body.appendChild(e); setTimeout(() => e.remove?.(), 3200); };
 // --- XP, misiones diarias y comodín de racha: 10 XP por acierto y 3 por fallo (se guardan por día en S.hist[día].x); las 3 misiones de hoy salen de lo ya contado
@@ -2066,9 +2067,9 @@ function matchGame(fixed) {
       const a = cur; cur = null;
       if (a.dataset.i == b.dataset.i) {
         [a, b].forEach(x => { x.classList.remove('sel'); x.classList.add('ok'); x.disabled = true; });
-        if (!--left) { ws.forEach(w => { const good = !err.has(w.id); grade(w.id, good); good ? ok++ : bad.push(w); }); setTimeout(() => { if ($('.match')) { r++; round(); } }, 600); }
+        fx(true); if (!--left) { MUDO = true; ws.forEach(w => { const good = !err.has(w.id); grade(w.id, good); good ? ok++ : bad.push(w); }); MUDO = false; setTimeout(() => { if ($('.match')) { r++; round(); } }, 600); }
       } else {
-        err.add(+(a.dataset.s == 'l' ? a : b).dataset.i);
+        fx(false); err.add(+(a.dataset.s == 'l' ? a : b).dataset.i);
         [a, b].forEach(x => { x.classList.remove('sel'); x.classList.add('no', 'shake'); });
         setTimeout(() => [a, b].forEach(x => x.classList.remove('no', 'shake')), 450);
       }

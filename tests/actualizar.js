@@ -33,7 +33,7 @@ const MIME = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; cha
     ok(await espera("!document.querySelector('#upd').hidden", 8000), 'al publicarse una versión nueva debe salir el aviso');
     // el service worker nuevo se instala revalidando: casi nada se vuelve a descargar
     await esp(4000); const pedidos = reg.filter(x => !/sw\.js/.test(x.u)), nuevos = pedidos.filter(x => x.st == 200);
-    ok(pedidos.length > 30, 'el service worker nuevo no revalidó los archivos (' + pedidos.length + ' peticiones)'); ok(nuevos.length <= 3, `el service worker volvió a descargar ${nuevos.length} archivos sin cambios: ${nuevos.slice(0, 3).map(x => x.u).join(', ')}`);
+    ok(pedidos.length >= 6, 'el service worker nuevo no revalidó los archivos (' + pedidos.length + ' peticiones)'); ok(nuevos.length <= 3, `el service worker volvió a descargar ${nuevos.length} archivos sin cambios: ${nuevos.slice(0, 3).map(x => x.u).join(', ')}`);
     // «Actualizar»: la app queda en la versión nueva
     fs.writeFileSync(path.join(dir, 'index.html'), fs.readFileSync(path.join(dir, 'index.html'), 'utf8').replace(`const APP_V = '${vieja}'`, "const APP_V = 'hsk3-v9999'"));
     await ev("document.querySelector('#upd button').click()");

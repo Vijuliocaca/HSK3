@@ -6,7 +6,7 @@ const RAIZ = path.join(__dirname, '..'), KEY = process.env.AZURE_KEY, REG = proc
 if (!KEY || !REG) { console.error('Faltan AZURE_KEY y AZURE_REGION'); process.exit(1); }
 const niveles = (process.argv[2] || '1,2').split(',').map(Number), leer = f => fs.readFileSync(path.join(RAIZ, f), 'utf8');
 const ctx = vm.createContext({}); ctx.self = ctx;
-[...leer('index.html').matchAll(/<script src="([^"]+)"/g)].map(m => m[1]).filter(f => f != 'audioindice.js' && fs.existsSync(path.join(RAIZ, f))).forEach(f => vm.runInContext(leer(f), ctx));
+require('./empaquetar.js').lista().filter(f => f != 'audioindice.js' && fs.existsSync(path.join(RAIZ, f))).forEach(f => vm.runInContext(leer(f), ctx));
 const textos = new Set(); let lv = 0;
 const palabra = (n, l) => { if (l.trim() && l[0] != '#' && niveles.includes(n)) textos.add(l.split('|')[0]); };
 vm.runInContext('RAW', ctx).split('\n').forEach(l => { if (l[0] == '#') lv = +l.slice(1); else palabra(lv, l); });

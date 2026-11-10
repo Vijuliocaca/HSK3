@@ -5,7 +5,7 @@ const RAIZ = path.join(__dirname, '..'), leer = f => fs.readFileSync(path.join(R
 let fallos = 0, total = 0;
 const t = (nombre, f) => { total++; try { f(); } catch (e) { fallos++; console.log('✗', nombre, '\n   ', e.message.split('\n')[0]); } };
 
-const html = leer('index.html'), scripts = [...html.matchAll(/<script src="([^"]+)"/g)].map(m => m[1]);
+const html = leer('index.html'), scripts = require('../tools/empaquetar.js').lista(); // los .js de datos viven en scripts.txt; index.html carga paquete.js
 const ctx = vm.createContext({}); ctx.self = ctx;
 scripts.filter(f => fs.existsSync(path.join(RAIZ, f))).forEach(f => vm.runInContext(leer(f), ctx, { filename: f })); // los que faltan los avisa la primera prueba
 const ev = js => vm.runInContext(js, ctx);
@@ -22,7 +22,7 @@ t('la versión que muestra la app (APP_V en index.html) coincide con la de sw.js
   assert(app && sw, 'falta APP_V en index.html o V en sw.js'); assert.strictEqual(app, sw, `index.html dice ${app} y sw.js ${sw}: sube las dos`);
 });
 t('sw.js: versión con formato hsk3-vNN', () => assert(/const V = 'hsk3-v\d+'/.test(leer('sw.js'))));
-t('sw.js: guarda todos los scripts de index.html', () => { const sw = leer('sw.js'); scripts.forEach(f => assert(sw.includes(`'${f}'`), f + ' no está en FILES')); });
+t('paquete.js: está al día con scripts.txt (si falla: node tools/empaquetar.js) y index.html y sw.js lo cargan', () => { assert.strictEqual(leer('paquete.js'), require('../tools/empaquetar.js').armar(), 'paquete.js desactualizado: ejecuta node tools/empaquetar.js'); assert(html.includes('<script src="paquete.js">'), 'index.html no carga paquete.js'); assert(leer('sw.js').includes("'paquete.js'"), 'paquete.js no está en FILES'); });
 t('sw.js: no guarda archivos que no existen', () => [...leer('sw.js').match(/FILES = \[([^\]]*)\]/)[1].matchAll(/'([^']+)'/g)].forEach(m => m[1] == './' || assert(fs.existsSync(path.join(RAIZ, m[1])), 'FILES apunta a ' + m[1])));
 
 t('index.html: ningún manejador de teclado asignado devuelve false con «&&» (cancelaría la tecla, p. ej. Borrar)', () => {

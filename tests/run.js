@@ -5,7 +5,7 @@
 const { spawnSync } = require('child_process'), path = require('path');
 const RELOJES = ['2026-03-30T23:30', '2026-10-26T23:30', '2026-12-31T23:30'];
 const pruebas = [['datos.js'], ['pantallas.js'], ['atras.js'], ...RELOJES.flatMap(r => [['pantallas.js', r], ['atras.js', r]]),
-  ...(process.argv.includes('--navegador') ? ['desbordes.js', 'teclado.js', 'lecturas.js', 'frases.js', 'avatar.js', 'editor.js', 'capas.js', 'actualizar.js', 'trazos.js', 'atras-navegador.js'].map(p => [p]) : [])];
+  ...(process.argv.includes('--navegador') ? ['desbordes.js', 'teclado.js', 'nivel.js', 'lecturas.js', 'frases.js', 'avatar.js', 'editor.js', 'capas.js', 'actualizar.js', 'trazos.js', 'atras-navegador.js'].map(p => [p]) : [])];
 let mal = 0;
 for (const [p, reloj] of pruebas) {
   const env = reloj ? { ...process.env, TZ: 'Europe/Madrid', RELOJ: reloj } : process.env;

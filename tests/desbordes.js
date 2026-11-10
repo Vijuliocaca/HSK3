@@ -24,6 +24,7 @@ function copiaConRecorrido() {
     Object.defineProperty(window, 'speechSynthesis', { value: { cancel() { }, speak() { } } }); // la voz real encola frases sin fin y deja colgado el navegador sin ventana
     window.confirm = () => true; window.alert = () => { }; window.prompt = () => 'Lista de prueba'; // un cuadro de diálogo bloquea el navegador sin ventana (p. ej. «¿salir del examen?»)
     history.back = () => { }; history.pushState = () => { }; // sin navegar por el historial: dentro del iframe sacaría la página del recorrido
+    document.head.insertAdjacentHTML('beforeend', '<style>#app{animation:none!important}</style>'); // el fundido de entrada desplaza 6 px mientras dura y falsearía las medidas
     try { ev(${JSON.stringify(PREPARAR)}); } catch (e) { RES.push({ n: 'preparar', error: String(e) }); }
     const LISTA = ${JSON.stringify(lista)};
     if (${!!process.env.TODAS}) for (let i = 0; i < LECT.length; i++) { for (let j = 0; j < LECT[i].ls.length; j++) LISTA.push(['lectura ' + i + '.' + j + ' (' + LECT[i].t + ')', 'lectura(' + i + ',' + j + ')']); for (let k = 0; k < LECT[i].qs.length; k++) LISTA.push(['pregunta ' + i + '.' + k + ' (' + LECT[i].t + ')', 'lectQ(' + i + ',' + k + ')']); }

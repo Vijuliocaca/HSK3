@@ -34,6 +34,9 @@
 /* movimiento reducido: sin desplazamientos ni sacudidas; la entrada de pantalla queda en un fundido breve y el estado sigue cambiando */
 @media(prefers-reduced-motion:reduce){#app{animation:fade .2s}.shake{animation:none}.mode:active{transform:none}.prog i,.bar i{transition:none}html{scroll-behavior:auto}}
 @keyframes fade{from{opacity:0}}
+.conf{position:fixed;left:0;right:0;top:0;height:0;pointer-events:none;z-index:99}.conf i{position:absolute;top:-14px;width:8px;height:13px;border-radius:2px;animation:conf 1.7s ease-in forwards}@keyframes conf{to{transform:translateY(105vh) rotate(560deg);opacity:.3}}
+.toast{position:fixed;left:50%;bottom:5.5rem;transform:translateX(-50%);max-width:90vw;background:var(--pri);color:var(--on-act);padding:.6rem 1rem;border-radius:.8rem;font-size:var(--fs-sm);z-index:99;text-align:center;animation:fade .25s;box-shadow:0 4px 14px #0004}
+@media(prefers-reduced-motion:reduce){.conf{display:none}}
 .sem{gap:.3rem}.sem .stat{flex:1 !important;padding:.5rem 0}.sem .stat b{font-size:var(--fs-lg)}
 .lect{position:relative;display:flex;flex-direction:column;min-height:calc(100vh - 28px);min-height:calc(100dvh - 28px)}
 .cab{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:.5rem 1rem;margin:.2rem 0 .9rem}.cab.dos .cabt{flex-basis:100%}.avs{display:flex;align-items:center;gap:.6rem;margin-left:auto}.cab.dos .avs{margin:0 auto}.vel{display:flex;flex-direction:column;gap:.25rem}.vel .chip{padding:.3rem .55rem;font-size:var(--fs-sm);text-align:center}
@@ -221,7 +224,7 @@ const T0 = typeof performance != 'undefined' ? Math.round(performance.now()) : 0
 const $ = s => document.querySelector(s);
 const TABS = [['home', 'house', 'Inicio'], ['today', 'calendar-days', 'Hoy'], ['examMenu', 'clipboard-check', 'Examen'], ['stats', 'chart-column', 'Progreso']];
 const vSW = t => (/const V = '([^']+)'/.exec(t) || [])[1]; // la versión que declara un sw.js
-const APP_V = 'hsk3-v251'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
+const APP_V = 'hsk3-v252'; // versión de este código: debe coincidir con V de sw.js (la comprueba tests/datos.js) y se ve al final de Ajustes
 let TM = 0;
 // botón atrás del móvil: sube un nivel (a la pantalla a la que lleva el botón ← / ✕ de la pantalla actual; sin él, al inicio); solo desde el inicio cierra la app.
 // El historial tiene una entrada por cada pantalla nueva abierta con un toque (depth = entradas sobre el inicio). Atrás NUNCA añade entradas: Chrome omite las que se añaden sin
@@ -245,6 +248,7 @@ const app = (h, tab) => {
   $('#app').innerHTML = h;
   const h1 = $('#app h1'), t = (h1 ? [...(h1.childNodes || [])].filter(n => n.nodeType == 3).map(n => n.textContent).join('') : $('#app .top > b')?.textContent || '').trim();
   if (t && t != $('#sr').textContent) $('#sr').textContent = t; // el lector de pantalla anuncia la pantalla nueva
+  if (t !== PANT || inicio) { const m = $('#app'); m.style.animation = 'none'; void m.offsetWidth; m.style.animation = ''; } // pantalla nueva: entra con un fundido suave (no al repintar la misma)
   document.title = t && t != 'HSK Viju' ? t + ' · HSK Viju' : 'HSK Viju';
   scrollTo(0, (BAJANDO || VOLVIENDO) && SCR[t] != null ? SCR[t] : 0); VOLVIENDO = false;
   if (inicio) { GUARD = ''; PANT = null; Object.keys(SCR).forEach(k => delete SCR[k]); if (depth) { const d = depth; depth = 0; skipPop = true; history.go(-d); } }
@@ -362,7 +366,7 @@ S.w = S.w || {}; S.known = S.known || {}; S.gram = S.gram || {}; S.gramR = S.gra
 S.lv = Array.from({ length: Math.max(...S.lv, 1) }, (_, i) => i + 1); // los HSK son acumulativos: elegir uno incluye los anteriores
 S.streak = S.streak || 0; S.last = S.last || '';
 S.hist = S.hist || {}; S.exams = S.exams || []; S.exLv = S.exLv || 3; S.star = S.star || {};
-S.set = Object.assign({ goal: 20, rate: .8, size: 100, theme: 'auto', tones: true, lpy: true, les: true }, S.set);
+S.set = Object.assign({ goal: 20, rate: .8, size: 100, theme: 'auto', tones: true, lpy: true, les: true, fx: true }, S.set);
 if (S.lectV != 2) { S.lect = {}; S.lectV = 2; } // las preguntas de las lecturas se rehicieron (más difíciles): los resultados antiguos no valen
 const applySet = () => { const r = document.documentElement; r.style.fontSize = S.set.size + '%'; S.set.theme == 'auto' ? r.removeAttribute('data-theme') : r.setAttribute('data-theme', S.set.theme); };
 applySet();
@@ -417,10 +421,35 @@ function grade(id, ok, niv, prod) { // niv (solo en las tarjetas): 'dificil' cre
   S.w[id] = r;
   tick(ok); pronto();
 }
-function tick(ok) { // cuenta una respuesta para la meta, la racha y las estadísticas
-  const t = day(new Date()), h = S.hist[t] = S.hist[t] || { n: 0, ok: 0 }; h.n++; if (ok) h.ok++;
-  if (S.last != t) { S.streak = S.last == day(new Date(Date.now() - 864e5)) ? S.streak + 1 : 1; S.last = t; }
+function tick(ok) { // cuenta una respuesta para la meta, la racha, los XP y las estadísticas
+  const t = day(new Date()), h = S.hist[t] = S.hist[t] || { n: 0, ok: 0 }; h.n++; if (ok) h.ok++; h.x = (h.x || 0) + (ok ? 10 : 3);
+  if (S.last != t) {
+    if (S.last == haceDias(1)) S.streak++;
+    else if (S.streak && S.frz > 0 && S.last == haceDias(2)) { S.frz--; S.streak++; avisar('Has usado un comodín: tu racha sigue viva'); } // un día entero sin practicar: el comodín la salva
+    else S.streak = 1;
+    S.last = t;
+  }
+  fx(ok); premioMisiones();
 }
+// --- «jugo»: vibración, sonido y confeti al responder (se apaga en Ajustes → Sonido y vibración)
+let AC; const pip = (f, d = .09, t = 0) => { try { AC = AC || new (window.AudioContext || window.webkitAudioContext)(); const o = AC.createOscillator(), g = AC.createGain(), t0 = AC.currentTime + t; o.frequency.value = f; g.gain.setValueAtTime(.05, t0); g.gain.exponentialRampToValueAtTime(.0001, t0 + d); o.connect(g); g.connect(AC.destination); o.start(t0); o.stop(t0 + d); } catch {} };
+const fx = ok => { if (S.set.fx === false) return; try { navigator.vibrate?.(ok ? 12 : [35, 40, 35]); } catch {} if (ok) { pip(660, .08); pip(880, .1, .08); } else pip(190, .2); };
+const confeti = () => { if (S.set.fx === false) return; const c = document.createElement('div'); c.className = 'conf'; c.setAttribute('aria-hidden', 'true'); c.innerHTML = Array.from({ length: 26 }, (_, i) => `<i style="left:${Math.random() * 100}%;background:${['var(--pri)', 'var(--gold)', 'var(--ok)', 'var(--no)'][i % 4]};animation-delay:${Math.random() * .4}s"></i>`).join(''); document.body.appendChild(c); setTimeout(() => c.remove?.(), 2400); };
+const avisar = t => { $('#sr').textContent = t; const e = document.createElement('div'); e.className = 'toast'; e.textContent = t; document.body.appendChild(e); setTimeout(() => e.remove?.(), 3200); };
+// --- XP, misiones diarias y comodín de racha: 10 XP por acierto y 3 por fallo (se guardan por día en S.hist[día].x); las 3 misiones de hoy salen de lo ya contado
+// y, al completarlas todas, dan un comodín (máx. 2) que salva la racha si se pasa un día entero sin practicar
+const haceDias = n => { const d = new Date(); d.setDate(d.getDate() - n); return day(d); };
+const misionesHoy = () => {
+  const h = S.hist[day(new Date())] || { n: 0, ok: 0, x: 0 }, a = Math.floor((Date.now() - new Date().getTimezoneOffset() * 6e4) / 864e5) % 2, xp = [60, 120][a], nr = [20, 35][a], pr = [85, 90][a];
+  return [[`Gana ${xp} XP`, h.x || 0, xp], [`Responde ${nr} preguntas`, h.n, nr], [`Acierta el ${pr} % (mínimo 15 respuestas)`, h.n >= 15 ? Math.round(h.ok / h.n * 100) : 0, pr]];
+};
+function premioMisiones() { const t = day(new Date()); if (S.misZ == t || !misionesHoy().every(m => m[1] >= m[2])) return; S.misZ = t; S.frz = Math.min(2, (S.frz || 0) + 1); avisar('¡Misiones completas! Ganas un comodín de racha'); confeti(); }
+const rachaViva = () => S.last == day(new Date()) || S.last == haceDias(1) || (S.frz > 0 && S.last == haceDias(2));
+const misionesCard = () => `<h2>Misiones de hoy</h2>${misionesHoy().map(([t, v, m]) => `<div class=hbar><span style="width:auto;flex:1">${t}</span><b style="width:4.2rem;text-align:right">${v >= m ? '<span class=dok>✓</span>' : Math.min(v, m) + '/' + m}</b></div><div class=bar style="margin:-.2rem 0 .5rem"><i style="width:${Math.min(100, v / m * 100)}%"></i></div>`).join('')}<div class=mut>XP de hoy: <b>${S.hist[day(new Date())]?.x || 0}</b> · Comodines de racha: <b>${S.frz || 0}</b>/2${S.misZ == day(new Date()) ? ' · ¡misiones completas!' : ' · completa las 3 para ganar uno'}</div>`;
+// instalar la app (Chrome/Android): el navegador avisa cuando se puede y se guarda el aviso para ofrecerlo en el inicio y en Ajustes
+let INST; addEventListener('beforeinstallprompt', e => { e.preventDefault(); INST = e; }); addEventListener('appinstalled', () => { INST = null; });
+const instalar = () => INST && INST.prompt().then(() => { INST = null; home(); }).catch(() => {});
+const avisoInstalar = () => INST && !(S.instZ > day(new Date())) ? `<div class="fb g"><b>Instala la app</b><br>Se abre más rápido, a pantalla completa y funciona sin conexión.<div class=row style="margin-top:.5rem"><button class="chip on" onclick="instalar()">Instalar</button><button class=chip onclick="S.instZ = haceDias(-14); save(); home()">Ahora no</button></div></div>` : '';
 const sel = w => S.lv.includes(w.l);
 const pool = () => W.filter(w => sel(w) && S.known[w.id]); // los juegos solo usan lo ya estudiado
 const seen = () => W.filter(w => S.known[w.id]); // el repaso de hoy abarca todo lo estudiado, de cualquier HSK
@@ -462,6 +491,7 @@ const MODES = [
   ['top10', 'trophy', 'Top 10 canciones', 'Cultura: las más chinas', 'c'],
   ['cult', 'clapperboard', 'Más Top 10', 'Películas, series y platos', 'c'],
   ['hard', 'flame', 'Palabras difíciles', '', 'm'],
+  ['nivel', 'compass', 'Test de nivel', 'Descubre tu HSK en unos minutos', 'm'],
   ['lists', 'list-checks', 'Mis listas', 'Tus propias palabras', 'm'],
   ['logros', 'medal', 'Logros', 'Medallas y rachas semanales', 'm'],
 ];
@@ -499,7 +529,7 @@ const setExam = v => { S.exam = v ? { d: v } : null; save(); examMenu(); };
 
 function home() {
   const all = W.filter(sel), p = pool(), dom = p.filter(w => (S.w[w.id]?.b || 0) >= 4).length, nd = due().length;
-  const streakOk = S.last == day(new Date()) || S.last == day(new Date(Date.now() - 864e5));
+  const streakOk = rachaViva();
   const hoy = S.hist[day(new Date())]?.n || 0, meta = S.set.goal;
   const vistas = W.filter(w => S.known[w.id]), domT = vistas.filter(w => (S.w[w.id]?.b || 0) >= 4).length;
   INICIO = true;
@@ -511,7 +541,8 @@ function home() {
     <div class=stat><b>${dom}</b><span class=mut>dominadas</span></div>
   </div>
   <div class=prog><i style="width:${all.length ? p.length / all.length * 100 : 0}%"></i></div>
-  ${examCard()}${avisoCopia(vistas.length)}
+  ${examCard()}${avisoCopia(vistas.length)}${avisoInstalar()}
+  ${misionesCard()}
   <div class="row hsk">${LEVELS.map(n => `<button class="chip ${S.lv.includes(n) ? 'on' : ''}" onclick="tog('lv',${n})">HSK ${n}</button>`).join('')}</div><div class=mut style="margin-top:.4rem">Cada HSK incluye el vocabulario de los anteriores.</div>
   <details class=resumen ${S.resOpen ? 'open' : ''} ontoggle="S.resOpen = this.open; save()"><summary>Resumen de palabras estudiadas</summary>
     ${LEVELS.map(l => { const ws = W.filter(w => w.l == l), n = ws.filter(w => S.known[w.id]).length; return `<div class=hbar><span>HSK ${l}</span><div class=bar><i style="width:${n / ws.length * 100}%"></i></div><b style="width:4.8rem">${n}/${ws.length}</b></div>`; }).join('')}
@@ -544,6 +575,7 @@ function go(m) {
   if (m == 'dial') return dialogos();
   if (m == 'lect') return lecturas();
   if (m == 'lists') return listas();
+  if (m == 'nivel') return testNivel();
   if (m == 'fest') return fiestas();
   if (m == 'cult') return cultura('pelis');
   if (m == 'logros') return logros();
@@ -720,6 +752,7 @@ function settings() {
     <h2>Velocidad de la voz</h2><div class="row seg">${o('rate', .6, 'Lenta')}${o('rate', .8, 'Normal')}${o('rate', 1, 'Rápida')}</div><button class="chip seg1" onclick="say('你好，欢迎学习汉语')">🔊 Probar la voz</button>
     <h2>Tamaño de letra</h2><div class="row seg">${o('size', 90, 'Pequeño')}${o('size', 100, 'Normal')}${o('size', 115, 'Grande')}${o('size', 130, 'Enorme')}</div>
     <h2>Tema</h2><div class="row seg">${o('theme', 'auto', 'Automático')}${o('theme', 'light', 'Claro')}${o('theme', 'dark', 'Oscuro')}${o('theme', 'hc', 'Alto contraste')}${o('theme', 'hcd', 'Alto contraste oscuro')}</div>
+    <h2>Sonido y vibración</h2><div class="row seg">${o('fx', true, 'Sí')}${o('fx', false, 'No')}</div><p class=mut>Un tono y una vibración corta al acertar o fallar, y confeti al terminar.</p>${INST ? '<button class=chip onclick="instalar()">Instalar la app</button>' : ''}
     <h2>Colores de tono</h2><div class="row seg">${o('tones', true, 'Sí')}${o('tones', false, 'No')}</div>
     <p class=mut>Pinyin en colores: ${pc('mā má mǎ mà ma')} (1.º a 4.º tono y neutro).</p>
     <h2>Recordatorio diario</h2><p class=mut>Añade a tu calendario un aviso que se repite todos los días a la hora que elijas. Funciona en cualquier móvil, sin conexión y sin crear cuentas. Al descargar el archivo, ábrelo para añadirlo al calendario.</p>
@@ -1151,12 +1184,32 @@ function studied(pk) {
 }
 
 function summary(ok, n, bad, again, extra = '') {
+  if (n && ok * 2 >= n) confeti();
   app(`<h1><span class=seal>${ico('check')}</span>¡Hecho!</h1><p style="font-size:1.4rem">${ok}/${n} aciertos</p>
   ${bad.length ? `<p class=mut>Para repasar:</p><div class=list>${bad.map(w => `<div><b>${w.h}</b><i>${pc(w.p)}</i><span>${w.e}</span></div>`).join('')}</div>` : ''}
   ${extra}<button class="${extra ? 'opt' : 'main'}" id=a>Otra ronda</button><button class=opt style="margin-top:.5rem" onclick="home()">Inicio</button>`);
   $('#a').onclick = again;
 }
 
+// test de nivel: 3 palabras por HSK (de 1 a 6), cada una con 4 significados; se para al fallar casi todo un nivel. Nivel = último HSK seguido con 2 de 3 aciertos
+function testNivel() {
+  const niv = LEVELS.filter(l => l <= 6), res = []; let li = 0, k = 0, ws = [];
+  const nivelAlcanzado = () => { let n = 0; for (const r of res) { if (r.ok >= 2) n = r.l; else break; } return n || 1; };
+  const fin = () => { const n = nivelAlcanzado(); confeti(); app(`<h1><span class=seal>${ico('compass')}</span>Tu nivel: HSK ${n}</h1><p class=mut>${res.map(r => 'HSK ' + r.l + ': ' + r.ok + '/3').join(' · ')}</p><p>Es una estimación rápida con pocas palabras. Puedes cambiarlo cuando quieras en el inicio.</p><button class=main onclick="S.lv = Array.from({ length: ${n} }, (_, i) => i + 1); save(); home()">Empezar en HSK ${n}</button><button class=opt style="margin-top:.5rem" onclick="home()">Dejarlo como está</button>`); };
+  const step = () => {
+    if (li >= niv.length) return fin();
+    if (k == 0) { const l = niv[li]; ws = shuffle(W.filter(w => w.l == l)).slice(0, 3); res.push({ l, ok: 0 }); }
+    const w = ws[k], r = res[li], otros = shuffle(W.filter(x => x.l == w.l && x.e != w.e)).slice(0, 3), n = niv.length * 3;
+    app(`<div class=play><div class=top><button class=back onclick="home()">✕</button><div class=bar><i style="width:${(li * 3 + k) / n * 100}%"></i></div></div><div class=mut style="text-align:center">Test de nivel · HSK ${w.l}</div><div id=q></div><div id=fb></div></div>`);
+    $('#q').innerHTML = `<div class=prompt>${hzp('hz', w.h, w.p)}<small>¿Qué significa?</small></div>`;
+    opts($('#q'), w, shuffle([w, ...otros]), o => o.e, good => {
+      if (good) r.ok++; tick(good);
+      $('#fb').innerHTML = `<div class="fb ${good ? 'g' : 'b'}"><b style="font-size:1.4rem">${w.h}</b> <span class=py>${pc(w.p)}</span> — ${w.e}</div><button class=main id=nx>Siguiente</button>`;
+      $('#nx').onclick = () => { if (++k == 3 || (k == 2 && r.ok == 0)) { k = 0; li = r.ok >= 2 ? li + 1 : niv.length; } step(); };
+    });
+  };
+  step();
+}
 // genera la lista de opciones y gestiona el clic
 function opts(el, w, list, label, done) {
   el.insertAdjacentHTML('beforeend', '<div class=opts>' + list.map(o => `<button class=opt>${label(o)}</button>`).join('') + '</div>');

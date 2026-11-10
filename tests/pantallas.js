@@ -367,5 +367,13 @@ t('diálogos: la lista de diálogos muestra solo diálogos y la de lecturas solo
   assert(l.includes('<b>Lecturas</b>') && !l.includes('Presentarse') && l.includes('Mi gato'), 'lecturas mal'); assert(d.includes('<b>Diálogos</b>') && d.includes('Presentarse') && !d.includes('Mi gato'), 'diálogos mal');
 });
 
+// --- XP, misiones y comodín de racha ---
+const xp = () => { const a = cargarApp(); a.ev('S.hist = {}; S.streak = 0; S.last = ""; S.frz = 0; S.misZ = ""'); return a; };
+t('XP: 10 por acierto y 3 por fallo, guardados en el día de hoy', () => { const a = xp(); a.ev('tick(true); tick(true); tick(false)'); assert.strictEqual(a.ev('S.hist[day(new Date())].x'), 23); });
+t('comodín: un día entero sin practicar con comodín mantiene la racha y gasta uno', () => { const a = xp(); a.ev('S.streak = 5; S.last = haceDias(2); S.frz = 1'); assert(a.ev('rachaViva()')); a.ev('tick(true)'); assert.strictEqual(a.ev('S.streak'), 6); assert.strictEqual(a.ev('S.frz'), 0); });
+t('comodín: sin comodín, o tras dos días, la racha vuelve a 1; ayer sigue sumando', () => { let a = xp(); a.ev('S.streak = 5; S.last = haceDias(2); S.frz = 0'); assert(!a.ev('rachaViva()')); a.ev('tick(true)'); assert.strictEqual(a.ev('S.streak'), 1); a = xp(); a.ev('S.streak = 5; S.last = haceDias(3); S.frz = 2'); a.ev('tick(true)'); assert.strictEqual(a.ev('S.streak'), 1); assert.strictEqual(a.ev('S.frz'), 2); a = xp(); a.ev('S.streak = 5; S.last = haceDias(1)'); a.ev('tick(true)'); assert.strictEqual(a.ev('S.streak'), 6); });
+t('misiones: al completar las 3 se gana un comodín (una vez al día, máximo 2)', () => { const a = xp(); a.ev('S.hist[day(new Date())] = { n: 50, ok: 50, x: 500 }'); a.ev('premioMisiones(); premioMisiones()'); assert.strictEqual(a.ev('S.frz'), 1); a.ev('S.misZ = ""; S.frz = 2; premioMisiones()'); assert.strictEqual(a.ev('S.frz'), 2); const b = xp(); b.ev('S.hist[day(new Date())] = { n: 10, ok: 10, x: 100 }; premioMisiones()'); assert.strictEqual(b.ev('S.frz'), 0, 'con pocas respuestas no hay premio'); });
+t('inicio: muestra las misiones de hoy', () => { const a = xp(); a.ev('home()'); assert(a.html().includes('Misiones de hoy') && a.html().includes('Comodines de racha')); });
+
 console.log(fallos ? `pantallas: ${fallos} de ${total} pruebas fallan` : `pantallas: ${total} pruebas OK`);
 process.exit(fallos ? 1 : 0);

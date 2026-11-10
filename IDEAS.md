@@ -74,3 +74,12 @@ Lista de mejoras que se han hablado y todavía no están hechas. Recomendación:
 - **Decisión:** los niveles siguen el HSK 3.0 (1-6 oficiales; 7-9 repartido en tercios por frecuencia). Vocabulario completo del 1 al 9 (faltan 3 palabras de 4-5 y ~60 del 2.0 clásico que el 3.0 ya no recoge). Nivel de cada palabra en `niveles.js`, generado con `node tools/niveles.js ruta/complete.min.json` (repositorio drkameleon/complete-hsk-vocabulary).
 - Palabras nuevas: `nuevo4f-g.js`, `nuevo5g-h.js`, `nuevo6f-h.js`, `nuevo7g-t.js` (cada uno con sus frases al final). Trazos de los 258 caracteres nuevos añadidos a `trazos/`.
 - Pendiente: lecturas y diálogos con las palabras nuevas (HSK 4-9) y repartir mejor los contenidos de los niveles 7-9.
+
+## Hecho en la tanda de «jugo» y motivación (sw v252)
+- **Sonido, vibración y confeti** al responder y al terminar (Ajustes → Sonido y vibración, se puede apagar).
+- **Fundido de entrada** al abrir cada pantalla nueva (CSS, sin View Transitions: no rompe el pintado síncrono).
+- **XP** (10 por acierto, 3 por fallo, por día en `S.hist[día].x`), **3 misiones diarias** en el inicio y **comodín de racha** (máx. 2; se gana completando las 3 misiones y salva un día entero sin practicar).
+- **Instalar la app**: tarjeta en el inicio y botón en Ajustes cuando el navegador lo permite (`beforeinstallprompt`).
+- **Test de nivel** (modo «Lo tuyo»): 3 palabras por HSK 1-6, se para al fallar un nivel; ofrece empezar en el HSK estimado. `tests/nivel.js`.
+- Ya existían (no se rehicieron): Emparejar, Completar la frase, Escuchar y calendario de actividad.
+- Pendiente de la lista: liga con otros jugadores (necesita servidor) y dictado escribiendo pinyin sin ver el hanzi.
